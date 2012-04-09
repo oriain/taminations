@@ -237,3 +237,65 @@ form a { color: black; text-decoration: none; }
   font: medium Helvetica, Arial, Sans Serif;
   float: right;
 }
+
+/*  Styles for the menus of calls  */
+.menutitle {
+  color: white;
+  background-color: #008000;
+  border-style: outset;
+  border-width: 3px;
+  border-color: #80ff80;
+  font-family: arial, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  width: 11%;
+}
+.menutitle-highlight {
+  color: white;
+  background-color: #00c000;
+  border-style: outset;
+  border-width: 3px;
+  border-color: #80ff80;
+  font-family: arial, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.menu {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom: 4px solid gray;
+  border-right: 4px solid gray;
+  font-size: 12px;
+  font-family: arial, sans-serif;
+  background-color: #d4ffd4;
+ }
+
+.menutitlediv {
+  position: absolute;
+  z-index: 10;
+ }
+
+.menuitem {
+  color: black;
+  text-align: left;
+  cursor: pointer;
+  padding-right: 4px;
+  padding-left: 4px;
+  white-space: nowrap;
+ }
+
+.menuitem-highlight {
+  cursor: pointer;
+  padding-right: 4px;
+  padding-left: 4px;
+  white-space: nowrap;
+  background-color: yellow;
+ }
+
+.invisible {
+  visibility: hidden;
+ }
+
