@@ -1,7 +1,7 @@
 
 /*
 
-    Copyright 2010 Brad Christie
+    Copyright 2012 Brad Christie
 
     This file is part of TAMinations.
 

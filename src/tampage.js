@@ -363,8 +363,8 @@ function showTAMinator(n)
     tamsays = 'Tip: '+tips[tipnum];
   }
   if (tamsays) {
-    $('#taminatorsays').append('<img src="../taminator.gif" />')
-                       .append('<img src="../thetaminatorsays.gif" />')
+    $('#taminatorsays').append('<img src="../src/taminator.gif" />')
+                       .append('<img src="../src/thetaminatorsays.gif" />')
                        .append('<p class="styling" id="taminatorquote"></p>');
     if (typeof tamsays == 'string')
       $('#taminatorquote').append(tamsays);
