@@ -198,9 +198,10 @@ $(document).bind('pagebeforechange',function(e,data)
     else if (u.hash.indexOf('#animation') == 0) {
       n = u.hash.substring(11);
       if (n.match(/\d+/)) {
+        data.options.n = n;
         $.mobile.changePage($('#animationpage'),data.options);
-        generateAnimation(n);
-        bindControls();
+        //generateAnimation(n);
+        //bindControls();
       }
       else if (typeof tamsvg != 'object') {
         // "refresh" - go back to main page
@@ -248,6 +249,14 @@ $(document).bind('pagebeforechange',function(e,data)
   }
 });
 
+$(document).bind('pagechange',function(e,data)
+{
+  if (typeof data.options.n != "undefined") {
+    generateAnimation(n);
+    bindControls();
+  }
+});
+
 
 //  Code to build animation
 var args = {};
@@ -260,12 +269,15 @@ function svgSize()
   var ah = 100;
   var h = window.innerHeight ? window.innerHeight : document.body.offsetHeight;
   var w = window.innerWidth ? window.innerWidth : document.body.offsetWidth;
+  //alert(w+' '+h);
   if (typeof h == "number" && typeof w == "number") {
+    //alert($('#animform').height() +' '+ $('#animheader').height());
     h = h - $('#animform').height() - $('#animheader').height();
     aw = ah = h > w ? w : h;
   }
   aw = Math.floor(aw);
   ah = Math.floor(ah);
+  //alert(aw+' '+ah);
   return { width: aw, height: ah };
 }
 
