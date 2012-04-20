@@ -436,6 +436,33 @@
     </path>
   </tam>
 
+  <tam title="Scoot Back and Roll" group=" "
+       from="Right-Hand Waves"
+       formation="Ocean Waves RH BGBG"
+        difficulty="2">
+    <path>
+      <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".25" />
+      <move select="Swing Right" scaleX=".75" scaleY=".75" />
+      <move select="Extend Left" scaleX="1" scaleY=".25" />
+    </path>
+    <path>
+      <move select="Flip Right" beats="4" />
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".25" />
+      <move select="Swing Right" scaleX=".75" scaleY=".75" />
+      <move select="Extend Left" scaleX="1" scaleY=".25" />
+    </path>
+    <path>
+      <move select="Flip Right" beats="4" />
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+    <taminator>Note that the scooters do not roll as they are moving
+    straight ahead at the end of the call.
+    </taminator>
+  </tam>
+
   <tam title="Slide Thru and Roll" group=" "
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
@@ -459,6 +486,24 @@
       <move select="Extend Left" beats="2" scaleY=".5" />
       <move select="Quarter Left" beats="2" offsetX="1" offsetY="-.5" />
       <move select="Quarter Left" />
+    </path>
+  </tam>
+
+  <tam title="Spin the Top and Roll" group=" "
+       from="Right-Hand Wave"
+       formation="Wave RH GBBG"
+       difficulty="2">
+    <path>
+      <move select="Swing Right" />
+      <move select="Hinge Left" />
+      <move select="Hinge Left" />
+      <move select="Hinge Left" />
+      <move select="Quarter Left"/>
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3" />
+      <move select="Quarter Right"/>
     </path>
   </tam>
 
