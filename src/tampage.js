@@ -38,12 +38,11 @@ for (var i=0; i<search.length; i++) {
   if (arg1.length > 1)
     args[arg1[0]] = arg1[1];
   else
-    args[search[i]] = true;
+    args[search[i].toLowerCase().replace(/\W/g,"")] = true;
 }
 var difficultText = [ ' <font color="blue">&diams;</font>',
                       ' <font color="red">&diams;&diams;</font>',
                       ' <font color="black">&diams;&diams;&diams;</font>' ];
-
 
 // Body onload function
 $(document).ready(
@@ -233,7 +232,7 @@ function generateAnimations()
     //  First replace strips "(DBD)" et al
     //  Second strips all non-alphanums, not valid in html ids
     callname = callname.replace(/ \(DBD.*/,"").replace(/\W/g,"");
-    animationNumber[callname] = n;
+    animationNumber[callname.toLowerCase()] = n;
     prevtitle = $(this).attr("title");
     prevgroup = $(this).attr('group');
     $('<input name="tamradio" type="radio" class="selectRadio"/>').appendTo("#animationlist")
