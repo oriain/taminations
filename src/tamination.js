@@ -1070,6 +1070,13 @@ var paths =
   "ssqtr": { "hands":"no", "beats":1, "cx1":0, "cy1":0.385, "cx2":0.315, "cy2":0.7, "x2":0.7, "y2":0.7,
                                  "cx3":0.55, "cx4":1, "cy4":-0.45, "x4":1, "y4":-1 },
 
+  "Pivot forward left": { hands:"no", beats:3, cx1:0, cy1:1.333, cx2:2, cy2:1.333, x2:2, y2:0,
+                                               cx3:1.333, cx4:1.333, cy4:-2, x4:0, y4:-2 },
+  "Pivot forward right": { select:"Pivot forward left", reflect:-1 },
+  "Pivot backward left": { hands:"no", beats:3, cx1:0, cy1:1.333, cx2:-2, cy2:1.333, x2:-2, y2:0,
+                                                cx3:1.333, cx4:1.333, cy4:2, x4:0, y4:2 },
+  "Pivot backward right": { select:"Pivot backward left", reflect:-1 },
+
   //    For fractional tops
   "Sxtnth": { "hands":"no", "beats":1.125, "cx1":0.3939, "cy1":0, "cx2":0.7842, "cy2":-0.0777, "x2":1.1481, "y2":-0.2283 },
 
