@@ -161,8 +161,8 @@ function clearMenus()
 function getTitle()
 {
   return '<div class="title">' +
-         '<a href="../../index.html">'+
-         '<img height="72" border="0" align="right" src="../../badge.gif"></a>'+
+         '<a href="http://www.tamtwirlers.org/">'+
+         '<img height="72" border="0" align="right" src="../info/badge.gif"></a>'+
          '<a href="../info/index.html">TAMinations</a></div>';
 }
 
