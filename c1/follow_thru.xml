@@ -258,11 +258,11 @@
     </path>
     <path>
       <move select="Forward 2"/>
-      <move select="Quarter Right" hands="right" beats="4" offsetY="-3"/>
+      <move select="Counter Rotate Right 0 -2" hands="right" beats="4" offsetY="-1"/>
     </path>
     <path>
       <move select="Forward 2"/>
-      <move select="Quarter Right" hands="right" beats="4" offsetX="2" offsetY="1"/>
+      <move select="Counter Rotate Right 2 0" hands="right" beats="4" offsetY="1"/>
     </path>
   </tam>
 
