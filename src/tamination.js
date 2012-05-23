@@ -1044,7 +1044,7 @@ var paths =
   "Counter Rotate Right 2 -4" : { "hands":"no", "beats":2, "cx1":1.5, "cy1":-0.5, "cx2":2.5, "cy2":-2.5, "x2":2, "y2":-4,
                                   "cx3":0.55, "cx4":1, "cy4":-0.45, "x4":1, "y4":-1 },
 
-  //         Useful for turning a circle of four
+  //    Useful for turning a circle of four
   "Counter Rotate Left 1 1" : { "hands":"no", "beats":2, "cx1":0, "cy1":0.5, "cx2":0.5,"cy2":1,"x2":1,"y2":1,
                                   "cx3":0.55, "cx4":1, "cy4":-0.45, "x4":1, "y4":-1 },
   "Counter Rotate Left 1.414 1.414" : { "select":"Counter Rotate Left 1 1", "scaleX":1.414, "scaleY":1.414 },
