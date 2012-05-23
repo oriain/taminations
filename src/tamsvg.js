@@ -107,7 +107,7 @@ TamSVG.prototype = {
     for (var i in this.parts)
       this.parts[i] = Number(this.parts[i]);
     //  first token is 'Formation', followed by e.g. boy 1 2 180 ...
-    var tokens = getFormation(tam.callnum).split(/\s+/);
+    var tokens = tam.getFormation().split(/\s+/);
     //  Flip the y direction on the dance floor to match our math
     this.floor = this.svg.group(floorsvg);
     this.floor.setAttribute('transform',AffineTransform.getScaleInstance(1,-1).toString());

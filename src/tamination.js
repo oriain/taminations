@@ -48,7 +48,7 @@ TAMination.prototype = {
       if (str.toLowerCase() == tam.call.toLowerCase())
         tam.callnum = n;
     });
-    var f = tam.getFormation(xmldoc);
+    var f = tam.getFormation();
     var parts = tam.getParts();
     if (elem) {
       //  IE has a hard time finding the applet, it needs to be told exacty where it is
@@ -91,9 +91,14 @@ TAMination.prototype = {
     }
   },
 
-  getFormation: function(xmldoc)
+  //  Return the formation for the current animation.
+  //  If the animation uses a named formation, it is looked up and
+  //  the definition returned.
+  //  The return value is a string that still needs to be parsed
+  //  to get the dancers and their positions.
+  getFormation: function()
   {
-    var a= $("tam",xmldoc).eq(this.callnum);
+    var a= $("tam",this.xmldoc).eq(this.callnum);
     var retval = a.attr('formation');
     if (retval && retval.indexOf('Formation') != 0)
       retval = formations[retval];
@@ -279,22 +284,12 @@ function getParts(n)
   return a.attr("parts") ? a.attr("parts") : '';
 }
 
-
-function getFormation(n)
-{
-  var a = $("tam",animations).eq(n);
-  var retval = a.attr("formation");
-  if (retval && retval.indexOf('Formation') != 0)
-    retval = formations[retval];
-  return retval;
-}
-
 function SelectAnimation(n)
 {
   tam.callnum = n;
   var applet = document.getElementById('applet');
   if (applet)
-    applet.setFormation(tam.getFormation(tam.xmldoc));
+    applet.setFormation(tam.getFormation());
   var p = tam.getPath(tam.xmldoc);
   for (var i=0; i<p.length; i++) {
     var str = '';
