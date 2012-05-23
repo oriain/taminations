@@ -3,19 +3,19 @@ import os
 import sys
 import json
 import copy
+import re
 from xml.dom.minidom import Node
 from src.bezier import Bezier
 from mathutils import Vector, Matrix
 
-def init():
+def init(tamsrc):
+  #  Load JSON code of movements from javascript source
+  movesrc = re.search('var paths =\s*(\{.*?);',tamsrc,re.DOTALL).group(1)
+  movesrc = re.sub('//.*','',movesrc)
+  movejson = json.loads(movesrc)
   Move.movements = {}
-  #  Load JSON file of formations
-  for p in sys.path:
-    movepath = os.path.join(p,'tamination/movements.json')
-    if os.path.exists(movepath):
-      movejson = json.load(open(movepath))
-      for m in movejson:
-        Move.movements[m] = Move(movejson[m])
+  for m in movejson:
+    Move.movements[m] = Move(movejson[m])
 
 
 def expandPath(p):

@@ -1,6 +1,7 @@
 import sys
 import os
 import glob
+import re
 import xml.dom.minidom
 import json
 import bge
@@ -11,36 +12,36 @@ import src.move
 def init():
   caller = bge.logic.getCurrentController().owner
   if caller['init'] == 'init':
-    for p in sys.path:
 
-      #  Load all xml files defining calls
-      tampath = os.path.join(p,'tamination')
-      if os.path.exists(tampath):
-        calls = []
-        for f in glob.glob(tampath+'/*/*.xml'):
-          #print(f)
-          #  TODO maybe just remember call names to conserver memory
-          calls.append(xml.dom.minidom.parse(f))
+    #  Get the location of the source directory
+    here = [p for p in sys.path if p.endswith('squareplay')][0]
 
-      #  Load xml files defining sequences
-      seqpath = os.path.join(p,'sequence')
-      if os.path.exists(seqpath):
-        sequences = []
-        for s in glob.glob(seqpath+'/*.xml'):
-          print(s)
-          sequences.append(xml.dom.minidom.parse(s))
+    #  Load all xml files defining calls
+    calls = []
+    for f in glob.glob(here+'/../*/*.xml'):
+      #  TODO maybe just remember call names to conserver memory
+      calls.append(xml.dom.minidom.parse(f))
 
-      #  Load JSON file of formations
-      formpath = os.path.join(p,'tamination/formations.json')
-      if os.path.exists(formpath):
-        caller['formations'] = json.load(open(formpath))
+    #  Load xml files defining sequences
+    seqpath = os.path.join(here,'../seq')
+    print(seqpath)
+    if os.path.exists(seqpath):
+      sequences = []
+      for s in glob.glob(seqpath+'/*.xml'):
+        sequences.append(xml.dom.minidom.parse(s))
+
+    #  Load JSON file of formations
+    tamsrcpath = os.path.join(here,'../src/tamination.js')
+    if os.path.exists(tamsrcpath):
+      tamsrc = ''.join(open(tamsrcpath).readlines())
+      formationsrc = re.search('var formations =\s*(\{.*?);',tamsrc,re.DOTALL).group(1)
+      formationsrc = re.sub('//.*','',formationsrc)
+      caller['formations'] = json.loads(formationsrc)
+      src.move.init(tamsrc)
 
     # Put the calls where we can get them
     caller['calls'] = calls
     caller['sequences'] = sequences
-
-    #  Init other modules
-    src.move.init()
 
     #  Flag that initialization is complete
     caller['call'] = 'no sequence'
@@ -50,7 +51,7 @@ def call():
   caller = bge.logic.getCurrentController().owner
   if caller['call'] == 'no sequence':
     #  Choose a random sequence
-    seq = 2
+    seq = 0
     caller['sequence'] = seq
     #  Get the starting formation
     seqobj = caller['sequences'][seq].getElementsByTagName('sequence')[0]
