@@ -444,6 +444,7 @@ var tamination_menu =
     {text:"Parallelogram Concept" ,link:"c2/parallelogram_concept.html"},
     {text:"Peel to a Diamond",link:"c2/peel_to_a_diamond.html"},
     {text:"Perk Up",link:"c2/perk_up.html"},
+    {text:"Press In/Out/Left/Right",link:"c2/press.html"},
     {text:"Relocate the Setup" ,link:"c2/relocate_the_setup.html"},
     {text:"Reshape the Triangle" ,link:"c2/reshape_the_triangle.html"},
     {text:"Reverse Crazy Concept" ,link:"c2/reverse_crazy_concept.html"},
