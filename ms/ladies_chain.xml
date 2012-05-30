@@ -107,6 +107,31 @@
     </path>
   </tam>
 
+  <tam title="Four Ladies Chain" from="Normal Lines" formation="Normal Lines">
+    <path>
+      <move select="U-Turn Left" beats="9" offsetY="-2"/>
+      <move select="Beau Wheel"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="3.5"/>
+      <move select="Hinge Right" beats="2"/>
+      <move select="Forward 2"/>
+      <move select="Lead Left"/>
+      <move select="Belle Wheel"/>
+    </path>
+    <path>
+      <move select="U-Turn Left" beats="9" offsetY="-2"/>
+      <move select="Beau Wheel"/>
+    </path>
+    <path>
+      <move select="Lead Left"/>
+      <move select="Forward 2"/>
+      <move select="Hinge Right" beats="2"/>
+      <move select="Forward 2" beats="3.5"/>
+      <move select="Belle Wheel"/>
+    </path>
+  </tam>
+
   <tam title="Four Ladies Chain 3/4"
        from="Static Square"
        formation="Static Square" gender-specific="true"

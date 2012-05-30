@@ -434,7 +434,7 @@ function getCopyright(levelurl)
 {
   var levelstring = " ";
   if (levelurl.match(/\bms\b/))
-    levelstring = "1994, 2000-2008 by ";
+    levelstring = "1994, 2000-2011 by ";
   if (levelurl.match(/\bplus\b/))
     levelstring = "1997, 2001-2007 by ";
   if (levelurl.match(/\badv\b/))
