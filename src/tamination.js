@@ -802,6 +802,9 @@ var formations =
   "T-Bone DLDL":
     "Formation girl -3 -1 270  boy -1 -1 180  girl 1 -1 270  boy 3 -1 180",
 
+  "T-Bone DRDR":
+    "Formation girl -3 -1 270  boy -1 -1 0  girl 1 -1 270  boy 3 -1 0",
+
   "T-Bone URUR":
     "Formation girl -3 -1 90  boy -1 -1 0  girl 1 -1 90  boy 3 -1 0",
 
@@ -837,6 +840,9 @@ var formations =
 
   "T-Bone LULU":
     "Formation boy -1 3 90 girl -1 1 0 boy -1 -1 90 girl -1 -3 0",
+
+  "T-Bone LDLD":
+    "Formation boy -1 3 90 girl -1 1 180 boy -1 -1 90 girl -1 -3 180",
 
   "T-Bone Couples":
     "Formation boy -2 3 0 girl -2 1 0 girl -3 -2 270 boy -1 -2 270",

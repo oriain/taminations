@@ -21,11 +21,55 @@
 
 -->
 <tamination>
-  
-  
+
+  <tam title="Drift Apart" from="Facing Lines" formation="Normal Lines" parts="4">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Run Right" beats="4"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Run Right" beats="4" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Flip Left" beats="4" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Flip Left" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Drift Apart" from="Lines Facing Out" formation="Lines Facing Out" parts="4">
+    <path>
+      <move select="Flip Left" beats="4"/>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Flip Left" beats="4" scaleY="2"/>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleY="2"/>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4"/>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+  </tam>
 
   <tam title="Drift Apart"
-       from="Two-Faced Lines"
+       from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH"
        parts="4" >
     <path>
@@ -43,6 +87,76 @@
     <path>
       <move select="Run Right" beats="4" scaleY="1.25" />
       <move select="Extend Right" beats="4" scaleX="4" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Drift Apart"
+       from="Left-Hand Two-Faced Lines"
+       formation="Two-Faced Lines LH"
+       parts="4" >
+    <path>
+      <move select="Run Left" beats="4" scaleY=".75" />
+      <move select="Extend Right" beats="4" scaleX="4" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleY="2" />
+      <move select="Forward 4" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="4" scaleX="4" scaleY=".5" />
+      <move select="Run Left" beats="4" scaleY="1.75" />
+    </path>
+    <path>
+      <move select="Forward 4" />
+      <move select="Run Left" beats="4" />
+    </path>
+  </tam>
+
+  <tam title="Drift Apart" from="Inverted Lines, Centers In"
+       formation="Inverted Lines Centers In" parts="4">
+    <path>
+      <move select="Run Left" beats="4" scaleY=".75"/>
+      <move select="Forward 2"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Forward 2"/>
+      <move select="Run Right" beats="4" scaleY="2.25"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Forward 2"/>
+      <move select="Flip Left" beats="4" scaleY="1.75"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleY="1.25"/>
+      <move select="Forward 2"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Drift Apart" from="Inverted Lines, Centers Out"
+       formation="Inverted Lines Centers Out" parts="4">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Forward 2"/>
+      <move select="Run Right" beats="4" scaleY="1.25"/>
+    </path>
+    <path>
+      <move select="Flip Left" beats="4" scaleY="1.75"/>
+      <move select="Forward 2"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleY="2.25"/>
+      <move select="Forward 2"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Forward 2"/>
+      <move select="Run Left" beats="4" scaleY=".75"/>
     </path>
   </tam>
 
@@ -67,4 +181,251 @@
       <move select="Forward 4" />
     </path>
   </tam>
+
+  <tam title="Drift Apart"
+       from="Left-Hand Waves"
+       formation="Ocean Waves LH BGGB"
+       parts="4" >
+    <path>
+      <move select="Run Left" beats="4" />
+      <move select="Forward 4" />
+    </path>
+    <path>
+      <move select="Forward 4" />
+      <move select="Run Right" beats="4" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleX="2" scaleY="2.25" />
+      <move select="Extend Right" beats="4" scaleX="4" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="4" scaleX="4" scaleY=".5" />
+      <move select="Run Left" beats="4" scaleY=".75" />
+    </path>
+  </tam>
+
+  <tam title="Drift Apart" from="Right-Hand Columns"
+       formation="Column RH GBGB" parts="3">
+    <path>
+      <move select="Run Right"/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="2"/>
+      <move select="Run Left" scaleY=".5" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Extend Right" beats="3" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Run Right" scaleX=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Drift Apart" from="Left-Hand Columns"
+       formation="Column LH GBGB" parts="3">
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Run Left" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY="2"/>
+      <move select="Run Right"/>
+    </path>
+    <path>
+      <move select="Run Left" scaleY=".5"/>
+      <move select="Extend Right" beats="3" scaleX="2"/>
+    </path>
+  </tam>
+
+  <tam title="Drift Apart" from="Magic Columns, Right-Hand Centers"
+       formation="Magic Column RH" parts="3">
+    <path>
+      <move select="Forward" beats="1.5"/>
+      <move select="Extend Left" beats="1.5" scaleY=".5"/>
+      <move select="Run Left" scaleX=".5" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="2" scaleY="2"/>
+      <move select="Run Left"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="3" scaleX="2" scaleY="2.5"/>
+    </path>
+    <path>
+      <move select="Run Left"/>
+      <move select="Extend Right" beats="1.5" scaleY=".5"/>
+      <move select="Extend Left" beats="1.5" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Drift Apart" from="Magic Columns, Left-Hand Centers"
+       formation="Magic Column LH" parts="3">
+    <path>
+      <move select="Run Right"/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY=".5"/>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY="2"/>
+      <move select="Run Right"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY=".5"/>
+      <move select="Run Right" scaleX=".5" scaleY="1.25"/>
+    </path>
+  </tam>
+
+  <tam title="Drift Apart" from="Eight Chain Thru"
+        formation="Eight Chain Thru" parts="3">
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Run Right" scaleX=".67"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Flip Left"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="1.5" scaleX=".5"/>
+      <move select="Extend Right" beats="1.5" scaleX="1.5"/>
+      <move select="Flip Left"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="1.5" scaleX="1.5"/>
+      <move select="Extend Left" beats="1.5" scaleX=".5"/>
+      <move select="Run Right"/>
+    </path>
+  </tam>
+
+  <tam title="Drift Apart" from="Trade By" formation="Trade By" parts="3">
+    <path>
+      <move select="Flip Left"/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+    <path>
+      <move select="Run Right"/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="1.5" scaleY=".5"/>
+      <move select="Extend Right" beats="1.5" scaleY=".5"/>
+      <move select="Extend Left" beats="1.5" scaleX="1.5"/>
+      <move select="Extend Left" beats="1.5" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="1.5" scaleY=".5"/>
+      <move select="Extend Right" beats="1.5" scaleY=".5"/>
+      <move select="Extend Right" beats="1.5" scaleX=".5"/>
+      <move select="Extend Right" beats="1.5" scaleX="1.5"/>
+    </path>
+  </tam>
+
+  <tam title="Drift Apart" from="T-Bones 1" formation="T-Bone DRDR" parts="3">
+    <path>
+      <move select="Flip Left"/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Run Right" scaleY="2" beats="4"/>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Run Left"/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+  </tam>
+
+  <tam title="Drift Apart" from="T-Bones 2" formation="T-Bone LDLD" parts="3">
+    <path>
+      <move select="Run Right"/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleY="2"/>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Extend Right" beats="3" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Flip Right"/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+  </tam>
+
+  <tam title="Drift Apart" from="T-Bones 3" formation="T-Bone DLDL" parts="3">
+    <path>
+      <move select="Flip Left"/>
+      <move select="Extend Left" beats="1.5" scaleY=".5"/>
+      <move select="Extend Right" beats="1.5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="2" scaleY="2"/>
+      <move select="Run Left"/>
+    </path>
+    <path>
+      <move select="Run Right" scaleY="2" beats="4"/>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Run Right" scaleX=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Drift Apart" from="T-Bones 4" formation="T-Bone RDRD" parts="3">
+    <path>
+      <move select="Flip Right"/>
+      <move select="Extend Right" beats="1.5" scaleY=".5"/>
+      <move select="Extend Left" beats="1.5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY="2"/>
+      <move select="Run Right"/>
+    </path>
+    <path>
+      <move select="Run Left" scaleY="2" beats="4"/>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Run Left" scaleX=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Drift Apart" from="T-Bones 5" formation="T-Bone URUR" parts="3">
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Flip Right"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="2"/>
+      <move select="Run Left" scaleY="2" beats="4"/>
+    </path>
+    <path>
+      <move select="Run Left"/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+  </tam>
+
 </tamination>
