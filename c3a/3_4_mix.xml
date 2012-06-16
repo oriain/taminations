@@ -105,7 +105,7 @@
     <path>
       <move select="Sxtnth Left" />
       <move select="Cast Right"/>
-      <move select="Dodge Right" beats="4" scaleY="1.25"/>
+      <move select="Dodge Right" beats="4" scaleY="1.2"/>
       <move select="Swing Right"/>
     </path>
     <path>
@@ -116,7 +116,7 @@
     <path>
       <move select="Sxtnth Left" />
       <move select="Cast Right"/>
-      <move select="Dodge Right" beats="4" scaleY="1.25"/>
+      <move select="Dodge Right" beats="4" scaleY="1.2"/>
       <move select="Swing Right"/>
     </path>
     <path>
