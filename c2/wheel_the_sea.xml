@@ -21,8 +21,8 @@
 
 -->
 <tamination>
-  
-  
+
+
 
   <tam title="Wheel the Sea" from="Couples Facing Out" formation="Couples Facing Out" parts="3">
     <path>
@@ -123,28 +123,30 @@
     </path>
   </tam>
 
-  <tam title="Wheel the Sea"
+  <tam title="Head Couples Wheel the Sea"
        from="Promenade"
        formation="Promenade"
        parts="2.25" >
-    <path>
+    <path numbers="H H">
       <move select="BackHinge Right" scaleY=".5" />
       <move select="HalfBackHinge Right" />
       <move select="Dodge Right" offsetX="-.25" offsetY=".25" />
     </path>
-    <path>
+    <path numbers="H H">
       <move select="Hinge Left" scaleY=".5" />
       <move select="HalfHinge Left" />
       <move select="Forward" beats="4" scaleX="4" scaleY="4" offsetX="-.25" offsetY=".25" />
     </path>
-    <path>
+    <path numbers="S S">
       <move select="HalfBackHinge Right" beats="2.25" scaleX=".5" scaleY=".5" />
       <move select="Dodge Right" offsetX="-.25" offsetY=".25" />
     </path>
-    <path>
+    <path numbers="S S">
       <move select="HalfHinge Left" beats="2.25" scaleX=".5" scaleY=".5" />
       <move select="Forward" beats="4" scaleX="4" scaleY="4" offsetX="-.25" offsetY="-.75" />
     </path>
+    <taminator>The red and cyan couples are the heads.
+    </taminator>
   </tam>
 
   <tam title="As Couples Wheel the Sea" from="Lines Facing Out" formation="Lines Facing Out" parts="5">
