@@ -102,6 +102,11 @@ TAMination.prototype = {
     var retval = a.attr('formation');
     if (retval && retval.indexOf('Formation') != 0)
       retval = formations[retval];
+    if (!retval) {  //  must be sequence
+      retval = $('sequence',animations).attr('formation');
+      if (retval && retval.indexOf('Formation') != 0)
+        retval = formations[retval];
+    }
     return retval;
   },
 

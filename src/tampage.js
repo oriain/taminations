@@ -76,8 +76,13 @@ $(document).ready(
                     '</tr>'+
                   '</table>';
 
+    //  Build the menus
     $("#menudiv").append('<table cellpadding="0" cellspacing="0" width="100%" summary="">'+
     '<tr></tr></table>');
+    //  Make the links work from both taminations directory and its subdirectories
+    var prefix = '';
+    if (document.URL.search('/(info|ms|plus|adv|c1|c2|c3a)/') >= 0)
+      prefix = '../';
     for (var m in tamination_menu) {
       var tm = tamination_menu[m];
       $('#menudiv tr:first').append('<td class="menutitle">'+tm.title+'<br/>'+
@@ -93,7 +98,7 @@ $(document).ready(
           for (var c = 0; c < tm.columns; c++) {
             var mi = c*rows + r;
             if (mi < tm.menu.length)
-              menuhtml += '<td onclick="document.location=\'../'+
+              menuhtml += '<td onclick="document.location=\''+prefix+
               tm.menu[mi].link+'\'">'+tm.menu[mi].text+'</td>';
           }
           menuhtml += '</tr>';

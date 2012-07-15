@@ -6,7 +6,7 @@ def main():
   #  Build table of calls in each file
   r = re.compile('title="(.*?)"')
   t = {}
-  for filename in glob.glob('*/*.xml'):
+  for filename in glob.glob('../*/*.xml'):
     filename = filename.replace('\\','/')
     t[filename] = []
     for line in open(filename):
@@ -20,7 +20,7 @@ def main():
       it[cc] = set()
   for f in t:
     for c in t[f]:
-      it[c].add(f)
+      it[c].add(f.replace('../',''))
   #  Now print the file(s) for each call in JSON format
   print('{')
   for c in it:

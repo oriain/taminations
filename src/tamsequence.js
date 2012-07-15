@@ -2,15 +2,10 @@
 var callindex = 0;
 var seq = 0
 $.holdReady(true);
-$.getJSON("callindex.json",function(data) {
+$.getJSON("src/callindex.json",function(data) {
   callindex = data;
   $.holdReady(false);
-});
-$.holdReady(true);
-$.get("henerlau003.xml",function(data) {
-  seq = data;
-  $.holdReady(false);
-});
+}).error(function() {alert('JSON error');});
 
 function generateAnimations()  // override function in tampage.js
 {
