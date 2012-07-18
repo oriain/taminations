@@ -118,4 +118,23 @@
       <move select="Lead Left" beats="4" scaleX=".5" scaleY="3" />
     </path>
   </tam>
+
+  <tam title="Heads Pass the Ocean" from="Static Square" group=" "
+       formation="Static Square">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="3" scaleY=".5" />
+      <move select="Forward" beats=".5" />
+      <move select="Lead Right" scaleX="2" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="3" scaleY=".5" />
+      <move select="Lead Left" hands="left" beats="2" scaleY=".5" />
+    </path>
+    <path>
+    </path>
+    <path>
+    </path>
+  </tam>
+
+
 </tamination>
