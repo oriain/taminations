@@ -148,7 +148,7 @@
     </path>
   </tam>
 
-  <tam title="Recycle"
+  <!-- tam title="Recycle"
        from="Inverted Lines"
        formation="Inverted Lines Centers In"
        parts="" difficulty="3">
@@ -171,6 +171,6 @@
     and at what level.  It might be more appropriate at Advanced,
     after learning Cycle and Wheel where the ends can face the same direction.
     </taminator>
-  </tam>
+  </tam  -->
 
 </tamination>
