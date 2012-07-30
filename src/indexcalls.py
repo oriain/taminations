@@ -5,9 +5,12 @@ import re
 def main():
   #  Build table of calls in each file
   r = re.compile('title="(.*?)"')
+  r2 = re.compile('/(ms|plus|adv|c1|c2|c3a)/')
   t = {}
   for filename in glob.glob('../*/*.xml'):
     filename = filename.replace('\\','/')
+    if not r2.search(filename):
+      continue
     t[filename] = []
     for line in open(filename):
       m = r.search(line)
@@ -24,7 +27,7 @@ def main():
   #  Now print the file(s) for each call in JSON format
   print('{')
   for c in it:
-    print('    "'+c+'":["'+'","'.join(it[c])+'"],')
+    print('    "'+c.lower()+'":["'+'","'.join(it[c])+'"],')
   print('    "--":[]')
   print('}')
 

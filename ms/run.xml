@@ -34,6 +34,97 @@
     </path>
   </tam>
 
+  <tam title="Boys Run" from="Right-Hand Box, Boys Lead"
+       formation="Box RH Boys Lead" gender-specific="true">
+    <path>
+      <move select="Run Right" beats="4" />
+    </path>
+    <path>
+      <move select="Dodge Right" beats="4" />
+    </path>
+  </tam>
+
+  <tam title="Boys Run" from="Right-Hand Box, Girls Lead"
+       formation="Box RH" gender-specific="true">
+    <path>
+      <move select="Run Right" beats="4" />
+    </path>
+    <path>
+      <move select="Dodge Right" beats="4" />
+    </path>
+  </tam>
+
+  <tam title="Boys Run" from="Left-Hand Box, Boys Lead"
+       formation="Box LH" gender-specific="true">
+    <path>
+      <move select="Run Left" beats="4" />
+    </path>
+    <path>
+      <move select="Dodge Left" beats="4" />
+    </path>
+  </tam>
+
+  <tam title="Boys Run" from="Left-Hand Box, Girls Lead"
+       formation="Box LH Girls Lead" gender-specific="true">
+    <path>
+      <move select="Run Left" beats="4" />
+    </path>
+    <path>
+      <move select="Dodge Left" beats="4" />
+    </path>
+  </tam>
+
+  <tam title="Boys Run"
+       from="Couples Facing Out"
+       formation="Couples Facing Out" gender-specific="true">
+    <path>
+      <move select="Dodge Left" beats="4" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" />
+    </path>
+  </tam>
+
+  <tam title="Boys Run" from="Right-Hand Wave, Boys End"
+       formation="Wave RH" gender-specific="true">
+    <path>
+      <move select="Run Right" beats="4" />
+    </path>
+    <path>
+      <move select="Dodge Right" beats="4" />
+    </path>
+   </tam>
+
+  <tam title="Boys Run" from="Right-Hand Wave, Boys Center"
+       formation="Wave RH Boys Center" gender-specific="true">
+    <path>
+      <move select="Run Right" beats="4" />
+    </path>
+    <path>
+      <move select="Dodge Right" beats="4" />
+    </path>
+   </tam>
+
+  <tam title="Boys Run" from="Left-Hand Wave, Boys End"
+       formation="Wave LH">
+    <path>
+      <move select="Run Left" beats="4" />
+    </path>
+    <path>
+      <move select="Dodge Left" beats="4" />
+    </path>
+   </tam>
+
+  <tam title="Boys Run" from="Left-Hand Wave, Boys Center"
+       formation="Wave LH Boys Center" gender-specific="true">
+    <path>
+      <move select="Run Left" beats="4" />
+    </path>
+    <path>
+      <move select="Dodge Left" beats="4" />
+    </path>
+   </tam>
+
   <tam title="Boys Run"
        from="Lines"
        formation="Normal Lines" gender-specific="true"
@@ -126,8 +217,7 @@
 
   <tam title="Boys Run"
        from="Completed Double Pass Thru"
-       formation="Completed Double Pass Thru" gender-specific="true"
-       parts="" >
+       formation="Completed Double Pass Thru" gender-specific="true">
     <path>
       <move select="Dodge Left" beats="4" />
     </path>
@@ -154,7 +244,8 @@
     </path>
   </tam>
 
-  <tam title="Girls Run" from="Right-Hand Box" formation="Box RH" gender-specific="true">
+  <tam title="Girls Run" from="Right-Hand Box, Boys Lead"
+       formation="Box RH Boys Lead" gender-specific="true">
     <path>
       <move select="Dodge Right" beats="4" />
     </path>
@@ -163,15 +254,88 @@
     </path>
   </tam>
 
-  <tam title="Girls Run" from="Left-Hand Box" formation="Formation girl -2 1 180 boy -2 -1 0"
+  <tam title="Girls Run" from="Right-Hand Box, Girls Lead"
+       formation="Box RH" gender-specific="true">
+    <path>
+      <move select="Dodge Right" beats="4" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" />
+    </path>
+  </tam>
+
+  <tam title="Girls Run" from="Left-Hand Box, Boys Lead"
+       formation="Box LH"
        gender-specific="true">
+    <path>
+      <move select="Dodge Left" beats="4" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" />
+    </path>
+  </tam>
+
+  <tam title="Girls Run" from="Left-Hand Box, Girls Lead"
+       formation="Box LH Girls Lead"
+       gender-specific="true">
+    <path>
+      <move select="Dodge Left" beats="4" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" />
+    </path>
+  </tam>
+
+  <tam title="Girls Run"
+       from="Couples Facing Out"
+       formation="Couples Facing Out" gender-specific="true">
     <path>
       <move select="Run Left" beats="4" />
     </path>
     <path>
-      <move select="Dodge Left" beats="4" />
+      <move select="Dodge Right" beats="4" />
     </path>
   </tam>
+
+  <tam title="Girls Run" from="Right-Hand Wave, Girls End"
+       formation="Wave RH Boys Center" gender-specific="true">
+    <path>
+      <move select="Dodge Right" beats="4" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" />
+    </path>
+   </tam>
+
+  <tam title="Girls Run" from="Right-Hand Wave, Girls Center"
+       formation="Wave RH" gender-specific="true">
+    <path>
+      <move select="Dodge Right" beats="4" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" />
+    </path>
+   </tam>
+
+  <tam title="Girls Run" from="Left-Hand Wave, Girls End"
+       formation="Wave LH Boys Center" gender-specific="true">
+    <path>
+      <move select="Dodge Left" beats="4" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" />
+    </path>
+   </tam>
+
+  <tam title="Girls Run" from="Left-Hand Wave, Girls Center"
+       formation="Wave LH" gender-specific="true">
+    <path>
+      <move select="Dodge Left" beats="4" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" />
+    </path>
+   </tam>
 
   <tam title="Girls Run"
        from="Lines"

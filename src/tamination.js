@@ -497,14 +497,26 @@ var formations =
   "Box RH":
     "Formation boy -2 1 0 girl -2 -1 180",
 
+  "Box RH Boys Lead":
+    "Formation boy -2 -1 180 girl -2 1 0",
+
   "Box LH":
     "Formation boy -2 1 180 girl -2 -1 0",
+
+  "Box LH Girls Lead":
+    "Formation boy -2 -1 0 girl -2 1 180",
 
   "Wave RH":
     "Formation boy 0 3 0 girl 0 1 180",
 
+  "Wave RH Boys Center":
+    "Formation boy 0 1 180 girl 0 3 0",
+
   "Wave LH":
     "Formation boy 0 -3 0 girl 0 -1 180",
+
+  "Wave LH Boys Center":
+    "Formation boy 0 -1 180 girl 0 -3 0",
 
   "Wave RH GBBG":
     "Formation girl 0 3 0 boy 0 1 180",

@@ -44,7 +44,7 @@
     </path>
     <path>
       <move select="Extend Left" hands="gripright" beats="2" scaleX="2" />
-      <move select="Quarter Left" hands="gripright" offsetX="1" />
+      <move select="Quarter Left" hands="gripright" offsetX="1" beats="2"/>
     </path>
   </tam>
 

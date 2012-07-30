@@ -57,7 +57,7 @@
     </path>
     <path>
       <move select="Forward 2" />
-      <move select="Lead Right" />
+      <move select="Lead Right" beats="2"/>
     </path>
     <taminator>
     Note that dancers pass right shoulders.
@@ -73,7 +73,7 @@
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
     </path>
     <path>
-      <move select="Lead Left" beats="3" scaleX="3" />
+      <move select="Lead Left" beats="3.5" scaleX="3" />
     </path>
     <taminator>
     Again, dancers pass right shoulders.
