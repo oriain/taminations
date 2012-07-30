@@ -22,10 +22,70 @@
 -->
 <tamination>
 
+  <tam title="Boys Trade" from="Right-Hand Wave, Boys Center"
+       formation="Wave RH Boys Center" difficulty="1" gender-specific="true">
+    <path>
+      <move select="Swing Left" beats="4"/>
+    </path>
+    <path>
+      <move select="Stand" hands="none" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Boys Trade" from="Right-Hand Wave, Boys End"
+       formation="Wave RH" difficulty="1" gender-specific="true">
+    <path>
+      <move select="Run Right" beats="4" scaleX="1.5" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Stand" hands="left" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Boys Trade" from="Left-Hand Wave, Boys Center"
+       formation="Wave LH Boys Center" difficulty="1" gender-specific="true">
+    <path>
+      <move select="Swing Right" beats="4"/>
+    </path>
+    <path>
+      <move select="Stand" hands="none" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Boys Trade" from="Left-Hand Wave, Boys End"
+       formation="Wave LH" difficulty="1" gender-specific="true">
+    <path>
+      <move select="Run Left" beats="4" scaleX="1.5" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Stand" hands="right" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Boys Trade" from="Right-Hand Two-Faced Line"
+       formation="Two-Faced Line RH" difficulty="1" gender-specific="true">
+    <path>
+      <move select="Run Right" beats="4" scaleX="1.5" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Stand" hands="right" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Boys Trade" from="Left-Hand Two-Faced Line"
+       formation="Two-Faced Line LH" difficulty="1" gender-specific="true">
+    <path>
+      <move select="Swing Left" beats="4"/>
+    </path>
+    <path>
+      <move select="Stand" hands="none" beats="4"/>
+    </path>
+  </tam>
+
   <tam title="Boys Trade"
        from="Lines"
        formation="Normal Lines"
-       parts="" difficulty="1">
+       parts="" difficulty="1" gender-specific="true">
     <path>
       <move select="Run Right" scaleX="2" scaleY="2" />
     </path>
@@ -41,7 +101,7 @@
   <tam title="Boys Trade"
        from="Lines Facing Out"
        formation="Lines Facing Out"
-       parts="" difficulty="1">
+       parts="" difficulty="1" gender-specific="true">
     <path>
     </path>
     <path>
@@ -55,7 +115,7 @@
   </tam>
 
   <tam title="Boys Trade" from="Right-Hand Two-Faced Lines"
-      formation="Two-Faced Lines RH" difficulty="1">
+      formation="Two-Faced Lines RH" difficulty="1" gender-specific="true">
     <path>
       <move select="Run Right" beats="4" scaleX="1.5" scaleY="3"/>
     </path>
@@ -69,7 +129,7 @@
   </tam>
 
   <tam title="Boys Trade" from="Left-Hand Two-Faced Lines"
-      formation="Two-Faced Lines LH" difficulty="1">
+      formation="Two-Faced Lines LH" difficulty="1" gender-specific="true">
     <path>
     </path>
     <path>
@@ -85,7 +145,7 @@
   <tam title="Boys Trade"
        from="Waves"
        formation="Ocean Waves RH BGBG"
-       parts="" difficulty="1">
+       parts="" difficulty="1" gender-specific="true">
     <path>
       <move select="Run Right" scaleX="2" scaleY="2" />
     </path>
@@ -98,10 +158,70 @@
     </path>
   </tam>
 
+  <tam title="Girls Trade" from="Right-Hand Wave, Girls Center"
+       formation="Wave RH" difficulty="1" gender-specific="true">
+    <path>
+      <move select="Stand" hands="none" beats="4"/>
+    </path>
+    <path>
+      <move select="Swing Left" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Girls Trade" from="Right-Hand Wave, Girls End"
+       formation="Wave RH Boys Center" difficulty="1" gender-specific="true">
+    <path>
+      <move select="Stand" hands="left" beats="4"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleX="1.5" scaleY="3"/>
+    </path>
+  </tam>
+
+  <tam title="Girls Trade" from="Left-Hand Wave, Girls Center"
+       formation="Wave LH" difficulty="1" gender-specific="true">
+    <path>
+      <move select="Stand" hands="none" beats="4"/>
+    </path>
+    <path>
+      <move select="Swing Right" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Girls Trade" from="Left-Hand Wave, Girls End"
+       formation="Wave LH Boys Center" difficulty="1" gender-specific="true">
+    <path>
+      <move select="Stand" hands="right" beats="4"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleX="1.5" scaleY="3"/>
+    </path>
+  </tam>
+
+  <tam title="Girls Trade" from="Right-Hand Two-Faced Line"
+       formation="Two-Faced Line RH" difficulty="1" gender-specific="true">
+    <path>
+      <move select="Stand" hands="none" beats="4"/>
+    </path>
+    <path>
+      <move select="Swing Right" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Girls Trade" from="Left-Hand Two-Faced Line"
+       formation="Two-Faced Line LH" difficulty="1" gender-specific="true">
+    <path>
+      <move select="Stand" hands="left" beats="4"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleX="1.5" scaleY="3"/>
+    </path>
+  </tam>
+
   <tam title="Girls Trade"
        from="Lines"
        formation="Normal Lines"
-       parts="" difficulty="1">
+       parts="" difficulty="1" gender-specific="true">
     <path>
     </path>
     <path>
@@ -117,7 +237,7 @@
   <tam title="Girls Trade"
        from="Lines Facing Out"
        formation="Lines Facing Out"
-       parts="" difficulty="1">
+       parts="" difficulty="1" gender-specific="true">
     <path>
       <move select="Run Left" scaleY="2" />
     </path>
@@ -131,7 +251,7 @@
   </tam>
 
   <tam title="Girls Trade" from="Right-Hand Two-Faced Lines"
-      formation="Two-Faced Lines RH" difficulty="1">
+      formation="Two-Faced Lines RH" difficulty="1" gender-specific="true">
     <path>
     </path>
     <path>
@@ -145,7 +265,7 @@
   </tam>
 
   <tam title="Girls Trade" from="Left-Hand Two-Faced Lines"
-      formation="Two-Faced Lines LH" difficulty="1">
+      formation="Two-Faced Lines LH" difficulty="1" gender-specific="true">
     <path>
       <move select="Run Left" beats="4" scaleX="1.5" scaleY="3"/>
     </path>
@@ -162,7 +282,7 @@
   <tam title="Girls Trade"
        from="Waves"
        formation="Ocean Waves RH BGBG"
-       parts="" difficulty="1">
+       parts="" difficulty="1" gender-specific="true">
     <path>
     </path>
     <path>
@@ -175,7 +295,8 @@
     </path>
   </tam>
 
-  <tam title="Centers Trade" from="Right-Hand Wave" formation="Wave RH">
+  <tam title="Centers Trade" from="Right-Hand Wave"
+       formation="Wave RH" difficulty="1">
     <path>
       <move select="Stand" beats="3"/>
     </path>
@@ -184,12 +305,33 @@
     </path>
   </tam>
 
-  <tam title="Centers Trade" from="Left-Hand Wave" formation="Wave LH">
+  <tam title="Centers Trade" from="Left-Hand Wave"
+       formation="Wave LH" difficulty="1">
     <path>
       <move select="Stand" beats="3"/>
     </path>
     <path>
       <move select="Swing Right"/>
+    </path>
+  </tam>
+
+  <tam title="Centers Trade" from="Right-Hand Two-Faced Line"
+       formation="Two-Faced Line RH" difficulty="1">
+    <path>
+      <move select="Stand" hands="none" beats="4"/>
+    </path>
+    <path>
+      <move select="Swing Right" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Centers Trade" from="Left-Hand Two-Faced Line"
+       formation="Two-Faced Line LH" difficulty="1">
+    <path>
+      <move select="Swing Left" beats="4"/>
+    </path>
+    <path>
+      <move select="Stand" hands="none" beats="4"/>
     </path>
   </tam>
 
@@ -322,6 +464,46 @@
     </path>
     <path>
       <move select="Run Right" />
+    </path>
+  </tam>
+
+  <tam title="Ends Trade" from="Right-Hand Wave"
+       formation="Wave RH" difficulty="1">
+    <path>
+      <move select="Run Right" beats="4" scaleX="1.5" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Stand" hands="left" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Ends Trade" from="Left-Hand Wave"
+       formation="Wave LH" difficulty="1">
+    <path>
+      <move select="Run Left" beats="4" scaleX="1.5" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Stand" hands="right" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Ends Trade" from="Right-Hand Two-Faced Line"
+       formation="Two-Faced Line RH" difficulty="1">
+    <path>
+      <move select="Run Right" beats="4" scaleX="1.5" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Stand" hands="right" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Ends Trade" from="Left-Hand Two-Faced Line"
+       formation="Two-Faced Line LH" difficulty="1">
+    <path>
+      <move select="Stand" hands="left" beats="4"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleX="1.5" scaleY="3"/>
     </path>
   </tam>
 
