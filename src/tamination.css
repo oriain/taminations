@@ -77,6 +77,9 @@ b {
   color: #008000;
 }
 
+/*  This helps space out the definition images  */
+#definition img { background-color: white; padding: 6px; }
+
 div.intro,
 div.starting-formations,
 div.dance-action,
