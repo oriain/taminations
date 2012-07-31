@@ -58,9 +58,9 @@ TAMination.jar : TAMination.java
 
 #  Make the zip file.  Exclude my Eclipse project files which are not of interest to others.
 #  The wildcard * pattern apparently conveniently excludes .* files
-../tamination.zip : $(filter-out tamination.zip,$(wildcard ../* ../*/*))
-	-$(RM) ../tamination.zip
-	cd .. && $(JAR) cvMf tamination.zip info ms plus adv c1 c2 c3a src ext seq *.html *.txt *.ico *.xml
+../tamination.zip : $(filter-out ../tamination.zip,$(wildcard ../* ../*/*))
+	-cd .. && $(RM) tamination.zip
+	cd .. && $(JAR) cvMf tamination.zip info ms plus adv c1 c2 c3a src ext *.html *.txt *.ico *.xml
 
 #  Make the index of calls
 #  This is for a future project, not used by the current animations
