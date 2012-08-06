@@ -46,7 +46,8 @@
               formation CDATA #REQUIRED
               parts CDATA #IMPLIED
               difficulty CDATA #IMPLIED
-              gender-specific CDATA #IMPLIED >
+              gender-specific CDATA #IMPLIED
+              display CDATA #IMPLIED >
 
 <!ELEMENT taminator ANY>
 
