@@ -176,6 +176,8 @@ TAMination.prototype = {
       }
       i += 1;
     });
+    if (retval.length == 0)
+      retval = [1,2,3,4,5,6,7,8];
     return retval;
   },
 
@@ -308,105 +310,6 @@ function SelectAnimation(n)
     applet.setParts(tam.getParts());
     applet.rebuildUI();
   }
-}
-function translatePath(path)
-{
-  var retval = [];
-  $("*",path).each(function() {
-    var p = translateMovement($(this));
-    while (p.length)
-      retval.push(p.shift());
-  });
-  return retval;
-}
-
-function translateMovement(move)
-{
-  var retval = [];
-  if (move.is("move")) {
-    retval = translatePath($("move[name='"+move.attr("select")+"']",paths));
-    var beats = 0;
-    for  (var i=0; i<retval.length; i++)
-      beats += Number(retval[i].beats);
-    for  (var i=0; i<retval.length; i++) {
-      if (move.attr("beats"))
-        retval[i].beats *= Number(move.attr("beats")) / beats;
-      if (move.attr("scaleX")) {
-        retval[i].cx1 *= Number(move.attr("scaleX"));
-        retval[i].cx2 *= Number(move.attr("scaleX"));
-        retval[i].x2 *= Number(move.attr("scaleX"));
-        if (retval[i].cx3 != undefined)
-          retval[i].cx3 *= Number(move.attr("scaleX"));
-        if (retval[i].cx4 != undefined)
-          retval[i].cx4 *= Number(move.attr("scaleX"));
-        if (retval[i].x4 != undefined)
-          retval[i].x4 *= Number(move.attr("scaleX"));
-      }
-      if (move.attr("scaleY")) {
-        retval[i].cy1 *= Number(move.attr("scaleY"));
-        retval[i].cy2 *= Number(move.attr("scaleY"));
-        retval[i].y2 *= Number(move.attr("scaleY"));
-        if (retval[i].cy4)
-          retval[i].cy4 *= Number(move.attr("scaleY"));
-        if (retval[i].y4)
-          retval[i].y4 *= Number(move.attr("scaleY"));
-      }
-      if (move.attr("reflect")) {
-        retval[i].cy1 *= -1;
-        retval[i].cy2 *= -1;
-        retval[i].y2 *= -1;
-        if (retval[i].cy4 != undefined)
-          retval[i].cy4 *= -1;
-        if (retval[i].y4 != undefined)
-          retval[i].y4 *= -1;
-      }
-      if (move.attr("offsetX")) {
-        retval[i].cx2 += Number(move.attr("offsetX"));
-        retval[i].x2 += Number(move.attr("offsetX"));
-      }
-      if (move.attr("offsetY")) {
-        retval[i].cy2 += Number(move.attr("offsetY"));
-        retval[i].y2 += Number(move.attr("offsetY"));
-      }
-      if (move.attr("hands"))
-        retval[i].hands = move.attr("hands");
-      else if (move.attr("reflect")) {
-        if (retval[i].hands == "right")
-          retval[i].hands = "left";
-        else if (retval[i].hands == "left")
-          retval[i].hands = "right";
-        else if (retval[i].hands == "gripright")
-          retval[i].hands = "gripleft";
-        else if (retval[i].hands == "gripleft")
-          retval[i].hands = "gripright";
-      }
-    }
-  }
-  else if (move.is("Movement"))
-    if (move.attr("cx3") == undefined)
-      retval = [{ hands: move.attr("hands"),
-                 beats: Number(move.attr("beats")),
-                 cx1: Number(move.attr("cx1")),
-                 cy1: Number(move.attr("cy1")),
-                 cx2 : Number(move.attr("cx2")),
-                 cy2 : Number(move.attr("cy2")),
-                 x2 : Number(move.attr("x2")),
-                 y2 : Number(move.attr("y2"))}];
-    else
-      retval = [{ hands: move.attr("hands"),
-                 beats: Number(move.attr("beats")),
-                 cx1: Number(move.attr("cx1")),
-                 cy1: Number(move.attr("cy1")),
-                 cx2 : Number(move.attr("cx2")),
-                 cy2 : Number(move.attr("cy2")),
-                 x2 : Number(move.attr("x2")),
-                 y2 : Number(move.attr("y2")),
-                 cx3 : Number(move.attr("cx3")),
-                 cx4 : Number(move.attr("cx4")),
-                 cy4 : Number(move.attr("cy4")),
-                 x4 :  Number(move.attr("x4")),
-                 y4 : Number(move.attr("y4"))}];
-  return retval;
 }
 
 function movementToString(m)

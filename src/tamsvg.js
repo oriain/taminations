@@ -62,16 +62,17 @@ function showDefinition()
 function TamSVG(svg_in)
 {
   if (this instanceof TamSVG)
+    //  Called as 'new TamSVG(x)'
     this.init(svg_in);
   else
+    //  Called as 'TamSVG(x)'
     window.tamsvg = new TamSVG(svg_in);
 }
 TamSVG.prototype = {
   init: function(svg_in)
   {
     var me = this;
-    cookie = new Cookie(document,"TAMination",365*24,'/');
-    cookie.load();
+    cookie = new Cookie("TAMination");
     this.cookie = cookie;
     $(document).bind("contextmenu",function() { return false });
     //  Get initial values from cookie
@@ -88,7 +89,7 @@ TamSVG.prototype = {
     this.showPhantoms = cookie.phantoms == "true";
     if (cookie.svg != 'true') {
       cookie.svg = "true";
-      cookie.store();
+      cookie.store(365);
     }
     this.currentpart = 0;
     this.barstool = 0;
@@ -530,7 +531,7 @@ TamSVG.prototype = {
     if (arguments.length > 0)
       this.loop = v;
     this.cookie.loop = this.loop;
-    this.cookie.store();
+    this.cookie.store(365);
     return this.loop;
   },
 
@@ -550,7 +551,7 @@ TamSVG.prototype = {
       }
     }
     this.cookie.grid = this.grid;
-    this.cookie.store();
+    this.cookie.store(365);
     return this.grid;
   },
 
@@ -579,7 +580,7 @@ TamSVG.prototype = {
         d.hideNumber();
     }
     this.cookie.numbers = this.numbers;
-    this.cookie.store();
+    this.cookie.store(365);
     return this.numbers;
   },
 
@@ -615,7 +616,7 @@ TamSVG.prototype = {
       this.setNumbers();
       this.animate();
       this.cookie.hexagon = this.hexagon;
-      this.cookie.store();
+      this.cookie.store(365);
     }
     return this.hexagon;
   },
@@ -650,7 +651,7 @@ TamSVG.prototype = {
         this.dancers[i].paintPath();
       this.animate();
       this.cookie.bigon = this.bigon;
-      this.cookie.store();
+      this.cookie.store(365);
     }
     return this.bigon;
   },
@@ -814,19 +815,19 @@ TamSVG.prototype = {
 //  double score;
 //  private boolean isincenter = false;
 //  public static double dfactor0 = 1.0;
-
-function Handhold(/*Dancer*/ dd1, /*Dancer*/ dd2,
-         /*int*/ hh1, /*int*/ hh2, /*angle*/ ahh1, ahh2, /*distance*/ d, s)
-{
-  this.d1 = dd1;
-  this.d2 = dd2;
-  this.h1 = hh1;
-  this.h2 = hh2;
-  this.ah1 = ahh1;
-  this.ah2 = ahh2;
-  this.distance = d;
-  this.score = s;
-}
+Handhold = defineClass(
+  function(/*Dancer*/ dd1, /*Dancer*/ dd2,
+             /*int*/ hh1, /*int*/ hh2, /*angle*/ ahh1, ahh2, /*distance*/ d, s)
+  {
+    this.d1 = dd1;
+    this.d2 = dd2;
+    this.h1 = hh1;
+    this.h2 = hh2;
+    this.ah1 = ahh1;
+    this.ah2 = ahh2;
+    this.distance = d;
+    this.score = s;
+  });
 
   //  If two dancers can hold hands, create and return a handhold.
   //  Else return null.
@@ -996,7 +997,8 @@ Handhold.prototype.paint = function()
 }
 ////////////////////////////////////////////////////////////////////////////////
 //  Dancer class
-function Dancer(tamsvg,sex,x,y,angle,color,p,number)
+Dancer = defineClass(
+function (tamsvg,sex,x,y,angle,color,p,number)
 {
   if (tamsvg instanceof Dancer) {
     var d = tamsvg;
@@ -1130,7 +1132,7 @@ function Dancer(tamsvg,sex,x,y,angle,color,p,number)
   //  path
   this.pathgroup = this.tamsvg.svg.group(this.tamsvg.pathparent);
   this.paintPath();
-}
+});
 Dancer.BOY = 1;
 Dancer.GIRL = 2;
 Dancer.PHANTOM = 3;
@@ -1205,6 +1207,12 @@ Dancer.prototype.recalculate = function()
 {
   this.path.recalculate();
   this.paintPath();
+}
+
+//  Return location as a Vector object
+Dancer.prototype.location = function()
+{
+  return new Vector(this.tx.getTranslateX(),this.tx.getTranslateY());
 }
 
 //  Return distance from center
@@ -1336,35 +1344,36 @@ Dancer.prototype.paint = function()
 
 ////////////////////////////////////////////////////////////////////////////////
 //  Path class
-function Path(p)
-{
-  this.movelist = [];
-  this.transformlist = [];
-  this.pathlist = [];
-  if (p instanceof Path) {
-    for (var m in p.movelist)
-      this.add(p.movelist[m].clone());
-  }
-  else if (p) {
-    for (var i=0; i<p.length; i++) {
-      var m = p[i].cx3 == undefined
-          ? new Movement(p[i].hands,
-                         p[i].beats,
-                         p[i].cx1,p[i].cy1,
-                         p[i].cx2,p[i].cy2,
-                         p[i].x2,p[i].y2)
-          : new Movement(p[i].hands,
-                         p[i].beats,
-                         p[i].cx1,p[i].cy1,
-                         p[i].cx2,p[i].cy2,
-                         p[i].x2,p[i].y2,
-                         p[i].cx3,0,   // cy3 is always 0
-                         p[i].cx4,p[i].cy4,
-                         p[i].x4,p[i].y4);
-      this.add(m);
+Path = defineClass(
+  function(p)
+  {
+    this.movelist = [];
+    this.transformlist = [];
+    this.pathlist = [];
+    if (p instanceof Path) {
+      for (var m in p.movelist)
+        this.add(p.movelist[m].clone());
     }
-  }
-}
+    else if (p) {
+      for (var i=0; i<p.length; i++) {
+        var m = p[i].cx3 == undefined
+        ? new Movement(p[i].hands,
+                       p[i].beats,
+                       p[i].cx1,p[i].cy1,
+                       p[i].cx2,p[i].cy2,
+                       p[i].x2,p[i].y2)
+        : new Movement(p[i].hands,
+                       p[i].beats,
+                       p[i].cx1,p[i].cy1,
+                       p[i].cx2,p[i].cy2,
+                       p[i].x2,p[i].y2,
+                       p[i].cx3,0,   // cy3 is always 0
+                       p[i].cx4,p[i].cy4,
+                       p[i].x4,p[i].y4);
+        this.add(m);
+      }
+    }
+  });
 
 Path.prototype.clear = function()
 {
@@ -1383,6 +1392,7 @@ Path.prototype.recalculate = function()
     this.transformlist.push(new AffineTransform(tx));
   }
 }
+
 //  Return total number of beats in path
 Path.prototype.beats = function()
 {
@@ -1453,30 +1463,31 @@ Path.prototype.reflect = function()
 
 ////////////////////////////////////////////////////////////////////////////////
 //  Movement class
-//  Constructor for independent heading and movement
-function Movement(h,b,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2,
-                    ctrlx3,ctrly3,ctrlx4,ctrly4,x4,y4)
-{
-  this.btranslate = new Bezier(0,0,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2);
-  if (arguments.length > 8)
-    this.brotate = new Bezier(0,0,ctrlx3,ctrly3,ctrlx4,ctrly4,x4,y4);
-  else
-    this.brotate = new Bezier(0,0,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2);
-  this.beats = b;
-  if (typeof h == "string")
-    this.usehands = Movement.setHands[h];
-  else
-    this.usehands = h;
-}
+Movement = defineClass(
+  //  Constructor for independent heading and movement
+  function(h,b,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2,
+           ctrlx3,ctrly3,ctrlx4,ctrly4,x4,y4)
+  {
+    this.btranslate = new Bezier(0,0,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2);
+    if (arguments.length > 8)
+      this.brotate = new Bezier(0,0,ctrlx3,ctrly3,ctrlx4,ctrly4,x4,y4);
+    else
+      this.brotate = new Bezier(0,0,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2);
+    this.beats = b;
+    if (typeof h == "string")
+      this.usehands = Movement.setHands[h];
+    else
+      this.usehands = h;
+  });
+
 Movement.NOHANDS = 0;
 Movement.LEFTHAND = 1;
 Movement.RIGHTHAND = 2;
 Movement.BOTHHANDS = 3;
 Movement.GRIPLEFT = 5;
 Movement.GRIPRIGHT = 6;
-Movement.GRIPBOTH = 7;
-Movement.ANYGRIP = 4;
-
+Movement.GRIPBOTH =  7;
+Movement.ANYGRIP =  4;
 Movement.setHands = { "none": Movement.NOHANDS,
                       "left": Movement.LEFTHAND,
                       "right": Movement.RIGHTHAND,
@@ -1544,32 +1555,21 @@ Movement.prototype.scale = function(x,y)
   return this;
 }
 
-//  Skew the movement by translating the destination point
-Movement.prototype.skew = function(x,y)
-{
-  this.btranslate = new Bezier(0,0,this.btranslate.ctrlx1,
-                                   this.btranslate.ctrly1,
-                                   this.btranslate.ctrlx2+x,
-                                   this.btranslate.ctrly2+y,
-                                   this.btranslate.x2+x,
-                                   this.btranslate.y2+y);
-  return this;
-}
-
 ////////////////////////////////////////////////////////////////////////////////
 //  Bezier class
-function Bezier(x1,y1,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2)
-{
-  this.x1 = x1;
-  this.y1 = y1;
-  this.ctrlx1 = ctrlx1;
-  this.ctrly1 = ctrly1;
-  this.ctrlx2 = ctrlx2;
-  this.ctrly2 = ctrly2;
-  this.x2 = x2;
-  this.y2 = y2;
-  this.calculatecoefficients();
-}
+Bezier = defineClass(
+  function (x1,y1,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2)
+  {
+    this.x1 = x1;
+    this.y1 = y1;
+    this.ctrlx1 = ctrlx1;
+    this.ctrly1 = ctrly1;
+    this.ctrlx2 = ctrlx2;
+    this.ctrly2 = ctrly2;
+    this.x2 = x2;
+    this.y2 = y2;
+    this.calculatecoefficients();
+  });
 
 Bezier.prototype.calculatecoefficients = function()
 {
@@ -1581,6 +1581,7 @@ Bezier.prototype.calculatecoefficients = function()
   this.by = 3.0*(this.ctrly2-this.ctrly1) - this.cy;
   this.ay = this.y2 - this.y1 - this.cy - this.by;
 }
+
 //  Return the movement along the curve given "t" between 0 and 1
 Bezier.prototype.translate = function(t)
 {
@@ -1597,22 +1598,22 @@ Bezier.prototype.rotate = function(t)
   var theta = Math.atan2(y,x);
   return AffineTransform.getRotateInstance(theta);
 }
-
 ////////////////////////////////////////////////////////////////////////////////
 //   Vector class
-//  constructor
-function Vector(x,y,z)
-{
-  if (arguments.length > 0 && x instanceof Vector) {
-    this.x = x.x;
-    this.y = x.y;
-    this.z = x.z;
-  } else {
-    this.x = arguments.length > 0 ? x : 0;
-    this.y = arguments.length > 1 ? y : 0;
-    this.z = arguments.length > 2 ? z : 0;
-  }
-}
+Vector = defineClass(
+  function(x,y,z)
+  {
+    if (arguments.length > 0 && x instanceof Vector) {
+      this.x = x.x;
+      this.y = x.y;
+      this.z = x.z;
+    } else {
+      this.x = arguments.length > 0 ? x : 0;
+      this.y = arguments.length > 1 ? y : 0;
+      this.z = arguments.length > 2 ? z : 0;
+    }
+  });
+
 //  Add/subtract two vectors
 Vector.prototype.add = function(v)
 {
@@ -1626,16 +1627,20 @@ Vector.prototype.subtract = function(v)
 Vector.prototype.cross = function(v)
 {
   return new Vector(
-    this.y*v.z - this.z*v.y,
-    this.z*v.x - this.x*v.z,
-    this.x*v.y - this.y*v.x
+      this.y*v.z - this.z*v.y,
+      this.z*v.x - this.x*v.z,
+      this.x*v.y - this.y*v.x
   );
 }
-
 //  Return angle of vector from the origin
 Vector.prototype.angle = function()
 {
   return Math.atan2(this.y,this.x);
+}
+//  Return distance from origin
+Vector.prototype.distance = function()
+{
+  return Math.sqrt(this.x*this.x+this.y*this.y+this.z*this.z);
 }
 //  Rotate by a given angle
 Vector.prototype.rotate = function(th)
@@ -1670,10 +1675,7 @@ Vector.prototype.isCCW = function(v)
 {
   return this.cross(v).z > 0;
 }
-Vector.prototype.toString = function()
-{
-  return "("+Math.round(this.x*10)/10+","+Math.round(this.y*10)/10+")";
-}
+
 //  Return true if the vector from this to v points left of the origin
 Vector.prototype.isLeft = function(v)
 {
@@ -1681,30 +1683,36 @@ Vector.prototype.isLeft = function(v)
   var v2 = new Vector(v).subtract(this);
   return v1.isCCW(v2);
 }
+
+Vector.prototype.toString = function()
+{
+  return "("+Math.round(this.x*10)/10+","+Math.round(this.y*10)/10+")";
+}
 ////////////////////////////////////////////////////////////////////////////////
 //   AffineTransform class
-//   constructor
-function AffineTransform(tx)
-{
-  if (arguments.length == 0) {
-    //  default constructor - return the identity matrix
-    this.x1 = 1.0;
-    this.x2 = 0.0;
-    this.x3 = 0.0;
-    this.y1 = 0.0;
-    this.y2 = 1.0;
-    this.y3 = 0.0;
-  }
-  else if (tx instanceof AffineTransform) {
-    //  return a copy
-    this.x1 = tx.x1;
-    this.x2 = tx.x2;
-    this.x3 = tx.x3;
-    this.y1 = tx.y1;
-    this.y2 = tx.y2;
-    this.y3 = tx.y3;
-  }
-}
+AffineTransform = defineClass(
+  function(tx)
+  {
+    if (arguments.length == 0) {
+      //  default constructor - return the identity matrix
+      this.x1 = 1.0;
+      this.x2 = 0.0;
+      this.x3 = 0.0;
+      this.y1 = 0.0;
+      this.y2 = 1.0;
+      this.y3 = 0.0;
+    }
+    else if (tx instanceof AffineTransform) {
+      //  return a copy
+      this.x1 = tx.x1;
+      this.x2 = tx.x2;
+      this.x3 = tx.x3;
+      this.y1 = tx.y1;
+      this.y2 = tx.y2;
+      this.y3 = tx.y3;
+    }
+  });
+
 //  Generate a new transform that moves to a new location
 AffineTransform.getTranslateInstance = function(x,y)
 {
@@ -1721,7 +1729,7 @@ AffineTransform.getRotateInstance = function(theta)
   a.x2 = -(a.y1 = Math.sin(theta));
   return a;
 }
-
+//  Generate a new transform that does a scaling
 AffineTransform.getScaleInstance = function(x,y)
 {
   a = new AffineTransform();
@@ -1762,7 +1770,7 @@ AffineTransform.prototype.concatenate = function(tx)
 {
   // [this] = [this] x [Tx]
   var copy = { x1: this.x1, x2: this.x2, x3: this.x3,
-               y1: this.y1, y2: this.y2, y3: this.y3 };
+      y1: this.y1, y2: this.y2, y3: this.y3 };
   this.x1 = copy.x1 * tx.x1 + copy.x2 * tx.y1;
   this.x2 = copy.x1 * tx.x2 + copy.x2 * tx.y2;
   this.x3 = copy.x1 * tx.x3 + copy.x2 * tx.y3 + copy.x3;
@@ -1776,7 +1784,7 @@ AffineTransform.prototype.preConcatenate = function(tx)
 {
   // [this] = [Tx] x [this]
   var copy = { x1: this.x1, x2: this.x2, x3: this.x3,
-               y1: this.y1, y2: this.y2, y3: this.y3 };
+      y1: this.y1, y2: this.y2, y3: this.y3 };
   this.x1 = tx.x1 * copy.x1 + tx.x2 * copy.y1;
   this.x2 = tx.x1 * copy.x2 + tx.x2 * copy.y2;
   this.x3 = tx.x1 * copy.x3 + tx.x2 * copy.y3 + tx.x3;
@@ -1813,7 +1821,19 @@ AffineTransform.prototype.getAngle = function()
 {
   return Math.atan2(this.y1,this.y2);
 }
-
+//  Compute and return the inverse matrix - only for affine transform matrix
+AffineTransform.prototype.getInverse = function()
+{
+  var inv = new AffineTransform();
+  var det = this.x1*this.y2 - this.x2*this.y1;
+  inv.x1 = this.y2/det;
+  inv.y1 = -this.y1/det;
+  inv.x2 = -this.x2/det;
+  inv.y2 = this.x1/det;
+  inv.x3 = (this.x2*this.y3 - this.y2*this.x3) / det;
+  inv.y3 = (this.y1*this.x3 - this.x1*this.y3) / det;
+  return inv;
+}
 //  Return a string that can be used as the svg transform attribute
 AffineTransform.prototype.toString = function()
 {
@@ -1823,12 +1843,13 @@ AffineTransform.prototype.toString = function()
 }
 ////////////////////////////////////////////////////////////////////////////////
 //   Color class
-function Color(r,g,b)
-{
-  this.r = Math.floor(r);
-  this.g = Math.floor(g);
-  this.b = Math.floor(b);
-}
+Color = defineClass(
+  function (r,g,b)
+  {
+    this.r = Math.floor(r);
+    this.g = Math.floor(g);
+    this.b = Math.floor(b);
+  });
 Color.FACTOR = 0.7;  // from Java
 Color.hex = [ '0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
 Color.black = new Color(0,0,0);
@@ -1841,15 +1862,16 @@ Color.lightGray = new Color(192,192,192);
 Color.gray = new Color(128,128,128);
 Color.magenta = new Color(255,0,255);
 Color.cyan = new Color(0,255,255);
+
 Color.prototype.invert = function()
 {
   return new Color(255-this.r,255-this.g,255-this.b);
 }
 Color.prototype.darker = function()
 {
-  return new Color( Math.floor(this.r*Color.FACTOR),
-                    Math.floor(this.g*Color.FACTOR),
-                    Math.floor(this.b*Color.FACTOR));
+  return new Color(Math.floor(this.r*Color.FACTOR),
+      Math.floor(this.g*Color.FACTOR),
+      Math.floor(this.b*Color.FACTOR));
 }
 Color.prototype.brighter = function()
 {
@@ -1866,7 +1888,6 @@ Color.prototype.rotate = function()
     c.b = 255;
   return c;
 }
-
 Color.prototype.toString = function()
 {
   return '#' + Color.hex[this.r>>4] + Color.hex[this.r&0xf] +
@@ -1884,7 +1905,18 @@ Math.IEEEremainder = function(d1,d2)
   var n = Math.round(d1/d2);
   return d1 - n*d2;
 }
-
+Math.isApprox = function(a,b)
+{
+  return Math.abs(a-b) < 0.1;
+}
+Math.angleDiff = function(a1,a2)
+{
+  return ((((a1-a2) % (Math.PI*2)) + (Math.PI*3)) % (Math.PI*2)) - Math.PI;
+}
+Math.anglesEqual = function(a1,a2)
+{
+  return Math.isApprox(Math.angleDiff(a1,a2),0);
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Build buttons and slider below animation
@@ -1958,7 +1990,7 @@ function generateButtonPanel()
       $('#loopButton').addClass('selected');
     }
     cookie.loop = tamsvg.loop;
-    cookie.store();
+    cookie.store(365);
   });
   $('#pathsButton').click(function() {
     if (tamsvg.showPaths) {
@@ -1973,7 +2005,7 @@ function generateButtonPanel()
       $('#pathsButton').addClass('selected');
     }
     cookie.paths = tamsvg.showPaths;
-    cookie.store();
+    cookie.store(365);
   });
   $('#gridButton').click(function() {
     if (tamsvg.grid) {
@@ -1993,7 +2025,7 @@ function generateButtonPanel()
       $('#gridButton').addClass('selected');
     }
     cookie.grid = tamsvg.grid;
-    cookie.store();
+    cookie.store(365);
   });
   $('#phantomButton').click(function() {
     if (tamsvg.showPhantoms) {
@@ -2019,7 +2051,7 @@ function generateButtonPanel()
     else
       $('#numbersButton').removeClass('selected');
     cookie.numbers = tamsvg.numbers
-    cookie.store();
+    cookie.store(365);
   });
 
   // Slider

@@ -1,3 +1,23 @@
+/*
+
+    Copyright 2012 Brad Christie
+
+    This file is part of TAMinations.
+
+    TAMinations is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    TAMinations is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with TAMinations.  If not, see <http://www.gnu.org/licenses/>.
+
+ */
 
 var callindex = 0;
 var seq = 0
@@ -53,27 +73,41 @@ function updateSequence()
   }
   calls = realcalls;
 
-  //  Look up the calls and build the animation
+  //  Look up the calls fetch the necessary files
   var filecount = 0;
-  var tamxml = [];
   tamsvg.parts = [];
   for (var i in calls) {
     //  Need to load xml files, 1 or more for each call
-    var callname = calls[i];
-    var a = callindex[callname.toLowerCase()];
-    for (var x in a) {
-      if (!xmldata[a[x]]) {
-        filecount++;
-        //console.log('Reading '+a[x]);
-        $.get(a[x],function(data,status,jqxhr) {
-          //console.log('Filename: '+jqxhr.filename);
-          xmldata[jqxhr.filename] = data;
-          tamxml.push(data);
-          if (--filecount == 0) {
-            //  All xml has been read, now we can interpret the calls
-            buildSequence();
+    var callwords = calls[i].toLowerCase().split(/\s+/);
+    //  Fetch calls that are any part of the callname,
+    //  to get concepts and modifications
+    for (s=0; s<callwords.length; s++) {
+      for (e=s+1; e<=callwords.length; e++) {
+        var call = callwords.slice(s,e).join(' ');
+        var a = callindex[call];
+        for (var x in a) {
+          if (!xmldata[a[x]]) {
+            filecount++;
+            if (a[x].indexOf('.js') > 0)
+              //  Call is interpreted by a script
+              //  Read and interpret the script
+              $.getScript(a[x],function(data,status,jqxhr) {
+                // xmldata set by script
+                if (--filecount == 0)
+                  buildSequence();
+              }).fail(function() { console.log('script failed');});
+            else
+              //  Call is interpreted by animations
+              //  Read and store the animation
+              $.get(a[x],function(data,status,jqxhr) {
+                xmldata[jqxhr.filename] = data;
+                if (--filecount == 0) {
+                  //  All xml has been read, now we can interpret the calls
+                  buildSequence();
+                }
+              }).filename = a[x];
           }
-        }).filename = a[x];
+        }
       }
     }
   }
@@ -85,52 +119,99 @@ function updateSequence()
 function buildSequence()
 {
   //  First clear out the previous animation
-  for (var i in tamsvg.dancers)
+  for (var i in tamsvg.dancers) {
     tamsvg.dancers[i].path.clear();
+    tamsvg.dancers[i].animate(0);
+  }
   $('#errormsg').remove();
   for (var n2 in calls) {
     var callfound = false;
     var m = false;
     var mxml = false;
     var callname = calls[n2];
-    //console.log("buildSequence: "+callname);
-    for (var i in tamsvg.dancers)
-      tamsvg.dancers[i].animate(999);
-    var a = callindex[callname.toLowerCase()];
-    for (var i in a) {
-      var tamxml = xmldata[a[i]];
-      $('tam',tamxml).each(function(n3) {
-        if (callname.toLowerCase() == $(this).attr('title').toLowerCase()) {
-          callfound = true;
-          var fs = $(this).attr('formation');
-          var f = getFormation(fs);
-          var d = getDancers(f);
-          $('#Part'+(Number(n2)+1)).text($(this).attr('title'));
-          var sexy = $(this).attr('gender-specific');
-          mm = matchFormations(tamsvg.dancers,d,sexy);
-          if (!mm) {
-            rotateFormation(d);
-            mm = matchFormations(tamsvg.dancers,d,sexy);
-          }
-          if (mm) {
-            //console.log("Match: "+callname+' '+$(this).attr('formation'));
-            m = mm;
-            mxml = tamxml;
-            tam.callnum = n3; // ugly hack
+    var callcontext = new CallContext(tamsvg);
+
+    //  Break up the call as above to find and perform modifications
+    var doxml = true;
+    var callwords = calls[n2].toLowerCase().split(/\s+/);
+    $('#Part'+(Number(n2)+1)).text('');
+    while (callwords.length > 0) {
+      var callfound = false;
+      var callpaths = [];
+      parseOneCall:
+      for (var i=callwords.length; i>0; i--) {
+        var call = callwords.slice(0,i).join(' ');
+        //  First try to find an explicit xml animation
+        //  But only for the complete call
+        var a = callindex[call];
+        for (var ii in a) {
+          var tamxml = xmldata[a[ii]];
+          if (typeof tamxml == 'object' && doxml && i==callwords.length) {
+            for (var x=0; x<$('tam',tamxml).length; x++) {
+              var xelem = $('tam',tamxml)[x];
+              if (call == $(xelem).attr('title').toLowerCase()) {
+                callfound = true;
+                var fs = $(xelem).attr('formation');
+                var f = getFormation(fs);
+                var d = getDancers(f);
+                var sexy = $(xelem).attr('gender-specific');
+                mm = matchFormations(tamsvg.dancers,d,sexy);
+                if (!mm) {
+                  rotateFormation(d);
+                  mm = matchFormations(tamsvg.dancers,d,sexy);
+                }
+                if (mm) {
+                  //console.log("Match: "+callname+' '+$(this).attr('formation'));
+                  $('#Part'+(Number(n2)+1)).text($(xelem).attr('title'));
+                  m = mm;
+                  mxml = tamxml;
+                  tam.callnum = x; // ugly hack
+                  allp = tam.getPath(mxml);
+                  for (var i3 in allp) {
+                    var p = new Path(allp[i3]);
+                    callpaths[m[i3*2]] = p;
+                    callpaths[m[i3*2+1]] = p;
+                  }
+                  callwords = callwords.slice(i,callwords.length);
+                  break parseOneCall;
+                }
+              }
+            }
           }
         }
-      });
-    }
-    if (m) {  //  Call and formation found
-      var allp = tam.getPath(mxml);
-      for (var i in allp) {
-        var p = new Path(allp[i]);
-        tamsvg.dancers[m[i*2]].path.add(p);
-        tamsvg.dancers[m[i*2+1]].path.add(p);
-        tamsvg.dancers[m[i*2]].animate(999);
-        tamsvg.dancers[m[i*2+1]].animate(999);
+        //  Failed to find XML-defined animation, check for a script
+        for (var ii in a) {
+          var tamxml = xmldata[a[ii]];
+          if (typeof tamxml == 'function') {
+            console.log('will use function');
+            callfound = true;
+            var nextcall = new tamxml();
+            nextcall.perform(callcontext);
+            callpaths = callcontext.paths;
+            //  TODO check for function failure
+            $('#Part'+(Number(n2)+1)).text($('#Part'+(Number(n2)+1)).text()+' '+nextcall.classname);
+            callwords = callwords.slice(i,callwords.length);
+            doxml = false;
+            break parseOneCall;
+          }
+        }
       }
-      tamsvg.parts.push(p.beats());
+
+      //  If we fell through to here, and have not parsed anything,
+      //  then parsing the call has failed
+      if (callwords.length > 0 && i==0) {
+        $('#Part'+(Number(n2)+1)).text(calls[n2]);
+        break;
+      }
+
+    }
+
+    if (callpaths.length > 0 && callpaths[0].beats() > 0) {  //  Call and formation found
+      for (var d in tamsvg.dancers) {
+        tamsvg.dancers[d].path.add(callpaths[d]);
+        tamsvg.dancers[d].animate(999);
+      }
+      tamsvg.parts.push(callpaths[0].beats());
     }
     else if (callfound) {  //  Call found but no matching formation
       $('#call'+n2).css('background-color','red').css('color','white');
@@ -146,6 +227,17 @@ function buildSequence()
                                  ' not found.</span></span>');
       break;
     }
+
+    //for (var i=0; i<4; i++) {
+    //  callcontext2 = new CallContext(tamsvg);
+    //  console.log('Dancer '+(i+1)+' partner is '+(callcontext2.partner[i]+1));
+      //console.log('Dancer '+(i+1)+' is at '+callcontext.dancers[i].location());
+      //for (var j=0; j<4; j++)
+      //  if (i != j)
+      //    console.log("Dancer "+(j+1)+(callcontext.isRight(i,j) ? " is " : " is NOT ")
+      //           + "right of "+(i+1));
+    //}
+
   }
   tamsvg.parts.pop();  // last part is implied
   var lastcallstart = tamsvg.beats - 2;
@@ -155,6 +247,7 @@ function buildSequence()
     tamsvg.start();
   }
   updateSliderMarks(true);
+
 }
 
 

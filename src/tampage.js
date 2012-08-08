@@ -254,8 +254,9 @@ function generateAnimations()
   $('#animationlist').append('<br /><div id="comment" class="comment">' +
                       $('comment *',animations).text() + '</div>');
   //  Load saved options from browser cookie
-  cookie = new Cookie(document,"TAMination",365*24,'/');
-  cookie.load();
+  //cookie = new Cookie(document,"TAMination",365*24,'/');
+  //cookie.load();
+  cookie = new Cookie("TAMination");
   //  Passed-in arg overrides cookie
   if (args.svg == 'false' || args.svg == 'true') {
     cookie.svg = args.svg;

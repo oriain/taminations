@@ -1,114 +1,162 @@
-//    -*- C++ -*-  
-// The constructor function: creates a cookie object for the specified
-// document, with a specified name and optional attributes.
-// Arguments:
-//   document: The Document object that the cookie is stored for. Required.
-//   name:     A string that specifies a name for the cookie. Required.
-//   hours:    An optional number that specifies the number of hours from now
-//             that the cookie should expire.
-//   path:     An optional string that specifies the cookie path attribute.
-//   domain:   An optional string that specifies the cookie domain attribute.
-//   secure:   An optional Boolean value that, if true, requests a secure cookie.
-//
-function Cookie(document, name, hours, path, domain, secure)
-{
-    // All the predefined properties of this object begin with '$'
-    // to distinguish them from other properties which are the values to
-    // be stored in the cookie.
-    this.$document = document;
-    this.$name = name;
-    if (hours)
-        this.$expiration = new Date((new Date()).getTime() + hours*3600000);
-    else this.$expiration = null;
-    if (path) this.$path = path; else this.$path = null;
-    if (domain) this.$domain = domain; else this.$domain = null;
-    if (secure) this.$secure = true; else this.$secure = false;
-}
 
-// This function is the store() method of the Cookie object.
-function _Cookie_store()
-{
-    // First, loop through the properties of the Cookie object and
-    // put together the value of the cookie. Since cookies use the
-    // equals sign and semicolons as separators, we'll use colons
-    // and ampersands for the individual state variables we store 
-    // within a single cookie value. Note that we escape the name and value
-    // of each state variable, in case it contains punctuation or other
-    // illegal characters.
-    var cookieval = "";
-    for(var prop in this) {
-        // Ignore properties with names that begin with '$' and also methods.
-        if ((prop.charAt(0) == '$') || ((typeof this[prop]) == 'function')) 
-            continue;
-        if (cookieval != "") cookieval += '&';
-        cookieval += escape(prop) + ':' + escape(this[prop]);
+/**
+ * JavaScript: The Definitive Guide, by David Flanagan.
+ * Copyright 2006 O'Reilly Media, Inc., 978-0-596-10199-2."
+ *
+ * This is the Cookie() constructor function.
+ *
+ * This constructor looks for a cookie with the specified name for the
+ * current document.  If one exists, it parses its value into a set of
+ * name/value pairs and stores those values as properties of the newly created
+ * object.
+ *
+ * To store new data in the cookie, simply set properties of the Cookie
+ * object.  Avoid properties named "store" and "remove" since these are
+ * reserved as method names.
+ *
+ * To save cookie data in the web browser's local store, call store().
+ * To remove cookie data from the browser's store, call remove().
+ *
+ * The static method Cookie.enabled() returns true if cookies are
+ * enabled and returns false otherwise.
+ */
+function Cookie(name) {
+    this.$name = name;  // Remember the name of this cookie
+
+    // First, get a list of all cookies that pertain to this document
+    // We do this by reading the magic Document.cookie property
+    // If there are no cookies, we don't have anything to do
+    var allcookies = document.cookie;
+    if (allcookies == "") return;
+
+    // Break the string of all cookies into individual cookie strings
+    // Then loop through the cookie strings, looking for our name
+    var cookies = allcookies.split(';');
+    var cookie = null;
+    for(var i = 0; i < cookies.length; i++) {
+        cookie = cookies[i];
+        // Some browsers put a space after the semicolon
+        if (cookie.charAt(0) == " ") cookie = cookie.substring(1);
+        // Stop looping if we find the name we want
+        if (cookie.substring(0, name.length+1) == (name + "=")) break;
     }
 
-    // Now that we have the value of the cookie, put together the 
-    // complete cookie string, which includes the name and the various
-    // attributes specified when the Cookie object was created.
-    var cookie = this.$name + '=' + cookieval;
-    if (this.$expiration)
-        cookie += '; expires=' + this.$expiration.toGMTString();
-    if (this.$path) cookie += '; path=' + this.$path;
-    if (this.$domain) cookie += '; domain=' + this.$domain;
-    if (this.$secure) cookie += '; secure';
+    // If we didn't find a matching cookie, quit now
+    if (i >= cookies.length) return;
 
-    // Now store the cookie by setting the magic Document.cookie property.
-    this.$document.cookie = cookie;
-}
-// This function is the load() method of the Cookie object.
-function _Cookie_load()
-{
-    // First, get a list of all cookies that pertain to this document.
-    // We do this by reading the magic Document.cookie property.
-    var allcookies = this.$document.cookie;
-    if (allcookies == "") return false;
+    // The cookie value is the part after the equals sign
+    var cookieval = cookie.substring(name.length+1);
 
-    // Now extract just the named cookie from that list.
-    var start = allcookies.indexOf(this.$name + '=');
-    if (start == -1) return false;   // Cookie not defined for this page.
-    start += this.$name.length + 1;  // Skip name and equals sign.
-    var end = allcookies.indexOf(';', start);
-    if (end == -1) end = allcookies.length;
-    var cookieval = allcookies.substring(start, end);
-
-    // Now that we've extracted the value of the named cookie, we've
-    // got to break that value down into individual state variable 
+    // Now that we've extracted the value of the named cookie, we
+    // must break that value down into individual state variable
     // names and values. The name/value pairs are separated from each
     // other by ampersands, and the individual names and values are
-    // separated from each other by colons. We use the split method
+    // separated from each other by colons. We use the split() method
     // to parse everything.
-    var a = cookieval.split('&');    // Break it into array of name/value pairs.
-    for(var i=0; i < a.length; i++)  // Break each pair into an array.
+    var a = cookieval.split('&'); // Break it into an array of name/value pairs
+    for(var i=0; i < a.length; i++)  // Break each pair into an array
         a[i] = a[i].split(':');
 
     // Now that we've parsed the cookie value, set all the names and values
-    // of the state variables in this Cookie object. Note that we unescape()
-    // the name and value, because we called escape() when we stored it.
+    // as properties of this Cookie object. Note that we decode
+    // the property value because the store() method encodes it
     for(var i = 0; i < a.length; i++) {
-        this[unescape(a[i][0])] = unescape(a[i][1]);
+        this[a[i][0]] = decodeURIComponent(a[i][1]);
+    }
+}
+
+/**
+ * This function is the store() method of the Cookie object.
+ *
+ * Arguments:
+ *
+ *   daysToLive: the lifetime of the cookie, in days. If you set this
+ *     to zero, the cookie will be deleted.  If you set it to null, or
+ *     omit this argument, the cookie will be a session cookie and will
+ *     not be retained when the browser exits.  This argument is used to
+ *     set the max-age attribute of the cookie.
+ *   path: the value of the path attribute of the cookie
+ *   domain: the value of the domain attribute of the cookie
+ *   secure: if true, the secure attribute of the cookie will be set
+ */
+Cookie.prototype.store = function(daysToLive, path, domain, secure) {
+    // First, loop through the properties of the Cookie object and
+    // put together the value of the cookie. Since cookies use the
+    // equals sign and semicolons as separators, we'll use colons
+    // and ampersands for the individual state variables we store
+    // within a single cookie value. Note that we encode the value
+    // of each property in case it contains punctuation or other
+    // illegal characters.
+    var cookieval = "";
+    for(var prop in this) {
+        // Ignore properties with names that begin with '$' and also methods
+        if ((prop.charAt(0) == '$') || ((typeof this[prop]) == 'function'))
+            continue;
+        if (cookieval != "") cookieval += '&';
+        cookieval += prop + ':' + encodeURIComponent(this[prop]);
     }
 
-    // We're done, so return the success code.
-    return true;
-}
+    // Now that we have the value of the cookie, put together the
+    // complete cookie string, which includes the name and the various
+    // attributes specified when the Cookie object was created
+    var cookie = this.$name + '=' + cookieval;
+    if (daysToLive || daysToLive == 0) {
+        cookie += "; max-age=" + (daysToLive*24*60*60);
+    }
 
-// This function is the remove() method of the Cookie object.
-function _Cookie_remove()
-{
-    var cookie;
-    cookie = this.$name + '=';
-    if (this.$path) cookie += '; path=' + this.$path;
-    if (this.$domain) cookie += '; domain=' + this.$domain;
-    cookie += '; expires=Fri, 02-Jan-1970 00:00:00 GMT';
+    if (path) cookie += "; path=" + path;
+    if (domain) cookie += "; domain=" + domain;
+    if (secure) cookie += "; secure";
 
-    this.$document.cookie = cookie;
-}
+    // Now store the cookie by setting the magic Document.cookie property
+    document.cookie = cookie;
+};
 
-// Create a dummy Cookie object, so we can use the prototype object to make
-// the functions above into methods.
-new Cookie();
-Cookie.prototype.store = _Cookie_store;
-Cookie.prototype.load = _Cookie_load;
-Cookie.prototype.remove = _Cookie_remove;
+/**
+ * This function is the remove() method of the Cookie object; it deletes the
+ * properties of the object and removes the cookie from the browser's
+ * local store.
+ *
+ * The arguments to this function are all optional, but to remove a cookie
+ * you must pass the same values you passed to store().
+ */
+Cookie.prototype.remove = function(path, domain, secure) {
+    // Delete the properties of the cookie
+    for(var prop in this) {
+        if (prop.charAt(0) != '$' && typeof this[prop] != 'function')
+            delete this[prop];
+    }
+
+    // Then, store the cookie with a lifetime of 0
+    this.store(0, path, domain, secure);
+};
+
+/**
+ * This static method attempts to determine whether cookies are enabled.
+ * It returns true if they appear to be enabled and false otherwise.
+ * A return value of true does not guarantee that cookies actually persist.
+ * Nonpersistent session cookies may still work even if this method
+ * returns false.
+ */
+Cookie.enabled = function() {
+    // Use navigator.cookieEnabled if this browser defines it
+    if (navigator.cookieEnabled != undefined) return navigator.cookieEnabled;
+
+    // If we've already cached a value, use that value
+    if (Cookie.enabled.cache != undefined) return Cookie.enabled.cache;
+
+    // Otherwise, create a test cookie with a lifetime
+    document.cookie = "testcookie=test; max-age=10000";  // Set cookie
+
+    // Now see if that cookie was saved
+    var cookies = document.cookie;
+    if (cookies.indexOf("testcookie=test") == -1) {
+        // The cookie was not saved
+        return Cookie.enabled.cache = false;
+    }
+    else {
+        // Cookie was saved, so we've got to delete it before returning
+        document.cookie = "testcookie=test; max-age=0";  // Delete cookie
+        return Cookie.enabled.cache = true;
+    }
+};
