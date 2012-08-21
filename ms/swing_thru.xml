@@ -75,9 +75,11 @@
     </path>
     <path>
       <move select="Swing Right" />
+      <move select="Stand" beats="3"/>
     </path>
     <path>
       <move select="Swing Right" />
+      <move select="Stand" beats="3"/>
     </path>
     <path>
       <move select="Swing Right" />
@@ -180,8 +182,10 @@
 
   <tam title="Swing Thru" from="Quarter Tag" formation="Quarter Tag" parts="1.5;1.5;1.5" difficulty="1">
     <path>
+      <move select="Stand" beats="6"/>
     </path>
     <path>
+      <move select="Stand" beats="6"/>
     </path>
     <path>
       <move select="Swing Right"/>

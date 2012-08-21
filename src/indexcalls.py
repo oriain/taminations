@@ -7,6 +7,7 @@ def main():
   r = re.compile('title="(.*?)"')
   r2 = re.compile('/(ms|plus|adv|c1|c2|c3a)/')
   r3 = re.compile('name:\\s*"(.*?)"')
+  r4 = re.compile('\\W')
   t = {}
   #  Read animations from xml files
   for filename in glob.glob('../*/*.xml'):
@@ -37,7 +38,8 @@ def main():
   #  Now print the file(s) for each call in JSON format
   print('{')
   for c in it:
-    print('    "'+c.lower()+'":["'+'","'.join(it[c])+'"],')
+    cc = re.sub(r4,'',c)
+    print('    "'+cc.lower()+'":["'+'","'.join(it[c])+'"],')
   #  Mark end
   print('    "--":[]')
   print('}')

@@ -131,8 +131,10 @@
       <move select="Lead Left" hands="left" beats="2" scaleY=".5" />
     </path>
     <path>
+      <move select="Stand" beats="4"/>
     </path>
     <path>
+      <move select="Stand" beats="4"/>
     </path>
   </tam>
 

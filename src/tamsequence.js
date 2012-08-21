@@ -20,6 +20,7 @@
  */
 
 var callindex = 0;
+var startingFormation="Facing Couples";
 var seq = 0
 var xmldata = {};
 var calls = [];
@@ -31,9 +32,18 @@ $.getJSON("src/callindex.json",function(data) {
 
 var timeoutID = null;
 
+$(document).ready(function() {
+  $('#formation').change(function() {
+    startingFormation = $('#formation').val();
+    generateAnimations();
+  });
+
+});
+
 function generateAnimations()  // override function in tampage.js
 {
-  $('#definition').append($('#sequenceform'));
+  if ($('#definition #sequenceform').size() == 0)
+    $('#definition').empty().append($('#sequenceform'));
 
   //  Build the animation
   TAMination(0,animations,'','');
@@ -41,11 +51,11 @@ function generateAnimations()  // override function in tampage.js
   var svgdim = dims.width;
   appletstr='<div id="svgdiv" '+
             'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div>';
-  $("#appletcontainer").append(appletstr);
+  $("#appletcontainer").empty().append(appletstr);
   $('#svgdiv').svg({onLoad:TamSVG});
 
   //  Add all the calls to the animation
-  $('#animationlist').append('<ol id="calllist"></ol>');
+  $('#animationlist').empty().append('<ol id="calllist"></ol>');
   generateButtonPanel();
   updateSequence();
 
@@ -78,12 +88,12 @@ function updateSequence()
   tamsvg.parts = [];
   for (var i in calls) {
     //  Need to load xml files, 1 or more for each call
-    var callwords = calls[i].toLowerCase().split(/\s+/);
+    var callwords = calls[i].toLowerCase().replace(/\W/g,'').split(/\s+/);
     //  Fetch calls that are any part of the callname,
     //  to get concepts and modifications
     for (s=0; s<callwords.length; s++) {
       for (e=s+1; e<=callwords.length; e++) {
-        var call = callwords.slice(s,e).join(' ');
+        var call = callwords.slice(s,e).join('');
         var a = callindex[call];
         for (var x in a) {
           if (!xmldata[a[x]]) {
@@ -133,14 +143,14 @@ function buildSequence()
 
     //  Break up the call as above to find and perform modifications
     var doxml = true;
-    var callwords = calls[n2].toLowerCase().split(/\s+/);
+    var callwords = calls[n2].toLowerCase().replace(/\W/g,'').split(/\s+/);
     $('#Part'+(Number(n2)+1)).text('');
     while (callwords.length > 0) {
       var callfound = false;
       var callpaths = [];
       parseOneCall:
       for (var i=callwords.length; i>0; i--) {
-        var call = callwords.slice(0,i).join(' ');
+        var call = callwords.slice(0,i).join('');
         //  First try to find an explicit xml animation
         //  But only for the complete call
         var a = callindex[call];
@@ -149,10 +159,10 @@ function buildSequence()
           if (typeof tamxml == 'object' && doxml && i==callwords.length) {
             for (var x=0; x<$('tam',tamxml).length; x++) {
               var xelem = $('tam',tamxml)[x];
-              if (call == $(xelem).attr('title').toLowerCase()) {
+              if (call == $(xelem).attr('title').toLowerCase().replace(/\W/g,'')) {
                 callfound = true;
                 var fs = $(xelem).attr('formation');
-                var f = getFormation(fs);
+                var f = getNamedFormation(fs);
                 var d = getDancers(f);
                 var sexy = $(xelem).attr('gender-specific');
                 mm = matchFormations(tamsvg.dancers,d,sexy);
@@ -161,7 +171,6 @@ function buildSequence()
                   mm = matchFormations(tamsvg.dancers,d,sexy);
                 }
                 if (mm) {
-                  //console.log("Match: "+callname+' '+$(this).attr('formation'));
                   $('#Part'+(Number(n2)+1)).text($(xelem).attr('title'));
                   m = mm;
                   mxml = tamxml;
@@ -207,10 +216,13 @@ function buildSequence()
     }
 
     if (callpaths.length > 0 && callpaths[0].beats() > 0) {  //  Call and formation found
+      tamsvg.paths = [];
       for (var d in tamsvg.dancers) {
+        tamsvg.paths[d] = tamsvg.dancers[d].path;  // for levelBeats
         tamsvg.dancers[d].path.add(callpaths[d]);
         tamsvg.dancers[d].animate(999);
       }
+      levelBeats(tamsvg);
       tamsvg.parts.push(callpaths[0].beats());
     }
     else if (callfound) {  //  Call found but no matching formation
@@ -250,15 +262,27 @@ function buildSequence()
 
 }
 
-
-function getFormation(from)  // override function in tamination.js
+//  Level off the number of beats for each dancer
+function levelBeats(ctx)
 {
-  var retval = from;
-  if (typeof from != "string")
-    retval = $('sequence',animations).attr('formation');
-  if (retval && retval.indexOf('Formation') != 0)
-    retval = formations[retval];
-  return retval;
+  var maxbeats = 0;
+  for (var d in ctx.dancers) {
+    var b = ctx.paths[d].beats();
+    if (b > maxbeats)
+      maxbeats = b;
+  }
+  for (var d in ctx.dancers) {
+    var b = maxbeats - ctx.paths[d].beats();
+    if (b > 0) {
+      var m = tam.translateMovement({select:'Stand',beats:b});
+      ctx.paths[d].add(new Path(m));
+    }
+  }
+}
+
+function getFormation()  // override function in tamination.js
+{
+  return getNamedFormation(startingFormation);
 }
 
 function getDancers(formation)
@@ -293,6 +317,7 @@ function rotateFormation(d)
   }
 }
 
+//  Returns a normalized difference between two angles
 function angleDiff(a1,a2)
 {
   return ((((a1-a2) % (Math.PI*2)) + (Math.PI*3)) % (Math.PI*2)) - Math.PI;
@@ -302,8 +327,8 @@ function matchFormations(d1,d2,sexy)
 {
   if (d1.length != d2.length)
     return false;
-  retval = {};
-  count = 0;
+  var retval = {};
+  var count = 0;
   for (i in d1) {
     for (j in d2) {
       if (sexy && (d1[i].gender != d2[j].gender))
@@ -315,7 +340,7 @@ function matchFormations(d1,d2,sexy)
       var anglediff = angleDiff(d1[i].tx.getAngle(),d2[j].start.getAngle());
       if (Math.abs(anglediff) > 10*Math.PI/180)
         continue;
-      retval[i] = j;
+      retval[j] = i;
       count++;
     }
   }

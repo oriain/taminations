@@ -98,14 +98,12 @@ TAMination.prototype = {
   //  to get the dancers and their positions.
   getFormation: function()
   {
-    var a= $("tam",this.xmldoc).eq(this.callnum);
-    var retval = a.attr('formation');
-    if (retval && retval.indexOf('Formation') != 0)
-      retval = formations[retval];
+    var a = $("tam",this.xmldoc).eq(this.callnum);
+    var retval = getNamedFormation(a.attr('formation'));
     if (!retval) {  //  must be sequence
-      retval = $('sequence',animations).attr('formation');
-      if (retval && retval.indexOf('Formation') != 0)
-        retval = formations[retval];
+      a = startingFormation;
+      //a = $('sequence',animations).attr('formation');
+      retval = getNamedFormation(a);
     }
     return retval;
   },
@@ -335,6 +333,14 @@ function setPart(part)
     //  hide and show is needed to force Webkit browsers to show the change
                     .hide().show();
   }
+}
+
+function getNamedFormation(name)
+{
+  retval = name;
+  if (retval && retval.indexOf('Formation') != 0)
+    retval = formations[retval];
+  return retval;
 }
 
 //Generate the correct copyright for a call at a specific level

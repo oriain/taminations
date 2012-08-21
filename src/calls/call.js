@@ -26,29 +26,16 @@ Call = defineClass({});
 //  Then collect each path into an array corresponding to the array of dancers
 //  And level off the number of beats as needed by adding Stand moves
 Call.prototype.perform = function(ctx) {
-  var maxbeats = 0;
   ctx.analyze();
   //  Get all the paths with performOne calls
   for (var d in ctx.dancers) {
     p = new Path();
     if (d in ctx.active) {
-      console.log('Perform: '+d+' '+ctx.partner[d]);
       p = this.performOne(ctx,d);
     }
-    b = p.beats();
-    console.log('Dancer '+d+'  beats: '+b);
-    if (b > maxbeats)
-      maxbeats = b;
     ctx.paths[d].add(p);
   }
-  //  Level off the number of beats for each dancer
-  for (var d in ctx.dancers) {
-    b = maxbeats - ctx.paths[d].beats();
-    if (b > 0) {
-      var m = tam.translateMovement({select:'Stand',beats:b});
-      ctx.paths[d].add(new Path(m));
-    }
-  }
+  levelBeats(ctx);
 }
 
 //  Default method for one dancer to perform one call
