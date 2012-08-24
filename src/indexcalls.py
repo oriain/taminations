@@ -22,10 +22,11 @@ def main():
   #  Read scripts from javascript files
   for filename in glob.glob('calls/*.js'):
     filename = filename.replace('\\','/')
+    t['../src/'+filename] = []
     for line in open(filename):
       m = r3.search(line)
       if m:
-        t['../src/'+filename] = [m.group(1)]
+        t['../src/'+filename].append(m.group(1))
 
   #  Invert the table
   it = {}

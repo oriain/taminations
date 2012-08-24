@@ -324,7 +324,7 @@ function bindControls()
   tamsvg.animationStopped = function()
   {
     $('#playButton').attr('value','Play').button('refresh');
-  }
+  };
   //$('#animslider').change(function()
   //  {
   //    tamsvg.setBeat($('#animslider').val()/100);

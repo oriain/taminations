@@ -21,29 +21,32 @@
 
 Call = defineClass({});
 
+//  Wrapper method for performing one call
+Call.prototype.performCall = function(ctx) {
+  ctx.analyze();
+  this.perform(ctx);
+  ctx.levelBeats();
+};
 //  Default method to perform one call
 //  Pass the call on to each active dancer
 //  Then collect each path into an array corresponding to the array of dancers
 //  And level off the number of beats as needed by adding Stand moves
 Call.prototype.perform = function(ctx) {
-  ctx.analyze();
   //  Get all the paths with performOne calls
   for (var d in ctx.dancers) {
-    p = new Path();
-    if (d in ctx.active) {
-      p = this.performOne(ctx,d);
-    }
-    ctx.paths[d].add(p);
+    if (d in ctx.active)
+      ctx.paths[d].add(this.performOne(ctx,d));
   }
-  levelBeats(ctx);
-}
+};
+
+Call.classes = {};
 
 //  Default method for one dancer to perform one call
 //  Returns an empty path (the dancer just stands there)
 Call.prototype.performOne = function(ctx,d)
 {
   return new Path();
-}
+};
 
 
 //  CallContext class is passed around calls to hold the working data
@@ -51,14 +54,32 @@ CallContext = defineClass({
   construct: function(source)
   {
     this.dancers = source.dancers;
-    this.active = {}
+    this.active = {};
     for (var d in (source.active || source.dancers))
       this.active[d] = source.dancers[d];
     this.paths = [];
-    for (var d in this.dancers)
+    for (d in this.dancers)
       this.paths.push(new Path());
   }
 });
+
+//  Level off the number of beats for each dancer
+CallContext.prototype.levelBeats = function()
+{
+  var maxbeats = 0;
+  for (var d in this.dancers) {
+    var b = this.paths[d].beats();
+    if (b > maxbeats)
+      maxbeats = b;
+  }
+  for (var d in this.dancers) {
+    var b = maxbeats - this.paths[d].beats();
+    if (b > 0) {
+      var m = tam.translateMovement({select:'Stand',beats:b});
+      this.paths[d].add(new Path(m));
+    }
+  }
+};
 
 ////    Routines to analyze dancers
 //  Distance between two dancers
@@ -67,7 +88,7 @@ CallContext.prototype.distance = function(d1,d2)
   return    this.dancers[d1].location()
   .subtract(this.dancers[d2].location())
   .distance();
-}
+};
 //  Angle of d2 as viewed from d1
 //  If angle is 0 then d2 is in front of d1
 CallContext.prototype.angle = function(d1,d2)
@@ -75,25 +96,37 @@ CallContext.prototype.angle = function(d1,d2)
   var v = this.dancers[d2].location();
   var v2 = v.preConcatenate(this.dancers[d1].tx.getInverse());
   return v2.angle();
-}
+};
 //  Test if dancer d2 is directly in front, back. left, right of dancer d1
 CallContext.prototype.isInFront = function(d1,d2)
 {
   return Math.anglesEqual(this.angle(d1,d2),0);
-}
+};
 CallContext.prototype.isInBack = function(d1,d2)
 {
   return Math.anglesEqual(this.angle(d1,d2),Math.PI);
-}
+};
 CallContext.prototype.isLeft = function(d1,d2)
 {
   return Math.anglesEqual(this.angle(d1,d2),Math.PI/2);
-}
+};
 CallContext.prototype.isRight = function(d1,d2)
 {
   return Math.anglesEqual(this.angle(d1,d2),Math.PI*3/2);
-}
+};
 
+//  Return dancers that are in between two other dancers
+CallContext.prototype.inBetween = function(d1,d2)
+{
+  var retval = [];
+  for (var d in this.dancers) {
+    if (d != d1 && d != d2 &&
+        Math.isApprox(this.distance(d,d1)+this.distance(d,d2),
+                      this.distance(d1,d2)))
+      retval.push(d);
+  }
+  return retval;
+};
 
 CallContext.prototype.analyze = function()
 {
@@ -102,37 +135,43 @@ CallContext.prototype.analyze = function()
   this.leader = {};
   this.trailer = {};
   this.partner = {};
-  //  .. etc for ends, centers, very centers ...
+  this.center = {};
+  this.end = {};
+  this.verycenter = {};
   for (var d1 in this.dancers) {
     var bestleft = -1;
     var bestright = -1;
-    var countleft = 0;
-    var countright = 0;
+    var leftcount = 0;
+    var rightcount = 0;
     var frontcount = 0;
     var backcount = 0;
     for (var d2 in this.dancers) {
       if (d2 == d1)
         continue;
+      //  Count dancers to the left and right, and find the closest on each side
       if (this.isRight(d1,d2)) {
-        countright++;
+        rightcount++;
         if (bestright < 0 || this.distance(d1,d2) < this.distance(d1,bestright))
           bestright = Number(d2);
       }
       else if (this.isLeft(d1,d2)) {
-        countleft++;
+        leftcount++;
         if (bestleft < 0 || this.distance(d1,d2) < this.distance(d1,bestleft))
           bestleft = Number(d2);
       }
+      //  Also count dancers in front and in back
       else if (this.isInFront(d1,d2))
         frontcount++;
       else if (this.isInBack(d1,d2))
         backcount++;
     }
-    if (countleft % 2 == 1 && countright % 2 == 0) {
+    //  Use the results of the counts to assign belle/beau/leader/trailer
+    //  and partner
+    if (leftcount % 2 == 1 && rightcount % 2 == 0) {
       this.partner[d1] = bestleft;
       this.belle[d1] = true;
     }
-    else if (countright % 2 == 1 && countleft % 2 == 0) {
+    else if (rightcount % 2 == 1 && leftcount % 2 == 0) {
       this.partner[d1] = bestright;
       this.beau[d1] = true;
     }
@@ -140,5 +179,16 @@ CallContext.prototype.analyze = function()
       this.leader[d1] = true;
     else if (frontcount % 1 == 0 && backcount % 2 == 0)
       this.trailer[d1] = true;
+    //  Assign centers and ends
+    if (rightcount == 0 && leftcount > 1)
+      this.end[d1] = true;
+    else if (leftcount == 0 && rightcount > 1)
+      this.end[d1] = true;
+    //  The very centers of a tidal wave are ends
+    if (rightcount == 3 && leftcount == 4 ||
+        rightcount == 4 && leftcount == 3)
+      this.end[d1] = true;
+    if (rightcount > 0 && leftcount > 0 && !this.end[d1])
+      this.center[d1] = true;
   }
-}
+};

@@ -19,12 +19,11 @@
 
  */
 
-xmldata['src/calls/leaders.js'] = defineClass({
+Call.classes['leaders'] = defineClass({
   name: "Leaders",
   extend: Call,
   methods: {
     perform: function(ctx) {
-      ctx.analyze();
       var newactive = {};
       for (var d in ctx.active) {
         if (ctx.leader[d])

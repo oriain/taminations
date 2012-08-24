@@ -19,15 +19,23 @@
 
  */
 
-Call.classes['turnback'] = defineClass({
-  name: "Turn Back",
+Call.classes['centers'] = defineClass({
+  name: "Centers",
   extend: Call,
   methods: {
-    performOne: function(ctx,d) {
-      var m = ctx.beau[d] ? 'U-Turn Right' : 'U-Turn Left';
-      var moves = tam.translateMovement({ select: m });
-      return new Path(moves);
+    perform: function(ctx) {
+      var newactive = {};
+      for (var d in ctx.active) {
+        if (ctx.center[d])
+          newactive[d] = ctx.dancers[d];
+      }
+      ctx.active = newactive;
     }
 
   },
+});
+
+Call.classes['center'] = defineClass({
+  name: "Center",
+  extend: Call.classes['centers']
 });

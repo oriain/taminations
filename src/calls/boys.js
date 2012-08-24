@@ -19,7 +19,7 @@
 
  */
 
-xmldata['src/calls/boys.js'] = defineClass({
+Call.classes['boys'] = defineClass({
   name: "Boys",
   extend: Call,
   methods: {

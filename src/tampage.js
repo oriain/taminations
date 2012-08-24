@@ -88,7 +88,7 @@ $(document).ready(
       $('#menudiv tr:first').append('<td class="menutitle">'+tm.title+'<br/>'+
           '<div><table class="menu" cellpadding="0" cellspacing="0" summary="">'+
       '</table></div></td>');
-      $('.menutitle:last').data('menu',m)
+      $('.menutitle:last').data('menu',m);
       $('.menutitle:last').click(function() {
         var tm = tamination_menu[$(this).data('menu')];
         var menuhtml = '';

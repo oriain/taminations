@@ -19,15 +19,25 @@
 
  */
 
-Call.classes['turnback'] = defineClass({
-  name: "Turn Back",
+Call.classes['run'] = defineClass({
+  name: "Run",
   extend: Call,
   methods: {
-    performOne: function(ctx,d) {
-      var m = ctx.beau[d] ? 'U-Turn Right' : 'U-Turn Left';
-      var moves = tam.translateMovement({ select: m });
-      return new Path(moves);
+    perform: function(ctx) {
+      for (var d in ctx.dancers) {
+        p = new Path();
+        if (d in ctx.active) {
+          var m = ctx.beau[d] ? 'Run Right' : 'Run Left';
+          var moves = tam.translateMovement({ select: m });
+          p = new Path(moves);
+        }
+        else if (ctx.partner[d] in ctx.active) {
+          var m = ctx.beau[d] ? 'Dodge Right' : 'Dodge Left';
+          var moves = tam.translateMovement({ select: m });
+          p = new Path(moves);
+        }
+        ctx.paths[d].add(p);
+      }
     }
-
   },
 });

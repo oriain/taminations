@@ -17,14 +17,13 @@
     You should have received a copy of the GNU Affero General Public License
     along with TAMinations.  If not, see <http://www.gnu.org/licenses/>.
 
- */
+*/
 
-xmldata['src/calls/trailers.js'] = defineClass({
+Call.classes['trailers'] = defineClass({
   name: "Trailers",
   extend: Call,
   methods: {
     perform: function(ctx) {
-      ctx.analyze();
       var newactive = {};
       for (var d in ctx.active) {
         if (ctx.trailer[d])

@@ -29,7 +29,7 @@ var TAMination = window.TAMination = function(elemid,xmldoc,call,params)
   return this instanceof TAMination ?
       this.init(elem,xmldoc,call,params) :
       new TAMination(elemid,xmldoc,call,params);
-}
+};
 var tam;
 TAMination.prototype = {
   init: function(elem,xmldoc,call,params)
@@ -300,7 +300,6 @@ function SelectAnimation(n)
     var str = '';
     for (var j=0; j<p[i].length; j++)
       str += movementToString(p[i][j]);
-    var ii = i+1;
     if (applet)
       applet.addDancer(i+1,str);
   }
