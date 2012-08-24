@@ -83,11 +83,13 @@ CallContext.prototype.levelBeats = function()
 
 ////    Routines to analyze dancers
 //  Distance between two dancers
+//  If d2 not given, returns distance from origin
 CallContext.prototype.distance = function(d1,d2)
 {
-  return    this.dancers[d1].location()
-  .subtract(this.dancers[d2].location())
-  .distance();
+  var v = this.dancers[d1].location();
+  if (d2)
+    v = v.subtract(this.dancers[d2].location());
+  return v.distance();
 };
 //  Angle of d2 as viewed from d1
 //  If angle is 0 then d2 is in front of d1
@@ -138,6 +140,7 @@ CallContext.prototype.analyze = function()
   this.center = {};
   this.end = {};
   this.verycenter = {};
+  var istidal = false;
   for (var d1 in this.dancers) {
     var bestleft = -1;
     var bestright = -1;
@@ -179,16 +182,47 @@ CallContext.prototype.analyze = function()
       this.leader[d1] = true;
     else if (frontcount % 1 == 0 && backcount % 2 == 0)
       this.trailer[d1] = true;
-    //  Assign centers and ends
+    //  Assign ends
     if (rightcount == 0 && leftcount > 1)
       this.end[d1] = true;
     else if (leftcount == 0 && rightcount > 1)
       this.end[d1] = true;
     //  The very centers of a tidal wave are ends
+    //  Remember this special case for assigning centers later
     if (rightcount == 3 && leftcount == 4 ||
-        rightcount == 4 && leftcount == 3)
+        rightcount == 4 && leftcount == 3) {
       this.end[d1] = true;
-    if (rightcount > 0 && leftcount > 0 && !this.end[d1])
-      this.center[d1] = true;
+      istidal = true;
+    }
   }
+  //  Analyze for centers and very centers
+  //  Sort dancers by distance from center
+  var dorder = [];
+  for (d1 in this.dancers)
+    dorder[d1] = d1;
+  var ctx = this;
+  dorder.sort(function(a,b) {
+    return ctx.distance(a) - ctx.distance(b);
+  });
+  // The closest 2 dancers are very centers
+  if (!Math.isApprox(this.distance(dorder[1]),this.distance(dorder[2]))) {
+    this.verycenter[dorder[0]] = true;
+    this.verycenter[dorder[1]] = true;
+  }
+  // If tidal, then the next 4 dancers are centers
+  if (istidal) {
+    this.center[dorder[2]] = true;
+    this.center[dorder[3]] = true;
+    this.center[dorder[4]] = true;
+    this.center[dorder[5]] = true;
+  }
+  // Otherwise, if there are 4 dancers closer to the center than the other 4,
+  // they are the centers
+  else if (!Math.isApprox(this.distance(dorder[3]),this.distance(dorder[4]))) {
+    this.center[dorder[0]] = true;
+    this.center[dorder[1]] = true;
+    this.center[dorder[2]] = true;
+    this.center[dorder[3]] = true;
+  }
+
 };

@@ -1901,9 +1901,11 @@ Math.IEEEremainder = function(d1,d2)
   var n = Math.round(d1/d2);
   return d1 - n*d2;
 };
-Math.isApprox = function(a,b)
+Math.isApprox = function(a,b,delta)
 {
-  return Math.abs(a-b) < 0.1;
+  if (!delta)
+    delta = 0.1;
+  return Math.abs(a-b) < delta;
 };
 Math.angleDiff = function(a1,a2)
 {
