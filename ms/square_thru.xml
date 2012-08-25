@@ -41,28 +41,6 @@
   </tam>
 
   <tam title="Square Thru 2"
-       from="Static Square"
-       formation="Static Square"
-       parts="3" difficulty="1">
-    <path>
-      <move select="Forward 2" />
-      <move select="Pull Left" scaleY=".5" />
-      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
-      <move select="Extend Left" scaleY=".5" />
-    </path>
-    <path>
-      <move select="Forward 2" />
-      <move select="Pull Left" scaleY=".5" />
-      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
-      <move select="Extend Left" scaleY=".5" />
-    </path>
-    <path>
-    </path>
-    <path>
-    </path>
-  </tam>
-
-  <tam title="Square Thru 2"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
        parts="1" difficulty="1">
@@ -135,30 +113,6 @@
       <move select="Lead Left" offsetX=".5" offsetY="-.5" />
       <move select="Lead Left" scaleX=".5" scaleY="1.5" />
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
-    </path>
-  </tam>
-
-  <tam title="Square Thru 3"
-       from="Static Square"
-       formation="Static Square"
-       parts="3;1.5" difficulty="1">
-    <path>
-      <move select="Forward 2" />
-      <move select="Pull Left" scaleY=".5" />
-      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
-      <move select="Lead Right" offsetX=".5" offsetY=".5" />
-      <move select="Extend Right" scaleY=".5" />
-    </path>
-    <path>
-      <move select="Forward 2" />
-      <move select="Pull Left" scaleY=".5" />
-      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
-      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
-      <move select="Extend Right" scaleY=".5" />
-    </path>
-    <path>
-    </path>
-    <path>
     </path>
   </tam>
 
@@ -245,32 +199,6 @@
       <move select="Lead Left" scaleX=".5" scaleY="1.5" />
       <move select="Lead Left" offsetX=".5" offsetY="-.5" />
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
-    </path>
-  </tam>
-
-  <tam title="Square Thru 4"
-       from="Static Square"
-       formation="Static Square"
-       parts="3;1.5;1.5" difficulty="1">
-    <path>
-      <move select="Forward 2" />
-      <move select="Pull Left" scaleY=".5" />
-      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
-      <move select="Lead Right" offsetX=".5" offsetY=".5" />
-      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
-      <move select="Extend Left" scaleY=".5" />
-    </path>
-    <path>
-      <move select="Forward 2" />
-      <move select="Pull Left" scaleY=".5" />
-      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
-      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
-      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
-      <move select="Extend Left" scaleY=".5" />
-    </path>
-    <path>
-    </path>
-    <path>
     </path>
   </tam>
 
@@ -369,32 +297,6 @@
   </tam>
 
   <tam title="Left Square Thru 4"
-       from="Static Square"
-       formation="Static Square"
-       parts="" difficulty="2">
-    <path>
-      <move select="Forward 2" />
-      <move select="Pull Right" scaleY=".5" />
-      <move select="Lead Right" offsetX=".5" offsetY=".5" />
-      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
-      <move select="Lead Right" offsetX=".5" offsetY=".5" />
-      <move select="Extend Right" scaleY=".5" />
-    </path>
-    <path>
-      <move select="Forward 2" />
-      <move select="Pull Right" scaleY=".5" />
-      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
-      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
-      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
-      <move select="Extend Right" scaleY=".5" />
-    </path>
-    <path>
-    </path>
-    <path>
-    </path>
-  </tam>
-
-  <tam title="Left Square Thru 4"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
        parts="" difficulty="2">
@@ -465,4 +367,201 @@
       <move select="Extend Right" scaleY=".5" />
     </path>
   </tam>
+
+  <tam title="Heads Square Thru 2" group=" "
+       from="Static Square"
+       formation="Static Square"
+       parts="3" difficulty="1">
+    <path>
+      <move select="Forward 2" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+    <path>
+    </path>
+    <path>
+    </path>
+  </tam>
+
+  <tam title="Heads Square Thru 3" group=" "
+       from="Static Square"
+       formation="Static Square"
+       parts="3;1.5" difficulty="1">
+    <path>
+      <move select="Forward 2" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+    <path>
+    </path>
+    <path>
+    </path>
+  </tam>
+
+  <tam title="Heads Square Thru 4" group=" "
+       from="Static Square"
+       formation="Static Square"
+       parts="3;1.5;1.5" difficulty="1">
+    <path>
+      <move select="Forward 2" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+    <path>
+    </path>
+    <path>
+    </path>
+  </tam>
+
+  <tam title="Heads Left Square Thru 4" group=" "
+       from="Static Square"
+       formation="Static Square"
+       parts="" difficulty="2">
+    <path>
+      <move select="Forward 2" />
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+    <path>
+    </path>
+    <path>
+    </path>
+  </tam>
+
+  <tam title="Sides Square Thru 2" group=" "
+       from="Static Square"
+       formation="Static Square"
+       parts="3" difficulty="1" display="none">
+    <path>
+    </path>
+    <path>
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Sides Square Thru 3" group=" "
+       from="Static Square"
+       formation="Static Square"
+       parts="3;1.5" difficulty="1" display="none">
+    <path>
+    </path>
+    <path>
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Sides Square Thru 4" group=" "
+       from="Static Square"
+       formation="Static Square"
+       parts="3;1.5;1.5" difficulty="1" display="none">
+    <path>
+    </path>
+    <path>
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Sides Left Square Thru 4" group=" "
+       from="Static Square"
+       formation="Static Square"
+       parts="" difficulty="2" display="none">
+    <path>
+    </path>
+    <path>
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Pull Right" scaleY=".5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+  </tam>
+
 </tamination>

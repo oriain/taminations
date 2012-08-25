@@ -21,15 +21,10 @@
 
 -->
 <tamination>
-  
-  
-  
-  
 
   <tam title="Circle to a Line Simple Style"
        from="Eight Chain Thru"
-       formation="Eight Chain Thru"
-       parts="" >
+       formation="Eight Chain Thru">
     <path>
       <move select="Eighth Right" hands="gripboth" />
       <Movement hands="gripboth" beats="3" cx1="0" cy1="1.88" cx2="2.83" cy2="1.88" x2="2.83" y2="0" cx3="1.33" cx4="1.33" cy4="-2" x4="0" y4="-2" />
@@ -57,8 +52,35 @@
 
   <tam title="Circle to a Line Callerlab Style"
        from="Eight Chain Thru"
-       formation="Eight Chain Thru"
-       parts="" >
+       formation="Eight Chain Thru">
+    <path>
+      <move select="Eighth Right" hands="gripboth" />
+      <Movement hands="gripboth" beats="3" cx1="0" cy1="1.88" cx2="2.83" cy2="1.88" x2="2.83" y2="0" cx3="1.33" cx4="1.33" cy4="-2" x4="0" y4="-2" />
+      <Movement hands="gripboth" beats="1.5" cx1="0" cy1=".39" cx2=".318" cy2=".707" x2=".707" y2=".707" cx3=".55" cx4="1" cy4="-.45" x4="1" y4="-1" />
+      <move select="Eighth Right" hands="gripboth" />
+    </path>
+    <path>
+      <move select="Eighth Left" hands="gripboth" />
+      <Movement hands="gripboth" beats="3" cx1="0" cy1="1.88" cx2="2.83" cy2="1.88" x2="2.83" y2="0" cx3="1.33" cx4="1.33" cy4="-2" x4="0" y4="-2" />
+      <Movement hands="gripleft" beats="1.5" cx1="0" cy1=".78" cx2=".636" cy2="1.414" x2="1.414" y2="1.414" cx3=".55" cx4="1" cy4="-.45" x4="1" y4="-1" />
+      <move select="Eighth Left" hands="gripleft" />
+      <move select="U-Turn Left" hands="gripleft" offsetX="1" offsetY="2" />
+    </path>
+    <path>
+      <move select="Eighth Right" hands="gripboth" />
+      <Movement hands="gripboth" beats="3" cx1="0" cy1="1.88" cx2="2.83" cy2="1.88" x2="2.83" y2="0" cx3="1.33" cx4="1.33" cy4="-2" x4="0" y4="-2" />
+      <move select="Eighth Left" hands="gripright" beats="2" offsetX="-.707" offsetY="2.121" />
+    </path>
+    <path>
+      <move select="Eighth Left" hands="gripboth" />
+      <Movement hands="gripboth" beats="3" cx1="0" cy1="1.88" cx2="2.83" cy2="1.88" x2="2.83" y2="0" cx3="1.33" cx4="1.33" cy4="-2" x4="0" y4="-2" />
+      <move select="Eighth Right" hands="gripboth" beats="2" offsetX="2.121" offsetY=".707" />
+    </path>
+  </tam>
+
+  <tam title="Circle to a Line" display="none"
+       from="Eight Chain Thru"
+       formation="Eight Chain Thru" >
     <path>
       <move select="Eighth Right" hands="gripboth" />
       <Movement hands="gripboth" beats="3" cx1="0" cy1="1.88" cx2="2.83" cy2="1.88" x2="2.83" y2="0" cx3="1.33" cx4="1.33" cy4="-2" x4="0" y4="-2" />
@@ -86,8 +108,7 @@
 
   <tam title="Circle to a Line Modern Style"
        from="Eight Chain Thru"
-       formation="Eight Chain Thru"
-       parts="" >
+       formation="Eight Chain Thru">
     <path>
       <move select="Extend Left" hands="right" beats="2" scaleY="1.5" />
       <move select="Extend Right" hands="right" beats="2" scaleY="1.5" />

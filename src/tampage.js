@@ -219,7 +219,7 @@ function generateAnimations()
   var prevtitle = "";
   var prevgroup = "";
   $("#animationlist").empty();  //  disable to restore old animations
-  $("tam",animations).each(function(n) {
+  $('tam:[display!="none"]',animations).each(function(n) {
     var callname = $(this).attr('title') + 'from' + $(this).attr('from');
     var name = $(this).attr('from');
     if ($(this).attr("group") != undefined) {

@@ -148,4 +148,35 @@
     </path>
   </tam>
 
+  <tam title="Sides Lead Right" group=" " display="none"
+       from="Static Square"
+       formation="Static Square" difficulty="1">
+    <path>
+    </path>
+    <path>
+    </path>
+    <path>
+      <move select="Hinge Right" beats="4" scaleX=".5" scaleY=".5" offsetX="3.5" offsetY="-1.5" />
+    </path>
+    <path>
+      <move select="Quarter Right" beats="4" hands="left" offsetX="2" />
+    </path>
+  </tam>
+
+  <tam title="Sides Lead Left" group=" " display="none"
+       from="Static Square"
+       formation="Static Square"
+       parts="" difficulty="1">
+    <path>
+    </path>
+    <path>
+    </path>
+    <path>
+      <move select="Quarter Left" beats="4" hands="right" offsetX="2" />
+    </path>
+    <path>
+      <move select="Hinge Left" beats="4" scaleX=".5" scaleY=".5" offsetX="3.5" offsetY="1.5" />
+    </path>
+  </tam>
+
 </tamination>
