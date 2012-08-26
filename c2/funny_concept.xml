@@ -22,7 +22,7 @@
 -->
 <tamination>
 
-  <tam title="Funny Box Circulate 2" group="Funny" parts="3"
+  <tam title="Funny Split Circulate 2" group="Funny" parts="3"
        formation="Formation boy 3 2 270 girl 1 2 270 girl -1 2 180 boy -3 2 90">
     <path numbers="7 2">
       <move select="Stand" beats="3"/>
