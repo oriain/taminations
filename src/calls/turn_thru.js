@@ -19,25 +19,24 @@
 
  */
 
-Call.classes['run'] = defineClass({
-  name: "Run",
+Call.classes['turnthru'] = defineClass({
+  name: "Turn Thru",
   extend: Call,
   methods: {
-    perform: function(ctx) {
-      for (var d in ctx.dancers) {
-        var p = new Path();
-        if (d in ctx.active) {
-          var m = ctx.beau[d] ? 'Run Right' : 'Run Left';
-          var moves = tam.translateMovement({ select: m });
-          p = new Path(moves);
-        }
-        else if (ctx.partner[d] in ctx.active) {
-          var m = ctx.beau[d] ? 'Dodge Right' : 'Dodge Left';
-          var moves = tam.translateMovement({ select: m });
-          p = new Path(moves);
-        }
-        ctx.paths[d].add(p);
+    performOne: function(ctx,d) {
+      //  Can only turn thru with another dancer
+      //  in front of this dancer
+      //  who is also facing this dancer
+      var d2 = ctx.dancerInFront(d);
+      if (d2 != undefined && ctx.dancerInFront(d2) == d) {
+        var dist = ctx.distance(d,d2);
+        var moves = tam.translatePath([{ select: 'Extend Left', scaleX: dist/2, scaleY: 0.5 },
+                                       { select: 'Swing Right', scaleX: 0.5, scaleY: 0.5 },
+                                       { select: 'Extend Right', scaleX: dist/2, scaleY: 0.5 }]);
+        return new Path(moves);
       }
+      throw new Error();
     }
+
   },
 });

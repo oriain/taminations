@@ -20,7 +20,7 @@
  */
 
 var callindex = 0;
-var startingFormation="Facing Couples";
+var startingFormation="Static Square";
 var seq = 0;
 var xmldata = {};
 var calls = [];
@@ -28,14 +28,21 @@ var callclasses = {};
 $.holdReady(true);
 $.getJSON("src/callindex.json",function(data) {
   callindex = data;
+  startingFormation = $('input[name="formation"]:checked').val();
   $.holdReady(false);
 }).error(function() {alert('JSON error');});
 
 var timeoutID = null;
 
 $(document).ready(function() {
-  $('#formation').change(function() {
-    startingFormation = $('#formation').val();
+  $('#instructions-link').click(function() {
+    $('#instructions').toggle();
+  });
+  $('#instructions').click(function() {
+    $('#instructions').hide();
+  });
+  $('input[name="formation"]').change(function(ev) {
+    startingFormation = $(ev.target).val();
     generateAnimations();
   });
 
@@ -43,8 +50,8 @@ $(document).ready(function() {
 
 function generateAnimations()  // override function in tampage.js
 {
-  if ($('#definition #sequenceform').size() == 0)
-    $('#definition').empty().append($('#sequenceform'));
+  if ($('#definition #sequencepage').size() == 0)
+    $('#definition').empty().append($('#sequencepage'));
 
   //  Build the animation
   TAMination(0,animations,'','');
@@ -107,7 +114,7 @@ function updateSequence()
                 if (--filecount == 0)
                   buildSequence();
               }).fail(function(jqxhr,settings,exception) {
-                console.log('script failed '+settings);
+                alert('script failed '+settings);
               });
             else
               //  Call is interpreted by animations
@@ -148,12 +155,12 @@ function buildSequence()
     var doxml = true;
     var callwords = calls[n2].toLowerCase().replace(/\W/g,' ').split(/\s+/);
     $('#Part'+(Number(n2)+1)).text('');
+    try {
     while (callwords.length > 0) {
       callfound = false;
 parseOneCall:
       for (var i=callwords.length; i>0; i--) {
         var call = callwords.slice(0,i).join('');
-        console.log(call);
         //  First try to find an explicit xml animation
         //  But only for the complete call
         var a = callindex[call];
@@ -195,12 +202,11 @@ parseOneCall:
         //  Failed to find XML-defined animation, check for a script
         var tamxml = Call.classes[call];
         if (typeof tamxml == 'function') {
-          console.log('will use function');
           callfound = true;
           var nextcall = new tamxml();
+          $('#Part'+(Number(n2)+1)).text($('#Part'+(Number(n2)+1)).text()+' '+nextcall.classname);
           nextcall.performCall(ctx);
           //  TODO check for function failure
-          $('#Part'+(Number(n2)+1)).text($('#Part'+(Number(n2)+1)).text()+' '+nextcall.classname);
           callwords = callwords.slice(i,callwords.length);
           doxml = false;
           break parseOneCall;
@@ -214,6 +220,14 @@ parseOneCall:
         break;
       }
 
+    }
+
+    }
+    catch (errmsg) {
+      $('#animationlist').append('<span id="errormsg"><br/><span style="color:black">I am unable to do<br/><b>'+
+          calls[n2] +
+          '</b><br/>from this formation.</span></span>');
+      break;
     }
 
     if (ctx.paths[0].beats() > 0) {  //  Call and formation found

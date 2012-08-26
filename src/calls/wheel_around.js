@@ -19,25 +19,27 @@
 
  */
 
-Call.classes['run'] = defineClass({
-  name: "Run",
+Call.classes['wheelaround'] = defineClass({
+  name: "Wheel Around",
   extend: Call,
   methods: {
-    perform: function(ctx) {
-      for (var d in ctx.dancers) {
-        var p = new Path();
-        if (d in ctx.active) {
-          var m = ctx.beau[d] ? 'Run Right' : 'Run Left';
-          var moves = tam.translateMovement({ select: m });
-          p = new Path(moves);
-        }
-        else if (ctx.partner[d] in ctx.active) {
-          var m = ctx.beau[d] ? 'Dodge Right' : 'Dodge Left';
-          var moves = tam.translateMovement({ select: m });
-          p = new Path(moves);
-        }
-        ctx.paths[d].add(p);
+    performOne: function(ctx,d) {
+      var errmsg = 'You cannot Wheel Around from this formation.';
+      var d2 = ctx.partner[d];
+      if (d2 == undefined || !ctx.active[d2])
+        throw errmsg;
+      var m = '';
+      if (ctx.belle[d]) {
+        if (!ctx.beau[d2])
+          throw errmsg;
+        m = tam.translateMovement({ select: 'Belle Wheel' });
       }
+      else {
+        if (!ctx.belle[d2])
+          throw errmsg;
+        m = tam.translateMovement({ select: 'Beau Wheel' });
+      }
+      ctx.paths[d].add(new Path(m));
     }
   },
 });

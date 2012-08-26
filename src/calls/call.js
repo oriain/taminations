@@ -20,6 +20,7 @@
  */
 
 Call = defineClass({});
+Call.classes = {};
 
 //  Wrapper method for performing one call
 Call.prototype.performCall = function(ctx) {
@@ -34,12 +35,13 @@ Call.prototype.performCall = function(ctx) {
 Call.prototype.perform = function(ctx) {
   //  Get all the paths with performOne calls
   for (var d in ctx.dancers) {
-    if (d in ctx.active)
-      ctx.paths[d].add(this.performOne(ctx,d));
+    if (d in ctx.active) {
+      var p = this.performOne(ctx,d);
+      if (p != undefined)
+          ctx.paths[d].add(p);
+    }
   }
 };
-
-Call.classes = {};
 
 //  Default method for one dancer to perform one call
 //  Returns an empty path (the dancer just stands there)
@@ -48,8 +50,8 @@ Call.prototype.performOne = function(ctx,d)
   return new Path();
 };
 
-
-//  CallContext class is passed around calls to hold the working data
+//  An instance of the CallContext class is passed around calls
+//  to hold the working data
 CallContext = defineClass({
   construct: function(source)
   {
@@ -87,7 +89,7 @@ CallContext.prototype.levelBeats = function()
 CallContext.prototype.distance = function(d1,d2)
 {
   var v = this.dancers[d1].location();
-  if (d2)
+  if (d2 != undefined)
     v = v.subtract(this.dancers[d2].location());
   return v.distance();
 };
@@ -102,19 +104,31 @@ CallContext.prototype.angle = function(d1,d2)
 //  Test if dancer d2 is directly in front, back. left, right of dancer d1
 CallContext.prototype.isInFront = function(d1,d2)
 {
-  return Math.anglesEqual(this.angle(d1,d2),0);
+  return d1 != d2 && Math.anglesEqual(this.angle(d1,d2),0);
 };
 CallContext.prototype.isInBack = function(d1,d2)
 {
-  return Math.anglesEqual(this.angle(d1,d2),Math.PI);
+  return d1 != d2 && Math.anglesEqual(this.angle(d1,d2),Math.PI);
 };
 CallContext.prototype.isLeft = function(d1,d2)
 {
-  return Math.anglesEqual(this.angle(d1,d2),Math.PI/2);
+  return d1 != d2 && Math.anglesEqual(this.angle(d1,d2),Math.PI/2);
 };
 CallContext.prototype.isRight = function(d1,d2)
 {
-  return Math.anglesEqual(this.angle(d1,d2),Math.PI*3/2);
+  return d1 != d2 && Math.anglesEqual(this.angle(d1,d2),Math.PI*3/2);
+};
+
+//  Return dancer directly in front of given dancer
+CallContext.prototype.dancerInFront = function(d)
+{
+  var bestd = undefined;
+  for (var d2 in this.dancers) {
+    if (this.isInFront(d,d2) &&
+        (bestd == undefined || this.distance(d2,d) < this.distance(bestd,d)))
+      bestd = d2;
+  }
+  return bestd;
 };
 
 //  Return dancers that are in between two other dancers
@@ -170,11 +184,13 @@ CallContext.prototype.analyze = function()
     }
     //  Use the results of the counts to assign belle/beau/leader/trailer
     //  and partner
-    if (leftcount % 2 == 1 && rightcount % 2 == 0) {
+    if (leftcount % 2 == 1 && rightcount % 2 == 0 &&
+        this.distance(d1,bestleft) < 3) {
       this.partner[d1] = bestleft;
       this.belle[d1] = true;
     }
-    else if (rightcount % 2 == 1 && leftcount % 2 == 0) {
+    else if (rightcount % 2 == 1 && leftcount % 2 == 0 &&
+        this.distance(d1,bestright) < 3) {
       this.partner[d1] = bestright;
       this.beau[d1] = true;
     }
