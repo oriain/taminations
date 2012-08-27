@@ -85,7 +85,8 @@ function updateSequence()
   for (var i in calls) {
     var callname = calls[i];
     if (callname.search(/\w/) >= 0) {
-      $('#calllist').append('<li><span id="Part'+(j++)+'">'+callname+'</span></li>');
+      $('#calllist').append('<li><a href="javascript:gotoCall('+(j-1)+')"><span id="Part'+j+'">'+callname+'</span></a></li>');
+      j++;
       realcalls.push(callname);
     }
   }
@@ -264,6 +265,14 @@ parseOneCall:
   }
   updateSliderMarks(true);
 
+}
+
+function gotoCall(n)
+{
+  var b = 0.01;  // so yellow highlight is on call selected
+  for (var i=0; i<n; i++)
+    b += tamsvg.parts[i];
+  tamsvg.setBeat(b);
 }
 
 function getFormation()  // override function in tamination.js
