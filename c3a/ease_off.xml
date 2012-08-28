@@ -21,8 +21,8 @@
 
 -->
 <tamination>
-  
-  
+
+
 
   <tam title="Ease Off"
        from="Right-Hand Two-Faced Lines"
@@ -40,6 +40,60 @@
     <path>
       <move select="Run Left" offsetX="-2" />
       <move select="Lead Left" scaleY="2" beats="2"/>
+    </path>
+  </tam>
+
+  <tam title="Ease Off" from="Left-Hand Two-Faced Lines"
+       formation="Two-Faced Lines LH">
+    <path>
+      <move select="Run Right" offsetX="-2" />
+      <move select="Lead Right" scaleY="2" beats="2"/>
+    </path>
+    <path>
+      <move select="Run Left" />
+      <move select="Quarter Left" offsetX="1" />
+    </path>
+    <path>
+      <move select="Quarter Left" offsetX="3" beats="3"/>
+    </path>
+    <path>
+      <move select="Quarter Left" offsetX="3" beats="3"/>
+    </path>
+  </tam>
+
+  <tam title="Ease Off" from="Right-Hand Waves"
+       formation="Ocean Waves RH BGGB">
+    <path>
+      <move select="Quarter Right" offsetX="3" beats="3"/>
+    </path>
+    <path>
+      <move select="Run Left" />
+      <move select="Quarter Left" offsetX="1" />
+    </path>
+    <path>
+      <move select="Quarter Left" offsetX="3" beats="3"/>
+    </path>
+    <path>
+      <move select="Run Left" offsetX="-2" />
+      <move select="Lead Left" scaleY="2" beats="2"/>
+    </path>
+  </tam>
+
+  <tam title="Ease Off" from="Left-Hand Waves"
+       formation="Ocean Waves LH BGGB">
+    <path>
+      <move select="Run Right" offsetX="-2" />
+      <move select="Lead Right" scaleY="2" beats="2"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="3" beats="3"/>
+    </path>
+    <path>
+      <move select="Run Right" />
+      <move select="Quarter Right" offsetX="1" />
+    </path>
+    <path>
+      <move select="Quarter Left" offsetX="3" beats="3"/>
     </path>
   </tam>
 
