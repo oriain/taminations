@@ -21,10 +21,9 @@
 
 -->
 <tamination>
-  
-  
 
-  <tam title="Exchange the Box" from="Right-Hand Waves" formation="Ocean Waves RH BGBG" parts="4;4;4">
+  <tam title="Exchange the Box" from="Right-Hand Waves"
+       formation="Ocean Waves RH BGBG" parts="4;4;4">
     <path>
       <move select="Forward 4"/>
       <move select="Run Right" beats="4"/>
@@ -48,6 +47,130 @@
       <move select="Run Right" beats="4"/>
       <move select="Extend Left" beats="4" scaleX="4"/>
       <move select="Run Left" beats="4" scaleX="2" scaleY="1.5"/>
+      <move select="Forward 4"/>
+    </path>
+  </tam>
+
+  <tam title="Exchange the Box" from="Left-Hand Waves"
+       formation="Ocean Waves LH BGBG" parts="4;4;4">
+    <path>
+      <move select="Run Left" beats="4"/>
+      <move select="Extend Right" beats="4" scaleX="4"/>
+      <move select="Run Right" beats="4" scaleX="2" scaleY="1.5"/>
+      <move select="Forward 4"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="4" scaleX="4"/>
+      <move select="Run Right" beats="4" scaleX="2" scaleY="2"/>
+      <move select="Extend Right" beats="4" scaleX="4"/>
+      <move select="Run Right" beats="4"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="4"/>
+      <move select="Forward 4"/>
+      <move select="Run Left" beats="4"/>
+      <move select="Forward"/>
+      <move select="Extend Right" beats="3" scaleX="3" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Forward 4"/>
+      <move select="Run Left" beats="4"/>
+      <move select="Extend Right" beats="4" scaleX="4"/>
+      <move select="Run Right" beats="4" scaleY="1.5"/>
+    </path>
+  </tam>
+
+  <tam title="Exchange the Box" from="Right-Hand Columns"
+       formation="Column RH GBGB" parts="3;3;3">
+    <path>
+      <move select="Run Right"/>
+      <move select="Forward 2" beats="3"/>
+      <move select="Extend Right" beats="2" scaleY="3"/>
+      <move select="Forward"/>
+      <move select="Extend Left" beats="3" scaleX="2"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Run Right"/>
+      <move select="Forward 2" beats="3"/>
+      <move select="Extend Right" beats="2" scaleY="2"/>
+      <move select="Forward"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleY="3"/>
+      <move select="Forward"/>
+      <move select="Forward 2" beats="3"/>
+      <move select="Run Left" scaleY="1.5"/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Extend Right" beats="2" scaleY="3"/>
+      <move select="Forward"/>
+      <move select="Forward 2" beats="3"/>
+      <move select="Run Left" scaleY="1.5"/>
+    </path>
+  </tam>
+
+  <tam title="Exchange the Box" from="Left-Hand Columns"
+       formation="Column LH GBGB" parts="3;3;3">
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Extend Left" beats="2" scaleY="3"/>
+      <move select="Forward"/>
+      <move select="Forward 2" beats="3"/>
+      <move select="Run Right" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleY="3"/>
+      <move select="Forward"/>
+      <move select="Forward 2" beats="3"/>
+      <move select="Run Right" scaleY="1.5"/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Run Left"/>
+      <move select="Forward 2" beats="3"/>
+      <move select="Extend Left" beats="2" scaleY="2"/>
+      <move select="Forward"/>
+    </path>
+    <path>
+      <move select="Run Left"/>
+      <move select="Forward 2" beats="3"/>
+      <move select="Extend Left" beats="2" scaleY="3"/>
+      <move select="Forward"/>
+      <move select="Extend Right" beats="3" scaleX="2"/>
+    </path>
+  </tam>
+
+  <tam title="Exchange the Box" from="Right-Hand Two-Faced Lines"
+       formation="Two-Faced Lines RH" parts="4;4;4">
+    <path>
+      <move select="Extend Left" beats="4" scaleX="4"/>
+      <move select="Flip Right" beats="4" scaleY="1.5"/>
+      <move select="Forward"/>
+      <move select="Extend Left" beats="3" scaleX="3" scaleY="2"/>
+      <move select="Flip Left" beats="4"/>
+    </path>
+    <path>
+      <move select="Forward"/>
+      <move select="Extend Right" beats="3" scaleX="3" scaleY="2"/>
+      <move select="Run Right" beats="4" scaleY="1.5"/>
+      <move select="Forward 4"/>
+      <move select="Run Right" beats="4" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Flip Left" beats="4"/>
+      <move select="Forward 4"/>
+      <move select="Run Left" beats="4"/>
+      <move select="Forward"/>
+      <move select="Extend Right" beats="3" scaleX="3" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4"/>
+      <move select="Extend Left" beats="4" scaleX="4"/>
+      <move select="Run Left" beats="4" scaleY="1.5"/>
       <move select="Forward 4"/>
     </path>
   </tam>
