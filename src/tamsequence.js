@@ -25,6 +25,7 @@ var seq = 0;
 var xmldata = {};
 var calls = [];
 var callclasses = {};
+var calllink = '';
 $.holdReady(true);
 $.getJSON("src/callindex.json",function(data) {
   callindex = data;
@@ -45,6 +46,24 @@ $(document).ready(function() {
     startingFormation = $(ev.target).val();
     generateAnimations();
   });
+  calllink = document.URL.split(/\?/)[0];
+  var calls = document.URL.split(/\?/)[1];
+  if (calls) {
+    calls = unescape(calls).split(/\&/);
+    startingFormation = calls.shift();
+    $('#calls').val(calls.join('\n'));
+  }
+  $('#linkbutton').click(function() { document.location = calllink; });
+  $('#savebutton').click(function()
+    {
+      var w = window.open('','calllistwindow','width=800,height=800,menubar=yes');
+      var t = $('#calllist li').map(function()
+          {
+            return ($(this).text());
+          }
+                           ).get().join('<br/>\n');
+      w.document.write(t);
+     });
 
 });
 
@@ -264,7 +283,14 @@ parseOneCall:
     tamsvg.start();
   }
   updateSliderMarks(true);
-
+  //  Generate link from calls
+  calllink = document.URL.split(/\?/)[0]
+    + '?' + escape(startingFormation) + '&' +
+    $('#calllist li').map(function()
+      {
+        return escape($(this).text());
+      }
+                       ).get().join('&');
 }
 
 function gotoCall(n)
