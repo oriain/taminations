@@ -18,6 +18,10 @@
     along with TAMinations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
+var prefix = '';
+//  Make the links work from both taminations directory and its subdirectories
+if (document.URL.search('/(info|ms|plus|adv|c1|c2|c3a)/') >= 0)
+  prefix = '../';
 var currentmenu = 0;
 var callnumber = -1;
 var currentcall = "";
@@ -79,10 +83,6 @@ $(document).ready(
     //  Build the menus
     $("#menudiv").append('<table cellpadding="0" cellspacing="0" width="100%" summary="">'+
     '<tr></tr></table>');
-    //  Make the links work from both taminations directory and its subdirectories
-    var prefix = '';
-    if (document.URL.search('/(info|ms|plus|adv|c1|c2|c3a)/') >= 0)
-      prefix = '../';
     for (var m in tamination_menu) {
       var tm = tamination_menu[m];
       $('#menudiv tr:first').append('<td class="menutitle">'+tm.title+'<br/>'+
@@ -167,8 +167,8 @@ function getTitle()
 {
   return '<div class="title">' +
          '<a href="http://www.tamtwirlers.org/">'+
-         '<img height="72" border="0" align="right" src="../info/badge.gif"></a>'+
-         '<a href="../info/index.html">TAMinations</a></div>';
+         '<img height="72" border="0" align="right" src="'+prefix+'info/badge.gif"></a>'+
+         '<a href="'+prefix+'info/index.html">TAMinations</a></div>';
 }
 
 //Set height of page sections to fit the window

@@ -95,9 +95,14 @@ CallContext.prototype.distance = function(d1,d2)
 };
 //  Angle of d2 as viewed from d1
 //  If angle is 0 then d2 is in front of d1
+//  If d2 is not given, returns angle to origin
+//  Angle returned is in the range -pi to pi
 CallContext.prototype.angle = function(d1,d2)
 {
-  var v = this.dancers[d2].location();
+
+  var v = new Vector(0,0);
+  if (d2 != undefined)
+    v = this.dancers[d2].location();
   var v2 = v.preConcatenate(this.dancers[d1].tx.getInverse());
   return v2.angle();
 };
@@ -125,6 +130,18 @@ CallContext.prototype.dancerInFront = function(d)
   var bestd = undefined;
   for (var d2 in this.dancers) {
     if (this.isInFront(d,d2) &&
+        (bestd == undefined || this.distance(d2,d) < this.distance(bestd,d)))
+      bestd = d2;
+  }
+  return bestd;
+};
+
+//  Return dancer directly in back of given dancer
+CallContext.prototype.dancerInBack = function(d)
+{
+  var bestd = undefined;
+  for (var d2 in this.dancers) {
+    if (this.isInBack(d,d2) &&
         (bestd == undefined || this.distance(d2,d) < this.distance(bestd,d)))
       bestd = d2;
   }

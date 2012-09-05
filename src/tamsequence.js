@@ -116,7 +116,10 @@ function updateSequence()
   tamsvg.parts = [];
   for (var i in calls) {
     //  Need to load xml files, 1 or more for each call
-    var callwords = calls[i].toLowerCase().replace(/\W/g,' ').split(/\s+/);
+    var callwords = calls[i].toLowerCase()
+                            .replace(/\W/g,' ')
+                            .replace(/through/g,'thru')
+                            .split(/\s+/);
     //  Fetch calls that are any part of the callname,
     //  to get concepts and modifications
     for (var s=0; s<callwords.length; s++) {
@@ -173,7 +176,10 @@ function buildSequence()
 
     //  Break up the call as above to find and perform modifications
     var doxml = true;
-    var callwords = calls[n2].toLowerCase().replace(/\W/g,' ').split(/\s+/);
+    var callwords = calls[n2].toLowerCase()
+                             .replace(/\W/g,' ')
+                             .replace(/through/g,'thru')
+                             .split(/\s+/);
     $('#Part'+(Number(n2)+1)).text('');
     try {
     while (callwords.length > 0) {

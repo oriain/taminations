@@ -37,7 +37,7 @@ JAVAC = $(JAVA_HOME)/bin/javac
 JAR = $(JAVA_HOME)/bin/jar
 
 .phony : all
-all : TAMination.jar ../tamination.zip # callindex.json
+all : TAMination.jar  callindex.json ../tamination.zip
 	@echo Build complete
 
 unzip :
