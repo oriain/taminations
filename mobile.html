@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb# lang="en">
 
 <head>
 <meta http-equiv="Content-Language" content="en-us" />
@@ -39,6 +39,13 @@
 </head>
 
 <body>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
   <!-- Page to select level and call -->
   <div data-role="page" id="level">
@@ -49,13 +56,16 @@
     </div>
     <div data-role="content" data-theme="b">
 
-<h2>Welcome to TAMinations</h2>
-<p>TAMinations are the Square Dance animations of the
+<h2>Welcome to Taminations</h2>
+<p>Taminations are the Square Dance animations of the
 <a href="../index.html">Tam Twirlers Square Dance Club</a>.
 Here you will find animations for calls from Mainstream through C3A.
 Most calls have several animations from different starting positions.
-TAMinations are written and maintained by
-<a href="mailto:brad@bradchristie.com">Brad Christie</a>.<br/> <br/></p>
+Taminations are written and maintained by
+<a href="mailto:brad@bradchristie.com">Brad Christie</a>.<br/> <br/>
+<fb:like href="http://www.facebook.com/pages/Taminations/356730394408509"
+         send="true" layout="button_count" width="450" show_faces="false"></fb:like>
+<br/><br/></p>
 
       <ul data-role="listview" id="levelslist">
       </ul>
