@@ -21,8 +21,6 @@
 
 -->
 <tamination>
-  
-  
 
   <tam title="Fancy" from="Right-Hand Columns" formation="Column RH GBGB" parts="3;1">
     <path>
@@ -43,6 +41,28 @@
       <move select="Extend Left" beats="3" scaleX="2" scaleY="2"/>
       <move select="Forward" hands="right"/>
       <move select="U-Turn Right" beats="4" offsetX="1" offsetY="-2"/>
+    </path>
+  </tam>
+
+  <tam title="Fancy" from="Left-Hand Columns" formation="Column LH GBGB" parts="3;1">
+    <path>
+      <move select="Extend Right" beats="3" scaleX="2" scaleY="2"/>
+      <move select="Forward" hands="left"/>
+      <move select="U-Turn Left" beats="4" offsetX="1" offsetY="2"/>
+    </path>
+    <path>
+      <move select="Stand" beats="3"/>
+      <move select="Forward" hands="right"/>
+      <move select="U-Turn Left" beats="4" offsetX="1" offsetY="2"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="2" scaleY="2"/>
+      <move select="Stand"/>
+      <move select="U-Turn Left" beats="4" offsetY="2"/>
+    </path>
+    <path>
+      <move select="Stand" beats="4"/>
+      <move select="U-Turn Left" beats="4" offsetY="2"/>
     </path>
   </tam>
 
