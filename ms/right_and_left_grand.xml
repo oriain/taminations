@@ -56,8 +56,41 @@
     </path>
   </tam>
 
+  <tam title="Right and Left Grand" from="Eight Chain Thru"
+       formation="Formation boy 3 1 180 girl 1 1 0 boy -1 1 180 girl -3 1 0">
+    <path>
+      <move select="Forward"/>
+      <move select="Forward" beats=".5" scaleX=".5"/>
+      <move select="Extend Right" beats="2.5" hands="left" scaleX="1.5" scaleY="2.75"/>
+      <move select="Lead Left 1/2" beats="3" hands="right" scaleX="2" scaleY="2" offsetX=".16" offsetY="1.58" />
+      <move select="Lead Left 1/2" beats="3" hands="left" scaleX="3" scaleY="3" offsetX=".52" offsetY="-1.2" />
+      <move select="Quarter Left" beats="3" hands="right" offsetX="-1.05" offsetY=".72"/>
+    </path>
+    <path>
+      <move select="Extend Left"/>
+      <move select="Lead Right" beats="3" hands="left" scaleX=".25" scaleY="2"/>
+      <move select="Lead Right 1/2" beats="3" hands="right" scaleX="3" scaleY="3" offsetX=".52" offsetY="1.3" />
+      <move select="Lead Right 1/2" beats="3" hands="left" scaleX="2" scaleY="2" offsetX=".16" offsetY="-1.67" />
+      <move select="Flip Right" beats="3" offsetX="2.93" scaleY=".56" hands="left"/>
+    </path>
+    <path>
+      <move select="Forward"/>
+      <move select="Lead Left" beats="3" hands="left" scaleX="1.75" scaleY="1"/>
+      <move select="Lead Left 1/2" beats="3" hands="right" scaleX="2" scaleY="2" offsetX=".16" offsetY="1.58" />
+      <move select="Lead Left 1/2" beats="3" hands="left" scaleX="3" scaleY="3" offsetX=".52" offsetY="-1.2" />
+      <move select="Quarter Left" beats="3" hands="right" offsetX="-1.05" offsetY=".72"/>
+    </path>
+    <path>
+      <move select="Extend Left"/>
+      <move select="Extend Left" beats="3" hands="left" scaleX="2" scaleY=".25"/>
+      <move select="Lead Right 1/2" beats="3" hands="right" scaleX="3" scaleY="3" offsetX=".52" offsetY="1.3" />
+      <move select="Lead Right 1/2" beats="3" hands="left" scaleX="2" scaleY="2" offsetX=".16" offsetY="-1.67" />
+      <move select="Flip Right" beats="3" offsetX="2.93" scaleY=".56" hands="left"/>
+    </path>
+  </tam>
+
   <tam title="Right and Left Grand" from="Trade By"
-  formation="Formation boy -3 1 180 girl -3 -1 180 boy -1 -1 0 girl -1 1 0">
+       formation="Formation boy 3 -1 0 girl 3 1 0 boy 1 1 180 girl -1 1 0">
     <path>
       <move select="Quarter Left" offsetY="1"/>
       <move select="Lead Left 1/2" beats="3" hands="left" scaleX="3" scaleY="3" offsetX=".52" offsetY="-.55" />
@@ -76,7 +109,7 @@
     </path>
     <path>
       <move select="Forward" beats="1.5"/>
-      <move select="Lead Left 1/2" beats="3" hands="left" scaleX="3" scaleY="3" offsetX=".52" offsetY="-2.45" />
+      <move select="Lead Left 1/2" beats="3" hands="left" scaleX="3" scaleY="3" offsetX=".52" offsetY="-2.55" />
       <move select="Lead Left 1/2" beats="3" hands="right" scaleX="2" scaleY="2" offsetX=".16" offsetY="1.58" />
       <move select="Lead Left 1/2" beats="3" hands="left" scaleX="3" scaleY="3" offsetX=".52" offsetY="-1.2" />
       <move select="Lead Left 1/2" beats="1" hands="right" />
@@ -84,6 +117,110 @@
     </path>
     <path>
       <move select="Extend Left" beats="1.5"/>
+      <move select="Lead Right 1/2" beats="3" hands="left" scaleX="2" scaleY="2" offsetX=".16" offsetY="0.08" />
+      <move select="Lead Right 1/2" beats="3" hands="right" scaleX="3" scaleY="3" offsetX=".52" offsetY="1.3" />
+      <move select="Lead Right 1/2" beats="3" hands="left" scaleX="2" scaleY="2" offsetX=".16" offsetY="-1.67" />
+      <move select="Lead Right 1/2" beats="2" hands="right" offsetX=".5" offsetY="1"/>
+      <move select="Quarter Right" beats="1" offsetX=".1"/>
+    </path>
+  </tam>
+
+  <tam title="Right and Left Grand" from="1/4 Tag"
+       formation="Formation boy 3 1 180 girl 0 3 0 boy 0 1 180 girl -3 1 0">
+    <path>
+      <move select="Forward" beats="2" hands="right"/>
+      <move select="Forward" beats=".5" scaleX=".5"/>
+      <move select="Extend Right" beats="2.5" hands="left" scaleX="1.5" scaleY="2.75"/>
+      <move select="Lead Left 1/2" beats="3" hands="right" scaleX="2" scaleY="2" offsetX=".16" offsetY="1.58" />
+      <move select="Lead Left 1/2" beats="3" hands="left" scaleX="3" scaleY="3" offsetX=".52" offsetY="-1.2" />
+      <move select="Quarter Left" beats="3" hands="right" offsetX="-1.05" offsetY=".72"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" hands="right" scaleX="2"/>
+      <move select="Lead Right" beats="3" hands="left" scaleX=".25" scaleY="2"/>
+      <move select="Lead Right 1/2" beats="3" hands="right" scaleX="3" scaleY="3" offsetX=".52" offsetY="1.3" />
+      <move select="Lead Right 1/2" beats="3" hands="left" scaleX="2" scaleY="2" offsetX=".16" offsetY="-1.67" />
+      <move select="Flip Right" beats="3" offsetX="2.93" scaleY=".56" hands="left"/>
+    </path>
+    <path>
+      <move select="Forward"/>
+      <move select="Forward" hands="right"/>
+      <move select="Lead Left" beats="3" hands="left" scaleX="1.75" scaleY="1"/>
+      <move select="Lead Left 1/2" beats="3" hands="right" scaleX="2" scaleY="2" offsetX=".16" offsetY="1.58" />
+      <move select="Lead Left 1/2" beats="3" hands="left" scaleX="3" scaleY="3" offsetX=".52" offsetY="-1.2" />
+      <move select="Quarter Left" beats="3" hands="right" offsetX="-1.05" offsetY=".72"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" hands="right"/>
+      <move select="Extend Left" beats="3" hands="left" scaleX="2" scaleY=".25"/>
+      <move select="Lead Right 1/2" beats="3" hands="right" scaleX="3" scaleY="3" offsetX=".52" offsetY="1.3" />
+      <move select="Lead Right 1/2" beats="3" hands="left" scaleX="2" scaleY="2" offsetX=".16" offsetY="-1.67" />
+      <move select="Flip Right" beats="3" offsetX="2.93" scaleY=".56" hands="left"/>
+    </path>
+  </tam>
+
+  <tam title="Right and Left Grand" from="3/4 Tag"
+       formation="Formation boy 3 -1 0 girl 3 1 0 boy 0 1 180 girl 0 -3 180">
+    <path>
+      <move select="Quarter Left" offsetY="1"/>
+      <move select="Lead Left 1/2" beats="3" hands="left" scaleX="3" scaleY="3" offsetX=".52" offsetY="-.55" />
+      <move select="Lead Left 1/2" beats="3" hands="right" scaleX="2" scaleY="2" offsetX=".16" offsetY="1.58" />
+      <move select="Lead Left 1/2" beats="3" hands="left" scaleX="3" scaleY="3" offsetX=".52" offsetY="-1.2" />
+      <move select="Lead Left 1/2" beats="1" hands="right" />
+      <move select="Quarter Left" beats="2" offsetX=".8" offsetY="-.1"/>
+    </path>
+    <path>
+      <move select="Lead Right"/>
+      <move select="Lead Right 1/2" beats="3" hands="left" scaleX="2" scaleY="2" offsetX=".16" offsetY="-1.92" />
+      <move select="Lead Right 1/2" beats="3" hands="right" scaleX="3" scaleY="3" offsetX=".52" offsetY="1.3" />
+      <move select="Lead Right 1/2" beats="3" hands="left" scaleX="2" scaleY="2" offsetX=".16" offsetY="-1.67" />
+      <move select="Lead Right 1/2" beats="2" hands="right" offsetX=".5" offsetY="1"/>
+      <move select="Quarter Right" beats="1" offsetX=".1"/>
+    </path>
+    <path>
+      <move select="Lead Left 1/2" beats="4.5" hands="left" scaleX="3" scaleY="3" offsetX=".52" offsetY="-2.55" />
+      <move select="Lead Left 1/2" beats="3" hands="right" scaleX="2" scaleY="2" offsetX=".16" offsetY="1.58" />
+      <move select="Lead Left 1/2" beats="3" hands="left" scaleX="3" scaleY="3" offsetX=".52" offsetY="-1.2" />
+      <move select="Lead Left 1/2" beats="1" hands="right" />
+      <move select="Quarter Left" beats="2" offsetX=".8" offsetY="-.1"/>
+    </path>
+    <path>
+      <move select="Lead Right 1/2" beats="4.5" hands="left" scaleX="2" scaleY="2" offsetX=".16" offsetY="-.92" />
+      <move select="Lead Right 1/2" beats="3" hands="right" scaleX="3" scaleY="3" offsetX=".52" offsetY="1.3" />
+      <move select="Lead Right 1/2" beats="3" hands="left" scaleX="2" scaleY="2" offsetX=".16" offsetY="-1.67" />
+      <move select="Lead Right 1/2" beats="2" hands="right" offsetX=".5" offsetY="1"/>
+      <move select="Quarter Right" beats="1" offsetX=".1"/>
+    </path>
+  </tam>
+
+  <tam title="Right and Left Grand" display="none" from="after Allemande Left"
+       formation="Formation boy 3.5 -1.5 45 girl 3.5 1.5 315 boy 1 1.5 180 girl -1 1.5 0">
+    <path>
+      <move select="Lead Left 1/2" beats="1.5" offsetY="1.1"/>
+      <move select="Lead Left 1/2" beats="3" hands="left" scaleX="3" scaleY="3" offsetX=".52" offsetY="-.55" />
+      <move select="Lead Left 1/2" beats="3" hands="right" scaleX="2" scaleY="2" offsetX=".16" offsetY="1.58" />
+      <move select="Lead Left 1/2" beats="3" hands="left" scaleX="3" scaleY="3" offsetX=".52" offsetY="-1.2" />
+      <move select="Lead Left 1/2" beats="1" hands="right" />
+      <move select="Quarter Left" beats="2" offsetX=".8" offsetY="-.1"/>
+    </path>
+    <path>
+      <move select="Lead Right 1/2" beats="1.5" offsetX=".75" offsetY="-.45"/>
+      <move select="Lead Right 1/2" beats="3" hands="left" scaleX="2" scaleY="2" offsetX=".16" offsetY="-1.92" />
+      <move select="Lead Right 1/2" beats="3" hands="right" scaleX="3" scaleY="3" offsetX=".52" offsetY="1.3" />
+      <move select="Lead Right 1/2" beats="3" hands="left" scaleX="2" scaleY="2" offsetX=".16" offsetY="-1.67" />
+      <move select="Lead Right 1/2" beats="2" hands="right" offsetX=".5" offsetY="1"/>
+      <move select="Quarter Right" beats="1" offsetX=".1"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="1.5" scaleY=".5"/>
+      <move select="Lead Left 1/2" beats="3" hands="left" scaleX="3" scaleY="3" offsetX=".52" offsetY="-2.55" />
+      <move select="Lead Left 1/2" beats="3" hands="right" scaleX="2" scaleY="2" offsetX=".16" offsetY="1.58" />
+      <move select="Lead Left 1/2" beats="3" hands="left" scaleX="3" scaleY="3" offsetX=".52" offsetY="-1.2" />
+      <move select="Lead Left 1/2" beats="1" hands="right" />
+      <move select="Quarter Left" beats="2" offsetX=".8" offsetY="-.1"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="1.5" scaleY=".5"/>
       <move select="Lead Right 1/2" beats="3" hands="left" scaleX="2" scaleY="2" offsetX=".16" offsetY="0.08" />
       <move select="Lead Right 1/2" beats="3" hands="right" scaleX="3" scaleY="3" offsetX=".52" offsetY="1.3" />
       <move select="Lead Right 1/2" beats="3" hands="left" scaleX="2" scaleY="2" offsetX=".16" offsetY="-1.67" />
