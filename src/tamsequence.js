@@ -19,8 +19,8 @@
 
  */
 
-var callindex = 0;
 var startingFormation="Static Square";
+var callindex = 0;
 var seq = 0;
 var xmldata = {};
 var calls = [];
@@ -29,13 +29,12 @@ var calllink = '';
 $.holdReady(true);
 $.getJSON("src/callindex.json",function(data) {
   callindex = data;
-  startingFormation = $('input[name="formation"]:checked').val();
   $.holdReady(false);
 }).error(function() {alert('JSON error');});
 
 var timeoutID = null;
-
 $(document).ready(function() {
+  startingFormation = $('input[name="formation"]:checked').val();
   $('#instructions-link').click(function() {
     $('#instructions').toggle();
   });
@@ -50,21 +49,43 @@ $(document).ready(function() {
   var calls = document.URL.split(/\?/)[1];
   if (calls) {
     calls = unescape(calls).split(/\&/);
-    startingFormation = calls.shift();
+    startingFormation = calls.shift().trim();
     $('#calls').val(calls.join('\n'));
   }
+  $('#clearbutton').click(function() {
+    $('#calls').val('');
+    updateSequence();
+  });
   $('#linkbutton').click(function() { document.location = calllink; });
   $('#savebutton').click(function()
     {
       var w = window.open('','calllistwindow','width=800,height=800,menubar=yes');
-      var t = $('#calllist li').map(function()
+      var t = startingFormation + '<br/>\n' +
+        $('#calllist li').map(function()
           {
             return ($(this).text());
           }
                            ).get().join('<br/>\n');
       w.document.write(t);
+      w.alert('Select "Save As.." or "Save Page As.." and save this as a text file.');
      });
-
+  if (!window.File || !window.FileReader) {
+    $('#loadbutton').hide();
+    $('#inputfile').hide();
+  }
+  $('#loadbutton').click(function(evt) {
+    var i = $('#inputfile').get()[0];
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var text = e.target.result;
+      var ta = text.split('\n');
+      startingFormation = ta.shift().trim();
+      text = ta.join('\n');
+      $('#calls').val(text);
+      updateSequence();
+    };
+    reader.readAsText(i.files[0]);
+  });
 });
 
 function generateAnimations()  // override function in tampage.js
@@ -294,7 +315,7 @@ parseOneCall:
     + '?' + escape(startingFormation) + '&' +
     $('#calllist li').map(function()
       {
-        return escape($(this).text());
+        return escape($(this).text().trim());
       }
                        ).get().join('&');
 }

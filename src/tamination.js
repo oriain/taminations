@@ -102,7 +102,6 @@ TAMination.prototype = {
     var retval = getNamedFormation(a.attr('formation'));
     if (!retval) {  //  must be sequence
       a = startingFormation;
-      //a = $('sequence',animations).attr('formation');
       retval = getNamedFormation(a);
     }
     return retval;
@@ -461,6 +460,9 @@ var formations =
 
   // Four Couple Formations
   "Static Square":
+    "Formation boy -3 1 0  girl -3 -1 0  boy 1 3 270  girl -1 3 270",
+
+  "Squared Set":
     "Formation boy -3 1 0  girl -3 -1 0  boy 1 3 270  girl -1 3 270",
 
   "Static Heads Facing Out":

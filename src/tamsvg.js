@@ -1915,6 +1915,10 @@ Math.anglesEqual = function(a1,a2)
 {
   return Math.isApprox(Math.angleDiff(a1,a2),0);
 };
+String.prototype.trim = function()
+{
+  return $.trim(this);
+};
 
 ////////////////////////////////////////////////////////////////////////////////
 // Build buttons and slider below animation
@@ -2100,20 +2104,22 @@ function updateSliderMarks(nofractions)
   }
   // Add "Start", "End" and part numbers below slider
   $('#playsliderlegend').empty();
-  var startx = 2 * $('#buttonpanel').width() / (tamsvg.beats+2) - 50;
-  var endx = tamsvg.beats * $('#buttonpanel').width() / (tamsvg.beats+2) - 50;
-  $('#playsliderlegend').append('<div style="position:absolute; top:0; left:'+startx+'px; width:100px; text-align: center">Start</div>');
-  $('#playsliderlegend').append('<div style="position:absolute;  top:0; left:'+endx+'px; width: 100px; text-align:center">End</div>');
-  var offset = 0;
-  for (var i in tamsvg.parts) {
-    if (tamsvg.parts[i] > 0) {
-      var t = '<font size=-2><sup>'+(Number(i)+1) + '</sup>/<sub>' + (tamsvg.parts.length+1) + '</sub></font>';
-      if (nofractions)
-        t = '<font size=-2>'+(Number(i)+2)+'</font>';
-      offset += tamsvg.parts[i];
-      var x = (offset+2) * $('#buttonpanel').width() / (tamsvg.beats+2) - 20;
-      $('#playsliderlegend').append('<div style="position:absolute; top:0; left:'+x+
-          'px; width:40px; text-align: center">'+t+'</div>');
+  if (tamsvg.beats > 2) {  // skip if no calls (sequencer)
+    var startx = 2 * $('#buttonpanel').width() / (tamsvg.beats+2) - 50;
+    var endx = tamsvg.beats * $('#buttonpanel').width() / (tamsvg.beats+2) - 50;
+    $('#playsliderlegend').append('<div style="position:absolute; top:0; left:'+startx+'px; width:100px; text-align: center">Start</div>');
+    $('#playsliderlegend').append('<div style="position:absolute;  top:0; left:'+endx+'px; width: 100px; text-align:center">End</div>');
+    var offset = 0;
+    for (var i in tamsvg.parts) {
+      if (tamsvg.parts[i] > 0) {
+        var t = '<font size=-2><sup>'+(Number(i)+1) + '</sup>/<sub>' + (tamsvg.parts.length+1) + '</sub></font>';
+        if (nofractions)
+          t = '<font size=-2>'+(Number(i)+2)+'</font>';
+        offset += tamsvg.parts[i];
+        var x = (offset+2) * $('#buttonpanel').width() / (tamsvg.beats+2) - 20;
+        $('#playsliderlegend').append('<div style="position:absolute; top:0; left:'+x+
+            'px; width:40px; text-align: center">'+t+'</div>');
+      }
     }
   }
 }
