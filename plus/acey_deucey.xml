@@ -196,4 +196,48 @@
       <move select="Lead Right" beats="2" scaleX="3" scaleY="2" />
     </path>
   </tam>
+
+  <tam title="Acey Deucey"
+       from="Interlocked Diamonds"
+       formation="Interlocked Diamonds RH Girl Points"
+       parts="" difficulty="3">
+    <path>
+      <move select="Run Right" beats="4" />
+    </path>
+    <path>
+      <move select="Forward 4" />
+    </path>
+    <path>
+      <move select="Flip Left" beats="4" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="2" scaleX="2" scaleY="3" />
+      <move select="Lead Right" beats="2" scaleX="3" scaleY="2" />
+    </path>
+  </tam>
+
+  <tam title="Acey Deucey Once and a Half"
+       from="Right-Hand Waves"
+       formation="Ocean Waves RH BGGB"
+       parts="4" difficulty="2">
+    <path>
+      <move select="Forward 4" />
+      <move select="Lead Right" beats="2" scaleX="3" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Swing Left" beats="4" />
+      <move select="Hinge Left" beats="2" />
+    </path>
+    <path>
+      <move select="Swing Left" beats="4" />
+      <move select="Hinge Left" beats="2" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleX="2" scaleY="3" />
+      <move select="Forward 2"/>
+    </path>
+    <taminator>A common variation.
+      Note that the center 4 dancers form a diamond.</taminator>
+  </tam>
+
 </tamination>
