@@ -27,6 +27,10 @@ Call.classes['run'] = defineClass({
       for (var d in ctx.dancers) {
         var p = new Path();
         if (d in ctx.active) {
+          //  Partner must be inactive
+          var d2 = ctx.partner[d];
+          if (d2 == null || ctx.active[d2])
+            throw new Error();
           var m = ctx.beau[d] ? 'Run Right' : 'Run Left';
           var moves = tam.translateMovement({ select: m });
           p = new Path(moves);
