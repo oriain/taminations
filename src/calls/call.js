@@ -21,6 +21,10 @@
 
 Call = defineClass({});
 Call.classes = {};
+CallError = defineClass({
+  extend:Error,
+  construct: function(msg) { this.superclass(msg); this.name="CallError"; }
+});
 
 //  Wrapper method for performing one call
 Call.prototype.performCall = function(ctx) {
@@ -124,28 +128,51 @@ CallContext.prototype.isRight = function(d1,d2)
   return d1 != d2 && Math.anglesEqual(this.angle(d1,d2),Math.PI*3/2);
 };
 
-//  Return dancer directly in front of given dancer
-CallContext.prototype.dancerInFront = function(d)
+//  Return closest dancer that satisfies a given conditional
+CallContext.prototype.dancerClosest = function(d,f)
 {
   var bestd = undefined;
   for (var d2 in this.dancers) {
-    if (this.isInFront(d,d2) &&
+    if (f(d2) &&
         (bestd == undefined || this.distance(d2,d) < this.distance(bestd,d)))
       bestd = d2;
   }
   return bestd;
 };
 
+//  Return all dancers, ordered by distance, that satisfies a conditional
+CallContext.prototype.dancersInOrder = function(d,f)
+{
+  //  First get the dancers that satisfy the conditional
+  var retval = [];
+  for (var d2 in this.dancers) {
+    if (f(d2))
+      retval.push(d2);
+  }
+  //  Now sort them by distance
+  var ctx = this;
+  retval.sort(function(a,b) {
+    return ctx.distance(d,a) - ctx.distance(d,b);
+  });
+  return retval;
+};
+
+//  Return dancer directly in front of given dancer
+CallContext.prototype.dancerInFront = function(d)
+{
+  var ctx = this;
+  return this.dancerClosest(d,function(d2) {
+    return ctx.isInFront(d,d2);
+  });
+};
+
 //  Return dancer directly in back of given dancer
 CallContext.prototype.dancerInBack = function(d)
 {
-  var bestd = undefined;
-  for (var d2 in this.dancers) {
-    if (this.isInBack(d,d2) &&
-        (bestd == undefined || this.distance(d2,d) < this.distance(bestd,d)))
-      bestd = d2;
-  }
-  return bestd;
+  var ctx = this;
+  return this.dancerClosest(d,function(d2) {
+    return ctx.isInBack(d,d2);
+  });
 };
 
 //  Return dancers that are in between two other dancers
@@ -159,6 +186,24 @@ CallContext.prototype.inBetween = function(d1,d2)
       retval.push(d);
   }
   return retval;
+};
+
+//  Return all the dancers to the right, in order
+CallContext.prototype.dancersToRight = function(d)
+{
+  var ctx = this;
+  return dancersInOrder(d,function(d2) {
+    return ctx.isRight(d2);
+  });
+};
+
+//  Return all the dancers to the left, in order
+CallContext.prototype.dancersToRight = function(d)
+{
+  var ctx = this;
+  return this.dancersInOrder(d,function(d2) {
+    return ctx.isLeft(d2);
+  });
 };
 
 CallContext.prototype.analyze = function()

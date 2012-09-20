@@ -25,15 +25,17 @@ Call.classes['crossrun'] = defineClass({
   methods: {
     perform: function(ctx) {
       for (var d in ctx.dancers) {
+        var dr = ctx.dancersToRight(d);
+        console.log("Dancers to right of "+d+': '+dr.join(' '));
         var p = new Path();
         if (d in ctx.active) {
           //  Must be in a 4-dancer wave or line
           if (!ctx.center[d] && !ctx.end[d])
-            throw new Error();
+            throw new CallError('General line required for Cross Run');
           //  Partner must be inactive
           var d2 = ctx.partner[d];
           if (d2 == null || ctx.active[d2])
-            throw new Error();
+            throw new CallError('Dancer and partner cannot both Cross Run');
           //  Center beaus and end belles run left
           var isright = ctx.beau[d] ^ ctx.center[d];
           var m = isright ? 'Run Right' : 'Run Left';

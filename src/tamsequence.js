@@ -270,11 +270,14 @@ parseOneCall:
     }
 
     }
-    catch (errmsg) {
-      $('#animationlist').append('<span id="errormsg"><br/><span style="color:black">I am unable to do<br/><b>'+
-          calls[n2] +
-          '</b><br/>from this formation.</span></span>');
-      break;
+    catch (err) {
+      if (err instanceof CallError) {
+        $('#animationlist').append('<span id="errormsg"><br/><span style="color:black">I am unable to do<br/><b>'+
+            calls[n2] +
+            '</b><br/>from this formation.</span></span>');
+        break;
+      } else
+        throw err;
     }
 
     if (ctx.paths[0].beats() > 0) {  //  Call and formation found
