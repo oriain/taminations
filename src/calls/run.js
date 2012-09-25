@@ -30,7 +30,7 @@ Call.classes['run'] = defineClass({
           //  Partner must be inactive
           var d2 = ctx.partner[d];
           if (d2 == null || ctx.active[d2])
-            throw new Error();
+            throw new CallError('Dancer '+dancerNum(d)+' has nobody to Run around.');
           var m = ctx.beau[d] ? 'Run Right' : 'Run Left';
           var moves = tam.translateMovement({ select: m });
           p = new Path(moves);

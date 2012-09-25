@@ -25,12 +25,16 @@ Call.classes['facingdancers'] = defineClass({
   methods: {
     perform: function(ctx) {
       var newactive = {};
+      var count = 0;
       for (var d in ctx.active) {
         var d2 = ctx.dancerInFront(d);
         if (d2 != undefined && ctx.dancerInFront(d2) == d) {
           newactive[d] = ctx.dancers[d];
+          count++;
         }
       }
+      if (count == 0)
+        throw new NoDancerError();
       ctx.active = newactive;
     }
   },

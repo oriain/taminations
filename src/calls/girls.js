@@ -25,10 +25,15 @@ Call.classes['girls'] = defineClass({
   methods: {
     perform: function(ctx) {
       var newactive = {};
+      var count = 0;
       for (var d in ctx.active) {
-        if (ctx.active[d].gender == Dancer.GIRL)
+        if (ctx.active[d].gender == Dancer.GIRL) {
           newactive[d] = ctx.dancers[d];
+          count++;
+        }
       }
+      if (count == 0)
+        throw new NoDancerError();
       ctx.active = newactive;
     }
 

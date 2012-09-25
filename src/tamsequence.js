@@ -274,7 +274,12 @@ parseOneCall:
       if (err instanceof CallError) {
         $('#animationlist').append('<span id="errormsg"><br/><span style="color:black">I am unable to do<br/><b>'+
             calls[n2] +
-            '</b><br/>from this formation.</span></span>');
+            '</b><br/>from this formation.<br/>'+err.message+'</span></span>');
+        break;
+      } else if (err instanceof NoDancerError) {
+        $('#animationlist').append('<span id="errormsg"><br/><span style="color:black">There are no dancers that can do <br/><b>'+
+            calls[n2] +
+            '</b><br/>.<br/>'+err.message+'</span></span>');
         break;
       } else
         throw err;

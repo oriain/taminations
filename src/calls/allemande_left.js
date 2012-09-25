@@ -35,7 +35,7 @@ Call.classes['allemandeleft'] = defineClass({
                                        { select: 'Extend Left', scaleX: dist/2, scaleY: 0.5 }]);
         return new Path(moves);
       }
-      throw new Error();
+      throw new CallError('Cannot find dancer to turn with '+dancerNum(d));
     }
 
   },

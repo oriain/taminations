@@ -25,10 +25,15 @@ Call.classes['centers'] = defineClass({
   methods: {
     perform: function(ctx) {
       var newactive = {};
+      var count = 0;
       for (var d in ctx.active) {
-        if (ctx.center[d])
+        if (ctx.center[d]) {
           newactive[d] = ctx.dancers[d];
+          count++;
+        }
       }
+      if (count==0)
+        throw new NoDancerError();
       ctx.active = newactive;
     }
 

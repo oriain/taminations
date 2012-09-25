@@ -91,6 +91,7 @@ Call.classes['trade'] = defineClass({
   }
 });
 
+// TODO add a check that the trade is really a Partner Trade
 Call.classes['partnertrade'] = defineClass({
   name: "Partner Trade",
   extend: Call.classes['trade']

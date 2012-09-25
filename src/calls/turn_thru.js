@@ -35,7 +35,7 @@ Call.classes['turnthru'] = defineClass({
                                        { select: 'Extend Right', scaleX: dist/2, scaleY: 0.5 }]);
         return new Path(moves);
       }
-      throw new Error();
+      throw new Error('Cannot find dancer to Turn Thru with '+dancerNum(d));
     }
 
   },

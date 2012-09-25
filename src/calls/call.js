@@ -23,8 +23,17 @@ Call = defineClass({});
 Call.classes = {};
 CallError = defineClass({
   extend:Error,
-  construct: function(msg) { this.superclass(msg); this.name="CallError"; }
+  construct: function(msg) { this.superclass(msg);
+                             this.name="CallError";
+                             this.message = msg; }
 });
+NoDancerError = defineClass({
+  extend:Error
+});
+function dancerNum(d)
+{
+  return Math.floor(d)+1;
+}
 
 //  Wrapper method for performing one call
 Call.prototype.performCall = function(ctx) {
@@ -192,17 +201,17 @@ CallContext.prototype.inBetween = function(d1,d2)
 CallContext.prototype.dancersToRight = function(d)
 {
   var ctx = this;
-  return dancersInOrder(d,function(d2) {
-    return ctx.isRight(d2);
+  return this.dancersInOrder(d,function(d2) {
+    return ctx.isRight(d,d2);
   });
 };
 
 //  Return all the dancers to the left, in order
-CallContext.prototype.dancersToRight = function(d)
+CallContext.prototype.dancersToLeft = function(d)
 {
   var ctx = this;
   return this.dancersInOrder(d,function(d2) {
-    return ctx.isLeft(d2);
+    return ctx.isLeft(d,d2);
   });
 };
 
