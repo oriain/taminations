@@ -135,7 +135,7 @@
   </tam>
 
   <tam title="Counter Rotate"
-       from="Inverted Lines Centers In"
+       from="Inverted Lines Centers Facing In"
        formation="Inverted Lines Centers In"
        parts="" >
     <path>
@@ -153,6 +153,27 @@
     <path>
       <move select="Lead Right" beats="3" scaleX="1.5" scaleY="3" />
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Counter Rotate"
+       from="Inverted Lines Centers Facing Out"
+       formation="Inverted Lines Centers Out" >
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Lead Right" beats="3" scaleX="3" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Quarter Left" beats="2" offsetX="-.5" offsetY="1"/>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Quarter Right" beats="2" offsetX=".5" offsetY="-1"/>
+      <move select="Extend Right" beats="3" scaleX="2" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Lead Left" beats="3" scaleX="3" scaleY=".5"/>
     </path>
   </tam>
 
