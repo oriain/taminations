@@ -100,9 +100,9 @@ TamSVG.prototype = {
     //  Set up the dance floor
     this.svg = svg_in;
     this.svg.configure({width: '100%', height:'100%', viewBox: '0 0 100 100'});
-    floorsvg = this.svg.svg(null,0,0,100,100,-6.5,-6.5,13,13);
-    floorsvg.setAttribute('width','100%');
-    floorsvg.setAttribute('height','100%');
+    this.floorsvg = this.svg.svg(null,0,0,100,100,-6.5,-6.5,13,13);
+    this.floorsvg.setAttribute('width','100%');
+    this.floorsvg.setAttribute('height','100%');
     this.allp = tam.getPath(tam.xmldoc);
     this.parts = tam.getParts().split(/;/);
     for (var i in this.parts)
@@ -110,10 +110,10 @@ TamSVG.prototype = {
     //  first token is 'Formation', followed by e.g. boy 1 2 180 ...
     var tokens = tam.getFormation().split(/\s+/);
     //  Flip the y direction on the dance floor to match our math
-    this.floor = this.svg.group(floorsvg);
+    this.floor = this.svg.group(this.floorsvg);
     this.floor.setAttribute('transform',AffineTransform.getScaleInstance(1,-1).toString());
     this.svg.rect(this.floor,-6.5,-6.5,13,13,{fill:'#ffffc0'});
-    this.svg.text(floorsvg,0,0,"Copyright 2012 Brad Christie",{fontSize: "10", transform:"translate(-6.5,6.4) scale(0.04)"});
+    this.svg.text(this.floorsvg,0,0,"Copyright 2012 Brad Christie",{fontSize: "10", transform:"translate(-6.5,6.4) scale(0.04)"});
     this.gridgroup = this.svg.group(this.floor,{fill:"none",stroke:"black",strokeWidth:0.01});
     this.hexgridgroup = this.svg.group(this.floor,{fill:"none",stroke:"black",strokeWidth:0.01});
     this.bigongridgroup = this.svg.group(this.floor,{fill:"none",stroke:"black",strokeWidth:0.01});
@@ -167,8 +167,8 @@ TamSVG.prototype = {
     this.beats += 2.0;
 
     //  Mouse wheel moves the animation
-    if (typeof $(floorsvg).mousewheel == 'function')
-      $(floorsvg).mousewheel(function(event,delta) {
+    if (typeof $(this.floorsvg).mousewheel == 'function')
+      $(this.floorsvg).mousewheel(function(event,delta) {
         me.beat -= delta * 0.2;
         me.animate();
       });
@@ -183,7 +183,8 @@ TamSVG.prototype = {
     this.speed = 500;
     this.running = false;
     for (var i in this.dancers)
-      this.dancers[i].recalculate();
+      this.dancers[i].recalculate(i==4);
+    this.lastPaintTime = new Date().getTime();
     this.animate();
   },
 
@@ -207,8 +208,8 @@ TamSVG.prototype = {
   animate: function()
   {
     //  Update the animation time
-    now = new Date().getTime();
-    diff = now - this.lastPaintTime;
+    var now = new Date().getTime();
+    var diff = now - this.lastPaintTime;
     if (this.running)
       this.beat += diff/this.speed;
     //  Update the dancers
@@ -406,6 +407,20 @@ TamSVG.prototype = {
     //$('#animslider').val(this.beat);
     for (var i in this.dancers)
       this.dancers[i].paint();
+
+    //  Debug display
+    /*
+    if (this.debug) {
+      if (this.debuggroup)
+        this.svg.remove(this.debuggroup);
+      this.debuggroup = this.svg.group(this.floorsvg);
+      for (var i in this.dancers[3].path.ttlist) {
+        var dx = ""+this.dancers[3].path.ttlist[i].angle+' '+this.dancers[3].path.ttlist[i];
+        var ty = i/2;
+        this.svg.text(this.debuggroup,0,0,dx,{fontSize: "10", transform:"translate(-6.5,"+ty+") scale(0.04)"});
+      }
+    } */
+
   },
 
   rewind: function()
@@ -879,7 +894,7 @@ Handhold.getHandhold = function(/*Dancer*/ d1, /*Dancer*/ d2)
   if (d1.tamsvg.bigon)
     afactor2 = 0.6;
   //  Dancer 1
-  var a = Math.abs(Math.IEEEremainder(Math.abs(a1-a0+Math.PI*3/2),Math.PI*2));
+  var a = Math.abs(MyMath.IEEEremainder(Math.abs(a1-a0+Math.PI*3/2),Math.PI*2));
   var ascore = a > Math.PI/6 ? (a-Math.PI/6)*afactor2+Math.PI/6*afactor1
                                 : a*afactor1;
   if (score1+ascore < 1.0 && (d1.hands & Movement.RIGHTHAND) != 0 &&
@@ -888,7 +903,7 @@ Handhold.getHandhold = function(/*Dancer*/ d1, /*Dancer*/ d2)
     h1 = Movement.RIGHTHAND;
     ah1 = a1-a0+Math.PI*3/2;
   } else {
-    a = Math.abs(Math.IEEEremainder(Math.abs(a1-a0+Math.PI/2),Math.PI*2));
+    a = Math.abs(MyMath.IEEEremainder(Math.abs(a1-a0+Math.PI/2),Math.PI*2));
     ascore = a > Math.PI/6 ? (a-Math.PI/6)*afactor2+Math.PI/6*afactor1
                            : a*afactor1;
     if (score1+ascore < 1.0 && (d1.hands & Movement.LEFTHAND) != 0 &&
@@ -900,7 +915,7 @@ Handhold.getHandhold = function(/*Dancer*/ d1, /*Dancer*/ d2)
       score1 = 10;
   }
   //  Dancer 2
-  a = Math.abs(Math.IEEEremainder(Math.abs(a2-a0+Math.PI/2),Math.PI*2));
+  a = Math.abs(MyMath.IEEEremainder(Math.abs(a2-a0+Math.PI/2),Math.PI*2));
   ascore = a > Math.PI/6 ? (a-Math.PI/6)*afactor2+Math.PI/6*afactor1
                          : a*afactor1;
   if (score2+ascore < 1.0 && (d2.hands & Movement.RIGHTHAND) != 0 &&
@@ -909,7 +924,7 @@ Handhold.getHandhold = function(/*Dancer*/ d1, /*Dancer*/ d2)
     h2 = Movement.RIGHTHAND;
     ah2 = a2-a0+Math.PI/2;
   } else {
-    a = Math.abs(Math.IEEEremainder(Math.abs(a2-a0+Math.PI*3/2),Math.PI*2));
+    a = Math.abs(MyMath.IEEEremainder(Math.abs(a2-a0+Math.PI*3/2),Math.PI*2));
     ascore = a > Math.PI/6 ? (a-Math.PI/6)*afactor2+Math.PI/6*afactor1
                            : a*afactor1;
     if (score2+ascore < 1.0 && (d2.hands & Movement.LEFTHAND) != 0 &&
@@ -930,7 +945,6 @@ Handhold.getHandhold = function(/*Dancer*/ d1, /*Dancer*/ d2)
   if (d1.leftgrip == d2 && d2.leftgrip == d1)
     return new Handhold(d1,d2,Movement.LEFTHAND,Movement.LEFTHAND,ah1,ah2,d,0);
 
-  //window.alert(score1+" "+score2);
   if (score1 > 1.0 || score2 > 1.0 || score1+score2 > 1.2)
     return null;
   return new Handhold(d1,d2,h1,h2,ah1,ah2,d,score1+score2);
@@ -1174,7 +1188,7 @@ Dancer.prototype.computeStart = function()
 {
   this.start = new AffineTransform();
   this.start.translate(this.startx,this.starty);
-  this.start.rotate(Math.toRadians(this.startangle));
+  this.start.rotate(MyMath.toRadians(this.startangle));
   if (this.svg)
     this.svg.setAttribute('transform',this.start.toString());
 };
@@ -1202,9 +1216,9 @@ Dancer.prototype.hideNumber = function()
   this.numbersvg.setAttribute('visibility','hidden');
 };
 
-Dancer.prototype.recalculate = function()
+Dancer.prototype.recalculate = function(debug)
 {
-  this.path.recalculate();
+  this.path.recalculate(debug);
   this.paintPath();
 };
 
@@ -1266,13 +1280,11 @@ Dancer.prototype.animate = function(beat)
   if (this.path != null) {
     for (var i=0; i<this.path.movelist.length; i++) {
       m = this.path.movelist[i];
-      retval = 1;
       if (beat >= this.path.movelist[i].beats) {
         this.tx = new AffineTransform(this.start);
         this.tx.concatenate(this.path.transformlist[i]);
         beat -= this.path.movelist[i].beats;
         m = null;
-        retval = 0;
       } else
         break;
     }
@@ -1378,13 +1390,22 @@ Path.prototype.clear = function()
   this.pathlist = [];
 };
 
-Path.prototype.recalculate = function()
+Path.prototype.recalculate = function(debug)
 {
   this.transformlist = [];
+  this.ttlist = [];
+  this.trlist = [];
   var tx = new AffineTransform();
   for (var i in this.movelist) {
-    tx.concatenate(this.movelist[i].translate(999));
-    tx.concatenate(this.movelist[i].rotate(999));
+    var tt = this.movelist[i].translate(999);
+    //this.ttlist.push(new AffineTransform(tt));
+    tx.concatenate(tt);
+    //var ta = this.movelist[i].rotateAngle(999);
+    //this.trlist.push(ta);
+    var tr = this.movelist[i].rotateAux(999);
+    this.trlist.push(tr[0]);
+    this.ttlist.push(tr[1]);
+    tx.concatenate(tr[1]);
     this.transformlist.push(new AffineTransform(tx));
   }
 };
@@ -1465,6 +1486,10 @@ Movement = defineClass(
            ctrlx3,ctrly3,ctrlx4,ctrly4,x4,y4)
   {
     this.btranslate = new Bezier(0,0,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2);
+    this.numargs = arguments.length;
+    this.myargs = [];
+    for (var i in arguments)
+      this.myargs[i] = arguments[i];
     if (arguments.length > 8)
       this.brotate = new Bezier(0,0,ctrlx3,ctrly3,ctrlx4,ctrly4,x4,y4);
     else
@@ -1513,8 +1538,8 @@ Movement.prototype.clone = function()
 };
 
 Movement.prototype.translate = function(t) {
-  t = Math.min(Math.max(0,t),this.beats);
-  return this.btranslate.translate(t/this.beats);
+  var tt = Math.min(Math.max(0,t),this.beats);
+  return this.btranslate.translate(tt/this.beats);
 };
 
 Movement.prototype.reflect = function()
@@ -1522,10 +1547,15 @@ Movement.prototype.reflect = function()
   return this.scale(1,-1);
 };
 
+Movement.prototype.rotateAux = function(t)
+{
+  var tt = Math.min(Math.max(0,t),this.beats);
+  return this.brotate.rotateAux(tt/this.beats);
+};
 Movement.prototype.rotate = function(t)
 {
-  t = Math.min(Math.max(0,t),this.beats);
-  return this.brotate.rotate(t/this.beats);
+  var a = this.rotateAux(t);
+  return a[1];
 };
 
 Movement.prototype.scale = function(x,y)
@@ -1551,6 +1581,10 @@ Movement.prototype.scale = function(x,y)
   return this;
 };
 
+Movement.prototype.toString = function()
+{
+  return this.btranslate.toString() + ' '+this.brotate.toString();
+};
 ////////////////////////////////////////////////////////////////////////////////
 //  Bezier class
 Bezier = defineClass(
@@ -1587,12 +1621,26 @@ Bezier.prototype.translate = function(t)
 };
 
 //  Return the angle of the derivative given "t" between 0 and 1
-Bezier.prototype.rotate = function(t)
+Bezier.prototype.rotateAux = function(t)
 {
   var x = this.cx + t*(2.0*this.bx + t*3.0*this.ax);
   var y = this.cy + t*(2.0*this.by + t*3.0*this.ay);
   var theta = Math.atan2(y,x);
-  return AffineTransform.getRotateInstance(theta);
+  var tt = AffineTransform.getRotateInstance(theta);
+  return [theta,tt];
+};
+Bezier.prototype.rotate = function(t)
+{
+  var a = this.rotateAux(t);
+  return a[1];
+};
+
+Bezier.prototype.toString = function()
+{
+  return '[ '+this.x1.toFixed(1)+' '+this.y1.toFixed(1)+' '+
+              this.ctrlx1.toFixed(1)+' '+this.ctrly1.toFixed(1)+' '+
+              this.ctrlx2.toFixed(1)+' '+this.ctrly2.toFixed(1)+' '+
+              this.x2.toFixed(1)+' '+this.y2.toFixed(1)+' ]';
 };
 ////////////////////////////////////////////////////////////////////////////////
 //   Vector class
@@ -1686,8 +1734,8 @@ Vector.prototype.toString = function()
 };
 ////////////////////////////////////////////////////////////////////////////////
 //   AffineTransform class
-AffineTransform = defineClass(
-  function(tx)
+AffineTransform = defineClass({
+  construct: function(tx)
   {
     if (arguments.length == 0) {
       //  default constructor - return the identity matrix
@@ -1707,12 +1755,12 @@ AffineTransform = defineClass(
       this.y2 = tx.y2;
       this.y3 = tx.y3;
     }
-  });
+  }});
 
 //  Generate a new transform that moves to a new location
 AffineTransform.getTranslateInstance = function(x,y)
 {
-  a = new AffineTransform();
+  var a = new AffineTransform();
   a.x3 = x;
   a.y3 = y;
   return a;
@@ -1720,15 +1768,19 @@ AffineTransform.getTranslateInstance = function(x,y)
 //  Generate a new transform that does a rotation
 AffineTransform.getRotateInstance = function(theta)
 {
-  a = new AffineTransform();
-  a.x1 = a.y2 = Math.cos(theta);
-  a.x2 = -(a.y1 = Math.sin(theta));
-  return a;
+  var ab = new AffineTransform();
+  if (theta) {
+    ab.y1 = Math.sin(theta);
+    ab.x2 = -ab.y1;
+    ab.x1 = Math.cos(theta);
+    ab.y2 = ab.x1;
+  }
+  return ab;
 };
 //  Generate a new transform that does a scaling
 AffineTransform.getScaleInstance = function(x,y)
 {
-  a = new AffineTransform();
+  var a = new AffineTransform();
   a.scale(x,y);
   return a;
 };
@@ -1754,7 +1806,8 @@ AffineTransform.prototype.rotate = function(angle)
 {
   var sin = Math.sin(angle);
   var cos = Math.cos(angle);
-  var copy = { x1: this.x1, x2: this.x2, y1: this.y1, y2: this.y2 };
+  var copy = new AffineTransform(this);
+  //{ x1: this.x1, x2: this.x2, y1: this.y1, y2: this.y2 };
   this.x1 =  cos * copy.x1 + sin * copy.x2;
   this.x2 = -sin * copy.x1 + cos * copy.x2;
   this.y1 =  cos * copy.y1 + sin * copy.y2;
@@ -1765,8 +1818,7 @@ AffineTransform.prototype.rotate = function(angle)
 AffineTransform.prototype.concatenate = function(tx)
 {
   // [this] = [this] x [Tx]
-  var copy = { x1: this.x1, x2: this.x2, x3: this.x3,
-      y1: this.y1, y2: this.y2, y3: this.y3 };
+  var copy = new AffineTransform(this);
   this.x1 = copy.x1 * tx.x1 + copy.x2 * tx.y1;
   this.x2 = copy.x1 * tx.x2 + copy.x2 * tx.y2;
   this.x3 = copy.x1 * tx.x3 + copy.x2 * tx.y3 + copy.x3;
@@ -1837,6 +1889,13 @@ AffineTransform.prototype.toString = function()
                    this.x2+','+this.y2+','+
                    this.x3+','+this.y3+')';
 };
+//  A prettier version for debugging
+AffineTransform.prototype.print = function()
+{
+  return '[ '+this.x1.toFixed(2)+' '+this.y1.toFixed(2)+' '+
+              this.x2.toFixed(2)+' '+this.y2.toFixed(2)+' '+
+              this.x3.toFixed(2)+' '+this.y3.toFixed(2)+' ]';
+};
 ////////////////////////////////////////////////////////////////////////////////
 //   Color class
 Color = defineClass(
@@ -1892,33 +1951,34 @@ Color.prototype.toString = function()
 };
 ////////////////////////////////////////////////////////////////////////////////
 //  Misc
-Math.toRadians = function(deg)
+MyMath = {};
+MyMath.toRadians = function(deg)
 {
   return deg * Math.PI / 180;
 };
-Math.IEEEremainder = function(d1,d2)
+MyMath.IEEEremainder = function(d1,d2)
 {
   var n = Math.round(d1/d2);
   return d1 - n*d2;
 };
-Math.isApprox = function(a,b,delta)
+MyMath.isApprox = function(a,b,delta)
 {
   if (!delta)
     delta = 0.1;
   return Math.abs(a-b) < delta;
 };
-Math.angleDiff = function(a1,a2)
+MyMath.angleDiff = function(a1,a2)
 {
   return ((((a1-a2) % (Math.PI*2)) + (Math.PI*3)) % (Math.PI*2)) - Math.PI;
 };
-Math.anglesEqual = function(a1,a2)
+MyMath.anglesEqual = function(a1,a2)
 {
   return Math.isApprox(Math.angleDiff(a1,a2),0);
 };
-String.prototype.trim = function()
-{
-  return $.trim(this);
-};
+//String.prototype.trim = function()
+//{
+//  return $.trim(this);
+//};
 
 ////////////////////////////////////////////////////////////////////////////////
 // Build buttons and slider below animation

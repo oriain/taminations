@@ -253,7 +253,6 @@ parseOneCall:
           var nextcall = new tamxml();
           $('#Part'+(Number(n2)+1)).text($('#Part'+(Number(n2)+1)).text()+' '+nextcall.classname);
           nextcall.performCall(ctx);
-          //  TODO check for function failure
           callwords = callwords.slice(i,callwords.length);
           doxml = false;
           break parseOneCall;
