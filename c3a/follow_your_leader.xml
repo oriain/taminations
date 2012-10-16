@@ -21,12 +21,10 @@
 
 -->
 <tamination>
-  
-  
 
   <tam title="Follow Your Leader" from="Right-Hand Waves" formation="Ocean Waves RH BGBG">
     <path>
-      <move select="Forward 2" beats="1.5" offsetY="-.125" />
+      <move select="Forward 2" beats="1.5" offsetY="-.25" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
       <move select="Hinge Right" offsetY=".25" />
       <move select="Forward"/>
@@ -38,7 +36,7 @@
       <move select="Forward 2"/>
     </path>
     <path>
-      <move select="Forward 2" beats="1.5" offsetY="-.125" />
+      <move select="Forward 2" beats="1.5" offsetY="-.25" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
       <move select="Hinge Right" offsetY=".25" />
       <move select="Forward 3"/>
@@ -47,6 +45,32 @@
       <move select="Lead Right"/>
       <move select="Forward 5" beats="3"/>
       <move select="Run Right" beats="5" scaleX="2" scaleY="2"/>
+    </path>
+  </tam>
+
+  <tam title="Follow Your Leader" from="Left-Hand Waves" formation="Ocean Waves LH BGBG">
+    <path>
+      <move select="Lead Left"/>
+      <move select="Forward 5" beats="3"/>
+      <move select="Run Left" beats="5" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="1.5" offsetY=".25" />
+      <move select="Swing Left" scaleX=".75" scaleY=".75" />
+      <move select="Hinge Left" offsetY="-.25" />
+      <move select="Forward 3"/>
+    </path>
+    <path>
+      <move select="Lead Left"/>
+      <move select="Forward"/>
+      <move select="Run Left" beats="5" scaleX="2" scaleY="2"/>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="1.5" offsetY=".25" />
+      <move select="Swing Left" scaleX=".75" scaleY=".75" />
+      <move select="Hinge Left" offsetY="-.25" />
+      <move select="Forward"/>
     </path>
   </tam>
 

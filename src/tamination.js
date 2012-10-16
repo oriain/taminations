@@ -1,6 +1,6 @@
 /*
 
-    Copyright 2011 Brad Christie
+    Copyright 2012 Brad Christie
 
     This file is part of TAMinations.
 
@@ -647,6 +647,9 @@ var formations =
 
   "Tidal Inverted Line RH":
     "Formation boy 0 -3.5 180 girl 0 -2.5 0 boy 0 -1.5 0 girl 0 -.5 180",
+
+  "Tidal Inverted Line LH":
+    "Formation boy 0 -3.5 0 girl 0 -2.5 180 boy 0 -1.5 180 girl 0 -.5 0",
 
   "Tidal Line RH":
     "Formation boy 0 -3.5 180 girl 0 -2.5 180 boy 0 -1.5 180 girl 0 -.5 180",
