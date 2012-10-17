@@ -1973,7 +1973,7 @@ MyMath.angleDiff = function(a1,a2)
 };
 MyMath.anglesEqual = function(a1,a2)
 {
-  return Math.isApprox(Math.angleDiff(a1,a2),0);
+  return MyMath.isApprox(MyMath.angleDiff(a1,a2),0);
 };
 //String.prototype.trim = function()
 //{

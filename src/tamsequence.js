@@ -123,7 +123,7 @@ function updateSequence()
   var realcalls = [];
   var j = 1;
   for (var i in calls) {
-    var callname = calls[i];
+    var callname = calls[i].replace(/[^\s\w].*/,' ');
     if (callname.search(/\w/) >= 0) {
       $('#calllist').append('<li><a href="javascript:gotoCall('+(j-1)+')"><span id="Part'+j+'">'+callname+'</span></a></li>');
       j++;
@@ -138,8 +138,9 @@ function updateSequence()
   for (var i in calls) {
     //  Need to load xml files, 1 or more for each call
     var callwords = calls[i].toLowerCase()
-                            .replace(/\W/g,' ')
-                            .replace(/through/g,'thru')
+                            .replace(/\s/g,' ')  // coalesce spaces
+                            .replace(/[^\s\w].*/,' ')     // remove comments
+                            .replace(/through/g,'thru')  // just in case
                             .split(/\s+/);
     //  Fetch calls that are any part of the callname,
     //  to get concepts and modifications
@@ -198,8 +199,9 @@ function buildSequence()
     //  Break up the call as above to find and perform modifications
     var doxml = true;
     var callwords = calls[n2].toLowerCase()
-                             .replace(/\W/g,' ')
-                             .replace(/through/g,'thru')
+                             .replace(/\s/g,' ')  // coalesce spaces
+                             .replace(/[^\s\w].*/,' ')     // remove comments
+                             .replace(/through/g,'thru')  // just in case
                              .split(/\s+/);
     $('#Part'+(Number(n2)+1)).text('');
     try {
