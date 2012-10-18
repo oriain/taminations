@@ -347,4 +347,23 @@
     4-dancer call.  Each side of the Tidal Line works independently.
     </taminator>
   </tam>
+
+  <tam title="Left-Shoulder Half Tag" from="Left-Hand Two-Faced Lines"
+       formation="Two-Faced Lines LH" difficulty="2">
+    <path>
+      <move select="Lead Left" />
+    </path>
+    <path>
+      <move select="Lead Left" />
+      <move select="Forward 2" />
+    </path>
+    <path>
+      <move select="Lead Left" />
+      <move select="Forward 2" />
+    </path>
+    <path>
+      <move select="Lead Left" />
+    </path>
+  </tam>
+
 </tamination>
