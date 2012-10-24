@@ -62,11 +62,11 @@ class CallContext:
   # Level off the number of beats for each dancer
   def levelBeats(self):
     maxbeats = 0
-    for d in self.dancers:
+    for d in self.dancers.keys():
       b = self.paths[d].beats()
       if b > maxbeats:
         maxbeats = b
-    for d in self.dancers:
+    for d in self.dancers.keys():
       b = maxbeats - self.paths[d].beats()
       if b > 0:
         m = Move({'select':'Stand','beats':b})
@@ -86,11 +86,14 @@ class CallContext:
   #  If d2 is not given, returns angle to origin
   #  Angle returned is in the range -pi to pi
   def angle(self,d1,d2):
-    v = Vector((0,0))
+    print(str(d1)+' '+str(d2))
+    v = Vector((0,0,0))
     if d2 != None:
       v = self.dancers[d2].location()
     v2 = self.dancers[d1].tx.inverted() * v
-    return v2.angle(Vector((1,0,0)))
+    retval = math.atan2(v2.y,v2.x)
+    print('angle = '+str(retval))
+    return retval
 
   #  Test if dancer d2 is directly in front, back. left, right of dancer d1
   def isInFront(self,d1,d2):
@@ -105,7 +108,7 @@ class CallContext:
   #  Return closest dancer that satisfies a given conditional
   def dancerClosest(self,d,f):
     bestd = None
-    for d2 in self.dancers:
+    for d2 in self.dancers.keys():
       if f(d2) and (bestd == None or self.distance(d2,d) < self.distance(bestd,d)):
         bestd = d2
     return bestd
@@ -114,7 +117,7 @@ class CallContext:
   def dancersInOrder(self,d,f):
     #  First get the dancers that satisfy the conditional
     retval = []
-    for d2 in self.dancers:
+    for d2 in self.dancers.keys():
       if f(d2):
         retval.push(d2)
     #  Now sort them by distance
@@ -135,7 +138,7 @@ class CallContext:
   #  Return dancers that are in between two other dancers
   def inBetween(self,d1,d2):
     etval = [];
-    for d in self.dancers:
+    for d in self.dancers.keys():
       if (d != d1 and d != d2 and
           Math.isApprox(self.distance(d,d1)+self.distance(d,d2),
                         self.distance(d1,d2))):
@@ -162,16 +165,19 @@ class CallContext:
     self.end = {}
     self.verycenter = {}
     istidal = False
-    for d1 in self.dancers:
+    for d1 in self.dancers.keys():
       bestleft = -1
       bestright = -1
       leftcount = 0
       rightcount = 0
       frontcount = 0
       backcount = 0
-      for d2 in self.dancers:
+      for d2 in self.dancers.keys():
         if d2 == d1:
           continue
+        print('isRight? '+str(d1)+' '+str(d2))
+        print(self.dancers[d1].location())
+        print(self.dancers[d2].location())
         #  Count dancers to the left and right, and find the closest on each side
         if self.isRight(d1,d2):
           rightcount += 1
@@ -186,6 +192,7 @@ class CallContext:
           frontcount += 1
         elif self.isInBack(d1,d2):
           backcount += 1
+      print(str(rightcount)+' '+str(leftcount))
       #  Use the results of the counts to assign belle/beau/leader/trailer
       #  and partner
       if (leftcount % 2 == 1 and rightcount % 2 == 0 and
