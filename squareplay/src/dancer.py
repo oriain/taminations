@@ -4,7 +4,8 @@ import datetime
 import bge
 from mathutils import Matrix,  Vector
 from xml.dom.minidom import Node
-from src.move import Move
+from src.movement import Movement
+from src.path import Path
 
 class Moving:
   def __init__(self):
@@ -27,7 +28,7 @@ class Dancer:
     self.gender = gender  #  'boy' or 'girl'
     self.angle = angle  # in degrees
     self.object = None
-    self.movements = []
+    self.path = Path()
     self.starttime = 0
     self.computeStart()
     self.moving = Moving()
@@ -37,9 +38,7 @@ class Dancer:
     obj['PythonObject'] = self
 
   def addPath(self,p):
-    for m in p.childNodes:
-      if m.nodeType == Node.ELEMENT_NODE:
-        self.movements += Move(m).expand()
+    self.path.add(p)
 
   def computeStart(self):
     self.startx = Matrix.Translation(Vector([self.x,self.y,0]))
@@ -75,7 +74,7 @@ class Dancer:
     #  Start with start position
     p = self.startx.copy()
     #  Apply all completed movements
-    for m in self.movements:
+    for m in self.path.movelist:
       if t < m.beats:
         #  Add partial movement and finish
         p *= m.translationMatrix(t)
@@ -86,22 +85,25 @@ class Dancer:
       t -= m.beats
     return p
 
+  def location(self):
+    return self.tx.to_translation()
+
   def direction(self,t):
-    for m in self.movements:
+    for m in self.path.movelist:
       if t < m.beats:
         return m.direction(t)
       t -= m.beats
     return Vector([0,0,0])
 
   def rotation(self,t):
-    for m in self.movements:
+    for m in self.path.movelist:
       if t < m.beats:
-        return m.rotation(t)
+        return m.rotate(t)
       t -= m.beats
     return 0
 
   def turn(self,t):
-    for m in self.movements:
+    for m in self.path.movelist:
       if t < m.beats:
         return m.turn(t)
       t -= m.beats
@@ -112,18 +114,18 @@ class Dancer:
     if self.starttime or t:
       if t == 0:
         t = (datetime.datetime.now() - self.starttime).total_seconds() * Dancer.beats_per_second
-      p = self.locationMatrix(t)
+      self.tx = self.locationMatrix(t)
       #  Get x, y, angle for matching formations
-      v = p.to_translation()
+      v = self.tx.to_translation()
       self.x = v.x
       self.y = v.y
-      q = p.to_quaternion()
+      q = self.tx.to_quaternion()
       self.angle = q.angle * 180 / math.pi
       if q.z < -0.1:  #  0 angle sometimes has z of "-0"
         self.angle = (self.angle + 180) % 360
       #  Apply to blender object
       if self.object:
-        self.object.worldTransform = p
+        self.object.worldTransform = self.tx
 
   def snapUser(self,t=0):
     ''' If the user is moving close to the correct path, snap
@@ -165,7 +167,7 @@ class Dancer:
         r = (r + math.pi) % (math.pi*2)
       #print('Direction: '+str(r*180/math.pi)+'  Should be: '+str(r0*180/math.pi))
       dr = abs(r-r0)
-      print('Error: '+str(d)+' '+str(dr*180/math.pi))
+      #print('Error: '+str(d)+' '+str(dr*180/math.pi))
 
       self.moving.reset()
 
@@ -181,7 +183,7 @@ class Dancer:
       v0 = p0.to_translation()
       #  Get the location at the end of the current movement
       t2 = 0;
-      for m in self.movements:
+      for m in self.path.movelist:
         t2 += m.beats
         if t2 > t:
           break;
@@ -212,7 +214,7 @@ class CallText(Dancer):
 
   def addPath(self,p,call):
     Dancer.addPath(self,p)
-    for m in self.movements:
+    for m in self.path.movelist:
       if not hasattr(m,'text'):
         m.text = call
 
@@ -220,18 +222,17 @@ class CallText(Dancer):
     if self.starttime or t:
       if t == 0:
         t = (datetime.datetime.now() - self.starttime).total_seconds() * Dancer.beats_per_second
-      for m in self.movements:
-        print(str(t)+' '+str(m.beats))
+      m = False
+      for m in self.path.movelist:
         if t < m.beats:
           if self.object and hasattr(m,'text'):
             self.object.text = m.text
           break
         t -= m.beats
       else:  #  Fell through the loop, animations are complete
-        if self.object and hasattr(m,'text'):
+        if self.object and m and hasattr(m,'text'):
           self.object.text = ''
           if self.starttime:
-            print('Finished')
             bge.logic.endGame()
 
 #  Routines connected to Blender controllers

@@ -11,7 +11,7 @@ def getFormation(fs):
   caller = bge.logic.getCurrentController().owner
   #  Get formation definition
   if not fs.startswith('Formation'):
-    fs = caller['formations'][fs]
+    fs = caller['formations'][fs.strip()]
   #  Parse definition
   tokens = fs.split()
   dancers = [];

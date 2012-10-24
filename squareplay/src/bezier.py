@@ -25,12 +25,12 @@ class Bezier:
     self.ay = self.y2 - self.y1 - self.cy - self.by
 
   #  Return the location along the curve given "t" between 0 and 1
-  def translation(self,t):
+  def translate(self,t):
     x = self.x1 + t*(self.cx + t*(self.bx + t*self.ax))
     y = self.y1 + t*(self.cy + t*(self.by + t*self.ay))
     return Vector([x,y,0])
   def translationMatrix(self,t):
-    return Matrix.Translation(self.translation(t))
+    return Matrix.Translation(self.translate(t))
 
   #  Return the direction. which is the derivative, given "t" between 0 and 1
   def direction(self,t):
@@ -42,12 +42,12 @@ class Bezier:
 
   #  Return the angle of the derivative given "t" between 0 and 1
   #  This is the angle that the curve is moving to
-  def rotation(self,t):
+  def rotate(self,t):
     x = self.cx + t*(2.0*self.bx + t*3.0*self.ax)
     y = self.cy + t*(2.0*self.by + t*3.0*self.ay)
     return math.atan2(y,x)
   def rotationMatrix(self,t):
-    return Matrix.Rotation(self.rotation(t),4,'Z')
+    return Matrix.Rotation(self.rotate(t),4,'Z')
 
   #  Return the angle of the second derivative given "t"
   #  For determining the turning direction

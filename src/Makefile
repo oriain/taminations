@@ -64,5 +64,5 @@ TAMination.jar : TAMination.java
 
 #  Make the index of calls
 #  This is for a future project, not used by the current animations
-callindex.json : $(wildcard ../*/*.xml) $(wildcard calls/*.js)
+callindex.json : $(wildcard ../*/*.xml) $(wildcard calls/*.js) $(wildcard ../squareplay/src/calls/*.py)
 	python indexcalls.py >$@

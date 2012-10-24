@@ -7,3 +7,4 @@
 *.pyc
 *.blend?
 callindex.json
+__pycache__/

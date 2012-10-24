@@ -4,10 +4,11 @@ import re
 
 def main():
   #  Build table of calls in each file
-  r = re.compile('title="(.*?)"')
-  r2 = re.compile('/(ms|plus|adv|c1|c2|c3a)/')
-  r3 = re.compile('name:\\s*"(.*?)"')
-  r4 = re.compile('\\W')
+  r = re.compile(r'title="(.*?)"')
+  r2 = re.compile(r'/(ms|plus|adv|c1|c2|c3a)/')
+  r3 = re.compile(r'name:\s*"(.*?)"')
+  r3py = re.compile(r'class (.*)\(Call\):')
+  r4 = re.compile(r'\W')
   t = {}
   #  Read animations from xml files
   for filename in glob.glob('../*/*.xml'):
@@ -19,12 +20,12 @@ def main():
       m = r.search(line)
       if m:
         t[filename].append(m.group(1))
-  #  Read scripts from javascript files
-  for filename in glob.glob('calls/*.js'):
+  #  Read scripts from javascript and python files
+  for filename in glob.glob('calls/*.js') + glob.glob('../squareplay/src/calls/*.py'):
     filename = filename.replace('\\','/')
     t['../src/'+filename] = []
     for line in open(filename):
-      m = r3.search(line)
+      m = r3.search(line) or r3py.search(line)
       if m:
         t['../src/'+filename].append(m.group(1))
 
@@ -35,7 +36,7 @@ def main():
       it[cc] = set()
   for f in t:
     for c in t[f]:
-      it[c].add(f.replace('../',''))
+      it[c].add(f.replace('../','').replace('src/squareplay/',''))
   #  Now print the file(s) for each call in JSON format
   print('{')
   for c in it:
