@@ -1,5 +1,4 @@
-/*
-
+'''
     Copyright 2012 Brad Christie
 
     This file is part of TAMinations.
@@ -16,18 +15,15 @@
 
     You should have received a copy of the GNU Affero General Public License
     along with TAMinations.  If not, see <http://www.gnu.org/licenses/>.
-
- */
-
-Call.classes['turnback'] = defineClass({
-  name: "Turn Back",
-  extend: Call,
-  methods: {
-    performOne: function(ctx,d) {
-      var m = ctx.beau[d] ? 'U-Turn Right' : 'U-Turn Left';
-      var moves = Movement({ select: m });
-      return new Path(moves);
-    }
-
-  },
-});
+'''
+class PassThru(Call):
+  def performOne(self,ctx,d):
+    #  Can only pass thru with another dancer
+    #  in front of this dancer
+    #  who is also facing this dancer
+    d2 = ctx.dancerInFront(d)
+    if d2 != None and ctx.dancerInFront(d2) == d:
+      dist = ctx.distance(d,d2)
+      return Path([{ 'select': 'Extend Left', 'scaleX': dist/2, 'scaleY':0.5 },
+                   { 'select': 'Extend Right', 'scaleX': dist/2, 'scaleY':0.5 }]);
+    raise CallError();

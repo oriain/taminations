@@ -25,7 +25,6 @@ Call.classes['crossrun'] = defineClass({
   methods: {
     perform: function(ctx) {
       for (var d in ctx.dancers) {
-        //var dr = ctx.dancersToRight(d);
         var p = new Path();
         if (d in ctx.active) {
           //  Must be in a 4-dancer wave or line

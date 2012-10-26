@@ -112,7 +112,6 @@ CallContext.prototype.distance = function(d1,d2)
 //  Angle returned is in the range -pi to pi
 CallContext.prototype.angle = function(d1,d2)
 {
-
   var v = new Vector(0,0);
   if (d2 != undefined)
     v = this.dancers[d2].location();
@@ -122,19 +121,19 @@ CallContext.prototype.angle = function(d1,d2)
 //  Test if dancer d2 is directly in front, back. left, right of dancer d1
 CallContext.prototype.isInFront = function(d1,d2)
 {
-  return d1 != d2 && MyMath.anglesEqual(this.angle(d1,d2),0);
+  return d1 != d2 && Math.anglesEqual(this.angle(d1,d2),0);
 };
 CallContext.prototype.isInBack = function(d1,d2)
 {
-  return d1 != d2 && MyMath.anglesEqual(this.angle(d1,d2),Math.PI);
+  return d1 != d2 && Math.anglesEqual(this.angle(d1,d2),Math.PI);
 };
 CallContext.prototype.isLeft = function(d1,d2)
 {
-  return d1 != d2 && MyMath.anglesEqual(this.angle(d1,d2),Math.PI/2);
+  return d1 != d2 && Math.anglesEqual(this.angle(d1,d2),Math.PI/2);
 };
 CallContext.prototype.isRight = function(d1,d2)
 {
-  return d1 != d2 && MyMath.anglesEqual(this.angle(d1,d2),Math.PI*3/2);
+  return d1 != d2 && Math.anglesEqual(this.angle(d1,d2),Math.PI*3/2);
 };
 
 //  Return closest dancer that satisfies a given conditional
@@ -292,7 +291,7 @@ CallContext.prototype.analyze = function()
     return ctx.distance(a) - ctx.distance(b);
   });
   // The closest 2 dancers are very centers
-  if (!MyMath.isApprox(this.distance(dorder[1]),this.distance(dorder[2]))) {
+  if (!Math.isApprox(this.distance(dorder[1]),this.distance(dorder[2]))) {
     this.verycenter[dorder[0]] = true;
     this.verycenter[dorder[1]] = true;
   }
@@ -305,7 +304,7 @@ CallContext.prototype.analyze = function()
   }
   // Otherwise, if there are 4 dancers closer to the center than the other 4,
   // they are the centers
-  else if (!MyMath.isApprox(this.distance(dorder[3]),this.distance(dorder[4]))) {
+  else if (!Math.isApprox(this.distance(dorder[3]),this.distance(dorder[4]))) {
     this.center[dorder[0]] = true;
     this.center[dorder[1]] = true;
     this.center[dorder[2]] = true;
