@@ -174,7 +174,7 @@ function getTitle()
 //Set height of page sections to fit the window
 function sizeBody()
 {
-  var h = (window.innerHeight ? window.innerHeight : document.body.clientHeight);
+  var h = $(window).height();
   if (!isSmall)
     h -= 116;
   $('#definition').height(h);
