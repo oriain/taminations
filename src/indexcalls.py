@@ -19,7 +19,7 @@ def main():
     for line in open(filename):
       m = r.search(line)
       if m:
-        t[filename].append(m.group(1))
+        t[filename].append(re.sub(r4,'',m.group(1).lower()))
   #  Read scripts from javascript and python files
   for filename in glob.glob('calls/*.js') + glob.glob('../squareplay/src/calls/*.py'):
     filename = filename.replace('\\','/')
@@ -27,7 +27,7 @@ def main():
     for line in open(filename):
       m = r3.search(line) or r3py.search(line)
       if m:
-        t['../src/'+filename].append(m.group(1))
+        t['../src/'+filename].append(re.sub(r4,'',m.group(1).lower()))
 
   #  Invert the table
   it = {}
@@ -40,8 +40,7 @@ def main():
   #  Now print the file(s) for each call in JSON format
   print('{')
   for c in it:
-    cc = re.sub(r4,'',c)
-    print('    "'+cc.lower()+'":["'+'","'.join(it[c])+'"],')
+    print('    "'+c+'":["'+'","'.join(it[c])+'"],')
   #  Mark end
   print('    "--":[]')
   print('}')

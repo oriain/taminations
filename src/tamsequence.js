@@ -133,7 +133,7 @@ function updateSequence()
   calls = realcalls;
 
   //  Look up the calls fetch the necessary files
-  var filecount = 0;
+  var filecount = 100;
   tamsvg.parts = [];
   for (var i in calls) {
     //  Need to load xml files, 1 or more for each call
@@ -150,9 +150,9 @@ function updateSequence()
         var a = callindex[call];
         for (var x in a) {
           if (!xmldata[a[x]]) {
-            filecount++;
-            if (a[x].indexOf('.js') > 0)
+            if (a[x].indexOf('.js') > 0) {
               //  Call is interpreted by a script
+              filecount++;
               //  Read and interpret the script
               $.getScript(a[x],function(data,status,jqxhr) {
                 // xmldata set by script
@@ -161,8 +161,10 @@ function updateSequence()
               }).fail(function(jqxhr,settings,exception) {
                 alert('script failed '+settings);
               });
-            else
+            }
+            else if (a[x].indexOf('.xml') > 0) {
               //  Call is interpreted by animations
+              filecount++;
               //  Read and store the animation
               $.get(a[x],function(data,status,jqxhr) {
                 xmldata[jqxhr.filename] = data;
@@ -171,11 +173,13 @@ function updateSequence()
                   buildSequence();
                 }
               }).filename = a[x];
+            }
           }
         }
       }
     }
   }
+  filecount -= 100;
   if (!filecount)
     //  We already have all the files
     buildSequence();
