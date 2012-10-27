@@ -408,19 +408,6 @@ TamSVG.prototype = {
     for (var i in this.dancers)
       this.dancers[i].paint();
 
-    //  Debug display
-    /*
-    if (this.debug) {
-      if (this.debuggroup)
-        this.svg.remove(this.debuggroup);
-      this.debuggroup = this.svg.group(this.floorsvg);
-      for (var i in this.dancers[3].path.ttlist) {
-        var dx = ""+this.dancers[3].path.ttlist[i].angle+' '+this.dancers[3].path.ttlist[i];
-        var ty = i/2;
-        this.svg.text(this.debuggroup,0,0,dx,{fontSize: "10", transform:"translate(-6.5,"+ty+") scale(0.04)"});
-      }
-    } */
-
   },
 
   rewind: function()
@@ -894,7 +881,7 @@ Handhold.getHandhold = function(/*Dancer*/ d1, /*Dancer*/ d2)
   if (d1.tamsvg.bigon)
     afactor2 = 0.6;
   //  Dancer 1
-  var a = Math.abs(MyMath.IEEEremainder(Math.abs(a1-a0+Math.PI*3/2),Math.PI*2));
+  var a = Math.abs(Math.IEEEremainder(Math.abs(a1-a0+Math.PI*3/2),Math.PI*2));
   var ascore = a > Math.PI/6 ? (a-Math.PI/6)*afactor2+Math.PI/6*afactor1
                                 : a*afactor1;
   if (score1+ascore < 1.0 && (d1.hands & Movement.RIGHTHAND) != 0 &&
@@ -903,7 +890,7 @@ Handhold.getHandhold = function(/*Dancer*/ d1, /*Dancer*/ d2)
     h1 = Movement.RIGHTHAND;
     ah1 = a1-a0+Math.PI*3/2;
   } else {
-    a = Math.abs(MyMath.IEEEremainder(Math.abs(a1-a0+Math.PI/2),Math.PI*2));
+    a = Math.abs(Math.IEEEremainder(Math.abs(a1-a0+Math.PI/2),Math.PI*2));
     ascore = a > Math.PI/6 ? (a-Math.PI/6)*afactor2+Math.PI/6*afactor1
                            : a*afactor1;
     if (score1+ascore < 1.0 && (d1.hands & Movement.LEFTHAND) != 0 &&
@@ -915,7 +902,7 @@ Handhold.getHandhold = function(/*Dancer*/ d1, /*Dancer*/ d2)
       score1 = 10;
   }
   //  Dancer 2
-  a = Math.abs(MyMath.IEEEremainder(Math.abs(a2-a0+Math.PI/2),Math.PI*2));
+  a = Math.abs(Math.IEEEremainder(Math.abs(a2-a0+Math.PI/2),Math.PI*2));
   ascore = a > Math.PI/6 ? (a-Math.PI/6)*afactor2+Math.PI/6*afactor1
                          : a*afactor1;
   if (score2+ascore < 1.0 && (d2.hands & Movement.RIGHTHAND) != 0 &&
@@ -924,7 +911,7 @@ Handhold.getHandhold = function(/*Dancer*/ d1, /*Dancer*/ d2)
     h2 = Movement.RIGHTHAND;
     ah2 = a2-a0+Math.PI/2;
   } else {
-    a = Math.abs(MyMath.IEEEremainder(Math.abs(a2-a0+Math.PI*3/2),Math.PI*2));
+    a = Math.abs(Math.IEEEremainder(Math.abs(a2-a0+Math.PI*3/2),Math.PI*2));
     ascore = a > Math.PI/6 ? (a-Math.PI/6)*afactor2+Math.PI/6*afactor1
                            : a*afactor1;
     if (score2+ascore < 1.0 && (d2.hands & Movement.LEFTHAND) != 0 &&
@@ -1188,7 +1175,7 @@ Dancer.prototype.computeStart = function()
 {
   this.start = new AffineTransform();
   this.start.translate(this.startx,this.starty);
-  this.start.rotate(MyMath.toRadians(this.startangle));
+  this.start.rotate(Math.toRadians(this.startangle));
   if (this.svg)
     this.svg.setAttribute('transform',this.start.toString());
 };
@@ -1362,8 +1349,24 @@ Path = defineClass(
       for (var m in p.movelist)
         this.add(p.movelist[m].clone());
     }
+    else if (p && (p.select != undefined)) {
+      var mm = tam.translateMovement(p);
+      for (var m in mm)
+        this.add(new Movement(mm[m]));
+    }
+    else if (p instanceof Movement) {
+      this.add(p.clone());
+    }
     else if (p) {
       for (var i=0; i<p.length; i++) {
+        if (p[i] instanceof Movement)
+          this.add(p[i]);
+        else if (p[i].cx1 != undefined)
+          this.add(new Movement(p[i]));
+        else
+          this.add(new Path(p[i]));
+      }
+      /*
         var m = p[i].cx3 == undefined
         ? new Movement(p[i].hands,
                        p[i].beats,
@@ -1379,7 +1382,7 @@ Path = defineClass(
                        p[i].cx4,p[i].cy4,
                        p[i].x4,p[i].y4);
         this.add(m);
-      }
+      }  */
     }
   });
 
@@ -1390,22 +1393,15 @@ Path.prototype.clear = function()
   this.pathlist = [];
 };
 
-Path.prototype.recalculate = function(debug)
+Path.prototype.recalculate = function()
 {
   this.transformlist = [];
-  this.ttlist = [];
-  this.trlist = [];
   var tx = new AffineTransform();
   for (var i in this.movelist) {
     var tt = this.movelist[i].translate(999);
-    //this.ttlist.push(new AffineTransform(tt));
     tx.concatenate(tt);
-    //var ta = this.movelist[i].rotateAngle(999);
-    //this.trlist.push(ta);
-    var tr = this.movelist[i].rotateAux(999);
-    this.trlist.push(tr[0]);
-    this.ttlist.push(tr[1]);
-    tx.concatenate(tr[1]);
+    var tr = this.movelist[i].rotate(999);
+    tx.concatenate(tr);
     this.transformlist.push(new AffineTransform(tx));
   }
 };
@@ -1485,12 +1481,28 @@ Movement = defineClass(
   function(h,b,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2,
            ctrlx3,ctrly3,ctrlx4,ctrly4,x4,y4)
   {
+    if (arguments.length == 1) {
+      b = h.beats;
+      ctrlx1 = h.cx1;
+      ctrly1 = h.cy1;
+      ctrlx2 = h.cx2;
+      ctrly2 = h.cy2;
+      x2 = h.x2;
+      y2 = h.y2;
+      ctrlx3 = h.cx3;
+      ctrly3 = 0;
+      ctrlx4 = h.cx4;
+      ctrly4 = h.cy4;
+      x4 = h.x4;
+      y4 = h.y4;
+      h = h.hands;
+    }
     this.btranslate = new Bezier(0,0,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2);
     this.numargs = arguments.length;
     this.myargs = [];
     for (var i in arguments)
       this.myargs[i] = arguments[i];
-    if (arguments.length > 8)
+    if (ctrlx3 != undefined)
       this.brotate = new Bezier(0,0,ctrlx3,ctrly3,ctrlx4,ctrly4,x4,y4);
     else
       this.brotate = new Bezier(0,0,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2);
@@ -1547,15 +1559,10 @@ Movement.prototype.reflect = function()
   return this.scale(1,-1);
 };
 
-Movement.prototype.rotateAux = function(t)
-{
-  var tt = Math.min(Math.max(0,t),this.beats);
-  return this.brotate.rotateAux(tt/this.beats);
-};
 Movement.prototype.rotate = function(t)
 {
-  var a = this.rotateAux(t);
-  return a[1];
+  var tt = Math.min(Math.max(0,t),this.beats);
+  return this.brotate.rotate(tt/this.beats);
 };
 
 Movement.prototype.scale = function(x,y)
@@ -1621,18 +1628,13 @@ Bezier.prototype.translate = function(t)
 };
 
 //  Return the angle of the derivative given "t" between 0 and 1
-Bezier.prototype.rotateAux = function(t)
+Bezier.prototype.rotate = function(t)
 {
+
   var x = this.cx + t*(2.0*this.bx + t*3.0*this.ax);
   var y = this.cy + t*(2.0*this.by + t*3.0*this.ay);
   var theta = Math.atan2(y,x);
-  var tt = AffineTransform.getRotateInstance(theta);
-  return [theta,tt];
-};
-Bezier.prototype.rotate = function(t)
-{
-  var a = this.rotateAux(t);
-  return a[1];
+  return AffineTransform.getRotateInstance(theta);
 };
 
 Bezier.prototype.toString = function()
@@ -1951,35 +1953,29 @@ Color.prototype.toString = function()
 };
 ////////////////////////////////////////////////////////////////////////////////
 //  Misc
-MyMath = {};
-MyMath.toRadians = function(deg)
+Math.toRadians = function(deg)
 {
   return deg * Math.PI / 180;
 };
-MyMath.IEEEremainder = function(d1,d2)
+Math.IEEEremainder = function(d1,d2)
 {
   var n = Math.round(d1/d2);
   return d1 - n*d2;
 };
-MyMath.isApprox = function(a,b,delta)
+Math.isApprox = function(a,b,delta)
 {
   if (!delta)
     delta = 0.1;
   return Math.abs(a-b) < delta;
 };
-MyMath.angleDiff = function(a1,a2)
+Math.angleDiff = function(a1,a2)
 {
   return ((((a1-a2) % (Math.PI*2)) + (Math.PI*3)) % (Math.PI*2)) - Math.PI;
 };
-MyMath.anglesEqual = function(a1,a2)
+Math.anglesEqual = function(a1,a2)
 {
-  return MyMath.isApprox(MyMath.angleDiff(a1,a2),0);
+  return Math.isApprox(Math.angleDiff(a1,a2),0);
 };
-//String.prototype.trim = function()
-//{
-//  return $.trim(this);
-//};
-
 ////////////////////////////////////////////////////////////////////////////////
 // Build buttons and slider below animation
 // Only used for SVG animation - Java codes them in the applet
