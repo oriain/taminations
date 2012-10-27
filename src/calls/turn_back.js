@@ -25,9 +25,8 @@ Call.classes['turnback'] = defineClass({
   methods: {
     performOne: function(ctx,d) {
       var m = ctx.beau[d] ? 'U-Turn Right' : 'U-Turn Left';
-      var moves = Movement({ select: m });
-      return new Path(moves);
+      return new Path({select: m});
     }
 
-  },
+  }
 });

@@ -27,18 +27,18 @@ Call.classes['wheelaround'] = defineClass({
       var d2 = ctx.partner[d];
       if (d2 == undefined || !ctx.active[d2])
         throw new CallError('Dancer '+dancerNum(d)+' must Wheel Around with partner.');
-      var m = '';
+      var m = {};
       if (ctx.belle[d]) {
         if (!ctx.beau[d2])
           throw new CallError('Dancer '+dancerNum(d)+' is not part of a Facing Couple.');
-        m = tam.translateMovement({ select: 'Belle Wheel' });
+        m = { select: 'Belle Wheel' };
       }
       else {
         if (!ctx.belle[d2])
           throw new CallError('Dancer '+dancerNum(d)+' is not part of a Facing Couple.');
-        m = tam.translateMovement({ select: 'Beau Wheel' });
+        m = { select: 'Beau Wheel' };
       }
-      ctx.paths[d].add(new Path(m));
+      return new Path(m);
     }
-  },
+  }
 });

@@ -30,8 +30,8 @@ Call.classes['passthru'] = defineClass({
       var d2 = ctx.dancerInFront(d);
       if (d2 != undefined && ctx.dancerInFront(d2) == d) {
         var dist = ctx.distance(d,d2);
-        var moves = tam.translatePath([{ select: 'Extend Left', scaleX: dist/2, scaleY:0.5 },
-                                       { select: 'Extend Right', scaleX: dist/2, scaleY:0.5 }]);
+        var moves = [{ select: 'Extend Left', scaleX: dist/2, scaleY:0.5 },
+                     { select: 'Extend Right', scaleX: dist/2, scaleY:0.5 }];
         return new Path(moves);
       }
       throw new Error();
