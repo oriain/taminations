@@ -19,6 +19,8 @@
 <script src="src/tamination.js" type="text/javascript"></script>
 <script src="src/tamsvg.js" type="text/javascript"></script>
 <script src="src/calls/call.js" type="text/javascript"></script>
+<script src="src/calls/four_dancer_call.js" type="text/javascript"></script>
+<script src="src/calls/quarter_left.js" type="text/javascript"></script>
 <script src="src/tamsequence.js" type="text/javascript"></script>
 <style type="text/css">
   #instructions {
@@ -27,6 +29,24 @@
     margin: 4px;
     padding: 6px;
     display: none;
+  }
+  #calls {
+    margin: 16px;
+    background-color: white;
+    width: 20em;
+    height: 30em;
+    font: 16px Helvetica,sans-serif;
+    overflow: auto;
+  }
+  .calltext {
+    color: blue;
+  }
+  .commenttext {
+    color: red;
+  }
+  .callerror {
+    color: white;
+    background-color: red;
   }
 </style>
 </head>
@@ -38,7 +58,7 @@
   <div id="instructions" >
 
     <h3>Creating a Sequence</h3>
-    Enter your calls in the text box, one per line.
+    Enter your calls in the white text box, one per line.
     Capitalization and punctuation are not important.<br/><br/>
     You can use any call that has an animation for the current formation.
     In addition, some simple
@@ -48,7 +68,10 @@
     However, there are still many valid calls you will not be able to do because
     the sequencer does not have an animation or program to perform them.
     If in doubt, go ahead and try a call. If the sequencer is unable to find or
-    perform the call you will get an appropriate message.
+    perform the call you will get an appropriate message.<br/><br/>
+    You can add comments by using any non-alphanumeric character, such
+    as an asterisk or slash.  Anything from that point to the end of the line
+    is ignored.
 
     <h3>Save and Load</h3>
     Click <b>Save</b> and your sequence will appear in a separate window.
@@ -75,14 +98,15 @@
     <input type="radio" name="formation" value="Squared Set" checked/>Squared Set
     <input type="radio" name="formation" value="Facing Couples"/>Facing Couples
     <br/>
-    <textarea id="calls" rows="30" cols="60"></textarea></p>
-    <p>
+    <div id="calls" contentEditable="true">
+    </div>
+    <h3 id="errortext"></h3>
     <input type="button" name="Load" id="loadbutton" value="Load"/>
     <input type="file" id="inputfile" name="inputfile"/><br/>
     <input type="button" name="Save" id="savebutton" value="Save"/>
     <input type="button" name="Link" id="linkbutton" value="Link"/>
     <input type="button" name="Clear" id="clearbutton" value="Clear"/>
-    </p>
+  </p>
   </form>
 </div></body>
 </html>

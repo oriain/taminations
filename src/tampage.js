@@ -52,6 +52,10 @@ var difficultText = [ ' <font color="blue">&diams;</font>',
 $(document).ready(
   function() {
     var w = (window.innerWidth ? window.innerWidth : document.body.clientWidth);
+    if (typeof defwidth == 'undefined')
+      defwidth = 40;
+    if (typeof animwidth == 'undefined')
+      animwidth = 30;
     if (w < 500)
       isSmall = true;
     $(".noshow").hide();
@@ -68,12 +72,12 @@ $(document).ready(
     //  Build the document structure
     var htmlstr = '<table id="deftable" cellspacing="0" cellpadding="4" width="100%">'+
                     '<tr valign="top">'+
-                      '<td width="40%">'+
+                      '<td width="'+defwidth+'%">'+
                         '<div id="definition">'+
                           '<span class="level"></span>'+
                         '</div>'+
                       '</td>'+
-                      '<td width="30%" class="animation"><div id="appletcontainer"></div></td>'+
+                      '<td width="'+animwidth+'%" class="animation"><div id="appletcontainer"></div></td>'+
                       '<td class="animation">'+
                         '<div id="animationlist"></div>'+
                       '</td>'+
@@ -195,7 +199,7 @@ function appletSize()
       aw = ah = w;
     else {
       ah = h - 150;
-      aw = (w * 30) / 100;
+      aw = (w * animwidth) / 100;
       if (ah * 350 > aw * 420)
         ah = (aw * 420) / 350;
     }

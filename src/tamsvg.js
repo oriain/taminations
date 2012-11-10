@@ -4,18 +4,18 @@
 
     This file is part of TAMinations.
 
-    TAMinations is free software: you can redistribute it and/or modify
+    Taminations is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published
     by the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    TAMinations is distributed in the hope that it will be useful,
+    Taminations is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Affero General Public License for more details.
 
     You should have received a copy of the GNU Affero General Public License
-    along with TAMinations.  If not, see <http://www.gnu.org/licenses/>.
+    along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
 
@@ -136,17 +136,29 @@ TamSVG.prototype = {
     var dancerColor = [ Color.red, Color.yellow, Color.lightGray ];
     var numbers = tam.getNumbers();
     for (var i=1; i<tokens.length; i+=4) {
-      var d = new Dancer(this,Dancer.genders[tokens[i]],
-              -Number(tokens[i+2]),-Number(tokens[i+1]),
-              Number(tokens[i+3])+180,
-              dancerColor[i>>3],this.allp[i>>2],numbers[this.dancers.length]);
+      var d = new Dancer({
+        tamsvg: this,
+        gender: Dancer.genders[tokens[i]],
+        x: -Number(tokens[i+2]),
+        y: -Number(tokens[i+1]),
+        angle: Number(tokens[i+3])+180,
+        color:  dancerColor[i>>3],
+        path: this.allp[i>>2],
+        number: numbers[this.dancers.length]
+      });
       if (d.gender == Dancer.PHANTOM && !this.showPhantoms)
         d.hide();
       this.dancers.push(d);
-      d = new Dancer(this,Dancer.genders[tokens[i]],
-              Number(tokens[i+2]),Number(tokens[i+1]),
-              Number(tokens[i+3]),
-              dancerColor[i>>3].rotate(),this.allp[i>>2],numbers[this.dancers.length]);
+      d = new Dancer({
+        tamsvg: this,
+        gender: Dancer.genders[tokens[i]],
+        x: Number(tokens[i+2]),
+        y: Number(tokens[i+1]),
+        angle: Number(tokens[i+3]),
+        color:  dancerColor[i>>3].rotate(),
+        path: this.allp[i>>2],
+        number: numbers[this.dancers.length]
+      });
       if (d.gender == Dancer.PHANTOM && !this.showPhantoms)
         d.hide();
       this.dancers.push(d);
@@ -721,9 +733,9 @@ TamSVG.prototype = {
     //  Generate hexagon dancers
     for (var i=0; i<this.saveDancers.length; i+=2) {
       var j = Math.floor(i/4);
-      this.dancers.push(new Dancer(this.saveDancers[i],0,0,0,30,dancerColor[j]));
-      this.dancers.push(new Dancer(this.saveDancers[i],0,0,0,150,dancerColor[j+2]));
-      this.dancers.push(new Dancer(this.saveDancers[i],0,0,0,270,dancerColor[j+4]));
+      this.dancers.push(new Dancer({dancer:this.saveDancers[i],angle:30,color:dancerColor[j]}));
+      this.dancers.push(new Dancer({dancer:this.saveDancers[i],angle:150,color:dancerColor[j+2]}));
+      this.dancers.push(new Dancer({dancer:this.saveDancers[i],angle:270,color:dancerColor[j+4]}));
     }
     //  Convert to hexagon positions and paths
     for (var i=0; i<this.dancers.length; i++) {
@@ -742,7 +754,7 @@ TamSVG.prototype = {
                         Color.magenta, Color.cyan ];
     for (var i=0; i<this.saveDancers.length; i+=2) {
       var j = Math.floor(i/2);
-      this.dancers.push(new Dancer(this.saveDancers[i],0,0,0,0,dancerColor[j]));
+      this.dancers.push(new Dancer({dancer:this.saveDancers[i],color:dancerColor[j]}));
     }
     //  Generate BIgon dancers
     for (var i=0; i<this.dancers.length; i++) {
@@ -999,40 +1011,39 @@ Handhold.prototype.paint = function()
 ////////////////////////////////////////////////////////////////////////////////
 //  Dancer class
 Dancer = defineClass(
-function (tamsvg,sex,x,y,angle,color,p,number)
+function(args)   // (tamsvg,sex,x,y,angle,color,p,number)
 {
-  if (tamsvg instanceof Dancer) {
-    var d = tamsvg;
+  this.startangle = 0;
+  this.path = new Path();
+  if (args.tamsvg)
+    this.tamsvg = args.tamsvg;
+  if (args.dancer) {
     var props = ['tamsvg','fillcolor','drawcolor','startx','starty','startangle','gender','number'];
     for (var i in props)
-      this[props[i]] = d[props[i]];
-    this.path = new Path(d.path);
-    if (sex)
-      this.gender = sex;
-    if (x || y) {
-      this.startx = x;
-      this.starty = -y;
-    }
-    this.startangle += angle;
-    if (d.gender != Dancer.PHANTOM && color) {
-      this.fillcolor = color;
-      this.drawcolor = color.darker();
-    }
-  } else {
-    this.tamsvg = tamsvg;
-    if (color) {
-      this.fillcolor = color;
-      this.drawcolor = color.darker();
-    }
-    this.startx = x;
-    this.starty = -y;
-    this.startangle = angle-90;
-    this.path = new Path(p);
-    this.gender = sex;
-    this.number = number;
+      this[props[i]] = args.dancer[props[i]];
+    this.path = new Path(args.dancer.path);
   }
-  //if (tamsvg.numbers)
-  //  this.fillcolor = 'white';
+  if (args.gender)
+    this.gender = args.gender;
+  if (args.x !== undefined)
+    this.startx = args.x;
+  if (args.y !== undefined)
+    this.starty = -args.y;
+  if (args.angle !== undefined) {
+    if (args.dancer)
+      this.startangle += args.angle;
+    else
+      this.startangle = args.angle-90;
+  }
+  if (this.gender != Dancer.PHANTOM && args.color !== undefined) {
+    this.fillcolor = args.color;
+    this.drawcolor = args.color.darker();
+  }
+  if (args.path)
+    this.path = new Path(args.path);
+  if (args.number !== undefined)
+    this.number = args.number;
+
   this.hidden = false;
   this.pathVisible = this.tamsvg.showPaths;
   this.leftgrip = null;
@@ -1043,7 +1054,7 @@ function (tamsvg,sex,x,y,angle,color,p,number)
   this.leftHandTransform = new AffineTransform();
   this.prevangle = 0;
   this.computeStart();
-  if (!color)
+  if (!args.color)
     return;
   //  Create SVG representation
   this.svg = this.tamsvg.svg.group(this.tamsvg.dancegroup);
@@ -1125,7 +1136,7 @@ function (tamsvg,sex,x,y,angle,color,p,number)
              {fill:this.fillcolor.toString(),
               stroke:this.drawcolor.toString(),'stroke-width':0.1});
   this.numbersvg = this.tamsvg.svg.text(this.svg,-4,5,this.number+'',{fontSize: "14",transform:"scale(0.04 -0.04)"});
-  if (tamsvg.numbers)
+  if (this.tamsvg.numbers)
     this.body.setAttribute('fill','white');
   else
     this.numbersvg.setAttribute('visibility','hidden');
@@ -1176,6 +1187,7 @@ Dancer.prototype.computeStart = function()
   this.start = new AffineTransform();
   this.start.translate(this.startx,this.starty);
   this.start.rotate(Math.toRadians(this.startangle));
+  this.tx = new AffineTransform(this.start);
   if (this.svg)
     this.svg.setAttribute('transform',this.start.toString());
 };
@@ -1291,8 +1303,8 @@ Dancer.prototype.animate = function(beat)
   }
   else  // End of movement
     this.hands = Movement.BOTHHANDS;  // hold hands in ending formation
-}
-;
+  this.angle = Math.toDegrees(this.tx.getAngle());
+};
 Dancer.prototype.hexagonify = function(beat)
 {
   var a0 = Math.atan2(this.starty,this.startx);  // hack
@@ -1956,6 +1968,10 @@ Color.prototype.toString = function()
 Math.toRadians = function(deg)
 {
   return deg * Math.PI / 180;
+};
+Math.toDegrees = function(rad)
+{
+  return rad * 180 / Math.PI;
 };
 Math.IEEEremainder = function(d1,d2)
 {

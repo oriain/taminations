@@ -48,11 +48,16 @@ Call.prototype.performCall = function(ctx) {
 Call.prototype.perform = function(ctx) {
   //  Get all the paths with performOne calls
   for (var d in ctx.dancers) {
+    var didsomething = false;
     if (d in ctx.active) {
       var p = this.performOne(ctx,d);
-      if (p != undefined)
-          ctx.paths[d].add(p);
+      if (p != undefined) {
+        ctx.paths[d].add(p);
+        didsomething = true;
+      }
     }
+    if (!didsomething)
+      throw new NoDancerError();
   }
 };
 
@@ -75,6 +80,8 @@ CallContext = defineClass({
     this.paths = [];
     for (d in this.dancers)
       this.paths.push(new Path());
+    if (source.map != undefined)
+      this.map = source.map;
   }
 });
 
@@ -117,6 +124,16 @@ CallContext.prototype.angle = function(d1,d2)
     v = this.dancers[d2].location();
   var v2 = v.preConcatenate(this.dancers[d1].tx.getInverse());
   return v2.angle();
+};
+CallContext.prototype.isFacingIn = function(d)
+{
+  var a = this.angle(d);
+  return Math.abs(a) < Math.PI/4;
+};
+CallContext.prototype.isFacingOut = function(d)
+{
+  var a = this.angle(d);
+  return Math.abs(a) > Math.PI/4;
 };
 //  Test if dancer d2 is directly in front, back. left, right of dancer d1
 CallContext.prototype.isInFront = function(d1,d2)
@@ -304,7 +321,8 @@ CallContext.prototype.analyze = function()
   }
   // Otherwise, if there are 4 dancers closer to the center than the other 4,
   // they are the centers
-  else if (!Math.isApprox(this.distance(dorder[3]),this.distance(dorder[4]))) {
+  else if (this.dancers.length > 4 &&
+           !Math.isApprox(this.distance(dorder[3]),this.distance(dorder[4]))) {
     this.center[dorder[0]] = true;
     this.center[dorder[1]] = true;
     this.center[dorder[2]] = true;

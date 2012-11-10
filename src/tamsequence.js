@@ -26,6 +26,22 @@ var xmldata = {};
 var calls = [];
 var callclasses = {};
 var calllink = '';
+var animwidth='50';
+
+var synonyms = {
+  '&' : 'and',
+  '&amp;' : 'and',
+  'through' : 'thru',
+  keys : function() {
+    var retval = [];
+    for (var k in this)
+      if (typeof k == 'string')
+        retval.push(k);
+    return retval.sort(function(a,b) { return b.length - a.length; });
+  }
+};
+var synindex = synonyms.keys();
+
 $.holdReady(true);
 $.getJSON("src/callindex.json",function(data) {
   callindex = data;
@@ -50,22 +66,17 @@ $(document).ready(function() {
   if (calls) {
     calls = unescape(calls).split(/\&/);
     startingFormation = calls.shift().trim();
-    $('#calls').val(calls.join('\n'));
+    $('#calls').html(calls.join('<br/>'));
   }
   $('#clearbutton').click(function() {
-    $('#calls').val('');
+    $('#calls').html('');
     updateSequence();
   });
   $('#linkbutton').click(function() { document.location = calllink; });
   $('#savebutton').click(function()
     {
       var w = window.open('','calllistwindow','width=800,height=800,menubar=yes');
-      var t = startingFormation + '<br/>\n' +
-        $('#calllist li').map(function()
-          {
-            return ($(this).text());
-          }
-                           ).get().join('<br/>\n');
+      var t = startingFormation + '<br/>\n' + $('#calls').html();
       w.document.write(t);
       w.alert('Select "Save As.." or "Save Page As.." and save this as a text file.');
      });
@@ -80,8 +91,8 @@ $(document).ready(function() {
       var text = e.target.result;
       var ta = text.split('\n');
       startingFormation = ta.shift().trim();
-      text = ta.join('\n');
-      $('#calls').val(text);
+      text = ta.join('<br/>');
+      $('#calls').html(text);
       updateSequence();
     };
     reader.readAsText(i.files[0]);
@@ -115,22 +126,79 @@ function generateAnimations()  // override function in tampage.js
 
 }
 
+function processCallText(fn)
+{
+  //  First, strip out existing elements that will be re-added
+  //  and any other extraneous html
+  //  As a courtesy, if html with <pre> was pasted, replace newlines with <br>
+  if ($('#calls').html().search('<pre') >= 0)
+    $('#calls').html($('#calls').html().replace(/\n/g,'<br/>'));
+  $('#calls').find('*').not('br').each(function() {
+    $(this).replaceWith($(this).contents());
+  });
+  //  Delete empty text nodes that accumulate
+  $('#calls').contents().filter(function() {
+    return this.nodeType==3 && $(this).text().length == 0;
+    }).remove();
+  //  Clear any previous error message
+  $('#errortext').html('');
+
+  var retval = [];
+  var callnum = 1;
+  //  Now each line should be one or more text elements
+  var tels = $('#calls').contents();
+            // .filter(function() { return this.nodeType==3; });
+  for (var i=0; i<tels.size(); i++) {
+    if (i >= tels.size())
+      break;
+    if (tels[i].nodeType != 3)
+      continue;
+    //  Combine adj text nodes
+    var text = '';
+    var comchar = -1;     //  first comment character
+    var comelem = 0;      //  first comment element
+    for (var j=i; j<tels.size() && tels[j].nodeType==3; j++) {
+      text += $(tels[j]).text();
+      if (comchar < 0) {
+        comelem = j;
+        comchar = $(tels[j]).text().search(/[*#\/]/);  // find comments
+      }
+    }
+    if (comchar >= 0) {
+      //  Highlight comments
+      var r = document.createRange();
+      r.setStart(tels[comelem],comchar);
+      r.setEnd(tels[j-1],$(tels[j-1]).text().length);
+      var span = document.createElement("span");
+      r.surroundContents(span);
+      $(span).attr('class','commenttext');
+      //  and remove them from the text of calls returned
+      text = text.substring(0,text.search(/[*#\/]/));
+    }
+    if (text.search(/\w/) >= 0) {
+      //  Highlight calls
+      retval.push(text);
+      var r = document.createRange();
+      r.setStart(tels[i],0);
+      if (comchar >= 0)
+        r.setEnd(tels[comelem],comchar);
+      else
+        r.setEnd(tels[j-1],$(tels[j-1]).text().length);
+      var callelem = document.createElement("span");
+      r.surroundContents(callelem);
+      $(callelem).attr('class','calltext').attr('id','Part'+callnum);
+      callnum++;
+    }
+    i = j;
+  }
+  return retval;
+}
+
 function updateSequence()
 {
   // Copy the calls from the textarea to the animation list
   $('#calllist').empty();
-  calls = $('#calls').val().split(/\n/);
-  var realcalls = [];
-  var j = 1;
-  for (var i in calls) {
-    var callname = calls[i].replace(/[^\s\w].*/,' ');
-    if (callname.search(/\w/) >= 0) {
-      $('#calllist').append('<li><a href="javascript:gotoCall('+(j-1)+')"><span id="Part'+j+'">'+callname+'</span></a></li>');
-      j++;
-      realcalls.push(callname);
-    }
-  }
-  calls = realcalls;
+  calls = processCallText();
 
   //  Look up the calls fetch the necessary files
   var filecount = 100;
@@ -139,9 +207,16 @@ function updateSequence()
     //  Need to load xml files, 1 or more for each call
     var callwords = calls[i].toLowerCase()
                             .replace(/\s/g,' ')  // coalesce spaces
-                            .replace(/[^\s\w].*/,' ')     // remove comments
-                            .replace(/through/g,'thru')  // just in case
+                            .replace(/[*#\/].*/,' ')     // remove comments
                             .split(/\s+/);
+    callwords = $.map(callwords,function(a) {
+      for (var k in synindex) {
+        var syn = synindex[k];
+        if (a == syn)
+          a = synonyms[syn];
+      }
+      return a;
+    });
     //  Fetch calls that are any part of the callname,
     //  to get concepts and modifications
     for (var s=0; s<callwords.length; s++) {
@@ -204,10 +279,17 @@ function buildSequence()
     var doxml = true;
     var callwords = calls[n2].toLowerCase()
                              .replace(/\s/g,' ')  // coalesce spaces
-                             .replace(/[^\s\w].*/,' ')     // remove comments
+                             .replace(/[*#\/].*/,' ')     // remove comments
                              .replace(/through/g,'thru')  // just in case
                              .split(/\s+/);
-    $('#Part'+(Number(n2)+1)).text('');
+    callwords = $.map(callwords,function(a) {
+      for (var k in synindex) {
+        var syn = synindex[k];
+        if (a == syn)
+          a = synonyms[syn];
+      }
+      return a;
+    });
     try {
     while (callwords.length > 0) {
       callfound = false;
@@ -234,7 +316,6 @@ parseOneCall:
                   mm = matchFormations(tamsvg.dancers,d,sexy);
                 }
                 if (mm) {
-                  $('#Part'+(Number(n2)+1)).text($(xelem).attr('title'));
                   m = mm;
                   mxml = tamxml;
                   tam.callnum = x; // ugly hack
@@ -257,7 +338,6 @@ parseOneCall:
         if (typeof tamxml == 'function') {
           callfound = true;
           var nextcall = new tamxml();
-          $('#Part'+(Number(n2)+1)).text($('#Part'+(Number(n2)+1)).text()+' '+nextcall.classname);
           nextcall.performCall(ctx);
           callwords = callwords.slice(i,callwords.length);
           doxml = false;
@@ -268,7 +348,6 @@ parseOneCall:
       //  If we fell through to here, and have not parsed anything,
       //  then parsing the call has failed
       if (callwords.length > 0 && i==0) {
-        $('#Part'+(Number(n2)+1)).text(calls[n2]);
         break;
       }
 
@@ -277,14 +356,16 @@ parseOneCall:
     }
     catch (err) {
       if (err instanceof CallError) {
-        $('#animationlist').append('<span id="errormsg"><br/><span style="color:black">I am unable to do<br/><b>'+
+        $('#Part'+(Number(n2)+1)).addClass('callerror');
+        $('#errortext').html('I am unable to do<br/><span class="calltext">'+
             calls[n2] +
-            '</b><br/>from this formation.<br/>'+err.message+'</span></span>');
+            '</span><br/>from this formation.<br/>'+err.message);
         break;
       } else if (err instanceof NoDancerError) {
-        $('#animationlist').append('<span id="errormsg"><br/><span style="color:black">There are no dancers that can do <br/><b>'+
+        $('#Part'+(Number(n2)+1)).addClass('callerror');
+        $('#errortext').html('There are no dancers that can do <br/><span class="calltext"'+
             calls[n2] +
-            '</b><br/>.<br/>'+err.message+'</span></span>');
+            '</span>.<br/>'+err.message);
         break;
       } else
         throw err;
@@ -300,17 +381,15 @@ parseOneCall:
       tamsvg.parts.push(ctx.paths[0].beats());
     }
     else if (callfound) {  //  Call found but no matching formation
-      $('#call'+n2).css('background-color','red').css('color','white');
-      $('#animationlist').append('<span id="errormsg"><br/><span style="color:black">'+
-                                 'No animation for '+callname+
-                                 ' from that formation.</span></span>');
+      $('#Part'+(Number(n2)+1)).addClass('callerror');
+      $('#errortext').html('No animation for <span class="calltext">'+callname+
+                                 '</span> from that formation.');
       break;
     }
     else {  //  Call not found
-      $('#Part'+(Number(n2)+1)).css('background-color','red').css('color','white');
-      $('#animationlist').append('<span id="errormsg"><br/><span style="color:black">'+
-                                 'Call '+callname+
-                                 ' not found.</span></span>');
+      $('#Part'+(Number(n2)+1)).addClass('callerror');
+      $('#errortext').html('Call <span class="calltext">'+callname+
+                                 '</span> not found.');
       break;
     }
 
@@ -326,11 +405,10 @@ parseOneCall:
   //  Generate link from calls
   calllink = document.URL.split(/\?/)[0]
     + '?' + escape(startingFormation) + '&' +
-    $('#calllist li').map(function()
-      {
-        return escape($(this).text().trim());
-      }
-                       ).get().join('&');
+    $('#calls').html()
+               .replace(/&nbsp;/g,' ')
+               .replace(/<br\/?>/g,'&')
+               .replace(/<.*?>/g,'');
 }
 
 function gotoCall(n)
@@ -351,15 +429,13 @@ function getDancers(formation)
   var tokens = formation.split(/\s+/);
   var dancers = [];
   for (var i=1; i<tokens.length; i+=4) {
-    var d = new Dancer(tamsvg,Dancer.genders[tokens[i]],
-            -Number(tokens[i+2]),-Number(tokens[i+1]),
-            Number(tokens[i+3])+180,
-            0,0,i);
+    var d = new Dancer({tamsvg:tamsvg,gender:Dancer.genders[tokens[i]],
+            x:-Number(tokens[i+2]),y:-Number(tokens[i+1]),
+            angle:Number(tokens[i+3])+180,number:i});
     dancers.push(d);
-    d = new Dancer(tamsvg,Dancer.genders[tokens[i]],
-            Number(tokens[i+2]),Number(tokens[i+1]),
-            Number(tokens[i+3]),
-            0,0,i+1);
+    d = new Dancer({tamsvg:tamsvg,gender:Dancer.genders[tokens[i]],
+            x:Number(tokens[i+2]),y:Number(tokens[i+1]),
+            angle:Number(tokens[i+3]),number:i+1});
     dancers.push(d);
   }
   return dancers;
