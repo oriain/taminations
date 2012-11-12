@@ -27,11 +27,15 @@ var calls = [];
 var callclasses = {};
 var calllink = '';
 var animwidth='50';
+var compattern = /[*#].*/;
 
 var synonyms = {
   '&' : 'and',
   '&amp;' : 'and',
   'through' : 'thru',
+  '1/4' : ['a','quarter'],
+  '1/2' : 'half',
+  '3/4' : ['three','quarters'],
   keys : function() {
     var retval = [];
     for (var k in this)
@@ -80,6 +84,7 @@ $(document).ready(function() {
       w.document.write(t);
       w.alert('Select "Save As.." or "Save Page As.." and save this as a text file.');
      });
+  //  HTML5 stuff to read a file
   if (!window.File || !window.FileReader) {
     $('#loadbutton').hide();
     $('#inputfile').hide();
@@ -97,6 +102,10 @@ $(document).ready(function() {
     };
     reader.readAsText(i.files[0]);
   });
+  //  Put focus on call entry so user can start typing immediately
+  $('#calls').focus(function(){$(this).addClass('callfocus');})
+             .blur(function(){$(this).removeClass('callfocus');});
+  $('#calls').focus();  // works for IE but not Firefox
 });
 
 function generateAnimations()  // override function in tampage.js
@@ -161,7 +170,7 @@ function processCallText(fn)
       text += $(tels[j]).text();
       if (comchar < 0) {
         comelem = j;
-        comchar = $(tels[j]).text().search(/[*#\/]/);  // find comments
+        comchar = $(tels[j]).text().search(compattern);  // find comments
       }
     }
     if (comchar >= 0) {
@@ -173,7 +182,7 @@ function processCallText(fn)
       r.surroundContents(span);
       $(span).attr('class','commenttext');
       //  and remove them from the text of calls returned
-      text = text.substring(0,text.search(/[*#\/]/));
+      text = text.substring(0,text.search(compattern));
     }
     if (text.search(/\w/) >= 0) {
       //  Highlight calls
@@ -207,7 +216,7 @@ function updateSequence()
     //  Need to load xml files, 1 or more for each call
     var callwords = calls[i].toLowerCase()
                             .replace(/\s/g,' ')  // coalesce spaces
-                            .replace(/[*#\/].*/,' ')     // remove comments
+                            .replace(compattern,'')     // remove comments
                             .split(/\s+/);
     callwords = $.map(callwords,function(a) {
       for (var k in synindex) {
@@ -279,8 +288,7 @@ function buildSequence()
     var doxml = true;
     var callwords = calls[n2].toLowerCase()
                              .replace(/\s/g,' ')  // coalesce spaces
-                             .replace(/[*#\/].*/,' ')     // remove comments
-                             .replace(/through/g,'thru')  // just in case
+                             .replace(compattern,'')     // remove comments
                              .split(/\s+/);
     callwords = $.map(callwords,function(a) {
       for (var k in synindex) {
@@ -363,7 +371,7 @@ parseOneCall:
         break;
       } else if (err instanceof NoDancerError) {
         $('#Part'+(Number(n2)+1)).addClass('callerror');
-        $('#errortext').html('There are no dancers that can do <br/><span class="calltext"'+
+        $('#errortext').html('There are no dancers that can do <br/><span class="calltext">'+
             calls[n2] +
             '</span>.<br/>'+err.message);
         break;
