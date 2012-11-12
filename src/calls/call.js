@@ -47,8 +47,8 @@ Call.prototype.performCall = function(ctx) {
 //  And level off the number of beats as needed by adding Stand moves
 Call.prototype.perform = function(ctx) {
   //  Get all the paths with performOne calls
+  var didsomething = false;
   for (var d in ctx.dancers) {
-    var didsomething = false;
     if (d in ctx.active) {
       var p = this.performOne(ctx,d);
       if (p != undefined) {
@@ -56,9 +56,9 @@ Call.prototype.perform = function(ctx) {
         didsomething = true;
       }
     }
-    if (!didsomething)
-      throw new NoDancerError();
   }
+  if (!didsomething)
+    throw new NoDancerError();
 };
 
 //  Default method for one dancer to perform one call
