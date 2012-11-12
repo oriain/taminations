@@ -6,8 +6,8 @@ def main():
   #  Build table of calls in each file
   r = re.compile(r'title="(.*?)"')
   r2 = re.compile(r'/(ms|plus|adv|c1|c2|c3a)/')
-  r3 = re.compile(r'name:\s*"(.*?)"')
-  r3py = re.compile(r'class (.*)\(Call\):')
+  r3 = re.compile(r"Call\.classes\['(.*?)'\]")
+  r3py = re.compile(r"caller\['classes'\]\['(.*)'\]")
   r4 = re.compile(r'\W')
   t = {}
   #  Read animations from xml files
