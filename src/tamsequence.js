@@ -28,6 +28,7 @@ var callclasses = {};
 var calllink = '';
 var animwidth='50';
 var compattern = /[*#].*/;
+var prevhtml = '';
 
 var synonyms = {
   '&' : 'and',
@@ -105,7 +106,23 @@ $(document).ready(function() {
   //  Put focus on call entry so user can start typing immediately
   $('#calls').focus(function(){$(this).addClass('callfocus');})
              .blur(function(){$(this).removeClass('callfocus');});
+
+  //  Process calls after the user has typed a bit then stopped for a second
+  $('#calls').keyup(function() {
+    if (typeof timeoutID == 'number')
+      window.clearTimeout(timeoutID);
+    timeoutID = window.setTimeout(updateSequence,1000);
+  //  IE and others insert <p></p> for each return.
+  //  Override this to insert <br/>
+  }).keydown(function(ev) {
+    if (ev.which == 13 && document.selection) {
+      ev.preventDefault();
+      document.selection.createRange().pasteHTML("<br/>");
+    }
+  });
+
   $('#calls').focus();  // works for IE but not Firefox
+
 });
 
 function generateAnimations()  // override function in tampage.js
@@ -123,15 +140,8 @@ function generateAnimations()  // override function in tampage.js
   $('#svgdiv').svg({onLoad:TamSVG});
 
   //  Add all the calls to the animation
-  $('#animationlist').empty().append('<ol id="calllist"></ol>');
   generateButtonPanel();
   updateSequence();
-
-  $('#calls').keyup(function() {
-    if (typeof timeoutID == 'number')
-      window.clearTimeout(timeoutID);
-    timeoutID = window.setTimeout(updateSequence,1000);
-  });
 
 }
 
@@ -142,6 +152,9 @@ function processCallText(fn)
   //  As a courtesy, if html with <pre> was pasted, replace newlines with <br>
   if ($('#calls').html().search('<pre') >= 0)
     $('#calls').html($('#calls').html().replace(/\n/g,'<br/>'));
+  $('#calls').find('p').each(function() {
+    $(this).replaceWith($(this).append('<br/>').contents());
+  });
   $('#calls').find('*').not('br').each(function() {
     $(this).replaceWith($(this).contents());
   });
@@ -185,8 +198,9 @@ function processCallText(fn)
       text = text.substring(0,text.search(compattern));
     }
     if (text.search(/\w/) >= 0) {
+      //  Cleanup and return call text
+      retval.push($.trim(text));
       //  Highlight calls
-      retval.push(text);
       var r = document.createRange();
       r.setStart(tels[i],0);
       if (comchar >= 0)
@@ -205,10 +219,12 @@ function processCallText(fn)
 
 function updateSequence()
 {
-  // Copy the calls from the textarea to the animation list
-  $('#calllist').empty();
+  //  Don't do anything if there's no change
+  var newhtml = $('#calls').html();
+  if (newhtml == prevhtml)
+    return;
+  prevhtml = newhtml;
   calls = processCallText();
-
   //  Look up the calls fetch the necessary files
   var filecount = 100;
   tamsvg.parts = [];
@@ -251,12 +267,15 @@ function updateSequence()
               filecount++;
               //  Read and store the animation
               $.get(a[x],function(data,status,jqxhr) {
-                xmldata[jqxhr.filename] = data;
+                //  Location of the filename depends (I think)
+                //  on whether the callback is run now or later
+                var f = 'filename' in jqxhr ? jqxhr.filename : a[x];
+                xmldata[f] = data;
                 if (--filecount == 0) {
                   //  All xml has been read, now we can interpret the calls
                   buildSequence();
                 }
-              }).filename = a[x];
+              },"xml").filename = a[x];
             }
           }
         }
