@@ -618,6 +618,12 @@ var formations =
   "Quarter Lines LH":
     "Formation boy -3 1 0 girl -3 -1 0 boy 0 -1 0 girl 0 -3 0",
 
+  "3/4 Lines RH":
+    "Formation boy -3 1 180 girl -3 -1 180 boy 0 1 0 girl 0 3 0",
+
+  "3/4 Lines LH":
+    "Formation boy -3 1 180 girl -3 -1 180 boy 0 -1 0 girl 0 -3 0",
+
   "Quarter Wave RH":
     "Formation boy -3 1 0 girl -3 -1 180 boy 0 -3 180 girl 0 -1 0",
 
