@@ -29,6 +29,7 @@ var calllink = '';
 var animwidth='50';
 var compattern = /[*#].*/;
 var prevhtml = '';
+var editor = null;
 
 var synonyms = {
   '&' : 'and',
@@ -54,7 +55,46 @@ $.getJSON("src/callindex.json",function(data) {
 }).error(function() {alert('JSON error');});
 
 var timeoutID = null;
-$(document).ready(function() {
+  $(document).ready(function() {
+    tinymce.init({
+      mode : "textareas",
+      convert_newlines_to_brs : true,
+      forced_root_block: false,
+      setup: function(ed) {
+        ed.onKeyUp.add(function(ed,k) {
+          if (typeof timeoutID == 'number')
+            window.clearTimeout(timeoutID);
+          timeoutID = window.setTimeout(updateSequence,1000);
+        });
+      },
+
+      theme: function(editor, target) {
+        var dom = tinymce.DOM, editorContainer;
+
+        // Generate UI
+        editorContainer = dom.insertAfter(dom.create('div', {style: 'border: 1px solid gray'},
+            '<div style="border-top: 1px solid gray"></div>'
+        ), target);
+
+        // Set editor container size to target element size
+        dom.setStyle(editorContainer, 'width', target.offsetWidth);
+
+        // Return editor and iframe containers
+        return {
+          editorContainer: editorContainer,
+          iframeContainer: editorContainer.lastChild,
+
+          // iframe height = target height
+          iframeHeight: target.offsetHeight
+        };
+      },
+
+      oninit: function() {
+        editor = tinymce.editors['calls'];
+        editor.focus();
+      }
+
+  });
   startingFormation = $('input[name="formation"]:checked').val();
   $('#instructions-link').click(function() {
     $('#instructions').toggle();
@@ -121,8 +161,6 @@ $(document).ready(function() {
     }
   });
 
-  $('#calls').focus();  // works for IE but not Firefox
-
 });
 
 function generateAnimations()  // override function in tampage.js
@@ -168,24 +206,13 @@ function processCallText(fn)
   var retval = [];
   var callnum = 1;
   //  Now each line should be one or more text elements
-  var tels = $('#calls').contents();
-            // .filter(function() { return this.nodeType==3; });
-  for (var i=0; i<tels.size(); i++) {
-    if (i >= tels.size())
-      break;
-    if (tels[i].nodeType != 3)
-      continue;
-    //  Combine adj text nodes
-    var text = '';
-    var comchar = -1;     //  first comment character
-    var comelem = 0;      //  first comment element
-    for (var j=i; j<tels.size() && tels[j].nodeType==3; j++) {
-      text += $(tels[j]).text();
-      if (comchar < 0) {
-        comelem = j;
-        comchar = $(tels[j]).text().search(compattern);  // find comments
-      }
-    }
+  var bm = tinymce.activeEditor.selection.getBookmark();
+  var tels = tinymce.activeEditor.getContent({format:'raw'});
+  console.log(tels);
+  tinymce.activeEditor.selection.moveToBookmark(bm);
+  tels = tels.split(/<br\s*\/?>/);
+  var comchar = -1;
+  for (var i=0; i<tels.length; i++) {
     if (comchar >= 0) {
       //  Highlight comments
       var r = document.createRange();
@@ -197,9 +224,11 @@ function processCallText(fn)
       //  and remove them from the text of calls returned
       text = text.substring(0,text.search(compattern));
     }
+    var text = tels[i];
     if (text.search(/\w/) >= 0) {
       //  Cleanup and return call text
       retval.push($.trim(text));
+      /*
       //  Highlight calls
       var r = document.createRange();
       r.setStart(tels[i],0);
@@ -212,7 +241,8 @@ function processCallText(fn)
       $(callelem).attr('class','calltext').attr('id','Part'+callnum);
       callnum++;
     }
-    i = j;
+    i = j; */
+    }
   }
   return retval;
 }
@@ -220,7 +250,10 @@ function processCallText(fn)
 function updateSequence()
 {
   //  Don't do anything if there's no change
-  var newhtml = $('#calls').html();
+  if (!editor)
+    return;
+  var newhtml = editor.getContent();
+     // $('#calls').html();
   if (newhtml == prevhtml)
     return;
   prevhtml = newhtml;
