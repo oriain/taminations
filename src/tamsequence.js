@@ -91,7 +91,17 @@ var timeoutID = null;
 
       oninit: function() {
         editor = tinymce.editors['calls'];
+        editor.dom.loadCSS('sequence.css');
         editor.focus();
+        tamsvg.setPart = setCurrentCall;
+        calllink = document.URL.split(/\?/)[0];
+        var calls = document.URL.split(/\?/)[1];
+        if (calls) {
+          calls = unescape(calls).split(/\&/);
+          startingFormation = calls.shift().trim();
+          editor.setContent(calls.join('<br/>'));
+        }
+        updateSequence();
       }
 
   });
@@ -106,25 +116,24 @@ var timeoutID = null;
     startingFormation = $(ev.target).val();
     generateAnimations();
   });
-  calllink = document.URL.split(/\?/)[0];
-  var calls = document.URL.split(/\?/)[1];
-  if (calls) {
-    calls = unescape(calls).split(/\&/);
-    startingFormation = calls.shift().trim();
-    $('#calls').html(calls.join('<br/>'));
-  }
   $('#clearbutton').click(function() {
-    $('#calls').html('');
+    editor.setContent('');
     updateSequence();
   });
   $('#linkbutton').click(function() { document.location = calllink; });
   $('#savebutton').click(function()
     {
       var w = window.open('','calllistwindow','width=800,height=800,menubar=yes');
-      var t = startingFormation + '<br/>\n' + $('#calls').html();
+      var t = startingFormation + '<br/>\n' +
+              editor.getContent({format:'raw'})
+                    .replace(/&nbsp;/g,' ')
+                    .replace(/<br\/?>/g,'\n')
+                    .replace(/<.*?>/g,'')
+                    .replace(/\n/g,'<br/>');
       w.document.write(t);
       w.alert('Select "Save As.." or "Save Page As.." and save this as a text file.');
-     });
+      w.document.close();
+    });
   //  HTML5 stuff to read a file
   if (!window.File || !window.FileReader) {
     $('#loadbutton').hide();
@@ -137,15 +146,13 @@ var timeoutID = null;
       var text = e.target.result;
       var ta = text.split('\n');
       startingFormation = ta.shift().trim();
+      $('input[name="formation"]').val([startingFormation]);
       text = ta.join('<br/>');
-      $('#calls').html(text);
-      updateSequence();
+      editor.setContent(text);
+      generateAnimations();
     };
     reader.readAsText(i.files[0]);
   });
-  //  Put focus on call entry so user can start typing immediately
-  $('#calls').focus(function(){$(this).addClass('callfocus');})
-             .blur(function(){$(this).removeClass('callfocus');});
 
   //  Process calls after the user has typed a bit then stopped for a second
   $('#calls').keyup(function() {
@@ -175,75 +182,70 @@ function generateAnimations()  // override function in tampage.js
   appletstr='<div id="svgdiv" '+
             'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div>';
   $("#appletcontainer").empty().append(appletstr);
-  $('#svgdiv').svg({onLoad:TamSVG});
+  $('#svgdiv').svg({onLoad:function(x) {
+      var t = new TamSVG(x);
+      t.setPart = setCurrentCall;
+    }
+  });
 
   //  Add all the calls to the animation
-  generateButtonPanel();
   updateSequence();
+  generateButtonPanel();
 
 }
 
-function processCallText(fn)
+function setCurrentCall(n)
+{
+  $(editor.getDoc()).find('span').removeClass('callhighlight')
+     .filter('.Part'+n).addClass('callhighlight');
+}
+function showError(n)
+{
+  $(editor.getDoc()).find('span.Part'+n).addClass('callerror');
+}
+
+function processCallText()
 {
   //  First, strip out existing elements that will be re-added
   //  and any other extraneous html
   //  As a courtesy, if html with <pre> was pasted, replace newlines with <br>
   if ($('#calls').html().search('<pre') >= 0)
     $('#calls').html($('#calls').html().replace(/\n/g,'<br/>'));
-  $('#calls').find('p').each(function() {
-    $(this).replaceWith($(this).append('<br/>').contents());
-  });
-  $('#calls').find('*').not('br').each(function() {
-    $(this).replaceWith($(this).contents());
-  });
-  //  Delete empty text nodes that accumulate
-  $('#calls').contents().filter(function() {
-    return this.nodeType==3 && $(this).text().length == 0;
-    }).remove();
   //  Clear any previous error message
   $('#errortext').html('');
 
   var retval = [];
+  var html = [];
   var callnum = 1;
-  //  Now each line should be one or more text elements
-  var bm = tinymce.activeEditor.selection.getBookmark();
-  var tels = tinymce.activeEditor.getContent({format:'raw'});
-  console.log(tels);
-  tinymce.activeEditor.selection.moveToBookmark(bm);
-  tels = tels.split(/<br\s*\/?>/);
-  var comchar = -1;
-  for (var i=0; i<tels.length; i++) {
+  //  Remove existing spans, they will be re-generated
+  $(editor.getDoc()).find('span').contents().unwrap();
+  var bm = editor.selection.getBookmark();
+  var lines = editor.getContent({format:'raw'}).split(/<br\s*\/?>/);
+  for (var i=0; i<lines.length; i++) {
+    var line = lines[i];
+    var calltext = line;
+    var comchar = line.search(/[*#]/);
     if (comchar >= 0) {
       //  Highlight comments
-      var r = document.createRange();
-      r.setStart(tels[comelem],comchar);
-      r.setEnd(tels[j-1],$(tels[j-1]).text().length);
-      var span = document.createElement("span");
-      r.surroundContents(span);
-      $(span).attr('class','commenttext');
+      line = line.substr(0,comchar) + '<span class="commenttext">' +
+             line.substr(comchar) + '</span>';
       //  and remove them from the text of calls returned
-      text = text.substring(0,text.search(compattern));
+      calltext = line.substr(0,comchar);
     }
-    var text = tels[i];
-    if (text.search(/\w/) >= 0) {
-      //  Cleanup and return call text
-      retval.push($.trim(text));
-      /*
-      //  Highlight calls
-      var r = document.createRange();
-      r.setStart(tels[i],0);
-      if (comchar >= 0)
-        r.setEnd(tels[comelem],comchar);
-      else
-        r.setEnd(tels[j-1],$(tels[j-1]).text().length);
-      var callelem = document.createElement("span");
-      r.surroundContents(callelem);
-      $(callelem).attr('class','calltext').attr('id','Part'+callnum);
-      callnum++;
+    //  Remove bookmark from string to return for parsing calls
+    calltext = $.trim(calltext.replace(/<.*?>/g,'').replace(/\&nbsp;/g,' '));
+    //  If we have something left to parse as a call
+    if (calltext.search(/\w/) >= 0) {
+      //  .. add class to highlight it when animated
+      line = '<span class="Part'+callnum+'">' + line + '</span>';
+      callnum += 1;
+      retval.push(calltext);
     }
-    i = j; */
-    }
+    html.push(line);
+
   }
+  tinymce.activeEditor.setContent(html.join('<br/>'));
+  tinymce.activeEditor.selection.moveToBookmark(bm);
   return retval;
 }
 
@@ -415,14 +417,13 @@ parseOneCall:
 
     }
     catch (err) {
+      showError(Number(n2)+1);
       if (err instanceof CallError) {
-        $('#Part'+(Number(n2)+1)).addClass('callerror');
         $('#errortext').html('I am unable to do<br/><span class="calltext">'+
             calls[n2] +
             '</span><br/>from this formation.<br/>'+err.message);
         break;
       } else if (err instanceof NoDancerError) {
-        $('#Part'+(Number(n2)+1)).addClass('callerror');
         $('#errortext').html('There are no dancers that can do <br/><span class="calltext">'+
             calls[n2] +
             '</span>.<br/>'+err.message);
@@ -441,13 +442,13 @@ parseOneCall:
       tamsvg.parts.push(ctx.paths[0].beats());
     }
     else if (callfound) {  //  Call found but no matching formation
-      $('#Part'+(Number(n2)+1)).addClass('callerror');
+      showError(Number(n2)+1);
       $('#errortext').html('No animation for <span class="calltext">'+callname+
                                  '</span> from that formation.');
       break;
     }
     else {  //  Call not found
-      $('#Part'+(Number(n2)+1)).addClass('callerror');
+      showError(Number(n2)+1);
       $('#errortext').html('Call <span class="calltext">'+callname+
                                  '</span> not found.');
       break;
@@ -465,7 +466,7 @@ parseOneCall:
   //  Generate link from calls
   calllink = document.URL.split(/\?/)[0]
     + '?' + escape(startingFormation) + '&' +
-    $('#calls').html()
+         editor.getContent({format:'raw'})
                .replace(/&nbsp;/g,' ')
                .replace(/<br\/?>/g,'&')
                .replace(/<.*?>/g,'');

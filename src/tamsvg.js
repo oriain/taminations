@@ -61,9 +61,11 @@ function showDefinition()
 //  Setup - called when page is loaded
 function TamSVG(svg_in)
 {
-  if (this instanceof TamSVG)
+  if (this instanceof TamSVG) {
     //  Called as 'new TamSVG(x)'
     this.init(svg_in);
+    window.tamsvg = this;
+  }
   else
     //  Called as 'TamSVG(x)'
     window.tamsvg = new TamSVG(svg_in);
@@ -252,7 +254,8 @@ TamSVG.prototype = {
     if (this.beat < 0 || this.beat > this.beats-2)
       thispart = 0;
     if (thispart != this.currentpart) {
-      setPart(thispart);
+      if (this.setPart)
+        this.setPart(thispart);
       this.currentpart = thispart;
     }
   },

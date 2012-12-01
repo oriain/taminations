@@ -296,7 +296,11 @@ function generateAnimations()
       appletstr='<div id="svgdiv" '+
                 'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div>';
       $("#appletcontainer").append(appletstr);
-      $('#svgdiv').svg({onLoad:TamSVG});
+      $('#svgdiv').svg({onLoad:function(x) {
+          var t = new TamSVG(x);
+          t.setPart = setPart;
+        }
+      });
     }
     else
       TAMination('appletcontainer',animations,callname,'');
