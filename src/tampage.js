@@ -194,6 +194,7 @@ function appletSize()
   var ah = 100;
   var h = window.innerHeight ? window.innerHeight : document.body.offsetHeight;
   var w = window.innerWidth ? window.innerWidth : document.body.offsetWidth;
+  console.log(h+' '+w);
   if (typeof h == "number" && typeof w == "number") {
     if (isSmall)
       aw = ah = w;
@@ -202,6 +203,8 @@ function appletSize()
       aw = (w * animwidth) / 100;
       if (ah * 350 > aw * 420)
         ah = (aw * 420) / 350;
+      else
+        aw = (ah * 350) / 420;
     }
   }
   aw = Math.floor(aw);
@@ -215,7 +218,7 @@ function generateAnimations()
   //  Put the call definition in the document structure
   $("#deftable").nextAll().appendTo("#definition");
   $("#radio1").attr("checked",true);
-  $("#applet").width(appletSize().width+"px").height(appletSize().height+"px");
+  $("#applet").width(appletSize().width).height(appletSize().height);
   //  Insert copyright
   $("#definition").append(getCopyright(document.URL));
   $("h2").prepend(getLevel());
@@ -287,7 +290,7 @@ function generateAnimations()
   }
   //  Insert the applet
   if ($("tam",animations).size() > 0) {
-    $('#appletcontainer').height($('#appletcontainer').width()+100);
+    $('#appletcontainer').height($('#appletcontainer').width()+100).width(appletSize().width);
     //  For non-MSIE, SVG is now the default
     if (cansvg && cookie.svg != 'false') {
       TAMination(0,animations,callname,'');

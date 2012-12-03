@@ -83,7 +83,6 @@ var timeoutID = null;
         return {
           editorContainer: editorContainer,
           iframeContainer: editorContainer.lastChild,
-
           // iframe height = target height
           iframeHeight: target.offsetHeight
         };
@@ -181,7 +180,7 @@ function generateAnimations()  // override function in tampage.js
   var svgdim = dims.width;
   appletstr='<div id="svgdiv" '+
             'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div>';
-  $("#appletcontainer").empty().append(appletstr);
+  $("#appletcontainer").empty().width(dims.width).append(appletstr);
   $('#svgdiv').svg({onLoad:function(x) {
       var t = new TamSVG(x);
       t.setPart = setCurrentCall;
