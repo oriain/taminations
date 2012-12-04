@@ -194,7 +194,6 @@ function appletSize()
   var ah = 100;
   var h = window.innerHeight ? window.innerHeight : document.body.offsetHeight;
   var w = window.innerWidth ? window.innerWidth : document.body.offsetWidth;
-  console.log(h+' '+w);
   if (typeof h == "number" && typeof w == "number") {
     if (isSmall)
       aw = ah = w;
