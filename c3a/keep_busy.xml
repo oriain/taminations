@@ -21,8 +21,6 @@
 
 -->
 <tamination>
-  
-  
 
   <tam title="Keep Busy" from="Right-Hand Two-Faced Lines" formation="Two-Faced Lines RH" parts="2;1.5;3">
     <path>
@@ -44,6 +42,29 @@
     <path>
       <move select="Run Right" beats="5" hands="right" scaleX="3" scaleY="3"/>
       <move select="Forward 4"/>
+    </path>
+  </tam>
+
+  <tam title="Keep Busy" from="Left-Hand Two-Faced Lines" formation="Two-Faced Lines LH" parts="2;1.5;3">
+    <path>
+      <move select="Run Left" beats="5" hands="left" scaleX="3" scaleY="3"/>
+      <move select="Forward 4"/>
+    </path>
+    <path>
+      <move select="Run Left" hands="right" beats="5"/>
+      <move select="Dodge Right" beats="4"/>
+    </path>
+    <path>
+      <move select="Forward 2" hands="right"/>
+      <move select="Hinge Left"/>
+      <move select="Lead Left" beats="3" scaleX="1.8"/>
+      <move select="Flip Left" beats="2.5" offsetX="2" scaleY="0.4"/>
+    </path>
+    <path>
+      <move select="Forward 2" hands="left"/>
+      <move select="Stand" beats="1.5"/>
+      <move select="Run Left" scaleY="1.2"/>
+      <move select="Extend Left" beats="2.5" scaleX="2" scaleY=".4"/>
     </path>
   </tam>
 

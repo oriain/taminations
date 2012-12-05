@@ -21,8 +21,6 @@
 
 -->
 <tamination>
-  
-  
 
   <tam title="Lockers Choice" from="Right-Hand Waves" formation="Ocean Waves RH BGGB" parts="4;4">
     <path>
@@ -44,6 +42,29 @@
       <move select="Lead Right" beats="4" scaleX="1.5" scaleY="3"/>
       <move select="Swing Right" beats="4" scaleX=".5" scaleY=".5"/>
       <move select="Extend Right" beats="3" scaleX="2" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Lockers Choice" from="Left-Hand Waves" formation="Ocean Waves LH BGGB" parts="4;4">
+    <path>
+      <move select="Lead Left" beats="4" scaleX="1.5" scaleY="3"/>
+      <move select="Swing Left" beats="4" scaleX=".5" scaleY=".5"/>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Hinge Right" beats="4" scaleX=".5"/>
+      <move select="Lead Left" beats="4" scaleX="3" scaleY="1.5"/>
+      <move select="Hinge Left" beats="3"/>
+    </path>
+    <path>
+      <move select="Hinge Right" beats="4" scaleX=".5"/>
+      <move select="Swing Left" beats="4" scaleX=".5" scaleY=".5"/>
+      <move select="Flip Left" offsetX="2" scaleY=".25"/>
+    </path>
+    <path>
+      <move select="Lead Left" beats="4" scaleX="1.5" scaleY="3"/>
+      <move select="Hinge Right" beats="4" scaleY=".5"/>
+      <move select="Hinge Left" beats="3"/>
     </path>
   </tam>
 
