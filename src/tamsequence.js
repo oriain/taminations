@@ -203,22 +203,25 @@ function showError(n)
   $(editor.getDoc()).find('span.Part'+n).addClass('callerror');
 }
 
+//  This function is called every time the text is changed by the user
 function processCallText()
 {
-  //  First, strip out existing elements that will be re-added
+  var retval = [];
+  var html = [];
+  var callnum = 1;
+  //  Clear any previous error message
+  $('#errortext').html('');
+  //  Before we do anything else, remember the current location
+  //  The editor inserts a special <span> to mark it
+  var bm = editor.selection.getBookmark();
+  //  Strip out existing elements that will be re-added
   //  and any other extraneous html
   //  As a courtesy, if html with <pre> was pasted, replace newlines with <br>
   if ($('#calls').html().search('<pre') >= 0)
     $('#calls').html($('#calls').html().replace(/\n/g,'<br/>'));
-  //  Clear any previous error message
-  $('#errortext').html('');
-
-  var retval = [];
-  var html = [];
-  var callnum = 1;
   //  Remove existing spans, they will be re-generated
-  $(editor.getDoc()).find('span').contents().unwrap();
-  var bm = editor.selection.getBookmark();
+  //  Except of course the bookmark that we just added
+  $(editor.getDoc()).find('span').not('span[data-mce-type]').contents().unwrap();
   var lines = editor.getContent({format:'raw'}).split(/<br\s*\/?>/);
   for (var i=0; i<lines.length; i++) {
     var line = lines[i];
@@ -233,6 +236,8 @@ function processCallText()
     }
     //  Remove bookmark from string to return for parsing calls
     calltext = $.trim(calltext.replace(/<.*?>/g,'').replace(/\&nbsp;/g,' '));
+    //  Also remove special character used for bookmarks
+    calltext = calltext.replace(/\uFEFF/,'');
     //  If we have something left to parse as a call
     if (calltext.search(/\w/) >= 0) {
       //  .. add class to highlight it when animated
@@ -243,7 +248,9 @@ function processCallText()
     html.push(line);
 
   }
+  //  Replace the text with our marked-up version
   tinymce.activeEditor.setContent(html.join('<br/>'));
+  //  And restore the user's current editing location
   tinymce.activeEditor.selection.moveToBookmark(bm);
   return retval;
 }
