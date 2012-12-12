@@ -1038,7 +1038,11 @@ function(args)   // (tamsvg,sex,x,y,angle,color,p,number)
     else
       this.startangle = args.angle-90;
   }
-  if (this.gender != Dancer.PHANTOM && args.color !== undefined) {
+  if (this.gender == Dancer.PHANTOM) {
+    this.fillcolor = Color.gray;
+    this.drawcolor = this.fillcolor.darker();
+  }
+  else if (args.color !== undefined) {
     this.fillcolor = args.color;
     this.drawcolor = args.color.darker();
   }
