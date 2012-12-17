@@ -55,55 +55,55 @@ $.getJSON("src/callindex.json",function(data) {
 }).error(function() {alert('JSON error');});
 
 var timeoutID = null;
-  $(document).ready(function() {
-    tinymce.init({
-      mode : "textareas",
-      convert_newlines_to_brs : true,
-      forced_root_block: false,
-      setup: function(ed) {
-        ed.onKeyUp.add(function(ed,k) {
-          if (typeof timeoutID == 'number')
-            window.clearTimeout(timeoutID);
-          timeoutID = window.setTimeout(updateSequence,1000);
-        });
-      },
+$(document).ready(function() {
+  tinymce.init({
+    mode : "textareas",
+    convert_newlines_to_brs : true,
+    forced_root_block: false,
+    setup: function(ed) {
+      ed.onKeyUp.add(function(ed,k) {
+        if (typeof timeoutID == 'number')
+          window.clearTimeout(timeoutID);
+        timeoutID = window.setTimeout(updateSequence,1000);
+      });
+    },
 
-      theme: function(editor, target) {
-        var dom = tinymce.DOM, editorContainer;
+    theme: function(editor, target) {
+      var dom = tinymce.DOM, editorContainer;
 
-        // Generate UI
-        editorContainer = dom.insertAfter(dom.create('div', {style: 'border: 1px solid gray'},
-            '<div style="border-top: 1px solid gray"></div>'
-        ), target);
+      // Generate UI
+      editorContainer = dom.insertAfter(dom.create('div', {style: 'border: 1px solid gray'},
+          '<div style="border-top: 1px solid gray"></div>'
+      ), target);
 
-        // Set editor container size to target element size
-        dom.setStyle(editorContainer, 'width', target.offsetWidth);
+      // Set editor container size to target element size
+      dom.setStyle(editorContainer, 'width', target.offsetWidth);
 
-        // Return editor and iframe containers
-        return {
-          editorContainer: editorContainer,
-          iframeContainer: editorContainer.lastChild,
-          // iframe height = target height
-          iframeHeight: target.offsetHeight
-        };
-      },
+      // Return editor and iframe containers
+      return {
+        editorContainer: editorContainer,
+        iframeContainer: editorContainer.lastChild,
+        // iframe height = target height
+        iframeHeight: target.offsetHeight
+      };
+    },
 
-      oninit: function() {
-        editor = tinymce.editors['calls'];
-        editor.dom.loadCSS('sequence.css');
-        editor.focus();
-        tamsvg.setPart = setCurrentCall;
-        calllink = document.URL.split(/\?/)[0];
-        var calls = document.URL.split(/\?/)[1];
-        if (calls) {
-          calls = unescape(calls).split(/\&/);
-          startingFormation = calls.shift().trim();
-          editor.setContent(calls.join('<br/>'));
-        }
-        updateSequence();
+    oninit: function() {
+      editor = tinymce.editors['calls'];
+      editor.dom.loadCSS('sequence.css');
+      editor.focus();
+      tamsvg.setPart = setCurrentCall;
+      calllink = document.URL.split(/\?/)[0];
+      var calls = document.URL.split(/\?/)[1];
+      if (calls) {
+        calls = unescape(calls).split(/\&/);
+        startingFormation = calls.shift().trim();
+        editor.setContent(calls.join('<br/>'));
       }
+      updateSequence();
+    }
+  });  // end of tinymce.init
 
-  });
   startingFormation = $('input[name="formation"]:checked').val();
   $('#instructions-link').click(function() {
     $('#instructions').toggle();
@@ -151,20 +151,6 @@ var timeoutID = null;
       generateAnimations();
     };
     reader.readAsText(i.files[0]);
-  });
-
-  //  Process calls after the user has typed a bit then stopped for a second
-  $('#calls').keyup(function() {
-    if (typeof timeoutID == 'number')
-      window.clearTimeout(timeoutID);
-    timeoutID = window.setTimeout(updateSequence,1000);
-  //  IE and others insert <p></p> for each return.
-  //  Override this to insert <br/>
-  }).keydown(function(ev) {
-    if (ev.which == 13 && document.selection) {
-      ev.preventDefault();
-      document.selection.createRange().pasteHTML("<br/>");
-    }
   });
 
 });
