@@ -56,6 +56,9 @@ $.getJSON("src/callindex.json",function(data) {
 
 var timeoutID = null;
 $(document).ready(function() {
+  //  Make sure this is run *after* the document.ready function
+  //  in tampage.js.  This is a bit of a hack.
+  window.setTimeout(function() {
   tinymce.init({
     mode : "textareas",
     convert_newlines_to_brs : true,
@@ -154,6 +157,7 @@ $(document).ready(function() {
   });
 
 });
+},1000);
 
 function generateAnimations()  // override function in tampage.js
 {
