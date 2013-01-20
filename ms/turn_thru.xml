@@ -147,4 +147,23 @@
     </path>
   </tam>
 
+  <tam title="Turn Thru" from="Quarter Tag" formation="Quarter Tag" difficulty="2">
+    <path>
+    </path>
+    <path>
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".75"/>
+      <move select="Forward"/>
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".75" scaleY=".5"/>
+      <move select="Extend Right"/>
+    </path>
+    <taminator>
+      The Ocean Wave rule is used here.
+      The centers work with each other and not the outsides.
+    </taminator>
+  </tam>
+
 </tamination>
