@@ -3,6 +3,97 @@ var animations = 0;
 var currentcall = '';  // needed for tamination.js
 var callnamedict = {};
 
+//  Given an url or other fragment, parse out "a=b args" into an object
+function parseArgs(str)
+{
+  //  If arg not given, use document URL
+  str = str || document.URL;
+  if (str.match(/[?#]/))
+    str = str.split(/[?#]/)[1];
+  var a = str.split(/\&/);
+  var retval = {};
+  for (var i=0; i<a.length; i++) {
+    var a1 = a[i].split(/=/);
+    if (a1.length > 1)
+      retval[a1[0]] = a1[1];
+    else
+      retval[a1[0]] = true;
+  }
+  return retval;
+}
+
+//  This function is called just once after the html has loaded
+//  Other mobile-specific callbacks are called for each page change
+$(document).ready(function(){
+  //  Add the functions for the buttons.
+  //  Do it here because it should only be done once.
+  $('#rewindButton').bind('tap',function(event,ui) {
+    tamsvg.rewind();
+  });
+  $('#backButton').bind('tap',function(event,ui) {
+    tamsvg.backward();
+  });
+  $('#playButton').bind('tap',function(event,ui) {
+    tamsvg.play();
+    $('#playButton').button('refresh');
+  });
+  $('#forwardButton').bind('tap',function(event,ui) {
+    tamsvg.forward();
+  });
+  $('#endButton').bind('tap',function(event,ui) {
+    tamsvg.end();
+  });
+  $('#optionsButton').bind('tap',function(event,ui) {
+    $.mobile.changePage('#optionspage');
+  });
+  $('#defButton').bind('tap',function(event,ui) {
+    $.mobile.changePage('#definitionpage');
+  });
+  $('#calltitle').bind('tap',function(event,ui) {
+    $.mobile.changePage('#definitionpage');
+  });
+  $('#slowButton').bind('change',function(event,ui) {
+    tamsvg.slow();
+  });
+  $('#normalButton').bind('change',function(event,ui) {
+    tamsvg.normal();
+  });
+  $('#fastButton').bind('change',function(event,ui) {
+    tamsvg.fast();
+  });
+  $('#loopButton').bind('change',function(event,ui) {
+    tamsvg.setLoop($('#loopButton').attr('checked')=='checked');
+  });
+  $('#gridButton').bind('change',function(event,ui) {
+    tamsvg.setGrid($('#gridButton').attr('checked')=='checked');
+  });
+  $('#pathsButton').bind('change',function(event,ui) {
+    tamsvg.setPaths($('#pathsButton').attr('checked')=='checked');
+  });
+  $('#numbersButton').bind('change',function(event,ui) {
+    tamsvg.setNumbers($('#numbersButton').attr('checked')=='checked');
+  });
+  $('#hexagonButton').bind('change',function(event,ui) {
+    var ishex = $('#hexagonButton').attr('checked')=='checked';
+    tamsvg.setHexagon(ishex);
+    if (ishex) {
+      $('#numbersButton').removeAttr('checked').checkboxradio('refresh').checkboxradio('disable');
+      $('#bigonButton').removeAttr('checked').checkboxradio('refresh');
+    }
+    else
+      $('#numbersButton').checkboxradio('enable');
+  });
+  $('#bigonButton').bind('change',function(event,ui) {
+    var isbigon = $('#bigonButton').attr('checked')=='checked';
+    tamsvg.setBigon(isbigon);
+    if (isbigon) {
+      $('#numbersButton').removeAttr('checked').checkboxradio('refresh').checkboxradio('disable');
+      $('#hexagonButton').removeAttr('checked').checkboxradio('refresh');
+    }
+    else
+      $('#numbersButton').checkboxradio('enable');
+  });
+});
 
 //  This is needed to keep the green color for the level header
 $(document).bind('mobileinit',function()
@@ -27,78 +118,14 @@ $(document).delegate('#level','pagecreate',
         var htmlpage = encodeURIComponent(b.link);
         var xmlpage = htmlpage.replace('html','xml');
         callnamedict[xmlpage] = b.text;
-        var html = '<li><a href="#animlistpage+'+htmlpage+'">'+b.text+'</li>';
+        var html = '<li><a href="#animlistpage&page='+htmlpage+'">'+b.text+'</li>';
         $('#'+a.title).append(html);
       }
     }
-    //  Add the functions for the buttons.
-    //  Do it here because it should only be done once.
-    $('#rewindButton').bind('tap',function(event,ui) {
-      tamsvg.rewind();
-    });
-    $('#backButton').bind('tap',function(event,ui) {
-      tamsvg.backward();
-    });
-    $('#playButton').bind('tap',function(event,ui) {
-      tamsvg.play();
-      $('#playButton').button('refresh');
-    });
-    $('#forwardButton').bind('tap',function(event,ui) {
-      tamsvg.forward();
-    });
-    $('#endButton').bind('tap',function(event,ui) {
-      tamsvg.end();
-    });
-    $('#optionsButton').bind('tap',function(event,ui) {
-      $.mobile.changePage('#optionspage');
-    });
-    $('#defButton').bind('tap',function(event,ui) {
-      $.mobile.changePage('#definitionpage');
-    });
-    $('#calltitle').bind('tap',function(event,ui) {
-      $.mobile.changePage('#definitionpage');
-    });
-    $('#slowButton').bind('change',function(event,ui) {
-      tamsvg.slow();
-    });
-    $('#normalButton').bind('change',function(event,ui) {
-      tamsvg.normal();
-    });
-    $('#fastButton').bind('change',function(event,ui) {
-      tamsvg.fast();
-    });
-    $('#loopButton').bind('change',function(event,ui) {
-      tamsvg.setLoop($('#loopButton').attr('checked')=='checked');
-    });
-    $('#gridButton').bind('change',function(event,ui) {
-      tamsvg.setGrid($('#gridButton').attr('checked')=='checked');
-    });
-    $('#pathsButton').bind('change',function(event,ui) {
-      tamsvg.setPaths($('#pathsButton').attr('checked')=='checked');
-    });
-    $('#numbersButton').bind('change',function(event,ui) {
-      tamsvg.setNumbers($('#numbersButton').attr('checked')=='checked');
-    });
-    $('#hexagonButton').bind('change',function(event,ui) {
-      var ishex = $('#hexagonButton').attr('checked')=='checked';
-      tamsvg.setHexagon(ishex);
-      if (ishex) {
-        $('#numbersButton').removeAttr('checked').checkboxradio('refresh').checkboxradio('disable');
-        $('#bigonButton').removeAttr('checked').checkboxradio('refresh');
-      }
-      else
-        $('#numbersButton').checkboxradio('enable');
-    });
-    $('#bigonButton').bind('change',function(event,ui) {
-      var isbigon = $('#bigonButton').attr('checked')=='checked';
-      tamsvg.setBigon(isbigon);
-      if (isbigon) {
-        $('#numbersButton').removeAttr('checked').checkboxradio('refresh').checkboxradio('disable');
-        $('#hexagonButton').removeAttr('checked').checkboxradio('refresh');
-      }
-      else
-        $('#numbersButton').checkboxradio('enable');
-    });
+    if (parseArgs()['level']) {
+      $.mobile.changePage('#level'); //&ui-page='+parseArgs()['level']);
+      //console.log($('#levelslist').listview('childPages'));
+    }
   }
 );
 
@@ -107,6 +134,8 @@ $(document).delegate('#level','pagecreate',
 function loadcall(options,htmlpage)
 {
   if (htmlpage.length > 0) {
+    //  Some browsers do better loading the definition as xml, others as html
+    //  So we will try both
     $.ajax({url:decodeURIComponent(htmlpage), datatype:'xml', success:function(a) {
       if ($('body',a).size() > 0) {
         $('#definitioncontent').empty().append($('body',a).children());
@@ -119,6 +148,7 @@ function loadcall(options,htmlpage)
         }});
       }
     }});
+    //  Load the xml file of animations
     var xmlpage = htmlpage.replace('html','xml');
     $.ajax({url:decodeURIComponent(xmlpage), datatype:'xml',success:function(a) {
       animations = a;
@@ -269,15 +299,12 @@ function svgSize()
   var ah = 100;
   var h = window.innerHeight ? window.innerHeight : document.body.offsetHeight;
   var w = window.innerWidth ? window.innerWidth : document.body.offsetWidth;
-  //alert(w+' '+h);
   if (typeof h == "number" && typeof w == "number") {
-    //alert($('#animform').height() +' '+ $('#animheader').height());
     h = h - $('#animform').height() - $('#animheader').height();
     aw = ah = h > w ? w : h;
   }
   aw = Math.floor(aw);
   ah = Math.floor(ah);
-  //alert(aw+' '+ah);
   return { width: aw, height: ah };
 }
 

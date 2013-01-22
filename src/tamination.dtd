@@ -1,20 +1,20 @@
 <!--
-    Copyright 2009 Brad Christie
+    Copyright 2013 Brad Christie
 
-    This file is part of TAMinations.
+    This file is part of Taminations.
 
-    TAMinations is free software: you can redistribute it and/or modify
+    Taminations is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published
     by the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    TAMinations is distributed in the hope that it will be useful,
+    Taminations is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Affero General Public License for more details.
 
     You should have received a copy of the GNU Affero General Public License
-    along with TAMinations.  If not, see <http://www.gnu.org/licenses/>.
+    along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 -->
 
 <!ENTITY deg    "&#176;" ><!--=degree sign-->
@@ -39,11 +39,11 @@
 
 <!ELEMENT comment ANY>
 
-<!ELEMENT tam (path+,taminator?)>
+<!ELEMENT tam (formation?,path+,taminator?)>
 <!ATTLIST tam title CDATA #REQUIRED
               group CDATA #IMPLIED
               from CDATA #IMPLIED
-              formation CDATA #REQUIRED
+              formation CDATA #IMPLIED
               parts CDATA #IMPLIED
               difficulty CDATA #IMPLIED
               gender-specific CDATA #IMPLIED
@@ -52,7 +52,8 @@
 <!ELEMENT taminator ANY>
 
 <!ELEMENT path (move | Movement)* >
-<!ATTLIST path numbers CDATA #IMPLIED >
+<!ATTLIST path name CDATA #IMPLIED
+               numbers CDATA #IMPLIED >
 
 <!ELEMENT move EMPTY>
 <!ATTLIST move select CDATA #REQUIRED
@@ -64,8 +65,8 @@
                offsetX CDATA #IMPLIED
                offsetY CDATA #IMPLIED >
 
-<!ELEMENT Movement EMPTY>
-<!ATTLIST Movement hands CDATA #REQUIRED
+<!ELEMENT movement EMPTY>
+<!ATTLIST movement hands CDATA #REQUIRED
                    beats CDATA #REQUIRED
                    style CDATA #IMPLIED
                    cx1 CDATA #REQUIRED
@@ -80,6 +81,8 @@
                    x4 CDATA #IMPLIED
                    y4 CDATA #IMPLIED >
 
+<!ELEMENT moves (path+)>
+
 <!ELEMENT calllist (calldate*)>
 <!ATTLIST calllist title CDATA #REQUIRED>
 <!ELEMENT calldate (call+)>
@@ -87,3 +90,23 @@
 <!ELEMENT call EMPTY>
 <!ATTLIST call name CDATA #REQUIRED
                href CDATA #REQUIRED>
+
+<!ELEMENT formations (formation+)>
+
+<!ELEMENT formation (dancer+)>
+<!ATTLIST formation name CDATA #IMPLIED >
+
+<!ELEMENT dancer EMPTY >
+<!ATTLIST dancer gender CDATA #REQUIRED
+                 x CDATA #REQUIRED
+                 y CDATA #REQUIRED
+                 angle CDATA #REQUIRED >
+
+<!ELEMENT menu (list+)>
+<!ELEMENT menulist (menuitem+)>
+<!ATTLIST menulist title CDATA #REQUIRED
+                   columns CDATA #IMPLIED >
+<!ELEMENT menuitem EMPTY>
+<!ATTLIST menuitem text #REQUIRED
+                   link #REQUIRED >
+

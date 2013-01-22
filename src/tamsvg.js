@@ -1,8 +1,8 @@
 /*
 
-    Copyright 2012 Brad Christie
+    Copyright 2013 Brad Christie
 
-    This file is part of TAMinations.
+    This file is part of Taminations.
 
     Taminations is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published
@@ -21,7 +21,7 @@
 
 /*
 
-  TamSVG - Javascript+SVG implementation of the original TAMination.java
+  TamSVG - Javascript+SVG implementation of the original Tamination.java
 
 */
 
@@ -110,12 +110,12 @@ TamSVG.prototype = {
     for (var i in this.parts)
       this.parts[i] = Number(this.parts[i]);
     //  first token is 'Formation', followed by e.g. boy 1 2 180 ...
-    var tokens = tam.getFormation().split(/\s+/);
+    var formation = tam.getFormation();
     //  Flip the y direction on the dance floor to match our math
     this.floor = this.svg.group(this.floorsvg);
     this.floor.setAttribute('transform',AffineTransform.getScaleInstance(1,-1).toString());
     this.svg.rect(this.floor,-6.5,-6.5,13,13,{fill:'#ffffc0'});
-    this.svg.text(this.floorsvg,0,0,"Copyright 2012 Brad Christie",{fontSize: "10", transform:"translate(-6.5,6.4) scale(0.04)"});
+    this.svg.text(this.floorsvg,0,0,"Copyright 2013 Brad Christie",{fontSize: "10", transform:"translate(-6.5,6.4) scale(0.04)"});
     this.gridgroup = this.svg.group(this.floor,{fill:"none",stroke:"black",strokeWidth:0.01});
     this.hexgridgroup = this.svg.group(this.floor,{fill:"none",stroke:"black",strokeWidth:0.01});
     this.bigongridgroup = this.svg.group(this.floor,{fill:"none",stroke:"black",strokeWidth:0.01});
@@ -137,35 +137,35 @@ TamSVG.prototype = {
     this.dancers = [];
     var dancerColor = [ Color.red, Color.yellow, Color.lightGray ];
     var numbers = tam.getNumbers();
-    for (var i=1; i<tokens.length; i+=4) {
+    $('dancer',formation).each(function(j) {
       var d = new Dancer({
-        tamsvg: this,
-        gender: Dancer.genders[tokens[i]],
-        x: -Number(tokens[i+2]),
-        y: -Number(tokens[i+1]),
-        angle: Number(tokens[i+3])+180,
-        color:  dancerColor[i>>3],
-        path: this.allp[i>>2],
-        number: numbers[this.dancers.length]
+        tamsvg: me,
+        gender: Dancer.genders[$(this).attr('gender')],
+        //  TODO maybe change numbers in the formations rather than here??
+        x: -Number($(this).attr('y')),
+        y: -Number($(this).attr('x')),
+        angle: Number($(this).attr('angle'))+180,
+        color:  dancerColor[j>>1],
+        path: me.allp[j],
+        number: numbers[me.dancers.length]
       });
       if (d.gender == Dancer.PHANTOM && !this.showPhantoms)
         d.hide();
-      this.dancers.push(d);
+      me.dancers.push(d);
       d = new Dancer({
-        tamsvg: this,
-        gender: Dancer.genders[tokens[i]],
-        x: Number(tokens[i+2]),
-        y: Number(tokens[i+1]),
-        angle: Number(tokens[i+3]),
-        color:  dancerColor[i>>3].rotate(),
-        path: this.allp[i>>2],
-        number: numbers[this.dancers.length]
+        tamsvg: me,
+        gender: Dancer.genders[$(this).attr('gender')],
+        x: Number($(this).attr('y')),
+        y: Number($(this).attr('x')),
+        angle: Number($(this).attr('angle')),
+        color:  dancerColor[j>>1].rotate(),
+        path: me.allp[j],
+        number: numbers[me.dancers.length]
       });
       if (d.gender == Dancer.PHANTOM && !this.showPhantoms)
         d.hide();
-      this.dancers.push(d);
-
-    }
+      me.dancers.push(d);
+    });
     this.barstoolmark = this.svg.circle(this.floor,0,0,0.2,{fill:'black'});
     var pth = this.svg.createPath();
     this.compassmark = this.svg.path(this.floor,

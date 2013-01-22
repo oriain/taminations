@@ -1,0 +1,574 @@
+<?xml version="1.0"?>
+<!DOCTYPE formations SYSTEM "tamination.dtd">
+<!--
+    Copyright 2013 Brad Christie
+
+    This file is part of Taminations.
+
+    Taminations is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation either version 3 of the License or
+    (at your option) any later version.
+
+    Taminations is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with Taminations.  If not see <http://www.gnu.org/licenses/>.
+-->
+<moves>
+
+  <path name="Stand">
+     <movement hands="both" beats="1" cx1="0" cy1="0" cx2="0" cy2="0" x2="0" y2="0" />
+  </path>
+
+  <path name="Stand Left">
+    <move select="Stand" hands="left" />
+  </path>
+
+  <path name="Stand Right">
+    <move select="Stand" hands="right" />
+  </path>
+
+  <path name="FinalStand">
+    <move select="Stand" hands="gripboth" />
+  </path>
+
+  <path name="Final Left">
+    <move select="Stand" hands="gripleft" />
+  </path>
+
+  <path name="Final Right">
+    <move select="Stand" hands="gripright" />
+  </path>
+
+  <path name="Forward">
+    <movement hands="no" beats="1" cx1="0.333" cy1="0" cx2="0.667" cy2="0" x2="1" y2="0" />
+  </path>
+
+  <path name="Back">
+    <movement hands="no" beats="1" cx1="-0.333" cy1="0" cx2="-0.667" cy2="0" x2="-1" y2="0"
+                                   cx3="0.5" cx4="0.5" cy4="0" x4="1" y4="0" />
+  </path>
+
+  <path name="Run Left">
+    <movement hands="no" beats="3" cx1="1.333" cy1="0" cx2="1.333" cy2="2" x2="0" y2="2" />
+  </path>
+
+  <path name="Run Right">
+    <move select="Run Left" reflect="-1" />
+  </path>
+
+  <path name="U-Turn Left">
+    <movement hands="no" beats="3" cx1="0" cy1="0" cx2="0" cy2="0" x2="0" y2="0"
+                                   cx3="1.333" cx4="1.333" cy4="2" x4="0" y4="2" />
+  </path>
+
+  <path name="U-Turn Right">
+    <move select="U-Turn Left" reflect="-1" />
+  </path>
+
+  <path name="Flip Left">
+    <movement hands="no" beats="3" cx1="0.1" cy1="0" cx2="0.1" cy2="2" x2="0" y2="2"
+                                   cx3="1" cx4="1" cy4="2" x4="0" y4="2" />
+  </path>
+
+  <path name="Flip Right">
+    <move select="Flip Left" reflect="-1" />
+  </path>
+
+  <path name="Dodge Left">
+    <movement hands="no" beats="3" cx1="0" cy1="0" cx2="0" cy2="2" x2="0" y2="2"
+                                   cx3="4" cx4="4" cy4="1" x4="8" y4="1" />
+  </path>
+
+  <path name="Dodge Right">
+    <move select="Dodge Left" reflect="-1" />
+  </path>
+
+  <path name="Extend Left">
+    <movement hands="no" beats="1" cx1="0.5" cy1="0" cx2="0.5" cy2="1" x2="1" y2="1"
+                                   cx3="1" cx4="1" cy4="0.4" x4="2" y4="0.4" />
+  </path>
+
+  <path name="Extend Right">
+    <move select="Extend Left" reflect="-1" />
+  </path>
+
+  <path name="Retreat Left">
+    <movement hands="no" beats="1" cx1="-0.5" cy1="0" cx2="-0.5" cy2="1" x2="-1" y2="1"
+                                   cx3="1" cx4="1" cy4="-0.4" x4="2" y4="-0.4" />
+  </path>
+
+  <path name="Retreat Right">
+    <move select="Retreat Left" reflect="-1" />
+  </path>
+
+  <path name="Quarter Left">
+    <movement hands="no" beats="1.5" cx1="0" cy1="0" cx2="0" cy2="0" x2="0" y2="0"
+                                     cx3="0.55" cx4="1" cy4="0.45" x4="1" y4="1" />
+  </path>
+
+  <path name="Quarter Right">
+    <move select="Quarter Left" reflect="-1" />
+  </path>
+
+  <path name="Hinge Left">
+    <movement hands="left" beats="1.5" cx1="0.55" cy1="0" cx2="1" cy2="0.45" x2="1" y2="1" />
+  </path>
+
+  <path name="Hinge Right">
+    <move select="Hinge Left" reflect="-1" />
+  </path>
+
+  <path name="BackHinge Left">
+    <movement hands="left" beats="1.5" cx1="-0.55" cy1="0" cx2="-1" cy2="0.45" x2="-1" y2="1"
+                                       cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
+  </path>
+
+  <path name="BackHinge Right">
+    <move select="BackHinge Left" reflect="-1" />
+  </path>
+
+  <path name="HalfHinge Left">
+    <movement hands="left" beats="0.75" cx1="0.265" cy1="0" cx2="0.52" cy2="0.105" x2="0.707" y2="0.293" />
+  </path>
+
+  <path name="HalfHinge Right">
+    <move select="HalfHinge Left" reflect="-1" />
+  </path>
+
+  <path name="HalfBackHinge Left">
+    <movement hands="left" beats="0.75" cx1="-0.265" cy1="0" cx2="-0.52" cy2="0.105" x2="-0.707" y2="0.293"
+                                        cx3="0.265" cx4="0.52" cy4="-0.105" x4="0.707" y4="-0.293" />
+  </path>
+
+  <path name="HalfBackHinge Right">
+    <move select="HalfBackHinge Left" reflect="-1" />
+  </path>
+
+  <path name="BackRun Left">
+    <movement hands="left" beats="3" cx1="-1.333" cy1="0" cx2="-1.333" cy2="2" x2="0" y2="2"
+                                     cx3="1.333" cx4="1.333" cy4="-2" x4="0" y4="-2" />
+  </path>
+
+  <path name="BackRun Right">
+    <move select="BackRun Left" reflect="-1" />
+  </path>
+
+  <path name="Fold Left">
+    <movement hands="no" beats="2" cx1="1.5" cy1="0" cx2="3.5" cy2="2" x2="2" y2="2" />
+  </path>
+
+  <path name="Fold Right">
+    <move select="Fold Left" reflect="-1" />
+  </path>
+
+  <path name="Cross Fold Left">
+    <movement hands="no" beats="3" cx1="1.5" cy1="0" cx2="2.5" cy2="4" x2="2" y2="4" />
+  </path>
+
+  <path name="Cross Fold Right">
+    <move select="Cross Fold Left" reflect="-1" />
+  </path>
+
+  <path name="Lead Left">
+    <movement hands="no" beats="1.5" cx1="0.55" cy1="0" cx2="1" cy2="0.45" x2="1" y2="1" />
+  </path>
+
+  <path name="Lead Right">
+    <move select="Lead Left" reflect="-1" />
+  </path>
+
+  <path name="Eighth Left">
+    <movement hands="no" beats="0.75" cx1="0" cy1="0" cx2="0" cy2="0" x2="0" y2="0"
+                                      cx3="0.265" cx4="0.52" cy4="0.105" x4="0.707"  y4="0.293" />
+  </path>
+
+  <path name="Eighth Right">
+    <move select="Eighth Left" reflect="-1" />
+  </path>
+
+  <path name="Lead Left 1/2">
+    <movement hands="no" beats="0.75" cx1="0.265" cy1="0" cx2="0.520" cy2="0.105" x2="0.707" y2="0.293" />
+  </path>
+
+  <path name="Lead Right 1/2">
+    <move select="Lead Left 1/2" reflect="-1" />
+  </path>
+
+  <path name="Sashay Left">
+    <movement hands="no" beats="3" cx1="0.75" cy1="0" cx2="0.75" cy2="2" x2="0" y2="2"
+                                   cx3="0" cx4="0" cy4="0" x4="0" y4="0" />
+  </path>
+
+  <path name="Sashay Right">
+    <move select="Sashay Left" reflect="-1" />
+  </path>
+
+  <path name="BackSashay Left">
+    <movement hands="no" beats="3" cx1="-0.75" cy1="0" cx2="-0.75" cy2="2" x2="0" y2="2"
+                                   cx3="0" cx4="0" cy4="0" x4="0" y4="0" />
+  </path>
+
+  <path name="BackSashay Right">
+    <move select="BackSashay Left" reflect="-1" />
+  </path>
+
+  <path name="Sxtnth Left">
+    <movement hands="both" beats="0.1" cx1="0" cy1="0" cx2="0" cy2="0" x2="0" y2="0"
+                                       cx3="0.1313" cx4="0.2614" cy4="0.0259" x4="0.3827" y4="0.0761" />
+  </path>
+
+  <path name="Sxtnth Right">
+    <move select="Sxtnth Left" reflect="-1" />
+  </path>
+
+  <path name="Cross Left">
+    <movement hands="left" beats="2" cx1="1" cy1="0" cx2="0" cy2="2" x2="2" y2="2"
+                                     cx3="1" cx4="1" cy4="0.4" x4="2" y4="0.4" />
+  </path>
+
+  <path name="Cross Right">
+    <move select="Cross Left" reflect="-1" />
+  </path>
+
+
+  <!--     Counter Rotate
+           From the dancer's starting position if the rotation center is
+           to the left of the dancer then it's a Counter Rotate Left else Right
+           The X and Y numbers are the net change in position     -->
+  <!--  Counter rotate turning towards the right with a net forward movement  -->
+  <path name="Counter Rotate Right 2 0">
+    <movement hands="no" beats="2" cx1="0.5" cy1="0.5" cx2="1.5" cy2="0.5" x2="2" y2="0"
+                                   cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
+  </path>
+  <!--  Counter rotate turning left with a net forward movement  -->
+  <path name="Counter Rotate Left 2 0">
+    <move select="Counter Rotate Right 2 0" reflect="-1"/>
+  </path>
+
+  <path name="Counter Rotate Left 0 2">
+    <movement hands="no" beats="2" cx1="0.5" cy1="0.5" cx2="0.5" cy2="1.5" x2="0" y2="2"
+                                   cx3="0.55" cx4="1" cy4="0.45" x4="1" y4="1" />
+  </path>
+
+  <path name="Counter Rotate Right 0 -2">
+    <move select="Counter Rotate Left 0 2" reflect="-1" />
+  </path>
+
+  <path name="Counter Rotate Left 1 2">
+    <movement hands="no" beats="2" cx1="0" cy1="0.5" cx2="1" cy2="2" x2="1" y2="2"
+                                   cx3="0.55" cx4="1" cy4="0.45" x4="1" y4="1" />
+  </path>
+
+  <path name="Counter Rotate Right 1 -2">
+    <move select="Counter Rotate Left 1 2" reflect="-1"/>
+  </path>
+
+  <path name="Counter Rotate Right 0 2">
+    <movement hands="no" beats="2" cx1="-0.5" cy1="0.5" cx2="-0.5" cy2="1.5" x2="0" y2="2"
+                                   cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
+  </path>
+
+  <path name="Counter Rotate Left 0 -2">
+    <move select="Counter Rotate Right 0 2" reflect="-1"/>
+  </path>
+
+  <path name="Counter Rotate Right 1 2">
+    <movement hands="no" beats="2" cx1="0" cy1="0.5" cx2="0" cy2="2" x2="1" y2="2"
+                                   cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
+  </path>
+
+  <path name="Counter Rotate Left -2 0">
+    <movement hands="no" beats="2" cx1="-0.5" cy1="0.5" cx2="-1.5" cy2="0.5" x2="-2" y2="0"
+                                   cx3="0.55" cx4="1" cy4="0.45" x4="1" y4="1" />
+  </path>
+
+  <path name="Counter Rotate Right -2 0">
+    <move select="Counter Rotate Left -2 0" reflect="-1" />
+  </path>
+
+  <path name="Counter Rotate Right 3 1">
+  <movement hands="no" beats="2" cx1="0.5" cy1="1" cx2="2" cy2="1.5" x2="3" y2="1"
+                                 cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
+  </path>
+
+  <path name="Counter Rotate Left 3 -1">
+    <move select="Counter Rotate Right 3 1" reflect="-1"/>
+  </path>
+
+  <path name="Counter Rotate Right 3 -1">
+    <movement hands="no" beats="2" cx1="1" cy1="1" cx2="2.5" cy2="0" x2="3" y2="-1"
+                                   cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
+  </path>
+
+  <path name="Counter Rotate Right 0 3">
+    <movement hands="no" beats="2" cx1="-0.5" cy1="0.5" cx2="-1" cy2="2.5" x2="0" y2="3"
+                                   cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
+  </path>
+
+  <path name="Counter Rotate Right 5 1">
+    <movement hands="no" beats="2" cx1="0.5" cy1="1" cx2="4" cy2="1.5" x2="5" y2="1"
+                                   cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
+  </path>
+
+  <path name="Counter Rotate Left 5 -1">
+    <move select="Counter Rotate Right 5 1" reflect="-1"/>
+  </path>
+
+  <path name="Counter Rotate Right 5 -1">
+  <movement hands="no" beats="2" cx1="1.5" cy1="1" cx2="4" cy2="0.5" x2="5" y2="-1"
+                                 cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
+  </path>
+
+  <path name="Counter Rotate Left 5 1">
+    <move select="Counter Rotate Right 5 -1" reflect="-1" />
+  </path>
+
+  <path name="Counter Rotate Right 1 -5">
+    <movement hands="no" beats="2" cx1="1.5" cy1="-1" cx2="2" cy2="-3.5" x2="1" y2="-5"
+                                   cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
+  </path>
+
+  <path name="Counter Rotate Left 1 5">
+    <move select="Counter Rotate Right 1 -5" reflect="-1"/>
+  </path>
+
+  <path name="Counter Rotate Left -1 3">
+    <movement hands="no" beats="2" cx1="0.5" cy1="1" cx2="0" cy2="2.5" x2="-1" y2="3"
+                                   cx3="0.55" cx4="1" cy4="0.45" x4="1" y4="1" />
+  </path>
+
+  <path name="Counter Rotate Right -1 -3">
+    <move select="Counter Rotate Left -1 3" reflect="-1" />
+  </path>
+
+  <path name="Counter Rotate Right 4 2">
+    <movement hands="no" beats="2" cx1="0.5" cy1="1.5" cx2="2.5" cy2="2.5" x2="4" y2="2"
+                                   cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
+  </path>
+
+  <path name="Counter Rotate Left 4 -2">
+    <move select="Counter Rotate Right 4 2" reflect="-1" />
+  </path>
+
+  <path name="Counter Rotate Right -2 -4">
+    <movement hands="no" beats="2" cx1="0.5" cy1="-1.5" cx2="-0.5" cy2="-3.5" x2="-2" y2="-4"
+                                   cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
+  </path>
+
+  <path name="Counter Rotate Left -2 4">
+    <move select="Counter Rotate Right -2 -4" reflect="-1" />
+  </path>
+
+  <path name="Counter Rotate Right 4 -2">
+    <movement hands="no" beats="2" cx1="1.5" cy1="0.5" cx2="3.5" cy2="-0.5" x2="4" y2="-2"
+                                   cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
+  </path>
+
+  <path name="Counter Rotate Right 2 -4">
+    <movement hands="no" beats="2" cx1="1.5" cy1="-0.5" cx2="2.5" cy2="-2.5" x2="2" y2="-4"
+                                   cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
+  </path>
+
+  <!--  Useful for turning a circle of four    -->
+  <path name="Counter Rotate Left 1 1">
+    <movement hands="no" beats="2" cx1="0" cy1="0.5" cx2="0.5" cy2="1" x2="1" y2="1"
+                                   cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
+  </path>
+
+  <path name="Counter Rotate Left 1.414 1.414">
+    <move select="Counter Rotate Left 1 1" scaleX="1.414" scaleY="1.414" />
+  </path>
+
+  <!--   For circle left and circle right    -->
+  <path name="cl">
+    <movement hands="both" beats="1" cx1="0.27" cy1="0.64" cx2="0.77" cy2="1.14" x2="1.41" y2="1.41"
+                                     cx3="0.265" cx4="0.52" cy4="-0.105" x4="0.707" y4="-0.293" />
+  </path>
+
+  <path name="cr">
+    <move select="cl" reflect="-1" />
+  </path>
+
+  <path name="incircle2">
+    <movement hands="both" beats="1" cx1="0.3" cy1="0" cx2="0.3" cy2="0" x2="0.59" y2="0"
+                                     cx3="1" cx4="2" cy4="1" x4="3" y4="2" />
+  </path>
+
+  <path name="incircle3">
+    <move select="incircle2" reflect="-1" />
+  </path>
+
+  //    For single circle to a wave
+  <path name="ssqtr">
+    <movement hands="no" beats="1" cx1="0" cy1="0.385" cx2="0.315" cy2="0.7" x2="0.7" y2="0.7"
+                                   cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
+  </path>
+
+  <path name="Pivot forward left">
+    <movement hands="no" beats="3" cx1="0" cy1="1.333" cx2="2" cy2="1.333" x2="2" y2="0"
+                                   cx3="1.333" cx4="1.333" cy4="-2" x4="0" y4="-2" />
+  </path>
+
+  <path name="Pivot forward right">
+    <move select="Pivot forward left" reflect="-1" />
+  </path>
+
+  <path name="Pivot backward left">
+    <movement hands="no" beats="3" cx1="0" cy1="1.333" cx2="-2" cy2="1.333" x2="-2" y2="0"
+                                   cx3="1.333" cx4="1.333" cy4="2" x4="0" y4="2" />
+  </path>
+
+  <path name="Pivot backward right">
+    <move select="Pivot backward left" reflect="-1" />
+  </path>
+
+  <!--  For fractional tops   -->
+  <path name="Sxtnth">
+    <movement hands="no" beats="1.125" cx1="0.3939" cy1="0" cx2="0.7842" cy2="-0.0777" x2="1.1481" y2="-0.2283" />
+  </path>
+
+  <path name="H16th">
+    <movement hands="left" beats="0.375" cx1="0.1313" cy1="0" cx2="0.2614" cy2="0.0259" x2="0.3827" y2="0.0761" />
+  </path>
+
+  <!--  For couples circle left   -->
+  <path name="Circle Left Half">
+    <movement hands="gripboth" beats="3" cx1="0" cy1="1.88" cx2="2.83" cy2="1.88" x2="2.83" y2="0"
+                                         cx3="1.33" cx4="1.33" cy4="-2" x4="0" y4="-2" />
+  </path>
+
+  <path name="Circle Left Quarter">
+    <movement hands="gripboth" beats="1.5" cx1="0" cy1="0.39" cx2="0.318" cy2="0.707" x2="0.707" y2="0.707"
+                                           cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
+  </path>
+
+  <path name="Circle Right Quarter">
+    <move select="Circle Left Quarter" reflect="-1" />
+  </path>
+
+  <path name="Forward .5">
+    <move select="Foward" beats="0.5" scaleX="0.5" />
+  </path>
+
+  <path name="Forward 2">
+    <move select="Forward" beats="2" scaleX="2" />
+  </path>
+
+  <path name="Forward 3">
+    <move select="Forward" beats="3" scaleX="3" />
+  </path>
+
+  <path name="Forward 4">
+    <move select="Forward" beats="4" scaleX="4" />
+  </path>
+
+  <path name="Forward 5">
+    <move select="Forward" beats="5" scaleX="5" />
+  </path>
+
+  <path name="Forward 6">
+    <move select="Forward" beats="6" scaleX="6" />
+  </path>
+
+  <path name="Back 2">
+    <move select="Back" beats="2" scaleX="2" />
+  </path>
+
+  <path name="Slow Forward">
+    <move select="Forward" beats="2" />
+  </path>
+
+  <path name="Slow Forward 2">
+    <move select="Forward 2" beats="3" />
+  </path>
+
+  <path name="Extend Left 2">
+    <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+  </path>
+
+  <path name="Extend Right 2">
+    <move select="Extend Left 2" reflect="-1" />
+  </path>
+
+  <path name="Extend Left 4">
+    <move select="Extend Left" beats="3" scaleX="4" scaleY="4" />
+  </path>
+
+  <path name="Extend Right 4">
+    <move select="Extend Left 4" reflect="-1" />
+  </path>
+
+  <path name="Pull Left">
+    <move select="Extend Left" hands="right" />
+  </path>
+
+  <path name="Pull Right">
+    <move select="Pull Left" reflect="-1" />
+  </path>
+
+  <path name="Pass Thru">
+    <move select="Extend Left" scaleY="0.5" />
+    <move select="Extend Right" scaleY="0.5" />
+  </path>
+
+  <path name="Swing Left">
+    <move select="Run Left" hands="left" />
+  </path>
+
+  <path name="Swing Right">
+    <move select="Swing Left" reflect="-1" />
+  </path>
+
+  <path name="Cast Left">
+    <move select="Swing Left" />
+    <move select="Hinge Left" />
+  </path>
+
+  <path name="Cast Right">
+    <move select="Cast Left" reflect="-1" />
+  </path>
+
+  <path name="Lead Left 2">
+    <move select="Lead Left" beats="3" scaleX="2" scaleY="2" />
+  </path>
+
+  <path name="Lead Right 2">
+    <move select="Lead Left 2" reflect="-1" />
+  </path>
+
+  <path name="Lead Left 3">
+    <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3" />
+  </path>
+
+  <path name="Lead Right 3">
+    <move select="Lead Left 3" reflect="-1" />
+  </path>
+
+  <path name="Pull By">
+    <move select="Extend Left" hands="right" />
+  </path>
+
+  <path name="Beau Wheel">
+    <move select="BackRun Right" hands="right" />
+  </path>
+
+  <path name="Belle Wheel">
+    <movement hands="left" beats="3" cx1="1.333" cy1="0" cx2="1.333" cy2="2" x2="0" y2="2"
+                                     cx3="1.333" cx4="1.333" cy4="2" x4="0" y4="2" />
+  </path>
+
+  <path name="Beau Reverse Wheel">
+    <movement hands="right" beats="3" cx1="1.333" cy1="0" cx2="1.333" cy2="-2" x2="0" y2="-2"
+                                      cx3="1.333" cx4="1.333" cy4="-2" x4="0" y4="-2" />
+  </path>
+
+  <path name="Belle Reverse Wheel">
+    <move select="BackRun Left" hands="left" />
+  </path>
+
+</moves>

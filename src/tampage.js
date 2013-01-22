@@ -1,21 +1,21 @@
 /*
 
-    Copyright 2012 Brad Christie
+    Copyright 2013 Brad Christie
 
-    This file is part of TAMinations.
+    This file is part of Taminations.
 
-    TAMinations is free software: you can redistribute it and/or modify
+    Taminations is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published
     by the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    TAMinations is distributed in the hope that it will be useful,
+    Taminations is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Affero General Public License for more details.
 
     You should have received a copy of the GNU Affero General Public License
-    along with TAMinations.  If not, see <http://www.gnu.org/licenses/>.
+    along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
 var prefix = '';
@@ -47,6 +47,9 @@ for (var i=0; i<search.length; i++) {
 var difficultText = [ ' <font color="blue">&diams;</font>',
                       ' <font color="red">&diams;&diams;</font>',
                       ' <font color="black">&diams;&diams;&diams;</font>' ];
+
+var menudata;
+preload('../src/menus.xml',function(a) { menudata = a; });
 
 // Body onload function
 $(document).ready(
@@ -86,24 +89,26 @@ $(document).ready(
 
     //  Build the menus
     $("#menudiv").append('<table cellpadding="0" cellspacing="0" width="100%" summary="">'+
-    '<tr></tr></table>');
-    for (var m in tamination_menu) {
-      var tm = tamination_menu[m];
-      $('#menudiv tr:first').append('<td class="menutitle">'+tm.title+'<br/>'+
+                         '<tr></tr></table>');
+    tamination_menu = [];
+    $('menulist',menudata).each(function() {
+      $('#menudiv tr:first').append('<td class="menutitle">'+$(this).attr('title')+'<br/>'+
           '<div><table class="menu" cellpadding="0" cellspacing="0" summary="">'+
       '</table></div></td>');
-      $('.menutitle:last').data('menu',m);
+      $('.menutitle:last').data('menu',this);
       $('.menutitle:last').click(function() {
-        var tm = tamination_menu[$(this).data('menu')];
+        var tm = $(this).data('menu');
+        var columns = Number($(tm).attr('columns'));
+        var menu = $(tm).children();
         var menuhtml = '';
-        var rows = Math.floor((tm.menu.length + tm.columns - 1) / tm.columns);
+        var rows = Math.floor((menu.length + columns - 1) / columns);
         for (var r = 0; r < rows; r++) {
           menuhtml += '<tr>';
-          for (var c = 0; c < tm.columns; c++) {
+          for (var c = 0; c < columns; c++) {
             var mi = c*rows + r;
-            if (mi < tm.menu.length)
+            if (mi < menu.length)
               menuhtml += '<td onclick="document.location=\''+prefix+
-              tm.menu[mi].link+'\'">'+tm.menu[mi].text+'</td>';
+              $(menu[mi]).attr('link')+'\'">'+$(menu[mi]).attr('text')+'</td>';
           }
           menuhtml += '</tr>';
         }
@@ -135,7 +140,7 @@ $(document).ready(
         $("div",this).css("top",mt+"px");
         $("div",this).css("left",ml+"px");
       });
-    }
+    });
 
     //  Hide all the menus
     $(".menutitle > div").addClass("menutitlediv").hide();
