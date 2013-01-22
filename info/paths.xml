@@ -2,7 +2,7 @@
 <paths>
 
   <move name="Stand">
-    <Movement hands="both" beats="1" cx1="0" cy1="0" cx2="0" cy2="0" x2="0" y2="0" />
+    <movement hands="both" beats="1" cx1="0" cy1="0" cx2="0" cy2="0" x2="0" y2="0" />
   </move>
 
   <move name="Stand Left">
@@ -26,16 +26,16 @@
   </move>
 
   <move name="Forward">
-    <Movement hands="no" beats="1" cx1="0.333" cy1="0" cx2="0.667" cy2="0" x2="1" y2="0" />
+    <movement hands="no" beats="1" cx1="0.333" cy1="0" cx2="0.667" cy2="0" x2="1" y2="0" />
   </move>
 
   <move name="Back">
-    <Movement hands="no" beats="1" cx1="-0.333" cy1="0" cx2="-0.667" cy2="0" x2="-1" y2="0"
+    <movement hands="no" beats="1" cx1="-0.333" cy1="0" cx2="-0.667" cy2="0" x2="-1" y2="0"
                                    cx3=".5" cx4=".5" cy4="0" x4="1" y4="0" />
   </move>
 
   <move name="Run Left">
-    <Movement hands="no" beats="3" cx1="1.333" cy1="0" cx2="1.333" cy2="2" x2="0" y2="2" />
+    <movement hands="no" beats="3" cx1="1.333" cy1="0" cx2="1.333" cy2="2" x2="0" y2="2" />
   </move>
 
   <move name="Run Right">
@@ -43,7 +43,7 @@
   </move>
 
   <move name="U-Turn Left">
-    <Movement hands="no" beats="3" cx1="0" cy1="0" cx2="0" cy2="0" x2="0" y2="0"
+    <movement hands="no" beats="3" cx1="0" cy1="0" cx2="0" cy2="0" x2="0" y2="0"
                                    cx3="1.333" cx4="1.333" cy4="2" x4="0" y4="2" />
   </move>
 
@@ -52,7 +52,7 @@
   </move>
 
   <move name="Flip Left">
-    <Movement hands="no" beats="3" cx1="0.1" cy1="0" cx2="0.1" cy2="2" x2="0" y2="2"
+    <movement hands="no" beats="3" cx1="0.1" cy1="0" cx2="0.1" cy2="2" x2="0" y2="2"
                                    cx3="1" cx4="1" cy4="2" x4="0" y4="2" />
   </move>
 
@@ -61,7 +61,7 @@
   </move>
 
   <move name="Dodge Left">
-    <Movement hands="no" beats="3" cx1="0" cy1="0" cx2="0" cy2="2" x2="0" y2="2"
+    <movement hands="no" beats="3" cx1="0" cy1="0" cx2="0" cy2="2" x2="0" y2="2"
                                    cx3="4" cx4="4" cy4="1" x4="8" y4="1" />
   </move>
 
@@ -70,7 +70,7 @@
   </move>
 
   <move name="Extend Left">
-    <Movement hands="no" beats="1" cx1="0.5" cy1="0" cx2="0.5" cy2="1" x2="1" y2="1"
+    <movement hands="no" beats="1" cx1="0.5" cy1="0" cx2="0.5" cy2="1" x2="1" y2="1"
                                    cx3="1" cx4="1" cy4="0.4" x4="2" y4="0.4" />
   </move>
 
@@ -79,7 +79,7 @@
   </move>
 
   <move name="Retreat Left">
-    <Movement hands="no" beats="1" cx1="-.5" cy1="0" cx2="-.5" cy2="1" x2="-1" y2="1"
+    <movement hands="no" beats="1" cx1="-.5" cy1="0" cx2="-.5" cy2="1" x2="-1" y2="1"
                                    cx3="1" cx4="1" cy4="-.4" x4="2" y4="-.4" />
   </move>
   <move name="Retreat Right">
@@ -87,7 +87,7 @@
   </move>
 
   <move name="Quarter Left">
-    <Movement hands="no" beats="1.5" cx1="0" cy1="0" cx2="0" cy2="0" x2="0" y2="0"
+    <movement hands="no" beats="1.5" cx1="0" cy1="0" cx2="0" cy2="0" x2="0" y2="0"
                                      cx3="0.55" cx4="1" cy4="0.45" x4="1" y4="1" />
   </move>
   <move name="Quarter Right">
@@ -95,14 +95,14 @@
   </move>
 
   <move name="Hinge Left">
-    <Movement hands="left" beats="1.5" cx1="0.55" cy1="0" cx2="1" cy2="0.45" x2="1" y2="1" />
+    <movement hands="left" beats="1.5" cx1="0.55" cy1="0" cx2="1" cy2="0.45" x2="1" y2="1" />
   </move>
   <move name="Hinge Right">
     <move select="Hinge Left" reflect="-1" />
   </move>
 
   <move name="BackHinge Left">
-    <Movement hands="left" beats="1.5" cx1="-0.55" cy1="0" cx2="-1" cy2="0.45" x2="-1" y2="1"
+    <movement hands="left" beats="1.5" cx1="-0.55" cy1="0" cx2="-1" cy2="0.45" x2="-1" y2="1"
                                        cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
   </move>
   <move name="BackHinge Right">
@@ -110,14 +110,14 @@
   </move>
 
   <move name="HalfHinge Left">
-    <Movement hands="left" beats=".75" cx1=".265" cy1="0" cx2=".52" cy2=".105" x2=".707" y2=".293" />
+    <movement hands="left" beats=".75" cx1=".265" cy1="0" cx2=".52" cy2=".105" x2=".707" y2=".293" />
   </move>
   <move name="HalfHinge Right">
     <move select="HalfHinge Left" reflect="-1" />
   </move>
 
   <move name="HalfBackHinge Left">
-    <Movement hands="left" beats=".75" cx1="-.265" cy1="0" cx2="-.52" cy2=".105" x2="-.707" y2=".293"
+    <movement hands="left" beats=".75" cx1="-.265" cy1="0" cx2="-.52" cy2=".105" x2="-.707" y2=".293"
                                        cx3=".265" cx4=".52" cy4="-.105" x4=".707" y4="-.293" />
   </move>
   <move name="HalfBackHinge Right">
@@ -125,7 +125,7 @@
   </move>
 
   <move name="BackRun Left">
-    <Movement hands="left" beats="3" cx1="-1.333" cy1="0" cx2="-1.333" cy2="2" x2="0" y2="2"
+    <movement hands="left" beats="3" cx1="-1.333" cy1="0" cx2="-1.333" cy2="2" x2="0" y2="2"
                                      cx3="1.333" cx4="1.333" cy4="-2" x4="0" y4="-2" />
   </move>
   <move name="BackRun Right">
@@ -133,28 +133,28 @@
   </move>
 
   <move name="Fold Left">
-    <Movement hands="no" beats="2" cx1="1.5" cy1="0" cx2="3.5" cy2="2" x2="2" y2="2" />
+    <movement hands="no" beats="2" cx1="1.5" cy1="0" cx2="3.5" cy2="2" x2="2" y2="2" />
   </move>
   <move name="Fold Right">
     <move select="Fold Left" reflect="-1" />
   </move>
 
   <move name="Cross Fold Left">
-    <Movement hands="no" beats="3" cx1="1.5" cy1="0" cx2="2.5" cy2="4" x2="2" y2="4" />
+    <movement hands="no" beats="3" cx1="1.5" cy1="0" cx2="2.5" cy2="4" x2="2" y2="4" />
   </move>
   <move name="Cross Fold Right">
     <move select="Cross Fold Left" reflect="-1" />
   </move>
 
   <move name="Lead Left">
-    <Movement hands="no" beats="1.5" cx1="0.55" cy1="0" cx2="1" cy2=".45" x2="1" y2="1" />
+    <movement hands="no" beats="1.5" cx1="0.55" cy1="0" cx2="1" cy2=".45" x2="1" y2="1" />
   </move>
   <move name="Lead Right">
     <move select="Lead Left" reflect="-1" />
   </move>
 
   <move name="Eighth Left">
-    <Movement hands="no" beats=".75" cx1="0" cy1="0" cx2="0" cy2="0" x2="0" y2="0"
+    <movement hands="no" beats=".75" cx1="0" cy1="0" cx2="0" cy2="0" x2="0" y2="0"
                                      cx3=".265" cx4=".52" cy4=".105" x4=".707"  y4=".293" />
   </move>
   <move name="Eighth Right">
@@ -162,14 +162,14 @@
   </move>
 
   <move name="Lead Left 1/2">
-    <Movement hands="no" beats=".75" cx1=".265" cy1="0" cx2=".520" cy2=".105" x2=".707" y2=".293" />
+    <movement hands="no" beats=".75" cx1=".265" cy1="0" cx2=".520" cy2=".105" x2=".707" y2=".293" />
   </move>
   <move name="Lead Right 1/2">
     <move select="Lead Left 1/2" reflect="-1" />
   </move>
 
   <move name="Sashay Left">
-    <Movement hands="no" beats="3" cx1=".75" cy1="0" cx2=".75" cy2="2" x2="0" y2="2"
+    <movement hands="no" beats="3" cx1=".75" cy1="0" cx2=".75" cy2="2" x2="0" y2="2"
                                    cx3="0" cx4="0" cy4="0" x4="0" y4="0" />
   </move>
   <move name="Sashay Right">
@@ -177,7 +177,7 @@
   </move>
 
   <move name="BackSashay Left">
-    <Movement hands="no" beats="3" cx1="-.75" cy1="0" cx2="-.75" cy2="2" x2="0" y2="2"
+    <movement hands="no" beats="3" cx1="-.75" cy1="0" cx2="-.75" cy2="2" x2="0" y2="2"
                                    cx3="0" cx4="0" cy4="0" x4="0" y4="0" />
   </move>
   <move name="BackSashay Right">
@@ -185,7 +185,7 @@
   </move>
 
   <move name="Sxtnth Left">
-    <Movement hands="both" beats=".1" cx1="0" cy1="0" cx2="0" cy2="0" x2="0" y2="0"
+    <movement hands="both" beats=".1" cx1="0" cy1="0" cx2="0" cy2="0" x2="0" y2="0"
                                       cx3=".1313" cx4=".2614" cy4=".0259" x4=".3827" y4=".0761" />
   </move>
   <move name="Sxtnth Right">
@@ -193,7 +193,7 @@
   </move>
 
   <move name="Cross Left">
-    <Movement hands="left" beats="2" cx1="1" cy1="0" cx2="0" cy2="2" x2="2" y2="2"
+    <movement hands="left" beats="2" cx1="1" cy1="0" cx2="0" cy2="2" x2="2" y2="2"
                                      cx3="1" cx4="1" cy4=".4" x4="2" y4=".4" />
   </move>
   <move name="Cross Right">
@@ -202,14 +202,14 @@
 
   <!--  For circle left and circle right  -->
   <move name="cl">
-    <Movement hands="both" beats="1" cx1=".27" cy1=".64" cx2=".77" cy2="1.14" x2="1.41" y2="1.41"
+    <movement hands="both" beats="1" cx1=".27" cy1=".64" cx2=".77" cy2="1.14" x2="1.41" y2="1.41"
                                      cx3=".265" cx4=".52" cy4="-.105" x4=".707" y4="-.293" />
   </move>
   <move name="cr">
     <move select="cl" reflect="-1" />
   </move>
   <move name="incircle2">
-    <Movement hands="both" beats="1" cx1=".3" cy1="0" cx2=".3" cy2="0" x2=".59" y2="0"
+    <movement hands="both" beats="1" cx1=".3" cy1="0" cx2=".3" cy2="0" x2=".59" y2="0"
                                      cx3="1" cx4="2" cy4="1" x4="3" y4="2" />
   </move>
   <move name="incircle3">
@@ -218,25 +218,25 @@
 
   <!--  For single circle to a wave   -->
   <move name="ssqtr">
-    <Movement hands="no" beats="1" cx1="0" cy1=".385" cx2=".315" cy2=".7" x2=".7" y2=".7"
+    <movement hands="no" beats="1" cx1="0" cy1=".385" cx2=".315" cy2=".7" x2=".7" y2=".7"
                                    cx3=".55" cx4="1" cy4="-.45" x4="1" y4="-1" />
   </move>
 
   <!--  For fractional tops  -->
   <move name="Sxtnth">
-    <Movement hands="no" beats="1.125" cx1=".3939" cy1="0" cx2=".7842" cy2="-.0777" x2="1.1481" y2="-.2283" />
+    <movement hands="no" beats="1.125" cx1=".3939" cy1="0" cx2=".7842" cy2="-.0777" x2="1.1481" y2="-.2283" />
   </move>
   <move name="H16th">
-    <Movement hands="left" beats=".375" cx1=".1313" cy1="0" cx2=".2614" cy2=".0259" x2=".3827" y2=".0761" />
+    <movement hands="left" beats=".375" cx1=".1313" cy1="0" cx2=".2614" cy2=".0259" x2=".3827" y2=".0761" />
   </move>
 
   <!--  For couples circle left  -->
   <move name="Circle Left Half">
-    <Movement hands="gripboth" beats="3" cx1="0" cy1="1.88" cx2="2.83" cy2="1.88" x2="2.83" y2="0"
+    <movement hands="gripboth" beats="3" cx1="0" cy1="1.88" cx2="2.83" cy2="1.88" x2="2.83" y2="0"
                                          cx3="1.33" cx4="1.33" cy4="-2" x4="0" y4="-2" />
   </move>
   <move name="Circle Left Quarter">
-    <Movement hands="gripboth" beats="1.5" cx1="0" cy1=".39" cx2=".318" cy2=".707" x2=".707" y2=".707"
+    <movement hands="gripboth" beats="1.5" cx1="0" cy1=".39" cx2=".318" cy2=".707" x2=".707" y2=".707"
                                            cx3=".55" cx4="1" cy4="-.45" x4="1" y4="-1" />
   </move>
 

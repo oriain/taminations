@@ -11,6 +11,13 @@ Overview
       tamination.java
     XML animation
 
+  - OR -
+
+  Concepts
+    Mathematics
+    Drawing
+    Writing
+
 Animation math
   Bezier curve
     Direction is derivative of path
