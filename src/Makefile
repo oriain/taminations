@@ -1,20 +1,20 @@
 
-#    Copyright 2012 Brad Christie
+#    Copyright 2013 Brad Christie
 #
-#    This file is part of TAMinations.
+#    This file is part of Taminations.
 #
-#    TAMinations is free software: you can redistribute it and/or modify
+#    Taminations is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
 #    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
-#    TAMinations is distributed in the hope that it will be useful,
+#    Taminations is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with TAMinations.  If not, see <http://www.gnu.org/licenses/>.
+#    along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 
 # This makefile builds the JAR file needed to load taminations by the Java applet
@@ -44,10 +44,11 @@ XMLADV = $(addprefix ../adv/,$(XML))
 XMLC1 = $(addprefix ../c1/,$(XML)) 
 XMLC2 = $(addprefix ../c2/,$(XML)) 
 XMLC3A = $(addprefix ../c3a/,$(XML))
+XMLINFO = $(addprefix ../info/,$(XML))
 XMLROOT = $(addprefix ../,$(XML))
 
 XMLFILES = $(XMLMS) $(XMLPLUS) $(XMLADV) \
-           $(XMLC1) $(XMLC2) $(XMLC3A) $(XMLROOT)
+           $(XMLC1) $(XMLC2) $(XMLC3A) $(XMLINFO) $(XMLROOT)
 
 .phony : all
 all : TAMination.jar  callindex.json $(XMLFILES) ../tamination.zip
