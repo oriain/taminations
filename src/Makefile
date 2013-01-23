@@ -25,9 +25,11 @@
 ifeq '$(findstring :,$(CURDIR))' ':'
 RM = del
 PS = $(strip \ )
+COPY = copy
 else
 RM = rm
 PS = /
+COPY = cp
 endif
 
 
@@ -35,13 +37,24 @@ endif
 JAVA = $(JAVA_HOME)/bin/java
 JAVAC = $(JAVA_HOME)/bin/javac
 JAR = $(JAVA_HOME)/bin/jar
+XML = $(wildcard *.xml)
+XMLMS = $(addprefix ../ms/,$(XML)) 
+XMLPLUS = $(addprefix ../plus/,$(XML)) 
+XMLADV = $(addprefix ../adv/,$(XML)) 
+XMLC1 = $(addprefix ../c1/,$(XML)) 
+XMLC2 = $(addprefix ../c2/,$(XML)) 
+XMLC3A = $(addprefix ../c3a/,$(XML))
+XMLROOT = $(addprefix ../,$(XML))
+
+XMLFILES = $(XMLMS) $(XMLPLUS) $(XMLADV) \
+           $(XMLC1) $(XMLC2) $(XMLC3A) $(XMLROOT)
 
 .phony : all
-all : TAMination.jar  callindex.json ../tamination.zip
+all : TAMination.jar  callindex.json $(XMLFILES) ../tamination.zip
 	@echo Build complete
 
 unzip :
-	cd ../ext/jquery && $(JAR) xvf jquery.mobile-1.0.1.zip
+	cd ../ext/jquery && $(JAR) xvf jquery.mobile-1.2.0.zip
 	cd ../ext/jquery/jquery.mousewheel && $(JAR) xvf jquery.mousewheel.3.0.2.zip
 	cd ../ext/jquery/jquery.svg && $(JAR) xvf jquery.svg.package-1.4.4.zip
 	cd ../ext/jquery/jquery.ui && $(JAR) xvf jquery-ui-1.8.18.custom.zip
@@ -60,9 +73,14 @@ TAMination.jar : TAMination.java
 #  The wildcard * pattern apparently conveniently excludes .* files
 ../tamination.zip : $(filter-out ../tamination.zip,$(wildcard ../* ../*/*))
 	-cd .. && $(RM) tamination.zip
-	cd .. && $(JAR) cvMf tamination.zip info ms plus adv c1 c2 c3a src ext *.html *.txt *.ico *.xml
+	cd .. && $(JAR) cMf tamination.zip info ms plus adv c1 c2 c3a src ext *.html *.txt *.ico *.xml
 
 #  Make the index of calls
 #  This is for a future project, not used by the current animations
 callindex.json : $(wildcard ../*/*.xml) $(wildcard calls/*.js) $(wildcard ../squareplay/src/calls/*.py)
 	python indexcalls.py >$@
+
+#  Copy XML files that define menus, moves, and formations to each directory
+#  Browsers can be picky about loading AJAX from different directories
+%.xml :
+	$(COPY) $(notdir $@) $(subst /,$(PS),$@)

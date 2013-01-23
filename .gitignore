@@ -7,4 +7,11 @@
 *.pyc
 *.blend?
 callindex.json
-__pycache__/
+formations.xml
+menus.xml
+moves.xml
+!src/formations.xml
+!src/menus.xml
+!src/moves.xml
+!jquery.mobile-*.zip
+!jquery-*.js

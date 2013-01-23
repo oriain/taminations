@@ -37,9 +37,9 @@ function preload(url,f)
   });
 }
 var formationdata;
-preload('../src/formations.xml',function(a) { formationdata = a; });
+preload('formations.xml',function(a) { formationdata = a; });
 var movedata;
-preload('../src/moves.xml',function(a) { movedata = a; });
+preload('moves.xml',function(a) { movedata = a; });
 
 var TAMination = window.TAMination = function(elemid,xmldoc,call,params)
 {

@@ -2,6 +2,8 @@
 var animations = 0;
 var currentcall = '';  // needed for tamination.js
 var callnamedict = {};
+var menudata;
+preload('menus.xml',function(a) { menudata = a; });
 
 //  Given an url or other fragment, parse out "a=b args" into an object
 function parseArgs(str)
@@ -100,32 +102,30 @@ $(document).bind('mobileinit',function()
   {
     $.mobile.page.prototype.options.headerTheme = "d";
     $.mobile.listview.prototype.options.headerTheme = "d";
+    $.mobile.pushStateEnabled = false;
   });
 
 $(document).delegate('#level','pagecreate',
   function()
   {
     // Build menus for level and call selection
-    for (var level in tamination_menu) {
-      var a = tamination_menu[level];
-      if (a.title.match(/Info|General|Styling/))
-        continue;
-      var html = '<li data-theme="c" data-icon="arrow-r">'+ a.title +
-      '<ul id="'+a.title+'" data-role="listview"></ul></li>';
+    $('menulist',menudata).each(function() {
+      var title = $(this).attr('title');
+      if (title.match(/Info|General|Styling/))
+        return;
+      var html = '<li data-theme="c" data-icon="arrow-r">'+ title +
+                 '<ul id="'+title+'" data-role="listview"></ul></li>';
       $('#levelslist').append(html);
-      for (var call in a.menu) {
-        var b = a.menu[call];
-        var htmlpage = encodeURIComponent(b.link);
+      $(this).children().each(function() {
+        var text = $(this).attr('text');
+        var link = $(this).attr('link');
+        var htmlpage = encodeURIComponent(link);
         var xmlpage = htmlpage.replace('html','xml');
-        callnamedict[xmlpage] = b.text;
-        var html = '<li><a href="#animlistpage&page='+htmlpage+'">'+b.text+'</li>';
-        $('#'+a.title).append(html);
-      }
-    }
-    if (parseArgs()['level']) {
-      $.mobile.changePage('#level'); //&ui-page='+parseArgs()['level']);
-      //console.log($('#levelslist').listview('childPages'));
-    }
+        callnamedict[xmlpage] = text;
+        var html = '<li><a href="#animlistpage&'+htmlpage+'">'+text+'</li>';
+        $('#'+title).append(html);
+      });
+    });
   }
 );
 
@@ -134,6 +134,7 @@ $(document).delegate('#level','pagecreate',
 function loadcall(options,htmlpage)
 {
   if (htmlpage.length > 0) {
+    console.log(htmlpage);
     //  Some browsers do better loading the definition as xml, others as html
     //  So we will try both
     $.ajax({url:decodeURIComponent(htmlpage), datatype:'xml', success:function(a) {

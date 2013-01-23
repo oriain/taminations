@@ -49,7 +49,7 @@ var difficultText = [ ' <font color="blue">&diams;</font>',
                       ' <font color="black">&diams;&diams;&diams;</font>' ];
 
 var menudata;
-preload('../src/menus.xml',function(a) { menudata = a; });
+preload('menus.xml',function(a) { menudata = a; });
 
 // Body onload function
 $(document).ready(
