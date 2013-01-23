@@ -483,18 +483,26 @@ function getFormation()  // override function in tamination.js
 
 function getDancers(formation)
 {
-  var tokens = formation.split(/\s+/);
   var dancers = [];
-  for (var i=1; i<tokens.length; i+=4) {
-    var d = new Dancer({tamsvg:tamsvg,gender:Dancer.genders[tokens[i]],
-            x:-Number(tokens[i+2]),y:-Number(tokens[i+1]),
-            angle:Number(tokens[i+3])+180,number:i});
+  var i = 1;
+  $('dancer',formation).each(function() {
+    var d = new Dancer({
+         tamsvg:tamsvg,
+         gender:Dancer.genders[$(this).attr('gender')],
+         x:-Number($(this).attr('y')),
+         y:-Number($(this).attr('x')),
+         angle:Number($(this).attr('angle'))+180,
+         number:i++});
     dancers.push(d);
-    d = new Dancer({tamsvg:tamsvg,gender:Dancer.genders[tokens[i]],
-            x:Number(tokens[i+2]),y:Number(tokens[i+1]),
-            angle:Number(tokens[i+3]),number:i+1});
+    d = new Dancer({
+         tamsvg:tamsvg,
+         gender:Dancer.genders[$(this).attr('gender')],
+         x:Number($(this).attr('y')),
+         y:Number($(this).attr('x')),
+         angle:Number($(this).attr('angle')),
+         number:i++});
     dancers.push(d);
-  }
+  });
   return dancers;
 }
 
