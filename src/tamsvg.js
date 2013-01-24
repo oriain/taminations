@@ -1363,7 +1363,6 @@ Path = defineClass(
   {
     this.movelist = [];
     this.transformlist = [];
-    this.pathlist = [];
     if (p instanceof Path) {
       for (var m in p.movelist)
         this.add(p.movelist[m].clone());
@@ -1409,7 +1408,6 @@ Path.prototype.clear = function()
 {
   this.movelist = [];
   this.transformlist = [];
-  this.pathlist = [];
 };
 
 Path.prototype.recalculate = function()
