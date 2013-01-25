@@ -21,13 +21,10 @@
 
 -->
 <tamination>
-  
-  
 
   <tam title="3 By 1 Transfer the Column"
-       from="Right-Hand Columns"
-       formation="Formation girl -3 -1 180 boy 1 -1 180 girl -1 -1 180 boy 3 -1 180"
-       parts="" >
+       from="Right-Hand Columns">
+     <formation>      <dancer gender="girl" x="-3" y="-1" angle="180"/>      <dancer gender="boy" x="1" y="-1" angle="180"/>      <dancer gender="girl" x="-1" y="-1" angle="180"/>      <dancer gender="boy" x="3" y="-1" angle="180"/>    </formation>
     <path>
       <move select="Run Right" beats="3" scaleY="2" />
       <move select="Forward 4" />
@@ -53,9 +50,8 @@
   </tam>
 
   <tam title="3 By 1 Transfer the Column"
-       from="Left-Hand Columns"
-       formation="Formation girl 3 -1 0 boy -1 -1 0 girl 1 -1 0 boy -3 -1 0"
-       parts="" >
+       from="Left-Hand Columns">
+     <formation>      <dancer gender="girl" x="3" y="-1" angle="0"/>      <dancer gender="boy" x="-1" y="-1" angle="0"/>      <dancer gender="girl" x="1" y="-1" angle="0"/>      <dancer gender="boy" x="-3" y="-1" angle="0"/>    </formation>
     <path>
       <move select="Run Left" beats="3" scaleY="2" />
       <move select="Forward 4" />

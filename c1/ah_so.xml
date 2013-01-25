@@ -93,8 +93,8 @@
     </path>
   </tam>
 
-  <tam title="Ah So" from="3 and 1 Lines"
-       formation="Formation girl -2 3 180 boy -2 1 0 girl -2 -1 180 boy -2 -3 180">
+  <tam title="Ah So" from="3 and 1 Lines">
+     <formation>      <dancer gender="girl" x="-2" y="3" angle="180"/>      <dancer gender="boy" x="-2" y="1" angle="0"/>      <dancer gender="girl" x="-2" y="-1" angle="180"/>      <dancer gender="boy" x="-2" y="-3" angle="180"/>    </formation>
     <path numbers="5 4">
       <move select="Run Left" beats="4" hands="left" scaleY="2" offsetX="-1" />
     </path>

@@ -21,8 +21,6 @@
 
 -->
 <tamination>
-  
-  
 
   <tam title="Criss Cross the Shadow"
        from="Right-Hand Waves"
@@ -129,9 +127,8 @@
   </tam>
 
   <tam title="Criss Cross the Shadow"
-       from="3 and 1 Lines, Centers In"
-       formation="Formation girl -2 3 0 boy -2 1 0 boy -2 -1 0 girl -2 -3 180"
-       parts="" >
+       from="3 and 1 Lines, Centers In">
+     <formation>      <dancer gender="girl" x="-2" y="3" angle="0"/>      <dancer gender="boy" x="-2" y="1" angle="0"/>      <dancer gender="boy" x="-2" y="-1" angle="0"/>      <dancer gender="girl" x="-2" y="-3" angle="180"/>    </formation>
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Swing Right" scaleX=".5" scaleY=".5" />
@@ -153,9 +150,8 @@
   </tam>
 
   <tam title="Criss Cross the Shadow"
-       from="3 and 1 Lines, Centers Out"
-       formation="Formation girl -2 3 0 boy -2 1 180 boy -2 -1 180 girl -2 -3 180"
-       parts="" >
+       from="3 and 1 Lines, Centers Out">
+     <formation>      <dancer gender="girl" x="-2" y="3" angle="0"/>      <dancer gender="boy" x="-2" y="1" angle="180"/>      <dancer gender="boy" x="-2" y="-1" angle="180"/>      <dancer gender="girl" x="-2" y="-3" angle="180"/>    </formation>
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Swing Right" scaleX=".5" scaleY=".5" />

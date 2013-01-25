@@ -167,8 +167,8 @@
     </path>
   </tam>
 
-  <tam title="Sets in Motion" from="3 and 1 Lines"
-       formation="Formation girl -2 3 180 boy -2 1 0 girl -2 -1 180 boy -2 -3 180">
+  <tam title="Sets in Motion" from="3 and 1 Lines">
+     <formation>      <dancer gender="girl" x="-2" y="3" angle="180"/>      <dancer gender="boy" x="-2" y="1" angle="0"/>      <dancer gender="girl" x="-2" y="-1" angle="180"/>      <dancer gender="boy" x="-2" y="-3" angle="180"/>    </formation>
     <path numbers="1 8">
       <move select="Run Left" beats="5" scaleX="2" scaleY="3" />
       <move select="Extend Left" beats="2" scaleX="2"/>
@@ -195,8 +195,8 @@
     </path>
   </tam>
 
-  <tam title="Sets in Motion" from="T-Bones"
-       formation="Formation boy -3 1 270 girl -3 -1 90 boy -1 -1 180 girl -1 1 180">
+  <tam title="Sets in Motion" from="T-Bones">
+     <formation>      <dancer gender="boy" x="-3" y="1" angle="270"/>      <dancer gender="girl" x="-3" y="-1" angle="90"/>      <dancer gender="boy" x="-1" y="-1" angle="180"/>      <dancer gender="girl" x="-1" y="1" angle="180"/>    </formation>
     <path>
       <move select="Extend Left" scaleY=".5"/>
       <move select="Lead Left" beats="4" scaleX="3" scaleY="2.5"/>

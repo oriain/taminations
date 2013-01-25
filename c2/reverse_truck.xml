@@ -21,11 +21,9 @@
 
 -->
 <tamination>
-  
-  
 
-  <tam title="Reverse Truck" from="Double Pass Thru, Girls in Center"
-       formation="Formation boy -3 1 0 girl -1 1 0 boy -3 -1 0 girl -1 -1 0">
+  <tam title="Reverse Truck" from="Double Pass Thru, Girls in Center">
+     <formation>      <dancer gender="boy" x="-3" y="1" angle="0"/>      <dancer gender="girl" x="-1" y="1" angle="0"/>      <dancer gender="boy" x="-3" y="-1" angle="0"/>      <dancer gender="girl" x="-1" y="-1" angle="0"/>    </formation>
     <path>
       <move select="Dodge Right" hands="right"/>
     </path>

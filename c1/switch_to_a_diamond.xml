@@ -129,8 +129,8 @@
   </path>
   </tam>
 
-  <tam title="Switch to a Diamond" from="3 and 1 Lines"
-       formation="Formation girl -2 3 180 boy -2 1 180 girl -2 -1 0 boy -2 -3 180">
+  <tam title="Switch to a Diamond" from="3 and 1 Lines">
+     <formation>      <dancer gender="girl" x="-2" y="3" angle="180"/>      <dancer gender="boy" x="-2" y="1" angle="180"/>      <dancer gender="girl" x="-2" y="-1" angle="0"/>      <dancer gender="boy" x="-2" y="-3" angle="180"/>    </formation>
     <path numbers="5 4">
       <move select="Lead Left"/>
       <move select="Extend Left" beats="3" scaleX="2" scaleY="2"/>

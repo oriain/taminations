@@ -42,8 +42,11 @@
     </path>
   </tam>
 
-  <tam title="Trail Off" from="Z Facing Out"
-       formation="Formation boy 0 1 0 girl 2 1 0">
+  <tam title="Trail Off" from="Z Facing Out">
+    <formation>
+      <dancer gender="boy" x="0" y="1" angle="0"/>
+      <dancer gender="girl" x="2" y="1" angle="0"/>
+    </formation>
     <path numbers="2 3">
       <move select="Swing Right"/>
     </path>
@@ -52,8 +55,11 @@
     </path>
   </tam>
 
-  <tam title="Trail Off" from="Z Facing In"
-       formation="Formation boy 0 1 0 girl 2 -1 180">
+  <tam title="Trail Off" from="Z Facing In">
+    <formation>
+      <dancer gender="boy" x="0" y="1" angle="0"/>
+      <dancer gender="girl" x="2" y="-1" angle="180"/>
+    </formation>
     <path numbers="2 3">
       <move select="Run Right" scaleX="2" scaleY="2"/>
     </path>
@@ -65,8 +71,7 @@
 
   <tam title="Trail Off"
        from="Right-Hand Columns"
-       formation="Column RH GBGB"
-       parts="" >
+       formation="Column RH GBGB">
     <path>
       <move select="Run Right" scaleY="2" offsetX="-1" />
     </path>
@@ -85,8 +90,7 @@
 
   <tam title="Trail Off"
        from="Left-Hand Columns"
-       formation="Column LH GBGB"
-       parts="" >
+       formation="Column LH GBGB">
     <path>
       <move select="Forward" />
       <move select="Swing Left" />
@@ -105,8 +109,7 @@
 
   <tam title="Trail Off"
        from="Completed Double Pass Thru"
-       formation="Completed Double Pass Thru"
-       parts="" >
+       formation="Completed Double Pass Thru">
     <path numbers="5 4">
       <move select="Run Left" beats="6" scaleX="2" scaleY="2" offsetX="-1" />
     </path>
@@ -128,8 +131,7 @@
 
   <tam title="Trail Off"
        from="Two-Faced Lines"
-       formation="Two-Faced Lines RH"
-       parts="" >
+       formation="Two-Faced Lines RH">
     <path>
       <move select="Flip Right" offsetX="2" offsetY=".5" />
     </path>
@@ -146,8 +148,7 @@
 
   <tam title="Trail Off"
        from="Right-Hand Waves"
-       formation="Ocean Waves RH BGBG"
-       parts="" >
+       formation="Ocean Waves RH BGBG">
     <path>
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".25" />
       <move select="Swing Right" scaleX=".75" scaleY=".625" />
@@ -166,8 +167,7 @@
 
   <tam title="Trail Off"
        from="Left-Hand Waves"
-       formation="Ocean Waves LH BGBG"
-       parts="" >
+       formation="Ocean Waves LH BGBG">
     <path>
       <move select="Run Left" beats="5" offsetX="-2" offsetY=".5" />
     </path>
@@ -186,8 +186,7 @@
 
   <tam title="As Couples Trail Off"
        from="Two-Faced Lines"
-       formation="Two-Faced Lines RH"
-       parts="" >
+       formation="Two-Faced Lines RH">
     <path>
       <move select="Extend Right" hands="right" beats="2" scaleX="2" scaleY="1.5" />
       <move select="Swing Right" beats="4" scaleX="1.5" scaleY="1.5" />
@@ -206,8 +205,7 @@
 
   <tam title="All 8 Trail Off"
        from="Mini-Waves"
-       formation="Static MiniWaves RH"
-       parts="" >
+       formation="Static MiniWaves RH">
     <path>
       <move select="Forward 3" />
       <move select="Swing Right" />
@@ -223,4 +221,5 @@
       <move select="Run Right" beats="6" offsetX="-3" offsetY="-2" />
     </path>
   </tam>
+
 </tamination>

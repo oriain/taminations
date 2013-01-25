@@ -21,8 +21,8 @@
 
 -->
 <tamination>
-  
-  
+
+
 
   <tam title="Switch to an Hourglass" from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH">
@@ -59,8 +59,8 @@
     </path>
   </tam>
 
-  <tam title="Switch to an Hourglass" from="3 and 1 Lines"
-       formation="Formation boy -2 3 180 girl -2 1 180 boy -2 -1 180 girl -2 -3 0">
+  <tam title="Switch to an Hourglass" from="3 and 1 Lines">
+     <formation>      <dancer gender="boy" x="-2" y="3" angle="180"/>      <dancer gender="girl" x="-2" y="1" angle="180"/>      <dancer gender="boy" x="-2" y="-1" angle="180"/>      <dancer gender="girl" x="-2" y="-3" angle="0"/>    </formation>
     <path>
       <move select="Lead Left" beats="2"/>
       <move select="Forward 2"/>

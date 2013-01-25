@@ -37,8 +37,11 @@
   </tam>
 
   <tam title="Vertical Tag"
-       from="Couples Facing Out"
-       formation="Formation girl 1 2 90 boy -1 2 90">
+       from="Couples Facing Out">
+    <formation>
+      <dancer gender="girl" x="1" y="2" angle="90"/>
+      <dancer gender="boy" x="-1" y="2" angle="90"/>
+    </formation>
     <path numbers="3 2">
       <move select="U-Turn Left" offsetX="-1.5" offsetY=".5"/>
       <move select="Forward" />
@@ -66,8 +69,11 @@
   </tam>
 
   <tam title="Vertical Tag"
-       from="Left-Hand Box"
-       formation="Formation boy 1 2 90 girl -1 2 270">
+       from="Left-Hand Box">
+    <formation>
+      <dancer gender="boy" x="1" y="2" angle="90"/>
+      <dancer gender="girl" x="-1" y="2" angle="270"/>
+    </formation>
     <path numbers="3 2">
       <move select="U-Turn Left" beats="2" offsetY=".5"/>
       <move select="Forward 2"/>
@@ -120,8 +126,11 @@
   </tam>
 
   <tam title="Vertical 1/2 Tag"
-       from="Facing Couples"
-       formation="Formation boy 1 2 270  girl -1 2 270">
+       from="Facing Couples">
+    <formation>
+      <dancer gender="boy" x="1" y="2" angle="270"/>
+      <dancer gender="girl" x="-1" y="2" angle="270"/>
+    </formation>
     <path numbers="3 2">
       <move select="Dodge Right" beats="2" scaleY=".25"/>
       <move select="Dodge Left" beats="2" scaleY=".25"/>
@@ -154,8 +163,11 @@
   </tam>
 
   <tam title="Vertical 1/2 Tag"
-       from="Left-Hand Box"
-       formation="Formation boy 1 2 90 girl -1 2 270">
+       from="Left-Hand Box">
+    <formation>
+      <dancer gender="boy" x="1" y="2" angle="90"/>
+      <dancer gender="girl" x="-1" y="2" angle="270"/>
+    </formation>
     <path numbers="3 2">
       <move select="U-Turn Left" beats="2" offsetY=".5"/>
       <move select="Dodge Left" beats="2" scaleY=".25"/>

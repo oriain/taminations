@@ -48,8 +48,8 @@
     </path>
   </tam>
 
-  <tam title="Beaus Walk, Belles Dodge" group=" "
-       formation="Formation girl -3 -1 0  boy -1 -1 180  girl 1 -1 180  boy 3 -1 180">
+  <tam title="Beaus Walk, Belles Dodge" group=" ">
+     <formation>      <dancer gender="girl" x="-3" y="-1" angle="0"/>      <dancer gender="boy" x="-1" y="-1" angle="180"/>      <dancer gender="girl" x="1" y="-1" angle="180"/>      <dancer gender="boy" x="3" y="-1" angle="180"/>    </formation>
     <path>
       <move select="Dodge Left"/>
     </path>
@@ -64,8 +64,8 @@
     </path>
   </tam>
 
-  <tam title="Belles Cross" group=" "
-       formation="Formation boy -2 3 0  girl -2 1 0  boy -2 -1 0  girl -2 -3 180">
+  <tam title="Belles Cross" group=" ">
+     <formation>      <dancer gender="boy" x="-2" y="3" angle="0"/>      <dancer gender="girl" x="-2" y="1" angle="0"/>      <dancer gender="boy" x="-2" y="-1" angle="0"/>      <dancer gender="girl" x="-2" y="-3" angle="180"/>    </formation>
     <path>
       <move select="Stand" beats="3" hands="none"/>
     </path>

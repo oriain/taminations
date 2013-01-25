@@ -23,8 +23,8 @@
 <tamination>
 
   <tam title="Switch to an Interlocked Diamond"
-       from="Right-Hand Waves"
-       formation="Formation girl 3 2 270  boy 1 2 90  boy -1 2 270  girl -3 2 90">
+       from="Right-Hand Waves">
+     <formation>      <dancer gender="girl" x="3" y="2" angle="270"/>      <dancer gender="boy" x="1" y="2" angle="90"/>      <dancer gender="boy" x="-1" y="2" angle="270"/>      <dancer gender="girl" x="-3" y="2" angle="90"/>    </formation>
     <path numbers="7 2">
       <move select="Lead Right" scaleX="3" scaleY="3" beats="3" />
     </path>

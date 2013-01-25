@@ -21,11 +21,10 @@
 
 -->
 <tamination>
-  
-  
 
-  <tam title="3 by 1 Interlocked Triangle Circulate" from="Interlocked 3 by 1 Triangles"
-       formation="Formation boy -3 1 0 girl -3 -1 180 boy 0 -1 180 girl 0 -3 180">
+  <tam title="3 by 1 Interlocked Triangle Circulate"
+       from="Interlocked 3 by 1 Triangles">
+     <formation>      <dancer gender="boy" x="-3" y="1" angle="0"/>      <dancer gender="girl" x="-3" y="-1" angle="180"/>      <dancer gender="boy" x="0" y="-1" angle="180"/>      <dancer gender="girl" x="0" y="-3" angle="180"/>    </formation>
     <path>
       <move select="Forward 3" beats="6"/>
     </path>
@@ -40,8 +39,9 @@
     </path>
   </tam>
 
-  <tam title="3 by 1 Interlocked Triangle Circulate" from="&quot;H&quot; formation"
-       formation="Formation boy -3 3 0 girl -3 -3 180 boy 0 -1 180 girl 0 -3 180">
+  <tam title="3 by 1 Interlocked Triangle Circulate"
+       from="&quot;H&quot; formation">
+     <formation>      <dancer gender="boy" x="-3" y="3" angle="0"/>      <dancer gender="girl" x="-3" y="-3" angle="180"/>      <dancer gender="boy" x="0" y="-1" angle="180"/>      <dancer gender="girl" x="0" y="-3" angle="180"/>    </formation>
     <path>
       <move select="Forward 3" beats="6"/>
     </path>

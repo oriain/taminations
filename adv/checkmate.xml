@@ -23,8 +23,8 @@
 <tamination>
 
   <tam title="Checkmate"
-       from="Right-Hand Columns"
-       formation="Formation girl -1 3 90  boy -1 1 90  girl -1 -1 90  boy -1 -3 90">
+       from="Right-Hand Columns">
+     <formation>      <dancer gender="girl" x="-1" y="3" angle="90"/>      <dancer gender="boy" x="-1" y="1" angle="90"/>      <dancer gender="girl" x="-1" y="-1" angle="90"/>      <dancer gender="boy" x="-1" y="-3" angle="90"/>    </formation>
     <path>
       <move select="Flip Right" beats="2" scaleY="1.5" />
       <move select="Forward 5" />
@@ -49,8 +49,8 @@
   </tam>
 
   <tam title="Checkmate"
-       from="Left-Hand Columns"
-       formation="Formation boy 1 -3 90  girl 1 -1 90  boy 1 1 90  girl 1 3 90">
+       from="Left-Hand Columns">
+     <formation>      <dancer gender="boy" x="1" y="-3" angle="90"/>      <dancer gender="girl" x="1" y="-1" angle="90"/>      <dancer gender="boy" x="1" y="1" angle="90"/>      <dancer gender="girl" x="1" y="3" angle="90"/>    </formation>
     <path numbers="8 4">
       <move select="Forward 3" />
       <move select="Lead Left" beats="3" />

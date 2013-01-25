@@ -22,8 +22,11 @@
 -->
 <tamination>
 
-  <tam title="Lockit" from="Right-Hand Wave"
-       formation="Formation boy -3 0 90 girl -1 0 270">
+  <tam title="Lockit" from="Right-Hand Wave">
+    <formation>
+      <dancer gender="boy" x="-3" y="0" angle="90"/>
+      <dancer gender="girl" x="-1" y="0" angle="270"/>
+    </formation>
     <path numbers="1 4">
       <move select="Lead Right" beats="4" scaleX="3" scaleY="3" />
     </path>

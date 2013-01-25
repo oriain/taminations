@@ -267,9 +267,8 @@
     </path>
   </tam>
 
-  <tam title="As Couples Ladies Center as the Men Sashay" group="As Couples"
-       from=""
-       formation="Formation boy -2.414 1 -22.5  girl  1 2.414 247.5 boy -2.414 -1 22.5 girl -1 2.414 292.5">
+  <tam title="As Couples Ladies Center as the Men Sashay" group="As Couples">
+     <formation>      <dancer gender="boy" x="-2.414" y="1" angle="-22.5"/>      <dancer gender="girl" x="1" y="2.414" angle="247.5"/>      <dancer gender="boy" x="-2.414" y="-1" angle="22.5"/>      <dancer gender="girl" x="-1" y="2.414" angle="292.5"/>    </formation>
     <path>
       <move select="Sxtnth Left" />
       <move select="cl" />
@@ -478,10 +477,8 @@
     </path>
   </tam>
 
-  <tam title="As Couples Slide Thru" group="As Couples"
-       from=""
-       formation="Formation boy -2 3 0 girl -2 -1 0 boy -2 1 0 girl -2 -3 0"
-       parts="" >
+  <tam title="As Couples Slide Thru" group="As Couples">
+     <formation>      <dancer gender="boy" x="-2" y="3" angle="0"/>      <dancer gender="girl" x="-2" y="-1" angle="0"/>      <dancer gender="boy" x="-2" y="1" angle="0"/>      <dancer gender="girl" x="-2" y="-3" angle="0"/>    </formation>
     <path>
       <move select="Extend Left" beats="2" hands="right" scaleX="2" scaleY=".5" />
       <move select="Lead Right" beats="2" hands="right" scaleX="3" scaleY="1.5" />

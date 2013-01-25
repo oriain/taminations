@@ -23,8 +23,8 @@
 <tamination>
 
   <tam title="Make Magic"
-       from="Centers Right-Hand Box"
-       formation="Formation boy -3 1 0 girl -3 -1 0 boy -1 1 0 girl -1 -1 180" >
+       from="Centers Right-Hand Box">
+     <formation>      <dancer gender="boy" x="-3" y="1" angle="0"/>      <dancer gender="girl" x="-3" y="-1" angle="0"/>      <dancer gender="boy" x="-1" y="1" angle="0"/>      <dancer gender="girl" x="-1" y="-1" angle="180"/>    </formation>
     <path numbers="1 8">
     </path>
     <path numbers="2 7">
@@ -40,9 +40,8 @@
   </tam>
 
   <tam title="Make Magic"
-       from="Centers Left-Hand Box"
-       formation="Formation boy -3 1 0 girl -3 -1 0 boy -1 1 180 girl -1 -1 0"
-       parts="" >
+       from="Centers Left-Hand Box">
+     <formation>      <dancer gender="boy" x="-3" y="1" angle="0"/>      <dancer gender="girl" x="-3" y="-1" angle="0"/>      <dancer gender="boy" x="-1" y="1" angle="180"/>      <dancer gender="girl" x="-1" y="-1" angle="0"/>    </formation>
     <path>
       <move select="Pass Thru" beats="3" />
     </path>

@@ -270,8 +270,8 @@
 
   <tam title="Right Roll to a Wave Three Times"
        from="Single File Dancers"
-       formation="Formation boy -2.5 0 180 girl -3.5 0 180 boy -1.5 0 0 girl -.5 0 0"
        parts="2;3">
+     <formation>      <dancer gender="boy" x="-2.5" y="0" angle="180"/>      <dancer gender="girl" x="-3.5" y="0" angle="180"/>      <dancer gender="boy" x="-1.5" y="0" angle="0"/>      <dancer gender="girl" x="-.5" y="0" angle="0"/>    </formation>
     <path>
       <move select="Extend Left" beats="2" scaleX=".5" />
       <move select="U-Turn Right" offsetX="-1" />

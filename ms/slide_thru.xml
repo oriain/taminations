@@ -40,7 +40,11 @@
   </tam>
 
   <tam title="Slide Thru" from="Sashayed Couples" gender-specific="true"
-       formation="Formation boy -2 -1 0  girl -2 1 0" difficulty="1">
+       difficulty="1">
+    <formation>
+      <dancer gender="boy" x="-2" y="-1" angle="0"/>
+      <dancer gender="girl" x="-2" y="1" angle="0"/>
+    </formation>
     <path>
       <move select="Forward 2" beats="2"  />
       <move select="Quarter Right" beats="2" offsetX="1" offsetY="-1" />
@@ -72,8 +76,8 @@
     </path>
   </tam>
 
-  <tam title="Slide Thru" from="Sashayed Lines" gender-specific="true"
-       formation="Formation boy -2 1 0  girl -2 3 0  boy -2 -3 0  girl -2 -1 0" difficulty="1">
+  <tam title="Slide Thru" from="Sashayed Lines" gender-specific="true">
+     <formation>      <dancer gender="boy" x="-2" y="1" angle="0"/>      <dancer gender="girl" x="-2" y="3" angle="0"/>      <dancer gender="boy" x="-2" y="-3" angle="0"/>      <dancer gender="girl" x="-2" y="-1" angle="0"/>    </formation>
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Quarter Right"  beats="2" offsetX="1" offsetY="-.5" />
@@ -138,8 +142,8 @@
 
   <tam title="Slide Thru"
        from="Same Sex Facing" gender-specific="true"
-       formation="Formation boy -2 3 0 girl -2 1 0 boy -2 -3 0 girl -2 -1 0"
        parts="" difficulty="2">
+     <formation>      <dancer gender="boy" x="-2" y="3" angle="0"/>      <dancer gender="girl" x="-2" y="1" angle="0"/>      <dancer gender="boy" x="-2" y="-3" angle="0"/>      <dancer gender="girl" x="-2" y="-1" angle="0"/>    </formation>
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Quarter Right" beats="2" offsetX="1" offsetY="-.5" />

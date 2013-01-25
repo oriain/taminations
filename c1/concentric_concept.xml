@@ -696,8 +696,8 @@
     </path>
   </tam>
 
-  <tam title="From lines, Concentric Slide Thru" group="From lines, Concentric"
-       formation="Formation boy -2 3 0  girl -2 -1 0  boy -2 1 0  girl -2 -3 0">
+  <tam title="From lines, Concentric Slide Thru" group="From lines, Concentric">
+     <formation>      <dancer gender="boy" x="-2" y="3" angle="0"/>      <dancer gender="girl" x="-2" y="-1" angle="0"/>      <dancer gender="boy" x="-2" y="1" angle="0"/>      <dancer gender="girl" x="-2" y="-3" angle="0"/>    </formation>
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Lead Right" beats="3" scaleX="3" scaleY="1.5" />
@@ -717,8 +717,8 @@
     </path>
   </tam>
 
-  <tam title="From lines, Concentric Star Thru" group="From lines, Concentric"
-       formation="Formation boy 3 2 270  girl -1 2 270  boy 1 2 270  girl -3 2 270">
+  <tam title="From lines, Concentric Star Thru" group="From lines, Concentric">
+     <formation>      <dancer gender="boy" x="3" y="2" angle="270"/>      <dancer gender="girl" x="-1" y="2" angle="270"/>      <dancer gender="boy" x="1" y="2" angle="270"/>      <dancer gender="girl" x="-3" y="2" angle="270"/>    </formation>
     <path numbers="7 2">
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Lead Right" beats="3" scaleX="3" scaleY="1.5" />
@@ -810,8 +810,8 @@
     </path>
   </tam>
 
-  <tam title="From T-Bones, Concentric Star Thru" group="From T-Bones, Concentric"
-       formation="Formation boy 3 1 270 girl -1 1 0 boy 1 1 180 girl -3 1 270">
+  <tam title="From T-Bones, Concentric Star Thru" group="From T-Bones, Concentric"?
+     <formation>      <dancer gender="boy" x="3" y="1" angle="270"/>      <dancer gender="girl" x="-1" y="1" angle="0"/>      <dancer gender="boy" x="1" y="1" angle="180"/>      <dancer gender="girl" x="-3" y="1" angle="270"/>    </formation>
     <path numbers="7 2">
       <move select="Extend Left" scaleY=".5"/>
       <move select="Lead Right" beats="4" scaleX="3" scaleY="2.5"/>

@@ -21,8 +21,6 @@
 
 -->
 <tamination>
-  
-  
 
   <tam title="Box Recycle"
        from="Right-Hand Box"
@@ -109,9 +107,8 @@
   </tam>
 
   <tam title="Split Recycle"
-       from="3 and 1 Lines"
-       formation="Formation boy -2 3 0 girl -2 1 0 boy -2 -1 0 girl -2 -3 180"
-       parts="" >
+       from="3 and 1 Lines">
+     <formation>      <dancer gender="boy" x="-2" y="3" angle="0"/>      <dancer gender="girl" x="-2" y="1" angle="0"/>      <dancer gender="boy" x="-2" y="-1" angle="0"/>      <dancer gender="girl" x="-2" y="-3" angle="180"/>    </formation>
     <path>
       <move select="U-Turn Right" beats="3" offsetX="2" offsetY="-.5" />
     </path>

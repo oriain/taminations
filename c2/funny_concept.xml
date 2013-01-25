@@ -22,8 +22,8 @@
 -->
 <tamination>
 
-  <tam title="Funny Split Circulate 2" group="Funny" parts="3"
-       formation="Formation boy 3 2 270 girl 1 2 270 girl -1 2 180 boy -3 2 90">
+  <tam title="Funny Split Circulate 2" group="Funny" parts="3">
+     <formation>      <dancer gender="boy" x="3" y="2" angle="270"/>      <dancer gender="girl" x="1" y="2" angle="270"/>      <dancer gender="girl" x="-1" y="2" angle="180"/>      <dancer gender="boy" x="-3" y="2" angle="90"/>    </formation>
     <path numbers="7 2">
       <move select="Stand" beats="3"/>
       <move select="Forward 4"/>
@@ -44,25 +44,25 @@
     </path>
   </tam>
 
-  <tam title="Funny Diamond Circulate" group="Funny"
-       formation="Formation boy -3 0 90 girl -2 3 0 boy -1 0 270 girl -2 -3 0">
-  <path numbers="1 8">
-  </path>
-  <path numbers="2 7">
-  </path>
-  <path numbers="4 5">
-      <move select="Forward 2" />
-      <move select="Lead Right" />
-  </path>
-  <path numbers="3 6">
-      <move select="Quarter Left" beats="1" />
-      <move select="Forward" />
-      <move select="Extend Right" scaleX="2" beats="2" />
-  </path>
+  <tam title="Funny Diamond Circulate" group="Funny">
+     <formation>      <dancer gender="boy" x="-3" y="0" angle="90"/>      <dancer gender="girl" x="-2" y="3" angle="0"/>      <dancer gender="boy" x="-1" y="0" angle="270"/>      <dancer gender="girl" x="-2" y="-3" angle="0"/>    </formation>
+    <path numbers="1 8">
+    </path>
+    <path numbers="2 7">
+    </path>
+    <path numbers="4 5">
+        <move select="Forward 2" />
+        <move select="Lead Right" />
+    </path>
+    <path numbers="3 6">
+        <move select="Quarter Left" beats="1" />
+        <move select="Forward" />
+        <move select="Extend Right" scaleX="2" beats="2" />
+    </path>
   </tam>
 
-  <tam title="Funny Slide Thru 9 Times" group="Funny" parts="3;3;3;3;3;3;3;3"
-       from="" formation="Formation girl -3 1 0 boy 0 -3 90 girl -3 -1 0  boy 0 -1 90">
+  <tam title="Funny Slide Thru 9 Times" group="Funny" parts="3;3;3;3;3;3;3;3">
+     <formation>      <dancer gender="girl" x="-3" y="1" angle="0"/>      <dancer gender="boy" x="0" y="-3" angle="90"/>      <dancer gender="girl" x="-3" y="-1" angle="0"/>      <dancer gender="boy" x="0" y="-1" angle="90"/>    </formation>
     <path>
       <!-- girl starting as beau -->
       <move select="Stand" beats="3"/>

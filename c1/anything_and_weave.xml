@@ -22,8 +22,11 @@
 -->
 <tamination>
 
-  <tam title="And Weave" from="Right-Hand Box"
-       formation="Formation boy 1 2 270 girl -1 2 90">
+  <tam title="And Weave" from="Right-Hand Box">
+    <formation>
+      <dancer gender="boy" x="1" y="2" angle="270"/>
+      <dancer gender="girl" x="-1" y="2" angle="90"/>
+    </formation>
     <path numbers="3 2">
       <move select="Extend Right" beats="2" scaleX="2" scaleY="1.5" />
       <move select="Hinge Left" scaleY=".5" />
@@ -33,8 +36,11 @@
     </path>
   </tam>
 
-  <tam title="And Weave" from="Single Eight Chain Thru"
-       formation="Formation boy 0 3 270 girl 0 1 90">
+  <tam title="And Weave" from="Single Eight Chain Thru">
+    <formation>
+      <dancer gender="boy" x="0" y="3" angle="270"/>
+      <dancer gender="girl" x="0" y="1" angle="90"/>
+    </formation>
     <path numbers="1 4">
       <move select="Extend Left" scaleY=".5" />
       <move select="Extend Right" beats="2" scaleX="2" scaleY="1.5" />

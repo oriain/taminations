@@ -23,8 +23,11 @@
 <tamination>
 
   <tam title="Square Chain Thru to a Wave" group=" "
-       from="Facing Couples"
-       formation="Formation boy 1 2 270  girl -1 2 270">
+       from="Facing Couples">
+    <formation>
+      <dancer gender="boy" x="1" y="2" angle="270"/>
+      <dancer gender="girl" x="-1" y="2" angle="270"/>
+    </formation>
     <path numbers="3 2">
       <move select="Pull Left" scaleX="2" scaleY=".5" />
       <move select="Lead Right" beats="2" scaleY="1.5" />

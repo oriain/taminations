@@ -22,8 +22,8 @@
 -->
 <tamination>
 
-  <tam title="Funny Square Thru 3" from="Funny Lines" parts="4;2.5"
-       formation="Formation boy 3 2 270 girl 1 2 270 girl -1 2 180 boy -3 2 270">
+  <tam title="Funny Square Thru 3" from="Funny Lines" parts="4;2.5">
+     <formation>      <dancer gender="boy" x="3" y="2" angle="270"/>      <dancer gender="girl" x="1" y="2" angle="270"/>      <dancer gender="girl" x="-1" y="2" angle="180"/>      <dancer gender="boy" x="-3" y="2" angle="270"/>    </formation>
     <path numbers="7 2">
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
       <move select="Lead Right" beats="2" scaleX="2" scaleY=".5"/>

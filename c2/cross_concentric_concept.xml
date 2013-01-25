@@ -156,7 +156,7 @@
   </tam>
 
   <tam title="Cross Concentric Star Thru (example 2)" group="Cross Concentric"
-       formation="Formation boy 3 2 270  boy 1 2 270  girl -1 2 270  girl -3 2 270">
+     <formation>      <dancer gender="boy" x="3" y="2" angle="270"/>      <dancer gender="boy" x="1" y="2" angle="270"/>      <dancer gender="girl" x="-1" y="2" angle="270"/>      <dancer gender="girl" x="-3" y="2" angle="270"/>    </formation>
   <path numbers="7 2">
     <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
     <move select="Lead Right" beats="3" scaleY="1.5"/>
@@ -175,8 +175,8 @@
   </path>
   </tam>
 
-  <tam title="Cross Concentric Star Thru (example 3)" group="Cross Concentric"
-       formation="Formation boy 3 1 270  boy 1 1 180  girl -1 1 0  girl -3 1 270">
+  <tam title="Cross Concentric Star Thru (example 3)" group="Cross Concentric">
+     <formation>      <dancer gender="boy" x="3" y="1" angle="270"/>      <dancer gender="boy" x="1" y="1" angle="180"/>      <dancer gender="girl" x="-1" y="1" angle="0"/>      <dancer gender="girl" x="-3" y="1" angle="270"/>    </formation>
   <path numbers="7 2">
     <move select="Extend Left" scaleY=".5"/>
     <move select="Lead Right" beats="3" scaleY="2.5"/>

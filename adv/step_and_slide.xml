@@ -22,9 +22,8 @@
 -->
 <tamination>
 
-  <tam title="Step and Slide"
-       from="Lines Facing Out"
-       formation="Formation girl 3 2 90 boy 1 2 90 girl -1 2 90 boy -3 2 90">
+  <tam title="Step and Slide" from="Lines Facing Out">
+    <formation>      <dancer gender="girl" x="3" y="2" angle="90"/>      <dancer gender="boy" x="1" y="2" angle="90"/>      <dancer gender="girl" x="-1" y="2" angle="90"/>      <dancer gender="boy" x="-3" y="2" angle="90"/>    </formation>
     <path numbers="4 5">
       <move select="Dodge Left" beats="4" offsetX="-1" />
     </path>
@@ -39,8 +38,11 @@
     </path>
   </tam>
 
-  <tam title="Step and Slide" from="Right-Hand Two-Faced Line"
-       formation="Formation boy -3 0 90 girl -1 0 90">
+  <tam title="Step and Slide" from="Right-Hand Two-Faced Line">
+    <formation>
+      <dancer gender="boy" x="-3" y="0" angle="90"/>
+      <dancer gender="girl" x="-1" y="0" angle="90"/>
+    </formation>
     <path numbers="1 4">
       <move select="Dodge Right" beats="4" />
     </path>
@@ -51,8 +53,7 @@
 
   <tam title="Step and Slide"
        from="Inverted Lines"
-       formation="Inverted Lines Centers Out"
-       parts="" >
+       formation="Inverted Lines Centers Out">
     <path>
       <move select="Extend Right" beats="4" scaleY="2" />
     </path>
@@ -66,4 +67,5 @@
       <move select="Extend Left" beats="4" scaleY="2" />
     </path>
   </tam>
+
 </tamination>

@@ -22,8 +22,11 @@
 -->
 <tamination>
 
-  <tam title="Vertical Dixie Style to a Wave" group="Vertical"
-       from="" formation="Formation girl 1 2 90 boy -1 2 90">
+  <tam title="Vertical Dixie Style to a Wave" group="Vertical">
+    <formation>
+      <dancer gender="girl" x="1" y="2" angle="90"/>
+      <dancer gender="boy" x="-1" y="2" angle="90"/>
+  </formation>
   <path numbers="3 2">
       <move select="Flip Left" offsetX="-1" offsetY="-1"/>
       <move select="Extend Left" scaleY=".5"/>
@@ -38,8 +41,8 @@
   </path>
   </tam>
 
-  <tam title="Vertical Grand Chain Eight" group="Vertical"
-       formation="Formation girl 3 2 90 boy 1 2 90 girl -1 2 90 boy -3 2 90">
+  <tam title="Vertical Grand Chain Eight" group="Vertical">
+     <formation>      <dancer gender="girl" x="3" y="2" angle="90"/>      <dancer gender="boy" x="1" y="2" angle="90"/>      <dancer gender="girl" x="-1" y="2" angle="90"/>      <dancer gender="boy" x="-3" y="2" angle="90"/>    </formation>
     <path numbers="7 2">
       <move select="Flip Left" offsetX="-1" offsetY="-1"/>
       <move select="Extend Left" scaleY=".5"/>

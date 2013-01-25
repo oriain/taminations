@@ -62,8 +62,11 @@
     </path>
   </tam>
 
-  <tam title="Follow Thru" from="Single T-Bone"
-       formation="Formation boy -1 1 270 girl 1 1 0">
+  <tam title="Follow Thru" from="Single T-Bone">
+    <formation>
+      <dancer gender="boy" x="-1" y="1" angle="270"/>
+      <dancer gender="girl" x="1" y="1" angle="0"/>
+    </formation>
     <path numbers="1 4">
       <move select="Forward"/>
       <move select="Hinge Left"/>

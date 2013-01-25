@@ -123,8 +123,8 @@
   </tam>
 
   <tam title="Walk and Dodge" from="T-Bones"
-       formation="Formation girl -3 -1 180  boy -1 -1 180  girl 1 -1 90  boy 3 -1 180"
        difficulty="2">
+     <formation>      <dancer gender="girl" x="-3" y="-1" angle="180"/>      <dancer gender="boy" x="-1" y="-1" angle="180"/>      <dancer gender="girl" x="1" y="-1" angle="90"/>      <dancer gender="boy" x="3" y="-1" angle="180"/>    </formation>
     <path>
       <move select="Dodge Right" beats="4" />
     </path>
@@ -237,8 +237,8 @@
 
   <tam title="3 by 1 Walk and Dodge"
        from="3 and 1 Lines"
-       formation="Formation girl -2 3 0 boy -2 1 180 girl -2 -1 180 boy -2 -3 180"
        parts="" difficulty="3">
+     <formation>      <dancer gender="girl" x="-2" y="3" angle="0"/>      <dancer gender="boy" x="-2" y="1" angle="180"/>      <dancer gender="girl" x="-2" y="-1" angle="180"/>      <dancer gender="boy" x="-2" y="-3" angle="180"/>    </formation>
     <path>
       <move select="Forward 4" />
     </path>

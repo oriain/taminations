@@ -85,8 +85,8 @@
     </path>
   </tam>
 
-  <tam title="Chase Right" from="Right-Hand T-Bones" difficulty="3"
-       formation="Formation boy -3 1 90 girl -3 -1 180 boy -1 -1 270 girl -1 1 0">
+  <tam title="Chase Right" from="Right-Hand T-Bones" difficulty="3">
+     <formation>      <dancer gender="boy" x="-3" y="1" angle="90"/>      <dancer gender="girl" x="-3" y="-1" angle="180"/>      <dancer gender="boy" x="-1" y="-1" angle="270"/>      <dancer gender="girl" x="-1" y="1" angle="0"/>    </formation>
     <path>
       <move select="Run Right"/>
       <move select="Forward 2"/>
@@ -105,8 +105,8 @@
     </path>
   </tam>
 
-  <tam title="Chase Right" from="Left-Hand T-Bones" difficulty="3"
-       formation="Formation boy -3 1 180 girl -3 -1 270 boy -1 -1 0 girl -1 1 90">
+  <tam title="Chase Right" from="Left-Hand T-Bones" difficulty="3">
+     <formation>      <dancer gender="boy" x="-3" y="1" angle="180"/>      <dancer gender="girl" x="-3" y="-1" angle="270"/>      <dancer gender="boy" x="-1" y="-1" angle="0"/>      <dancer gender="girl" x="-1" y="1" angle="90"/>    </formation>
     <path>
       <move select="U-Turn Right" beats="1.5" offsetX="-1"/>
       <move select="Forward" />
@@ -129,8 +129,8 @@
     </path>
   </tam>
 
-  <tam title="Chase Right" from="Mixed T-Bones" difficulty="3"
-       formation="Formation boy -1 1 0 girl -3 -1 270 boy -1 -1 0 girl -3 1 90">
+  <tam title="Chase Right" from="Mixed T-Bones" difficulty="3">
+     <formation>      <dancer gender="boy" x="-1" y="1" angle="0"/>      <dancer gender="girl" x="-3" y="-1" angle="270"/>      <dancer gender="boy" x="-1" y="-1" angle="0"/>      <dancer gender="girl" x="-3" y="1" angle="90"/>    </formation>
     <path>
       <move select="Run Right" scaleX=".5"/>
       <move select="Forward 2"/>
@@ -214,8 +214,8 @@
     </path>
   </tam>
 
-  <tam title="Left Chase" from="Right-Hand T-Bones" difficulty="3"
-       formation="Formation boy -3 1 90 girl -3 -1 180 boy -1 -1 270 girl -1 1 0">
+  <tam title="Left Chase" from="Right-Hand T-Bones" difficulty="3">
+     <formation>      <dancer gender="boy" x="-3" y="1" angle="90"/>      <dancer gender="girl" x="-3" y="-1" angle="180"/>      <dancer gender="boy" x="-1" y="-1" angle="270"/>      <dancer gender="girl" x="-1" y="1" angle="0"/>    </formation>
     <path>
       <move select="U-Turn Left" beats="1.5" offsetX="-1"/>
       <move select="Forward" />
@@ -238,8 +238,8 @@
     </path>
   </tam>
 
-  <tam title="Left Chase" from="Left-Hand T-Bones" difficulty="3"
-       formation="Formation boy -3 1 180 girl -3 -1 270 boy -1 -1 0 girl -1 1 90">
+  <tam title="Left Chase" from="Left-Hand T-Bones" difficulty="3">
+     <formation>      <dancer gender="boy" x="-3" y="1" angle="180"/>      <dancer gender="girl" x="-3" y="-1" angle="270"/>      <dancer gender="boy" x="-1" y="-1" angle="0"/>      <dancer gender="girl" x="-1" y="1" angle="90"/>    </formation>
     <path>
       <move select="Run Left"/>
       <move select="Forward 2"/>
@@ -258,8 +258,8 @@
     </path>
   </tam>
 
-  <tam title="Left Chase" from="Mixed T-Bones" difficulty="3"
-       formation="Formation boy -1 1 0 girl -3 -1 270 boy -1 -1 0 girl -3 1 90">
+  <tam title="Left Chase" from="Mixed T-Bones" difficulty="3">
+     <formation>      <dancer gender="boy" x="-1" y="1" angle="0"/>      <dancer gender="girl" x="-3" y="-1" angle="270"/>      <dancer gender="boy" x="-1" y="-1" angle="0"/>      <dancer gender="girl" x="-3" y="1" angle="90"/>    </formation>
     <path>
       <move select="U-Turn Left" beats="1.5" offsetX="-1"/>
       <move select="Forward" />
