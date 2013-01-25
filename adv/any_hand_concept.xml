@@ -22,9 +22,13 @@
 -->
 <tamination>
 
-  <tam title="Any Hand Remake" parts="1.5;3"
-  formation="Formation boy 3 2 270  girl 1 2 90  boy -1 2 90  girl -3 2 270"
-  group="Any Hand">
+  <tam title="Any Hand Remake" parts="1.5;3" group="Any Hand">
+  <formation>
+    <dancer gender="boy" x="3" y="2" angle="270"/>
+    <dancer gender="girl" x="1" y="2" angle="90"/>
+    <dancer gender="boy" x="-1" y="2" angle="90"/>
+    <dancer gender="girl" x="-3" y="2" angle="270"/>
+  </formation>
     <path numbers="3 6">
       <move select="Hinge Right"/>
       <move select="Flip Left"/>
@@ -55,9 +59,13 @@
     </path>
   </tam>
 
-  <tam title="Any Hand Quarter Thru"
-      formation="Formation boy 3 2 90  girl 1 2 270  boy -1 2 270  girl -3 2 90"
-      group="Any Hand">
+  <tam title="Any Hand Quarter Thru" group="Any Hand">
+    <formation>
+      <dancer gender="boy" x="3" y="2" angle="90"/>
+      <dancer gender="girl" x="1" y="2" angle="270"/>
+      <dancer gender="boy" x="-1" y="2" angle="270"/>
+      <dancer gender="girl" x="-3" y="2" angle="90"/>
+    </formation>
     <path numbers="7 2">
       <move select="Hinge Left"/>
     </path>
