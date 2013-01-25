@@ -116,11 +116,17 @@ TAMination.prototype = {
   getFormation: function()
   {
     var a = $("tam",this.xmldoc).eq(this.callnum);
-    //  TODO look for a formation element alternative to the formation attr
-    var retval = getNamedFormation(a.attr('formation'));
-    if (!retval) {  //  must be sequence
-      a = startingFormation;
-      retval = getNamedFormation(a);
+    var f = $(a).find("formation");
+    var retval = undefined;
+    if (f.size() > 0) {
+      //  Formation defined inline
+      retval = f;
+    } else {
+      retval = getNamedFormation(a.attr('formation'));
+      if (!retval) {  //  must be sequence
+        a = startingFormation;
+        retval = getNamedFormation(a);
+      }
     }
     return retval;
   },
