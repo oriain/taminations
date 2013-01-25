@@ -82,7 +82,7 @@ TAMination.prototype = {
       '<param name="appwidth" value="'+elem.offsetWidth+'" />'+
       '<param name="appheight" value="'+elem.offsetHeight+'" />'+
       '<param name="scriptable" value="true" />'+
-      '<param name="formation" value="'+f+'" />';
+      '<param name="formation" value="'+formationToString(f)+'" />';
       if (params.play != undefined)
         appletstr += '<param name="play" value="true" />';
       if (params.loop != undefined)
@@ -328,7 +328,7 @@ function SelectAnimation(n)
   tam.callnum = n;
   var applet = document.getElementById('applet');
   if (applet)
-    applet.setFormation(tam.getFormation());
+    applet.setFormation(formationToString(tam.getFormation()));
   var p = tam.getPath(tam.xmldoc);
   for (var i=0; i<p.length; i++) {
     var str = '';
@@ -341,6 +341,18 @@ function SelectAnimation(n)
     applet.setParts(tam.getParts());
     applet.rebuildUI();
   }
+}
+
+function formationToString(f)
+{
+  var outstr = "Formation";
+  $('dancer',f).each(function() {
+    outstr += ' ' + $(this).attr('gender') + ' ' +
+              $(this).attr('x') + ' ' +
+              $(this).attr('y') + ' ' +
+              $(this).attr('angle');
+  });
+  return outstr;
 }
 
 function movementToString(m)
