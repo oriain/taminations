@@ -150,7 +150,7 @@
 
   <!-- tam title="Recycle"
        from="Inverted Lines"
-       formation="Inverted Lines Centers In"
+       formation="Inverted Lines Ends Facing Out"
        parts="" difficulty="3">
     <path>
       <move select="Run Left" beats="4" offsetX="-1" offsetY="2" />

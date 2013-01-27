@@ -47,7 +47,7 @@
   </tam>
 
   <tam title="Centers work Solid, all Swing Thru" group=" "
-       formation="Inverted Lines Centers Out">
+       formation="Inverted Lines Ends Facing In">
     <path>
       <move select="Swing Right" beats="4" scaleX="1.5" scaleY="2"/>
       <move select="Swing Left"/>

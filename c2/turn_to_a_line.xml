@@ -271,7 +271,7 @@
     </path>
   </tam>
 
-  <tam title="Turn to a Line" from="Inverted Lines" formation="Inverted Lines Centers In">
+  <tam title="Turn to a Line" from="Inverted Lines" formation="Inverted Lines Ends Facing Out">
     <path>
       <move select="Flip Right" offsetX="-2" offsetY="1.5" />
     </path>

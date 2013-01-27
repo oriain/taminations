@@ -237,7 +237,7 @@
   </tam>
 
   <tam title="Right Roll to a Wave" from="Inverted Lines, Centers Facing"
-       formation="Inverted Lines Centers In">
+       formation="Inverted Lines Ends Facing Out">
     <path>
       <move select="U-Turn Right" offsetX="-2" offsetY="-.5" />
     </path>
@@ -253,7 +253,7 @@
   </tam>
 
   <tam title="Right Roll to a Wave" from="Inverted Lines, Ends Facing"
-       formation="Inverted Lines Centers Out">
+       formation="Inverted Lines Ends Facing In">
     <path>
       <move select="Extend Left" beats="3" scaleX="2" scaleY=".5" />
     </path>

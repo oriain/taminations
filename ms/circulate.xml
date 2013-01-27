@@ -205,7 +205,7 @@
 
   <tam title="All 8 Circulate"
        from="Inverted Lines"
-       formation="Inverted Lines Centers Out"
+       formation="Inverted Lines Ends Facing In"
        difficulty="2"
        parts="" >
     <path>

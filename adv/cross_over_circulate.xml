@@ -97,9 +97,8 @@
   </tam>
 
   <tam title="Cross Over Circulate"
-       from="Inverted Lines"
-       formation="Inverted Lines Centers In"
-       parts="" >
+       from="Inverted Lines Ends Facing Out"
+       formation="Inverted Lines Ends Facing Out">
     <path>
       <move select="Flip Left" beats="6" scaleY="2" />
     </path>
@@ -113,6 +112,25 @@
     </path>
     <path>
       <move select="Run Right" beats="6" scaleY="2" />
+    </path>
+  </tam>
+
+  <tam title="Cross Over Circulate"
+       from="Inverted Lines Ends Facing In"
+       formation="Inverted Lines Ends Facing In">
+    <path>
+      <move select="Forward" beats="1.5" />
+      <move select="Extend Right" beats="4.5" scaleX="3" scaleY="2" />
+    </path>
+    <path>
+      <move select="Flip Left" beats="6" scaleY="2" />
+    </path>
+    <path>
+      <move select="Run Right" beats="6" scaleY="2" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="4.5" scaleX="3" scaleY="2" />
+      <move select="Forward" beats="1.5" />
     </path>
   </tam>
 
@@ -153,6 +171,146 @@
     <path>
       <move select="Extend Left" beats="4" scaleX="2.5" scaleY="2" />
       <move select="Forward" scaleX="1.5" beats="2" />
+    </path>
+  </tam>
+
+  <tam title="Cross Over Circulate" from="3 and 1 lines #1"
+       formation="3 and 1 lines #1">
+    <path>
+      <move select="Run Left" beats="6" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3.5" scaleX="2" scaleY="2"/>
+      <move select="Forward 2" beats="2.5"/>
+    </path>
+    <path>
+      <move select="Stand" beats="2"/>
+      <move select="Extend Right" beats="4" scaleX="4" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3.5" scaleX="2" scaleY="2"/>
+      <move select="Forward 2" beats="2.5"/>
+    </path>
+  </tam>
+
+  <tam title="Cross Over Circulate" from="3 and 1 lines #2"
+       formation="3 and 1 lines #2">
+    <path>
+      <move select="Forward 2" beats="2.5"/>
+      <move select="Extend Right" beats="3.5" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="6" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Stand" beats="2"/>
+      <move select="Extend Right" beats="4" scaleX="4" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3.5" scaleX="2" scaleY="2"/>
+      <move select="Forward 2" beats="2.5"/>
+    </path>
+  </tam>
+
+  <tam title="Cross Over Circulate" from="3 and 1 lines #3"
+       formation="3 and 1 lines #3">
+    <path>
+      <move select="Stand" beats="2"/>
+      <move select="Extend Right" beats="4" scaleX="4" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3.5" scaleX="2" scaleY="2"/>
+      <move select="Forward 2" beats="2.5"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="6" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3.5" scaleX="2" scaleY="2"/>
+      <move select="Forward 2" beats="2.5"/>
+    </path>
+  </tam>
+
+  <tam title="Cross Over Circulate" from="3 and 1 lines #4"
+       formation="3 and 1 lines #4">
+    <path>
+      <move select="Stand" beats="2"/>
+      <move select="Extend Right" beats="4" scaleX="4" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3.5" scaleX="2" scaleY="2"/>
+      <move select="Forward 2" beats="2.5"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="2.5"/>
+      <move select="Extend Right" beats="3.5" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="6" scaleY="2"/>
+    </path>
+  </tam>
+
+  <tam title="Cross Over Circulate" from="3 and 1 lines #5"
+       formation="3 and 1 lines #5">
+    <path>
+      <move select="Extend Right" beats="6" scaleX="4" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="6" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Flip Right" beats="6" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Flip Right" beats="6" scaleY="2"/>
+    </path>
+  </tam>
+
+  <tam title="Cross Over Circulate" from="3 and 1 lines #6"
+       formation="3 and 1 lines #6">
+    <path>
+      <move select="Run Left" beats="6" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="6" scaleX="4" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Flip Right" beats="6" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Flip Right" beats="6" scaleY="2"/>
+    </path>
+  </tam>
+
+  <tam title="Cross Over Circulate" from="3 and 1 lines #7"
+       formation="3 and 1 lines #7">
+    <path>
+      <move select="Flip Left" beats="6" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Flip Left" beats="6" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="6" scaleX="4" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="6" scaleX="2" scaleY="2"/>
+    </path>
+  </tam>
+
+  <tam title="Cross Over Circulate" from="3 and 1 lines #8"
+       formation="3 and 1 lines #8">
+    <path>
+      <move select="Flip Left" beats="6" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Flip Left" beats="6" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="6" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="6" scaleX="4" scaleY="2"/>
     </path>
   </tam>
 

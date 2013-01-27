@@ -82,7 +82,7 @@
     </path>
   </tam>
 
-  <tam title="Any Hand Swing Thru" formation="Inverted Lines Centers In" group="Any Hand">
+  <tam title="Any Hand Swing Thru" formation="Inverted Lines Ends Facing Out" group="Any Hand">
     <path numbers="5 4">
       <move select="Swing Left"/>
       <move select="Run Right"/>
@@ -99,7 +99,7 @@
     </path>
   </tam>
 
-  <tam title="Any Hand Three Quarter Thru" formation="Inverted Lines Centers In" group="Any Hand">
+  <tam title="Any Hand Three Quarter Thru" formation="Inverted Lines Ends Facing Out" group="Any Hand">
     <path>
       <move select="Cast Left"/>
       <move select="Run Right"/>

@@ -50,7 +50,7 @@
 
   <tam title="Explode the Line" 
        from="Inverted Lines"
-       formation="Inverted Lines Centers Out"
+       formation="Inverted Lines Ends Facing In"
        parts="" >
     <path>
       <move select="Lead Right" hands="right" beats="4" scaleX="1.5" scaleY="3" />

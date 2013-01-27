@@ -42,7 +42,7 @@
 
   <tam title="Ends Bend"
        from="Inverted Lines"
-       formation="Inverted Lines Centers In"
+       formation="Inverted Lines Ends Facing Out"
        parts="" >
     <path numbers="1  ">
       <move select="Lead Left" beats="2" scaleY="2" />

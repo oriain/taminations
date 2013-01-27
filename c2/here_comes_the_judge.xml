@@ -42,7 +42,7 @@
 
   <tam title="Here Comes the Judge"
        from="Inverted Lines"
-       formation="Inverted Lines Centers In"
+       formation="Inverted Lines Ends Facing Out"
        parts="" >
     <path>
       <move select="Run Left" beats="6" scaleX="2" scaleY="3" />

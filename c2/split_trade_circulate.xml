@@ -23,8 +23,8 @@
 <tamination>
 
   <tam title="Split Trade Circulate"
-       from="Inverted Lines Centers In"
-       formation="Inverted Lines Centers In"
+       from="Inverted Lines Ends Facing Out"
+       formation="Inverted Lines Ends Facing Out"
        parts="" >
     <path>
       <move select="Run Left" beats="4" />
@@ -43,8 +43,8 @@
   </tam>
 
   <tam title="Split Trade Circulate"
-       from="Inverted Lines Centers Out"
-       formation="Inverted Lines Centers Out"
+       from="Inverted Lines Ends Facing In"
+       formation="Inverted Lines Ends Facing In"
        parts="" >
     <path>
       <move select="Forward" />

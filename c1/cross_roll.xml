@@ -131,7 +131,7 @@
 
   <tam title="Cross Roll"
        from="Inverted Lines"
-       formation="Inverted Lines Centers Out"
+       formation="Inverted Lines Ends Facing In"
        parts="" >
     <path>
       <move select="Flip Right" />

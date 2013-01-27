@@ -62,7 +62,7 @@
 
   <tam title="Slide"
        from="Inverted Lines"
-       formation="Inverted Lines Centers In"
+       formation="Inverted Lines Ends Facing Out"
        parts="1.5" >
     <path>
       <move select="BackSashay Left" scaleX="2" />

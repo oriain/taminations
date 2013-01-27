@@ -159,8 +159,8 @@
   </tam>
 
   <tam title="Any Hand Remake"
-       from="Inverted Lines (DBD)"
-       formation="Inverted Lines Centers Out"
+       from="Inverted Lines"
+       formation="Inverted Lines Ends Facing In"
        parts="1.5;3" >
     <path>
       <move select="Hinge Right" />

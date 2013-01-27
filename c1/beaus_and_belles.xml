@@ -22,7 +22,7 @@
 -->
 <tamination>
 
-  <tam title="Beaus Trade" from="Inverted Lines" formation="Inverted Lines Centers In" group=" ">
+  <tam title="Beaus Trade" from="Inverted Lines" formation="Inverted Lines Ends Facing Out" group=" ">
     <path>
     </path>
     <path>
@@ -35,7 +35,7 @@
     </path>
   </tam>
 
-  <tam title="Belles Trade" from="Inverted Lines" formation="Inverted Lines Centers In" group=" ">
+  <tam title="Belles Trade" from="Inverted Lines" formation="Inverted Lines Ends Facing Out" group=" ">
     <path>
       <move select="Swing Left"/>
     </path>

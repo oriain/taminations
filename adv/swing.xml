@@ -62,7 +62,7 @@
 
   <tam title="Swing"
        from="Inverted Lines"
-       formation="Inverted Lines Centers In"
+       formation="Inverted Lines Ends Facing Out"
        parts="1.5" >
     <path>
       <move select="Swing Left" />

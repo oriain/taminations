@@ -44,7 +44,7 @@
 
   <tam title="Sock It To Me"
        from="Inverted Lines"
-       formation="Inverted Lines Centers In"
+       formation="Inverted Lines Ends Facing Out"
        parts="" >
     <path>
       <move select="Flip Left" beats="6" />

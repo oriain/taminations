@@ -135,7 +135,7 @@
   </tam>
 
   <tam title="Tally Ho" from="Inverted Lines, Centers In"
-       formation="Inverted Lines Centers In" parts="3;3">
+       formation="Inverted Lines Ends Facing Out" parts="3;3">
     <path>
       <move select="Lead Left" beats="3" scaleY="3"/>
       <move select="Swing Right" scaleX=".5" scaleY=".5"/>
@@ -161,7 +161,7 @@
   </tam>
 
   <tam title="Tally Ho" from="Inverted Lines, Centers Out"
-       formation="Inverted Lines Centers Out" parts="2;3">
+       formation="Inverted Lines Ends Facing In" parts="2;3">
     <path>
       <move select="Extend Left" beats="2" scaleX="2"/>
       <move select="Swing Right" scaleX=".5" scaleY=".5"/>

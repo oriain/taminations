@@ -96,7 +96,7 @@
 
   <tam title="Acey Deucey"
        from="Inverted Lines"
-       formation="Inverted Lines Centers Out"
+       formation="Inverted Lines Ends Facing In"
        parts="2" difficulty="2">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />

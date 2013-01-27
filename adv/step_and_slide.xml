@@ -53,7 +53,7 @@
 
   <tam title="Step and Slide"
        from="Inverted Lines"
-       formation="Inverted Lines Centers Out">
+       formation="Inverted Lines Ends Facing In">
     <path>
       <move select="Extend Right" beats="4" scaleY="2" />
     </path>

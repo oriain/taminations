@@ -126,7 +126,7 @@
 
   <tam title="Shazam"
        from="Inverterd Lines"
-       formation="Inverted Lines Centers In"
+       formation="Inverted Lines Ends Facing Out"
        parts="" >
     <path>
       <move select="Hinge Left" />

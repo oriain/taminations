@@ -114,7 +114,7 @@
     </path>
   </tam>
 
-  <tam title="Switch to a Diamond" from="Inverted Lines" formation="Inverted Lines Centers In">
+  <tam title="Switch to a Diamond" from="Inverted Lines" formation="Inverted Lines Ends Facing Out">
   <path>
     <move select="Lead Left" beats="3" offsetX="-2" offsetY="2"/>
   </path>

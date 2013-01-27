@@ -77,7 +77,7 @@
 
   <tam title="Ah So"
        from="Inverted Lines"
-       formation="Inverted Lines Centers In"
+       formation="Inverted Lines Ends Facing Out"
        parts="" >
     <path>
       <move select="Run Left" hands="gripleft" scaleY="2" offsetX="-1" />

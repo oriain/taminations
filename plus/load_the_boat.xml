@@ -58,7 +58,7 @@
 
   <tam title="Load the Boat"
        from="Inverted Lines"
-       formation="Inverted Lines Centers In"
+       formation="Inverted Lines Ends Facing Out"
        parts="" difficulty="2">
     <path>
       <move select="Run Left" beats="4" scaleX="1.5" scaleY="3" />

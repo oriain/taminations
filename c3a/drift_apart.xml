@@ -113,7 +113,7 @@
   </tam>
 
   <tam title="Drift Apart" from="Inverted Lines, Centers In"
-       formation="Inverted Lines Centers In" parts="4">
+       formation="Inverted Lines Ends Facing Out" parts="4">
     <path>
       <move select="Run Left" beats="4" scaleY=".75"/>
       <move select="Forward 2"/>
@@ -137,7 +137,7 @@
   </tam>
 
   <tam title="Drift Apart" from="Inverted Lines, Centers Out"
-       formation="Inverted Lines Centers Out" parts="4">
+       formation="Inverted Lines Ends Facing In" parts="4">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Forward 2"/>

@@ -107,7 +107,7 @@
   </tam>
 
   <tam title="Hinge" from="Inverted Lines, Centers In"
-       formation="Inverted Lines Centers In" difficulty="1">
+       formation="Inverted Lines Ends Facing Out" difficulty="1">
     <path>
       <move select="Hinge Left" beats="2" />
     </path>
@@ -123,7 +123,7 @@
   </tam>
 
   <tam title="Hinge" from="Inverted Lines, Centers Out"
-       formation="Inverted Lines Centers Out" difficulty="1">
+       formation="Inverted Lines Ends Facing In" difficulty="1">
     <path>
       <move select="Hinge Right" beats="2" />
     </path>
