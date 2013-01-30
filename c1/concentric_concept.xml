@@ -810,7 +810,7 @@
     </path>
   </tam>
 
-  <tam title="From T-Bones, Concentric Star Thru" group="From T-Bones, Concentric"?
+  <tam title="From T-Bones, Concentric Star Thru" group="From T-Bones, Concentric">
      <formation>      <dancer gender="boy" x="3" y="1" angle="270"/>      <dancer gender="girl" x="-1" y="1" angle="0"/>      <dancer gender="boy" x="1" y="1" angle="180"/>      <dancer gender="girl" x="-3" y="1" angle="270"/>    </formation>
     <path numbers="7 2">
       <move select="Extend Left" scaleY=".5"/>
