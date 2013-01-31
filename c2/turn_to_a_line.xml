@@ -73,21 +73,6 @@
     </path>
   </tam>
 
-  <tam title="Turn to a Line" from="Eight Chain Thru" formation="Eight Chain Thru">
-    <path>
-      <move select="Flip Left" offsetX="1" />
-    </path>
-    <path>
-      <move select="Flip Left" offsetX="1" />
-    </path>
-    <path>
-      <move select="Flip Left" offsetX="1" />
-    </path>
-    <path>
-      <move select="Flip Left" offsetX="1" />
-    </path>
-  </tam>
-
   <tam title="Turn to a Line"
        from="Double Pass Thru"
        formation="Double Pass Thru"
@@ -432,6 +417,7 @@
       <move select="Forward" beats="2"/>
       <move select="Run Right" beats="5"/>
     </path>
+  </tam>
 
   <tam title="Turn to a Line the Windmill Right" formation="Column RH GBGB"    group="   ">
     <path>
@@ -452,8 +438,6 @@
       <move select="Lead Left" beats="4" scaleX="4" scaleY="2.5"/>
       <move select="Lead Left" beats="4" scaleX="3" scaleY="2"/>
     </path>
-  </tam>
-
   </tam>
 
 </tamination>
