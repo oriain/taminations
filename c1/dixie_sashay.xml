@@ -25,7 +25,7 @@
   <tam title="Dixie Sashay" from="Facing Couples">
     <formation>
       <dancer gender="boy" x="1" y="2" angle="270"/>
-      <dancer gender=girl" x="-1" y="2" angle=270"/>
+      <dancer gender="girl" x="-1" y="2" angle="270"/>
     </formation>
     <path numbers="3 2">
       <move select="Quarter Right" beats="3" offsetY="-1" />

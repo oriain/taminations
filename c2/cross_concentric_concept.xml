@@ -155,7 +155,7 @@
     </path>
   </tam>
 
-  <tam title="Cross Concentric Star Thru (example 2)" group="Cross Concentric"
+  <tam title="Cross Concentric Star Thru (example 2)" group="Cross Concentric">
      <formation>      <dancer gender="boy" x="3" y="2" angle="270"/>      <dancer gender="boy" x="1" y="2" angle="270"/>      <dancer gender="girl" x="-1" y="2" angle="270"/>      <dancer gender="girl" x="-3" y="2" angle="270"/>    </formation>
   <path numbers="7 2">
     <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
