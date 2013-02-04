@@ -223,14 +223,12 @@ function generateAnimations()
   $("#deftable").nextAll().appendTo("#definition");
   $("#radio1").attr("checked",true);
   $("#applet").width(appletSize().width).height(appletSize().height);
-  //  Insert copyright
-  $("#definition").append(getCopyright(document.URL));
   $("h2").prepend(getLevel());
   //  Build the selection list of animations
   var prevtitle = "";
   var prevgroup = "";
   $("#animationlist").empty();  //  disable to restore old animations
-  $('tam:[display!="none"]',animations).each(function(n) {
+  $('tam[display!="none"]',animations).each(function(n) {
     var callname = $(this).attr('title') + 'from' + $(this).attr('from');
     var name = $(this).attr('from');
     if ($(this).attr("group") != undefined) {

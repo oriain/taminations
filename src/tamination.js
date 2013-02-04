@@ -390,37 +390,6 @@ function getNamedFormation(name)
   return retval;
 }
 
-//Generate the correct copyright for a call at a specific level
-function getCopyright(levelurl)
-{
-  var levelstring = " ";
-  if (levelurl.match(/\bms\b/))
-    levelstring = "1994, 2000-2011 by ";
-  if (levelurl.match(/\bplus\b/))
-    levelstring = "1997, 2001-2007 by ";
-  if (levelurl.match(/\badv\b/))
-    levelstring = "1982, 1986-1988, 1995, 2001-2011. Bill Davis, John Sybalsky, and ";
-  if (levelurl.match(/\bc1\b/))
-    levelstring = "1983, 1986-1988, 1995-2011 Bill Davis, John Sybalsky and ";
-  if (levelurl.match(/\bc2\b/))
-    levelstring = "1983, 1986-1988, 1995-2011 Bill Davis, John Sybalsky and ";
-  if (levelurl.match(/\bc3a\b/))
-    levelstring = "2004-2008 Vic Ceder and ";
-  if (levelstring != ' ')
-    levelstring = "<p class=\"copyright\">&copy; Copyright " +
-         levelstring +
-         "<a href=\"http://www.callerlab.org/\">CALLERLAB Inc.</a>, "+
-         "The International Association of Square Dance Callers. Permission to reprint, republish, " +
-         "and create derivative works without royalty is hereby granted, "+
-         "provided this notice appears. Publication on the Internet of "+
-         "derivative works without royalty is hereby granted provided this "+
-         "notice appears. Permission to quote parts or all of this document "+
-         "without royalty is hereby granted, provided this notice is "+
-         "included. Information contained herein shall not be changed nor "+
-         "revised in any derivation or publication.</p>";
-  return levelstring;
-}
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Take a object describing a movement and return a string for passing to the applet
