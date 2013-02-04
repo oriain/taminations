@@ -197,8 +197,6 @@ function loadcall(options,htmlpage)
 
 function repairDefinition(htmlpage)
 {
-  // Append copyright
-  $('#definitioncontent').append(getCopyright(htmlpage));
   //  Repair image locations
   $('#definitioncontent img').each(function(i) {
     $(this).attr('src',htmlpage.match(/(.*)%/)[1]+'/'+$(this).attr('src'));

@@ -223,8 +223,6 @@ function generateAnimations()
   $("#deftable").nextAll().appendTo("#definition");
   $("#radio1").attr("checked",true);
   $("#applet").width(appletSize().width).height(appletSize().height);
-  //  Insert copyright
-  $("#definition").append(getCopyright(document.URL));
   $("h2").prepend(getLevel());
   //  Build the selection list of animations
   var prevtitle = "";
