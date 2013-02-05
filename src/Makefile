@@ -83,5 +83,6 @@ callindex.json : $(wildcard ../*/*.xml) $(wildcard calls/*.js) $(wildcard ../squ
 
 #  Copy XML files that define menus, moves, and formations to each directory
 #  Browsers can be picky about loading AJAX from different directories
+$(XMLFILES) : $(XML)
 %.xml :
 	$(COPY) $(notdir $@) $(subst /,$(PS),$@)
