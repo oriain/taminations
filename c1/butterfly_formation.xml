@@ -293,7 +293,6 @@
     <path>
       <move select="Extend Left" beats="2" scaleY="2" />
       <move select="Quarter Right" offsetX="1" />
-      <move select=" " />
     </path>
     <path>
       <move select="Quarter Left" beats="3.5" offsetX="2" offsetY="-2" />
