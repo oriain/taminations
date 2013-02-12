@@ -25,21 +25,21 @@
        from="Completed Double Pass Thru"
        formation="Completed Double Pass Thru"
        parts="" >
-    <path>
+    <path couples="2 4">
       <move select="Lead Right" scaleY="1.5" />
       <move select="Lead Right" scaleX="1.5" scaleY="1.5" />
       <move select="Lead Right" scaleX="1.5" />
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Lead Left" scaleY="1.5" />
       <move select="Lead Left" scaleX="1.5" scaleY="1.5" />
       <move select="Lead Left" scaleX="1.5" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Quarter Left" beats="2" offsetX="-.5" offsetY="1"/>
       <move select="Extend Right" beats="2" scaleY=".5" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Lead Right" beats="2" scaleX=".5"/>
       <move select="Extend Right" beats="2" scaleY=".5" />
     </path>

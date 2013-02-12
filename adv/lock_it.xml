@@ -56,7 +56,11 @@
     </path>
   </tam>
 
-  <tam title="Lockit" from="Diamond" formation="Diamond RH" parts="">
+  <tam title="Lockit" from="Diamond" formation="Diamond RH">
+    <formation>
+      <dancer gender="girl" x="0" y="3" angle="0"/>
+      <dancer gender="boy" x="1" y="0" angle="270"/>
+    </formation>
     <path>
       <move select="Lead Right" beats="4" scaleX="3" scaleY="3" />
     </path>
