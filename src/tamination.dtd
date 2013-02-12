@@ -51,7 +51,7 @@
 
 <!ELEMENT taminator ANY>
 
-<!ELEMENT path (move | Movement)* >
+<!ELEMENT path (move | movement)* >
 <!ATTLIST path name CDATA #IMPLIED
                numbers CDATA #IMPLIED
                couples CDATA #IMPLIED >
