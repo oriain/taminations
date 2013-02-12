@@ -188,7 +188,20 @@ TAMination.prototype = {
     return retval;
   },
 
-
+  getCouples : function()
+  {
+    var a = $("tam",this.xmldoc).eq(this.callnum);
+    var retval = [1,3,1,3,2,4,2,4,5,6,5,6];
+    $("path",a).each(function(n) {
+      var c = $(this).attr('couples');
+      if (c) {
+        var cc = c.split(/ /);
+        retval[n*2] = Number(cc[0]);
+        retval[n*2+1] = Number(cc[1]);
+      }
+    });
+    return retval;
+  },
 
   translate: function(item)
   {

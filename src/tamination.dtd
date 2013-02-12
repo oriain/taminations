@@ -53,7 +53,8 @@
 
 <!ELEMENT path (move | Movement)* >
 <!ATTLIST path name CDATA #IMPLIED
-               numbers CDATA #IMPLIED >
+               numbers CDATA #IMPLIED
+               couples CDATA #IMPLIED >
 
 <!ELEMENT move EMPTY>
 <!ATTLIST move select CDATA #REQUIRED

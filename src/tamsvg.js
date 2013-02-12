@@ -88,6 +88,7 @@ TamSVG.prototype = {
     this.loop = cookie.loop == "true" || args.loop;
     this.grid = cookie.grid == "true";
     this.numbers = cookie.numbers == 'true' || args.numbers;
+    this.couples = cookie.couples == 'true' || args.couples;
     this.showPhantoms = cookie.phantoms == "true";
     if (cookie.svg != 'true') {
       cookie.svg = "true";
@@ -135,8 +136,9 @@ TamSVG.prototype = {
     this.handholds = this.svg.group(this.floor);
     this.dancegroup = this.svg.group(this.floor);
     this.dancers = [];
-    var dancerColor = [ Color.red, Color.yellow, Color.lightGray ];
+    var dancerColor = [ Color.red, Color.green, Color.blue, Color.yellow, Color.lightGray, Color.lightGray ];
     var numbers = tam.getNumbers();
+    var couples = tam.getCouples();
     $('dancer',formation).each(function(j) {
       var d = new Dancer({
         tamsvg: me,
@@ -145,9 +147,10 @@ TamSVG.prototype = {
         x: -Number($(this).attr('y')),
         y: -Number($(this).attr('x')),
         angle: Number($(this).attr('angle'))+180,
-        color:  dancerColor[j>>1],
+        color:  dancerColor[couples[j*2]-1],
         path: me.allp[j],
-        number: numbers[me.dancers.length]
+        number: numbers[me.dancers.length],
+        couplesnumber: couples[j*2]
       });
       if (d.gender == Dancer.PHANTOM && !this.showPhantoms)
         d.hide();
@@ -158,9 +161,10 @@ TamSVG.prototype = {
         x: Number($(this).attr('y')),
         y: Number($(this).attr('x')),
         angle: Number($(this).attr('angle')),
-        color:  dancerColor[j>>1].rotate(),
+        color:  dancerColor[couples[j*2+1]-1],
         path: me.allp[j],
-        number: numbers[me.dancers.length]
+        number: numbers[me.dancers.length],
+        couplesnumber: couples[j*2+1]
       });
       if (d.gender == Dancer.PHANTOM && !this.showPhantoms)
         d.hide();
@@ -585,22 +589,47 @@ TamSVG.prototype = {
 
   setNumbers: function(v)
   {
-    if (arguments.length > 0)
+    if (arguments.length > 0) {
       this.numbers = v;
-    if (this.hexagon || this.bigon)
-      this.numbers = false;
-    for (var i in this.dancers) {
-      var d = this.dancers[i];
-      if (this.numbers)
-        d.showNumber();
-      else
-        d.hideNumber();
+      if (this.hexagon || this.bigon)
+        this.numbers = false;
+      else if (this.numbers)
+        this.couples = false;
+      for (var i in this.dancers) {
+        var d = this.dancers[i];
+        if (this.numbers)
+          d.showNumber();
+        else
+          d.hideNumbers();
+      }
+      this.cookie.numbers = this.numbers;
+      this.cookie.couples = this.couples;
+      this.cookie.store(365);
     }
-    this.cookie.numbers = this.numbers;
-    this.cookie.store(365);
     return this.numbers;
   },
 
+  setCouples: function(v)
+  {
+    if (arguments.length > 0) {
+      this.couples = v;
+      if (this.hexagon || this.bigon)
+        this.couples = false;
+      else if (this.couples)
+        this.numbers = false;
+      for (var i in this.dancers) {
+        var d = this.dancers[i];
+        if (this.couples)
+          d.showCouplesNumber();
+        else
+          d.hideNumbers();
+      }
+      this.cookie.numbers = this.numbers;
+      this.cookie.couples = this.couples;
+      this.cookie.store(365);
+    }
+    return this.couples;
+  },
 
   setHexagon: function(v)
   {
@@ -609,6 +638,7 @@ TamSVG.prototype = {
       if (this.hexagon) {
         //  For now, no numbers for hex or bigon
         this.setNumbers(false);
+        this.setCouples(false);
         if (this.bigon) {
           this.bigon = false;
           this.revertFromBigon();
@@ -731,14 +761,15 @@ TamSVG.prototype = {
       this.dancers[i].hide();
     this.saveDancers = this.dancers;
     this.dancers = [];
-    var dancerColor = [ Color.red, Color.yellow, Color.green, Color.blue,
-                        Color.magenta, Color.cyan ];
+    var dancerColor = [ Color.red, Color.green, Color.magenta, Color.blue, Color.yellow,
+                        Color.cyan, Color.lightGray ];
     //  Generate hexagon dancers
     for (var i=0; i<this.saveDancers.length; i+=2) {
       var j = Math.floor(i/4);
-      this.dancers.push(new Dancer({dancer:this.saveDancers[i],angle:30,color:dancerColor[j]}));
-      this.dancers.push(new Dancer({dancer:this.saveDancers[i],angle:150,color:dancerColor[j+2]}));
-      this.dancers.push(new Dancer({dancer:this.saveDancers[i],angle:270,color:dancerColor[j+4]}));
+      var jj = j <= 1 ? [j,j+2,j+4] : [6, 6, 6];
+      this.dancers.push(new Dancer({dancer:this.saveDancers[i],angle:30,color:dancerColor[jj[0]]}));
+      this.dancers.push(new Dancer({dancer:this.saveDancers[i],angle:150,color:dancerColor[jj[1]]}));
+      this.dancers.push(new Dancer({dancer:this.saveDancers[i],angle:270,color:dancerColor[jj[2]]}));
     }
     //  Convert to hexagon positions and paths
     for (var i=0; i<this.dancers.length; i++) {
@@ -1014,7 +1045,7 @@ Handhold.prototype.paint = function()
 ////////////////////////////////////////////////////////////////////////////////
 //  Dancer class
 Dancer = defineClass(
-function(args)   // (tamsvg,sex,x,y,angle,color,p,number)
+function(args)   // (tamsvg,sex,x,y,angle,color,p,number,couplesnumber)
 {
   this.startangle = 0;
   this.path = new Path();
@@ -1050,6 +1081,8 @@ function(args)   // (tamsvg,sex,x,y,angle,color,p,number)
     this.path = new Path(args.path);
   if (args.number !== undefined)
     this.number = args.number;
+  if (args.couplesnumber !== undefined)
+    this.couplesnumber = args.couplesnumber;
 
   this.hidden = false;
   this.pathVisible = this.tamsvg.showPaths;
@@ -1137,16 +1170,18 @@ function(args)   // (tamsvg,sex,x,y,angle,color,p,number)
     this.body = this.tamsvg.svg.circle(this.svg,0,0,.5,
                {fill:this.fillcolor.toString(),
                 stroke:this.drawcolor.toString(),'stroke-width':0.1});
-  this.numbersvg = false;
   if (this.gender == Dancer.PHANTOM)
     this.body = this.tamsvg.svg.rect(this.svg,-.5,-.5,1,1,.2,.2,      // with rounded corners
              {fill:this.fillcolor.toString(),
               stroke:this.drawcolor.toString(),'stroke-width':0.1});
   this.numbersvg = this.tamsvg.svg.text(this.svg,-4,5,this.number+'',{fontSize: "14",transform:"scale(0.04 -0.04)"});
-  if (this.tamsvg.numbers)
-    this.body.setAttribute('fill','white');
-  else
+  this.couplessvg = this.tamsvg.svg.text(this.svg,-4,5,this.couplesnumber+'',{fontSize: "14",transform:"scale(0.04 -0.04)"});
+  if (this.tamsvg.numbers || this.tamsvg.couples)
+    this.body.setAttribute('fill',this.fillcolor.veryBright().toString());
+  if (!this.tamsvg.numbers)
     this.numbersvg.setAttribute('visibility','hidden');
+  if (!this.tamsvg.couples)
+    this.couplessvg.setAttribute('visibility','hidden');
   //  path
   this.pathgroup = this.tamsvg.svg.group(this.tamsvg.pathparent);
   this.paintPath();
@@ -1176,6 +1211,8 @@ Dancer.prototype.hide = function()
   this.lefthand.setAttribute('visibility','hidden');
   this.righthand.setAttribute('visibility','hidden');
   this.pathgroup.setAttribute('visibility','hidden');
+  this.numbersvg.setAttribute('visibility','hidden');
+  this.couplessvg.setAttribute('visibility','hidden');
 };
 
 Dancer.prototype.show = function()
@@ -1187,6 +1224,10 @@ Dancer.prototype.show = function()
   if (this.rightHandVisibility)
     this.righthand.setAttribute('visibility','visible');
   this.pathgroup.setAttribute('visibility','inherit');
+  if (this.tamsvg.numbers)
+    this.numbersvg.setAttribute('visibility','visible');
+  if (this.tamsvg.couples)
+    this.couplessvg.setAttribute('visibility','visible');
 };
 
 Dancer.prototype.computeStart = function()
@@ -1211,15 +1252,29 @@ Dancer.prototype.beats = function()
 
 Dancer.prototype.showNumber = function()
 {
-  this.body.setAttribute('fill','white');
-  this.numbersvg.setAttribute('visibility','visible');
-  this.paint();
+  this.body.setAttribute('fill',this.fillcolor.veryBright().toString());
+  if (!this.hidden) {
+    this.couplessvg.setAttribute('visibility','hidden');
+    this.numbersvg.setAttribute('visibility','visible');
+    this.paint();
+  }
 };
 
-Dancer.prototype.hideNumber = function()
+Dancer.prototype.showCouplesNumber = function()
+{
+  this.body.setAttribute('fill',this.fillcolor.veryBright().toString());
+  if (!this.hidden) {
+    this.numbersvg.setAttribute('visibility','hidden');
+    this.couplessvg.setAttribute('visibility','visible');
+    this.paint();
+  }
+};
+
+Dancer.prototype.hideNumbers = function()
 {
   this.body.setAttribute('fill',this.fillcolor.toString());
   this.numbersvg.setAttribute('visibility','hidden');
+  this.couplessvg.setAttribute('visibility','hidden');
 };
 
 Dancer.prototype.recalculate = function(debug)
@@ -1348,11 +1403,14 @@ Dancer.prototype.paint = function()
       new AffineTransform(this.tx).concatenate(this.rightHandTransform).toString());
   this.lefthand.setAttribute('transform',
       new AffineTransform(this.tx).concatenate(this.leftHandTransform).toString());
-  if (this.tamsvg.numbers) {
+  if (this.tamsvg.numbers || this.tamsvg.couples) {
     var a = this.tx.getAngle();
     var t1 = AffineTransform.getScaleInstance(0.04,-0.04);
     var t2 = AffineTransform.getRotateInstance(a);
-    this.numbersvg.setAttribute('transform',t1.concatenate(t2).toString());
+    if (this.tamsvg.numbers)
+      this.numbersvg.setAttribute('transform',t1.concatenate(t2).toString());
+    else
+      this.couplessvg.setAttribute('transform',t1.concatenate(t2).toString());
   }
 };
 
@@ -1951,6 +2009,10 @@ Color.prototype.brighter = function()
 {
   return this.invert().darker().invert();
 };
+Color.prototype.veryBright = function()
+{
+  return this.brighter().brighter().brighter().brighter();
+};
 Color.prototype.rotate = function()
 {
   var c = new Color(0,0,0);
@@ -2025,7 +2087,10 @@ function generateButtonPanel()
     if (tamsvg.showPaths)
       $('#pathsButton').addClass('selected');
   }
-  $('#optionpanel').append('<input type="button" class="appButton" id="numbersButton" value="#" style="width:10%"/>');
+  $('#optionpanel').append('<input type="button" class="appButton" id="couplesButton" value="#1-4" style="width:8%"/>');
+  if (tamsvg.couples)
+    $('#couplesButton').addClass('selected');
+  $('#optionpanel').append('<input type="button" class="appButton" id="numbersButton" value="#1-8" style="width:8%"/>');
   if (tamsvg.numbers)
     $('#numbersButton').addClass('selected');
   tamsvg.goHexagon = tamsvg.goBigon = function() {
@@ -2125,11 +2190,24 @@ function generateButtonPanel()
   });
   $('#numbersButton').click(function() {
     tamsvg.setNumbers(!tamsvg.setNumbers());
-    if (tamsvg.numbers)
+    if (tamsvg.numbers) {
       $('#numbersButton').addClass('selected');
+      $('#couplesButton').removeClass('selected');
+    }
     else
       $('#numbersButton').removeClass('selected');
     cookie.numbers = tamsvg.numbers;
+    cookie.store(365);
+  });
+  $('#couplesButton').click(function() {
+    tamsvg.setCouples(!tamsvg.setCouples());
+    if (tamsvg.couples) {
+      $('#couplesButton').addClass('selected');
+      $('#numbersButton').removeClass('selected');
+    }
+    else
+      $('#couplesButton').removeClass('selected');
+    cookie.couples = tamsvg.couples;
     cookie.store(365);
   });
 
