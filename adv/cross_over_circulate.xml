@@ -26,20 +26,20 @@
        from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH"
        parts="3" >
-    <path numbers="1 8">
+    <path numbers="1 8" couples="2 4">
       <move select="Extend Right" beats="3" scaleX="1.5" />
       <move select="Extend Right" beats="3" scaleX="2.5" />
     </path>
-    <path numbers="2 7">
+    <path numbers="2 7" couples="2 4">
       <move select="Extend Left" beats="3" scaleX="2.5" />
       <move select="Extend Left" beats="3" scaleX="1.5" />
     </path>
-    <path numbers="3 6">
+    <path numbers="3 6" couples="3 1">
       <move select="Quarter Right" offsetX=".1" offsetY="-1" />
       <move select="Forward 2" beats="3" />
       <move select="Quarter Right" offsetX="1" offsetY="-.1" />
     </path>
-    <path numbers="4 5">
+    <path numbers="4 5" couples="3 1">
       <move select="Quarter Right" offsetX=".1" offsetY="-1" />
       <move select="Forward 2" beats="3" />
       <move select="Quarter Right" offsetX="1" offsetY="-.1" />
@@ -97,6 +97,31 @@
   </tam>
 
   <tam title="Cross Over Circulate"
+       from="Facing Lines"
+       formation="Normal Lines"
+       parts="3" >
+    <path>
+      <move select="Extend Left" scaleX="2" scaleY=".5" beats="2"/>
+      <Movement beats="4" hands="none" cx1="1" cy1="0" cx2="0" cy2="-2.5" x2="2" y2="-2.5"
+                cx3="1" cx4="1" cy4="-.5" x4="2" y4="-.5"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleX="2" scaleY=".5" beats="2"/>
+      <Movement beats="4" hands="none" cx1="1" cy1="0" cx2="1.5" cy2="1.5" x2="2" y2="1.5"
+                cx3="1" cx4="1" cy4=".5" x4="2" y4=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleX="2" scaleY=".5" beats="2"/>
+      <Movement beats="4" hands="none" cx1="1" cy1="0" cx2="0" cy2="-2.5" x2="2" y2="-2.5"
+                cx3="1" cx4="1" cy4="-.5" x4="2" y4="-.5"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleX="2" scaleY=".5" beats="2"/>
+      <Movement beats="4" hands="none" cx1="1" cy1="0" cx2="1.5" cy2="1.5" x2="2" y2="1.5"
+                cx3="1" cx4="1" cy4=".5" x4="2" y4=".5"/>
+    </path>
+  </tam>
+  <tam title="Cross Over Circulate"
        from="Inverted Lines Ends Facing Out"
        formation="Inverted Lines Ends Facing Out">
     <path>
@@ -136,20 +161,20 @@
 
   <tam title="Cross Over Circulate"
        from="Right-Hand Waves"
-       formation="Ocean Waves RH BGBG"
+       formation="Ocean Waves RH BGGB"
        parts="3" >
-    <path numbers="1 8">
+    <path numbers="1 8" couples="2 4">
       <move select="Forward" beats="1.5" />
       <move select="Extend Right" beats="4.5" scaleX="3" scaleY="2" />
     </path>
-    <path numbers="2 7">
+    <path numbers="2 7" couples="2 4">
       <move select="Run Left" beats="6" scaleX=".5" scaleY="2" />
     </path>
-    <path numbers="3 6">
+    <path numbers="3 6" couples="3 1">
       <move select="Forward" beats="1.5" />
       <move select="Extend Right" beats="4.5" scaleX="3" scaleY="2" />
     </path>
-    <path numbers="4 5">
+    <path numbers="4 5" couples="3 1">
       <move select="Run Right" beats="6" scaleX="1.5" scaleY="2" />
     </path>
   </tam>

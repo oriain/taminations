@@ -21,16 +21,14 @@
 
 -->
 <tamination>
-  
-  
 
   <tam title="Chase Your Neighbor" from="Couples Facing Out" formation="Couples Facing Out">
-    <path>
+    <path couples="3 1">
       <move select="U-Turn Right" offsetX="-2" />
       <move select="Lead Right" beats="3.5" scaleX="3.5" scaleY="1.5" />
       <move select="U-Turn Right" offsetX="-.5" offsetY="-.5" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Flip Right" />
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".25" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />

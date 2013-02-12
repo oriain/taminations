@@ -559,18 +559,18 @@
   </tam>
 
   <tam title="All 8 Swing Thru" group="All 8"
-       formation="Thar LH Boys">
-    <path numbers="6 7">
+       formation="Thar LH Girls">
+    <path numbers="6 7" couples="2 4">
       <move select="Swing Right"/>
     </path>
-    <path numbers="5 8">
+    <path numbers="5 8" couples="2 4">
       <move select="Swing Right"/>
       <move select="Swing Left"/>
     </path>
-    <path numbers="3 2">
+    <path numbers="3 2" couples="3 1">
       <move select="Swing Right"/>
     </path>
-    <path numbers="4 1">
+    <path numbers="4 1" couples="3 1">
       <move select="Swing Right"/>
       <move select="Swing Left"/>
     </path>

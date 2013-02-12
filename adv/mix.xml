@@ -152,12 +152,10 @@
     </path>
   </tam>
 
-
-
   <tam title="All 8 Mix"
        from="Thar"
        formation="Thar LH Boys"
-       parts="4.5" >
+       parts="4.5" group=" ">
     <path>
       <move select="Hinge Left" />
       <move select="Lead Left" beats="3" scaleX="3" />
@@ -181,7 +179,7 @@
   <tam title="As Couples Mix"
        from="Two-Faced Tidal Line"
        formation="Two-Faced Tidal Line RH"
-       parts="3" >
+       parts="3" group=" ">
     <path>
       <move select="Dodge Right" />
       <move select="Swing Right" scaleX="1.5" scaleY="1.5" />
@@ -197,4 +195,5 @@
       <move select="Run Left" beats="6" hands="gripright" scaleX="2" scaleY="1.5" />
     </path>
   </tam>
+
 </tamination>

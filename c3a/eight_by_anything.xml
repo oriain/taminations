@@ -22,7 +22,7 @@
 -->
 <tamination>
 
-  <tam title="Eight by Swap Around" from="Lines" formation="Normal Lines" group=" ">
+  <tam title="Eight by Swap Around" from="Lines" formation="Normal Lines" group="Eight by">
   <path>
     <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
     <move select="Lead Right" beats="3" scaleX="2.5" scaleY="2.5"/>
@@ -43,6 +43,59 @@
     <move select="Hinge Left" beats="3" scaleY=".5"/>
     <move select="Quarter Left"/>
   </path>
+  </tam>
+
+  <tam title="Eight by Wheel Thru" from="Lines" formation="Normal Lines"
+    group="Eight by">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Lead Right" beats="3" scaleX="2.5" scaleY="2.5" />
+      <move select="Quarter Left" offsetX="1" />
+      <move select="Quarter Left" />
+      <move select="BackHinge Right" scaleX="2" scaleY=".5" />
+      <move select="Quarter Left" />
+    </path>
+    <path>
+      <movement beats="5" cx1="2.5" cy1="0" cx2="3" cy2="-.5" x2="3"
+        y2="-3" hands="none" />
+    </path>
+    <path>
+      <move select="Quarter Right" beats="5" offsetX="1" offsetY="-1" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Lead Left" beats="4.5" scaleX="3.5" scaleY="2.5" />
+      <move select="Hinge Left" beats="3" scaleX="2" scaleY=".5" />
+      <move select="Quarter Left" />
+    </path>
+  </tam>
+
+  <tam title="Eight by Swing Thru" from="Lines" formation="Normal Lines"
+    group="Eight by">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Lead Right" beats="3" scaleX="2.5" scaleY="2.5" />
+      <move select="Quarter Left" offsetX="1" />
+      <move select="Quarter Left" />
+      <move select="BackHinge Right" scaleX="2" scaleY=".5" />
+      <move select="Quarter Left" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".25" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY="1.25" />
+      <move select="Stand" beats="3" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Lead Left" beats="4.5" scaleX="3.5" scaleY="2.5" />
+      <move select="Hinge Left" beats="3" scaleX="2" scaleY=".5" />
+      <move select="Quarter Left" />
+    </path>
   </tam>
 
 </tamination>

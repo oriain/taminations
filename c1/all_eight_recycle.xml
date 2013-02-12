@@ -25,64 +25,64 @@
   <tam title="All Eight Recycle"
        from="Quarter Tag"
        formation="Quarter Tag" >
-    <path numbers="1 8">
+    <path numbers="1 8" couples="2 4">
       <move select="U-Turn Right" beats="3" offsetX="3" />
     </path>
-    <path numbers="2 7">
+    <path numbers="2 7" couples="2 4">
       <move select="Extend Left" beats="6" scaleX="3" scaleY="4" />
     </path>
-    <path numbers="6 3">
+    <path numbers="6 3" couples="3 1">
       <move select="Cross Fold Right" beats="6" scaleX="1.5" />
     </path>
-    <path numbers="5 4">
+    <path numbers="5 4" couples="3 1">
       <move select="Run Right" offsetX="-1.5" scaleY=".5"/>
       <move select="Run Right" offsetX="1.5" scaleY=".5"/>
     </path>
   </tam>
 
   <tam title="All Eight Recycle" from="Left-Hand Quarter Tag" formation="Quarter Tag LH">
-    <path>
+    <path couples="2 4">
       <move select="U-Turn Right" beats="3" offsetX="3" />
     </path>
-    <path>
+    <path couples="2 4">
       <move select="Extend Left" beats="6" scaleX="3" scaleY="4" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Cross Fold Left" beats="6" scaleX="1.5" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Run Left" offsetX="-1.5" scaleY=".5"/>
       <move select="Run Left" offsetX="1.5" scaleY=".5"/>
     </path>
   </tam>
 
   <tam title="All Eight Recycle" from="Quarter Waves" formation="Quarter Wave RH">
-    <path>
+    <path couples="2 4">
       <move select="U-Turn Right" hands="gripright" beats="6" offsetX="3" />
     </path>
-    <path>
+    <path couples="2 4">
       <move select="Run Right" hands="gripright" beats="6" offsetX="-3" offsetY="-2" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Cross Fold Right" beats="6" scaleX="1.5" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Run Right" offsetX="-1.5" scaleY=".5"/>
       <move select="Run Right" offsetX="1.5" scaleY=".5"/>
     </path>
   </tam>
 
   <tam title="All Eight Recycle" from="Left-Hand Quarter Waves" formation="Quarter Wave LH">
-    <path>
+    <path couples="2 4">
       <move select="Run Left" hands="gripleft" beats="6" offsetX="-3" offsetY="2" />
     </path>
-    <path>
+    <path couples="2 4">
       <move select="U-Turn Left" hands="gripleft" beats="6" offsetX="3" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Cross Fold Left" beats="6" scaleX="1.5" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Run Left" offsetX="-1.5" scaleY=".5"/>
       <move select="Run Left" offsetX="1.5" scaleY=".5"/>
     </path>

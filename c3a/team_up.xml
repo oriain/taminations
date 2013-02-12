@@ -21,8 +21,8 @@
 
 -->
 <tamination>
-  
-  
+
+
 
   <tam title="Team Up" from="Completed Double Pass Thru" formation="Completed Double Pass Thru">
     <path>
@@ -38,6 +38,47 @@
     </path>
     <path>
       <move select="Run Right"/>
+    </path>
+  </tam>
+
+<!-- ARV 20130208 22:10 CST -->
+  <tam title="Team Up" from="Inverted Lines" formation="Inverted Lines Ends Facing Out">
+    <path couples="2 4">
+      <move select="Lead Left 2" offsetX="-1" offsetY="1" />
+      <move select="Quarter Right" beats="1.5" hands="right" offsetX="1"/>
+    </path>
+    <path couples="2 4">
+      <move select="Run Right" offsetX="1"/>
+    </path>
+    <path couples="3 1">
+      <move select="Dodge Left" offsetX="1"/>
+    </path>
+    <path couples="3 1">
+      <move select="Lead Right 2" offsetY="-1" offsetX="0" />
+      <move select="Hinge Right"/>
+    </path>
+  </tam>
+
+<!-- ARV 20130209 10:50 CST -->
+  <tam title="Team Up" from="T-Bones">
+  <formation>
+     <dancer gender="girl" x="-1" y="3" angle="0"/>
+     <dancer gender="boy" x="-1" y="1" angle="270"/>
+     <dancer gender="girl" x="-1" y="-1" angle="180"/>
+     <dancer gender="boy" x="-1" y="-3" angle="270"/>
+  </formation>
+    <path couples="4 2">
+      <move select="Forward" />
+      <move select="Quarter Left" beats="1.5" hands="left" offsetX="1"/>
+    </path>
+    <path couples="4 2">
+      <move select="Dodge Left" />
+    </path>
+    <path couples="3 1">
+      <move select="Run Right" />
+    </path>
+    <path couples="3 1">
+      <move select="Run Left" hands="left" />
     </path>
   </tam>
 

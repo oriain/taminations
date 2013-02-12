@@ -116,7 +116,7 @@
     </path>
   </tam>
 
-  <tam title="Any Hand Three Quarter Thru (from a diamond)"
+  <tam title="Any Hand Three Quarter Thru (from RH diamond)"
        formation="Diamond RH" group="Any Hand">
     <path numbers="2 3">
       <move select="Stand" beats="4.5"/>
@@ -124,6 +124,18 @@
     </path>
     <path numbers="4 1">
       <move select="Cast Right"/>
+      <move select="Flip Left"/>
+    </path>
+  </tam>
+
+  <tam title="Any Hand Three Quarter Thru (from LH diamond)"
+       formation="Diamond LH Boys Center" group="Any Hand">
+    <path>
+      <move select="Cast Left"/>
+      <move select="Run Right"/>
+    </path>
+    <path>
+      <move select="Stand" beats="4.5"/>
       <move select="Flip Left"/>
     </path>
   </tam>
