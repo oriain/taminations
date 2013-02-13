@@ -2087,10 +2087,10 @@ function generateButtonPanel()
     if (tamsvg.showPaths)
       $('#pathsButton').addClass('selected');
   }
-  $('#optionpanel').append('<input type="button" class="appButton" id="couplesButton" value="#1-4" style="width:8%"/>');
+  $('#optionpanel').append('<input type="button" class="appButton" id="couplesButton" value="#4" style="width:8%"/>');
   if (tamsvg.couples)
     $('#couplesButton').addClass('selected');
-  $('#optionpanel').append('<input type="button" class="appButton" id="numbersButton" value="#1-8" style="width:8%"/>');
+  $('#optionpanel').append('<input type="button" class="appButton" id="numbersButton" value="#8" style="width:8%"/>');
   if (tamsvg.numbers)
     $('#numbersButton').addClass('selected');
   tamsvg.goHexagon = tamsvg.goBigon = function() {
