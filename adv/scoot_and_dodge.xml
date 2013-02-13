@@ -20,39 +20,36 @@
 
 -->
 <tamination>
-  
-  
-  
 
-  <tam title="Scoot and Dodge" 
+  <tam title="Scoot and Dodge"
        from="Right-Hand Box"
        formation="Box RH"
        parts="" >
-    <path>
+    <path couples="1 3">
       <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".25" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
       <move select="Extend Left" beats="1.5" scaleX="2" scaleY=".25" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Dodge Right" />
     </path>
   </tam>
 
-  <tam title="Scoot and Dodge" 
+  <tam title="Scoot and Dodge"
        from="Left-Hand Box"
        formation="Box LH"
        parts="" >
-    <path>
+    <path couples="3 1">
       <move select="Dodge Left" />
     </path>
-    <path>
+    <path couples="1 3">
       <move select="Extend Left" beats="1.5" scaleX="2" scaleY=".25" />
       <move select="Swing Left" scaleX=".75" scaleY=".75" />
       <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".25" />
     </path>
   </tam>
 
-  <tam title="Scoot and Dodge" 
+  <tam title="Scoot and Dodge"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGBG"
        parts="" >
@@ -74,7 +71,7 @@
     </path>
   </tam>
 
-  <tam title="Scoot and Dodge" 
+  <tam title="Scoot and Dodge"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGBG"
        parts="" >
@@ -96,7 +93,7 @@
     </path>
   </tam>
 
-  <tam title="Scoot and Dodge" 
+  <tam title="Scoot and Dodge"
        from="Right-Hand Columns"
        formation="Column RH GBGB"
        parts="" >
@@ -118,7 +115,7 @@
     </path>
   </tam>
 
-  <tam title="Scoot and Dodge" 
+  <tam title="Scoot and Dodge"
        from="Left-Hand Columns"
        formation="Column LH GBGB"
        parts="" >
@@ -140,7 +137,7 @@
     </path>
   </tam>
 
-  <tam title="As Couples Scoot and Dodge" 
+  <tam title="As Couples Scoot and Dodge"
        from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH"
        parts="" >
@@ -162,7 +159,7 @@
     </path>
   </tam>
 
-  <tam title="All 8 Scoot and Dodge" 
+  <tam title="All 8 Scoot and Dodge"
        from="Static Mini-Waves"
        formation="Static MiniWaves RH"
        parts="" >

@@ -116,17 +116,17 @@
        from="Tidal Wave"
        formation="Tidal Wave RH BGGB"
        parts="3;3" >
-    <path>
+    <path couples="3 1">
       <move select="U-Turn Right" offsetX="2" offsetY="-0.5" />
       <move select="Flip Left" offsetX="-1" />
       <move select="U-Turn Right" offsetX=".5" offsetY="-1" />
     </path>
-    <path>
+    <path couples="2 4">
       <move select="U-Turn Right" offsetX="2" offsetY="-0.5" />
       <move select="Flip Right" offsetX="1" />
       <move select="U-Turn Left" offsetX="-.5" offsetY="1" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="U-Turn Right" offsetX="2" offsetY="-0.5" />
       <move select="U-Turn Right" offsetX="1" />
       <move select="U-Turn Right" offsetX=".5" offsetY="-1" />

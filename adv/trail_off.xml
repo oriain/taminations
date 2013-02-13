@@ -22,13 +22,14 @@
 -->
 <tamination>
 
-  <tam title="Trail Off" from="Right-Hand Box" formation="Box RH">
-    <path numbers="1 4">
+  <tam title="Trail Off" from="Right-Hand Box"
+       formation="Box RH Boys Lead">
+    <path numbers="2 3" couples="3 1">
+      <move select="Run Right" scaleY="2" offsetX="-2" />
+    </path>
+    <path numbers="1 4" couples="1 3">
       <move select="Forward 2" />
       <move select="Swing Right" />
-    </path>
-    <path numbers="2 3">
-      <move select="Run Right" scaleY="2" offsetX="-2" />
     </path>
   </tam>
 

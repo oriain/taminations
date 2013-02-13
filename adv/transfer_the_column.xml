@@ -24,24 +24,24 @@
 
   <tam title="Transfer the Column"
        from="Right-Hand Columns">
-     <formation>      <dancer gender="girl" x="-1" y="3" angle="90"/>      <dancer gender="boy" x="-1" y="-1" angle="90"/>      <dancer gender="girl" x="-1" y="1" angle="90"/>      <dancer gender="boy" x="-1" y="-3" angle="90"/>    </formation>
-    <path numbers="1 5">
+     <formation>      <dancer gender="girl" x="-1" y="3" angle="90"/>      <dancer gender="girl" x="-1" y="-1" angle="90"/>      <dancer gender="boy" x="-1" y="1" angle="90"/>      <dancer gender="boy" x="-1" y="-3" angle="90"/>    </formation>
+    <path numbers="1 5" couples="3 1">
       <move select="Run Right" beats="3" scaleY="2" />
       <move select="Forward 4" />
       <move select="Lead Right" beats="2" scaleX="2" />
     </path>
-    <path numbers="3 7">
+    <path numbers="3 7" couples="2 4">
       <move select="Forward 2" />
       <move select="Swing Right" scaleX=".5" />
       <move select="Hinge Right" scaleX=".5" />
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
     </path>
-    <path numbers="2 6">
+    <path numbers="2 6" couples="3 1">
       <move select="Forward 2" />
       <move select="Run Right" beats="3" scaleY="2" />
       <move select="Lead Right" beats="2" scaleX="2" />
     </path>
-    <path numbers="4 8">
+    <path numbers="4 8" couples="2 4">
       <move select="Forward 2" />
       <move select="Swing Right" scaleX=".5" />
       <move select="Hinge Right" scaleX=".5" />
@@ -51,24 +51,24 @@
 
   <tam title="Transfer the Column"
        from="Left-Hand Columns">
-     <formation>      <dancer gender="girl" x="-1" y="-3" angle="270"/>      <dancer gender="boy" x="-1" y="1" angle="270"/>      <dancer gender="girl" x="-1" y="-1" angle="270"/>      <dancer gender="boy" x="-1" y="3" angle="270"/>    </formation>
-    <path numbers="1 5">
+     <formation>      <dancer gender="boy" x="-1" y="-3" angle="270"/>      <dancer gender="boy" x="-1" y="1" angle="270"/>      <dancer gender="girl" x="-1" y="-1" angle="270"/>      <dancer gender="girl" x="-1" y="3" angle="270"/>    </formation>
+    <path numbers="1 5" couples="2 4">
       <move select="Run Left" beats="3" scaleY="2" />
       <move select="Forward 4" />
       <move select="Lead Left" beats="2" scaleX="2" />
     </path>
-    <path numbers="3 7">
+    <path numbers="3 7" couples="3 1">
       <move select="Forward 2" />
       <move select="Swing Left" scaleX=".5" />
       <move select="Hinge Left" scaleX=".5" />
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
     </path>
-    <path numbers="2 6">
+    <path numbers="2 6" couples="2 4">
       <move select="Forward 2" />
       <move select="Run Left" beats="3" scaleY="2" />
       <move select="Lead Left" beats="2" scaleX="2" />
     </path>
-    <path numbers="4 8">
+    <path numbers="4 8" couples="3 1">
       <move select="Forward 2" />
       <move select="Swing Left" scaleX=".5" />
       <move select="Hinge Left" scaleX=".5" />

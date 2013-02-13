@@ -22,20 +22,21 @@
 -->
 <tamination>
 
-  <tam title="Switch the Wave" from="Right-Hand Wave" formation="Wave RH">
-    <path numbers="1 4">
-      <move select="Run Right" beats="6" scaleY="2" />
-    </path>
-    <path numbers="2 3">
+  <tam title="Switch the Wave" from="Right-Hand Wave"
+       formation="Wave RH Boys Center">
+    <path numbers="2 3" couples="3 1">
       <move select="Run Right" />
+    </path>
+    <path numbers="1 4" couples="1 3">
+      <move select="Run Right" beats="6" scaleY="2" />
     </path>
   </tam>
 
   <tam title="Switch the Wave" from="Left-Hand Wave" formation="Wave LH">
-    <path numbers="4 1">
+    <path numbers="4 1" couples="3 1">
       <move select="Run Left" beats="6" scaleY="2" />
     </path>
-    <path numbers="3 2">
+    <path numbers="3 2" couples="3 1">
       <move select="Run Left" />
     </path>
   </tam>
