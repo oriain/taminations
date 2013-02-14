@@ -26,17 +26,17 @@
        from="Right-Hand Interlocked Diamonds"
        formation="Interlocked Diamonds RH Girl Points"
        parts="" >
-    <path numbers="6 3">
+    <path numbers="6 3" couples="3 1">
       <move select="Lead Right" beats="4" scaleX="3" />
     </path>
-    <path numbers="2 7">
+    <path numbers="2 7" couples="3 1">
       <move select="Dodge Right" />
       <move select="Swing Right" />
     </path>
-    <path numbers="5 4">
+    <path numbers="5 4" couples="4 2">
       <move select="Lead Right" beats="4" scaleX="3" scaleY="3" />
     </path>
-    <path numbers="8 1">
+    <path numbers="8 1" couples="2 4">
       <move select="Dodge Right" />
       <move select="Swing Right" />
     </path>

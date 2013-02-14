@@ -55,27 +55,27 @@
 
   <tam title="Percolate"
        from="Right-Hand Waves"
+       formation="Ocean Waves RH BGGB"
        parts="4;2;1.5" >
-     <formation>      <dancer gender="girl" x="-2" y="3" angle="0"/>      <dancer gender="boy" x="-2" y="1" angle="180"/>      <dancer gender="girl" x="-2" y="-1" angle="0"/>      <dancer gender="boy" x="-2" y="-3" angle="180"/>    </formation>
-    <path>
+    <path couples="2 4">
       <move select="Forward 4" />
       <move select="Lead Right" beats="2" scaleX="2" scaleY="3" />
       <move select="Swing Right" scaleX=".5" scaleY=".5" />
       <move select="Forward 2" />
     </path>
-    <path>
+    <path couples="2 4">
       <move select="Run Left" beats="4" />
       <move select="Forward 2" />
       <move select="Hinge Right" />
       <move select="Stand" hands="none" beats="4"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Forward 4" />
       <move select="Lead Left" beats="2" />
       <move select="Swing Right" scaleX=".5" scaleY=".5" />
       <move select="Extend Right" beats="2" scaleX="2" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Lead Right" beats="2" scaleX="2" scaleY="3" />
       <move select="Lead Right" beats="2" scaleX="3" scaleY="2" />
       <move select="Forward 2" />

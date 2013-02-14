@@ -26,25 +26,25 @@
        from="Quarter Tag"
        formation="Quarter Tag"
        parts="5" >
-    <path numbers="1 8">
+    <path numbers="1 8" couples="2 4">
       <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY="1.5" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
       <move select="Run Right" />
       <move select="Forward" beats="3.5" scaleX="3.5"/>
     </path>
-    <path numbers="2 7">
+    <path numbers="2 7" couples="2 4">
       <move select="Forward" beats="1.5" scaleX="1.5" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
       <move select="Lead Right" />
       <move select="Forward 3" />
       <move select="Lead Right" beats="1.5" scaleX="1.5" scaleY=".5" />
     </path>
-    <path numbers="6 3">
+    <path numbers="6 3" couples="3 1">
       <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".5" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
       <move select="Forward" beats="6" scaleX="3.5" />
     </path>
-    <path numbers="5 4">
+    <path numbers="5 4" couples="3 1">
       <move select="Forward" beats="1.5" scaleX="1.5" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
       <move select="Forward 2" />

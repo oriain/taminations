@@ -26,23 +26,23 @@
        from="Right-Hand Quarter Waves"
        formation="Quarter Wave RH"
        parts="1.5;5" >
-    <path numbers="1 8">
+    <path numbers="1 8" couples="2 4">
       <move select="Hinge Right" />
       <move select="Swing Right" beats="5" offsetY="-1" />
       <move select="Lead Right" beats="4" scaleX="3" scaleY="3" />
     </path>
-    <path numbers="2 7">
+    <path numbers="2 7" couples="2 4">
       <move select="Hinge Right" />
       <move select="Swing Right" beats="5" offsetY="1" />
       <move select="Cast Left" />
     </path>
-    <path numbers="6 3">
+    <path numbers="6 3" couples="3 1">
       <move select="Hinge Right" />
       <move select="Forward 4" />
       <move select="Lead Right" />
       <move select="Forward 2" />
     </path>
-    <path numbers="5 4">
+    <path numbers="5 4" couples="3 1">
       <move select="Hinge Right" />
       <move select="Run Right" />
       <move select="Forward 2" />

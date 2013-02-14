@@ -81,8 +81,6 @@
     </taminator>
   </tam>
 
-
-
   <tam title="Load the Boat, Centers to a Wave" group=" "
        from="Normal Lines"
        formation="Normal Lines"
@@ -149,25 +147,25 @@
 
   <tam title="Scoot Chain Thru to a Wave" from="Quarter Tag" group=" "
     formation="Quarter Tag" parts="2;3;3">
-    <path numbers="1 8">
+    <path numbers="1 8" couples="2 4">
       <move select="Extend Left" scaleY="2" beats="2" />
       <move select="Swing Right" />
       <move select="Swing Left" />
       <move select="Swing Right" />
     </path>
-    <path numbers="2 7">
+    <path numbers="2 7" couples="2 4">
       <move select="Forward" beats="2" />
       <move select="Swing Right" />
       <move select="Stand" beats="3" />
       <move select="Swing Right" />
     </path>
-    <path numbers="6 3">
+    <path numbers="6 3" couples="3 1">
       <move select="Forward 2" />
       <move select="Swing Right" />
       <move select="Swing Left" />
       <move select="Swing Right" />
     </path>
-    <path numbers="5 4">
+    <path numbers="5 4" couples="3 1">
       <move select="Forward 2" />
       <move select="Swing Right" />
       <move select="Stand" beats="3" />

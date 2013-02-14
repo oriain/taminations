@@ -65,28 +65,28 @@
        from="Right-Hand 3/4 Tag"
        formation="3/4 Tag"
        parts="6;7" >
-    <path numbers="1 8">
+    <path numbers="1 8" couples="4 2">
       <move select="Flip Right" offsetX="-1" />
       <move select="Forward 4" beats="3" />
       <move select="Flip Right" />
       <move select="Forward 4" />
       <move select="Run Right" beats="6" offsetX="-2" />
     </path>
-    <path numbers="2 7">
+    <path numbers="2 7" couples="4 2">
       <move select="Flip Right" beats="5" scaleX="2" scaleY="2" />
       <move select="Forward" />
       <move select="Forward 4" />
       <move select="Run Right" />
       <move select="Forward 2" beats="6" />
     </path>
-    <path numbers="6 3">
+    <path numbers="6 3" couples="3 1">
       <move select="Flip Right" beats="6" offsetX="2" />
       <move select="Forward 4" />
       <move select="Flip Right" />
       <move select="Forward 4" beats="3.5" />
       <move select="Run Right" beats="2.5" offsetX="1" />
     </path>
-    <path numbers="5 4">
+    <path numbers="5 4" couples="3 1">
       <move select="Forward 2" beats="6" />
       <move select="Flip Right" />
       <move select="Forward 4" />

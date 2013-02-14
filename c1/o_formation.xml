@@ -23,9 +23,7 @@
 <tamination>
 
 <tam title="&quot;O&quot; Chase Right" group="&quot;O&quot;"
-       from=""
-       formation="O Trade By"
-       parts="" >
+       formation="O Trade By">
     <path>
       <move select="Run Right" />
       <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
@@ -48,18 +46,23 @@
 
   <tam title="&quot;O&quot; Circulate (Right-Hand O)" group="&quot;O&quot;"
        from="Right-Hand O"
-       formation="O RH"
        parts="1.5" >
-    <path>
+    <formation>
+      <dancer gender="girl" x="-3" y="1" angle="0"/>
+      <dancer gender="boy" x="-3" y="-1" angle="180"/>
+      <dancer gender="boy" x="-1" y="3" angle="0"/>
+      <dancer gender="girl" x="-1" y="-3" angle="180"/>
+    </formation>
+    <path couples="2 4">
       <move select="Extend Left" beats="3" scaleX="2" scaleY="2" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Flip Right" />
     </path>
-    <path>
+    <path couples="2 4">
       <move select="Forward 2" beats="3" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Extend Right" beats="3" scaleX="2" scaleY="2" />
     </path>
   </tam>
@@ -83,9 +86,7 @@
   </tam>
 
   <tam title="&quot;O&quot; Cloverleaf" group="&quot;O&quot;"
-       from=""
-       formation="O Out"
-       parts="" >
+       formation="O Out">
     <path>
       <move select="Lead Right" />
       <move select="Lead Right" scaleX="1.5" scaleY="1.5" />
@@ -113,9 +114,7 @@
   </tam>
 
   <tam title="&quot;O&quot; Coordinate" group="&quot;O&quot;"
-       from=""
-       formation="O RH"
-       parts="" >
+       formation="O RH">
     <path>
       <move select="Forward 3" beats="4" />
       <move select="Swing Right" scaleX=".5" />
@@ -157,9 +156,7 @@
   </tam>
 
   <tam title="&quot;O&quot; Pass In" group="&quot;O&quot;"
-       from=""
-       formation="O Eight Chain Thru"
-       parts="" >
+       formation="O Eight Chain Thru">
     <path>
       <move select="Extend Left" beats="2" scaleY="2" />
       <move select="Quarter Right" offsetX="1" />
@@ -177,9 +174,7 @@
   </tam>
 
   <tam title="&quot;O&quot; Pass Thru" group="&quot;O&quot;"
-       from=""
-       formation="O Eight Chain Thru"
-       parts="" >
+       formation="O Eight Chain Thru">
     <path>
       <move select="Extend Left" beats="2" scaleY="2" />
       <move select="Forward" />
@@ -199,9 +194,7 @@
   </tam>
 
   <tam title="&quot;O&quot; Peel Off" group="&quot;O&quot;"
-       from=""
-       formation="O RH"
-       parts="" >
+       formation="O RH">
     <path>
       <move select="U-Turn Left" beats="4" />
     </path>
@@ -217,9 +210,7 @@
   </tam>
 
   <tam title="&quot;O&quot; Right Roll to a Wave" group="&quot;O&quot;"
-       from=""
-       formation="O Trade By"
-       parts="" >
+       formation="O Trade By">
     <path>
       <move select="U-Turn Right" />
     </path>
@@ -235,9 +226,7 @@
   </tam>
 
   <tam title="&quot;O&quot; Scoot Back" group="&quot;O&quot;"
-       from=""
-       formation="O RH"
-       parts="" >
+       formation="O RH">
     <path>
       <move select="Extend Right" beats="2" />
       <move select="Swing Right" scaleX=".5" scaleY=".5" />
@@ -257,9 +246,7 @@
   </tam>
 
   <tam title="&quot;O&quot; Slide Thru" group="&quot;O&quot;"
-       from=""
-       formation="O Eight Chain Thru"
-       parts="" >
+       formation="O Eight Chain Thru">
     <path>
       <move select="Extend Left" beats="2" scaleY="2" />
       <move select="Quarter Right" offsetX="1" />
@@ -277,9 +264,7 @@
   </tam>
 
   <tam title="&quot;O&quot; Square Thru" group="&quot;O&quot;"
-       from=""
-       formation="O Eight Chain Thru"
-       parts="" >
+       formation="O Eight Chain Thru">
     <path>
       <move select="Extend Left" beats="2" />
       <move select="Lead Right" beats="2" scaleX=".5" scaleY="2" />
@@ -310,8 +295,8 @@
     </path>
   </tam>
 
-  <tam title="&quot;O&quot; Split Circulate" group="&quot;O&quot;" formation="O RH"
-       from="">
+  <tam title="&quot;O&quot; Split Circulate" group="&quot;O&quot;"
+       formation="O RH">
     <path>
       <move select="Extend Left" beats="6" scaleX="2" scaleY="2" />
     </path>
@@ -328,9 +313,7 @@
 
 
   <tam title="&quot;O&quot; Swap Around" group="&quot;O&quot;"
-       from=""
-       formation="O Eight Chain Thru"
-       parts="" >
+       formation="O Eight Chain Thru">
     <path>
       <move select="Flip Right" />
     </path>
@@ -370,9 +353,7 @@
   </tam>
 
   <tam title="&quot;O&quot; Touch a Quarter" group="&quot;O&quot;"
-       from=""
-       formation="O Eight Chain Thru"
-       parts="" >
+       formation="O Eight Chain Thru">
     <path>
       <move select="Extend Left" beats="2" scaleY="2" />
       <move select="Quarter Right" offsetX="1" />
@@ -392,9 +373,7 @@
   </tam>
 
   <tam title="&quot;O&quot; Track Two" group="&quot;O&quot;"
-       from=""
-       formation="O Out"
-       parts="" >
+       formation="O Out">
     <path>
       <move select="Flip Left" offsetX="-2" />
       <move select="Forward 4" />
@@ -413,9 +392,7 @@
   </tam>
 
   <tam title="&quot;O&quot; Trade By" group="&quot;O&quot;"
-       from=""
-       formation="O Trade By"
-       parts="" >
+       formation="O Trade By">
     <path>
       <move select="Run Right" />
     </path>
@@ -432,28 +409,31 @@
     </path>
   </tam>
 
-  <tam title="&quot;O&quot; Transfer the Column" group="&quot;O&quot;"
-       from=""
-       formation="O RH"
-       parts="" >
-    <path>
+  <tam title="&quot;O&quot; Transfer the Column" group="&quot;O&quot;">
+    <formation>
+      <dancer gender="girl" x="-3" y="1" angle="0"/>
+      <dancer gender="boy" x="-3" y="-1" angle="180"/>
+      <dancer gender="boy" x="-1" y="3" angle="0"/>
+      <dancer gender="girl" x="-1" y="-3" angle="180"/>
+    </formation>
+    <path couples="2 4">
       <move select="Forward 2" />
       <move select="Swing Right" scaleX=".5" />
       <move select="Hinge Right" scaleX=".5" />
       <move select="Extend Left" beats="2" scaleY="1.5" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Run Right" beats="3" scaleY="2" />
       <move select="Forward 4" />
       <move select="Lead Right" beats="2" scaleX="2" scaleY="2" />
     </path>
-    <path>
+    <path couples="2 4">
       <move select="Extend Right" beats="2" scaleX="2" scaleY="2" />
       <move select="Swing Right" scaleX=".5" />
       <move select="Hinge Right" scaleX=".5" />
       <move select="Extend Right" beats="4" scaleX="3" scaleY=".5" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Forward 2" />
       <move select="Run Right" beats="4" scaleY="3.5" />
       <move select="Lead Right" beats="4" scaleX="2" />
@@ -495,9 +475,7 @@
   </tam>
 
   <tam title="&quot;O&quot; Wheel Thru" group="&quot;O&quot;"
-       from=""
-       formation="O Eight Chain Thru"
-       parts="" >
+       formation="O Eight Chain Thru">
     <path>
       <move select="Lead Right" beats="3" scaleX="2" scaleY="2" />
       <move select="Forward 2" />
@@ -515,9 +493,7 @@
   </tam>
 
   <tam title="&quot;O&quot; Zoom" group="&quot;O&quot;"
-       from=""
-       formation="O In"
-       parts="" >
+       formation="O In">
     <path>
       <move select="Extend Left" beats="6" scaleX="2" scaleY="2" />
     </path>
@@ -533,6 +509,5 @@
       <move select="Run Right" offsetX="1" offsetY="-1" />
     </path>
   </tam>
-
 
 </tamination>

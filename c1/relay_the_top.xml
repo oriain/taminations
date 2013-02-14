@@ -21,32 +21,30 @@
 
 -->
 <tamination>
-  
-  
 
   <tam title="Relay the Top"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
        parts="3;4.5;3" >
-    <path>
+    <path couples="2 4">
       <move select="Swing Right" />
       <move select="Cast Left" />
       <move select="Hinge Right" beats="3" />
       <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2" />
     </path>
-    <path>
+    <path couples="2 4">
       <move select="Swing Right" />
       <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2" />
       <move select="Hinge Right" beats="3" />
       <move select="Cast Left" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Swing Right" />
       <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3" />
       <move select="Swing Right" />
       <move select="Cast Left" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Swing Right" />
       <move select="Cast Left" />
       <move select="Swing Right" />

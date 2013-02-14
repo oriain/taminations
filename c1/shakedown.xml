@@ -23,11 +23,11 @@
 <tamination>
 
   <tam title="Shakedown" from="Couples Facing Out" formation="Couples Facing Out">
-    <path numbers="1 4">
+    <path numbers="1 4" couples="3 1">
       <move select="U-Turn Right" offsetX="-2" offsetY="-1" />
       <move select="Quarter Right" offsetX="1" />
     </path>
-    <path numbers="2 3">
+    <path numbers="2 3" couples="3 1">
       <move select="Flip Right" scaleY="1.5" />
       <move select="Quarter Right" offsetX="1" />
     </path>

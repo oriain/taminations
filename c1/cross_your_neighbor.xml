@@ -21,10 +21,12 @@
 
 -->
 <tamination>
-  
-  
 
-  <tam title="Cross Your Neighbor" from="Right-Hand Box" formation="Box RH">
+  <tam title="Cross Your Neighbor" from="Right-Hand Box">
+    <formation name="Box RH">
+      <dancer gender="boy" y="2" x="1" angle="270"/>
+      <dancer gender="girl" y="2" x="-1" angle="90"/>
+    </formation>
     <path>
       <move select="Extend Right" beats="2" scaleX="2" scaleY="1.75" />
       <move select="Swing Left" scaleX=".75" scaleY=".75" />

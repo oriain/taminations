@@ -24,21 +24,21 @@
 
   <tam title="Scatter Scoot"
        from="Right-Hand Waves"
-       formation="Ocean Waves RH BGBG" >
-    <path numbers="1 8">
+       formation="Ocean Waves RH BGGB" >
+    <path numbers="1 8" couples="2 4">
       <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".25" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
       <move select="Extend Left" beats="1.5" scaleX="2" scaleY=".25" />
     </path>
-    <path numbers="2 7">
+    <path numbers="2 7" couples="2 4">
       <move select="Run Left" beats="6"/>
     </path>
-    <path numbers="3 6">
+    <path numbers="3 6" couples="3 1">
       <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".25" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
       <move select="Extend Left" beats="1.5" scaleX="2" scaleY=".25" />
     </path>
-    <path numbers="4 5">
+    <path numbers="4 5" couples="3 1">
       <move select="Lead Right" scaleX="2" scaleY="3" beats="3" />
       <move select="Lead Right" scaleX="3" scaleY="2" beats="3" />
     </path>
@@ -46,8 +46,7 @@
 
   <tam title="Scatter Scoot"
        from="Left-Hand Waves"
-       formation="Ocean Waves LH BGBG"
-       parts="" >
+       formation="Ocean Waves LH BGBG">
     <path>
       <move select="Lead Left" beats="3" scaleX="2" scaleY="3" />
       <move select="Lead Left" beats="3" scaleX="3" scaleY="2"/>
@@ -66,4 +65,5 @@
       <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".25" />
     </path>
   </tam>
+
 </tamination>

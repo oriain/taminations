@@ -21,8 +21,8 @@
 
 -->
 <tamination>
-  
-  
+
+
 
   <tam title="Cross Extend" from="Right-Hand Box" formation="Box RH">
   <path>
@@ -33,12 +33,13 @@
   </path>
   </tam>
 
-  <tam title="Cross Extend" from="Left-Hand Box" formation="Box LH">
-  <path>
-    <move select="Extend Left" beats="2"/>
-  </path>
-  <path>
+  <tam title="Cross Extend" from="Left-Hand Box"
+       formation="Box LH Girls Lead">
+  <path couples="3 1">
     <move select="Extend Left" beats="2" scaleX="2" scaleY="2"/>
+  </path>
+  <path couples="1 3">
+    <move select="Extend Left" beats="2"/>
   </path>
   </tam>
 

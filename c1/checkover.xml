@@ -23,28 +23,32 @@
 <tamination>
 
   <tam title="Checkover"
-       from="Right-Hand Columns"
-       formation="Column RH GBGB"
-       parts="" >
-    <path>
+       from="Right-Hand Columns">
+    <formation>
+      <dancer gender="boy" y="3" x="-1" angle="90"/>
+      <dancer gender="girl" y="1" x="-1" angle="90"/>
+      <dancer gender="boy" y="-1" x="-1" angle="90"/>
+      <dancer gender="girl" y="-3" x="-1" angle="90"/>
+    </formation>
+    <path couples="2 4">
       <move select="Flip Right" beats="2" scaleY="1.5" />
       <move select="Forward 5" />
       <move select="Quarter Right" offsetX="1" />
     </path>
-    <path>
+    <path couples="2 4">
       <move select="Forward 2" />
       <move select="Flip Right" beats="2" scaleY="1.5" />
       <move select="Forward 3" />
       <move select="Quarter Right" offsetX="1" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Forward 2" />
       <move select="Hinge Right" scaleX=".5" />
       <move select="Hinge Right" scaleX=".75" scaleY=".5" />
       <move select="Lead Right" beats="2" scaleX="2" scaleY=".75" />
       <move select="Forward 2" hands="left" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Forward 2" />
       <move select="Hinge Right" scaleX=".5" />
       <move select="Hinge Right" scaleX=".75" scaleY=".5" />
