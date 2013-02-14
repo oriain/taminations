@@ -177,7 +177,7 @@ function getTitle()
   return '<div class="title">' +
          '<a href="http://www.tamtwirlers.org/">'+
          '<img height="72" border="0" align="right" src="'+prefix+'info/badge.gif"></a>'+
-         '<a href="'+prefix+'info/index.html">TAMinations</a></div>';
+         '<a href="'+prefix+'info/index.html">Taminations</a></div>';
 }
 
 //Set height of page sections to fit the window
