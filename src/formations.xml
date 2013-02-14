@@ -310,6 +310,13 @@
     <dancer gender="girl" x="-2" y="-3" angle="0"/>
   </formation>
 
+  <formation name="Ocean Waves RH GBGB">
+    <dancer gender="girl" x="-2" y="3" angle="0"/>
+    <dancer gender="boy" x="-2" y="1" angle="180"/>
+    <dancer gender="girl" x="-2" y="-1" angle="0"/>
+    <dancer gender="boy" x="-2" y="-3" angle="180"/>
+  </formation>
+
   <formation name="Circle">
     <dancer gender="boy" x="-2.414" y="1" angle="-22.5"/>
     <dancer gender="girl" x="-2.414" y="-1" angle="22.5"/>
@@ -674,6 +681,13 @@
     <dancer gender="boy" x="0" y="-.5" angle="0"/>
   </formation>
 
+  <formation name="Tidal Wave RH BGBG">
+    <dancer gender="boy" x="0" y="-3.5" angle="180"/>
+    <dancer gender="girl" x="0" y="-2.5" angle="0"/>
+    <dancer gender="boy" x="0" y="-1.5" angle="180"/>
+    <dancer gender="girl" x="0" y="-.5" angle="0"/>
+  </formation>
+
   <formation name="Tidal Wave LH BGGB">
     <dancer gender="boy" x="0" y="-3.5" angle="0"/>
     <dancer gender="girl" x="0" y="-2.5" angle="180"/>
@@ -941,6 +955,13 @@
     <dancer gender="girl" x="-1" y="1" angle="180"/>
     <dancer gender="boy" x="-1" y="-1" angle="90"/>
     <dancer gender="girl" x="-1" y="-3" angle="180"/>
+  </formation>
+
+  <formation name="T-Bone URDR">
+     <dancer gender="girl" x="-1" y="3" angle="0"/>
+     <dancer gender="boy" x="-1" y="1" angle="270"/>
+     <dancer gender="girl" x="-1" y="-1" angle="180"/>
+     <dancer gender="boy" x="-1" y="-3" angle="270"/>
   </formation>
 
   <formation name="T-Bone Couples">
