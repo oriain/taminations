@@ -80,8 +80,13 @@
 
   <tam title="Tally Ho"
        from="Normal Lines"
-       formation="Normal Lines"
        parts="2;3" >
+    <formation>
+      <dancer gender="boy" y="2" x="3" angle="270"/>
+      <dancer gender="girl" y="2" x="1" angle="270"/>
+      <dancer gender="boy" y="2" x="-1" angle="270"/>
+      <dancer gender="girl" y="2" x="-3" angle="270"/>
+    </formation>
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Swing Right" scaleX=".5" scaleY=".5" />
@@ -107,7 +112,8 @@
     </path>
   </tam>
 
-  <tam title="Tally Ho" from="Lines Facing Out" formation="Lines Facing Out" parts="3;3">
+  <tam title="Tally Ho" from="Lines Facing Out"
+       formation="Lines Facing Out" parts="3;3">
     <path>
       <move select="Lead Left" beats="3" scaleY="3"/>
       <move select="Swing Right" scaleX=".5" scaleY=".5"/>
@@ -134,7 +140,7 @@
     </path>
   </tam>
 
-  <tam title="Tally Ho" from="Inverted Lines, Centers In"
+  <tam title="Tally Ho" from="Inverted Lines, Ends Facing Out"
        formation="Inverted Lines Ends Facing Out" parts="3;3">
     <path>
       <move select="Lead Left" beats="3" scaleY="3"/>
@@ -160,7 +166,7 @@
     </path>
   </tam>
 
-  <tam title="Tally Ho" from="Inverted Lines, Centers Out"
+  <tam title="Tally Ho" from="Inverted Lines, Ends Facing In"
        formation="Inverted Lines Ends Facing In" parts="2;3">
     <path>
       <move select="Extend Left" beats="2" scaleX="2"/>
@@ -215,22 +221,22 @@
        from="Trade By"
        formation="Trade By"
        parts="1;3.5" >
-    <path>
+    <path couples="2 4">
       <move select="Quarter Left" offsetY="1" />
       <move select="Swing Right" scaleX=".5" scaleY=".5" />
       <move select="Lead Right" beats="4" scaleX="3" scaleY="2" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Lead Right" />
       <move select="Swing Right" scaleX=".5" scaleY=".5" />
       <move select="Cast Left" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Forward" />
       <move select="Hinge Right" scaleY=".5" />
       <move select="Lead Right" beats="4" scaleX="1.5" scaleY="3" />
     </path>
-    <path>
+    <path couples="2 4">
       <move select="Extend Left" />
       <move select="Hinge Right" scaleY=".5" />
       <move select="Forward" beats="2" scaleX="1.5" scaleY="1.5" />

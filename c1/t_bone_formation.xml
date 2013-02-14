@@ -24,16 +24,16 @@
 
   <tam title="(T-Bone) Circulate" from="" parts="" group="(T-Bone)">
      <formation>      <dancer gender="girl" x="-1" y="3" angle="90"/>      <dancer gender="boy" x="-1" y="1" angle="180"/>      <dancer gender="girl" x="-1" y="-1" angle="90"/>      <dancer gender="boy" x="-1" y="-3" angle="180"/>    </formation>
-    <path numbers="5 4">
-      <move select="Run Right"/>
+    <path numbers="5 4" couples="4 2">
+      <move select="Run Right" beats="5"/>
     </path>
-    <path numbers="6 3">
-      <move select="Run Left"/>
+    <path numbers="6 3" couples="4 2">
+      <move select="Run Left" beats="5"/>
     </path>
-    <path numbers="7 2">
-      <move select="Forward 2" beats="3"/>
+    <path numbers="7 2" couples="3 1">
+      <move select="Forward 2" beats="5"/>
     </path>
-    <path numbers="8 1">
+    <path numbers="8 1" couples="3 1">
       <move select="Run Right" scaleX="2" scaleY="3" beats="5"/>
     </path>
   </tam>

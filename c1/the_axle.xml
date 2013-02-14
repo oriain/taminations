@@ -21,13 +21,16 @@
 
 -->
 <tamination>
-  
-  
 
   <tam title="The Axle"
        from="Trade By"
-       formation="Trade By"
        parts="4;3" >
+    <formation name="Trade By">
+      <dancer gender="girl" y="3" x="1" angle="90"/>
+      <dancer gender="boy" y="3" x="-1" angle="90"/>
+      <dancer gender="girl" y="1" x="-1" angle="270"/>
+      <dancer gender="boy" y="1" x="1" angle="270"/>
+    </formation>
     <path>
       <move select="Run Left" beats="4" scaleX="2" scaleY="2" offsetX="-1" />
       <move select="Swing Left" />
@@ -51,4 +54,5 @@
       <move select="Swing Left" />
     </path>
   </tam>
+
 </tamination>

@@ -25,12 +25,12 @@
   <tam title="Vertical Tag"
        from="Facing Couples"
        formation="Facing Couples">
-    <path>
+    <path couples="3 1">
       <move select="Stand" beats="2" />
       <move select="Forward" />
       <move select="Extend Right" beats="2" scaleX="2" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Extend Left" beats="2" scaleX="2" scaleY="1.5" />
       <move select="Extend Right" beats="3" scaleX="3" scaleY=".5" />
     </path>
@@ -89,10 +89,10 @@
   </tam>
 
   <tam title="Vertical 1/4 Tag" from="Facing Couples" formation="Facing Couples">
-    <path>
+    <path couples="3 1">
       <move select="Dodge Right" scaleY=".5"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Extend Left" beats="3" scaleX="2" scaleY="2"/>
     </path>
   </tam>
@@ -179,11 +179,11 @@
   </tam>
 
   <tam title="Vertical 3/4 Tag" from="Facing Couples" formation="Facing Couples">
-    <path>
+    <path couples="3 1">
       <move select="Stand" beats="2"/>
       <move select="Forward 2"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Extend Left" beats="2" scaleX="2" scaleY="1.5"/>
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
     </path>
