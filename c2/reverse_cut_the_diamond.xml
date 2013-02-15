@@ -22,14 +22,18 @@
 -->
 <tamination>
 
-  <tam title="Reverse Cut the Diamond" from="Right-Hand Diamond" formation="Diamond RH">
-  <path>
-    <move select="Lead Right" beats="4" scaleY="3"/>
-  </path>
-  <path>
-    <move select="Hinge Right" beats="1"/>
-    <move select="Lead Right" beats="3" scaleX="3"/>
-  </path>
+  <tam title="Reverse Cut the Diamond" from="Right-Hand Diamond">
+    <formation>
+      <dancer gender="boy" y="0" x="3" angle="270" />
+      <dancer gender="girl" y="-1" x="0" angle="180" />
+    </formation>
+    <path>
+      <move select="Lead Right" beats="4" scaleY="3" />
+    </path>
+    <path couples="3 1">
+      <move select="Hinge Right" beats="1" />
+      <move select="Lead Right" beats="3" scaleX="3" />
+    </path>
   </tam>
 
   <tam title="Reverse Cut the Diamond" from="Left-Hand Diamond"

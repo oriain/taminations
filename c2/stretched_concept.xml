@@ -24,17 +24,17 @@
 
   <tam title="Stretched Line Crossfire" group="Stretched Line"
        formation="Tidal Line RH">
-    <path>
+    <path couples="3 1">
       <move select="Run Right" beats="6"  scaleY="1.25" offsetX="2"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Run Right" scaleX=".5" scaleY=".75"/>
       <move select="Forward 2" beats="3"/>
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Run Right" beats="6" scaleY="2.25" offsetX="2"/>
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Run Right" beats="4" scaleX=".5" scaleY="1.75"/>
       <move select="Forward 2"/>
     </path>

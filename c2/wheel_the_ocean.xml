@@ -21,16 +21,14 @@
 
 -->
 <tamination>
-  
-  
 
   <tam title="Wheel the Ocean" from="Couples Facing Out" formation="Couples Facing Out" parts="3">
-    <path>
+    <path couples="3 1">
       <move select="Belle Wheel" />
       <move select="Extend Left" hands="right" beats="3" scaleX="3" scaleY="2" />
       <move select="Forward" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Beau Wheel" />
       <move select="Stand" beats="4" hands="nohands" />
     </path>

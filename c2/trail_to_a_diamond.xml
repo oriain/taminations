@@ -37,14 +37,13 @@
 
   <tam title="Trail to a Diamond"
        from="Left-Hand Box"
-       formation="Box LH"
-       parts="" >
-    <path>
-      <move select="Run Left" scaleY="2" offsetX="-2" />
-    </path>
-    <path>
+       formation="Box LH Girls Lead">
+    <path couples="3 1">
       <move select="Forward 2" />
       <move select="Hinge Left" />
+    </path>
+    <path>
+      <move select="Run Left" scaleY="2" offsetX="-2" />
     </path>
   </tam>
 

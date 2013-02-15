@@ -52,8 +52,13 @@
     </path>
   </tam>
 
-  <tam title="Rotary Mix" formation="Eight Chain Thru"
-       group="Rotary">
+  <tam title="Rotary Mix" group="Rotary">
+    <formation>
+      <dancer gender="boy" y="3" x="1" angle="270" />
+      <dancer gender="girl" y="3" x="-1" angle="270" />
+      <dancer gender="boy" y="1" x="-1" angle="90" />
+      <dancer gender="girl" y="1" x="1" angle="90" />
+    </formation>
     <path>
       <move select="Pull Left" scaleY=".5"/>
       <move select="Extend Right" scaleY=".5"/>
