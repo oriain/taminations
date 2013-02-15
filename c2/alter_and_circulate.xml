@@ -21,8 +21,6 @@
 
 -->
 <tamination>
-  
-  
 
   <tam title="Alter and Circulate"
        from="Right-Hand Waves"
@@ -42,14 +40,14 @@
       <move select="Run Left" beats="4" scaleX="1.5" scaleY="3" />
       <move select="Flip Left" />
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Swing Right" />
       <move select="U-Turn Right" />
       <move select="Forward 4" beats="4.5" />
       <move select="Run Left" beats="4" scaleX="1.5" scaleY="3" />
       <move select="Flip Left" />
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Swing Right" />
       <move select="Cast Left" />
       <move select="Stand" beats="3" />

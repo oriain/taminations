@@ -21,24 +21,21 @@
 
 -->
 <tamination>
-  
-  
 
   <tam title="Cut the Galaxy"
        from="Right-Hand Galaxy"
-       formation="Galaxy RH GP"
-       parts="" >
-    <path>
+       formation="Galaxy RH GP">
+    <path couples="3 1">
       <move select="Lead Right" beats="6" scaleX="2" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Dodge Right" />
       <move select="Swing Right" />
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Extend Left" beats="6" scaleY="2.1" />
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Dodge Right" />
       <move select="Swing Right" />
     </path>
@@ -46,8 +43,7 @@
 
   <tam title="Cut the Galaxy"
        from="Left-Hand Galaxy"
-       formation="Galaxy LH GP"
-       parts="" >
+       formation="Galaxy LH GP">
     <path>
       <move select="Extend Right" beats="6" scaleY="2.1" />
     </path>

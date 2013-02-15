@@ -76,24 +76,23 @@
 
   <tam title="Criss Cross the Shadow"
        from="Right-Hand Two-Faced Lines"
-       formation="Two-Faced Lines RH"
-       parts="" >
-    <path>
+       formation="Two-Faced Lines RH">
+    <path couples="2 4">
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Swing Right" scaleX=".5" scaleY=".5" />
       <move select="Quarter Right" beats="3" offsetX="3" offsetY=".5" />
     </path>
-    <path>
+    <path couples="2 4">
       <move select="Extend Right" beats="3" scaleX="2" scaleY="2" />
       <move select="Hinge Left" beats="3" />
       <move select="Forward 2" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Lead Left" beats="2" scaleY="2" />
       <move select="Lead Left" beats="3" scaleX="2" scaleY="2" />
       <move select="Lead Left" beats="3" scaleX="2" scaleY="3" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="U-Turn Left" beats="2" offsetX="-2" offsetY="-.5" />
       <move select="Swing Right" scaleX=".5" scaleY=".5" />
       <move select="Lead Right" beats="3" scaleX="3" scaleY="1.5" />

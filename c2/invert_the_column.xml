@@ -24,26 +24,26 @@
 
   <tam title="Invert the Column" from="Right-Hand Columns"
        formation="Column RH GBGB" parts="5;3;3">
-    <path numbers="2 7">
+    <path numbers="2 7" couples="4 2">
       <move select="Run Left" offsetX="-1"/>
       <move select="Forward 2"/>
       <move select="Forward" beats="3"/>
       <move select="Forward" beats="3"/>
       <move select="Extend Left" beats="3" scaleY="2"/>
     </path>
-    <path numbers="4 5">
+    <path numbers="4 5" couples="4 2">
       <move select="Forward" beats="5"/>
       <move select="Run Left" offsetX="-1"/>
       <move select="Forward" beats="3"/>
       <move select="Extend Left" beats="3" scaleY="2"/>
     </path>
-    <path numbers="6 3">
+    <path numbers="6 3" couples="3 1">
       <move select="Forward" beats="5"/>
       <move select="Forward" beats="3"/>
       <move select="Run Left" offsetX="1"/>
       <move select="Extend Left" beats="3" scaleY="2"/>
     </path>
-    <path numbers="8 1">
+    <path numbers="8 1" couples="3 1">
       <move select="Forward" beats="5"/>
       <move select="Forward" beats="3"/>
       <move select="Forward" beats="3"/>

@@ -21,8 +21,6 @@
 
 -->
 <tamination>
-  
-  
 
   <tam title="Cross and Wheel"
        from="Normal Lines"
@@ -50,22 +48,27 @@
 
   <tam title="Cross and Wheel"
        from="Right-Hand Two-Faced Lines"
-       formation="Two-Faced Lines RH"
        parts="3" >
-    <path>
+    <formation>
+      <dancer gender="boy" y="2" x="3" angle="270"/>
+      <dancer gender="girl" y="2" x="1" angle="270"/>
+      <dancer gender="girl" y="2" x="-1" angle="90"/>
+      <dancer gender="boy" y="2" x="-3" angle="90"/>
+    </formation>
+    <path couples="2 4">
       <move select="Lead Right" beats="3" hands="right" scaleX="1.5" scaleY="3" />
       <move select="Extend Right" beats="3" hands="right" scaleX="2" scaleY=".5" />
     </path>
-    <path>
+    <path couples="2 4">
       <move select="Lead Right" beats="3" hands="both" scaleX=".5" />
       <move select="Extend Right" beats="3" hands="left" scaleX="2" scaleY="1.5" />
     </path>
-    <path>
+    <path couples="1 3">
       <move select="Lead Right" beats="3" hands="both" scaleX=".5" />
       <move select="Forward"/>
       <move select="BackRun Left" hands="left" offsetX="1" offsetY="-1.5" />
     </path>
-    <path>
+    <path couples="1 3">
       <move select="Lead Right" beats="3" hands="right" scaleX="1.5" scaleY="3" />
       <move select="Forward"/>
       <move select="Run Right" hands="right" offsetX="1" offsetY="-.5" />

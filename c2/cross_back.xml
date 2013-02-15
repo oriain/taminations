@@ -24,13 +24,13 @@
 
   <tam title="Cross Back"
        from="Right-Hand Box"
-       formation="Box RH" >
-    <path numbers="1 4">
+       formation="Box RH Boys Lead" >
+    <path numbers="2 3" couples="3 1">
+      <move select="U-Turn Right" />
+    </path>
+    <path numbers="1 4" couples="3 1">
       <move select="Extend Right" hands="left" beats="2" scaleX="3" scaleY="2" />
       <move select="Forward" />
-    </path>
-    <path numbers="2 3">
-      <move select="U-Turn Right" />
     </path>
   </tam>
 

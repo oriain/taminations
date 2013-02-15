@@ -21,22 +21,26 @@
 
 -->
 <tamination>
-  
-  
 
-  <tam title="Grand Cross Back" from="Right-Hand Columns" formation="Column RH GBGB">
-    <path>
+  <tam title="Grand Cross Back" from="Right-Hand Columns">
+    <formation>
+      <dancer gender="girl" y="3" x="-1" angle="90"/>
+      <dancer gender="boy" y="1" x="-1" angle="90"/>
+      <dancer gender="girl" y="-1" x="-1" angle="90"/>
+      <dancer gender="boy" y="-3" x="-1" angle="90"/>
+    </formation>
+    <path couples="2 4">
       <move select="U-Turn Right"/>
     </path>
-    <path>
+    <path couples="2 4">
       <move select="Extend Right" scaleX="1.25" scaleY="2" beats="2"/>
       <move select="Forward" scaleX=".75"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Extend Right" scaleX="1.25" scaleY="2" beats="2"/>
       <move select="Forward" scaleX=".75"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Extend Right" scaleX="1.25" scaleY="2" beats="2"/>
       <move select="Forward" scaleX=".75"/>
     </path>

@@ -22,17 +22,18 @@
 -->
 <tamination>
 
-  <tam title="Relocate the Diamond" from="Twin Diamonts" formation="Diamonds RH Girl Points">
-    <path>
+  <tam title="Relocate the Diamond" from="Twin Diamonts"
+       formation="Diamonds RH Girl Points">
+    <path couples="3 1">
       <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Counter Rotate Right 5 -1" beats="4.5" />
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Cast Left"/>
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Counter Rotate Right 1 -5" beats="4.5"/>
     </path>
   </tam>
@@ -53,17 +54,23 @@
     </path>
   </tam>
 
-  <tam title="Relocate the Hourglass" from="Right-Hand Hourglass" formation="Hourglass RH BP">
-    <path>
+  <tam title="Relocate the Hourglass" from="Right-Hand Hourglass">
+    <formation>
+      <dancer gender="girl" y="2" x="-3" angle="90"/>
+      <dancer gender="boy" y="3" x="0" angle="0"/>
+      <dancer gender="girl" y="2" x="3" angle="270"/>
+      <dancer gender="boy" y="0" x="1" angle="270"/>
+    </formation>
+    <path couples="2 4">
       <move select="Counter Rotate Right 1 -5" beats="4.5"/>
     </path>
-    <path>
+    <path couples="1 3">
       <move select="Lead Right" scaleX="3" scaleY="3" beats="4.5"/>
     </path>
-    <path>
+    <path couples="1 3">
       <move select="Counter Rotate Right 5 -1" beats="4.5"/>
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Cast Right"/>
     </path>
   </tam>

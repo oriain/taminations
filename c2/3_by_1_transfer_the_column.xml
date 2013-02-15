@@ -24,24 +24,29 @@
 
   <tam title="3 By 1 Transfer the Column"
        from="Right-Hand Columns">
-     <formation>      <dancer gender="girl" x="-3" y="-1" angle="180"/>      <dancer gender="boy" x="1" y="-1" angle="180"/>      <dancer gender="girl" x="-1" y="-1" angle="180"/>      <dancer gender="boy" x="3" y="-1" angle="180"/>    </formation>
-    <path>
+    <formation>
+      <dancer gender="girl" y="3" x="-1" angle="90"/>
+      <dancer gender="boy" y="1" x="-1" angle="90"/>
+      <dancer gender="girl" y="-1" x="-1" angle="90"/>
+      <dancer gender="boy" y="-3" x="-1" angle="90"/>
+    </formation>
+    <path couples="4 2">
       <move select="Run Right" beats="3" scaleY="2" />
       <move select="Forward 4" />
       <move select="Lead Right" beats="2.5" scaleX="2" />
     </path>
-    <path>
+    <path couples="4 2">
+      <move select="Forward 2" />
+      <move select="Run Right" beats="3" scaleY="2" />
+      <move select="Lead Right" beats="4.5" scaleX="4" />
+    </path>
+    <path couples="3 1">
       <move select="Forward 2" />
       <move select="Forward 2" />
       <move select="Run Right" beats="4" scaleY="2" offsetX="1" />
       <move select="Lead Right" />
     </path>
-    <path>
-      <move select="Forward 2" />
-      <move select="Run Right" beats="3" scaleY="2" />
-      <move select="Lead Right" beats="4.5" scaleX="4" />
-    </path>
-    <path>
+    <path couples="3 1">
       <move select="Forward 2" />
       <move select="Forward" />
       <move select="Cast Right" />

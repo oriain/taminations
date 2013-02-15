@@ -24,22 +24,21 @@
 
   <tam title="Fascinate"
        from="Right-Hand Two-Faced Lines"
-       formation="Two-Faced Lines RH"
-       parts="" >
-    <path>
+       formation="Two-Faced Lines RH">
+    <path couples="2 4">
       <move select="Forward 4" beats="3" />
       <move select="Lead Right" beats="3" scaleX="3" scaleY="3" />
       <move select="Run Right" beats="5" hands="right" scaleX="2" scaleY="2" offsetX="3" offsetY="-2" />
     </path>
-    <path>
+    <path couples="2 4">
       <move select="Cast Right" beats="6" />
       <move select="U-Turn Right" beats="5" hands="left" offsetX="3" offsetY="-2" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Cast Right" beats="6" />
       <move select="Swing Left" beats="5" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Lead Right" beats="3" scaleX="2" scaleY="3" />
       <move select="Lead Right" beats="3" scaleX="3" scaleY="2" />
       <move select="Forward 2" />
@@ -49,8 +48,7 @@
 
   <tam title="Fascinate"
        from="Left-Hand Two-Faced Lines"
-       formation="Two-Faced Lines LH"
-       parts="" >
+       formation="Two-Faced Lines LH">
     <path>
       <move select="Lead Left" beats="3" scaleX="2" scaleY="3" />
       <move select="Lead Left" beats="3" scaleX="3" scaleY="2" />

@@ -41,17 +41,17 @@
 
   <tam title="3 by 1 Interlocked Triangle Circulate"
        from="&quot;H&quot; formation">
-     <formation>      <dancer gender="boy" x="-3" y="3" angle="0"/>      <dancer gender="girl" x="-3" y="-3" angle="180"/>      <dancer gender="boy" x="0" y="-1" angle="180"/>      <dancer gender="girl" x="0" y="-3" angle="180"/>    </formation>
-    <path>
+     <formation>      <dancer gender="girl" x="-3" y="3" angle="0"/>      <dancer gender="boy" x="-3" y="-3" angle="180"/>      <dancer gender="boy" x="0" y="-1" angle="180"/>      <dancer gender="girl" x="0" y="-3" angle="180"/>    </formation>
+    <path couples="1 3">
       <move select="Forward 3" beats="6"/>
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Run Right" beats="6" offsetX="-3" scaleY="2"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Run Right" beats="6" offsetX="3" scaleY="2"/>
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Forward 3" beats="6"/>
     </path>
   </tam>

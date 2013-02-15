@@ -21,35 +21,38 @@
 
 -->
 <tamination>
-  
-  
 
-  <tam title="3 by 1 Checkmate the Column" from="Right-Hand Columns"
-       formation="Column RH GBGB">
-  <path>
-    <move select="Run Right"/>
-    <move select="Forward 2" beats="3"/>
-    <move select="Forward 2" beats="3"/>
-    <move select="Quarter Right" beats="3" offsetX="2"/>
-  </path>
-  <path>
-    <move select="Forward 2" beats="3"/>
-    <move select="Run Right"/>
-    <move select="Forward 2" beats="3"/>
-    <move select="Quarter Right" beats="3" offsetX="2"/>
-  </path>
-  <path>
-    <move select="Forward 2" beats="3"/>
-    <move select="Forward 2" beats="3"/>
-    <move select="Run Right"/>
-    <move select="Quarter Right" beats="3" offsetX="2"/>
-  </path>
-  <path>
-    <move select="Forward 2" beats="3"/>
-    <move select="Forward 2" beats="3"/>
-    <move select="Forward 2" beats="3"/>
-    <move select="Quarter Right" beats="3" offsetY="-2"/>
-  </path>
+  <tam title="3 by 1 Checkmate the Column" from="Right-Hand Columns">
+    <formation>
+      <dancer gender="girl" y="3" x="-1" angle="90"/>
+      <dancer gender="boy" y="1" x="-1" angle="90"/>
+      <dancer gender="girl" y="-1" x="-1" angle="90"/>
+      <dancer gender="boy" y="-3" x="-1" angle="90"/>
+    </formation>
+    <path couples="4 2">
+      <move select="Run Right"/>
+      <move select="Forward 2" beats="3"/>
+      <move select="Forward 2" beats="3"/>
+      <move select="Quarter Right" beats="3" offsetX="2"/>
+    </path>
+    <path couples="4 2">
+      <move select="Forward 2" beats="3"/>
+      <move select="Run Right"/>
+      <move select="Forward 2" beats="3"/>
+      <move select="Quarter Right" beats="3" offsetX="2"/>
+    </path>
+    <path couples="3 1">
+      <move select="Forward 2" beats="3"/>
+      <move select="Forward 2" beats="3"/>
+      <move select="Run Right"/>
+      <move select="Quarter Right" beats="3" offsetX="2"/>
+    </path>
+    <path couples="">
+      <move select="Forward 2" beats="3"/>
+      <move select="Forward 2" beats="3"/>
+      <move select="Forward 2" beats="3"/>
+      <move select="Quarter Right" beats="3" offsetY="-2"/>
+    </path>
   </tam>
 
   <tam title="3 by 1 Checkmate the Column" from="Left-Hand Columns"
@@ -79,6 +82,5 @@
     <move select="Quarter Left" beats="3" offsetX="2"/>
   </path>
   </tam>
-
 
 </tamination>

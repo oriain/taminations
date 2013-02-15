@@ -99,4 +99,36 @@
     </path>
   </tam>
 
+  <tam title="Breaker Mix" from="Right-Hand Columns" parts="4.5">
+    <formation>
+      <dancer gender="boy" y="3" x="-1" angle="90"/>
+      <dancer gender="girl" y="1" x="-1" angle="90"/>
+      <dancer gender="boy" y="-1" x="-1" angle="90"/>
+      <dancer gender="girl" y="-3" x="-1" angle="90"/>
+    </formation>
+    <path couples="2 4">
+      <move select="Hinge Right" offsetX=".333"/>
+      <move select="Hinge Right" offsetY=".333"/>
+      <move select="Hinge Right" offsetX="-.333"/>
+      <move select="Dodge Left" />
+      <move select="Swing Left" />
+    </path>
+    <path couples="2 4">
+      <move select="Counter Rotate Right 0 -2" hands="right" beats="3"/>
+      <move select="Lead Right"/>
+      <move select="Extend Left" beats="4.5" scaleX="2"/>
+    </path>
+    <path couples="3 1">
+      <move select="Counter Rotate Right 2 0" hands="right" beats="3"/>
+      <move select="Forward" beats="1.5"/>
+     <move select="Run Right" scaleY="2" />
+    </path>
+    <path couples="3 1">
+      <move select="Hinge Right" offsetX="-.333"/>
+      <move select="Hinge Right" offsetY="-.333"/>
+      <move select="Hinge Right" offsetX=".333"/>
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3"/>
+    </path>
+  </tam>
+
 </tamination>
