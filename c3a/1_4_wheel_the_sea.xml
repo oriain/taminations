@@ -21,14 +21,14 @@
 
 -->
 <tamination>
-  
+
   <tam title="1/4 Wheel the Sea" from="Left-Hand Two-Faced Line"
        formation="Two-Faced Line LH" parts="1.5">
-    <path>
+    <path couples="3 1">
       <move select="BackHinge Right" />
       <move select="Dodge Right" beats="4" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Hinge Left" />
       <move select="Forward 4" />
     </path>

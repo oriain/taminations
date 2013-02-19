@@ -118,4 +118,39 @@
     </path>
   </tam>
 
+  <tam title="Motivate"
+       from="T-Bones"
+       formation="T-Bone URRD"
+       parts="4;4.5;3" difficulty="3">
+    <path>
+      <move select="Forward 2" beats="4"/>
+      <move select="Lead Right"/>
+      <move select="Extend Right" beats="3" scaleX="2"/>
+      <move select="Swing Right"/>
+      <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Forward 2" beats="4"/>
+      <move select="Hinge Left" offsetX=".5"/>
+      <move select="Hinge Left" offsetY="-.5"/>
+      <move select="Hinge Left"/>
+      <move select="Swing Right"/>
+      <move select="Cast Left" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4"/>
+      <move select="Hinge Left" offsetX="-.5"/>
+      <move select="Hinge Left" offsetY=".5"/>
+      <move select="Hinge Left"/>
+      <move select="Swing Right"/>
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleX="2" scaleY="3"/>
+      <move select="Extend Left" beats="4.5" scaleY="2"/>
+      <move select="Swing Right"/>
+      <move select="Cast Left" />
+    </path>
+  </tam>
+
 </tamination>
