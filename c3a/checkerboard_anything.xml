@@ -36,7 +36,7 @@
       <move select="Forward 2"/>
       <move select="Swing Right"/>
       <move select="Stand" beats="3"/>
-      <move select="Back 2"/>      
+      <move select="Back 2"/>
     </path>
     <path>
       <move select="Run Right" beats="5" scaleX="2" scaleY="2"/>
@@ -85,6 +85,49 @@
       <move select="Run Right" beats="4" scaleX="2" scaleY="2" offsetX="1" />
       <move select="Stand" beats="2" />
       <move select="Forward" />
+    </path>
+  </tam>
+ <tam title="Checkerboard Swap the Wave"  from="Right Hand Waves" formation="Ocean Waves RH BGGB">
+    <path>
+      <move select="Forward 2"/>
+      <move select="Lead Right" beats="2" scaleX=".5" scaleY="3" />
+      <move select="Lead Right" beats="2" scaleY="2.5" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleY="2" offsetX="1" />
+      <move select="Stand" beats="1" />
+      <move select="Forward" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Forward" />
+      <move select="Stand" beats="2" />
+      <move select="Extend Right"  scaleY="2" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleX="2" scaleY="2" offsetX="1" />
+      <move select="Stand" beats="1" />
+      <move select="Forward" />
+    </path>
+  </tam>
+
+  <tam title="Checkerboard Swap the Wave" from="Left Hand Waves" formation="Ocean Waves LH BGGB">
+    <path>
+      <move select="Run Left" beats="4" scaleY="2" offsetX="1" />
+      <move select="Forward" beats="2" />
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="Swing Right" beats="2" scaleX="1" />
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleX="2" scaleY="2" offsetX="1" />
+      <move select="Forward" beats="2" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Extend Left" scaleX="2" scaleY="2" />
     </path>
   </tam>
 
