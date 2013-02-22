@@ -308,26 +308,30 @@
     </path>
   </tam>
 
-  <tam title="Drift Apart" from="Trade By" formation="Trade By" parts="3">
+ <tam title="Drift Apart" from="Trade By" formation="Trade By" parts="3">
     <path>
       <move select="Flip Left"/>
-      <move select="Forward 2" beats="3"/>
+      <move select="Extend Left"  scaleY=".5" beats="2"/>
+      <move select="Extend Right" scaleY=".5" beats="2"/>
     </path>
     <path>
       <move select="Run Right"/>
-      <move select="Forward 2" beats="3"/>
+      <move select="Extend Left"  scaleY=".5" beats="2"/>
+      <move select="Extend Right" scaleY=".5" beats="2"/>
     </path>
     <path>
-      <move select="Extend Left" beats="1.5" scaleY=".5"/>
+      <move select="Extend Left"  beats="1.5" scaleY=".5"/>
       <move select="Extend Right" beats="1.5" scaleY=".5"/>
-      <move select="Extend Left" beats="1.5" scaleX="1.5"/>
-      <move select="Extend Left" beats="1.5" scaleX=".5"/>
+      <move select="Extend Left"  beats="1.5" scaleX="1"  scaleY=".5"  />
+      <movement beats="2.5" hands="none" cx1="1" cy1="0" cx2="1.5" cy2="1.5" x2="1" y2="1.5"
+                cx3="1" cx4="1" cy4=".5" x4="2" y4=".5"/>
     </path>
     <path>
-      <move select="Extend Left" beats="1.5" scaleY=".5"/>
+      <move select="Extend Left"  beats="1.5" scaleY=".5"/>
       <move select="Extend Right" beats="1.5" scaleY=".5"/>
-      <move select="Extend Right" beats="1.5" scaleX=".5"/>
-      <move select="Extend Right" beats="1.5" scaleX="1.5"/>
+      <move select="Extend Left"  beats="1.5" scaleX="1"  scaleY=".5"  />
+      <movement beats="2.5" hands="none" cx1="1" cy1="0" cx2="0" cy2="-2.5" x2="1" y2="-2.5"
+                cx3="1" cx4="1" cy4="-.5" x4="2" y4="-.5"/>
     </path>
   </tam>
 
