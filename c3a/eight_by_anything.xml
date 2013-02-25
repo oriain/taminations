@@ -98,4 +98,31 @@
     </path>
   </tam>
 
+  <tam title="Eight by Flip the Diamond" group="Eight by">
+    <formation>
+      <dancer gender="boy"  x="0" y="6" angle="0"/>
+      <dancer gender="girl" x="1" y="0" angle="270"/>
+      <dancer gender="boy" x="0" y="-2" angle="180"/>
+      <dancer gender="girl" x="0" y="-4" angle="0"/>
+    </formation>
+    <path>
+      <move select="Lead Right" beats="3.75" scaleX="2.5" scaleY="5.5"/>
+      <move select="Quarter Left" offsetX="1.5" />
+      <move select="Quarter Left"/>
+      <move select="BackHinge Right" beats="2" scaleX="1" scaleY=".5"/>
+      <move select="Quarter Left"/>
+    </path>
+    <path>
+      <move select="Lead Right" beats="3" scaleX="3" />
+    </path>
+    <path>
+      <move select="Run Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="4.25" scaleX="3.5" scaleY="4" />
+      <move select="Hinge Left" beats="4" scaleX="2" scaleY=".5" />
+      <move select="Quarter Left"/>
+    </path>
+  </tam>
+
 </tamination>

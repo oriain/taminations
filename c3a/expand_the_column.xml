@@ -21,8 +21,6 @@
 
 -->
 <tamination>
-  
-  
 
   <tam title="Expand the Column" from="Right-Hand Columns" formation="Column RH GBGB">
     <path>
@@ -37,6 +35,24 @@
     </path>
     <path>
       <move select="Forward 5" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Magic Expand the Column" from="Right-Hand Magic Columns"
+       formation="Magic Column RH">
+    <path>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY="2" />
+      <move select="Forward 3" beats="2"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="5" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="5" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="3"/>
+      <move select="Extend Left" beats="2" scaleY="2"/>
     </path>
   </tam>
 

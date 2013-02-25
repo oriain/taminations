@@ -92,4 +92,28 @@
     </path>
   </tam>
 
+  <tam title="Scatter Circulate" from="T-Bone Lines"
+       formation="T-Bone RDLU">
+  <formation name="T-Bone RDLU"> <!-- matches Ceder Chest -->
+    <dancer gender="boy"  x="1"  y="3" angle="180"/>
+    <dancer gender="girl" x="1"  y="1" angle="270"/>
+    <dancer gender="boy"  x="-1" y="3" angle="270"/>
+    <dancer gender="girl" x="-1" y="1" angle="180"/>
+  </formation>
+
+    <path>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Extend Right" beats="1.5" scaleX="1" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Run Left" scaleY="2" />
+    </path>
+  </tam>
+
 </tamination>

@@ -22,8 +22,6 @@
 -->
 <tamination>
 
-
-
   <tam title="Bias Circulate" from="Right-Hand Waves" formation="Ocean Waves RH BGBG">
     <path>
       <move select="Extend Right" beats="3" scaleX="2" scaleY="2"/>
