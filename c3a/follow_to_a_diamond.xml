@@ -23,15 +23,17 @@
 <tamination>
 
   <tam title="Follow to a Diamond"
-       from="Right-Hand Box"
-       formation="Box RH"
-       parts="" >
-    <path>
+       from="Right-Hand Box">
+    <formation name="Box RH">
+      <dancer gender="boy" y="2" x="1" angle="270"/>
+      <dancer gender="girl" y="2" x="-1" angle="90"/>
+    </formation>
+    <path couples="1 3">
       <move select="Forward 2" beats="1.5" offsetY="-.125" />
       <move select="Swing Right" scaleX=".875" scaleY=".875" />
       <move select="Lead Right" beats="2" offsetX="2" offsetY=".125" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Run Right" beats="4" />
       <move select="Forward 2" beats="2.5" />
     </path>

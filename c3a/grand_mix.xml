@@ -137,18 +137,18 @@
   </tam>
 
   <tam title="Grand Mix" from="Right-Hand Tidal Line" formation="Tidal Line RH" parts="3">
-    <path>
+    <path couples="3 1">
       <move select="Dodge Right" scaleY=".5"/>
       <move select="Flip Right" scaleY=".5"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Run Right" scaleX="2"/>
       <move select="Swing Left" scaleX=".5" scaleY=".5"/>
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Run Left"/>
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Run Right" scaleX=".5"/>
       <move select="Run Left" scaleY=".5"/>
     </path>

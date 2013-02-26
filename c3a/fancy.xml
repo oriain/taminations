@@ -22,22 +22,28 @@
 -->
 <tamination>
 
-  <tam title="Fancy" from="Right-Hand Columns" formation="Column RH GBGB" parts="3;1">
-    <path>
+  <tam title="Fancy" from="Right-Hand Columns" parts="3;1">
+    <formation>
+      <dancer gender="boy" y="3" x="-1" angle="90"/>
+      <dancer gender="girl" y="1" x="-1" angle="90"/>
+      <dancer gender="girl" y="-1" x="-1" angle="90"/>
+      <dancer gender="boy" y="-3" x="-1" angle="90"/>
+    </formation>
+    <path couples="2 4">
       <move select="Stand" beats="4"/>
       <move select="U-Turn Right" beats="4" offsetY="-2"/>
     </path>
-    <path>
+    <path couples="2 4">
       <move select="Extend Left" beats="3" scaleX="2" scaleY="2"/>
       <move select="Stand"/>
       <move select="U-Turn Right" beats="4" offsetY="-2"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Stand" beats="3"/>
       <move select="Forward" hands="left"/>
       <move select="U-Turn Right" beats="4" offsetX="1" offsetY="-2"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Extend Left" beats="3" scaleX="2" scaleY="2"/>
       <move select="Forward" hands="right"/>
       <move select="U-Turn Right" beats="4" offsetX="1" offsetY="-2"/>

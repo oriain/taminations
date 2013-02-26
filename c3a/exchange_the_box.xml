@@ -23,27 +23,27 @@
 <tamination>
 
   <tam title="Exchange the Box" from="Right-Hand Waves"
-       formation="Ocean Waves RH BGBG" parts="4;4;4">
-    <path>
+       formation="Ocean Waves RH GBGB" parts="4;4;4">
+    <path couples="4 2">
       <move select="Forward 4"/>
       <move select="Run Right" beats="4"/>
       <move select="Extend Left" beats="4" scaleX="4"/>
       <move select="Run Left" beats="4" scaleY="1.5"/>
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Run Right" beats="4"/>
       <move select="Forward 4"/>
       <move select="Run Right" beats="4"/>
       <move select="Forward"/>
       <move select="Extend Left" beats="3" scaleX="3" scaleY="2"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Extend Left" beats="4" scaleX="4"/>
       <move select="Run Left" beats="4" scaleX="2" scaleY="2"/>
       <move select="Extend Left" beats="4" scaleX="4"/>
       <move select="Run Left" beats="4"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Run Right" beats="4"/>
       <move select="Extend Left" beats="4" scaleX="4"/>
       <move select="Run Left" beats="4" scaleX="2" scaleY="1.5"/>
@@ -80,30 +80,35 @@
     </path>
   </tam>
 
-  <tam title="Exchange the Box" from="Right-Hand Columns"
-       formation="Column RH GBGB" parts="3;3;3">
-    <path>
+  <tam title="Exchange the Box" from="Right-Hand Columns" parts="3;3;3">
+    <formation>
+      <dancer gender="boy" x="-3" y="-1" angle="180"/>
+      <dancer gender="girl" x="-1" y="-1" angle="180"/>
+      <dancer gender="boy" x="1" y="-1" angle="180"/>
+      <dancer gender="girl" x="3" y="-1" angle="180"/>
+    </formation>
+    <path couples="3 1">
       <move select="Run Right"/>
       <move select="Forward 2" beats="3"/>
       <move select="Extend Right" beats="2" scaleY="3"/>
       <move select="Forward"/>
       <move select="Extend Left" beats="3" scaleX="2"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Forward 2" beats="3"/>
       <move select="Run Right"/>
       <move select="Forward 2" beats="3"/>
       <move select="Extend Right" beats="2" scaleY="2"/>
       <move select="Forward"/>
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Extend Right" beats="2" scaleY="3"/>
       <move select="Forward"/>
       <move select="Forward 2" beats="3"/>
       <move select="Run Left" scaleY="1.5"/>
       <move select="Forward 2" beats="3"/>
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Forward 2" beats="3"/>
       <move select="Extend Right" beats="2" scaleY="3"/>
       <move select="Forward"/>

@@ -184,41 +184,46 @@
 
   <tam title="Drift Apart"
        from="Left-Hand Waves"
-       formation="Ocean Waves LH BGGB"
+       formation="Ocean Waves LH GBGB"
        parts="4" >
-    <path>
+    <path couples="4 2">
       <move select="Run Left" beats="4" />
       <move select="Forward 4" />
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Forward 4" />
       <move select="Run Right" beats="4" scaleX="2" scaleY="2" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Run Right" beats="4" scaleX="2" scaleY="2.25" />
       <move select="Extend Right" beats="4" scaleX="4" scaleY=".5" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Extend Left" beats="4" scaleX="4" scaleY=".5" />
       <move select="Run Left" beats="4" scaleY=".75" />
     </path>
   </tam>
 
-  <tam title="Drift Apart" from="Right-Hand Columns"
-       formation="Column RH GBGB" parts="3">
+  <tam title="Drift Apart" from="Right-Hand Columns" parts="3">
+    <formation>
+      <dancer gender="boy" y="3" x="-1" angle="90" />
+      <dancer gender="girl" y="1" x="-1" angle="90" />
+      <dancer gender="boy" y="-1" x="-1" angle="90" />
+      <dancer gender="girl" y="-3" x="-1" angle="90" />
+    </formation>
     <path>
       <move select="Run Right"/>
       <move select="Forward 2" beats="3"/>
     </path>
-    <path>
+    <path couples="2 4">
       <move select="Extend Right" beats="3" scaleX="2"/>
       <move select="Run Left" scaleY=".5" scaleX=".5"/>
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Forward 2" beats="3"/>
       <move select="Extend Right" beats="3" scaleX="2" scaleY="2"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Forward 2" beats="3"/>
       <move select="Run Right" scaleX=".5"/>
     </path>

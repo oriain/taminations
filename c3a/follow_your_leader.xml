@@ -22,26 +22,27 @@
 -->
 <tamination>
 
-  <tam title="Follow Your Leader" from="Right-Hand Waves" formation="Ocean Waves RH BGBG">
-    <path>
+  <tam title="Follow Your Leader" from="Right-Hand Waves"
+       formation="Ocean Waves RH GBGB">
+    <path couples="4 2">
       <move select="Forward 2" beats="1.5" offsetY="-.25" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
       <move select="Hinge Right" offsetY=".25" />
       <move select="Forward"/>
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Lead Right"/>
       <move select="Forward"/>
       <move select="Run Right" beats="5" scaleX="2" scaleY="2"/>
       <move select="Forward 2"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Forward 2" beats="1.5" offsetY="-.25" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
       <move select="Hinge Right" offsetY=".25" />
       <move select="Forward 3"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Lead Right"/>
       <move select="Forward 5" beats="3"/>
       <move select="Run Right" beats="5" scaleX="2" scaleY="2"/>
