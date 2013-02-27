@@ -21,11 +21,15 @@
 
 -->
 <tamination>
-  
-  
 
-  <tam title="Plan Ahead" from="Lines" formation="Normal Lines" parts="8.5">
-    <path>
+  <tam title="Plan Ahead" from="Lines" parts="8.5">
+    <formation>
+      <dancer gender="girl" x="-2" y="3" angle="0"/>
+      <dancer gender="boy" x="-2" y="1" angle="0"/>
+      <dancer gender="girl" x="-2" y="-1" angle="0"/>
+      <dancer gender="boy" x="-2" y="-3" angle="0"/>
+    </formation>
+    <path couples="4 2">
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
       <move select="Lead Right" beats="5" scaleX="4" scaleY="3.5"/>
       <move select="Hinge Right"/>
@@ -33,21 +37,21 @@
       <move select="Forward"/>
       <move select="Quarter Right" offsetX="1"/>
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
       <move select="Hinge Right" scaleY=".5"/>
       <move select="Forward 2" beats="3"/>
       <move select="Extend Right" beats="2" scaleX="2"/>
       <move select="Run Left" scaleY=".5"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
       <move select="Hinge Right" scaleY=".5"/>
       <move select="Run Right"/>
       <move select="Extend Right" beats="2" scaleX="2"/>
       <move select="Flip Right" offsetX="2" scaleY=".5"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
       <move select="Lead Left" beats="5" scaleX="2" scaleY="2.5"/>
       <move select="Hinge Right"/>

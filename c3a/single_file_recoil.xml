@@ -21,16 +21,16 @@
 
 -->
 <tamination>
-  
-  
+
+
 
   <tam title="Single File Recoil" from="Single Double Pass Thru"
        formation="Single Double Pass Thru" parts="4">
-    <path>
+    <path couples="3 1">
       <move select="Extend Left" beats="4" scaleX="3" scaleY="3"/>
       <move select="Run Right" offsetX="2"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="U-Turn Right" beats="4" offsetX="1" offsetY="1"/>
       <move select="Forward 2" beats="3"/>
     </path>

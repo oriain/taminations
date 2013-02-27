@@ -21,17 +21,15 @@
 
 -->
 <tamination>
-  
-  
 
-  <tam title="Reach Out" from="Right-Hand Box" formation="Box RH">
-    <path>
-      <move select="Forward 2"/>
-      <move select="Run Left"/>
-    </path>
-    <path>
+  <tam title="Reach Out" from="Right-Hand Box" formation="Box RH Boys Lead">
+    <path couples="3 1">
       <move select="Run Right"/>
       <move select="Forward 2"/>
+    </path>
+    <path couples="3 1">
+      <move select="Forward 2"/>
+      <move select="Run Left"/>
     </path>
   </tam>
 
@@ -45,7 +43,7 @@
       <move select="Run Right"/>
     </path>
   </tam>
-  
+
   <tam title="Reach Out" from="Right-Hand Waves" formation="Ocean Waves RH BGBG">
     <path>
       <move select="Forward 2"/>
@@ -69,7 +67,7 @@
     <path>
       <move select="Run Left"/>
      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
-    </path>    
+    </path>
     <path>
       <move select="Forward 2"/>
       <move select="Run Right" scaleY=".25"/>
@@ -103,7 +101,7 @@
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
     </path>
   </tam>
-  
+
   <tam title="Reach Out" from="T-Bones" formation="T-Bone DLDL">
     <path>
       <move select="Run Left"/>
@@ -122,5 +120,5 @@
       <move select="Flip Left" scaleY=".5"/>
     </path>
   </tam>
-  
+
 </tamination>

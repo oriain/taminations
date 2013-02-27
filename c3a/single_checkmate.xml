@@ -21,15 +21,17 @@
 
 -->
 <tamination>
-  
-  
 
-  <tam title="Single Checkmate" from="Right-Hand Box" formation="Box RH">
+  <tam title="Single Checkmate" from="Right-Hand Box">
+    <formation>
+      <dancer gender="boy" y="2" x="1" angle="270"/>
+      <dancer gender="girl" y="2" x="-1" angle="90"/>
+    </formation>
     <path>
       <move select="Forward 2"/>
       <move select="Lead Right" beats="4" scaleY="3"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Run Right" scaleY="1.5"/>
       <move select="Quarter Right" beats="3" offsetX="3"/>
     </path>

@@ -22,30 +22,33 @@
 -->
 <tamination>
 
-
-
   <tam title="Open Up the Column" from="Right-Hand Columns" formation="Column RH GBGB" parts="3;4.5">
-    <path>
+    <formation name="Column RH GBGB">
+      <dancer gender="girl" y="3" x="-1" angle="90"/>
+      <dancer gender="boy" y="1" x="-1" angle="90"/>
+      <dancer gender="girl" y="-1" x="-1" angle="90"/>
+      <dancer gender="boy" y="-3" x="-1" angle="90"/>
+    </formation>
+    <path couples="2 4">
       <move select="Run Right" beats="6" scaleX="2" scaleY="2"/>
       <move select="Lead Right" beats="3.5" scaleX="2"/>
     </path>
-    <path>
+    <path couples="2 4">
       <move select="Forward 2"/>
       <move select="Run Left" offsetX="1" beats="5"/>
       <move select="Lead Left" beats="2.5"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Forward 3"/>
       <move select="Cast Right"/>
       <move select="Forward 2"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Forward" beats="3"/>
       <move select="Cast Right"/>
       <move select="Forward 2"/>
     </path>
   </tam>
-
 
   <tam title="2 By 1 Open Up the Column" from="Columns of 3">
     <formation>
