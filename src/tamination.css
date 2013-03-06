@@ -141,6 +141,17 @@ p.timing {
   color: maroon;
 }
 
+/*  Text from Vic Ceder  */
+.ceder {
+  position: relative;
+  float: right;
+  border: 1px solid black;
+  width: 30%;
+  margin: 10px;
+  padding: 10px;
+  background-color: #ffe0ff;
+}
+
 /*  "(DBD)" text */
 span.dbd { font-family: Helvetica, Arial, Sans Serif;
             font-style: italic;

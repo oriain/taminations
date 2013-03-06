@@ -52,7 +52,7 @@
 
   <tam title="Swing Thru" from="Facing Couples"
        formation="Facing Couples"
-       difficulty="2">
+       difficulty="1">
     <path>
       <move select="Extend Left" beats="3" scaleX="2" scaleY="2"/>
       <move select="Swing Right"/>

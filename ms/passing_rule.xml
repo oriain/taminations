@@ -21,6 +21,57 @@
 
 -->
 <tamination>
-  
-  
+
+  <tam title="Pass Thru"
+       from="Facing Couples"
+       formation="Facing Couples"
+       parts="" difficulty="1">
+    <path>
+      <move select="Extend Left" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" scaleX="2" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="All 8 Circulate"
+       from="Inverted Lines, Ends Facing Out"
+       formation="Inverted Lines Ends Facing Out"
+       difficulty="2">
+    <path>
+      <move select="Run Left" beats="4" scaleX="1.5" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleX="2.5" scaleY="3"/>
+    </path>
+  </tam>
+
+  <tam title="Ends Cross Run"
+       from="Lines Facing Out"
+       formation="Lines Facing Out"
+       parts="" >
+    <path>
+      <move select="Run Left" beats="6" scaleY="2" />
+    </path>
+    <path>
+      <move select="Dodge Right" beats="6" />
+    </path>
+    <path>
+      <move select="Dodge Left" beats="6" />
+    </path>
+    <path>
+      <move select="Run Right" beats="6" scaleX="2" scaleY="2" />
+    </path>
+  </tam>
+
 </tamination>

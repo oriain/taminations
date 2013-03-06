@@ -21,30 +21,34 @@
 
 -->
 <tamination>
-  
-  
 
-  <tam title="Triple Play" from="Right-Hand Columns" formation="Column RH GBGB">
-    <path>
+  <tam title="Triple Play" from="Right-Hand Columns">
+    <formation>
+      <dancer gender="girl" y="3" x="-1" angle="90"/>
+      <dancer gender="boy" y="1" x="-1" angle="90"/>
+      <dancer gender="girl" y="-1" x="-1" angle="90"/>
+      <dancer gender="boy" y="-3" x="-1" angle="90"/>
+    </formation>
+    <path couples="4 2">
       <move select="Run Right" beats="4" scaleY="2"/>
       <move select="Forward 5" beats="4"/>
       <move select="Lead Right"/>
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Forward"/>
       <move select="Swing Right" scaleX=".5"/>
       <move select="Forward"/>
       <move select="Hinge Right" scaleX=".5"/>
       <move select="Extend Right" beats="3" scaleX="2" scaleY=".5"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Forward"/>
       <move select="Swing Right" scaleX=".5"/>
       <move select="Forward"/>
       <move select="Hinge Right" scaleX=".5"/>
       <move select="Extend Left" beats="3" scaleX="2" scaleY="1.5"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Forward"/>
       <move select="Swing Right" scaleX=".5"/>
       <move select="Run Right" beats="4" scaleY="2"/>

@@ -21,30 +21,33 @@
 
 -->
 <tamination>
-  
-  
 
   <tam title="Wind the Bobbin"
        from="Right-Hand Columns"
-       formation="Column RH GBGB"
        parts="1;4.5;3" >
-    <path>
+      <formation>
+        <dancer gender="girl" y="3" x="-1" angle="90"/>
+        <dancer gender="boy" y="1" x="-1" angle="90"/>
+        <dancer gender="girl" y="-1" x="-1" angle="90"/>
+        <dancer gender="boy" y="-3" x="-1" angle="90"/>
+      </formation>
+    <path couples="2 4">
       <move select="Run Left" offsetX="-1" />
       <move select="Forward 4" />
       <move select="Run Left" beats="6" scaleX="2" scaleY="3" />
     </path>
-    <path>
+    <path couples="2 4">
       <move select="Forward" />
       <move select="Cast Right" />
       <move select="Swing Left" />
       <move select="Cast Right" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Run Left" offsetX="-1" />
       <move select="Run Left" beats="6" scaleX="2" scaleY="3" />
       <move select="Forward 4" />
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Forward" />
       <move select="Cast Right" />
       <move select="Stand" beats="3" />

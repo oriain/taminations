@@ -31,17 +31,6 @@
    <menuitem text="Embed" link="info/embed.html"/>
  </menulist>
 
- <menulist title="General" columns="1">
-    <menuitem text="Objective" link="ms/objective.html"/>
-    <menuitem text="Couples" link="ms/couples.html"/>
-    <menuitem text="Facing Couples Rule" link="ms/facing_couples_rule.html"/>
-    <menuitem text="Facing Dancers" link="ms/facing_dancers.html"/>
-    <menuitem text="Ocean Wave Rule" link="ms/ocean_wave_rule.html"/>
-    <menuitem text="Passing Rule" link="ms/passing_rule.html"/>
-    <menuitem text="Same Position Rule" link="ms/same_position_rule.html"/>
-    <menuitem text="Starting Formations" link="ms/starting_formations.html"/>
-  </menulist>
-
   <menulist title="Styling" columns="1">
     <menuitem text="Arms in Natural Dance Position" link="ms/arms_natural.html"/>
     <menuitem text="Bow to Your Corner" link="ms/bow_to_your_corner.html"/>
@@ -86,6 +75,7 @@
     <menuitem text="Double Pass Thru" link="ms/double_pass_thru.html"/>
     <menuitem text="Eight Chain Thru" link="ms/eight_chain_thru.html"/>
     <menuitem text="Extend" link="ms/extend.html"/>
+    <menuitem text="Facing Couples Rule" link="ms/facing_couples_rule.html"/>
     <menuitem text="Ferris Wheel" link="ms/ferris_wheel.html"/>
     <menuitem text="First Couple Go Left/Right.." link="ms/first_couple_go.html"/>
     <menuitem text="Flutterwheel" link="ms/flutterwheel.html"/>
@@ -100,9 +90,11 @@
     <menuitem text="Lead Right" link="ms/lead_right.html"/>
     <menuitem text="Left Arm Turn" link="ms/arm_turns.html"/>
     <menuitem text="Ocean Wave" link="ms/ocean_wave.html"/>
+    <menuitem text="Ocean Wave Rule" link="ms/ocean_wave_rule.html"/>
     <menuitem text="Pass the Ocean" link="ms/pass_the_ocean.html"/>
     <menuitem text="Pass Thru" link="ms/pass_thru.html"/>
     <menuitem text="Pass to the Center" link="ms/pass_to_the_center.html"/>
+    <menuitem text="Passing Rule" link="ms/passing_rule.html"/>
     <menuitem text="Promenade" link="ms/promenade.html"/>
     <menuitem text="Recycle" link="ms/recycle.html"/>
     <menuitem text="Reverse Flutterwheel" link="ms/flutterwheel.html?ReverseFlutterwheelfromFacingCouples"/>
@@ -112,6 +104,7 @@
     <menuitem text="Right (Left) Hand Star" link="ms/star.html"/>
     <menuitem text="Rollaway" link="ms/sashay.html?RollawayfromLines"/>
     <menuitem text="Run" link="ms/run.html"/>
+    <menuitem text="Same Position Rule" link="ms/same_position_rule.html"/>
     <menuitem text="Scoot Back" link="ms/scoot_back.html"/>
     <menuitem text="See Saw" link="ms/see_saw.html"/>
     <menuitem text="Separate" link="ms/separate.html"/>

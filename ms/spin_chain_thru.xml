@@ -21,10 +21,7 @@
 
 -->
 <tamination>
-  
-  
-  
-  
+
   <tam title="Spin Chain Thru"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
@@ -72,4 +69,34 @@
       <move select="Cast Right" />
     </path>
   </tam>
+
+  <tam title="Spin Chain Thru"
+       from="Eight Chain Thru"
+       formation="Eight Chain Thru"
+       parts="3;4.5;3" >
+    <path>
+      <move select="Extend Left" beats="2" scaleY="2"/>
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+      <move select="Swing Right" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleY="2"/>
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+      <move select="Stand" beats="3" />
+      <move select="Cast Left" />
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+      <move select="Swing Right" />
+    </path>
+  </tam>
+
+
 </tamination>

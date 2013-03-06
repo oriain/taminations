@@ -22,19 +22,25 @@
 -->
 <tamination>
 
-  <tam title="Strip the Diamond" from="Right-Hand Diamonds" formation="Diamonds RH Girl Points">
-    <path>
+  <tam title="Strip the Diamond" from="Right-Hand Diamonds">
+    <formation>
+      <dancer gender="girl" y="0" x="-3" angle="90"/>
+      <dancer gender="boy" y="3" x="-2" angle="0"/>
+      <dancer gender="girl" y="0" x="-1" angle="270"/>
+      <dancer gender="boy" y="-3" x="-2" angle="180"/>
+    </formation>
+    <path couples="3 1">
       <move select="Lead Right" beats="5" scaleX="3.5" scaleY="3"/>
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Extend Right" beats="2" scaleX="2"/>
       <move select="Swing Left" scaleX=".5" scaleY=".5" offsetY="-.5"/>
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Hinge Left" beats="2" scaleX=".5"/>
       <move select="Swing Left" scaleX=".5" scaleY=".5"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="U-Turn Left" beats="2" offsetX="-2"/>
       <move select="Swing Left" scaleX=".5" scaleY=".5" offsetY=".5"/>
     </path>

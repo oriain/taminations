@@ -204,10 +204,9 @@
   </tam>
 
   <tam title="All 8 Circulate"
-       from="Inverted Lines"
+       from="Inverted Lines, Ends Facing In"
        formation="Inverted Lines Ends Facing In"
-       difficulty="2"
-       parts="" >
+       difficulty="2">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
@@ -221,6 +220,26 @@
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="All 8 Circulate"
+       from="Inverted Lines, Ends Facing Out"
+       formation="Inverted Lines Ends Facing Out"
+       difficulty="2">
+    <path>
+      <move select="Run Left" beats="4" scaleX="1.5" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleX="2.5" scaleY="3"/>
     </path>
   </tam>
 

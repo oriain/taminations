@@ -21,6 +21,174 @@
 
 -->
 <tamination>
-  
-  
+
+  <tam title="Spin Chain Thru"
+       from="Eight Chain Thru"
+       formation="Eight Chain Thru"
+       parts="3;4.5;3" >
+    <path>
+      <move select="Extend Left" beats="2" scaleY="2"/>
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+      <move select="Swing Right" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleY="2"/>
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+      <move select="Stand" beats="3" />
+      <move select="Cast Left" />
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+      <move select="Swing Right" />
+    </path>
+  </tam>
+
+  <tam title="Spin the Top"
+       from="Eight Chain Thru"
+       formation="Eight Chain Thru"
+       parts="4" difficulty="2">
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
+      <move select="Cast Left" scaleX=".5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
+      <move select="Lead Right" beats="4.5" scaleX="1.5" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
+      <move select="Cast Left" scaleX=".5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
+      <move select="Lead Right" beats="4.5" scaleX="1.5" scaleY="1.5" />
+    </path>
+  </tam>
+
+  <tam title="Spin the Top"
+       from="Lines"
+       formation="Normal Lines"
+       parts="5" difficulty="2">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
+      <move select="Hinge Left" scaleY=".5" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
+      <move select="Hinge Left" scaleY=".5" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="1.5" />
+    </path>
+  </tam>
+
+  <tam title="Heads Spin the Top" from="Static Square"
+       formation="Static Square" parts="6" difficulty="2">
+    <path>
+      <move select="Extend Left" beats="3" scaleX="3" scaleY=".5" />
+      <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
+      <move select="Hinge Left" scaleY=".5" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="3" scaleY=".5" />
+      <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="1.5" />
+    </path>
+    <path>
+    </path>
+    <path>
+    </path>
+  </tam>
+
+  <tam title="Swing Thru" from="Facing Couples"
+       formation="Facing Couples"
+       difficulty="1">
+    <path>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY="2"/>
+      <move select="Swing Right"/>
+      <move select="Swing Left"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Swing Right"/>
+      <move select="Stand" beats="3"/>
+    </path>
+  </tam>
+
+  <tam title="Swing Thru"
+       from="Eight Chain Thru"
+       formation="Eight Chain Thru"
+       parts="" difficulty="1">
+    <path>
+      <move select="Extend Left" scaleY="2" />
+      <move select="Swing Right" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Forward" />
+      <move select="Swing Right" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleY="2" />
+      <move select="Swing Right" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Forward" />
+      <move select="Swing Right" />
+    </path>
+  </tam>
+
+  <tam title="Left Swing Thru"
+       from="Eight Chain Thru"
+       formation="Eight Chain Thru"
+       parts="" difficulty="2">
+    <path>
+      <move select="Forward" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Extend Right" scaleY="2" />
+      <move select="Swing Left" />
+      <move select="Swing Right" />
+    </path>
+    <path>
+      <move select="Forward" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Extend Right" scaleY="2" />
+      <move select="Swing Left" />
+      <move select="Swing Right" />
+    </path>
+    <taminator>
+      Because this is a <b>Left</b> Swing Thru, dancers first extend to
+      a Left-Hand Wave.
+    </taminator>
+  </tam>
+
 </tamination>
+

@@ -21,23 +21,21 @@
 
 -->
 <tamination>
-  
-  
 
   <tam title="Trip the Set" from="Lines Facing Out" formation="Lines Facing Out">
-    <path>
+    <path couples="4 2">
       <move select="Lead Left" beats="4" scaleY="3"/>
       <move select="U-Turn Left" beats="3" offsetX="2"/>
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Quarter Right" offsetX="-1" offsetY="-1"/>
       <move select="Run Right"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Quarter Left" offsetX="-1" offsetY="1"/>
       <move select="Flip Left"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Lead Right" beats="4" scaleX="2" scaleY="3"/>
       <move select="Flip Right" offsetX="2" scaleY=".5"/>
     </path>

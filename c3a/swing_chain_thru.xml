@@ -23,19 +23,19 @@
 <tamination>
 
   <tam title="Swing Chain Thru" from="Right-Hand Waves" formation="Ocean Waves RH BGGB" parts="3;1.5;3">
-    <path>
+    <path couples="2 4">
       <move select="Swing Right"/>
       <move select="Hinge Left"/>
       <move select="Stand" beats="3"/>
       <move select="Hinge Left"/>
     </path>
-    <path>
+    <path couples="2 4">
       <move select="Swing Right"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Swing Right"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Swing Right"/>
       <move select="Hinge Left"/>
       <move select="Swing Right"/>

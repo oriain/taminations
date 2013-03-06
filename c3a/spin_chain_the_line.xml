@@ -21,28 +21,32 @@
 
 -->
 <tamination>
-  
-  
 
-  <tam title="Spin Chain the Line" from="Tidal Wave" formation="Tidal Wave RH BGGB">
-    <path>
+  <tam title="Spin Chain the Line" from="Tidal Wave">
+    <formation>
+      <dancer gender="boy" y="0" x="-3.5" angle="90"/>
+      <dancer gender="girl" y="0" x="-2.5" angle="270"/>
+      <dancer gender="girl" y="0" x="-1.5" angle="90"/>
+      <dancer gender="boy" y="0" x="-.5" angle="270"/>
+    </formation>
+    <path couples="3 1">
       <move select="Swing Right" scaleX=".5" scaleY=".5"/>
       <move select="Swing Left" scaleX=".5" scaleY=".5"/>
       <move select="Lead Left" beats="3" scaleX="3" scaleY=".5"/>
     </path>
-    <path>
+    <path couples="3 1">
       <move select="Swing Right" scaleX=".5" scaleY=".5"/>
       <move select="Stand" beats="3"/>
       <move select="Dodge Right" beats="1" scaleY=".25"/>
       <move select="Cast Right"/>
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Swing Right" scaleX=".5" scaleY=".5"/>
       <move select="Swing Left" scaleX=".5" scaleY=".5"/>
       <move select="Dodge Right" beats="1" scaleY=".25"/>
       <move select="Cast Right"/>
     </path>
-    <path>
+    <path couples="4 2">
       <move select="Swing Right" scaleX=".5" scaleY=".5"/>
       <move select="Swing Left" scaleX=".5" scaleY=".5"/>
       <move select="Lead Left" beats="3" scaleX="3" scaleY=".5"/>
