@@ -94,10 +94,10 @@
       <move select="Extend Left 2" beats="1" scaleY=".1"  />
     </path>
     <path couples="3 1">
-      <Movement hands="no" beats="4" cx1="0" cy1="-1" cx2="3.5" cy2="-4" x2="4" y2="-4" cx3="1" cx4="1" cy4="-0.4" x4="2" y4="-0.4" />
+      <movement hands="no" beats="4" cx1="0" cy1="-1" cx2="3.5" cy2="-4" x2="4" y2="-4" cx3="1" cx4="1" cy4="-0.4" x4="2" y4="-0.4" />
     </path>
     <path couples="4 2">
-      <Movement hands="no" beats="4" cx1="4" cy1="0" cx2="3.5" cy2="-4" x2="4" y2="-4" cx3="1" cx4="1" cy4="-0.4" x4="2" y4="-0.4" />
+      <movement hands="no" beats="4" cx1="4" cy1="0" cx2="3.5" cy2="-4" x2="4" y2="-4" cx3="1" cx4="1" cy4="-0.4" x4="2" y4="-0.4" />
     </path>
     <path couples="4 2">
       <move select="Extend Left 2" beats="1.5" scaleY=".9"  />
