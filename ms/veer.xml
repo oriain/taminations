@@ -118,60 +118,6 @@
     </path>
   </tam>
 
-  <tam title="Veer Left"
-       from="Columns"
-       formation="Column LH GBGB"
-       parts="" difficulty="3">
-    <path>
-      <move select="Extend Left" scaleX=".5" />
-    </path>
-    <path>
-      <move select="Extend Left" scaleX=".5" />
-    </path>
-    <path>
-      <move select="Extend Left" scaleX=".5" />
-    </path>
-    <path>
-      <move select="Extend Left" scaleX=".5" />
-    </path>
-  </tam>
-
-  <tam title="Veer Left"
-       from="Waves"
-       formation="Ocean Waves LH BGGB"
-       parts="" difficulty="3">
-    <path>
-      <move select="Extend Left" beats="2" scaleY="2" />
-    </path>
-    <path>
-      <move select="Forward" beats="2" />
-    </path>
-    <path>
-      <move select="Forward" beats="2" />
-    </path>
-    <path>
-      <move select="Extend Left" beats="2" scaleY="2" />
-    </path>
-  </tam>
-
-  <tam title="Veer Left"
-       from="Tidal Wave"
-       formation="Tidal Wave LH BGGB"
-       parts="" difficulty="3">
-    <path>
-      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
-    </path>
-    <path>
-      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
-    </path>
-    <path>
-      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
-    </path>
-    <path>
-      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
-    </path>
-  </tam>
-
   <tam title="Veer Right"
        from="Facing Couples"
        formation="Facing Couples"
@@ -268,57 +214,4 @@
     </path>
   </tam>
 
-  <tam title="Veer Right"
-       from="Columns"
-       formation="Column RH GBGB"
-       parts="" difficulty="3">
-    <path>
-      <move select="Extend Right" scaleX=".5" />
-    </path>
-    <path>
-      <move select="Extend Right" scaleX=".5" />
-    </path>
-    <path>
-      <move select="Extend Right" scaleX=".5" />
-    </path>
-    <path>
-      <move select="Extend Right" scaleX=".5" />
-    </path>
-  </tam>
-
-  <tam title="Veer Right"
-       from="Waves"
-       formation="Ocean Waves RH BGGB"
-       parts="" difficulty="3">
-    <path>
-      <move select="Extend Right" beats="2" scaleY="2" />
-    </path>
-    <path>
-      <move select="Forward" beats="2" />
-    </path>
-    <path>
-      <move select="Forward" beats="2" />
-    </path>
-    <path>
-      <move select="Extend Right" beats="2" scaleY="2" />
-    </path>
-  </tam>
-
-  <tam title="Veer Right"
-       from="Tidal Wave"
-       formation="Tidal Wave RH BGGB"
-       parts="" difficulty="3">
-    <path>
-      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
-    </path>
-    <path>
-      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
-    </path>
-    <path>
-      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
-    </path>
-    <path>
-      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
-    </path>
-  </tam>
 </tamination>
