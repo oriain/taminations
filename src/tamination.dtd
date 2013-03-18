@@ -109,5 +109,6 @@
                    columns CDATA #IMPLIED >
 <!ELEMENT menuitem EMPTY>
 <!ATTLIST menuitem text #REQUIRED
-                   link #REQUIRED >
+                   link #REQUIRED
+                   anim #IMPLIED >
 

@@ -50,9 +50,9 @@
   </menulist>
 
   <menulist title="Mainstream" columns="4">
-    <menuitem text="Alamo Ring" link="ms/ocean_wave.html?AllemandeLefttoanAlamoRingfromStaticSquare"/>
+    <menuitem text="Alamo Ring" link="ms/ocean_wave.html" anim="AllemandeLefttoanAlamoRingfromStaticSquare"/>
     <menuitem text="All Around the Corner" link="ms/all_around_the_corner.html"/>
-    <menuitem text="Allemande Left" link="ms/allemande.html?AllemandeLeftfromStaticSquare"/>
+    <menuitem text="Allemande Left" link="ms/allemande.html" anim="AllemandeLeftfromStaticSquare"/>
     <menuitem text="Allemande Thar" link="ms/thar.html"/>
     <menuitem text="Backtrack" link="ms/turn_back.html"/>
     <menuitem text="Bend the Line" link="ms/bend_the_line.html"/>
@@ -60,14 +60,14 @@
     <menuitem text="California Twirl" link="ms/california_twirl.html"/>
     <menuitem text="Cast Off Three Quarters" link="ms/cast_off_three_quarters.html"/>
     <menuitem text="Centers In" link="ms/centers_in.html"/>
-    <menuitem text="Chain Down the Line" link="ms/ladies_chain.html?ChainDowntheLinefromTwoFacedLines"/>
+    <menuitem text="Chain Down the Line" link="ms/ladies_chain.html" anim="ChainDowntheLinefromTwoFacedLines"/>
     <menuitem text="Circle Left and Circle Right" link="ms/circle.html"/>
     <menuitem text="Circle to a Line" link="ms/circle_to_a_line.html"/>
     <menuitem text="Circulate" link="ms/circulate.html"/>
     <menuitem text="Cloverleaf" link="ms/cloverleaf.html"/>
     <menuitem text="Courtesy Turn" link="ms/courtesy_turn.html"/>
-    <menuitem text="Cross Fold" link="ms/fold.html?EndsCrossFoldfromLinesFacingOut"/>
-    <menuitem text="Cross Run" link="ms/run.html?CentersCrossRunfromRightHandWaves"/>
+    <menuitem text="Cross Fold" link="ms/fold.html" anim="EndsCrossFoldfromLinesFacingOut"/>
+    <menuitem text="Cross Run" link="ms/run.html" anim="CentersCrossRunfromRightHandWaves"/>
     <menuitem text="Dive Thru" link="ms/dive_thru.html"/>
     <menuitem text="Dixie Style to an Ocean Wave" link="ms/dixie_style.html"/>
     <menuitem text="Do Paso" link="ms/do_paso.html"/>
@@ -83,7 +83,7 @@
     <menuitem text="Forward and Back" link="ms/forward_and_back.html"/>
     <menuitem text="Grand Square" link="ms/grand_square.html"/>
     <menuitem text="Half Sashay" link="ms/sashay.html"/>
-    <menuitem text="Half Tag" link="ms/tag.html?HalfTagfromRightHandTwoFacedLines"/>
+    <menuitem text="Half Tag" link="ms/tag.html" anim="HalfTagfromRightHandTwoFacedLines"/>
     <menuitem text="Hinge" link="ms/hinge.html"/>
     <menuitem text="Ladies In Men Sashay" link="ms/sashay.html"/>
     <menuitem text="Ladies Chain" link="ms/ladies_chain.html"/>
@@ -97,12 +97,12 @@
     <menuitem text="Passing Rule" link="ms/passing_rule.html"/>
     <menuitem text="Promenade" link="ms/promenade.html"/>
     <menuitem text="Recycle" link="ms/recycle.html"/>
-    <menuitem text="Reverse Flutterwheel" link="ms/flutterwheel.html?ReverseFlutterwheelfromFacingCouples"/>
+    <menuitem text="Reverse Flutterwheel" link="ms/flutterwheel.html" anim="ReverseFlutterwheelfromFacingCouples"/>
     <menuitem text="Right and Left Grand" link="ms/right_and_left_grand.html"/>
     <menuitem text="Right and Left Thru" link="ms/right_and_left_thru.html"/>
     <menuitem text="Right Arm Turn" link="ms/arm_turns.html"/>
     <menuitem text="Right (Left) Hand Star" link="ms/star.html"/>
-    <menuitem text="Rollaway" link="ms/sashay.html?RollawayfromLines"/>
+    <menuitem text="Rollaway" link="ms/sashay.html" anim="RollawayfromLines"/>
     <menuitem text="Run" link="ms/run.html"/>
     <menuitem text="Same Position Rule" link="ms/same_position_rule.html"/>
     <menuitem text="Scoot Back" link="ms/scoot_back.html"/>
@@ -113,7 +113,7 @@
     <menuitem text="Slip the Clutch" link="ms/slip_the_clutch.html"/>
     <menuitem text="Spin Chain Thru" link="ms/spin_chain_thru.html"/>
     <menuitem text="Spin the Top" link="ms/spin_the_top.html"/>
-    <menuitem text="Split Circulate" link="ms/circulate.html?SplitCirculatefromRightHandWaves"/>
+    <menuitem text="Split Circulate" link="ms/circulate.html" anim="SplitCirculatefromRightHandWaves"/>
     <menuitem text="Split the Outside Couple" link="ms/split_the_outside_couple.html"/>
     <menuitem text="Square Thru" link="ms/square_thru.html"/>
     <menuitem text="Star Promenade" link="ms/star_promenade.html"/>
@@ -130,11 +130,11 @@
     <menuitem text="Veer Left Veer Right" link="ms/veer.html"/>
     <menuitem text="Walk and Dodge" link="ms/walk_and_dodge.html"/>
     <menuitem text="Walk Around the Corner" link="ms/all_around_the_corner.html"/>
-    <menuitem text="Weave the Ring" link="ms/right_and_left_grand.html?WeavetheRing"/>
+    <menuitem text="Weave the Ring" link="ms/right_and_left_grand.html" anim="WeavetheRing"/>
     <menuitem text="Wheel and Deal" link="ms/wheel_and_deal.html"/>
     <menuitem text="Wheel Around" link="ms/wheel_around.html"/>
-    <menuitem text="Wrong Way Grand" link="ms/right_and_left_grand.html?WrongWayGrand"/>
-    <menuitem text="Wrong Way Thar" link="ms/thar.html?WrongWayTharfromLeftHandTharStar"/>
+    <menuitem text="Wrong Way Grand" link="ms/right_and_left_grand.html" anim="WrongWayGrand"/>
+    <menuitem text="Wrong Way Thar" link="ms/thar.html" anim="WrongWayTharfromLeftHandTharStar"/>
     <menuitem text="Zoom" link="ms/zoom.html"/>
   </menulist>
 
@@ -156,7 +156,7 @@
     <menuitem text="Flip the Diamond" link="plus/flip_the_diamond.html"/>
     <menuitem text="Follow Your Neighbor" link="plus/follow_your_neighbor.html"/>
     <menuitem text="Grand Swing Thru" link="plus/grand_swing_thru.html"/>
-    <menuitem text="Left Chase" link="plus/chase_right.html?LeftChasefromCouplesFacingOut"/>
+    <menuitem text="Left Chase" link="plus/chase_right.html" anim="LeftChasefromCouplesFacingOut"/>
     <menuitem text="Linear Cycle" link="plus/linear_cycle.html"/>
     <menuitem text="Load the Boat" link="plus/load_the_boat.html"/>
     <menuitem text="Peel Off" link="plus/peel_off.html"/>
@@ -356,7 +356,7 @@
     <menuitem text="Switch to a Diamond" link="c1/switch_to_a_diamond.html"/>
     <menuitem text="Switch to an Hourglass" link="c1/switch_to_an_hourglass.html"/>
     <menuitem text="Switch to an Interlocked Diamond" link="c1/switch_to_an_interlocked_diamond.html"/>
-    <menuitem text="Tag Back to a Wave" link="c1/tagging_calls_back_to_a_wave.html?TagBacktoaWavefromLines"/>
+    <menuitem text="Tag Back to a Wave" link="c1/tagging_calls_back_to_a_wave.html" anim="TagBacktoaWavefromLines"/>
     <menuitem text="Tally Ho" link="c1/tally_ho.html"/>
     <menuitem text="Tandem Concept" link="c1/tandem_concept.html"/>
     <menuitem text="T-Bone Formation" link="c1/t_bone_formation.html"/>

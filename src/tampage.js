@@ -106,9 +106,13 @@ $(document).ready(
           menuhtml += '<tr>';
           for (var c = 0; c < columns; c++) {
             var mi = c*rows + r;
-            if (mi < menu.length)
-              menuhtml += '<td onclick="document.location=\''+prefix+
-              $(menu[mi]).attr('link')+'\'">'+$(menu[mi]).attr('text')+'</td>';
+            if (mi < menu.length) {
+              var onelink = $(menu[mi]).attr('link');
+              if ($(menu[mi]).attr('anim') != undefined)
+                onelink += '?' + $(menu[mi]).attr('anim');
+              menuhtml += '<td onclick="document.location=\''+prefix+onelink+'\'">'+
+                           $(menu[mi]).attr('text')+'</td>';
+            }
           }
           menuhtml += '</tr>';
         }
