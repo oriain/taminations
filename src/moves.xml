@@ -18,8 +18,33 @@
     You should have received a copy of the GNU Affero General Public License
     along with Taminations.  If not see <http://www.gnu.org/licenses/>.
 -->
-<moves>
 
+<!--
+    This file defines paths that are used to build the animations.
+    Each one of these are built from two basic units:
+      movement:  one or two cubic Bezier curves, with beats and hands
+        The first Bezier curve is the dancer path
+        The coordinate system is relative to the dancer's position and
+        direction.  The position is (0,0) and the dancer is looking in
+        the positive X direction.  The positive Y direction is to the left.
+        The points of the curve are
+            (0, 0)  (cx1, cy1)  (cx2, cy2)  (x2, y2)
+        The scale is in dancer units, same as shown when the grid is on.
+        The second Bezier curve is used to calculate the facing direction of
+        the dancer, and if not given is the same as the first.  The facing
+        direction is calculated from the derivative of the Bezier, which
+        means that the dancer faces down the line of the curve.
+      move: reference to another path with modifications.  Modifications can be
+        hands  Supercedes hands from the referenced path
+        beats  To make the referenced path slower or faster
+        scaleX, scaleY  Stretches or shrinks the path by the given scale factor
+        offsetX, offsetY  Moves the destination by the given amount
+        reflect  Switches left and right.  Always use a value of -1.
+ -->
+
+<moves>
+  <!--  A few paths for just standing around   -->
+  <!--  Other than Stand these are not used much  -->
   <path name="Stand">
      <movement hands="both" beats="1" cx1="0" cy1="0" cx2="0" cy2="0" x2="0" y2="0" />
   </path>
@@ -44,193 +69,247 @@
     <move select="Stand" hands="gripright" />
   </path>
 
+  <!-- Move forward one unit -->
   <path name="Forward">
     <movement hands="no" beats="1" cx1="0.333" cy1="0" cx2="0.667" cy2="0" x2="1" y2="0" />
   </path>
 
+  <!-- Move backward one unit, but facing forward -->
+  <!-- Note use of 2nd Bezier for facing direction which goes forward -->
   <path name="Back">
     <movement hands="no" beats="1" cx1="-0.333" cy1="0" cx2="-0.667" cy2="0" x2="-1" y2="0"
                                    cx3="0.5" cx4="0.5" cy4="0" x4="1" y4="0" />
   </path>
 
+  <!-- Move in a semi-circle 2 units to the left -->
   <path name="Run Left">
     <movement hands="no" beats="3" cx1="1.333" cy1="0" cx2="1.333" cy2="2" x2="0" y2="2" />
   </path>
 
+  <!-- Move in a semi-circle 2 units to the right -->
   <path name="Run Right">
     <move select="Run Left" reflect="-1" />
   </path>
 
+  <!-- Turn 180 degrees to the left -->
+  <!-- This uses a zero curve for the movement,
+       and the "Run Left" curve for the facing direction -->
   <path name="U-Turn Left">
     <movement hands="no" beats="3" cx1="0" cy1="0" cx2="0" cy2="0" x2="0" y2="0"
                                    cx3="1.333" cx4="1.333" cy4="2" x4="0" y4="2" />
   </path>
 
+  <!-- Turn 180 degrees to the right -->
   <path name="U-Turn Right">
     <move select="U-Turn Left" reflect="-1" />
   </path>
 
+  <!-- Move 2 units to the left while turning around to the left -->
+  <!-- Unlike Run Left there's no movement in the X direction -->
   <path name="Flip Left">
     <movement hands="no" beats="3" cx1="0.1" cy1="0" cx2="0.1" cy2="2" x2="0" y2="2"
                                    cx3="1" cx4="1" cy4="2" x4="0" y4="2" />
   </path>
 
+  <!-- Move 2 units to the right while turning around to the right -->
   <path name="Flip Right">
     <move select="Flip Left" reflect="-1" />
   </path>
 
+  <!-- Slide 2 units to the left -->
   <path name="Dodge Left">
     <movement hands="no" beats="3" cx1="0" cy1="0" cx2="0" cy2="2" x2="0" y2="2"
                                    cx3="4" cx4="4" cy4="1" x4="8" y4="1" />
   </path>
 
+  <!-- Slide 2 units to the right -->
   <path name="Dodge Right">
     <move select="Dodge Left" reflect="-1" />
   </path>
 
+  <!-- Move one unit left and one unit forward, to face forward  -->
   <path name="Extend Left">
     <movement hands="no" beats="1" cx1="0.5" cy1="0" cx2="0.5" cy2="1" x2="1" y2="1"
                                    cx3="1" cx4="1" cy4="0.4" x4="2" y4="0.4" />
   </path>
 
+  <!-- Move one unit right and one unit forward, to face forward -->
   <path name="Extend Right">
     <move select="Extend Left" reflect="-1" />
   </path>
 
+  <!-- Move one unit back and one unit to the left, while facing forward -->
+  <!-- Used in Dosado -->
   <path name="Retreat Left">
     <movement hands="no" beats="1" cx1="-0.5" cy1="0" cx2="-0.5" cy2="1" x2="-1" y2="1"
                                    cx3="1" cx4="1" cy4="-0.4" x4="2" y4="-0.4" />
   </path>
 
+  <!-- Move one unit back and one unit to the right, while facing forward -->
+  <!-- Used in Dosado -->
   <path name="Retreat Right">
     <move select="Retreat Left" reflect="-1" />
   </path>
 
+  <!--  Turn in place to face left  -->
   <path name="Quarter Left">
     <movement hands="no" beats="1.5" cx1="0" cy1="0" cx2="0" cy2="0" x2="0" y2="0"
                                      cx3="0.55" cx4="1" cy4="0.45" x4="1" y4="1" />
   </path>
 
+  <!--  Turn in place to face right  -->
   <path name="Quarter Right">
     <move select="Quarter Left" reflect="-1" />
   </path>
 
+  <!--  Move one unit forward and one unit left,
+        holding onto another dancer to the left  -->
   <path name="Hinge Left">
     <movement hands="left" beats="1.5" cx1="0.55" cy1="0" cx2="1" cy2="0.45" x2="1" y2="1" />
   </path>
 
+  <!--  Move one unit forward and one unit right,
+        holding onto another dancer to the right  -->
   <path name="Hinge Right">
     <move select="Hinge Left" reflect="-1" />
   </path>
 
+  <!-- Move one unit backward and one unit left, ending facing right,
+       holding another dancer with the left hand -->
   <path name="BackHinge Left">
     <movement hands="left" beats="1.5" cx1="-0.55" cy1="0" cx2="-1" cy2="0.45" x2="-1" y2="1"
                                        cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
   </path>
 
+  <!-- Move one unit backward and one unit right, ending facing left,
+       holding another dancer with the right hand -->
   <path name="BackHinge Right">
     <move select="BackHinge Left" reflect="-1" />
   </path>
 
+  <!-- Do half of a Hinge Left, which is just 45 degrees -->
   <path name="HalfHinge Left">
     <movement hands="left" beats="0.75" cx1="0.265" cy1="0" cx2="0.52" cy2="0.105" x2="0.707" y2="0.293" />
   </path>
 
+  <!-- Do half of a Hinge Right -->
   <path name="HalfHinge Right">
     <move select="HalfHinge Left" reflect="-1" />
   </path>
 
+  <!-- Do half of a BackHinge Left -->
   <path name="HalfBackHinge Left">
     <movement hands="left" beats="0.75" cx1="-0.265" cy1="0" cx2="-0.52" cy2="0.105" x2="-0.707" y2="0.293"
                                         cx3="0.265" cx4="0.52" cy4="-0.105" x4="0.707" y4="-0.293" />
   </path>
 
+  <!-- Do half of a BackHinge Right -->
   <path name="HalfBackHinge Right">
     <move select="HalfBackHinge Left" reflect="-1" />
   </path>
 
+  <!-- Move backwards in a semicircle 2 units left -->
   <path name="BackRun Left">
     <movement hands="left" beats="3" cx1="-1.333" cy1="0" cx2="-1.333" cy2="2" x2="0" y2="2"
                                      cx3="1.333" cx4="1.333" cy4="-2" x4="0" y4="-2" />
   </path>
 
+  <!-- Move backwards in a semicircle 2 units right -->
   <path name="BackRun Right">
     <move select="BackRun Left" reflect="-1" />
   </path>
 
+  <!-- Move 2 units forward and left ending facing back -->
   <path name="Fold Left">
     <movement hands="no" beats="2" cx1="1.5" cy1="0" cx2="3.5" cy2="2" x2="2" y2="2" />
   </path>
 
+  <!-- Move 2 units forward and right ending facing back -->
   <path name="Fold Right">
     <move select="Fold Left" reflect="-1" />
   </path>
 
+  <!-- Move 2 units forward, 4 units left, ending facing back -->
   <path name="Cross Fold Left">
     <movement hands="no" beats="3" cx1="1.5" cy1="0" cx2="2.5" cy2="4" x2="2" y2="4" />
   </path>
 
+  <!-- Move 2 units forward, 4 units right, ending facing back -->
   <path name="Cross Fold Right">
     <move select="Cross Fold Left" reflect="-1" />
   </path>
 
+  <!-- Move one unit forward and one unit left, ending facing left -->
   <path name="Lead Left">
     <movement hands="no" beats="1.5" cx1="0.55" cy1="0" cx2="1" cy2="0.45" x2="1" y2="1" />
   </path>
 
+  <!-- Move one unit forward and one unit right, ending facing right -->
   <path name="Lead Right">
     <move select="Lead Left" reflect="-1" />
   </path>
 
+  <!-- Turn in place 45 degrees to the left -->
   <path name="Eighth Left">
     <movement hands="no" beats="0.75" cx1="0" cy1="0" cx2="0" cy2="0" x2="0" y2="0"
                                       cx3="0.265" cx4="0.52" cy4="0.105" x4="0.707"  y4="0.293" />
   </path>
 
+  <!-- Turn in place 45 degrees to the right -->
   <path name="Eighth Right">
     <move select="Eighth Left" reflect="-1" />
   </path>
 
+  <!-- Do 1/2 of a Lead Left, ending facing diagonally left -->
   <path name="Lead Left 1/2">
     <movement hands="no" beats="0.75" cx1="0.265" cy1="0" cx2="0.520" cy2="0.105" x2="0.707" y2="0.293" />
   </path>
 
+  <!-- Do 1/2 of a Lead Right, ending facing diagonally right -->
   <path name="Lead Right 1/2">
     <move select="Lead Left 1/2" reflect="-1" />
   </path>
 
+  <!-- Move 2 units left, with a forward and back motion -->
   <path name="Sashay Left">
     <movement hands="no" beats="3" cx1="0.75" cy1="0" cx2="0.75" cy2="2" x2="0" y2="2"
                                    cx3="0" cx4="0" cy4="0" x4="0" y4="0" />
   </path>
 
+  <!-- Move 2 units right, with a forward and back motion -->
   <path name="Sashay Right">
     <move select="Sashay Left" reflect="-1" />
   </path>
 
+  <!-- Move 2 units left, with a back and forward motion -->
   <path name="BackSashay Left">
     <movement hands="no" beats="3" cx1="-0.75" cy1="0" cx2="-0.75" cy2="2" x2="0" y2="2"
                                    cx3="0" cx4="0" cy4="0" x4="0" y4="0" />
   </path>
 
+  <!-- Move 2 units right, with a back and forward motion -->
   <path name="BackSashay Right">
     <move select="BackSashay Left" reflect="-1" />
   </path>
 
+  <!-- Turn in place to the left 1/16 of a full circle, or 22.5 degrees -->
   <path name="Sxtnth Left">
     <movement hands="both" beats="0.1" cx1="0" cy1="0" cx2="0" cy2="0" x2="0" y2="0"
                                        cx3="0.1313" cx4="0.2614" cy4="0.0259" x4="0.3827" y4="0.0761" />
   </path>
 
+  <!-- Turn in place to the right 22.5 degrees -->
   <path name="Sxtnth Right">
     <move select="Sxtnth Left" reflect="-1" />
   </path>
 
+  <!-- Advanced "Cross" movement 2 units forward and left -->
   <path name="Cross Left">
     <movement hands="left" beats="2" cx1="1" cy1="0" cx2="0" cy2="2" x2="2" y2="2"
                                      cx3="1" cx4="1" cy4="0.4" x4="2" y4="0.4" />
   </path>
 
+  <!-- Advanced "Cross" movement 2 units forward and right -->
   <path name="Cross Right">
     <move select="Cross Left" reflect="-1" />
   </path>
@@ -403,7 +482,7 @@
     <move select="incircle2" reflect="-1" />
   </path>
 
-  //    For single circle to a wave
+  <!--     For single circle to a wave   -->
   <path name="ssqtr">
     <movement hands="no" beats="1" cx1="0" cy1="0.385" cx2="0.315" cy2="0.7" x2="0.7" y2="0.7"
                                    cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
