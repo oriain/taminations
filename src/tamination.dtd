@@ -112,3 +112,11 @@
                    link #REQUIRED
                    anim #IMPLIED >
 
+<!ELEMENT calls (call+)>
+<!ELEMENT call EMPTY>
+<!ATTLIST call text #REQUIRED
+               level #REQUIRED
+               sublevel #REQUIRED
+               link #REQUIRED
+               anim #IMPLIED >
+
