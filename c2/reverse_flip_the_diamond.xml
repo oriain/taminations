@@ -97,7 +97,7 @@
   <tam title="Reverse Flip the Diamond" from="Right-Hand Point-to-Point Diamonds" formation="Diamonds RH PTP Girl Points">
   <path>
     <move select="Run Left" offsetX="1"/>
-\  </path>
+  </path>
   <path>
     <move select="Lead Right" beats="3" />
   </path>

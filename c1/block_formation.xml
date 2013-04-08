@@ -148,9 +148,9 @@
     </path>
   </tam>
 
-  <tam title="In Your Block Square Chain Thru" group="In Your Block">
-     <formation>      <dancer gender="boy" x="1" y="1" angle="270"/>      <dancer gender="girl" x="-3" y="1" angle="270"/>      <dancer gender="boy" x="3" y="3" angle="270"/>      <dancer gender="girl" x="-1" y="3" angle="270"/>    </formation>
+  <tam title="In Your Block Square Chain Thru" group="In Your Block"
        parts="3.5;3;3;3" >
+     <formation>      <dancer gender="boy" x="1" y="1" angle="270"/>      <dancer gender="girl" x="-3" y="1" angle="270"/>      <dancer gender="boy" x="3" y="3" angle="270"/>      <dancer gender="girl" x="-1" y="3" angle="270"/>    </formation>
     <path numbers="5 4">
       <move select="Forward 2"/>
       <move select="Lead Right" scaleX=".5" scaleY="2" />

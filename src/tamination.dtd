@@ -26,7 +26,7 @@
 <!ENTITY middot "&#183;" ><!--/centerdot B: =middle dot-->
 <!ENTITY bull   "&#x2022;" ><!--/bullet B: =round bullet, filled-->
 
-<!ELEMENT tamination (title?,definition?,styling?,timing?,comment?,(calllist|tam*))>
+<!ELEMENT tamination (title?,definition?,styling?,timing?,comment?,(tam*))>
 
 <!ELEMENT title ANY>
 <!ATTLIST title  level CDATA #REQUIRED>
@@ -84,14 +84,6 @@
 
 <!ELEMENT moves (path+)>
 
-<!ELEMENT calllist (calldate*)>
-<!ATTLIST calllist title CDATA #REQUIRED>
-<!ELEMENT calldate (call+)>
-<!ATTLIST calldate date CDATA #REQUIRED>
-<!ELEMENT call EMPTY>
-<!ATTLIST call name CDATA #REQUIRED
-               href CDATA #REQUIRED>
-
 <!ELEMENT formations (formation+)>
 
 <!ELEMENT formation (dancer+)>
@@ -103,20 +95,20 @@
                  y CDATA #REQUIRED
                  angle CDATA #REQUIRED >
 
-<!ELEMENT menu (list+)>
+<!ELEMENT menu (menulist+)>
 <!ELEMENT menulist (menuitem+)>
 <!ATTLIST menulist title CDATA #REQUIRED
                    columns CDATA #IMPLIED >
 <!ELEMENT menuitem EMPTY>
-<!ATTLIST menuitem text #REQUIRED
-                   link #REQUIRED
-                   anim #IMPLIED >
+<!ATTLIST menuitem text CDATA #REQUIRED
+                   link CDATA #REQUIRED
+                   anim CDATA #IMPLIED >
 
 <!ELEMENT calls (call+)>
 <!ELEMENT call EMPTY>
-<!ATTLIST call text #REQUIRED
-               level #REQUIRED
-               sublevel #REQUIRED
-               link #REQUIRED
-               anim #IMPLIED >
+<!ATTLIST call text CDATA #REQUIRED
+               level CDATA #REQUIRED
+               sublevel CDATA #REQUIRED
+               link CDATA #REQUIRED
+               anim CDATA #IMPLIED >
 

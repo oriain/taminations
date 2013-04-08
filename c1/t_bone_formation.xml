@@ -75,7 +75,7 @@
   </tam>
 
   <tam title="(T-Bone) Follow Your Neighbor"
-       from="Left-Handed T-Bone">
+       from="Left-Handed T-Bone"
        group="(T-Bone)" >
      <formation>      <dancer gender="girl" x="1" y="3" angle="0"/>      <dancer gender="boy" x="1" y="1" angle="90"/>      <dancer gender="girl" x="1" y="-1" angle="0"/>      <dancer gender="boy" x="1" y="-3" angle="90"/>    </formation>
     <path numbers="1 8">
