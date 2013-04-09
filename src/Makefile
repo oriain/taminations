@@ -45,10 +45,9 @@ XMLC1 = $(addprefix ../c1/,$(XML))
 XMLC2 = $(addprefix ../c2/,$(XML)) 
 XMLC3A = $(addprefix ../c3a/,$(XML))
 XMLINFO = $(addprefix ../info/,$(XML))
-XMLROOT = $(addprefix ../,$(XML))
 
 XMLFILES = $(XMLMS) $(XMLPLUS) $(XMLADV) \
-           $(XMLC1) $(XMLC2) $(XMLC3A) $(XMLINFO) $(XMLROOT)
+           $(XMLC1) $(XMLC2) $(XMLC3A) $(XMLINFO)
 
 .phony : all
 all : TAMination.jar  callindex.json $(XMLFILES) ../tamination.zip
