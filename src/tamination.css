@@ -263,7 +263,7 @@ form a { color: black; text-decoration: none; }
   font-size: 16px;
   text-align: center;
   cursor: pointer;
-  width: 11%;
+  width: 10%;
 }
 .menutitle-highlight {
   color: white;
@@ -278,6 +278,7 @@ form a { color: black; text-decoration: none; }
 }
 
 .menu {
+  position: absolute;
   border-top: 1px solid black;
   border-left: 1px solid black;
   border-bottom: 4px solid gray;
@@ -285,12 +286,13 @@ form a { color: black; text-decoration: none; }
   font-size: 12px;
   font-family: arial, sans-serif;
   background-color: #d4ffd4;
- }
+  z-index: 10;
+}
 
 .menutitlediv {
   position: absolute;
-  z-index: 10;
- }
+
+}
 
 .menuitem {
   color: black;

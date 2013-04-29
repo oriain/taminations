@@ -38,15 +38,19 @@ JAVA = $(JAVA_HOME)/bin/java
 JAVAC = $(JAVA_HOME)/bin/javac
 JAR = $(JAVA_HOME)/bin/jar
 XML = $(wildcard *.xml)
+XMLB1 = $(addprefix ../b1/,$(XML)) 
+XMLB2 = $(addprefix ../b2/,$(XML)) 
 XMLMS = $(addprefix ../ms/,$(XML)) 
 XMLPLUS = $(addprefix ../plus/,$(XML)) 
 XMLADV = $(addprefix ../adv/,$(XML)) 
+XMLA1 = $(addprefix ../a1/,$(XML)) 
+XMLA2 = $(addprefix ../a2/,$(XML)) 
 XMLC1 = $(addprefix ../c1/,$(XML)) 
 XMLC2 = $(addprefix ../c2/,$(XML)) 
 XMLC3A = $(addprefix ../c3a/,$(XML))
 XMLINFO = $(addprefix ../info/,$(XML))
 
-XMLFILES = $(XMLMS) $(XMLPLUS) $(XMLADV) \
+XMLFILES = $(XMLB1) $(XMLB2) $(XMLMS) $(XMLPLUS) $(XMLA1) $(XMLA2) \
            $(XMLC1) $(XMLC2) $(XMLC3A) $(XMLINFO)
 
 .phony : all
@@ -73,7 +77,7 @@ TAMination.jar : TAMination.java
 #  The wildcard * pattern apparently conveniently excludes .* files
 ../tamination.zip : $(filter-out ../tamination.zip,$(wildcard ../* ../*/*))
 	-cd .. && $(RM) tamination.zip
-	cd .. && $(JAR) cMf tamination.zip info ms plus adv c1 c2 c3a src ext *.html *.txt *.ico *.xml
+	cd .. && $(JAR) cMf tamination.zip info b1 b2 ms plus a1 a2 adv c1 c2 c3a src ext *.html *.txt *.ico *.xml
 
 #  Make the index of calls
 #  This is for a future project, not used by the current animations

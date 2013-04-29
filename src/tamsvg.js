@@ -2015,14 +2015,14 @@ Color.prototype.veryBright = function()
 };
 Color.prototype.rotate = function()
 {
-  var c = new Color(0,0,0);
+  var cc = new Color(0,0,0);
   if (this.r == 255 && this.g == 0 && this.b == 0)
-    c.g = c.b = 255;
+    cc.g = c.b = 255;
   else if (this.r == Color.lightGray.r)
-    c = Color.lightGray;
+    cc = Color.lightGray;
   else
-    c.b = 255;
-  return c;
+    cc.b = 255;
+  return cc;
 };
 Color.prototype.toString = function()
 {

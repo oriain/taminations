@@ -20,7 +20,7 @@
  */
 var prefix = '';
 //  Make the links work from both taminations directory and its subdirectories
-if (document.URL.search('/(info|ms|plus|adv|c1|c2|c3a)/') >= 0)
+if (document.URL.search('/(info|b1|b2|ms|plus|adv|a1|a2|c1|c2|c3a)/') >= 0)
   prefix = '../';
 var currentmenu = 0;
 var callnumber = -1;
@@ -31,7 +31,6 @@ var cookie = 0;
 var animationNumber = {};
 var here = document.URL.split(/\?/)[0];
 var search = document.URL.split(/\?/)[1];
-var isSmall = false;
 if (search != null)
   search = search.split(/\&/);
 else
@@ -48,30 +47,37 @@ var difficultText = [ ' <font color="blue">&diams;</font>',
                       ' <font color="red">&diams;&diams;</font>',
                       ' <font color="black">&diams;&diams;&diams;</font>' ];
 
-var menudata;
-preload('menus.xml',function(a) { menudata = a; });
+var calldata;
+preload('calls.xml',function(a) { calldata = a; });
+
+var levelselectors = {
+      info: 'call[level="Info"]',
+      basicandmainstream: 'call[level="Basic and Mainstream"]',
+      basic1: 'call[sublevel="Basic 1"]',
+      basic2: 'call[sublevel="Basic 2"]',
+      mainstream: 'call[sublevel="Mainstream"]',
+      plus: 'call[level="Plus"]',
+      advanced: 'call[level="Advanced"]',
+      a1: 'call[sublevel="A-1"]',
+      a2: 'call[sublevel="A-2"]',
+      c1: 'call[sublevel="C-1"]',
+      c2: 'call[sublevel="C-2"]',
+      c3a: 'call[sublevel="C-3A"]' };
 
 // Body onload function
 $(document).ready(
   function() {
-    var w = (window.innerWidth ? window.innerWidth : document.body.clientWidth);
     if (typeof defwidth == 'undefined')
       defwidth = 40;
     if (typeof animwidth == 'undefined')
       animwidth = 30;
-    if (w < 500)
-      isSmall = true;
     $(".noshow").hide();
-    //  These need to be set for component scrolling to work
-    //$('html').height('100%');
-    //$('body').height('100%');
     //  Load the menus
-    $("body").prepend('<div style="width:100%; height:24px" id="menudiv"></div>');
+    $("body").prepend('<div style="width:100%; height:48px" id="menudiv"></div>');
     $("#menudiv").hide();  // so we don't flash all the menus
     $("#menuload").addClass("menutitle");
     //  Insert title
-    if (!isSmall)
-      $("body").prepend(getTitle());
+    $("body").prepend(getTitle());
     //  Build the document structure
     var htmlstr = '<table id="deftable" cellspacing="0" cellpadding="4" width="100%">'+
                     '<tr valign="top">'+
@@ -89,36 +95,48 @@ $(document).ready(
 
     //  Build the menus
     $("#menudiv").append('<table cellpadding="0" cellspacing="0" width="100%" summary="">'+
-                         '<tr></tr></table>');
-    tamination_menu = [];
-    $('menulist',menudata).each(function() {
-      $('#menudiv tr:first').append('<td class="menutitle">'+$(this).attr('title')+'<br/>'+
-          '<div><table class="menu" cellpadding="0" cellspacing="0" summary="">'+
-      '</table></div></td>');
-      $('.menutitle:last').data('menu',this);
-      $('.menutitle:last').click(function() {
-        var tm = $(this).data('menu');
-        var columns = Number($(tm).attr('columns'));
-        var menu = $(tm).children();
-        var menuhtml = '';
-        var rows = Math.floor((menu.length + columns - 1) / columns);
+                         '<tr>'+
+                         '<td id="info" class="menutitle" rowspan="2">Info</td>'+
+                         '<td id="basicandmainstream" class="menutitle" colspan="3">Basic and Mainstream</td>'+
+                         '<td id="plus" class="menutitle" rowspan="2">Plus</td>'+
+                         '<td id="advanced" class="menutitle" colspan="2">Advanced</td>'+
+                         '<td id="c1" class="menutitle" rowspan="2">C-1</td>'+
+                         '<td id="c2" class="menutitle" rowspan="2">C-2</td>'+
+                         '<td id="c3a" class="menutitle" rowspan="2">C-3A</td></tr>'+
+                     '<tr><td id="basic1" class="menutitle">Basic 1</td>'+
+                         '<td id="basic2" class="menutitle">Basic 2</td>'+
+                         '<td id="mainstream" class="menutitle">Mainstream</td>'+
+                         '<td id="a1" class="menutitle">A-1</td>'+
+                         '<td id="a2" class="menutitle">A-2</td>'+
+    '</tr></table>');
+    $('#menudiv').append('<div class="menu"></div>');
+    $('.menutitle').each(function() {
+      $(this).click(function() {
+        //  Select the calls for this level
+        var level = $(this).attr('id');
+        var menu = $(levelselectors[level],calldata);
+        var columns = Math.min(Math.ceil(menu.size()/25),4);
+        var rows = Math.floor((menu.size() + columns - 1) / columns);
+        var menuhtml = '<table cellpadding="0" cellspacing="0">';
         for (var r = 0; r < rows; r++) {
           menuhtml += '<tr>';
           for (var c = 0; c < columns; c++) {
             var mi = c*rows + r;
-            if (mi < menu.length) {
-              var onelink = $(menu[mi]).attr('link');
-              if ($(menu[mi]).attr('anim') != undefined)
-                onelink += '?' + $(menu[mi]).attr('anim');
+            if (mi < menu.size()) {
+              var menuitem = $(menu.eq(mi));
+              var onelink = menuitem.attr('link');
+              if (menuitem.attr('anim') != undefined)
+                onelink += '?' + menuitem.attr('anim');
               menuhtml += '<td onclick="document.location=\''+prefix+onelink+'\'">'+
-                           $(menu[mi]).attr('text')+'</td>';
+                           menuitem.attr('text')+'</td>';
             }
           }
           menuhtml += '</tr>';
         }
-        $('.menu',this).empty();
-        $('.menu',this).append(menuhtml);
-        $("div td",this).addClass("menuitem");
+        menuhtml += '</table>';
+        $('.menu').empty();
+        $('.menu').append(menuhtml);
+        $(".menu td").addClass("menuitem");
         $(".menuitem").hover(
             function() { $(this).addClass("menuitem-highlight"); },
             function() { $(this).removeClass("menuitem-highlight"); })
@@ -126,9 +144,9 @@ $(document).ready(
                 function() { return false; });
 
         //  Position off the screen to get the width without flashing it in the wrong position
-        $("div",this).css("left","-1000px").show();
-        var mw = $("div",this).width();
-        var mh = $("div",this).height();
+        $(".menu").css("left","-1000px").show();
+        var mw = $(".menu").width();
+        var mh = $(".menu").height();
         var sw = $('body').width();
         var sh = $('body').height();
         var ml = $(this).offset().left;
@@ -141,8 +159,8 @@ $(document).ready(
         if (mt+mh > sh)
           mt = sh - mh;
         $("td:has(applet)").addClass("invisible");  // need to hide the applet to see the menus
-        $("div",this).css("top",mt+"px");
-        $("div",this).css("left",ml+"px");
+        $(".menu").css("top",mt+"px");
+        $(".menu").css("left",ml+"px");
       });
     });
 
@@ -152,8 +170,7 @@ $(document).ready(
     $(document).bind("mousedown",clearMenus);
     //  Everything's ready, show the menus
     $("#menuload").hide();
-    if (!isSmall)
-      $("#menudiv").show();
+    $("#menudiv").show();
 
     sizeBody();
     //  Load XML documents that define the animations
@@ -171,7 +188,7 @@ $(document).ready(
 
 function clearMenus()
 {
-  $(".menutitle > div").hide();
+  $(".menu").hide();
   $("td:has(applet)").removeClass("invisible");
 }
 
@@ -187,9 +204,7 @@ function getTitle()
 //Set height of page sections to fit the window
 function sizeBody()
 {
-  var h = $(window).height();
-  if (!isSmall)
-    h -= 116;
+  var h = $(window).height() - 116;
   $('#definition').height(h);
   $('#calllist').height(h);
   $('#animationlist').height(h);
@@ -204,16 +219,12 @@ function appletSize()
   var h = window.innerHeight ? window.innerHeight : document.body.offsetHeight;
   var w = window.innerWidth ? window.innerWidth : document.body.offsetWidth;
   if (typeof h == "number" && typeof w == "number") {
-    if (isSmall)
-      aw = ah = w;
-    else {
-      ah = h - 150;
-      aw = (w * animwidth) / 100;
-      if (ah * 350 > aw * 420)
-        ah = (aw * 420) / 350;
-      else
-        aw = (ah * 350) / 420;
-    }
+    ah = h - 150;
+    aw = (w * animwidth) / 100;
+    if (ah * 350 > aw * 420)
+      ah = (aw * 420) / 350;
+    else
+      aw = (ah * 350) / 420;
   }
   aw = Math.floor(aw);
   ah = Math.floor(ah);
@@ -333,23 +344,11 @@ function generateAnimations()
   showTAMinator(callnumber);
   if (tamsvg)
     generateButtonPanel();
-  //  For a small screen, show just the animation selection
-  if (isSmall) {
-    $('td:has(#definition)').hide();
-    $('td:has(#appletcontainer)').hide();
-    $('td:has(#animationlist)').show();
-  }
 }
 
 
 function PickAnimation(n)
 {
-  //  For a small screen, switch to the animation
-  if (isSmall) {
-    $('td:has(#definition)').hide();
-    $('td:has(#appletcontainer)').show();
-    $('td:has(#animationlist)').hide();
-  }
   SelectAnimation(n);
   if (tamsvg) {
     tamsvg.stop();
@@ -402,12 +401,20 @@ function showTAMinator(n)
 function getLevel()
 {
   var levelstring = " ";
+  if (document.URL.match(/\/b1\//))
+    levelstring = "Basic 1";
+  if (document.URL.match(/\/b2\//))
+    levelstring = "Basic 2";
   if (document.URL.match(/\/ms\//))
     levelstring = "Mainstream";
   if (document.URL.match(/\/plus\//))
     levelstring = "Plus";
   if (document.URL.match(/\/adv\//))
     levelstring = "Advanced";
+  if (document.URL.match(/\/a1\//))
+    levelstring = "A-1";
+  if (document.URL.match(/\/a2\//))
+    levelstring = "A-2";
   if (document.URL.match(/\/c1\//))
     levelstring = "C-1";
   if (document.URL.match(/\/c2\//))
