@@ -20,7 +20,7 @@
  */
 var prefix = '';
 //  Make the links work from both taminations directory and its subdirectories
-if (document.URL.search('/(info|b1|b2|ms|plus|adv|a1|a2|c1|c2|c3a)/') >= 0)
+if (document.URL.search(/(info|b1|b2|ms|plus|adv|a1|a2|c1|c2|c3a)/) >= 0)
   prefix = '../';
 var currentmenu = 0;
 var callnumber = -1;
@@ -129,6 +129,8 @@ $(document).ready(
                 onelink += '?' + menuitem.attr('anim');
               menuhtml += '<td onclick="document.location=\''+prefix+onelink+'\'">'+
                            menuitem.attr('text')+'</td>';
+              //if (r==5 && c==0)
+              //  alert(menuhtml);
             }
           }
           menuhtml += '</tr>';
