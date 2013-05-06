@@ -335,7 +335,6 @@ function generateAnimations()
       $(".selectRadio").get(callnumber).checked = true;
     $("#animationlist > a").eq(callnumber).addClass("selectedHighlight");
     $("#animationlist > a").eq(callnumber).prevAll('.callname:first').addClass("selectedHighlight");
-    //  Size document components so scroll bars work ok
     currentcall = $('tam',animations).eq(callnumber)
         .attr("title").replace(/ \(DBD.*/,"").replace(/\W/g,"");
   } else {
@@ -368,8 +367,13 @@ function PickAnimation(n)
   $(".selectRadio").get(n).checked = true;
   //  Note that :first gets the 'first previous' when used with prevAll
   $("#animationlist > a").eq(n).prevAll('.callname:first').addClass("selectedHighlight");
-  if (tamsvg)
+  if (tamsvg) {
     generateButtonPanel();
+    tamsvg.setPart = setPart;
+    setPart(0);
+  }
+  currentcall = $('tam',animations).eq(n)
+      .attr("title").replace(/ \(DBD.*/,"").replace(/\W/g,"");
   //  Show any comments below the animation
   showTAMinator(n);
 }
