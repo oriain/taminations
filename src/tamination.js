@@ -70,7 +70,7 @@ TAMination.prototype = {
     var parts = tam.getParts();
     if (elem) {
       //  IE has a hard time finding the applet, it needs to be told exacty where it is
-      var archive = document.URL.replace(/(embed|info|ms|plus|adv|c1|c2|c3a).*/,"src/TAMination.jar");
+      var archive = document.URL.replace(/(embed|info|b1|b2|ms|plus|a1|a2|adv|c1|c2|c3a).*/,"src/TAMination.jar");
       var appletstr = '<applet id="applet" code="TAMination" archive="'+archive+'" '+
       'width="'+elem.offsetWidth+'" '+
       'height="'+elem.offsetHeight+'" '+
