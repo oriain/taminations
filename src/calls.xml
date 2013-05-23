@@ -430,7 +430,7 @@
     <call text="Split Counter Rotate" level="Advanced" sublevel="A-2" link="a2/split_counter_rotate.html"/>
     <call text="Split Phantom Columns/Lines/Waves" level="Challenge" sublevel="C-3A" link="c3a/split_phantom_columns_lines_waves_concept.html"/>
     <call text="Split Recycle" level="Challenge" sublevel="C-1" link="c1/box_split_recycle.html"/>
-    <call text="Split Square Chain Thru" level="Advanced" sublevel="A-2" link="a2/split_square_chain_thru.html"/>
+    <call text="Split Square Chain Thru" level="Advanced" sublevel="A-1" link="a1/split_square_chain_thru.html"/>
     <call text="Split Square Thru Variations" level="Challenge" sublevel="C-1" link="c1/split_square_thru_variations.html"/>
     <call text="Split Square Thru" level="Advanced" sublevel="A-1" link="a1/split_square_thru.html"/>
     <call text="Split Swap Around" level="Challenge" sublevel="C-2" link="c2/split_swap_around.html"/>
@@ -525,7 +525,7 @@
     <call text="Unwrap" level="Challenge" sublevel="C-2" link="c2/unwrap.html"/>
     <call text="Veer Left Veer Right" level="Basic and Mainstream" sublevel="Basic 1" link="b1/veer.html"/>
     <call text="Vertical (Anything)" level="Challenge" sublevel="C-2" link="c2/vertical_anything.html"/>
-    <call text="Vertical Tag Back to a Wave" level="Challenge" sublevel="C-1" link="c1/tagging_calls_back_to_a_wave.html#VerticalTag"/>
+    <call text="Vertical Tag Back to a Wave" level="Challenge" sublevel="C-1" link="c1/tagging_calls_back_to_a_wave.html" anim="VerticalTag"/>
     <call text="Vertical Tag Your Neighbor" level="Challenge" sublevel="C-2" link="c2/vertical_tag_your_neighbor.html"/>
     <call text="Vertical Tag" level="Challenge" sublevel="C-1" link="c1/vertical_tag.html"/>
     <call text="Walk and Dodge" level="Basic and Mainstream" sublevel="Mainstream" link="ms/walk_and_dodge.html"/>
