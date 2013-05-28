@@ -446,7 +446,7 @@
   </tam>
 
   <tam title="Girls Run"
-       from="T-Bones (DBD)"
+       from="T-Bones"
        formation="T-Bone DLDL" gender-specific="true"
        parts="" >
     <path>
@@ -599,7 +599,7 @@
   </tam>
 
   <tam title="Centers Run"
-       from="T-Bones (DBD)">
+       from="T-Bones">
      <formation>      <dancer gender="girl" x="-1" y="3" angle="270"/>      <dancer gender="boy" x="-1" y="1" angle="180"/>      <dancer gender="girl" x="-1" y="-1" angle="180"/>      <dancer gender="boy" x="-1" y="-3" angle="90"/>    </formation>
     <path>
       <move select="Forward 2" hands="left" />
