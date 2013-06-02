@@ -25,9 +25,10 @@
   <tam title="Peel Off"
        from="Right-Hand Box"
        formation="Box RH"
-       parts="" difficulty="2">
+       difficulty="2">
     <path>
-      <move select="U-Turn Left" beats="4" offsetX="2" />
+      <move select="Forward"/>
+      <move select="U-Turn Left" beats="3" offsetX="1" />
     </path>
     <path>
       <move select="Run Left" beats="4" offsetX="-2" />
@@ -37,138 +38,153 @@
   <tam title="Peel Off"
        from="Left-Hand Box"
        formation="Box LH"
-       parts="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Run Right" beats="4" offsetX="-2" />
     </path>
     <path>
-      <move select="U-Turn Right" beats="4" offsetX="2" />
+      <move select="Forward"/>
+      <move select="U-Turn Right" beats="3" offsetX="1" />
     </path>
   </tam>
 
   <tam title="Peel Off"
        from="Double Pass Thru"
        formation="Double Pass Thru"
-       parts="" difficulty="1">
+       difficulty="1">
     <path>
-      <move select="U-Turn Left" offsetX="1" />
+      <move select="Forward" scaleX="0.7"/>
+      <move select="U-Turn Left" offsetX="0.3" />
     </path>
     <path>
-      <move select="U-Turn Right" offsetX="1" />
+      <move select="Forward" scaleX="0.7"/>
+      <move select="U-Turn Right" offsetX="0.3" />
     </path>
     <path>
-      <move select="Flip Left" offsetX="-1" />
+      <move select="Flip Left" beats="4" offsetX="-1" />
     </path>
     <path>
-      <move select="Flip Right" offsetX="-1" />
+      <move select="Flip Right" beats="4" offsetX="-1" />
     </path>
   </tam>
 
   <tam title="Peel Off"
        from="Completed Double Pass Thru"
        formation="Completed Double Pass Thru"
-       parts="" difficulty="1">
+       difficulty="1">
     <path>
-      <move select="Run Right" offsetX="-1" />
+      <move select="Run Right" beats="4" offsetX="-1" />
     </path>
     <path>
-      <move select="Run Left" offsetX="-1" />
+      <move select="Run Left" beats="4" offsetX="-1" />
     </path>
     <path>
-      <move select="U-Turn Right" offsetX="1" />
+      <move select="Forward" scaleX="0.7"/>
+      <move select="U-Turn Right" offsetX="0.3" />
     </path>
     <path>
-      <move select="U-Turn Left" offsetX="1" />
+      <move select="Forward" scaleX="0.7"/>
+      <move select="U-Turn Left" offsetX="0.3" />
     </path>
   </tam>
 
   <tam title="Peel Off"
        from="Right-Hand Columns"
        formation="Column RH GBGB"
-       parts="" difficulty="2">
+       difficulty="2">
     <path>
-      <move select="Run Left" offsetX="-1" />
+      <move select="Run Left" beats="4" offsetX="-1" />
     </path>
     <path>
-      <move select="U-Turn Left" offsetX="1" />
+      <move select="Forward" scaleX="0.7"/>
+      <move select="U-Turn Left" offsetX=".3" />
     </path>
     <path>
-      <move select="Run Left" offsetX="-1" />
+      <move select="Run Left" beats="4" offsetX="-1" />
     </path>
     <path>
-      <move select="U-Turn Left" offsetX="1" />
+      <move select="Forward" scaleX="0.7"/>
+      <move select="U-Turn Left" offsetX=".3" />
     </path>
   </tam>
 
   <tam title="Peel Off"
        from="Left-Hand Columns"
        formation="Column LH GBGB"
-       parts="" difficulty="2">
+       difficulty="2">
     <path>
-      <move select="U-Turn Right" offsetX="1" />
+      <move select="Forward" scaleX="0.7"/>
+      <move select="U-Turn Right" offsetX=".3" />
     </path>
     <path>
-      <move select="Run Right" offsetX="-1" />
+      <move select="Run Right" beats="4" offsetX="-1" />
     </path>
     <path>
-      <move select="U-Turn Right" offsetX="1" />
+      <move select="Forward" scaleX="0.7"/>
+      <move select="U-Turn Right" offsetX=".3" />
     </path>
     <path>
-      <move select="Run Right" offsetX="-1" />
+      <move select="Run Right" beats="4" offsetX="-1" />
     </path>
   </tam>
 
   <tam title="Peel Off"
        from="Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       parts="" difficulty="3">
+       difficulty="3">
     <path>
-      <move select="U-Turn Left" beats="3" offsetX="2" offsetY="-.5" />
+      <move select="Forward"/>
+      <move select="U-Turn Left" beats="3" offsetX="1" offsetY="-.5" />
     </path>
     <path>
-      <move select="U-Turn Right" beats="3" offsetX="2" offsetY=".5" />
+      <move select="Forward"/>
+      <move select="U-Turn Right" beats="3" offsetX="1" offsetY=".5" />
     </path>
     <path>
-      <move select="Flip Right" beats="3" offsetX="-2" offsetY="1.5" />
+      <move select="Flip Right" beats="4" offsetX="-2" offsetY="1.5" />
     </path>
     <path>
-      <move select="Flip Left" beats="3" offsetX="-2" offsetY="-1.5" />
+      <move select="Flip Left" beats="4" offsetX="-2" offsetY="-1.5" />
     </path>
   </tam>
 
   <tam title="Peel Off"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGBG"
-       parts="" difficulty="3">
+       difficulty="3">
     <path>
-      <move select="U-Turn Left" beats="3" offsetX="2" offsetY="-.5" />
+      <move select="Forward"/>
+      <move select="U-Turn Left" beats="3" offsetX="1" offsetY="-.5" />
     </path>
     <path>
-      <move select="Flip Left" beats="3" offsetX="-2" offsetY="-1.5" />
+      <move select="Flip Left" beats="4" offsetX="-2" offsetY="-1.5" />
     </path>
     <path>
-      <move select="U-Turn Left" beats="3" offsetX="2" offsetY="-.5" />
+      <move select="Forward"/>
+      <move select="U-Turn Left" beats="3" offsetX="1" offsetY="-.5" />
     </path>
     <path>
-      <move select="Flip Left" beats="3" offsetX="-2" offsetY="-1.5" />
+      <move select="Flip Left" beats="4" offsetX="-2" offsetY="-1.5" />
     </path>
   </tam>
 
   <tam title="Peel Off"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGBG"
-       parts="" difficulty="3">
+       difficulty="3">
     <path>
-      <move select="Flip Right" beats="3" offsetX="-2" offsetY="1.5" />
+      <move select="Flip Right" beats="4" offsetX="-2" offsetY="1.5" />
     </path>
     <path>
-      <move select="U-Turn Right" beats="3" offsetX="2" offsetY=".5" />
+      <move select="Forward"/>
+      <move select="U-Turn Right" beats="3" offsetX="1" offsetY=".5" />
     </path>
     <path>
-      <move select="Flip Right" beats="3" offsetX="-2" offsetY="1.5" />
+      <move select="Flip Right" beats="4" offsetX="-2" offsetY="1.5" />
     </path>
     <path>
-      <move select="U-Turn Right" beats="3" offsetX="2" offsetY=".5" />
+      <move select="Forward"/>
+      <move select="U-Turn Right" beats="3" offsetX="1" offsetY=".5" />
     </path>
   </tam>
 
@@ -193,13 +209,15 @@
   <tam title="Peel Off" from="Static Mini-Waves"
        formation="Static MiniWaves RH" difficulty="3">
     <path>
-      <move select="U-Turn Left" beats="4" offsetX="3"/>
+      <move select="Forward 2"/>
+      <move select="U-Turn Left" beats="2" offsetX="1"/>
     </path>
     <path>
       <move select="Run Left" beats="4" offsetX="-3"/>
     </path>
     <path>
-      <move select="U-Turn Left" beats="4" offsetX="3"/>
+      <move select="Forward 2"/>
+      <move select="U-Turn Left" beats="2" offsetX="1"/>
     </path>
     <path>
       <move select="Run Left" beats="4" offsetX="-3"/>
@@ -209,28 +227,30 @@
   <tam title="Ends Peel Off" from="Right-Hand Waves"
        formation="Ocean Waves RH BGBG" difficulty="3">
     <path>
-      <move select="U-Turn Left" offsetX="2"/>
+      <move select="Forward"/>
+      <move select="U-Turn Left" offsetX="1"/>
     </path>
     <path>
     </path>
     <path>
     </path>
     <path>
-      <move select="Run Left" offsetX="-2"/>
+      <move select="Run Left" beats="4" offsetX="-2"/>
     </path>
   </tam>
 
   <tam title="Ends Peel Off" from="Left-Hand Waves"
        formation="Ocean Waves LH BGBG" difficulty="3">
     <path>
-      <move select="Run Right" offsetX="-2"/>
+      <move select="Run Right" beats="4" offsetX="-2"/>
     </path>
     <path>
     </path>
     <path>
     </path>
     <path>
-      <move select="U-Turn Right" offsetX="2"/>
+      <move select="Forward"/>
+      <move select="U-Turn Right" offsetX="1"/>
     </path>
   </tam>
 
@@ -239,12 +259,13 @@
     <path>
     </path>
     <path>
-      <move select="U-Turn Left" offsetX="2"/>
+      <move select="Forward"/>
+      <move select="U-Turn Left" offsetX="1"/>
     </path>
     <path>
     </path>
     <path>
-      <move select="Run Left" offsetX="-2"/>
+      <move select="Run Left" beats="4" offsetX="-2"/>
     </path>
   </tam>
 
