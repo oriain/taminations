@@ -1,0 +1,213 @@
+<tamination><tam formation="Static Facing Out" from="Couples Facing Out" group="All 8 (A-1)" parts="" title="All 8 (A-1) Left Roll to a Wave">
+    <path>
+      <move beats="4" offsetX="-3" select="Run Left" />
+    </path>
+    <path>
+      <move beats="4" offsetX="-3" select="U-Turn Left" />
+    </path>
+    <path>
+      <move beats="4" offsetX="-3" select="Run Left" />
+    </path>
+    <path>
+      <move beats="4" offsetX="-3" select="U-Turn Left" />
+    </path>
+  </tam>
+<tam formation="Static Square" from="Static Square" group="All 8 (A-1)" parts="" title="All 8 (A-1) Left Wheel Thru">
+    <path>
+      <move beats="7.5" scaleX="2" scaleY="2" select="Lead Left" />
+    </path>
+    <path>
+      <move select="Forward 3" />
+      <move select="Hinge Left" />
+      <move select="Forward 3" />
+    </path>
+    <path>
+      <move beats="7.5" scaleX="2" scaleY="2" select="Lead Left" />
+    </path>
+    <path>
+      <move select="Forward 3" />
+      <move select="Hinge Left" />
+      <move select="Forward 3" />
+    </path>
+  </tam>
+<tam formation="Thar LH Boys" from="Right-Hand Thar" group="All 8 (A-1)" title="All 8 (A-1) Lockit">
+    <path>
+      <move beats="6" select="Hinge Left" />
+    </path>
+    <path>
+      <move beats="6" scaleX="3" scaleY="3" select="Lead Right" />
+    </path>
+    <path>
+      <move beats="6" select="Hinge Left" />
+    </path>
+    <path>
+      <move beats="6" scaleX="3" scaleY="3" select="Lead Right" />
+    </path>
+  </tam>
+<tam formation="Thar LH Boys" from="Thar" group="All 8 (A-1)" parts="4.5" title="All 8 (A-1) Mix">
+    <path>
+      <move select="Hinge Left" />
+      <move beats="3" scaleX="3" select="Lead Left" />
+    </path>
+    <path>
+      <move beats="1.5" select="Stand" />
+      <move select="Dodge Right" />
+      <move select="Swing Right" />
+    </path>
+    <path>
+      <move select="Hinge Left" />
+      <move beats="3" scaleX="3" select="Lead Left" />
+    </path>
+    <path>
+      <move beats="1.5" select="Stand" />
+      <move select="Dodge Right" />
+      <move select="Swing Right" />
+    </path>
+  </tam>
+
+  <tam formation="Static MiniWaves RH" from="Static Mini-Waves" group="All 8 (A-1)" parts="1.5" title="All 8 (A-1) Quarter Thru">
+    <path>
+      <move offsetX="1" select="Hinge Right" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move hands="right" offsetY="-1" select="Quarter Right" />
+    </path>
+    <path>
+      <move offsetX="1" select="Hinge Right" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move hands="right" offsetY="-1" select="Quarter Right" />
+    </path>
+  </tam>
+<tam formation="Static Square" from="Static Square" group="All 8 (A-1)" parts="3" title="All 8 (A-1) Reverse Swap Around">
+    <path>
+      <move select="Forward 6" />
+    </path>
+    <path>
+      <move beats="6" select="Flip Left" />
+    </path>
+    <path>
+      <move select="Forward 6" />
+    </path>
+    <path>
+      <move beats="6" select="Flip Left" />
+    </path>
+  </tam>
+<tam formation="Static Facing Out" from="Couples Facing Out" group="All 8 (A-1)" parts="" title="All 8 (A-1) Right Roll to a Wave">
+    <path>
+      <move beats="4" offsetX="-3" select="U-Turn Right" />
+    </path>
+    <path>
+      <move beats="4" offsetX="-3" select="Run Right" />
+    </path>
+    <path>
+      <move beats="4" offsetX="-3" select="U-Turn Right" />
+    </path>
+    <path>
+      <move beats="4" offsetX="-3" select="Run Right" />
+    </path>
+  </tam>
+<tam formation="Static MiniWaves RH" from="Static Mini-Waves" group="All 8 (A-1)" parts="" title="All 8 (A-1) Scoot and Dodge">
+    <path>
+      <move select="Forward 3" />
+      <move select="Swing Right" />
+      <move select="Forward 3" />
+    </path>
+    <path>
+      <move select="Dodge Right" />
+    </path>
+    <path>
+      <move select="Forward 3" />
+      <move select="Swing Right" />
+      <move select="Forward 3" />
+    </path>
+    <path>
+      <move select="Dodge Right" />
+    </path>
+  </tam>
+<tam formation="Static Square" from="Static Square" group="All 8 (A-1)" parts="3" title="All 8 (A-1) Swap Around">
+    <path>
+      <move beats="6" select="Flip Right" />
+    </path>
+    <path>
+      <move select="Forward 6" />
+    </path>
+    <path>
+      <move beats="6" select="Flip Right" />
+    </path>
+    <path>
+      <move select="Forward 6" />
+    </path>
+  </tam>
+<tam formation="Static MiniWaves RH" from="Static Mini-Waves" group="All 8 (A-1)" parts="4.5" title="All 8 (A-1) Three Quarter Thru">
+    <path>
+      <move select="Swing Right" />
+      <move hands="right" offsetY="-1" select="Quarter Right" />
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move offsetX="1" select="Hinge Right" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move hands="right" offsetY="-1" select="Quarter Right" />
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move offsetX="1" select="Hinge Right" />
+      <move select="Swing Left" />
+    </path>
+  </tam>
+
+
+<tam formation="Thar RH Boys" from="Thar" group="All 8 (A-1)" parts="" title="All 8 (A-1) Turn and Deal">
+    <path>
+      <move beats="4" offsetX="2" offsetY="-2" select="U-Turn Right" />
+    </path>
+    <path>
+      <move beats="4" offsetX="-2" offsetY="2" select="U-Turn Left" />
+    </path>
+    <path>
+      <move beats="4" offsetX="2" offsetY="-2" select="U-Turn Right" />
+    </path>
+    <path>
+      <move beats="4" offsetX="-2" offsetY="2" select="U-Turn Left" />
+    </path>
+  </tam>
+
+  <tam formation="Thar LH Boys" from="Wrong Way Thar" group="All 8 (A-1)" parts="" title="All 8 (A-1) Turn and Deal">
+    <path>
+      <move beats="4" offsetX="-2" offsetY="2" select="U-Turn Left" />
+    </path>
+    <path>
+      <move beats="4" offsetX="2" offsetY="-2" select="U-Turn Right" />
+    </path>
+    <path>
+      <move beats="4" offsetX="-2" offsetY="2" select="U-Turn Left" />
+    </path>
+    <path>
+      <move beats="4" offsetX="2" offsetY="-2" select="U-Turn Right" />
+    </path>
+  </tam>
+<tam formation="Static Square" from="Static Square" group="All 8 (A-1)" title="All 8 (A-1) Wheel Thru">
+    <path>
+      <move select="Forward 3" />
+      <move select="Hinge Right" />
+      <move select="Forward 3" />
+    </path>
+    <path>
+      <move beats="7.5" scaleX="2" scaleY="2" select="Lead Right" />
+    </path>
+    <path>
+      <move select="Forward 3" />
+      <move select="Hinge Right" />
+      <move select="Forward 3" />
+    </path>
+    <path>
+      <move beats="7.5" scaleX="2" scaleY="2" select="Lead Right" />
+    </path>
+  </tam>
+</tamination>

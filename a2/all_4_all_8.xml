@@ -633,4 +633,11 @@
     </path>
   </tam>
 
+     <tamxref
+        title-match="All 8"
+        title-sub="All 8 (A-1)"
+        group="All 8 (A-1)"
+        file="a1/*.xml"
+     />
+
 </tamination>

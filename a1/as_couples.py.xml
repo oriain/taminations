@@ -674,41 +674,4 @@
     </path>
   </tam>
 
-     <tamxref
-        title-match="As Couples"
-        title-sub="As Couples (A-1)"
-        group="As Couples (A-1)"
-        file="a1/*.xml"
-        not-file="as_couples"
-     />
-
-     <tamxref
-        title-match="As Couples"
-        title-sub="As Couples (A-2)"
-        group="As Couples (A-2)"
-        file="a2/*.xml"
-     />
-
-     <tamxref
-        title-match="As Couples"
-        title-sub="As Couples (C-1)"
-        group="As Couples (C-1)"
-        file="c1/*.xml"
-     />
-
-     <tamxref
-        title-match="As Couples"
-        title-sub="As Couples (C-2)"
-        group="As Couples (C-2)"
-        file="c2/*.xml"
-     />
-
-     <tamxref
-        title-match="As Couples"
-        title-sub="As Couples (C-3A)"
-        group="As Couples (C-3A)"
-        file="c3a/*.xml"
-     />
-
-
 </tamination>

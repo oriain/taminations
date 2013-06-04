@@ -33,29 +33,21 @@ COPY = cp
 endif
 
 
-
 JAVA = $(JAVA_HOME)/bin/java
 JAVAC = $(JAVA_HOME)/bin/javac
 JAR = $(JAVA_HOME)/bin/jar
+DIRS = b1 b2 ms plus adv a1 a2 c1 c2 c3a info
 XML = $(wildcard *.xml)
-XMLB1 = $(addprefix ../b1/,$(XML)) 
-XMLB2 = $(addprefix ../b2/,$(XML)) 
-XMLMS = $(addprefix ../ms/,$(XML)) 
-XMLPLUS = $(addprefix ../plus/,$(XML)) 
-XMLADV = $(addprefix ../adv/,$(XML)) 
-XMLA1 = $(addprefix ../a1/,$(XML)) 
-XMLA2 = $(addprefix ../a2/,$(XML)) 
-XMLC1 = $(addprefix ../c1/,$(XML)) 
-XMLC2 = $(addprefix ../c2/,$(XML)) 
-XMLC3A = $(addprefix ../c3a/,$(XML))
-XMLINFO = $(addprefix ../info/,$(XML))
-
-XMLFILES = $(XMLB1) $(XMLB2) $(XMLMS) $(XMLPLUS) $(XMLA1) $(XMLA2) \
-           $(XMLC1) $(XMLC2) $(XMLC3A) $(XMLINFO)
+XMLFILES = $(foreach dir,$(DIRS),$(addprefix ../$(dir)/,$(XML)))
+XREFXML = $(shell python findxrefs.py)
+PYXML = $(addsuffix .py.xml,$(basename $(XREFXML)))
 
 .phony : all
-all : TAMination.jar  callindex.json $(XMLFILES) ../tamination.zip
+all : TAMination.jar  callindex.json $(XMLFILES) $(PYXML) ../tamination.zip
 	@echo Build complete
+
+test :
+	@echo $(PYPYXML)
 
 unzip :
 	cd ../ext/jquery && $(JAR) xvf jquery.mobile-1.2.0.zip
@@ -83,6 +75,11 @@ TAMination.jar : TAMination.java
 #  This is for a future project, not used by the current animations
 callindex.json : $(wildcard ../*/*.xml) $(wildcard calls/*.js) $(wildcard ../squareplay/src/calls/*.py)
 	python indexcalls.py >$@
+
+
+#  Generate py.xml files from xml files with cross-references
+%.py.xml : %.xml
+	python expandxrefs.py $< >$(subst /,$(PS),$@)
 
 #  Copy XML files that define menus, moves, and formations to each directory
 #  Browsers can be picky about loading AJAX from different directories

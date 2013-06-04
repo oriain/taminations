@@ -3,13 +3,15 @@
 /tamination.zip
 *.class
 /ext/
-/TAMination.jar
+TAMination.jar
 *.pyc
 *.blend?
 callindex.json
+calls.xml
 formations.xml
 menus.xml
 moves.xml
+!src/calls.xml
 !src/formations.xml
 !src/menus.xml
 !src/moves.xml
