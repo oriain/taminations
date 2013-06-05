@@ -22,10 +22,6 @@
 -->
 <tamination>
 
-  <comment>
-    <p>Stretch versions of Challenge calls are listed with each call.</p>
-  </comment>
-
   <tam title="Stretch Bend the Line" group="Stretch"
        formation="Normal Lines">
     <path>
@@ -675,4 +671,20 @@
       <move select="Forward 4" />
     </path>
   </tam>
+
+  <tamxref title-match="Stretch"
+           title-sub="Stretch (C-1)"
+           group="Stretch (C-1)"
+           file="c1/*.xml" />
+
+  <tamxref title-match="^Stretch\b"
+           title-sub="Stretch (C-2)"
+           group="Stretch (C-2)"
+           file="c2/*.xml" />
+
+  <tamxref title-match="^Stretch\b"
+           title-sub="Stretch (C-3A)"
+           group="Stretch (C-3A)"
+           file="c3a/*.xml" />
+
 </tamination>

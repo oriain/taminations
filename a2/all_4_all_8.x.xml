@@ -22,10 +22,6 @@
 -->
 <tamination>
 
-  <comment>
-    <p>All 4 Couples / All 8 versions of Advanced and Challenge calls are listed with each call.</p>
-  </comment>
-
   <tam title="All 4 Couples Chase Right" group="All 4 Couples"
        from=""
        formation="Static Facing Out"
@@ -633,11 +629,54 @@
     </path>
   </tam>
 
-     <tamxref
-        title-match="All 8"
-        title-sub="All 8 (A-1)"
-        group="All 8 (A-1)"
-        file="a1/*.xml"
-     />
+  <tamxref title-match="All 4 Couples"
+           title-sub="All 4 Couples (A-1)"
+           group="All 4 Couples (A-1)"
+           file="a1/*.xml" />
+
+  <tamxref title-match="All 8"
+           title-sub="All 8 (A-1)"
+           group="All 8 (A-1)"
+           file="a1/*.xml" />
+
+  <tamxref title-match="All 4 Couples"
+           title-sub="All 4 Couples (A-2)"
+           group="All 4 Couples (A-2)"
+           file="a2/*.xml" />
+
+  <tamxref title-match="All 8"
+           title-sub="All 8 (A-2)"
+           group="All 8 (A-2)"
+           file="a2/*.xml" />
+
+  <tamxref title-match="All 4 Couples"
+           title-sub="All 4 Couples (C-1)"
+           group="All 4 Couples (C-1)"
+           file="c1/*.xml" />
+
+  <tamxref title-match="All 8"
+           title-sub="All 8 (C-1)"
+           group="All 8 (C-1)"
+           file="c1/*.xml" />
+
+  <tamxref title-match="All 4 Couples"
+           title-sub="All 4 Couples (C-2)"
+           group="All 4 Couples (C-2)"
+           file="c2/*.xml" />
+
+  <tamxref title-match="All 8"
+           title-sub="All 8 (C-2)"
+           group="All 8 (C-2)"
+           file="c2/*.xml" />
+
+  <tamxref title-match="All 4 Couples"
+           title-sub="All 4 Couples (C-3A)"
+           group="All 4 Couples (C-3A)"
+           file="c3a/*.xml" />
+
+  <tamxref title-match="All 8"
+           title-sub="All 8 (C-3A)"
+           group="All 8 (C-3A)"
+           file="c3a/*.xml" />
 
 </tamination>

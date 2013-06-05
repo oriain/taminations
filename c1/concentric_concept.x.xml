@@ -22,10 +22,6 @@
 -->
 <tamination>
 
-  <comment>
-    <p>Concentric versions of Challenge calls are listed with each call.</p>
-  </comment>
-
   <tam title="From columns, Concentric Box Counter Rotate" group="From columns, Concentric"
        formation="Magic Column RH">
     <path>
@@ -1180,5 +1176,20 @@
       <move select="U-Turn Left" beats="4" hands="right" offsetX="1" offsetY="-0.5" />
     </path>
   </tam>
+
+  <tamxref title-match="Concentric"
+           title-sub="Concentric (C-1)"
+           group="Concentric (C-1)"
+           file="c1/*.xml" />
+
+  <tamxref title-match="^Concentric"
+           title-sub="Concentric (C-2)"
+           group="Concentric (C-2)"
+           file="c2/*.xml" />
+
+  <tamxref title-match="^Concentric"
+           title-sub="Concentric (C-3A)"
+           group="Concentric (C-3A)"
+           file="c3a/*.xml" />
 
 </tamination>

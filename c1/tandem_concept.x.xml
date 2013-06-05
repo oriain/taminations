@@ -406,4 +406,21 @@
       <move select="Forward 4" />
     </path>
   </tam>
+
+  <tamxref title-match="^Tandem "
+           title-sub="Tandem (C-1) "
+           group="Tandem (C-1)"
+           file="c1/*.xml" />
+
+  <tamxref title-match="^Tandem "
+           title-sub="Tandem (C-2) "
+           group="Tandem (C-2)"
+           file="c2/*.xml" />
+
+  <tamxref title-match="^Tandem "
+           title-sub="Tandem (C-3A) "
+           group="Tandem (C-3A)"
+           file="c3a/*.xml" />
+
+
 </tamination>

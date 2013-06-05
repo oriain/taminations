@@ -37,17 +37,16 @@ JAVA = $(JAVA_HOME)/bin/java
 JAVAC = $(JAVA_HOME)/bin/javac
 JAR = $(JAVA_HOME)/bin/jar
 DIRS = b1 b2 ms plus adv a1 a2 c1 c2 c3a info
-XML = $(wildcard *.xml)
-XMLFILES = $(foreach dir,$(DIRS),$(addprefix ../$(dir)/,$(XML)))
-XREFXML = $(shell python findxrefs.py)
-PYXML = $(addsuffix .py.xml,$(basename $(XREFXML)))
+XMLFILES = $(foreach dir,$(DIRS),$(addprefix ../$(dir)/,$(wildcard *.xml)))
+XREFXML = $(foreach dir,$(DIRS),$(wildcard ../$(dir)/*.x.xml))
+PYXML = $(addsuffix .xml,$(basename $(basename $(XREFXML))))
 
 .phony : all
 all : TAMination.jar  callindex.json $(XMLFILES) $(PYXML) ../tamination.zip
 	@echo Build complete
 
 test :
-	@echo $(PYPYXML)
+	@echo $(PYXML)
 
 unzip :
 	cd ../ext/jquery && $(JAR) xvf jquery.mobile-1.2.0.zip
@@ -63,7 +62,7 @@ clean :
 
 #  Make the JAR file.  Tell the compiler to compile for Java 1.3 for maximum compatibility
 TAMination.jar : TAMination.java
-	$(JAVAC) -source 1.3 -target 1.3 -classpath $(JAVA_HOME)/jre/lib/plugin.jar TAMination.java && $(JAR) -cf TAMination.jar *.class
+	$(JAVAC) -classpath $(JAVA_HOME)/jre/lib/plugin.jar TAMination.java && $(JAR) -cf TAMination.jar *.class
 
 #  Make the zip file.  Exclude my Eclipse project files which are not of interest to others.
 #  The wildcard * pattern apparently conveniently excludes .* files
@@ -73,12 +72,12 @@ TAMination.jar : TAMination.java
 
 #  Make the index of calls
 #  This is for a future project, not used by the current animations
-callindex.json : $(wildcard ../*/*.xml) $(wildcard calls/*.js) $(wildcard ../squareplay/src/calls/*.py)
-	python indexcalls.py >$@
+#callindex.json : $(wildcard ../*/*.xml) $(wildcard calls/*.js) $(wildcard ../squareplay/src/calls/*.py)
+#	python indexcalls.py >$@
 
 
-#  Generate py.xml files from xml files with cross-references
-%.py.xml : %.xml
+#  Generate xml files from x.xml files with cross-references
+%.xml : %.x.xml
 	python expandxrefs.py $< >$(subst /,$(PS),$@)
 
 #  Copy XML files that define menus, moves, and formations to each directory

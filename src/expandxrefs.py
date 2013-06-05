@@ -2,6 +2,7 @@
 import glob
 import re
 import sys
+import os.path
 import xml.etree.ElementTree as ET
 
 def main():
@@ -18,8 +19,12 @@ def main():
       #  Get all the xref files
       files = glob.glob('../'+tam.get('file'))
       for file in files:
-        if tam.get('not-file') and re.search(tam.get('not-file'),file):
+        if file.endswith('.x.xml'):
           continue
+        if os.path.exists(file.replace('.xml','.x.xml')):
+          continue
+        #if tam.get('not-file') and re.search(tam.get('not-file'),file):
+        #  continue
         tree2 = ET.parse(file)
         #  Find the xref animations that match
         for tam2 in tree2.getroot().findall('tam'):
@@ -32,6 +37,8 @@ def main():
               tam2.set('group',tam.get('group'))
             #  Append it to the output xml
             newroot.append(tam2);
+    else:
+      newroot.append(tam)
   #  Print the output xml
   ET.dump(newtree)
 
