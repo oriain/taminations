@@ -364,8 +364,11 @@ parseOneCall:
               var xelem = $('tam',tamxml)[x];
               if (call == $(xelem).attr('title').toLowerCase().replace(/\W/g,'')) {
                 callfound = true;
-                var fs = $(xelem).attr('formation');
-                var f = getNamedFormation(fs);
+                var f = $(xelem).find('formation');
+                if (f.size() <= 0) {
+                  var fs = $(xelem).attr('formation');
+                  f = getNamedFormation(fs);
+                }
                 var d = getDancers(f);
                 var sexy = $(xelem).attr('gender-specific');
                 mm = matchFormations(tamsvg.dancers,d,sexy);
