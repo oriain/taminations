@@ -85,6 +85,12 @@ TamSVG.prototype = {
     this.bigon = cookie.bigon == "true";
     if (typeof args != 'undefined' && args.bigon)
       this.bigon = true;
+    if (cookie.speed == 'slow')
+      this.slow();
+    else if (cookie.speed == 'fast')
+      this.fast();
+    else
+      this.normal();
     this.loop = cookie.loop == "true" || args.loop;
     this.grid = cookie.grid == "true";
     this.numbers = cookie.numbers == 'true' || args.numbers;
@@ -92,7 +98,7 @@ TamSVG.prototype = {
     this.showPhantoms = cookie.phantoms == "true";
     if (cookie.svg != 'true') {
       cookie.svg = "true";
-      cookie.store(365);
+      cookie.store(365,'/tamination');
     }
     this.currentpart = 0;
     this.barstool = 0;
@@ -198,7 +204,7 @@ TamSVG.prototype = {
       this.convertToBigon();
     this.beat = -2.0;
     this.prevbeat = -2.0;
-    this.speed = 500;
+    //this.speed = 500;  now set above checking cookie
     this.running = false;
     for (var i in this.dancers)
       this.dancers[i].recalculate(i==4);
@@ -523,17 +529,29 @@ TamSVG.prototype = {
     this.animate();
   },
 
-  slow: function()
+  slow: function(setcookie)
   {
     this.speed = 1500;
+    if (arguments.length > 0) {
+      this.cookie.speed = 'slow';
+      this.cookie.store(365,'/tamination');
+    }
   },
-  normal: function()
+  normal: function(setcookie)
   {
     this.speed = 500;
+    if (arguments.length > 0) {
+      this.cookie.speed = 'normal';
+      this.cookie.store(365,'/tamination');
+    }
   },
-  fast: function()
+  fast: function(setcookie)
   {
     this.speed = 200;
+    if (arguments.length > 0) {
+      this.cookie.speed = 'fast';
+      this.cookie.store(365,'/tamination');
+    }
   },
   isSlow: function()
   {
@@ -552,7 +570,7 @@ TamSVG.prototype = {
     if (arguments.length > 0)
       this.loop = v;
     this.cookie.loop = this.loop;
-    this.cookie.store(365);
+    this.cookie.store(365,'/tamination');
     return this.loop;
   },
 
@@ -572,7 +590,7 @@ TamSVG.prototype = {
       }
     }
     this.cookie.grid = this.grid;
-    this.cookie.store(365);
+    this.cookie.store(365,'/tamination');
     return this.grid;
   },
 
@@ -604,7 +622,7 @@ TamSVG.prototype = {
       }
       this.cookie.numbers = this.numbers;
       this.cookie.couples = this.couples;
-      this.cookie.store(365);
+      this.cookie.store(365,'/tamination');
     }
     return this.numbers;
   },
@@ -626,7 +644,7 @@ TamSVG.prototype = {
       }
       this.cookie.numbers = this.numbers;
       this.cookie.couples = this.couples;
-      this.cookie.store(365);
+      this.cookie.store(365,'/tamination');
     }
     return this.couples;
   },
@@ -663,7 +681,7 @@ TamSVG.prototype = {
       this.setNumbers();
       this.animate();
       this.cookie.hexagon = this.hexagon;
-      this.cookie.store(365);
+      this.cookie.store(365,'/tamination');
     }
     return this.hexagon;
   },
@@ -698,7 +716,7 @@ TamSVG.prototype = {
         this.dancers[i].paintPath();
       this.animate();
       this.cookie.bigon = this.bigon;
-      this.cookie.store(365);
+      this.cookie.store(365,'/tamination');
     }
     return this.bigon;
   },
@@ -2070,8 +2088,14 @@ function generateButtonPanel()
 
   $('#buttonpanel').append('<div id="optionpanel"></div>');
   $('#optionpanel').append('<input type="button" class="appButton" id="slowButton" value="Slow"/>');
-  $('#optionpanel').append('<input type="button" class="appButton selected" id="normalButton" value="Normal"/>');
+  $('#optionpanel').append('<input type="button" class="appButton" id="normalButton" value="Normal"/>');
   $('#optionpanel').append('<input type="button" class="appButton" id="fastButton" value="Fast"/>');
+  if (tamsvg.isSlow())
+    $('#slowButton').addClass('selected');
+  else if (tamsvg.isFast())
+    $('#fastButton').addClass('selected');
+  else
+    $('#normalButton').addClass('selected');
   $('#optionpanel').append('<input type="button" class="appButton" id="loopButton" value="Loop"/>');
   if (tamsvg.loop)
     $('#loopButton').addClass('selected');
@@ -2109,17 +2133,17 @@ function generateButtonPanel()
 
   // Speed button actions
   $('#slowButton').click(function() {
-    tamsvg.slow();
+    tamsvg.slow(true);
     $('#slowButton').addClass('selected');
     $('#normalButton,#fastButton').removeClass('selected');
   });
   $('#normalButton').click(function() {
-    tamsvg.normal();
+    tamsvg.normal(true);
     $('#normalButton').addClass('selected');
     $('#slowButton,#fastButton').removeClass('selected');
   });
   $('#fastButton').click(function() {
-    tamsvg.fast();
+    tamsvg.fast(true);
     $('#fastButton').addClass('selected');
     $('#slowButton,#normalButton').removeClass('selected');
   });
@@ -2134,7 +2158,7 @@ function generateButtonPanel()
       $('#loopButton').addClass('selected');
     }
     cookie.loop = tamsvg.loop;
-    cookie.store(365);
+    cookie.store(365,'/tamination');
   });
   $('#pathsButton').click(function() {
     if (tamsvg.showPaths) {
@@ -2149,7 +2173,7 @@ function generateButtonPanel()
       $('#pathsButton').addClass('selected');
     }
     cookie.paths = tamsvg.showPaths;
-    cookie.store(365);
+    cookie.store(365,'/tamination');
   });
   $('#gridButton').click(function() {
     if (tamsvg.grid) {
@@ -2169,7 +2193,7 @@ function generateButtonPanel()
       $('#gridButton').addClass('selected');
     }
     cookie.grid = tamsvg.grid;
-    cookie.store(365);
+    cookie.store(365,'/tamination');
   });
   $('#phantomButton').click(function() {
     if (tamsvg.showPhantoms) {
@@ -2197,7 +2221,7 @@ function generateButtonPanel()
     else
       $('#numbersButton').removeClass('selected');
     cookie.numbers = tamsvg.numbers;
-    cookie.store(365);
+    cookie.store(365,'/tamination');
   });
   $('#couplesButton').click(function() {
     tamsvg.setCouples(!tamsvg.setCouples());
@@ -2208,7 +2232,7 @@ function generateButtonPanel()
     else
       $('#couplesButton').removeClass('selected');
     cookie.couples = tamsvg.couples;
-    cookie.store(365);
+    cookie.store(365,'/tamination');
   });
 
   // Slider
