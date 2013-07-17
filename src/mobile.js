@@ -2,8 +2,36 @@
 var animations = 0;
 var currentcall = '';  // needed for tamination.js
 var callnamedict = {};
-var menudata;
-preload('menus.xml',function(a) { menudata = a; });
+var calldata;
+
+var leveldata = [
+  { name:"Basic and Mainstream", dir:"bms", selector:"level='Basic and Mainstream' and sublevel!='Styling'" },
+  { name:"Basic 1", dir:"b1", selector:"sublevel='Basic 1'" },
+  { name:"Basic 2", dir:"b2", selector:"sublevel='Basic 2'" },
+  { name:"Mainstream", dir:"ms", selector:"sublevel='Mainstream'" },
+  { name:"Plus", dir:"plus", selector:"level='Plus'" },
+  { name:"Advanced", dir:"adv", selector:"level='Advanced'" },
+  { name:"A-1", dir:"a1", selector:"sublevel='A-1'" },
+  { name:"A-2", dir:"a2", selector:"sublevel='A-2'" },
+  { name:"Challenge", dir:"challenge", selector:"level='Challenge'" },
+  { name:"C-1", dir:"c1", selector:"sublevel='C-1'" },
+  { name:"C-2", dir:"c2", selector:"sublevel='C-2'" },
+  { name:"C-3A", dir:"c3a", selector:"sublevel='C-3A'" },
+  //{ name:"All Calls", dir:"all", selector:"@level!='Info' and @sublevel!='Styling'" },
+  { name:"Index of All Calls", dir:"all", selector:"level!='Info' and sublevel!='Styling'" }
+  //{ name:"Search Calls", dir:"", selector:"" }
+];
+
+function findLevel(str)
+{
+  for (var i=0; i<leveldata.length; i++) {
+    if (leveldata[i].dir == str)
+      return leveldata[i];
+  }
+}
+
+
+preload('calls.xml',function(a) { calldata = a; });
 
 //  Given an url or other fragment, parse out "a=b args" into an object
 function parseArgs(str)
@@ -105,10 +133,20 @@ $(document).bind('mobileinit',function()
     $.mobile.pushStateEnabled = false;
   });
 
-$(document).delegate('#level','pagecreate',
+$(document).delegate('#level','pageinit',
   function()
   {
-    // Build menus for level and call selection
+    // Adjust level display items to fit window
+    var h = window.innerHeight ? window.innerHeight : document.body.offsetHeight;
+    h = h - 50;  // hack
+    $('#content').height(h);
+    //h = $('#content div div').height();
+    h = Math.floor(h/14);
+    //alert(h);
+    $('#content div div').height(h);
+    return;
+
+
     $('menulist',menudata).each(function() {
       var title = $(this).attr('title');
       if (title.match(/Info|General|Styling/))
@@ -128,6 +166,29 @@ $(document).delegate('#level','pagecreate',
     });
   }
 );
+
+
+
+$(document).bind('pagechange',
+ function(ev,data)
+ {
+    if (data.toPage.attr('id') == 'calllistpage') {
+      var leveldata = findLevel(data.options.pageData.dir);
+      $('#leveltitle').empty().text(leveldata.name);
+      $('#calllist').empty();
+      $('call['+leveldata.selector+']',calldata).each(function() {
+        var text = $(this).attr('text');
+        var link = $(this).attr('link');
+        var htmlpage = encodeURIComponent(link);
+        var xmlpage = htmlpage.replace('html','xml');
+        callnamedict[xmlpage] = text;
+        var html = '<li><a href="#animlistpage&'+htmlpage+'">'+text+'</a></li>';
+        $('#calllist').append(html);
+      });
+      $('#calllist').listview('refresh');
+    }
+ });
+
 
 //  Fetch xml that lists the animations for a specific call
 //  Then build a menu

@@ -29,6 +29,7 @@
 <title>Taminations</title>
 <script src="ext/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script src="ext/jquery/jquery.mobile-1.2.0/jquery.mobile-1.2.0.js" type="text/javascript"></script>
+<script src="ext/jquery/jqm.page.params.js" type="text/javascript"></script>
 <script src="ext/jquery/jquery.svg/jquery.svg.min.js" type="text/javascript"></script>
 <script src="ext/cookie.js" type="text/javascript"></script>
 <script src="ext/defineclass.js" type="text/javascript"></script>
@@ -50,6 +51,33 @@
   padding-left: 0;
   padding-right: 0;
 }
+#content div {
+  width: 100%;
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  text-indent: 20px;
+}
+#content div div {
+  margin-left: 10%;
+  width: 90%;
+  display: table;
+}
+#content div div p {
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+  line-height: 100%;
+}
+#content div div p a {
+  text-decoration: none;
+  color: black;
+}
+#content div div:first-child {
+  margin-left: 0;
+  width: 100%;
+  border: 0;
+}
+
 </style>
 </head>
 
@@ -64,13 +92,14 @@
 
   <!-- Page to select level and call -->
   <div data-role="page" id="level">
-    <div data-role="header" class="header" data-theme="d">
-      <h1>TAMinations</h1>
+    <div data-role="header" class="header" id="levelheader" data-theme="d">
+      <h1>Taminations</h1>
       <a href="#level" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
       <a href="#infopage" data-icon="info" data-iconpos="notext">Info</a>
     </div>
-    <div data-role="content" data-theme="b">
+    <div data-role="content" data-theme="b" id="content" style="width:100%; margin:0; padding:0">
 
+<!--
 <h2>Welcome to Taminations</h2>
 <p>Taminations are the Square Dance animations of the
 <a href="../index.html">Tam Twirlers Square Dance Club</a>.
@@ -80,10 +109,74 @@ Taminations are written and maintained by
 <a href="mailto:brad@bradchristie.com">Brad Christie</a>.<br/> <br/>
 <fb:like href="http://www.facebook.com/pages/Taminations/356730394408509"
          send="true" layout="button_count" width="450" show_faces="false"></fb:like>
-<br/><br/></p>
+<br/><br/></p>   -->
+      <!-- <ul data-role="listview" id="levelslist"> </ul>  -->
 
-      <ul data-role="listview" id="levelslist">
-      </ul>
+      <div style="background-color:#c0c0ff">
+         <div style="background-color:#c0c0ff">
+            <p><a href="#calllistpage?dir=bms">Basic and Mainstream</a></p>
+         </div>
+         <div style="background-color:#e0e0ff">
+            <p><a href="#calllistpage?dir=b1">Basic 1</a></p>
+         </div>
+         <div style="background-color:#e0e0ff">
+            <p><a href="#calllistpage?dir=b2">Basic 2</a></p>
+         </div>
+         <div style="background-color:#e0e0ff">
+            <p><a href="#calllistpage?dir=ms">Mainstream</a></p>
+         </div>
+      </div>
+      <div style="background-color:#c0ffc0">
+        <div>
+        <p><a href="#calllistpage?dir=plus">Plus</a></p>
+        </div>
+      </div>
+      <div style="background-color:#ffe080">
+        <div><p><a href="#calllistpage?dir=adv">Advanced</a></p></div>
+        <div style="background-color:#fff0c0">
+        <p><a href="#calllistpage?dir=a1">A-1</a></p>
+        </div>
+        <div style="background-color:#fff0c0">
+        <p><a href="#calllistpage?dir=a2">A-2</a></p>
+        </div>
+      </div>
+      <div style="background-color:#ffc0c0">
+        <div >
+          <p><a href="#calllistpage?dir=challenge">Challenge</a></p>
+        </div>
+        <div style="background-color:#ffe0e0">
+          <p><a href="#calllistpage?dir=c1">C-1</a></p>
+        </div>
+        <div style="background-color:#ffe0e0">
+          <p><a href="#calllistpage?dir=c2">C-2</a></p>
+        </div>
+        <div style="background-color:#ffe0e0">
+          <p><a href="#calllistpage?dir=c3a">C-3A</a></p>
+        </div>
+      </div>
+      <div>
+        <div>
+          <p><a href="#calllistpage?dir=all">Index of All Calls</a></p>
+        </div>
+      </div>
+      <div>
+        <div>
+          <p><a href="#infopage">About Taminations</a></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Page to select a call -->
+  <div data-role="page" id="calllistpage">
+    <div data-role="header" class="header" data-theme="d">
+      <h1 id="leveltitle"></h1>
+      <a href="#level" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+      <a href="#infopage" data-icon="info" data-iconpos="notext">Info</a>
+    </div>
+    <div data-role="content">
+      <ul data-role="listview" id="calllist"> </ul>
     </div>
   </div>
 
