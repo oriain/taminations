@@ -159,7 +159,8 @@ $(document).delegate('#level','pageinit',
         var link = $(this).attr('link');
         var htmlpage = encodeURIComponent(link);
         var xmlpage = htmlpage.replace('html','xml');
-        callnamedict[xmlpage] = text;
+        if ($(this).attr('anim') == undefined)
+          callnamedict[xmlpage] = text;
         var html = '<li><a href="#animlistpage&'+htmlpage+'">'+text+'</li>';
         $('#'+title).append(html);
       });
@@ -181,7 +182,8 @@ $(document).bind('pagechange',
         var link = $(this).attr('link');
         var htmlpage = encodeURIComponent(link);
         var xmlpage = htmlpage.replace('html','xml');
-        callnamedict[xmlpage] = text;
+        if ($(this).attr('anim') == undefined)
+          callnamedict[xmlpage] = text;
         var html = '<li><a href="#animlistpage&'+htmlpage+'">'+text+'</a></li>';
         $('#calllist').append(html);
       });
