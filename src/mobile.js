@@ -5,7 +5,7 @@ var callnamedict = {};
 var calldata;
 
 var leveldata = [
-  { name:"Basic and Mainstream", dir:"bms", selector:"level='Basic and Mainstream' and sublevel!='Styling'" },
+  { name:"Basic and Mainstream", dir:"bms", selector:"level='Basic and Mainstream'" },
   { name:"Basic 1", dir:"b1", selector:"sublevel='Basic 1'" },
   { name:"Basic 2", dir:"b2", selector:"sublevel='Basic 2'" },
   { name:"Mainstream", dir:"ms", selector:"sublevel='Mainstream'" },
@@ -142,29 +142,7 @@ $(document).delegate('#level','pageinit',
     $('#content').height(h);
     //h = $('#content div div').height();
     h = Math.floor(h/14);
-    //alert(h);
     $('#content div div').height(h);
-    return;
-
-
-    $('menulist',menudata).each(function() {
-      var title = $(this).attr('title');
-      if (title.match(/Info|General|Styling/))
-        return;
-      var html = '<li data-theme="c" data-icon="arrow-r">'+ title +
-                 '<ul id="'+title+'" data-role="listview"></ul></li>';
-      $('#levelslist').append(html);
-      $(this).children().each(function() {
-        var text = $(this).attr('text');
-        var link = $(this).attr('link');
-        var htmlpage = encodeURIComponent(link);
-        var xmlpage = htmlpage.replace('html','xml');
-        if ($(this).attr('anim') == undefined)
-          callnamedict[xmlpage] = text;
-        var html = '<li><a href="#animlistpage&'+htmlpage+'">'+text+'</li>';
-        $('#'+title).append(html);
-      });
-    });
   }
 );
 
@@ -251,6 +229,7 @@ function loadcall(options,htmlpage)
       page.page();
       content.find(':jqmData(role=listview)').listview();
       $('#calltitle').empty().text(callnamedict[xmlpage]);
+      $('#backtocall').empty().text($('#leveltitle').text());
       $.mobile.changePage($('#animlistpage'),options);
     }});
   }

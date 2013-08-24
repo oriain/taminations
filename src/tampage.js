@@ -129,8 +129,6 @@ $(document).ready(
                 onelink += '?' + menuitem.attr('anim');
               menuhtml += '<td onclick="document.location=\''+prefix+onelink+'\'">'+
                            menuitem.attr('text')+'</td>';
-              //if (r==5 && c==0)
-              //  alert(menuhtml);
             }
           }
           menuhtml += '</tr>';
