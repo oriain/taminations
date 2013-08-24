@@ -86,11 +86,11 @@ TamSVG.prototype = {
     if (typeof args != 'undefined' && args.bigon)
       this.bigon = true;
     if (cookie.speed == 'slow')
-      this.slow();
+      this.slow(true);
     else if (cookie.speed == 'fast')
-      this.fast();
+      this.fast(true);
     else
-      this.normal();
+      this.normal(true);
     this.loop = cookie.loop == "true" || args.loop;
     this.grid = cookie.grid == "true";
     this.numbers = cookie.numbers == 'true' || args.numbers;
