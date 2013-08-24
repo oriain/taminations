@@ -510,4 +510,20 @@
     </path>
   </tam>
 
+  <tamxref title-match="&quot;O&quot;"
+           title-sub="&quot;O&quot; (C-1)"
+           group="&quot;O&quot; (C-1)"
+           file="c1/*.xml" />
+
+  <tamxref title-match="^&quot;O&quot;"
+           title-sub="&quot;O&quot; (C-2)"
+           group="&quot;O&quot; (C-2)"
+           file="c2/*.xml" />
+
+  <tamxref title-match="^&quot;O&quot;"
+           title-sub="&quot;O&quot; (C-3A)"
+           group="&quot;O&quot; (C-3A)"
+           file="c3a/*.xml" />
+
+
 </tamination>
