@@ -40,9 +40,12 @@ DIRS = b1 b2 ms plus adv a1 a2 c1 c2 c3a info
 XMLFILES = $(foreach dir,$(DIRS),$(addprefix ../$(dir)/,$(wildcard *.xml)))
 XREFXML = $(foreach dir,$(DIRS),$(wildcard ../$(dir)/*.x.xml))
 PYXML = $(addsuffix .xml,$(basename $(basename $(XREFXML))))
+ifneq '$(JAVA_HOME)' '' 
+JAVA_FILES = TAMination.jar ../tamination.zip 
+endif
 
 .phony : all
-all : TAMination.jar $(XMLFILES) $(PYXML) ../tamination.zip
+all : $(XMLFILES) $(PYXML) $(JAVA_FILES)
 	@echo Build complete
 
 test :
