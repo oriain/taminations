@@ -56,10 +56,10 @@ test :
 	@echo $(PYXML)
 
 unzip :
-	cd ../ext/jquery && $(UNZIP) xvf jquery.mobile-1.2.0.zip
-	cd ../ext/jquery/jquery.mousewheel && $(UNZIP) xvf jquery.mousewheel.3.0.2.zip
-	cd ../ext/jquery/jquery.svg && $(UNZIP) xvf jquery.svg.package-1.4.4.zip
-	cd ../ext/jquery/jquery.ui && $(UNZIP) xvf jquery-ui-1.8.18.custom.zip
+	cd ../ext/jquery && $(UNZIP) jquery.mobile-1.2.0.zip
+	cd ../ext/jquery/jquery.mousewheel && $(UNZIP) jquery.mousewheel.3.0.2.zip
+	cd ../ext/jquery/jquery.svg && $(UNZIP) jquery.svg.package-1.4.4.zip
+	cd ../ext/jquery/jquery.ui && $(UNZIP) jquery-ui-1.8.18.custom.zip
 
 #  Clean target to delete jar and zip
 .phony : clean
