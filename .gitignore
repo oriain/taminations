@@ -16,6 +16,7 @@ moves.xml
 !src/menus.xml
 !src/moves.xml
 !jquery.mobile-*.zip
+!jquery-ui-*.zip
 !jquery-*.js
 
 all_4_all_8.xml

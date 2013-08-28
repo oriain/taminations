@@ -16,10 +16,11 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
-
-# This makefile builds the JAR file needed to load taminations by the Java applet
-# and the zip file that's available for download
-# This requires JAVA_HOME set to an installed jdk
+#  This generates files needed for Taminations
+#  You need GNU make to run this file
+#  and Python to generate files
+#  Optional: install Java and set JAVA_HOME
+#  to build the applet used with IE on XP
 
 #  If the current directory contains a colon, we're most likely on a windows machine
 ifeq '$(findstring :,$(CURDIR))' ':'
@@ -33,15 +34,18 @@ COPY = cp
 endif
 
 
-JAVA = $(JAVA_HOME)/bin/java
-JAVAC = $(JAVA_HOME)/bin/javac
-JAR = $(JAVA_HOME)/bin/jar
 DIRS = b1 b2 ms plus adv a1 a2 c1 c2 c3a info
 XMLFILES = $(foreach dir,$(DIRS),$(addprefix ../$(dir)/,$(wildcard *.xml)))
 XREFXML = $(foreach dir,$(DIRS),$(wildcard ../$(dir)/*.x.xml))
 PYXML = $(addsuffix .xml,$(basename $(basename $(XREFXML))))
 ifneq '$(JAVA_HOME)' '' 
 JAVA_FILES = TAMination.jar ../tamination.zip 
+JAVA = $(JAVA_HOME)/bin/java
+JAVAC = $(JAVA_HOME)/bin/javac
+JAR = $(JAVA_HOME)/bin/jar
+UNZIP = $(JAVA_HOME)/bin/jar xvf
+else
+UNZIP = unzip
 endif
 
 .phony : all
@@ -52,10 +56,10 @@ test :
 	@echo $(PYXML)
 
 unzip :
-	cd ../ext/jquery && $(JAR) xvf jquery.mobile-1.2.0.zip
-	cd ../ext/jquery/jquery.mousewheel && $(JAR) xvf jquery.mousewheel.3.0.2.zip
-	cd ../ext/jquery/jquery.svg && $(JAR) xvf jquery.svg.package-1.4.4.zip
-	cd ../ext/jquery/jquery.ui && $(JAR) xvf jquery-ui-1.8.18.custom.zip
+	cd ../ext/jquery && $(UNZIP) xvf jquery.mobile-1.2.0.zip
+	cd ../ext/jquery/jquery.mousewheel && $(UNZIP) xvf jquery.mousewheel.3.0.2.zip
+	cd ../ext/jquery/jquery.svg && $(UNZIP) xvf jquery.svg.package-1.4.4.zip
+	cd ../ext/jquery/jquery.ui && $(UNZIP) xvf jquery-ui-1.8.18.custom.zip
 
 #  Clean target to delete jar and zip
 .phony : clean
