@@ -42,7 +42,7 @@ XREFXML = $(foreach dir,$(DIRS),$(wildcard ../$(dir)/*.x.xml))
 PYXML = $(addsuffix .xml,$(basename $(basename $(XREFXML))))
 
 .phony : all
-all : TAMination.jar  callindex.json $(XMLFILES) $(PYXML) ../tamination.zip
+all : TAMination.jar $(XMLFILES) $(PYXML) ../tamination.zip
 	@echo Build complete
 
 test :
@@ -69,12 +69,6 @@ TAMination.jar : TAMination.java
 ../tamination.zip : $(filter-out ../tamination.zip,$(wildcard ../* ../*/*))
 	-cd .. && $(RM) tamination.zip
 	cd .. && $(JAR) cMf tamination.zip info b1 b2 ms plus a1 a2 adv c1 c2 c3a src ext *.html *.txt *.ico *.xml
-
-#  Make the index of calls
-#  This is for a future project, not used by the current animations
-#callindex.json : $(wildcard ../*/*.xml) $(wildcard calls/*.js) $(wildcard ../squareplay/src/calls/*.py)
-#	python indexcalls.py >$@
-
 
 #  Generate xml files from x.xml files with cross-references
 %.xml : %.x.xml
