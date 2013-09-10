@@ -1444,7 +1444,7 @@ Path = defineClass(
         this.add(p.movelist[m].clone());
     }
     else if (p && (p.select != undefined)) {
-      var mm = tam.translateMovement(p);
+      var mm = tam.translateMove(p);
       for (var m in mm)
         this.add(new Movement(mm[m]));
     }
