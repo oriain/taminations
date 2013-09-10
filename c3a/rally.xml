@@ -190,6 +190,10 @@
       <move select="Extend Right" scaleY=".5"/>
       <move select="Swing Right" scaleX=".5" scaleY=".5"/>
     </path>
+    <taminator>
+      For Scoot and Rally, the outsides quarter to the direction of the handhold
+      after the Scoot Back.
+    </taminator>
   </tam>
 
 </tamination>
