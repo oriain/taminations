@@ -61,28 +61,28 @@
     <path>
       <move select="Forward" />
       <move select="Quarter Right" />
-      <move select="Pull By" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Pull Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Extend Right" beats="3" scaleX="3" scaleY=".5"/>
       <move select="Beau Wheel"/>
     </path>
     <path>
       <move select="Forward" />
       <move select="Quarter Left" />
-      <move select="Pull By" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Pull Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Extend Right" beats="3" scaleY=".5"/>
       <move select="Belle Wheel"/>
     </path>
     <path>
       <move select="Forward" />
       <move select="Quarter Left" />
-      <move select="Pull By" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Pull Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Extend Right" beats="3" scaleY=".5"/>
       <move select="Belle Wheel"/>
     </path>
     <path>
       <move select="Forward" />
       <move select="Quarter Right" />
-      <move select="Pull By" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Pull Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Extend Right" beats="3" scaleX="3" scaleY=".5"/>
       <move select="Beau Wheel"/>
     </path>
@@ -117,25 +117,25 @@
     <path>
       <move select="Forward" />
       <move select="Quarter Right" />
-      <move select="Pull By" scaleX="2" scaleY=".5" />
+      <move select="Pull Left" scaleX="2" scaleY=".5" />
       <move select="Hinge Right" offsetX="1" offsetY=".5" />
     </path>
     <path>
       <move select="Forward" />
       <move select="Quarter Left" />
-      <move select="Pull By" scaleX="2" scaleY=".5" />
+      <move select="Pull Left" scaleX="2" scaleY=".5" />
       <move select="Quarter Right" hands="right" offsetY="-.5" />
     </path>
     <path>
       <move select="Forward" />
       <move select="Quarter Left" />
-      <move select="Pull By" scaleX="2" scaleY=".5" />
+      <move select="Pull Left" scaleX="2" scaleY=".5" />
       <move select="Quarter Right" hands="right" offsetY="-.5" />
     </path>
     <path>
       <move select="Forward" />
       <move select="Quarter Right" />
-      <move select="Pull By" scaleX="2" scaleY=".5" />
+      <move select="Pull Left" scaleX="2" scaleY=".5" />
       <move select="Hinge Right" offsetX="1" offsetY=".5" />
     </path>
   </tam>
