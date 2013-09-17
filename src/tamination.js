@@ -306,9 +306,10 @@ TAMination.prototype = {
     var movement = { };
     for (var a in this.attrs)
       movement[this.attrs[a]] = $(move).attr(this.attrs[a]);
-    for (var i in this.numattrs)
+    for (var i in this.numattrs) {
       if ($(move).attr(this.numattrs[i]) != undefined)
         movement[this.numattrs[i]] = Number($(move).attr(this.numattrs[i]));
+    }
     return [movement];
   }
 

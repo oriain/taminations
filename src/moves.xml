@@ -595,6 +595,11 @@
     <move select="Extend Right" scaleY="0.5" />
   </path>
 
+  <path name="Pull By">
+    <move select="Pull Left" scaleY="0.5" />
+    <move select="Extend Right" scaleY="0.5" />
+  </path>
+
   <path name="Swing Left">
     <move select="Run Left" hands="left" />
   </path>
@@ -626,10 +631,6 @@
 
   <path name="Lead Right 3">
     <move select="Lead Left 3" reflect="-1" />
-  </path>
-
-  <path name="Pull By">
-    <move select="Extend Left" hands="right" />
   </path>
 
   <path name="Beau Wheel">

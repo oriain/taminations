@@ -190,6 +190,7 @@
     <call text="Ferris Wheel" level="Basic and Mainstream" sublevel="Basic 2" link="b2/ferris_wheel.html"/>
     <call text="File to a Line" level="Challenge" sublevel="C-2" link="c2/file_to_a_line.html"/>
     <call text="Finally Concept" level="Challenge" sublevel="C-3A" link="c3a/finally_concept.html"/>
+    <call text="Finish" level="Challenge" sublevel="C-1" link="c1/finish.html"/>
     <call text="First Couple Go Left/Right" level="Basic and Mainstream" sublevel="Basic 2" link="b2/first_couple_go.html"/>
     <call text="Flare Out to a Line" level="Challenge" sublevel="C-3A" link="c3a/flare_out_to_a_line.html"/>
     <call text="Flip Back" level="Challenge" sublevel="C-1" link="c1/tagging_calls_back_to_a_wave.html"/>
@@ -449,6 +450,7 @@
     <call text="Stampede" level="Challenge" sublevel="C-3A" link="c3a/stampede.html"/>
     <call text="Star Promenade" level="Basic and Mainstream" sublevel="Basic 1" link="b1/star_promenade.html"/>
     <call text="Star Thru" level="Basic and Mainstream" sublevel="Basic 1" link="b1/star_thru.html"/>
+    <call text="Start" level="Challenge" sublevel="C-1" link="c1/start.html"/>
     <call text="Step and Flip" level="Challenge" sublevel="C-1" link="c1/step_and_flip.html"/>
     <call text="Step and Fold" level="Challenge" sublevel="C-1" link="c1/step_and_fold.html"/>
     <call text="Step and Slide" level="Advanced" sublevel="A-1" link="a1/step_and_slide.html"/>
