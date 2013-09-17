@@ -36,6 +36,7 @@ endif
 
 DIRS = b1 b2 ms plus adv a1 a2 c1 c2 c3a info
 XMLFILES = $(foreach dir,$(DIRS),$(addprefix ../$(dir)/,$(wildcard *.xml)))
+XML = $(wildcard *.xml)
 XREFXML = $(foreach dir,$(DIRS),$(wildcard ../$(dir)/*.x.xml))
 PYXML = $(addsuffix .xml,$(basename $(basename $(XREFXML))))
 ifneq '$(JAVA_HOME)' '' 
