@@ -41,10 +41,10 @@ XREFXML = $(foreach dir,$(DIRS),$(wildcard ../$(dir)/*.x.xml))
 PYXML = $(addsuffix .xml,$(basename $(basename $(XREFXML))))
 ifneq '$(JAVA_HOME)' '' 
 JAVA_FILES = TAMination.jar ../tamination.zip 
-JAVA = $(JAVA_HOME)/bin/java
-JAVAC = $(JAVA_HOME)/bin/javac
-JAR = $(JAVA_HOME)/bin/jar
-UNZIP = $(JAVA_HOME)/bin/jar xvf
+JAVA = "$(JAVA_HOME)/bin/java"
+JAVAC = "$(JAVA_HOME)/bin/javac"
+JAR = "$(JAVA_HOME)/bin/jar"
+UNZIP = "$(JAVA_HOME)/bin/jar" xvf
 else
 UNZIP = unzip
 endif
@@ -70,7 +70,7 @@ clean :
 
 #  Make the JAR file.  Tell the compiler to compile for Java 1.3 for maximum compatibility
 TAMination.jar : TAMination.java
-	$(JAVAC) -classpath $(JAVA_HOME)/jre/lib/plugin.jar TAMination.java && $(JAR) -cf TAMination.jar *.class
+	$(JAVAC) -classpath "$(JAVA_HOME)/jre/lib/plugin.jar" TAMination.java && $(JAR) -cf TAMination.jar *.class
 
 #  Make the zip file.  Exclude my Eclipse project files which are not of interest to others.
 #  The wildcard * pattern apparently conveniently excludes .* files
