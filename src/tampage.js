@@ -239,6 +239,36 @@ function generateAnimations()
   $("#radio1").attr("checked",true);
   $("#applet").width(appletSize().width).height(appletSize().height);
   $("h2").prepend(getLevel());
+  //  Show either full or abbreviated definition
+  //  Load saved options from browser cookie
+  cookie = new Cookie("TAMination");
+  if ($('.abbrev').length + $('.full').length > 0) {
+    if (cookie.full == "true") {
+      $('.abbrev').hide();
+      $('#full').addClass('selected');
+      $('#abbrev').removeClass('selected');
+    }
+    else
+      $('.full').hide();
+    $('#full').click(function() {
+      $('.abbrev').hide();
+      $('.full').show();
+      $('#full').addClass('selected');
+      $('#abbrev').removeClass('selected');
+      cookie.full = "true";
+      cookie.store();
+    });
+    $('#abbrev').click(function() {
+      $('.full').hide();
+      $('.abbrev').show();
+      $('#abbrev').addClass('selected');
+      $('#full').removeClass('selected');
+      cookie.full = "false";
+      cookie.store();
+    });
+  }
+  else
+    $('.level > .appButton').hide();
   //  Build the selection list of animations
   var prevtitle = "";
   var prevgroup = "";
@@ -277,10 +307,6 @@ function generateAnimations()
   //  Add any comment below the animation list
   $('#animationlist').append('<br /><div id="comment" class="comment">' +
                       $('comment *',animations).text() + '</div>');
-  //  Load saved options from browser cookie
-  //cookie = new Cookie(document,"TAMination",365*24,'/');
-  //cookie.load();
-  cookie = new Cookie("TAMination");
   //  Passed-in arg overrides cookie
   if (args.svg == 'false' || args.svg == 'true') {
     cookie.svg = args.svg;
@@ -425,7 +451,9 @@ function getLevel()
     levelstring = "C-2";
   if (document.URL.match(/\/c3a\//))
     levelstring = "C-3A";
-  return '<span class="level">'+levelstring+'</span>';
+  return '<span class="level">'+levelstring+'<br/><br/>' +
+         '<span class="appButton selected" id="abbrev">Abbrev</span> '+
+         '<span class="appButton" id="full">Full</span></span>';
 }
 
 var tips = [

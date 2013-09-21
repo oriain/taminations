@@ -87,16 +87,12 @@ div.ending-formation,
 div.timing,
 div.styling,
 div.comments,
-div.command-examples
+div.command-examples,
+div.teaching-tip
 {
   margin: 10px;
 }
 
-div.command-examples
-{
-
-  /*white-space: pre;*/
-}
 
 div.command-examples > p
 {
@@ -111,7 +107,8 @@ div.ending-formation > b,
 div.timing > b,
 div.styling > b,
 div.comments > b,
-div.command-examples > b
+div.command-examples > b,
+div.teaching-tip > b
 {
   font-family: Helvetica, Arial, Sans Serif;
   font-weight: bold;
@@ -171,9 +168,14 @@ form a { color: black; text-decoration: none; }
 .level {
   font: medium Helvetica, Arial, Sans Serif;
   text-transform: none;
+  text-align: right;
   color: #008000;
   float: right;
 }
+.level > .appButton {
+  padding: 0 10px 0 10px;
+}
+
 
 /*  "TAMination" page title  */
 .title {
@@ -211,6 +213,7 @@ form a { color: black; text-decoration: none; }
   border-style: outset;
   width: 14.28%;
   font-weight: bold;
+  cursor: pointer;
 }
 
 #optionpanel .appButton {
