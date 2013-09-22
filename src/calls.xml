@@ -40,7 +40,7 @@
     <call text="3/4 Wheel the Sea" level="Challenge" sublevel="C-3A" link="c3a/3_4_wheel_the_sea.html"/>
     <call text="Acey Deucey" level="Plus" sublevel="Plus" link="plus/acey_deucey.html"/>
     <call text="Ah So" level="Challenge" sublevel="C-1" link="c1/ah_so.html"/>
-    <call text="Alamo Ring" level="Basic and Mainstream" sublevel="Basic 2" link="b2/ocean_wave.html" anim="AllemandeLefttoanAlamoRingfromStaticSquare"/>
+    <call text="Alamo Style" level="Basic and Mainstream" sublevel="Basic 2" link="b2/alamo_style.html"/>
     <call text="All 4 Couples / All 8" level="Advanced" sublevel="A-2" link="a2/all_4_all_8.html"/>
     <call text="All 8 Spin the Top" level="Plus" sublevel="Plus" link="plus/all_8_spin_the_top.html"/>
     <call text="All Around the Corner" level="Basic and Mainstream" sublevel="Basic 1" link="b1/all_around_the_corner.html"/>
@@ -444,9 +444,9 @@
     <call text="Split Square Thru Variations" level="Challenge" sublevel="C-1" link="c1/split_square_thru_variations.html"/>
     <call text="Split Square Thru" level="Advanced" sublevel="A-1" link="a1/split_square_thru.html"/>
     <call text="Split Swap Around" level="Challenge" sublevel="C-2" link="c2/split_swap_around.html"/>
-    <call text="Split the Outside Couple" level="Basic and Mainstream" sublevel="Basic 1" link="b1/split_the_outside_couple.html"/>
     <call text="Split Trade Circulate" level="Challenge" sublevel="C-2" link="c2/split_trade_circulate.html"/>
     <call text="Split Transfer" level="Advanced" sublevel="A-2" link="a2/split_transfer.html"/>
+    <call text="Split Two" level="Basic and Mainstream" sublevel="Basic 1" link="b1/split_the_outside_couple.html"/>
     <call text="Square Chain the Top" level="Challenge" sublevel="C-1" link="c1/square_chain_the_top.html"/>
     <call text="Square Chain Thru" level="Advanced" sublevel="A-1" link="a1/square_chain_thru.html"/>
     <call text="Square the Bases" level="Challenge" sublevel="C-1" link="c1/square_the_bases.html"/>
