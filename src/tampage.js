@@ -238,7 +238,7 @@ function generateAnimations()
   $("#deftable").nextAll().appendTo("#definition");
   $("#radio1").attr("checked",true);
   $("#applet").width(appletSize().width).height(appletSize().height);
-  $("h2").prepend(getLevel());
+  $("h2").first().prepend(getLevel());
   //  Show either full or abbreviated definition
   //  Load saved options from browser cookie
   cookie = new Cookie("TAMination");
