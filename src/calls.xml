@@ -229,7 +229,7 @@
     <call text="Grand Three-Quarter Thru" sublevel="A-1" level="Advanced" link="a1/grand_three_quarter_thru.html"/>
     <call text="Half Breed Thru" level="Advanced" sublevel="A-1" link="a1/half_breed_thru.html"/>
     <call text="Half Sashay" level="Basic and Mainstream" sublevel="Basic 1" link="b1/sashay.html"/>
-    <call text="Half Tag" level="Basic and Mainstream" sublevel="Mainstream" link="ms/tag.html" anim="HalfTagfromRightHandTwoFacedLines"/>
+    <call text="Half Tag" level="Basic and Mainstream" sublevel="Mainstream" link="ms/half_tag.html"/>
     <call text="Here Comes the Judge" level="Challenge" sublevel="C-2" link="c2/here_comes_the_judge.html"/>
     <call text="Hinge the Lock" level="Challenge" sublevel="C-3A" link="c3a/hinge_the_lock.html"/>
     <call text="Hinge" level="Basic and Mainstream" sublevel="Mainstream" link="ms/hinge.html"/>
@@ -477,9 +477,9 @@
     <call text="Swing and Mix" level="Advanced" sublevel="A-2" link="a2/swing_and_mix.html"/>
     <call text="Swing Chain Thru" level="Challenge" sublevel="C-3A" link="c3a/swing_chain_thru.html"/>
     <call text="Swing the Fractions" level="Challenge" sublevel="C-1" link="c1/swing_the_fractions.html"/>
-    <call text="Swing Thru" level="Basic and Mainstream" sublevel="Basic 2" link="b2/swing_thru.html"/>
     <call text="Swing" level="Advanced" sublevel="A-2" link="a2/swing.html"/>
     <call text="Swing" level="Basic and Mainstream" sublevel="Basic 1" link="b1/swing.html"/>
+    <call text="Swing Thru" level="Basic and Mainstream" sublevel="Basic 2" link="b2/swing_thru.html"/>
     <call text="Switch the Line" level="Challenge" sublevel="C-1" link="c1/switch_the_line.html"/>
     <call text="Switch the Wave" level="Advanced" sublevel="A-2" link="a2/switch_the_wave.html"/>
     <call text="Switch to a Diamond" level="Advanced" sublevel="A-2" link="a2/switch_to_a_diamond.html"/>
@@ -489,7 +489,7 @@
     <call text="Switch to an Interlocked Diamond" level="Challenge" sublevel="C-1" link="c1/switch_to_an_interlocked_diamond.html"/>
     <call text="T-Bone Formation" level="Challenge" sublevel="C-1" link="c1/t_bone_formation.html"/>
     <call text="Tag Back to a Wave" level="Challenge" sublevel="C-1" link="c1/tagging_calls_back_to_a_wave.html" anim="TagBacktoaWavefromLines"/>
-    <call text="Tag the Line Half Tag" level="Basic and Mainstream" sublevel="Mainstream" link="ms/tag.html"/>
+    <call text="Tag the Line" level="Basic and Mainstream" sublevel="Mainstream" link="ms/tag.html"/>
     <call text="Tag Your Neighbor" level="Challenge" sublevel="C-2" link="c2/tag_your_neighbor.html"/>
     <call text="Tally Ho" level="Challenge" sublevel="C-1" link="c1/tally_ho.html"/>
     <call text="Tandem Based Triangle" level="Challenge" sublevel="C-2" link="c2/tandem_based_triangle.html"/>
@@ -504,11 +504,11 @@
     <call text="Touch a Quarter" level="Basic and Mainstream" sublevel="Basic 2" link="b2/touch_a_quarter.html"/>
     <call text="Touch By Fraction By Fraction/Anything" level="Challenge" sublevel="C-3A" link="c3a/touch_by_fraction_by_fraction_anything.html"/>
     <call text="Track Two" level="Plus" sublevel="Plus" link="plus/track_ii.html"/>
+    <call text="Trade" level="Basic and Mainstream" sublevel="Basic 2" link="b2/trade.html"/>
     <call text="Trade By" level="Basic and Mainstream" sublevel="Basic 2" link="b2/trade_by.html"/>
     <call text="Trade Circulate" level="Advanced" sublevel="A-2" link="a2/trade_circulate.html"/>
     <call text="Trade the Deucey" level="Challenge" sublevel="C-3A" link="c3a/trade_the_deucey.html"/>
     <call text="Trade the Wave" level="Plus" sublevel="Plus" link="plus/trade_the_wave.html"/>
-    <call text="Trade" level="Basic and Mainstream" sublevel="Basic 2" link="b2/trade.html"/>
     <call text="Trail Off" level="Advanced" sublevel="A-2" link="a2/trail_off.html"/>
     <call text="Trail to a Diamond" level="Challenge" sublevel="C-2" link="c2/trail_to_a_diamond.html"/>
     <call text="Transfer and Anything" level="Advanced" sublevel="A-2" link="a2/transfer_and_anything.html"/>
