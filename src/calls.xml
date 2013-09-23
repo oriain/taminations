@@ -473,12 +473,12 @@
     <call text="Swap the Wave" level="Challenge" sublevel="C-2" link="c2/swap_the_wave.html"/>
     <call text="Sweep a Quarter" level="Basic and Mainstream" sublevel="Basic 2" link="b2/sweep_a_quarter.html"/>
     <call text="Swing Along" level="Challenge" sublevel="C-2" link="c2/swing_along.html"/>
+    <call text="Swing" level="Basic and Mainstream" sublevel="Basic 1" link="b1/swing.html"/>
+    <call text="Swing" level="Advanced" sublevel="A-2" link="a2/swing.html"/>
     <call text="Swing and Circle" level="Challenge" sublevel="C-1" link="c1/swing_and_circle.html"/>
     <call text="Swing and Mix" level="Advanced" sublevel="A-2" link="a2/swing_and_mix.html"/>
     <call text="Swing Chain Thru" level="Challenge" sublevel="C-3A" link="c3a/swing_chain_thru.html"/>
     <call text="Swing the Fractions" level="Challenge" sublevel="C-1" link="c1/swing_the_fractions.html"/>
-    <call text="Swing" level="Advanced" sublevel="A-2" link="a2/swing.html"/>
-    <call text="Swing" level="Basic and Mainstream" sublevel="Basic 1" link="b1/swing.html"/>
     <call text="Swing Thru" level="Basic and Mainstream" sublevel="Basic 2" link="b2/swing_thru.html"/>
     <call text="Switch the Line" level="Challenge" sublevel="C-1" link="c1/switch_the_line.html"/>
     <call text="Switch the Wave" level="Advanced" sublevel="A-2" link="a2/switch_the_wave.html"/>
