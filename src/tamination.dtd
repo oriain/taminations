@@ -26,7 +26,7 @@
 <!ENTITY middot "&#183;" ><!--/centerdot B: =middle dot-->
 <!ENTITY bull   "&#x2022;" ><!--/bullet B: =round bullet, filled-->
 
-<!ELEMENT tamination (title?,definition?,styling?,timing?,comment?,(tam*),(tamxref*)>
+<!ELEMENT tamination (title?,definition?,styling?,timing?,comment?,(tam*),(tamxref*))>
 
 <!ELEMENT title ANY>
 <!ATTLIST title  level CDATA #REQUIRED>
@@ -54,7 +54,7 @@
                   not-file CDATA #IMPLIED
                   title-match CDATA #IMPLIED
                   title-sub CDATA #IMPLIED
-                  group CDATA #IMPLIED
+                  group CDATA #IMPLIED >
 
 <!ELEMENT taminator ANY>
 
