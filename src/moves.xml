@@ -49,6 +49,10 @@
      <movement hands="both" beats="1" cx1="0" cy1="0" cx2="0" cy2="0" x2="0" y2="0" />
   </path>
 
+  <path name="Stand Alone">
+    <move select="Stand" hands="none"/>
+  </path>
+
   <path name="Stand Left">
     <move select="Stand" hands="left" />
   </path>
