@@ -35,8 +35,8 @@ endif
 
 
 DIRS = b1 b2 ms plus adv a1 a2 c1 c2 c3a info
-XMLFILES = $(foreach dir,$(DIRS),$(addprefix ../$(dir)/,$(wildcard *.xml)))
-XML = $(wildcard *.xml)
+XMLSRC = $(wildcard *.xml) tamination.dtd
+XMLCOPIES = $(foreach dir,$(DIRS),$(addprefix ../$(dir)/,$(XMLSRC)))
 XREFXML = $(foreach dir,$(DIRS),$(wildcard ../$(dir)/*.x.xml))
 PYXML = $(addsuffix .xml,$(basename $(basename $(XREFXML))))
 ifneq '$(JAVA_HOME)' '' 
@@ -49,12 +49,13 @@ else
 UNZIP = unzip
 endif
 
-.phony : all
-all : $(XMLFILES) $(PYXML) $(JAVA_FILES)
-	@echo Build complete
-
 test :
-	@echo $(PYXML)
+	echo $(.FEATURES)
+  
+
+.phony : all
+all : $(XMLCOPIES) $(PYXML) $(JAVA_FILES)
+	@echo Build complete
 
 unzip :
 	cd ../ext/jquery && $(UNZIP) jquery.mobile-1.2.0.zip
@@ -67,6 +68,8 @@ unzip :
 clean :
 	-$(RM) *.class *.jar
 	-$(RM) ..$(PS)tamination.zip
+	-$(RM) $(subst /,$(PS),$(PYXML))
+	-$(RM) $(subst /,$(PS),$(XMLCOPIES))
 
 #  Make the JAR file.  Tell the compiler to compile for Java 1.3 for maximum compatibility
 TAMination.jar : TAMination.java
@@ -84,6 +87,5 @@ TAMination.jar : TAMination.java
 
 #  Copy XML files that define menus, moves, and formations to each directory
 #  Browsers can be picky about loading AJAX from different directories
-$(XMLFILES) : $(XML)
-%.xml :
+$(XMLCOPIES) : $(XMLSRC)
 	$(COPY) $(notdir $@) $(subst /,$(PS),$@)
