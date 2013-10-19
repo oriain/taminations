@@ -11,10 +11,12 @@ calls.xml
 formations.xml
 menus.xml
 moves.xml
+tamination.dtd
 !src/calls.xml
 !src/formations.xml
 !src/menus.xml
 !src/moves.xml
+!src/tamination.dtd
 !jquery.mobile-*.zip
 !jquery-ui-*.zip
 !jquery-*.js
