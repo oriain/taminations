@@ -64,14 +64,19 @@ $(document).ready(function() {
     convert_newlines_to_brs : true,
     forced_root_block: false,
     setup: function(ed) {
-      ed.onKeyUp.add(function(ed,k) {
+      ed.on('change',function(ed,k) {
         if (typeof timeoutID == 'number')
           window.clearTimeout(timeoutID);
         timeoutID = window.setTimeout(updateSequence,1000);
       });
     },
 
-    theme: function(editor, target) {
+
+    toolbar: false,
+    menubar: false,
+    statusbar: false,
+
+    themeOff: function(editor, target) {
       var dom = tinymce.DOM, editorContainer;
 
       // Generate UI
@@ -199,6 +204,7 @@ function processCallText()
   var retval = [];
   var html = [];
   var callnum = 1;
+  console.log('processCallText');
   //  Clear any previous error message
   $('#errortext').html('');
   //  Before we do anything else, remember the current location
@@ -279,6 +285,8 @@ function updateSequence()
       for (var e=s+1; e<=callwords.length; e++) {
         var call = callwords.slice(s,e).join('');
         var a = callindex[call];
+        if (typeof a == 'undefined')
+          continue;
         for (var x in a) {
           if (!xmldata[a[x]]) {
             if (a[x].indexOf('.js') > 0) {
@@ -296,11 +304,13 @@ function updateSequence()
             else if (a[x].indexOf('.xml') > 0) {
               //  Call is interpreted by animations
               filecount++;
+              console.log('Getting animation '+a[x]+' '+filecount);
               //  Read and store the animation
               $.get(a[x],function(data,status,jqxhr) {
                 //  Location of the filename depends (I think)
                 //  on whether the callback is run now or later
                 var f = 'filename' in jqxhr ? jqxhr.filename : a[x];
+                console.log('read '+f);
                 xmldata[f] = data;
                 if (--filecount == 0) {
                   //  All xml has been read, now we can interpret the calls
@@ -321,6 +331,7 @@ function updateSequence()
 
 function buildSequence()
 {
+  console.log('in buildSequence');
   //  First clear out the previous animation
   for (var i in tamsvg.dancers) {
     tamsvg.dancers[i].path.clear();
