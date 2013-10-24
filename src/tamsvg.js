@@ -124,12 +124,36 @@ TamSVG.prototype = {
     this.svg.rect(this.floor,-6.5,-6.5,13,13,{fill:'#ffffc0'});
     this.svg.text(this.floorsvg,0,0,"Copyright 2013 Brad Christie",{fontSize: "10", transform:"translate(-6.5,6.4) scale(0.04)"});
     //  Add title, TODO optionally with audio link
-    var t = tam.getTitle().replace(/ \(.*\)/,' ');
-    t = this.svg.text(this.floorsvg,0,0,t,{fontSize: "10", transform:"translate(-6.4,-5.5) scale(0.1)"});
+    var tt = tam.getTitle().replace(/ \(.*\)/,' ');
+    var t = this.svg.text(this.floorsvg,0,0,tt,{fontSize: "10", transform:"translate(-6.4,-5.5) scale(0.1)"});
     l = t.getComputedTextLength();
-    if (l > 128) {
-      var s = 128/l;
+    if (l > 110) {
+      var s = 110/l;
       t.setAttribute('transform',"translate(-6.4,"+(-6.5+s)+") scale("+(s/10)+")");
+    }
+    //  Find out if we have audio for this title
+    var ttid = '#'+tt.replace(/ /g,'_').toLowerCase()+'_audio';
+    if ($(ttid).length > 0) {
+      //  Speaker SVG grabbed from Wikipedia (public domain)
+      var speakergroup = this.svg.group(this.floor,
+          {fill:"none",stroke:"brown",strokeWidth:5,'stroke-linejoin':"round",'stroke-linecap':"round",
+        transform:"translate(4.7,5) scale(0.02)"});
+      this.svg.polygon(speakergroup,
+          [[39.389,13.769], [22.235,28.606], [6,28.606], [6,47.699], [21.989,47.699], [39.389,62.75], [39.389,13.769]],
+          {fill:"red"}
+      );
+      this.svg.path(speakergroup,
+          this.svg.createPath().move(48.128,49.03).curveC([[50.057,45.934, 51.19,42.291, 51.19,38.377],
+                                                           [51.19,34.399, 50.026,30.703, 48.043,27.577]]));
+      this.svg.path(speakergroup,
+          this.svg.createPath().move(55.082,20.537).curveC([[58.777,25.523, 60.966,31.694, 60.966,38.377],
+                                                            [60.966,44.998, 58.815,51.115, 55.178,56.076]]));
+      this.svg.path(speakergroup,
+          this.svg.createPath().move(61.71,62.611).curveC([[66.977,55.945, 70.128,47.531, 70.128,38.378],
+                                                           [70.128,29.161, 66.936,20.696, 61.609,14.01]]));
+      $(speakergroup).mousedown(function() {
+        $(ttid).get(0).play();
+      });
     }
 
     this.gridgroup = this.svg.group(this.floor,{fill:"none",stroke:"black",strokeWidth:0.01});
