@@ -19,22 +19,14 @@
 #  This generates files needed for Taminations
 #  You need GNU make to run this file
 #  and Python to generate files
+#  On Windows use Cygwin
 #  Optional: install Java and set JAVA_HOME
 #  to build the applet used with IE on XP
 
-#  If the current directory contains a colon, we're most likely on a windows machine
-ifeq '$(findstring :,$(CURDIR))' ':'
-RM = del
-PS = $(strip \ )
-COPY = copy
-else
 RM = rm
-PS = /
 COPY = cp
-endif
 
-
-DIRS = b1 b2 ms plus adv a1 a2 c1 c2 c3a info
+DIRS = b1 b2 ms plus adv a1 a2 c1 c2 c3a info .
 XMLSRC = $(wildcard *.xml) tamination.dtd
 XMLCOPIES = $(foreach dir,$(DIRS),$(addprefix ../$(dir)/,$(XMLSRC)))
 XREFXML = $(foreach dir,$(DIRS),$(wildcard ../$(dir)/*.x.xml))
@@ -48,10 +40,6 @@ UNZIP = "$(JAVA_HOME)/bin/jar" xvf
 else
 UNZIP = unzip
 endif
-
-test :
-	echo $(.FEATURES)
-  
 
 .phony : all
 all : $(XMLCOPIES) $(PYXML) $(JAVA_FILES)
@@ -67,9 +55,10 @@ unzip :
 .phony : clean
 clean :
 	-$(RM) *.class *.jar
-	-$(RM) ..$(PS)tamination.zip
-	-$(RM) $(subst /,$(PS),$(PYXML))
-	-$(RM) $(subst /,$(PS),$(XMLCOPIES))
+	-$(RM) ../tamination.zip
+	-$(RM) $(PYXML)
+	-$(RM) $(XMLCOPIES)
+	-$(RM) callindex.xml
 
 #  Make the JAR file.  Tell the compiler to compile for Java 1.3 for maximum compatibility
 TAMination.jar : TAMination.java
@@ -83,9 +72,13 @@ TAMination.jar : TAMination.java
 
 #  Generate xml files from x.xml files with cross-references
 %.xml : %.x.xml
-	python expandxrefs.py $< >$(subst /,$(PS),$@)
+	python expandxrefs.py $< >$@
+
+#  Generate index used by sequencer
+callindex.xml : $(wildcard ../*/*.xml) $(wildcard calls/*.js)
+	python indexcalls.py >$@
 
 #  Copy XML files that define menus, moves, and formations to each directory
 #  Browsers can be picky about loading AJAX from different directories
 $(XMLCOPIES) : $(XMLSRC)
-	$(COPY) $(notdir $@) $(subst /,$(PS),$@)
+	$(COPY) $(notdir $@) $@

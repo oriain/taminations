@@ -42,6 +42,6 @@ def main():
   #  Print the output xml
   print('<?xml version="1.0"?>')
   print('<!DOCTYPE tamination SYSTEM "tamination.dtd">')
-  ET.dump(newtree)
+  newtree.write(sys.stdout)
 
 main()

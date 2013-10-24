@@ -48,11 +48,7 @@ var synonyms = {
 };
 var synindex = synonyms.keys();
 
-$.holdReady(true);
-$.getJSON("src/callindex.json",function(data) {
-  callindex = data;
-  $.holdReady(false);
-}).error(function() {alert('JSON error');});
+preload('src/callindex.xml',function(a) { callindex = a; });
 
 var timeoutID = null;
 $(document).ready(function() {
@@ -284,16 +280,14 @@ function updateSequence()
     for (var s=0; s<callwords.length; s++) {
       for (var e=s+1; e<=callwords.length; e++) {
         var call = callwords.slice(s,e).join('');
-        var a = callindex[call];
-        if (typeof a == 'undefined')
-          continue;
-        for (var x in a) {
-          if (!xmldata[a[x]]) {
-            if (a[x].indexOf('.js') > 0) {
+        $('call[text="'+call+'"]',callindex).each( function () {
+          var f = $(this).attr('link');
+          if (!xmldata[f]) {
+            if (f.indexOf('.js') > 0) {
               //  Call is interpreted by a script
               filecount++;
               //  Read and interpret the script
-              $.getScript(a[x],function(data,status,jqxhr) {
+              $.getScript(f,function(data,status,jqxhr) {
                 // xmldata set by script
                 if (--filecount == 0)
                   buildSequence();
@@ -301,25 +295,25 @@ function updateSequence()
                 alert('script failed '+settings);
               });
             }
-            else if (a[x].indexOf('.xml') > 0) {
+            else if (f.indexOf('.xml') > 0) {
               //  Call is interpreted by animations
               filecount++;
-              console.log('Getting animation '+a[x]+' '+filecount);
+              console.log('Getting animation '+f+' '+filecount);
               //  Read and store the animation
-              $.get(a[x],function(data,status,jqxhr) {
+              $.get(f,function(data,status,jqxhr) {
                 //  Location of the filename depends (I think)
                 //  on whether the callback is run now or later
-                var f = 'filename' in jqxhr ? jqxhr.filename : a[x];
-                console.log('read '+f);
-                xmldata[f] = data;
+                var ff = 'filename' in jqxhr ? jqxhr.filename : a[x];
+                xmldata[ff] = data;
                 if (--filecount == 0) {
                   //  All xml has been read, now we can interpret the calls
                   buildSequence();
                 }
-              },"xml").filename = a[x];
+                console.log('read '+ff+' '+filecount);
+              },"xml").filename = f;
             }
           }
-        }
+        });
       }
     }
   }
@@ -367,9 +361,8 @@ parseOneCall:
         var call = callwords.slice(0,i).join('');
         //  First try to find an explicit xml animation
         //  But only for the complete call
-        var a = callindex[call];
-        for (var ii in a) {
-          var tamxml = xmldata[a[ii]];
+        $('call[text="'+call+'"]',callindex).each( function () {
+          var tamxml = xmldata[$(this).attr('link')];
           if (typeof tamxml == 'object' && doxml && i==callwords.length) {
             for (var x=0; x<$('tam',tamxml).length; x++) {
               var xelem = $('tam',tamxml)[x];
@@ -399,12 +392,13 @@ parseOneCall:
                   }
                   ctx.levelBeats();
                   callwords = callwords.slice(i,callwords.length);
-                  break parseOneCall;
+                  //break parseOneCall;
+                  return;
                 }
               }
             }
           }
-        }
+        });
         //  Failed to find XML-defined animation, check for a script
         var tamxml = Call.classes[call];
         if (typeof tamxml == 'function') {

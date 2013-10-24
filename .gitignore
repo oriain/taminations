@@ -6,7 +6,7 @@
 TAMination.jar
 *.pyc
 *.blend?
-callindex.json
+callindex.xml
 calls.xml
 formations.xml
 menus.xml

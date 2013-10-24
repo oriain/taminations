@@ -26,18 +26,8 @@
 <!ENTITY middot "&#183;" ><!--/centerdot B: =middle dot-->
 <!ENTITY bull   "&#x2022;" ><!--/bullet B: =round bullet, filled-->
 
-<!ELEMENT tamination (title?,definition?,styling?,timing?,comment?,(tam*),(tamxref*))>
-
-<!ELEMENT title ANY>
-<!ATTLIST title  level CDATA #REQUIRED>
-
-<!ELEMENT definition ANY>
-
-<!ELEMENT timing ANY>
-
-<!ELEMENT styling ANY>
-
-<!ELEMENT comment ANY>
+<!--  Below are all the elements and attributes for animation xml files  -->
+<!ELEMENT tamination (tam*),(tamxref*))>
 
 <!ELEMENT tam (formation?,path*,taminator?)>
 <!ATTLIST tam title CDATA #REQUIRED
@@ -63,6 +53,8 @@
                numbers CDATA #IMPLIED
                couples CDATA #IMPLIED >
 
+<!--  Moves, movements, dancers, and formations are used in both animation files
+      and the definition files moves.xml and formations.xml  -->
 <!ELEMENT move EMPTY>
 <!ATTLIST move select CDATA #REQUIRED
                beats CDATA #IMPLIED
@@ -102,15 +94,8 @@
                  y CDATA #REQUIRED
                  angle CDATA #REQUIRED >
 
-<!ELEMENT menu (menulist+)>
-<!ELEMENT menulist (menuitem+)>
-<!ATTLIST menulist title CDATA #REQUIRED
-                   columns CDATA #IMPLIED >
-<!ELEMENT menuitem EMPTY>
-<!ATTLIST menuitem text CDATA #REQUIRED
-                   link CDATA #REQUIRED
-                   anim CDATA #IMPLIED >
-
+<!-- This is for calls.xml, used to generate the menus,
+     and for callindex.xml, used for the sequencer  -->
 <!ELEMENT calls (call+)>
 <!ELEMENT call EMPTY>
 <!ATTLIST call text CDATA #REQUIRED
@@ -118,4 +103,3 @@
                sublevel CDATA #REQUIRED
                link CDATA #REQUIRED
                anim CDATA #IMPLIED >
-

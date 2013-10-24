@@ -123,6 +123,15 @@ TamSVG.prototype = {
     this.floor.setAttribute('transform',AffineTransform.getScaleInstance(1,-1).toString());
     this.svg.rect(this.floor,-6.5,-6.5,13,13,{fill:'#ffffc0'});
     this.svg.text(this.floorsvg,0,0,"Copyright 2013 Brad Christie",{fontSize: "10", transform:"translate(-6.5,6.4) scale(0.04)"});
+    //  Add title, TODO optionally with audio link
+    var t = tam.getTitle().replace(/ \(.*\)/,' ');
+    t = this.svg.text(this.floorsvg,0,0,t,{fontSize: "10", transform:"translate(-6.4,-5.5) scale(0.1)"});
+    l = t.getComputedTextLength();
+    if (l > 128) {
+      var s = 128/l;
+      t.setAttribute('transform',"translate(-6.4,"+(-6.5+s)+") scale("+(s/10)+")");
+    }
+
     this.gridgroup = this.svg.group(this.floor,{fill:"none",stroke:"black",strokeWidth:0.01});
     this.hexgridgroup = this.svg.group(this.floor,{fill:"none",stroke:"black",strokeWidth:0.01});
     this.bigongridgroup = this.svg.group(this.floor,{fill:"none",stroke:"black",strokeWidth:0.01});
