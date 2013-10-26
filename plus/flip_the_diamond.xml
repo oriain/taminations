@@ -25,7 +25,7 @@
   <tam title="Flip the Diamond"
        from="Right-Hand Diamond"
        formation="Diamond RH"
-       parts="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Run Right" />
     </path>
@@ -37,7 +37,7 @@
   <tam title="Flip the Diamond"
        from="Left-Hand Diamond"
        formation="Diamond LH"
-       parts="" difficulty="1">
+       difficulty="2">
     <path>
       <move select="Run Left" />
     </path>
@@ -49,7 +49,7 @@
   <tam title="Flip the Diamond"
        from="Facing Diamond"
        formation="Diamond Facing"
-       parts="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Flip Right" />
     </path>
@@ -61,7 +61,7 @@
   <tam title="Flip the Diamond"
        from="Right-Hand Diamonds"
        formation="Diamonds RH Girl Points"
-       parts="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Lead Right" beats="3" scaleX="3" />
     </path>
@@ -79,7 +79,7 @@
   <tam title="Flip the Diamond"
        from="Left-Hand Diamonds"
        formation="Diamonds LH Girl Points"
-       parts="" difficulty="1">
+       difficulty="2">
     <path>
       <move select="Lead Left" beats="3" scaleX="3" />
     </path>
@@ -97,7 +97,7 @@
   <tam title="Flip the Diamond"
        from="Facing Diamonds"
        formation="Diamonds Facing Girl Points"
-       parts="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Forward 2" />
       <move select="Lead Right" />

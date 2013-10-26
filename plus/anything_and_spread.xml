@@ -211,6 +211,26 @@
     </taminator>
   </tam>
 
+  <tam title="Heads Star Thru and Spread" group=" "
+       formation="Static Square" difficulty="1">
+    <path>
+      <move select="Extend Left" beats="3" scaleX="3" scaleY=".5"/>
+      <move select="Quarter Right" beats="3" offsetX="3" offsetY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="3" scaleY=".5"/>
+      <move select="Quarter Left" beats="3" offsetX="3" offsetY="-1.5"/>
+    </path>
+    <path>
+      <move select="Stand Right" beats="4"/>
+      <move select="Forward" hands="right" beats="2"/>
+    </path>
+    <path>
+      <move select="Stand Left" beats="4"/>
+      <move select="Forward" hands="left" beats="2"/>
+    </path>
+  </tam>
+
   <tam title="Hinge and Spread" group=" "
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"

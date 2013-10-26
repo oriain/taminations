@@ -51,7 +51,7 @@
   <tam title="Peel Off"
        from="Double Pass Thru"
        formation="Double Pass Thru"
-       difficulty="1">
+       difficulty="2">
     <path>
       <move select="Forward" scaleX="0.7"/>
       <move select="U-Turn Left" offsetX="0.3" />

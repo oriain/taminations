@@ -22,10 +22,6 @@
 -->
 <tamination>
 
-
-
-
-
   <tam title="Explode the Wave"
        from="Right-Hand Wave"
        formation="Wave RH"
@@ -42,15 +38,15 @@
 
   <tam title="Explode the Wave"
        from="Left-Hand Wave"
-       formation="Wave LH"
+       formation="Wave LH Boys Center"
        parts="" difficulty="1">
-    <path>
-      <move select="Lead Left" hands="right" beats="3" scaleX=".5" scaleY="2" />
-      <move select="Extend Right" beats="3" scaleX="3" scaleY=".5" />
-    </path>
     <path>
       <move select="Lead Right" hands="right" beats="3" scaleX="1.5" scaleY="2" />
       <move select="Extend Right" beats="3" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Lead Left" hands="right" beats="3" scaleX=".5" scaleY="2" />
+      <move select="Extend Right" beats="3" scaleX="3" scaleY=".5" />
     </path>
   </tam>
 
@@ -78,7 +74,7 @@
 
   <tam title="Explode the Wave"
        from="Left-Hand Waves"
-       formation="Ocean Waves LH BGGB"
+       formation="Ocean Waves LH GBBG"
        parts="" difficulty="1">
     <path>
       <move select="Lead Left" hands="right" beats="3" scaleX=".5" scaleY="2" />

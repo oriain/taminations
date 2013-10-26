@@ -40,7 +40,7 @@
   <tam title="Bend the Line and Roll" group=" "
        from="Normal Lines"
        formation="Normal Lines"
-       parts="" difficulty="1">
+       parts="" difficulty="2">
     <path>
       <move select="Hinge Right" offsetY="-1"/>
       <move select="Quarter Right"/>
@@ -624,7 +624,7 @@
   <tam title="Wheel and Deal and Roll" group=" "
        from="Lines Facing Out"
        formation="Lines Facing Out"
-       parts="" difficulty="1">
+       parts="" difficulty="2">
     <path>
       <move select="Run Left" beats="4" hands="left" scaleY="2" offsetX="-1" />
       <move select="Quarter Left"/>

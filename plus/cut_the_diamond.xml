@@ -40,7 +40,7 @@
   <tam title="Cut the Diamond"
        from="Left-Hand Diamond"
        formation="Diamond LH"
-       parts="" difficulty="1">
+       parts="" difficulty="2">
     <path>
       <move select="Dodge Left" />
       <move select="Swing Left" />
@@ -55,7 +55,7 @@
   <tam title="Cut the Diamond"
        from="Facing Diamond"
        formation="Diamond Facing"
-       parts="" difficulty="1">
+       parts="" difficulty="2">
     <path>
       <move select="Dodge Right" />
       <move select="Swing Right" />
@@ -92,7 +92,7 @@
   <tam title="Cut the Diamond"
        from="Left-Hand Diamonds"
        formation="Diamonds LH Girl Points"
-       parts="" difficulty="1">
+       parts="" difficulty="2">
     <path>
       <move select="Forward 2" />
       <move select="Lead Left" />
@@ -114,7 +114,7 @@
   <tam title="Cut the Diamond"
        from="Facing Diamonds"
        formation="Diamonds Facing Girl Points"
-       parts="" difficulty="1">
+       parts="" difficulty="2">
     <path>
       <move select="Forward 2" />
       <move select="Lead Right" />

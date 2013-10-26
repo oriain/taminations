@@ -71,7 +71,7 @@
   <tam title="Crossfire"
        from="Left-Hand Two-Faced Lines"
        formation="Two-Faced Lines LH"
-       parts="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Run Left" beats="4" scaleX="2" scaleY="2" offsetX="1" />
     </path>
@@ -91,7 +91,7 @@
   <tam title="Crossfire"
        from="Tidal Two-Faced Line"
        formation="Two-Faced Tidal Line RH"
-       parts="" difficulty="2">
+       difficulty="1">
     <path>
       <move select="Run Right" beats="5" offsetX="2" offsetY="-.5" />
     </path>

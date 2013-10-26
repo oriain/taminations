@@ -24,32 +24,32 @@
 
   <tam title="Trade the Wave"
        from="Right-Hand Wave"
-       formation="Wave RH"
-       parts="" difficulty="1">
-    <path>
-      <move select="Run Right" beats="6" scaleX="1.5" scaleY="2" />
-    </path>
+       formation="Wave RH Boys Center"
+       difficulty="2">
     <path>
       <move select="Run Left" beats="6" scaleX=".5" scaleY="2" />
+    </path>
+    <path>
+      <move select="Run Right" beats="6" scaleX="1.5" scaleY="2" />
     </path>
   </tam>
 
   <tam title="Trade the Wave"
        from="Left-Hand Wave"
-       formation="Wave LH"
-       parts="" difficulty="1">
-    <path>
-      <move select="Run Left" beats="6" scaleX=".5" scaleY="2" />
-    </path>
+       formation="Wave LH Boys Center"
+       difficulty="1">
     <path>
       <move select="Run Right" beats="6" scaleX="1.5" scaleY="2" />
+    </path>
+    <path>
+      <move select="Run Left" beats="6" scaleX=".5" scaleY="2" />
     </path>
   </tam>
 
   <tam title="Trade the Wave"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="" difficulty="1">
+       difficulty="2">
     <path>
       <move select="Run Right" beats="6" scaleX="1.5" scaleY="2" />
     </path>
@@ -66,8 +66,8 @@
 
   <tam title="Trade the Wave"
        from="Left-Hand Waves"
-       formation="Ocean Waves LH BGGB"
-       parts="" difficulty="1">
+       formation="Ocean Waves LH GBBG"
+       difficulty="1">
     <path>
       <move select="Run Left" beats="6" scaleX=".5" scaleY="2" />
     </path>
@@ -85,7 +85,7 @@
   <tam title="Trade the Wave"
        from="Right-Hand Tidal Wave"
        formation="Tidal Wave RH BGGB"
-       parts="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Run Right" beats="6" scaleX="1.5" />
     </path>

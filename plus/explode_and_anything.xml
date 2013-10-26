@@ -95,7 +95,7 @@
 
   <tam title="Explode and Roll" group="Explode and"
        formation="Ocean Waves RH BGGB"
-       parts="" difficulty="2">
+       difficulty="2">
     <path>
        <move select="Run Right" offsetX="1"/>
     </path>
@@ -111,9 +111,8 @@
   </tam>
 
   <tam title="Explode and Touch a Quarter" group="Explode and"
-       from=""
        formation="Ocean Waves RH BGGB"
-       parts="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Forward" />
       <move select="Quarter Right" />
@@ -141,9 +140,8 @@
   </tam>
 
   <tam title="Explode and Slide Thru" group="Explode and"
-       from=""
        formation="Ocean Waves RH BGGB"
-       parts="" difficulty="1">
+       difficulty="2">
     <path>
       <move select="Forward" />
       <move select="Quarter Right" />

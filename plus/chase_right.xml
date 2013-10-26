@@ -64,7 +64,7 @@
   <tam title="Chase Right"
        from="Trade By"
        formation="Trade By"
-       parts="" difficulty="1">
+       parts="" difficulty="2">
     <path>
       <move select="U-Turn Right" beats="1.5" />
       <move select="Forward 2" />
