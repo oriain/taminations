@@ -120,5 +120,212 @@
     </path>
   </tam>
 
+  <tam title="Transfer and Box Circulate Twice" group="Transfer and"
+       formation="Column RH GBGB">
+    <path>
+      <move select="Run Right" beats="4" scaleY="2.5" />
+      <move select="Forward 3" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Run Right" beats="4" scaleY="2.5" />
+      <move select="Forward" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="Run Right"/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="Forward 2" beats="3"/>
+      <move select="Run Right"/>
+    </path>
+  </tam>
+
+  <tam title="Transfer and Box Counter Rotate" group="Transfer and"
+       formation="Column RH GBGB">
+    <path>
+      <move select="Run Right" beats="4" scaleY="2.5" />
+      <move select="Forward 3" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Run Right" beats="4" scaleY="2.5" />
+      <move select="Forward" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="Counter Rotate Right 0 -2" hands="right"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="Counter Rotate Right 2 0" hands="right"/>
+    </path>
+  </tam>
+
+  <tam title="Transfer and Box Transfer" group="Transfer and"
+       formation="Column RH GBGB">
+    <path>
+      <move select="Run Right" beats="4" scaleY="2.5" />
+      <move select="Forward 3" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Run Right" beats="4" scaleY="2.5" />
+      <move select="Forward" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="Run Right" beats="4" scaleX=".5" scaleY="1.75" />
+      <move select="Forward" />
+      <move select="Lead Right" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="Extend Right" beats="1.5" scaleY=".25" />
+      <move select="Cast Right" scaleX=".75" scaleY=".75" />
+      <move select="Extend Left" scaleY=".25" />
+    </path>
+  </tam>
+
+  <tam title="Transfer and Follow Your Neighbor" group="Transfer and"
+       formation="Column RH GBGB">
+    <path>
+      <move select="Run Right" beats="4" scaleY="2.5" />
+      <move select="Forward 3" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Run Right" beats="4" scaleY="2.5" />
+      <move select="Forward" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="Forward"/>
+      <move select="Lead Right" beats="2.5" scaleX="2" />
+      <move select="Run Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="Forward"/>
+      <move select="Cast Right"/>
+    </path>
+  </tam>
+
+  <tam title="Transfer and Peel the Top" group="Transfer and"
+       formation="Column RH GBGB">
+    <path>
+      <move select="Run Right" beats="4" scaleY="2.5" />
+      <move select="Forward 3" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Run Right" beats="4" scaleY="2.5" />
+      <move select="Forward" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="Run Left" offsetX="-1"/>
+      <move select="Lead Left" beats="3.5" scaleX="3" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="Forward"/>
+      <move select="Cast Right"/>
+    </path>
+  </tam>
+
+  <tam title="Transfer and Remake" group="Transfer and"
+       formation="Column RH GBGB">
+    <path>
+      <move select="Run Right" beats="4" scaleY="2.5" />
+      <move select="Forward 3" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Run Right" beats="4" scaleY="2.5" />
+      <move select="Forward" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="Hinge Right" scaleX=".5"/>
+       <move select="Stand" beats="3"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="Hinge Right" scaleX=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Right" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Transfer and Single Wheel" group="Transfer and"
+       formation="Column RH GBGB">
+    <path>
+      <move select="Run Right" beats="4" scaleY="2.5" />
+      <move select="Forward 3" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Run Right" beats="4" scaleY="2.5" />
+      <move select="Forward" />
+      <move select="Lead Right" />
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="U-Turn Right" beats="3" offsetX="2" offsetY="-1"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="Flip Right" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Transfer and Turn and Deal" group="Transfer and">
+     <formation>
+      <dancer gender="girl" x="1" y="3" angle="90"/>
+      <dancer gender="boy" x="1" y="1" angle="90"/>
+      <dancer gender="girl" x="1" y="-1" angle="180"/>
+      <dancer gender="boy" x="1" y="-3" angle="180"/>
+    </formation>
+    <path>
+      <move select="Run Left" beats="4" scaleY="2.5" />
+      <move select="Forward 3" />
+      <move select="Lead Left" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Run Left" beats="4" scaleY="2.5" />
+      <move select="Forward" />
+      <move select="Lead Left" />
+    </path>
+    <path>
+      <move select="Forward" beats="3"/>
+      <move select="Lead Right" beats="2"/>
+      <move select="Quarter Right" beats="2" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Forward" beats="3"/>
+      <move select="Lead Right" beats="2" />
+      <move select="Quarter Right" beats="2" offsetX="1"/>
+    </path>
+  </tam>
 
 </tamination>

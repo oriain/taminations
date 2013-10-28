@@ -22,13 +22,9 @@
 -->
 <tamination>
 
-
-
-
   <tam title="Split Transfer"
        from="Right-Hand Waves"
-       formation="Ocean Waves RH BGBG"
-       parts="" >
+       formation="Ocean Waves RH BGBG">
     <path>
       <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".25" />
       <move select="Cast Right" scaleX=".75" scaleY=".75" />
@@ -53,8 +49,7 @@
 
   <tam title="Split Transfer"
        from="Left-Hand Waves"
-       formation="Ocean Waves LH BGBG"
-       parts="" >
+       formation="Ocean Waves LH BGBG">
     <path>
       <move select="Run Left" beats="4" scaleX=".5" scaleY="1.25" />
       <move select="Forward 2" />
@@ -79,8 +74,7 @@
 
   <tam title="Split Transfer"
        from="Right-Hand Columns"
-       formation="Column RH GBGB"
-       parts="" >
+       formation="Column RH GBGB">
     <path>
       <move select="Run Right" beats="4" scaleX=".5" scaleY="1.75" />
       <move select="Forward" />
@@ -105,8 +99,7 @@
 
   <tam title="Split Transfer"
        from="Left-Hand Columns"
-       formation="Column LH GBGB"
-       parts="" >
+       formation="Column LH GBGB">
     <path>
       <move select="Extend Left" beats="1.5" scaleY=".25" />
       <move select="Cast Left" scaleX=".75" scaleY=".75" />

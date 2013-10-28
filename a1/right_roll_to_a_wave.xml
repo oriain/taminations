@@ -24,8 +24,7 @@
 
   <tam title="Right Roll to a Wave"
        from="Couples Facing Out"
-       formation="Couples Facing Out"
-       parts="" >
+       formation="Couples Facing Out">
     <path>
       <move select="Flip Right" beats="4" offsetX="-2" />
     </path>
@@ -36,8 +35,7 @@
 
   <tam title="Right Roll to a Wave"
        from="Right-Hand Box"
-       formation="Box RH"
-       parts="" >
+       formation="Box RH">
     <path>
       <move select="Extend Left" beats="3" scaleX="2" scaleY="2" />
     </path>
@@ -90,8 +88,7 @@
 
   <tam title="Right Roll to a Wave"
        from="Completed Double Pass Thru"
-       formation="Completed Double Pass Thru"
-       parts="" >
+       formation="Completed Double Pass Thru">
     <path>
       <move select="Flip Right" beats="4" offsetX="-1" />
     </path>
@@ -108,8 +105,7 @@
 
   <tam title="Right Roll to a Wave"
        from="Trade By"
-       formation="Trade By"
-       parts="" >
+       formation="Trade By">
     <path>
       <move select="Flip Right" beats="4" offsetX="-1" />
     </path>
@@ -126,8 +122,7 @@
 
   <tam title="Right Roll to a Wave"
        from="Lines Facing Out"
-       formation="Lines Facing Out"
-       parts="" >
+       formation="Lines Facing Out">
     <path>
       <move select="U-Turn Right" offsetX="-1" offsetY="-.5" />
       <move select="Forward" />
@@ -148,8 +143,7 @@
 
   <tam title="Right Roll to a Wave"
        from="Two-Faced Lines"
-       formation="Two-Faced Lines LH"
-       parts="" >
+       formation="Two-Faced Lines LH">
     <path>
       <move select="U-Turn Right" offsetX="-2" offsetY="-.5" />
     </path>
@@ -166,8 +160,7 @@
 
   <tam title="Right Roll to a Wave"
        from="Right-Hand Columns"
-       formation="Column RH GBGB"
-       parts="" >
+       formation="Column RH GBGB">
     <path>
       <move select="U-Turn Right" offsetX="-1" />
     </path>
@@ -184,8 +177,7 @@
 
   <tam title="Right Roll to a Wave"
        from="Left-Hand Columns"
-       formation="Column LH GBGB"
-       parts="" >
+       formation="Column LH GBGB">
     <path>
       <move select="Forward" beats="2" />
     </path>
@@ -202,8 +194,7 @@
 
   <tam title="Right Roll to a Wave"
        from="Right-Hand Waves"
-       formation="Ocean Waves RH BGBG"
-       parts="" >
+       formation="Ocean Waves RH BGBG">
     <path>
       <move select="Extend Left" beats="3" scaleX="2" scaleY=".5" />
     </path>
@@ -220,8 +211,7 @@
 
   <tam title="Right Roll to a Wave"
        from="Left-Hand Waves"
-       formation="Ocean Waves LH BGBG"
-       parts="" >
+       formation="Ocean Waves LH BGBG">
     <path>
       <move select="U-Turn Right" offsetX="-2" offsetY="-.5" />
     </path>
@@ -271,7 +261,7 @@
   <tam title="Right Roll to a Wave Three Times"
        from="Single File Dancers"
        parts="2;3">
-     <formation>      <dancer gender="boy" x="-2.5" y="0" angle="180"/>      <dancer gender="girl" x="-3.5" y="0" angle="180"/>      <dancer gender="boy" x="-1.5" y="0" angle="0"/>      <dancer gender="girl" x="-.5" y="0" angle="0"/>    </formation>
+     <formation>      <dancer gender="boy" x="-2.5" y="0" angle="180"/>      <dancer gender="girl" x="-3.5" y="0" angle="180"/>      <dancer gender="boy" x="-1.5" y="0" angle="180"/>      <dancer gender="girl" x="-.5" y="0" angle="180"/>    </formation>
     <path>
       <move select="Extend Left" beats="2" scaleX=".5" />
       <move select="U-Turn Right" offsetX="-1" />
@@ -283,12 +273,12 @@
       <move select="Extend Left" beats="3" scaleX="2" scaleY=".5" />
     </path>
     <path>
-      <move select="Extend Left" beats="2" scaleX=".5" />
+      <move select="Run Right" beats="2" scaleX=".5" scaleY=".5" offsetX="-.5"/>
       <move select="U-Turn Right" offsetX="-1" />
       <move select="U-Turn Right" offsetX="-2" offsetY="-.5" />
     </path>
     <path>
-      <move select="Run Right" beats="2" scaleX=".5" scaleY=".5" offsetX="-.5"/>
+      <move select="Extend Left" beats="2" scaleX=".5" />
       <move select="Extend Left" beats="3" scaleY="2" />
       <move select="U-Turn Right" offsetX="-2" offsetY="-.5" />
     </path>

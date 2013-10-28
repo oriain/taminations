@@ -192,7 +192,7 @@
     </path>
   </tam>
 
-  <tam title="Tally Ho" from="Two-Faced Lines" formation="Two-Faced Lines RH" parts="3;3">
+  <tam title="Tally Ho" from="Right-Hand Two-Faced Lines" formation="Two-Faced Lines RH" parts="3;3">
     <path numbers="1 8">
       <move select="Forward 2" hands="right" beats="3"/>
       <move select="Lead Right" beats="1.5" scaleY="1.5"/>
@@ -213,6 +213,33 @@
     <path numbers="4 5">
       <move select="Lead Right" hands="right" scaleX="3" scaleY="3" beats="3"/>
       <move select="Run Right"/>
+      <move select="Cast Left"/>
+    </path>
+  </tam>
+
+  <tam title="Tally Ho" from="Left-Hand Two-Faced Lines" formation="Two-Faced Lines LH" parts="3;3">
+    <path>
+      <move select="Lead Left" hands="left" scaleX="3" scaleY="3" beats="3"/>
+      <move select="Run Left"/>
+      <move select="BackHinge Right"/>
+      <move select="BackHinge Right"/>
+      <move select="BackHinge Right"/>
+    </path>
+    <path>
+      <move select="Lead Left" hands="right" beats="3"/>
+      <move select="Flip Right"/>
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Forward 2" hands="right" beats="3"/>
+      <move select="Lead Right" beats="1.5" scaleY=".5"/>
+      <move select="Lead Right"/>
+      <move select="Extend Left" beats="4.5" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Forward 2" hands="left" beats="3"/>
+      <move select="Quarter Left" offsetX="-1" offsetY="1.5"/>
+      <move select="Forward" beats="1.5" scaleX="1.5"/>
       <move select="Cast Left"/>
     </path>
   </tam>
