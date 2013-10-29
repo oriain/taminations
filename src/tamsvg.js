@@ -124,7 +124,11 @@ TamSVG.prototype = {
     this.svg.rect(this.floor,-6.5,-6.5,13,13,{fill:'#ffffc0'});
     this.svg.text(this.floorsvg,0,0,"Copyright 2013 Brad Christie",{fontSize: "10", transform:"translate(-6.5,6.4) scale(0.04)"});
     //  Add title, TODO optionally with audio link
-    var tt = tam.getTitle().replace(/ \(.*\)/,' ');
+    var tt = tam.getTitle();
+    if (typeof tt == 'undefined')  // happens if running the sequencer
+      tt = '';
+    else
+      tt = tt.replace(/ \(.*\)/,' ');
     var t = this.svg.text(this.floorsvg,0,0,tt,{fontSize: "10", transform:"translate(-6.4,-5.5) scale(0.1)"});
     l = t.getComputedTextLength();
     if (l > 110) {
