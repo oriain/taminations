@@ -24,8 +24,7 @@
 
   <tam title="Turn Thru"
        from="Facing Couples"
-       formation="Facing Couples"
-       difficulty="1" >
+       formation="Facing Couples">
     <path>
       <move select="Extend Left" scaleX="2" scaleY=".5" />
       <move select="Swing Right" hands="gripright" beats="2" scaleX=".5" scaleY=".5" />
@@ -38,7 +37,7 @@
     </path>
   </tam>
 
-  <tam title="Turn Thru" from="Right-Hand Box" formation="Box RH" difficulty="2">
+  <tam title="Turn Thru" from="Right-Hand Box" formation="Box RH">
     <path>
       <move select="Hinge Right" scaleX=".75" />
       <move select="Hinge Right" scaleX=".75" scaleY=".75" />
@@ -53,7 +52,7 @@
 
   <tam title="Turn Thru"
        from="Lines"
-       formation="Normal Lines" difficulty="1">
+       formation="Normal Lines" difficulty="2">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Swing Right" hands="gripright" beats="2" scaleX=".5" scaleY=".5" />
@@ -77,8 +76,8 @@
   </tam>
 
   <tam title="Turn Thru"
-       from="Ocean Waves"
-       formation="Ocean Waves RH BGGB" difficulty="1">
+       from="Waves"
+       formation="Ocean Waves RH GBBG" difficulty="1">
     <path>
       <move select="Hinge Right" scaleX=".75" />
       <move select="Hinge Right" scaleX=".75" scaleY=".75" />
@@ -147,7 +146,13 @@
     </path>
   </tam>
 
-  <tam title="Turn Thru" from="Quarter Tag" formation="Quarter Tag" difficulty="2">
+  <tam title="Turn Thru" from="Quarter Tag" difficulty="1">
+    <formation>
+      <dancer gender="boy" x="-3" y="1" angle="0"/>
+      <dancer gender="girl" x="-3" y="-1" angle="0"/>
+      <dancer gender="girl" x="0" y="-3" angle="180"/>
+      <dancer gender="boy" x="0" y="-1" angle="0"/>
+    </formation>
     <path>
     </path>
     <path>

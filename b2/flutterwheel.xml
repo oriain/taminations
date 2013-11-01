@@ -25,7 +25,7 @@
   <tam title="Flutterwheel"
        from="Facing Couples"
        formation="Facing Couples"
-       parts="" >
+       difficulty="1" >
     <path>
       <move select="Stand" hands="nohands" beats="3.5" />
       <move select="Extend Left" hands="right" beats="1.5" scaleX="2" scaleY="1.5" />
@@ -41,7 +41,7 @@
   <tam title="Flutterwheel"
        from="Lines"
        formation="Normal Lines"
-       parts="" >
+       difficulty="1" >
     <path>
       <move select="Forward" hands="nohands" beats="3.5" />
       <move select="Extend Left" hands="right" beats="1.5" scaleX="1.5" scaleY="1.5" />
@@ -67,7 +67,7 @@
   <tam title="Flutterwheel"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="" >
+       difficulty="2" >
     <path>
       <move select="Stand" hands="nohands" beats="3.5" />
       <move select="Extend Left" hands="right" beats="1.5" scaleY=".5" />
@@ -93,7 +93,7 @@
   <tam title="Reverse Flutterwheel"
        from="Facing Couples"
        formation="Facing Couples"
-       parts="" >
+       difficulty="1" >
     <path>
       <move select="Extend Right" beats="2" scaleX="2" scaleY="1.75" />
       <move select="Swing Left" hands="both" scaleX=".75" scaleY=".75" />
@@ -109,7 +109,7 @@
   <tam title="Reverse Flutterwheel"
        from="Lines"
        formation="Normal Lines"
-       parts="" >
+       difficulty="1" >
     <path>
       <move select="Extend Right" beats="2" scaleX="1.5" scaleY="1.75" />
       <move select="Swing Left" hands="both" scaleX=".75" scaleY=".75" />
@@ -135,7 +135,7 @@
   <tam title="Reverse Flutterwheel"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="" >
+       difficulty="2" >
     <path>
       <move select="Extend Right" beats="2" scaleY="1.5" />
       <move select="Swing Left" hands="both" scaleX=".5" scaleY=".5" />
@@ -161,7 +161,7 @@
   <tam title="All 8 Flutterwheel"
        from="Static Square"
        formation="Static Square"
-       parts="" >
+       difficulty="2" >
     <path>
       <move select="Quarter Left" beats="4.5" offsetY="-1" />
       <move select="Hinge Right" beats="3" scaleX="3" scaleY="3" />
@@ -193,7 +193,7 @@
   <tam title="All 8 Reverse Flutterwheel"
        from="Static Square"
        formation="Static Square"
-       parts="" >
+       difficulty="2" >
     <path>
       <move select="Extend Right" beats="3" scaleX="3" scaleY="2" />
       <move select="Hinge Left" />
@@ -221,4 +221,5 @@
       <move select="Quarter Left" beats="3" hands="left" offsetX="2" />
     </path>
   </tam>
+
 </tamination>

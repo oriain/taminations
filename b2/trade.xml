@@ -85,7 +85,7 @@
   <tam title="Boys Trade"
        from="Lines"
        formation="Normal Lines"
-       parts="" difficulty="1" gender-specific="true">
+       difficulty="2" gender-specific="true">
     <path>
       <move select="Run Right" scaleX="2" scaleY="2" />
     </path>
@@ -101,7 +101,7 @@
   <tam title="Boys Trade"
        from="Lines Facing Out"
        formation="Lines Facing Out"
-       parts="" difficulty="1" gender-specific="true">
+       difficulty="2" gender-specific="true">
     <path>
     </path>
     <path>
@@ -143,18 +143,34 @@
   </tam>
 
   <tam title="Boys Trade"
-       from="Waves"
-       formation="Ocean Waves RH BGBG"
-       parts="" difficulty="1" gender-specific="true">
+       from="Waves, Boys in Center"
+       formation="Ocean Waves RH GBBG"
+       difficulty="1" gender-specific="true">
     <path>
-      <move select="Run Right" scaleX="2" scaleY="2" />
     </path>
+    <path>
+      <move select="Swing Left"/>
+    </path>
+    <path>
+      <move select="Swing Left"/>
+    </path>
+    <path>
+    </path>
+  </tam>
+
+  <tam title="Boys Trade"
+       from="Waves, Boys Facing Out"
+       formation="Ocean Waves RH GBGB"
+       difficulty="1" gender-specific="true">
     <path>
     </path>
     <path>
       <move select="Run Left" scaleY="2" />
     </path>
     <path>
+    </path>
+    <path>
+      <move select="Run Right" scaleX="2" scaleY="2" />
     </path>
   </tam>
 
@@ -221,7 +237,7 @@
   <tam title="Girls Trade"
        from="Lines"
        formation="Normal Lines"
-       parts="" difficulty="1" gender-specific="true">
+       difficulty="2" gender-specific="true">
     <path>
     </path>
     <path>
@@ -237,7 +253,7 @@
   <tam title="Girls Trade"
        from="Lines Facing Out"
        formation="Lines Facing Out"
-       parts="" difficulty="1" gender-specific="true">
+       difficulty="2" gender-specific="true">
     <path>
       <move select="Run Left" scaleY="2" />
     </path>
@@ -278,11 +294,10 @@
     </path>
   </tam>
 
-
   <tam title="Girls Trade"
-       from="Waves"
+       from="Waves, Girls Facing Out"
        formation="Ocean Waves RH BGBG"
-       parts="" difficulty="1" gender-specific="true">
+       difficulty="1" gender-specific="true">
     <path>
     </path>
     <path>
@@ -294,6 +309,7 @@
       <move select="Run Right" scaleX="2" scaleY="2" />
     </path>
   </tam>
+
 
   <tam title="Centers Trade" from="Right-Hand Wave"
        formation="Wave RH" difficulty="1">
@@ -338,7 +354,7 @@
   <tam title="Centers Trade"
        from="Lines"
        formation="Normal Lines"
-       parts="" difficulty="1">
+       difficulty="2">
     <path>
     </path>
     <path>
@@ -352,9 +368,30 @@
   </tam>
 
   <tam title="Centers Trade"
+       from="Lines Facing Out"
+       difficulty="1">
+    <formation>
+      <dancer gender="girl" x="-2" y="3" angle="180"/>
+      <dancer gender="girl" x="-2" y="1" angle="180"/>
+      <dancer gender="boy" x="-2" y="-1" angle="180"/>
+      <dancer gender="boy" x="-2" y="-3" angle="180"/>
+    </formation>
+    <path>
+    </path>
+    <path>
+      <move select="Flip Left" />
+    </path>
+    <path>
+      <move select="Run Right" />
+    </path>
+    <path>
+    </path>
+  </tam>
+
+  <tam title="Centers Trade"
        from="Waves"
        formation="Ocean Waves RH BGBG"
-       parts="" difficulty="1">
+       difficulty="1">
     <path>
     </path>
     <path>
@@ -370,7 +407,7 @@
   <tam title="Centers Trade"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="" difficulty="1">
+       difficulty="2">
     <path>
     </path>
     <path>
@@ -386,7 +423,7 @@
   <tam title="Partner Trade"
        from="Facing Couples"
        formation="Facing Couples"
-       parts="" difficulty="1">
+       difficulty="2">
     <path>
       <move select="Run Right" />
     </path>
@@ -398,7 +435,7 @@
   <tam title="Partner Trade"
        from="Couples Facing Out"
        formation="Couples Facing Out"
-       parts="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Flip Left" />
     </path>
@@ -410,7 +447,7 @@
   <tam title="Partner Trade"
        from="Right-Hand Box"
        formation="Box RH"
-       parts="" difficulty="1">
+       difficulty="2">
     <path>
       <move select="Swing Right" />
     </path>
@@ -422,7 +459,7 @@
   <tam title="Partner Trade"
        from="Left-Hand Box"
        formation="Box LH"
-       parts="" difficulty="1">
+       difficulty="2">
     <path>
       <move select="Swing Left" />
     </path>

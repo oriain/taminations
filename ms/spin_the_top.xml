@@ -41,7 +41,7 @@
   <tam title="Spin the Top"
        from="Left-Hand Wave"
        formation="Wave LH GBBG"
-       parts="3" difficulty="1">
+       parts="3" difficulty="2">
     <path>
       <move select="Swing Left" />
       <move select="Hinge Right" />
@@ -83,7 +83,7 @@
   <tam title="Spin the Top"
        from="Left-Hand Waves"
        formation="Ocean Waves LH GBBG"
-       parts="3" difficulty="1">
+       parts="3" difficulty="2">
     <path>
       <move select="Swing Left" />
       <move select="Hinge Right" />
@@ -108,7 +108,7 @@
 
   <tam title="Spin the Top"
        from="Right-Hand Tidal Wave"
-       formation="Tidal Wave RH BGGB"
+       formation="Tidal Wave RH GBBG"
        parts="3" difficulty="1">
     <path>
       <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
@@ -133,7 +133,7 @@
   <tam title="Spin the Top"
        from="Left-Hand Tidal Wave"
        formation="Tidal Wave LH BGGB"
-       parts="3" difficulty="1">
+       parts="3" difficulty="2">
     <path>
       <move select="Swing Left" hands="gripleft" scaleX=".5" scaleY=".5" />
       <move select="Hinge Right" scaleY=".5" />
@@ -183,7 +183,7 @@
   <tam title="Spin the Top"
        from="Lines"
        formation="Normal Lines"
-       parts="5" difficulty="2">
+       parts="5" difficulty="3">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />

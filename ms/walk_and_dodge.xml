@@ -25,7 +25,7 @@
   <tam title="Walk and Dodge"
        from="Right-Hand Box"
        formation="Box RH"
-       parts="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Forward 4" />
     </path>
@@ -37,7 +37,7 @@
   <tam title="Walk and Dodge"
        from="Left-Hand Box"
        formation="Box LH"
-       parts="" difficulty="1">
+       difficulty="2">
     <path>
       <move select="Dodge Left" beats="4" />
     </path>
@@ -49,7 +49,7 @@
   <tam title="Walk and Dodge"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Forward 4" />
     </path>
@@ -71,7 +71,7 @@
   <tam title="Walk and Dodge"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       parts="" difficulty="1">
+       difficulty="2">
     <path>
       <move select="Dodge Left" />
     </path>
@@ -89,7 +89,7 @@
   <tam title="Walk and Dodge"
        from="Right-Hand Columns"
        formation="Column RH GBGB"
-       parts="" difficulty="1">
+       difficulty="2">
     <path>
       <move select="Dodge Right" beats="4" />
     </path>
@@ -102,12 +102,15 @@
     <path>
       <move select="Forward 2" beats="4" />
     </path>
+    <taminator>
+      Centers facing in must be careful to dodge and not walk.
+    </taminator>
   </tam>
 
   <tam title="Walk and Dodge"
        from="Left-Hand Columns"
        formation="Column LH GBGB"
-       parts="" difficulty="1">
+       difficulty="2">
     <path>
       <move select="Forward 2" beats="4" />
     </path>
@@ -123,7 +126,7 @@
   </tam>
 
   <tam title="Walk and Dodge" from="T-Bones"
-       difficulty="2">
+       difficulty="3">
      <formation>      <dancer gender="girl" x="-3" y="-1" angle="180"/>      <dancer gender="boy" x="-1" y="-1" angle="180"/>      <dancer gender="girl" x="1" y="-1" angle="90"/>      <dancer gender="boy" x="3" y="-1" angle="180"/>    </formation>
     <path>
       <move select="Dodge Right" beats="4" />
@@ -141,8 +144,8 @@
 
   <tam title="Boys Walk, Girls Dodge"
        from="Facing Couples"
-       formation="Facing Couples"
-       parts="" difficulty="1">
+       formation="Facing Couples" gender-specific="true"
+       difficulty="1">
     <path>
       <move select="Forward 4" />
     </path>
@@ -153,8 +156,8 @@
 
   <tam title="Boys Walk, Girls Dodge"
        from="Lines"
-       formation="Normal Lines"
-       parts="" difficulty="1">
+       formation="Normal Lines" gender-specific="true"
+       difficulty="1">
     <path>
       <move select="Forward 4" />
     </path>
@@ -171,8 +174,8 @@
 
   <tam title="Boys Walk, Girls Dodge"
        from="Eight Chain Thru"
-       formation="Eight Chain Thru"
-       parts="" difficulty="1">
+       formation="Eight Chain Thru" gender-specific="true"
+       difficulty="2">
     <path>
       <move select="Forward 2" beats="4" />
     </path>
@@ -189,8 +192,8 @@
 
   <tam title="Girls Walk, Boys Dodge"
        from="Facing Couples"
-       formation="Facing Couples"
-       parts="" difficulty="1">
+       formation="Facing Couples" gender-specific="true"
+       difficulty="1">
     <path>
       <move select="Dodge Right" beats="4" />
     </path>
@@ -201,8 +204,8 @@
 
   <tam title="Girls Walk, Boys Dodge"
        from="Lines"
-       formation="Normal Lines"
-       parts="" difficulty="1">
+       formation="Normal Lines" gender-specific="true"
+       difficulty="1">
     <path>
       <move select="Dodge Right" beats="4" />
     </path>
@@ -219,8 +222,8 @@
 
   <tam title="Girls Walk, Boys Dodge"
        from="Eight Chain Thru"
-       formation="Eight Chain Thru"
-       parts="" difficulty="1">
+       formation="Eight Chain Thru" gender-specific="true"
+       difficulty="2">
     <path>
       <move select="Dodge Right" beats="4" />
     </path>
@@ -237,7 +240,7 @@
 
   <tam title="3 by 1 Walk and Dodge"
        from="3 and 1 Lines"
-       parts="" difficulty="3">
+       difficulty="3">
      <formation>      <dancer gender="girl" x="-2" y="3" angle="0"/>      <dancer gender="boy" x="-2" y="1" angle="180"/>      <dancer gender="girl" x="-2" y="-1" angle="180"/>      <dancer gender="boy" x="-2" y="-3" angle="180"/>    </formation>
     <path>
       <move select="Forward 4" />

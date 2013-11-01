@@ -277,7 +277,7 @@
   <tam title="Left Square Thru 4"
        from="Facing Couples"
        formation="Facing Couples"
-       parts="" difficulty="2">
+       difficulty="1">
     <path>
       <move select="Forward" />
       <move select="Pull Right" scaleY=".5" />
@@ -299,7 +299,7 @@
   <tam title="Left Square Thru 4"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="" difficulty="2">
+       parts="" difficulty="1">
     <path>
       <move select="Pull Right" scaleY=".5" />
       <move select="Lead Right" offsetX=".5" offsetY=".5" />
@@ -443,7 +443,7 @@
   <tam title="Heads Left Square Thru 4" group=" "
        from="Static Square"
        formation="Static Square"
-       parts="" difficulty="2">
+       parts="" difficulty="1">
     <path>
       <move select="Forward 2" />
       <move select="Pull Right" scaleY=".5" />

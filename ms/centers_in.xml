@@ -21,15 +21,11 @@
 
 -->
 <tamination>
-  
-  
-  
-  
 
   <tam title="Centers In"
        from="Completed Double Pass Thru"
        formation="Completed Double Pass Thru"
-       parts="" >
+       difficulty="1" >
     <path>
       <move select="Dodge Right" beats="2" offsetX="-1" />
     </path>
@@ -47,7 +43,7 @@
   <tam title="Centers In"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="" >
+       difficulty="2" >
     <path>
       <move select="Dodge Left" beats="2" offsetX="1" />
     </path>

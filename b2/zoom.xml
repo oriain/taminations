@@ -25,7 +25,7 @@
   <tam title="Zoom"
        from="Right-Hand Box"
        formation="Box RH"
-       parts="3" difficulty="1">
+       parts="3" difficulty="2">
     <path>
       <move select="Forward 4" beats="6" />
     </path>
@@ -38,7 +38,7 @@
   <tam title="Zoom"
        from="Left-Hand Box"
        formation="Box LH"
-       parts="3" difficulty="1">
+       parts="3" difficulty="2">
     <path>
       <move select="Run Right" offsetX="-2" />
       <move select="Run Right" offsetX="2" />
@@ -74,7 +74,7 @@
   <tam title="Zoom"
        from="Double Pass Thru"
        formation="Double Pass Thru"
-       parts="2" difficulty="1">
+       parts="2" difficulty="2">
     <path>
       <move select="Forward 2" beats="4" hands="right" />
     </path>

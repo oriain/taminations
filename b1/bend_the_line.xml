@@ -49,7 +49,7 @@
   <tam title="Bend the Line"
        from="Lines Facing In"
        formation="Normal Lines"
-       parts="" difficulty="1">
+       parts="" difficulty="2">
     <path>
       <move select="Hinge Right" beats="4" />
     </path>
@@ -121,7 +121,7 @@
   <tam title="Bend the Line"
        from="Two-Faced Tidal Line"
        formation="Two-Faced Tidal Line RH"
-       parts="" difficulty="2">
+       parts="" difficulty="1">
     <path>
       <move select="Hinge Right" hands="gripright" beats="4" scaleY=".5" />
     </path>

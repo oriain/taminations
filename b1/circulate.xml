@@ -38,7 +38,7 @@
   <tam title="Box Circulate"
        from="Left-Hand Box"
        formation="Box LH"
-       parts="2" difficulty="1">
+       parts="2" difficulty="2">
     <path>
       <move select="Run Left" beats="4" />
     </path>
@@ -303,7 +303,7 @@
   <tam title="Split Circulate"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       parts="2" difficulty="1">
+       parts="2" difficulty="2">
     <path>
       <move select="Run Left" beats="4" />
     </path>

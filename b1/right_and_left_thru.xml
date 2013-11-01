@@ -107,7 +107,7 @@
   <tam title="Right and Left Thru"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="2" difficulty="2">
+       parts="2" difficulty="1">
     <path>
       <move select="Extend Right" beats="2" scaleY="2" />
       <move select="Beau Wheel" scaleX=".5" />
@@ -125,6 +125,7 @@
       <move select="Beau Wheel" scaleX=".67" />
     </path>
     <taminator>
+      Common after Spin the Top.
       This is an example of the <a href="ocean_wave_rule.html">Ocean Wave Rule</a>.
     </taminator>
   </tam>
@@ -132,7 +133,7 @@
   <tam title="Right and Left Thru"
        from="Tidal Wave"
        formation="Tidal Wave RH BGGB"
-       parts="2" difficulty="2">
+       parts="2" difficulty="1">
     <path>
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
       <move select="Beau Wheel" scaleX=".67" />
@@ -151,7 +152,7 @@
     </path>
     <taminator>
       Another example of the <a href="ocean_wave_rule.html">Ocean Wave Rule</a>.
-      This is often called after
+      This is common after
       <a href="spin_the_top.html?SpintheTopfromRightHandWaves">Spin the Top</a>
     </taminator>
   </tam>

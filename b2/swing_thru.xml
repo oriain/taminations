@@ -112,7 +112,7 @@
   <tam title="Swing Thru"
        from="Right-Hand Tidal Wave"
        formation="Tidal Wave RH BGGB"
-       parts="1.5;1.5;1.5" difficulty="1">
+       parts="1.5;1.5;1.5" difficulty="2">
     <path>
       <move select="Swing Right" scaleX=".75" scaleY=".5" hands="gripright"/>
       <move select="Swing Left" scaleX=".75" scaleY=".5" hands="gripleft"/>
@@ -129,6 +129,10 @@
       <move select="Swing Right" scaleX=".75" scaleY=".5" hands="gripright"/>
       <move select="Swing Left" scaleX=".75" scaleY=".5" hands="gripleft"/>
     </path>
+    <taminator>
+       Most dancers will do a Grand Swing Thru if not
+       explicitly warned first.
+    </taminator>
   </tam>
 
   <tam title="Swing Thru"
@@ -315,7 +319,7 @@
   <tam title="Left Swing Thru"
        from="Left-Hand Tidal Wave"
        formation="Tidal Wave LH BGGB"
-       parts="1.5;1.5;1.5" difficulty="1">
+       parts="1.5;1.5;1.5" difficulty="2">
     <path>
       <move select="Swing Left" scaleX=".75" scaleY=".5" hands="gripleft"/>
       <move select="Swing Right" scaleX=".75" scaleY=".5" hands="gripright"/>
