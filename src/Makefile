@@ -25,9 +25,9 @@
 
 RM = rm
 COPY = cp
-
+PYTHON = python
 DIRS = b1 b2 ms plus adv a1 a2 c1 c2 c3a info .
-XMLSRC = $(wildcard *.xml) tamination.dtd
+XMLSRC = calls.xml formations.xml moves.xml tamination.dtd
 XMLCOPIES = $(foreach dir,$(DIRS),$(addprefix ../$(dir)/,$(XMLSRC)))
 XREFXML = $(foreach dir,$(DIRS),$(wildcard ../$(dir)/*.x.xml))
 PYXML = $(addsuffix .xml,$(basename $(basename $(XREFXML))))
@@ -72,11 +72,11 @@ TAMination.jar : TAMination.java
 
 #  Generate xml files from x.xml files with cross-references
 %.xml : %.x.xml
-	python expandxrefs.py $< >$@
+	$(PYTHON) expandxrefs.py $< >$@
 
 #  Generate index used by sequencer
 callindex.xml : $(wildcard ../*/*.xml) $(wildcard calls/*.js)
-	python indexcalls.py >$@
+	$(PYTHON) indexcalls.py >$@
 
 #  Copy XML files that define menus, moves, and formations to each directory
 #  Browsers can be picky about loading AJAX from different directories
