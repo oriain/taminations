@@ -142,7 +142,8 @@
     </path>
   </tam>
 
-  <tam title="As Couples 1/4 Mix" formation="Two-Faced Lines RH" group=" ">
+  <tam title="As Couples 1/4 Mix" formation="Two-Faced Lines RH"
+       group=" " parts="2;3">
     <path>
       <move select="Hinge Right" beats="2" scaleX="1.5" scaleY="3"/>
       <move select="Run Left" beats="6" hands="gripright" scaleX="2" scaleY="1.5" />

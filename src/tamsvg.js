@@ -113,9 +113,13 @@ TamSVG.prototype = {
     this.floorsvg.setAttribute('width','100%');
     this.floorsvg.setAttribute('height','100%');
     this.allp = tam.getPath(tam.xmldoc);
-    this.parts = tam.getParts().split(/;/);
-    for (var i in this.parts)
-      this.parts[i] = Number(this.parts[i]);
+    if (tam.getParts() == '')
+      this.parts = [];
+    else {
+      this.parts = tam.getParts().split(/;/);
+      for (var i in this.parts)
+        this.parts[i] = Number(this.parts[i]);
+    }
     //  first token is 'Formation', followed by e.g. boy 1 2 180 ...
     var formation = tam.getFormation();
     //  Flip the y direction on the dance floor to match our math
@@ -300,7 +304,7 @@ TamSVG.prototype = {
     if (this.beat < 0 || this.beat > this.beats-2)
       thispart = 0;
     if (thispart != this.currentpart) {
-      if (this.setPart)
+      if (this.parts.length > 0 && this.setPart)
         this.setPart(thispart);
       this.currentpart = thispart;
     }
