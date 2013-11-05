@@ -31,6 +31,7 @@ XMLSRC = calls.xml formations.xml moves.xml tamination.dtd
 XMLCOPIES = $(foreach dir,$(DIRS),$(addprefix ../$(dir)/,$(XMLSRC)))
 XREFXML = $(foreach dir,$(DIRS),$(wildcard ../$(dir)/*.x.xml))
 PYXML = $(addsuffix .xml,$(basename $(basename $(XREFXML))))
+CALLINDEX = ../callindex.xml
 ifneq '$(JAVA_HOME)' '' 
 JAVA_FILES = TAMination.jar ../tamination.zip 
 JAVA = "$(JAVA_HOME)/bin/java"
@@ -42,7 +43,7 @@ UNZIP = unzip
 endif
 
 .phony : all
-all : $(XMLCOPIES) $(PYXML) $(JAVA_FILES)
+all : $(XMLCOPIES) $(PYXML) $(JAVA_FILES) $(CALLINDEX)
 	@echo Build complete
 
 unzip :
@@ -58,7 +59,7 @@ clean :
 	-$(RM) ../tamination.zip
 	-$(RM) $(PYXML)
 	-$(RM) $(XMLCOPIES)
-	-$(RM) callindex.xml
+	-$(RM) $(CALLINDEX)
 
 #  Make the JAR file.  Tell the compiler to compile for Java 1.3 for maximum compatibility
 TAMination.jar : TAMination.java
@@ -75,7 +76,7 @@ TAMination.jar : TAMination.java
 	$(PYTHON) expandxrefs.py $< >$@
 
 #  Generate index used by sequencer
-callindex.xml : $(wildcard ../*/*.xml) $(wildcard calls/*.js)
+$(CALLINDEX) : $(wildcard ../*/*.xml) $(wildcard calls/*.js)
 	$(PYTHON) indexcalls.py >$@
 
 #  Copy XML files that define menus, moves, and formations to each directory

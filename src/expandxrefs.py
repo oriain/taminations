@@ -21,6 +21,8 @@ def main():
       for file in files:
         if file.endswith('.x.xml'):
           continue
+        if file.endswith('callindex.xml'):
+          continue;
         if os.path.exists(file.replace('.xml','.x.xml')):
           continue
         #if tam.get('not-file') and re.search(tam.get('not-file'),file):
@@ -42,6 +44,6 @@ def main():
   #  Print the output xml
   print('<?xml version="1.0"?>')
   print('<!DOCTYPE tamination SYSTEM "tamination.dtd">')
-  newtree.write(sys.stdout)
+  newtree.write(sys.stdout,encoding="unicode")
 
 main()

@@ -18,6 +18,8 @@ def main():
   for filename in glob.glob('../*/*.xml'):
     if not r2.search(filename):
       continue
+    if filename.endswith('.x.xml'):
+      continue
     calls = set()
     for line in open(filename):
       m = r.search(line)
