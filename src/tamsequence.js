@@ -48,7 +48,19 @@ var synonyms = {
 };
 var synindex = synonyms.keys();
 
-preload('src/callindex.xml',function(a) { callindex = a; });
+preload('callindex.xml',function(a) { callindex = a; });
+
+var prevtext = '';
+var textChange = function()
+{
+  if (editor != null) {
+    var text = editor.getContent({format:'raw'});
+    if (text != prevtext)
+      prevtext = text;
+    else
+      updateSequence();
+  }
+};
 
 var timeoutID = null;
 $(document).ready(function() {
@@ -60,11 +72,7 @@ $(document).ready(function() {
     convert_newlines_to_brs : true,
     forced_root_block: false,
     setup: function(ed) {
-      ed.on('change',function(ed,k) {
-        if (typeof timeoutID == 'number')
-          window.clearTimeout(timeoutID);
-        timeoutID = window.setTimeout(updateSequence,1000);
-      });
+      window.setInterval(textChange,1000);
     },
 
 
@@ -200,7 +208,6 @@ function processCallText()
   var retval = [];
   var html = [];
   var callnum = 1;
-  console.log('processCallText');
   //  Clear any previous error message
   $('#errortext').html('');
   //  Before we do anything else, remember the current location
@@ -287,7 +294,7 @@ function updateSequence()
               //  Call is interpreted by a script
               filecount++;
               //  Read and interpret the script
-              $.getScript(f,function(data,status,jqxhr) {
+              $.getScript('src/'+f,function(data,status,jqxhr) {
                 // xmldata set by script
                 if (--filecount == 0)
                   buildSequence();
@@ -298,7 +305,6 @@ function updateSequence()
             else if (f.indexOf('.xml') > 0) {
               //  Call is interpreted by animations
               filecount++;
-              console.log('Getting animation '+f+' '+filecount);
               //  Read and store the animation
               $.get(f,function(data,status,jqxhr) {
                 //  Location of the filename depends (I think)
@@ -309,7 +315,6 @@ function updateSequence()
                   //  All xml has been read, now we can interpret the calls
                   buildSequence();
                 }
-                console.log('read '+ff+' '+filecount);
               },"xml").filename = f;
             }
           }
@@ -325,7 +330,6 @@ function updateSequence()
 
 function buildSequence()
 {
-  console.log('in buildSequence');
   //  First clear out the previous animation
   for (var i in tamsvg.dancers) {
     tamsvg.dancers[i].path.clear();
@@ -356,8 +360,7 @@ function buildSequence()
     try {
     while (callwords.length > 0) {
       callfound = false;
-parseOneCall:
-      for (var i=callwords.length; i>0; i--) {
+      for (var i=callwords.length, looking=true; looking && i>0; i--) {
         var call = callwords.slice(0,i).join('');
         //  First try to find an explicit xml animation
         //  But only for the complete call
@@ -392,7 +395,7 @@ parseOneCall:
                   }
                   ctx.levelBeats();
                   callwords = callwords.slice(i,callwords.length);
-                  //break parseOneCall;
+                  looking = false;
                   return;
                 }
               }
@@ -401,19 +404,19 @@ parseOneCall:
         });
         //  Failed to find XML-defined animation, check for a script
         var tamxml = Call.classes[call];
-        if (typeof tamxml == 'function') {
+        if (looking && typeof tamxml == 'function') {
           callfound = true;
           var nextcall = new tamxml();
           nextcall.performCall(ctx);
           callwords = callwords.slice(i,callwords.length);
           doxml = false;
-          break parseOneCall;
+          looking = false;
         }
       }
 
       //  If we fell through to here, and have not parsed anything,
       //  then parsing the call has failed
-      if (callwords.length > 0 && i==0) {
+      if (looking && callwords.length > 0 && i==0) {
         break;
       }
 
