@@ -6,7 +6,11 @@
 <script type="text/javascript">
 function redirect()
 {
-  document.location = "../a2/spin_the_windmill.html";
+  var search = document.URL.split(/\?/)[1];
+  if (search != null)
+    document.location = "../a2/spin_the_windmill.html?"+search;
+  else
+    document.location = "../a2/spin_the_windmill.html";
 }
 window.setTimeout(redirect,5000);
 </script>
