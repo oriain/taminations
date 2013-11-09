@@ -7,7 +7,11 @@
 <script type="text/javascript">
 function redirect()
 {
-  document.location = "../b2/box_the_gnat.html";
+  var search = document.URL.split(/\?/)[1];
+  if (search != null)
+    document.location = "../b2/box_the_gnat.html?"+search;
+  else
+    document.location = "../b2/box_the_gnat.html";
 }
 window.setTimeout(redirect,5000);
 </script>

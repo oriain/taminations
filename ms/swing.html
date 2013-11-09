@@ -6,7 +6,11 @@
 <script type="text/javascript">
 function redirect()
 {
-  document.location = "../b1/swing.html";
+  var search = document.URL.split(/\?/)[1];
+  if (search != null)
+    document.location = "../b1/swing.html?"+search;
+  else
+    document.location = "../b1/swing.html";
 }
 window.setTimeout(redirect,5000);
 </script>

@@ -6,7 +6,11 @@
 <script type="text/javascript">
 function redirect()
 {
-  document.location = "../b1/right_and_left_grand.html";
+  var search = document.URL.split(/\?/)[1];
+  if (search != null)
+    document.location = "../b1/right_and_left_grand.html?"+search;
+  else
+    document.location = "../b1/right_and_left_grand.html";
 }
 window.setTimeout(redirect,5000);
 </script>
