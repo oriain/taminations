@@ -38,43 +38,80 @@
 
 
 <script type="text/javascript">
+
+function dims()
+{
+  var w = window.innerWidth;
+  if (!w)
+    w = document.body.scrollWidth;
+  var h = window.innerHeight;
+  if (!h)
+    h = document.body.clientHeight;
+  if (!h)
+    h = w+100;
+  return { w: w, h: h};
+}
+
+function buildAnimation(a,args,call)
+{
+  animations = a;
+  var cansvg = !$.browser.msie || $.browser.version > 8;
+  if (cansvg) {
+    TAMination(0,animations,call,'');
+    var d = dims();
+    var svgdim = d.h-100 < d.w ? d.h-100 : d.w;
+    var appletstr='<div id="appletcontainer"><div id="svgdiv" '+
+                  'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div></div>';
+    $("body").prepend(appletstr);
+    $('#svgdiv').svg({onLoad:TamSVG});
+    generateButtonPanel();
+    if (args.play)
+      tamsvg.start();
+  } else
+    TAMination('tamdiv',a,call,params);
+}
+
+function loadXML(page,args,call)
+{
+  $.ajax({url:page+".xml",dataType:"xml",
+    success:function(a) {
+      buildAnimation(a,args,call);
+    },
+    error:function(a,e,t) {
+      //  Try alternatives for ms and adv pages
+      //  One of these is sure to fail, but that's ok
+      if (page.match(/^ms/)) {
+        loadXML(page.replace('ms','b1'),args,call);
+        loadXML(page.replace('ms','b2'),args,call);
+      }
+      if (page.match(/^adv/)) {
+        loadXML(page.replace('adv','a1'),args,call);
+        loadXML(page.replace('adv','a2'),args,call);
+      }
+    }
+  });
+}
+
 $(document).ready(function() {
-    var w = window.innerWidth;
-    if (!w)
-      w = document.body.scrollWidth;
-    var h = window.innerHeight;
-    if (!h)
-      h = document.body.clientHeight;
-    if (!h)
-      h = w+100;
-    $('#tamdiv').width(w);
-    $('#tamdiv').height(h);
+    var d = dims();
+    $('#tamdiv').width(d.w);
+    $('#tamdiv').height(d.h);
     var search = document.URL.split(/\?/)[1];
     args = search.split(/&/);
     var page = args[0].split(/\./)[0];
     var call = args[0].split(/\./)[1];
+    if (call == null) {
+      page = args[0];
+      call = '';
+    }
     var params = {};
     for (var i=1; i<args.length; i++) {
       params[args[i]] = 1;
     }
     args = params;
-    $.ajax({url:page+".xml",dataType:"xml",success:function(a) {
-      animations = a;
-      var cansvg = !$.browser.msie || $.browser.version > 8;
-      if (cansvg) {
-        TAMination(0,animations,call,'');
-        var svgdim = h-100 < w ? h-100 : w;
-        appletstr='<div id="appletcontainer"><div id="svgdiv" '+
-                  'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div></div>';
-        $("body").prepend(appletstr);
-        $('#svgdiv').svg({onLoad:TamSVG});
-        generateButtonPanel();
-        if (args.play)
-          tamsvg.start();
-      } else
-        TAMination('tamdiv',a,call,params);
-     }});
-  });
+    loadXML(page,args,call);
+});
+
 var callnumber = 0;
 var currentcall = 'No Call';
 </script>
