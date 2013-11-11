@@ -95,6 +95,8 @@ TamSVG.prototype = {
     this.grid = cookie.grid == "true";
     this.numbers = cookie.numbers == 'true' || args.numbers;
     this.couples = cookie.couples == 'true' || args.couples;
+    if (this.couples)
+      this.numbers = false;
     this.showPhantoms = cookie.phantoms == "true";
     if (cookie.svg != 'true') {
       cookie.svg = "true";
