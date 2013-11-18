@@ -48,7 +48,7 @@ all : $(XMLCOPIES) $(PYXML) $(JAVA_FILES) $(CALLINDEX)
 
 unzip :
 	cd ../ext/jquery && $(UNZIP) jquery.mobile-1.2.0.zip
-	cd ../ext/jquery/jquery.mousewheel && $(UNZIP) jquery.mousewheel.3.0.2.zip
+	cd ../ext/jquery/jquery.mousewheel && $(UNZIP) jquery-mousewheel-3.1.6.zip
 	cd ../ext/jquery/jquery.svg && $(UNZIP) jquery.svg.package-1.4.4.zip
 	cd ../ext/jquery/jquery.ui && $(UNZIP) jquery-ui-1.8.18.custom.zip
 

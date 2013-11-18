@@ -233,11 +233,10 @@ TamSVG.prototype = {
     this.beats += 2.0;
 
     //  Mouse wheel moves the animation
-    if (typeof $(this.floorsvg).mousewheel == 'function')
-      $(this.floorsvg).mousewheel(function(event,delta) {
-        me.beat -= delta * 0.2;
-        me.animate();
-      });
+    $(this.floorsvg).on('mousewheel',function(event) {
+      me.beat -= event.deltaY * 0.2;
+      me.animate();
+    });
 
     //  Initialize the animation
     if (this.hexagon)
