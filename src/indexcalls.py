@@ -4,6 +4,14 @@ import re
 import sys
 import xml.etree.ElementTree as ET
 
+def checkversion():
+  if sys.version_info[0] != 3:
+    print('Not Python 3!')
+    sys.exit(1)
+  if sys.platform.startswith('win32'):
+    sys.stderr.write('Do not use win python!\n')
+    sys.exit(1)
+
 def main():
   #  Build table of calls in each file
   r = re.compile(r'title="(.*?)"')
@@ -46,4 +54,6 @@ def main():
   for child in newroot:
     print('  '+ET.tostring(child,encoding="unicode"))
   print('</calls>')
+
+checkversion()
 main()
