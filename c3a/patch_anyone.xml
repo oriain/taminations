@@ -21,6 +21,63 @@
 
 -->
 <tamination>
-  
-  
+
+  <tam title="Patch the Centers" group=" ">
+    <formation>
+      <dancer gender="girl" x="1" y="3" angle="90"/>
+      <dancer gender="boy" x="-1" y="3" angle="90"/>
+      <dancer gender="girl" x="1" y="1" angle="90"/>
+      <dancer gender="boy" x="-1" y="1" angle="90"/>
+    </formation>
+    <path>
+      <move select="Quarter Left" offsetX="-.5" offsetY="1"/>
+    </path>
+    <path>
+      <move select="Lead Right" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Quarter Left" offsetX="-.5" offsetY="1"/>
+      <move select="U-Turn Left"/>
+    </path>
+    <path>
+      <move select="Lead Right" scaleX=".5"/>
+      <move select="U-Turn Right"/>
+    </path>
+  </tam>
+
+  <tam title="Patch the Leaders" group=" "
+       formation="Ocean Waves RH BGGB">
+    <path couples="2 4">
+      <move select="Hinge Right"/>
+    </path>
+    <path couples="2 4">
+      <move select="Hinge Right"/>
+      <move select="U-Turn Right"/>
+    </path>
+    <path couples="3 1">
+      <move select="Hinge Right"/>
+    </path>
+    <path couples="3 1">
+      <move select="Hinge Right"/>
+      <move select="U-Turn Right"/>
+    </path>
+  </tam>
+
+  <tam title="Patch the Boys" group=" " formation="Lines Facing Out">
+    <path>
+      <move select="Quarter Left" offsetX="-1" offsetY="1"/>
+    </path>
+    <path>
+      <move select="Lead Right"/>
+      <move select="U-Turn Right"/>
+    </path>
+    <path>
+      <move select="Quarter Left" offsetX="-1" offsetY="1"/>
+    </path>
+    <path>
+      <move select="Lead Right"/>
+      <move select="U-Turn Right"/>
+    </path>
+  </tam>
+
 </tamination>
