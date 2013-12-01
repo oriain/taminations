@@ -33,4 +33,162 @@
     </path>
   </tam>
 
+  <tam title="Mini Chase" from="Lines Facing Out" formation="Lines Facing Out">
+    <path>
+      <move select="Run Right" scaleY=".5" offsetX="-1.5"/>
+      <move select="Lead Right" beats="2" scaleX="1.5"/>
+    </path>
+    <path>
+      <move select="Quarter Right" beats="2" offsetY="-1"/>
+      <move select="Extend Right" beats="3"/>
+    </path>
+    <path>
+      <move select="Run Right" scaleY=".25" offsetX="-1.5"/>
+      <move select="Lead Right" beats="2" scaleY=".5" scaleX="1.5"/>
+    </path>
+    <path>
+      <move select="Quarter Right" beats="2" offsetY="-1"/>
+      <move select="Extend Right" beats="3"/>
+    </path>
+  </tam>
+
+  <tam title="Mini Chase" from="Trade By" formation="Trade By">
+    <path>
+      <move select="Run Right" offsetX="-.5"/>
+      <move select="Lead Right" beats="2" scaleX="1.5"/>
+    </path>
+    <path>
+      <move select="Quarter Right" beats="2" offsetY="-1"/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+    <path>
+      <move select="Run Right" offsetX="-.5"/>
+      <move select="Lead Right" beats="2" scaleX="1.5"/>
+    </path>
+    <path>
+      <move select="Quarter Right" beats="2" offsetY="-1"/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+  </tam>
+
+  <tam title="Mini Chase" from="T-Bones" formation="T-Bone DRLD">
+    <path>
+      <move select="Run Right" scaleY=".5" offsetX="-.5"/>
+      <move select="Lead Right" beats="2" scaleX="1.5"/>
+    </path>
+    <path>
+      <move select="Quarter Right" beats="2" offsetY="-1"/>
+      <move select="Forward" beats="3"/>
+    </path>
+    <path>
+      <move select="Run Right" scaleY=".5" offsetX="-.5"/>
+      <move select="Lead Right" beats="2" scaleX="1.5"/>
+    </path>
+    <path>
+      <move select="Quarter Right" beats="2" offsetY="-1"/>
+      <move select="Forward" beats="3"/>
+    </path>
+  </tam>
+
+  <tam title="All 8 Mini Chase" group=" "
+       formation="Static Facing Out">
+    <path>
+      <move select="Quarter Right" beats="2" offsetY="-1"/>
+      <move select="Extend Right" beats="3" scaleX="3" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Run Right" offsetX="-1.5" scaleY="1.5"/>
+      <move select="Lead Right" beats="2" scaleX="2.5"/>
+    </path>
+    <path>
+      <move select="Quarter Right" beats="2" offsetY="-1"/>
+      <move select="Extend Right" beats="3" scaleX="3" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Run Right" offsetX="-1.5" scaleY="1.5"/>
+      <move select="Lead Right" beats="2" scaleX="2.5"/>
+    </path>
+  </tam>
+
+  <tam title="As Couples Mini Chase" group=" "
+       formation="Lines Facing Out">
+    <path>
+      <move select="Counter Rotate Right -2 0" hands="left"/>
+      <move select="U-Turn Right" hands="left" beats="3" offsetX="-1" offsetY="-1"/>
+    </path>
+    <path>
+      <move select="Counter Rotate Right 0 -2" hands="right"/>
+      <move select="Run Right" hands="right" offsetX="-1" scaleX="2" scaleY="2" offsetY="-1"/>
+    </path>
+    <path>
+      <move select="Counter Rotate Right -2 0" hands="left" offsetX="1" offsetY="-1"/>
+      <move select="Forward 2" beats="3" hands="left"/>
+    </path>
+    <path>
+      <move select="Counter Rotate Right 0 -2" hands="right" offsetX="1" offsetY="-1"/>
+      <move select="Forward 2" beats="3" hands="right"/>
+    </path>
+  </tam>
+
+  <tam title="Concentric Mini Chase" group=" "
+       formation="Completed Double Pass Thru">
+    <path>
+      <move select="Run Right" scaleY="1.5" offsetX="-.5"/>
+      <move select="Lead Right" beats="3" scaleX="3.5"/>
+    </path>
+    <path>
+      <move select="Quarter Right" beats="2" offsetY="-1"/>
+      <move select="Extend Right" scaleX="3" scaleY="2" beats="4"/>
+    </path>
+    <path>
+      <move select="Run Right" scaleY=".5" offsetX="-.5"/>
+      <move select="Lead Right" beats="2" scaleX="1.5"/>
+    </path>
+    <path>
+      <move select="Quarter Right" beats="2" offsetY="-1"/>
+      <move select="Forward" beats="3"/>
+    </path>
+  </tam>
+
+  <tam title="Stretch Mini Chase" group=" "
+       formation="Lines Facing Out">
+    <path>
+      <move select="Run Right" scaleY=".5" offsetX="-1.5"/>
+      <move select="Lead Right" beats="2" scaleX="1.5"/>
+    </path>
+    <path>
+      <move select="Quarter Right" beats="2" offsetY="-1"/>
+      <move select="Extend Right" beats="3"/>
+    </path>
+    <path>
+      <move select="Run Right" scaleY="1.25" offsetX="-1.5"/>
+      <move select="Lead Right" beats="2" scaleY=".5" scaleX="1.5"/>
+    </path>
+    <path>
+      <move select="Quarter Right" beats="2" offsetY="-2"/>
+      <move select="Extend Right" scaleX="2" beats="3"/>
+    </path>
+  </tam>
+
+  <tam title="Tandem Mini Chase" group=" "
+       formation="Completed Double Pass Thru">
+    <path>
+      <move select="Run Right" scaleY="2" offsetX="-1.5"/>
+      <move select="Lead Right" beats="4" scaleX="2.5" scaleY="4"/>
+    </path>
+    <path>
+      <move select="Quarter Right" beats="2" offsetY="-1"/>
+      <move select="Extend Right" beats="3" scaleX="3" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Forward"/>
+      <move select="Run Right" scaleY="2"/>
+      <move select="Lead Right" beats="3" scaleX="3" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Quarter Right" beats="2" offsetY=""/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+  </tam>
+
 </tamination>
