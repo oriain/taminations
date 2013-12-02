@@ -21,8 +21,6 @@
 
 -->
 <tamination>
-  
-  
 
   <tam title="Peel Chain Thru" from="Trade By" formation="Trade By" parts="4;4">
     <path>
@@ -50,6 +48,66 @@
       <move select="Swing Right" scaleX=".5" scaleY=".5"/>
       <move select="Swing Left" beats="4" scaleX=".5" scaleY=".5"/>
       <move select="Lead Right" beats="4.5" scaleX="3" scaleY="1.5"/>
+    </path>
+  </tam>
+
+  <tam title="Peel Chain Thru" from="Three Quarter Tag" formation="3/4 Tag" parts="4;4">
+    <formation>
+      <dancer gender="boy" x="0" y="3" angle="0"/>
+      <dancer gender="girl" x="0" y="1" angle="180"/>
+      <dancer gender="boy" x="-3" y="1" angle="180"/>
+      <dancer gender="girl" x="-3" y="-1" angle="180"/>
+    </formation>
+    <path>
+      <move select="Swing Right" beats="4" scaleX=".5" scaleY=".5" offsetY="-1.5"/>
+      <move select="Swing Left" beats="4" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Swing Right" beats="4" scaleX=".5" scaleY=".5" offsetY=".5"/>
+      <move select="Stand" beats="4"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Left" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4" offsetX="-2"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Left" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="4" offsetX="-2"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="1.5"/>
+    </path>
+  </tam>
+
+  <tam title="Peel Chain Thru" from="Left-Hand Three Quarter Tag" formation="3/4 Tag LH" parts="4;4">
+    <path>
+      <move select="Run Right" beats="4" offsetX="-2"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Belle Wheel" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Left" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="4" offsetX="-2"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Right" beats="4.5" scaleX="5" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Swing Left" beats="4" scaleX=".5" scaleY=".5" offsetY="1.5"/>
+      <move select="Swing Right" beats="4" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Left" beats="4.5" scaleX="3" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Swing Left" beats="4" scaleX=".5" scaleY=".5" offsetY="-.5"/>
+      <move select="Stand" beats="4"/>
+      <move select="Beau Wheel" scaleX=".5" scaleY=".5"/>
+      <move select="BackHinge Right" scaleY=".5"/>
     </path>
   </tam>
 
