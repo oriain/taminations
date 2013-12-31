@@ -126,6 +126,11 @@
     <path>
       <move select="Run Right" beats="5" scaleX="2" scaleY="2" offsetX="1" />
     </path>
+    <taminator>
+      There is some controversy over this particular case.
+      The alternative treats Crossfire as a strictly 4-dancer call,
+      so this case ends in a double pass thru formation.
+    </taminator>
   </tam>
 
   <tam title="Crossfire"
