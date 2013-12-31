@@ -24,6 +24,18 @@
 <calls>
 
     <call text="Introduction" level="Info" sublevel="Info" link="info/index.html"/>
+    <call text="How to Use" level="Info" sublevel="Info" link="info/howtouse.html"/>
+    <call text="Troubleshooting" level="Info" sublevel="Info" link="info/trouble.html"/>
+    <call text="Download" level="Info" sublevel="Info" link="info/download.html"/>
+    <call text="Linking" level="Info" sublevel="Info" link="info/howtolink.html"/>
+    <call text="Embed" level="Info" sublevel="Info" link="info/embed.html"/>
+
+    <call text="Overview" level="Info" sublevel="HowItWorks" link="info/overview.html"/>
+    <call text="Moves" level="Info" sublevel="HowItWorks" link="info/moves1.html"/>
+    <call text="Move Attributes" level="Info" sublevel="HowItWorks" link="info/moves2.html"/>
+    <call text="Movements" level="Info" sublevel="HowItWorks" link="info/movements.html"/>
+    <call text="Formations" level="Info" sublevel="HowItWorks" link="info/aboutformations.html"/>
+
     <call text="(Any Tagging Call) Chain Thru" level="Challenge" sublevel="C-3A" link="c3a/any_tagging_call_chain_thru.html"/>
     <call text="(Any Tagging Call) Reaction" level="Challenge" sublevel="C-3A" link="c3a/anything_reaction.html"/>
     <call text="1/4 Mix" level="Challenge" sublevel="C-3A" link="c3a/1_4_mix.html"/>
@@ -165,14 +177,12 @@
     <call text="Dosado" level="Basic and Mainstream" sublevel="Basic 1" link="b1/dosado.html"/>
     <call text="Double Pass Thru" level="Basic and Mainstream" sublevel="Basic 2" link="b2/double_pass_thru.html"/>
     <call text="Double Star Thru" level="Advanced" sublevel="A-1" link="a1/double_star_thru.html"/>
-    <call text="Download" level="Info" sublevel="Info" link="info/download.html"/>
     <call text="Drift Apart" level="Challenge" sublevel="C-3A" link="c3a/drift_apart.html"/>
     <call text="Drop In / Drop Out" level="Challenge" sublevel="C-2" link="c2/drop_in.html"/>
     <call text="Drop Left / Drop Right" level="Challenge" sublevel="C-2" link="c2/drop_right.html"/>
     <call text="Ease Off" level="Challenge" sublevel="C-3A" link="c3a/ease_off.html"/>
     <call text="Eight By Anything" level="Challenge" sublevel="C-3A" link="c3a/eight_by_anything.html"/>
     <call text="Eight Chain Thru" level="Basic and Mainstream" sublevel="Mainstream" link="ms/eight_chain_thru.html"/>
-    <call text="Embed" level="Info" sublevel="Info" link="info/embed.html"/>
     <call text="Ends Bend" level="Advanced" sublevel="A-1" link="a1/ends_bend.html"/>
     <call text="Exchange the Box" level="Challenge" sublevel="C-3A" link="c3a/exchange_the_box.html"/>
     <call text="Exchange the Diamond" level="Challenge" sublevel="C-2" link="c2/exchange_the_diamond.html"/>
@@ -236,7 +246,6 @@
     <call text="Hocus Pocus" level="Challenge" sublevel="C-2" link="c2/hocus_pocus.html"/>
     <call text="Horseshoe Turn" level="Advanced" sublevel="A-1" link="a1/horseshoe_turn.html"/>
     <call text="Hourglass Circulate" level="Advanced" sublevel="A-2" link="a2/hourglass_circulate.html"/>
-    <call text="How to Use" level="Info" sublevel="Info" link="info/howtouse.html"/>
     <call text="Hubs Trade (Anything)" level="Challenge" sublevel="C-2" link="c2/hubs_trade_anything.html"/>
     <call text="Hubs Trade Back" level="Challenge" sublevel="C-2" link="c2/hubs_trade_back.html"/>
     <call text="Ignore" level="Challenge" sublevel="C-1" link="c1/ignore.html"/>
@@ -274,7 +283,6 @@
     <call text="Linear Cycle" level="Plus" sublevel="Plus" link="plus/linear_cycle.html"/>
     <call text="Lines (Anything) Thru" level="Challenge" sublevel="C-2" link="c2/lines_anything_thru.html"/>
     <call text="Link Up" level="Challenge" sublevel="C-3A" link="c3a/link_up.html"/>
-    <call text="Linking" level="Info" sublevel="Info" link="info/howtolink.html"/>
     <call text="Little More" level="Challenge" sublevel="C-2" link="c2/little_more.html"/>
     <call text="Little" level="Challenge" sublevel="C-1" link="c1/little.html"/>
     <call text="Load the Boat" level="Plus" sublevel="Plus" link="plus/load_the_boat.html"/>
@@ -524,7 +532,6 @@
     <call text="Triple Scoot" level="Advanced" sublevel="A-1" link="a1/triple_scoot.html"/>
     <call text="Triple Star Thru" level="Advanced" sublevel="A-1" link="a1/triple_star_thru.html"/>
     <call text="Triple Trade" level="Advanced" sublevel="A-1" link="a1/triple_trade.html"/>
-    <call text="Troubleshooting" level="Info" sublevel="Info" link="info/trouble.html"/>
     <call text="Truck" level="Challenge" sublevel="C-2" link="c2/truck.html"/>
     <call text="Turn and Deal" level="Advanced" sublevel="A-1" link="a1/turn_and_deal.html"/>
     <call text="Turn Back" level="Basic and Mainstream" sublevel="Basic 1" link="b1/turn_back.html"/>

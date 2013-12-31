@@ -51,7 +51,8 @@ var calldata;
 preload('calls.xml',function(a) { calldata = a; });
 
 var levelselectors = {
-      info: 'call[level="Info"]',
+      info: 'call[sublevel="Info"]',
+      how: 'call[sublevel="HowItWorks"]',
       basicandmainstream: 'call[level="Basic and Mainstream"]',
       basic1: 'call[sublevel="Basic 1"]',
       basic2: 'call[sublevel="Basic 2"]',
@@ -96,14 +97,15 @@ $(document).ready(
     //  Build the menus
     $("#menudiv").append('<table cellpadding="0" cellspacing="0" width="100%" summary="">'+
                          '<tr>'+
-                         '<td id="info" class="menutitle" rowspan="2">Info</td>'+
+                         '<td id="info" class="menutitle">Info</td>'+
                          '<td id="basicandmainstream" class="menutitle" colspan="3">Basic and Mainstream</td>'+
                          '<td id="plus" class="menutitle" rowspan="2">Plus</td>'+
                          '<td id="advanced" class="menutitle" colspan="2">Advanced</td>'+
                          '<td id="c1" class="menutitle" rowspan="2">C-1</td>'+
                          '<td id="c2" class="menutitle" rowspan="2">C-2</td>'+
                          '<td id="c3a" class="menutitle" rowspan="2">C-3A</td></tr>'+
-                     '<tr><td id="basic1" class="menutitle">Basic 1</td>'+
+                     '<tr><td id="how" class="menutitle">How It Works</td>'+
+                         '<td id="basic1" class="menutitle">Basic 1</td>'+
                          '<td id="basic2" class="menutitle">Basic 2</td>'+
                          '<td id="mainstream" class="menutitle">Mainstream</td>'+
                          '<td id="a1" class="menutitle">A-1</td>'+
@@ -112,6 +114,8 @@ $(document).ready(
     $('#menudiv').append('<div class="menu"></div>');
     $('.menutitle').each(function() {
       $(this).click(function() {
+        $('.menutitle').removeClass('selected');
+        $(this).addClass('selected');
         //  Select the calls for this level
         var level = $(this).attr('id');
         var menu = $(levelselectors[level],calldata);
@@ -190,6 +194,7 @@ function clearMenus()
 {
   $(".menu").hide();
   $("td:has(applet)").removeClass("invisible");
+  $('.menutitle').removeClass('selected');
 }
 
 //  Generate the title above the menus

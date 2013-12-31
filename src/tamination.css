@@ -265,20 +265,19 @@ form a { color: black; text-decoration: none; }
   border-color: #80ff80;
   font-family: arial, sans-serif;
   font-size: 16px;
+  font-weight: bold;
   text-align: center;
   cursor: pointer;
   width: 10%;
 }
-.menutitle-highlight {
-  color: white;
-  background-color: #00c000;
-  border-style: outset;
-  border-width: 3px;
-  border-color: #80ff80;
-  font-family: arial, sans-serif;
-  font-size: 16px;
-  text-align: center;
-  cursor: pointer;
+.menutitle:hover {
+  background-color: #30a030;
+}
+.menutitle.selected {
+  color: #00c000;
+  background-color: white;
+  border-color: green;
+  border-style: inset;
 }
 
 .menu {

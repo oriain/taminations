@@ -641,6 +641,7 @@ TamSVG.prototype = {
     this.pathparent.setAttribute('visibility',this.showPaths ? 'visible' : 'hidden');
     for (var i in this.dancers) {
       this.dancers[i].pathgroup.setAttribute('visibility',this.showPaths ? 'visible' : 'hidden');
+      this.dancers[i].beziergroup.setAttribute('visibility','hidden');
       this.dancers[i].pathVisible = this.showPaths;
     }
     return this.showPaths;
@@ -1202,6 +1203,12 @@ function(args)   // (tamsvg,sex,x,y,angle,color,p,number,couplesnumber)
       $('#popup').css("top",ev.pageY).css("left",ev.pageX).show();
       return false;  // prevent interception by dance floor
     }
+    else if (ev.altKey) {
+      if (dancer.pathVisible)
+        dancer.hidePath();
+      else
+        dancer.showBezier();
+    }
     else {
       if (dancer.pathVisible)
         dancer.hidePath();
@@ -1243,6 +1250,7 @@ function(args)   // (tamsvg,sex,x,y,angle,color,p,number,couplesnumber)
     this.couplessvg.setAttribute('visibility','hidden');
   //  path
   this.pathgroup = this.tamsvg.svg.group(this.tamsvg.pathparent);
+  this.beziergroup = this.tamsvg.svg.group(this.tamsvg.pathparent);
   this.paintPath();
 });
 Dancer.BOY = 1;
@@ -1254,12 +1262,20 @@ Dancer.genders =
 Dancer.prototype.hidePath = function()
 {
   this.pathgroup.setAttribute('visibility','hidden');
+  this.beziergroup.setAttribute('visibility','hidden');
   this.pathVisible = false;
 };
 
 Dancer.prototype.showPath = function()
 {
   this.pathgroup.setAttribute('visibility','visible');
+  this.pathVisible = true;
+};
+
+Dancer.prototype.showBezier = function()
+{
+  this.pathgroup.setAttribute('visibility','visible');
+  this.beziergroup.setAttribute('visibility','visible');
   this.pathVisible = true;
 };
 
@@ -1270,6 +1286,7 @@ Dancer.prototype.hide = function()
   this.lefthand.setAttribute('visibility','hidden');
   this.righthand.setAttribute('visibility','hidden');
   this.pathgroup.setAttribute('visibility','hidden');
+  this.beziergroup.setAttribute('visibility','hidden');
   this.numbersvg.setAttribute('visibility','hidden');
   this.couplessvg.setAttribute('visibility','hidden');
 };
@@ -1371,6 +1388,7 @@ Dancer.prototype.concatenate = function(tx2)
 
 Dancer.prototype.paintPath = function()
 {
+  this.paintBezier();
   this.tamsvg.svg.remove(this.pathgroup);
   this.pathgroup = this.tamsvg.svg.group(this.tamsvg.pathparent);
   var points=[];
@@ -1384,6 +1402,37 @@ Dancer.prototype.paintPath = function()
   }
   this.tamsvg.svg.polyline(this.pathgroup,points,
       {fill:'none',stroke:this.drawcolor.toString(),strokeWidth:0.1,strokeOpacity:.3});
+};
+
+Dancer.prototype.paintBezier = function()
+{
+  var ff = function(x,y,t) {
+    var v = (new Vector(x,y)).preConcatenate(t);
+    return [v.x,v.y];
+  };
+  this.tamsvg.svg.remove(this.beziergroup);
+  this.beziergroup = this.tamsvg.svg.group(this.tamsvg.pathparent);
+  var points=[];
+  var t = this.start;
+  for (var i in this.path.movelist) {
+    var m = this.path.movelist[i];
+    var pt = ff(0,0,t);
+    points.push(pt);
+    this.tamsvg.svg.circle(this.beziergroup,pt[0],pt[1],0.2,{fill:this.drawcolor.toString()});
+    pt = ff(m.btranslate.ctrlx1,m.btranslate.ctrly1,t);
+    points.push(pt);
+    this.tamsvg.svg.circle(this.beziergroup,pt[0],pt[1],0.2,{fill:this.drawcolor.toString(),fillOpacity:.3});
+    pt = ff(m.btranslate.ctrlx2,m.btranslate.ctrly2,t);
+    points.push(pt);
+    this.tamsvg.svg.circle(this.beziergroup,pt[0],pt[1],0.2,{fill:this.drawcolor.toString(),fillOpacity:.3});
+    pt = ff(m.btranslate.x2,m.btranslate.y2,t);
+    points.push(pt);
+    this.tamsvg.svg.circle(this.beziergroup,pt[0],pt[1],0.2,{fill:this.drawcolor.toString()});
+    t = new AffineTransform(this.start);
+    t.concatenate(this.path.transformlist[i]);
+  }
+  this.tamsvg.svg.polyline(this.beziergroup,points,
+      {fill:'none',stroke:'black',strokeWidth:0.1,strokeOpacity:.3});
 };
 
 //  Compute and apply the transform for a specific time
@@ -1501,23 +1550,6 @@ Path = defineClass(
         else
           this.add(new Path(p[i]));
       }
-      /*
-        var m = p[i].cx3 == undefined
-        ? new Movement(p[i].hands,
-                       p[i].beats,
-                       p[i].cx1,p[i].cy1,
-                       p[i].cx2,p[i].cy2,
-                       p[i].x2,p[i].y2)
-        : new Movement(p[i].hands,
-                       p[i].beats,
-                       p[i].cx1,p[i].cy1,
-                       p[i].cx2,p[i].cy2,
-                       p[i].x2,p[i].y2,
-                       p[i].cx3,0,   // cy3 is always 0
-                       p[i].cx4,p[i].cy4,
-                       p[i].x4,p[i].y4);
-        this.add(m);
-      }  */
     }
   });
 
