@@ -150,7 +150,7 @@
     </path>
   </tam>
 
-  <tam title="Scoot and Rally" from="Left-Hand 1/4 Tag" formation="Quarter Tag LH" parts="5/3">
+  <tam title="Scoot and Rally" from="Left-Hand 1/4 Tag" formation="Quarter Tag LH" parts="5;3">
     <path>
       <!-- Scoot Back -->
       <move select="Forward" scaleX="1.5" />
