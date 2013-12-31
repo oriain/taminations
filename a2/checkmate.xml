@@ -106,6 +106,10 @@
       <move select="Lead Left" scaleX=".5" scaleY=".5" />
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
     </path>
+    <taminator>
+      According to the defintion, the last part is Couples Circulate.
+      But most dancers do a All 8 Circulate as shown here.
+    </taminator>
   </tam>
 
   <tam title="Checkmate"
