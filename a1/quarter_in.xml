@@ -191,6 +191,25 @@
     </path>
   </tam>
 
+  <tam title="All 4 Couples Quarter In" formation="Squared Set" group=" ">
+    <path>
+      <move select="Extend Left" beats="3" scaleY="2" />
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="2"/>
+      <move select="Quarter Left" offsetY="-1"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleY="2" />
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="2"/>
+      <move select="Quarter Left" offsetY="-1"/>
+    </path>
+  </tam>
+
   <tam title="As Couples Quarter In"
        from="Lines"
        formation="Normal Lines"
