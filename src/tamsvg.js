@@ -1,6 +1,6 @@
 /*
 
-    Copyright 2013 Brad Christie
+    Copyright 2014 Brad Christie
 
     This file is part of Taminations.
 
@@ -128,7 +128,6 @@ TamSVG.prototype = {
     this.floor = this.svg.group(this.floorsvg);
     this.floor.setAttribute('transform',AffineTransform.getScaleInstance(1,-1).toString());
     this.svg.rect(this.floor,-6.5,-6.5,13,13,{fill:'#ffffc0'});
-    this.svg.text(this.floorsvg,0,0,"Copyright 2013 Brad Christie",{fontSize: "10", transform:"translate(-6.5,6.4) scale(0.04)"});
 
     //  Add title, optionally with audio link
      if (typeof tam.getTitle() != "undefined") {
