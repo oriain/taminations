@@ -27,7 +27,10 @@ function Cookie(name) {
     // We do this by reading the magic Document.cookie property
     // If there are no cookies, we don't have anything to do
     var allcookies = document.cookie;
-    if (allcookies == "") return;
+    if (allcookies == "" && typeof window.mycookie == "string")
+      allcookies = window.mycookie;
+    if (allcookies == "")
+      return;
 
     // Break the string of all cookies into individual cookie strings
     // Then loop through the cookie strings, looking for our name
@@ -42,7 +45,8 @@ function Cookie(name) {
     }
 
     // If we didn't find a matching cookie, quit now
-    if (i >= cookies.length) return;
+    if (i >= cookies.length)
+      return;
 
     // The cookie value is the part after the equals sign
     var cookieval = cookie.substring(name.length+1);
@@ -104,12 +108,17 @@ Cookie.prototype.store = function(daysToLive, path, domain, secure) {
         cookie += "; max-age=" + (daysToLive*24*60*60);
     }
 
+    //  Store the cookie now, in case persistent cookie is not accepted
+    document.cookie = cookie;
     if (path) cookie += "; path=" + path;
     if (domain) cookie += "; domain=" + domain;
     if (secure) cookie += "; secure";
 
-    // Now store the cookie by setting the magic Document.cookie property
+    // Now store the cookie persistently
     document.cookie = cookie;
+    // This is in case nothing works at least we can remember the value
+    // we just set
+    window.mycookie = cookie;
 };
 
 /**
