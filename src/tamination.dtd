@@ -27,7 +27,7 @@
 <!ENTITY bull   "&#x2022;" ><!--/bullet B: =round bullet, filled-->
 
 <!--  Below are all the elements and attributes for animation xml files  -->
-<!ELEMENT tamination (tam*),(tamxref*))>
+<!ELEMENT tamination (tam*),(tamxref*)>
 
 <!ELEMENT tam (formation?,path*,taminator?)>
 <!ATTLIST tam title CDATA #REQUIRED

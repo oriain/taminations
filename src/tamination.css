@@ -128,6 +128,19 @@ p.copyright {
   color: maroon;
   font-style: italic;
 }
+
+/*  Vic Ceder uses this for noting call authors  */
+.subcallauthor {
+  color: maroon;
+  font: small Helvetica, Arial, Sans Serif;
+}
+
+/*  Hanging indent, often used by Vic  */
+.hanging {
+  margin-left: 30px;
+  text-indent: -30px;
+}
+
 /*  Timing info at end of mainstream/plus/advanced calls  */
 p.timing {
   font: bold small Helvetica, Arial, Sans Serif;
@@ -268,7 +281,7 @@ form a { color: black; text-decoration: none; }
   font-weight: bold;
   text-align: center;
   cursor: pointer;
-  width: 10%;
+  width: 9%;
 }
 .menutitle:hover {
   background-color: #30a030;

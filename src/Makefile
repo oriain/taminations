@@ -26,7 +26,7 @@
 RM = rm
 COPY = cp
 PYTHON = python
-DIRS = b1 b2 ms plus adv a1 a2 c1 c2 c3a info .
+DIRS = b1 b2 ms plus adv a1 a2 c1 c2 c3a c3b info .
 XMLSRC = calls.xml callindex.xml formations.xml moves.xml tamination.dtd
 XMLCOPIES = $(foreach dir,$(DIRS),$(addprefix ../$(dir)/,$(XMLSRC)))
 XREFXML = $(foreach dir,$(DIRS),$(wildcard ../$(dir)/*.x.xml))

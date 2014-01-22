@@ -20,7 +20,7 @@
  */
 var prefix = '';
 //  Make the links work from both taminations directory and its subdirectories
-if (document.URL.search(/(info|b1|b2|ms|plus|adv|a1|a2|c1|c2|c3a)/) >= 0)
+if (document.URL.search(/(info|b1|b2|ms|plus|adv|a1|a2|c1|c2|c3a|c3b)/) >= 0)
   prefix = '../';
 var currentmenu = 0;
 var callnumber = -1;
@@ -63,7 +63,8 @@ var levelselectors = {
       a2: 'call[sublevel="A-2"]',
       c1: 'call[sublevel="C-1"]',
       c2: 'call[sublevel="C-2"]',
-      c3a: 'call[sublevel="C-3A"]' };
+      c3a: 'call[sublevel="C-3A"]',
+      c3b: 'call[sublevel="C-3B"]' };
 
 // Body onload function
 $(document).ready(
@@ -103,7 +104,8 @@ $(document).ready(
                          '<td id="advanced" class="menutitle" colspan="2">Advanced</td>'+
                          '<td id="c1" class="menutitle" rowspan="2">C-1</td>'+
                          '<td id="c2" class="menutitle" rowspan="2">C-2</td>'+
-                         '<td id="c3a" class="menutitle" rowspan="2">C-3A</td></tr>'+
+                         '<td id="c3a" class="menutitle" rowspan="2">C-3A</td>'+
+                         '<td id="c3b" class="menutitle" rowspan="2">C-3B</td></tr>'+
                      '<tr><td id="how" class="menutitle">How It Works</td>'+
                          '<td id="basic1" class="menutitle">Basic 1</td>'+
                          '<td id="basic2" class="menutitle">Basic 2</td>'+
