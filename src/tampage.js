@@ -179,6 +179,19 @@ $(document).ready(
     $("#menudiv").show();
 
     sizeBody();
+
+    //  No longer support IE 8 (on XP)
+    if (navigator.userAgent.indexOf('MSIE 8') > 0) {
+      $('#menudiv').html('<div style="margin-left:20px; font-size:24pt">'+
+          '<p>Taminations does not work on Internet Explorer 8.<br/>'+
+          'Download and install one of these other excellent browsers.</p>'+
+          '<ul><li><a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a></li>'+
+          '<li><a href="http://www.mozilla.org/firefox/new/">Firefox</a></li>'+
+          '<li><a href="http://www.opera.com/">Opera</a></li></ul></div>');
+      $('#menudiv').height(300);
+      return;
+    }
+
     //  Load XML documents that define the animations
     var docname = document.URL.match(/(\w+)\.html/)[1];
     $.ajax({url:docname+".xml",dataType:"xml",
@@ -211,7 +224,9 @@ function getTitle()
 //Set height of page sections to fit the window
 function sizeBody()
 {
-  var h = $(window).height() - 116;
+  var menudivheight = $('#menudiv table').height();
+  $('#menudiv').height(menudivheight);
+  var h = $(window).height() - menudivheight - $('.title').height();
   $('#definition').height(h);
   $('#calllist').height(h);
   $('#animationlist').height(h);

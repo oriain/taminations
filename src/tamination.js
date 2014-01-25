@@ -26,6 +26,9 @@ var paths = 0;
 //Extra XML data that needs to be loaded to build menus and animations
 function preload(url,f)
 {
+  //  No longer working on IE 8 (on XP)
+  if (navigator.userAgent.indexOf('MSIE 8') > 0)
+    return;
   $.holdReady(true);
   $.ajax(url,{
     dataType:"xml",
