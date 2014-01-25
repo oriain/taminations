@@ -102,7 +102,7 @@
   </tam>
 
   <tam title="Couples Twosome Single Wheel" group="Couples Twosome">
-    <formation name="Two-Faced Lines RH">
+    <formation>
       <dancer gender="girl" x="-2" y="3" angle="0"/>
       <dancer gender="boy" x="2" y="3" angle="0"/>
       <dancer gender="girl" x="-2" y="-1" angle="180"/>
@@ -171,4 +171,77 @@
     </path>
   </tam>
 
+
+  <tam title="Tandem Twosome Circulate" group="Tandem Twosome"
+       formation="Column RH GBGB">
+    <path>
+      <move select="Flip Right" beats="4"/>
+    </path>
+    <path>
+      <move select="Flip Right" beats="4"/>
+    </path>
+    <path>
+      <move select="Forward 4"/>
+    </path>
+    <path>
+      <move select="Forward 4"/>
+    </path>
+  </tam>
+
+  <tam title="Tandem Twosome Left Roll to a Wave" group="Tandem Twosome"
+       formation="Column RH GBGB">
+    <path>
+      <move select="Run Left" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Run Left" offsetX="-3"/>
+    </path>
+    <path>
+      <move select="Forward 3"/>
+    </path>
+    <path>
+      <move select="Forward" beats="3"/>
+    </path>
+  </tam>
+
+  <tam title="Tandem Twosome Single Wheel" group="Tandem Twosome">
+    <formation>
+      <dancer gender="girl" x="-2" y="3" angle="0"/>
+      <dancer gender="boy" x="2" y="3" angle="0"/>
+      <dancer gender="girl" x="-2" y="-1" angle="180"/>
+      <dancer gender="boy" x="2" y="-1" angle="180"/>
+    </formation>
+    <path>
+      <move select="U-Turn Right" offsetX="3" offsetY="-2"/>
+    </path>
+    <path>
+      <move select="U-Turn Right" offsetX="1" offsetY="-2"/>
+    </path>
+    <path>
+      <move select="U-Turn Right" offsetX="-3"/>
+    </path>
+    <path>
+      <move select="U-Turn Right" offsetX="-1"/>
+    </path>
+  </tam>
+
+  <tam title="Tandem Twosome Zoom" group="Tandem Twosome"
+       formation="Column RH GBGB" parts="4">
+    <path>
+      <move select="Run Left" offsetX="-1"/>
+      <move select="Forward 2"/>
+      <move select="Run Left" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Run Left" offsetX="-1"/>
+      <move select="Forward 2"/>
+      <move select="Run Left" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Forward 4" beats="8"/>
+    </path>
+    <path>
+      <move select="Forward 4" beats="8"/>
+    </path>
+  </tam>
 </tamination>
