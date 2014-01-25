@@ -118,7 +118,7 @@ TAMination.prototype = {
     var a = $("tam",this.xmldoc).eq(this.callnum);
     var f = $(a).find("formation");
     var retval = undefined;
-    if (f.size() > 0) {
+    if (f.length > 0) {
       //  Formation defined inline
       retval = f;
     } else {
@@ -163,7 +163,7 @@ TAMination.prototype = {
   {
     var a = $("tam",this.xmldoc).eq(this.callnum);
     // np is the number of paths not including phantoms (which raise it > 4)
-    var np =  Math.min($('path',a).size(),4);
+    var np =  Math.min($('path',a).length,4);
     var retval = [];
     var i = 0;
     $("path",a).each(function(n) {

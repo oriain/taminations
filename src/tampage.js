@@ -325,7 +325,10 @@ function generateAnimations()
         difficultText[1]+' More difficult - For more experienced dancers.<br/>'+
         difficultText[2]+' Most difficult - For expert dancers.<br/><br/>'
         );
-  var cansvg = !$.browser.msie || $.browser.version > 8;
+  var cansvg = true; //!$.browser.msie || $.browser.version > 8;
+  //  Temporary hack for IE on XP
+  if (navigator.userAgent.indexOf('MSIE 8') > 0)
+    cansvg = false;
   if (cansvg && cookie.svg == 'false')
     $('#animationlist').append('Problems with Java? Try the <a href="'+
                                here+'?svg=true">SVG animation</a>.');
