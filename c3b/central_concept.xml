@@ -42,6 +42,26 @@
     </path>
   </tam>
 
+  <tam title="Central Counter" group="Central"
+       formation="Ocean Waves RH BGBG" parts="4.5">
+    <path>
+      <move select="Cast Right"/>
+      <move select="Lead Right" beats="3" scaleX="1.5" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Cast Right"/>
+      <move select="Hinge Left" beats="3" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Cast Right"/>
+      <move select="Lead Right" beats="3" scaleX="1.5" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Cast Right"/>
+      <move select="Hinge Left" beats="3" scaleX=".5"/>
+    </path>
+  </tam>
+
   <tam title="Central Load the Boat" group="Central"
        formation="Normal Lines">
     <path>
@@ -74,6 +94,35 @@
     </path>
   </tam>
 
+  <tam title="Central Ramble" group="Central">
+    <formation>
+      <dancer gender="boy" x="-2" y="3" angle="0"/>
+      <dancer gender="girl" x="-2" y="-1" angle="0"/>
+      <dancer gender="boy" x="-2" y="1" angle="180"/>
+      <dancer gender="girl" x="-2" y="-3" angle="180"/>
+    </formation>
+    <path>
+      <move select="Flip Right" offsetX="1" scaleY=".5"/>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Quarter Right" offsetX="1" offsetY="-.5" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="1" scaleY=".5"/>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Quarter Left" offsetX="1" offsetY="-.5" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="1" scaleY=".5"/>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Quarter Right" offsetX="1" offsetY="-.5" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="1" scaleY=".5"/>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Quarter Left" offsetX="1" offsetY="-.5" />
+    </path>
+  </tam>
+
   <tam title="Central Spin the Windmill" group="Central"
        formation="Ocean Waves RH GBGB">
     <path couples="4 2">
@@ -95,6 +144,50 @@
       <move select="Swing Right"/>
       <move select="Swing Left"/>
       <move select="Cast Right"/>
+    </path>
+  </tam>
+
+  <tam title="Central Stampede" group="Central"
+       formation="Ocean Waves RH BGGB">
+    <path>
+      <move select="Run Right" beats="4" scaleX="1.5" scaleY="2"/>
+      <move select="Hinge Left"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleY="2"/>
+      <move select="Hinge Left"/>
+      <move select="Extend Left" hands="right" beats="2" scaleX="3" scaleY="2" />
+      <move select="Forward" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleX=".5" scaleY="2"/>
+      <move select="Hinge Left"/>
+      <move select="Extend Left" hands="right" beats="2" scaleX="3" scaleY="2" />
+      <move select="Forward" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleX="2" scaleY="2"/>
+      <move select="Hinge Left"/>
+    </path>
+  </tam>
+
+  <tam title="Each Wave Central Counter" group=" "
+       formation="Ocean Waves RH BGBG" parts="4.5">
+    <path>
+      <move select="Cast Right"/>
+      <move select="Counter Rotate Right 0 -2" offsetX="-1" hands="right"/>
+    </path>
+    <path>
+      <move select="Cast Right"/>
+      <move select="Counter Rotate Right 2 0" offsetX="1" hands="right"/>
+    </path>
+    <path>
+      <move select="Cast Right"/>
+      <move select="Counter Rotate Right 2 0" offsetX="1" hands="right"/>
+    </path>
+    <path>
+      <move select="Cast Right"/>
+      <move select="Counter Rotate Right 0 -2" offsetX="-1" hands="right"/>
     </path>
   </tam>
 
