@@ -22,4 +22,34 @@
 -->
 <tamination>
 
+  <tam title="Reset" from="Right-Hand Box" formation="Box RH Boys Lead" parts="3;1.5;3">
+    <path couples="3 1">
+      <move select="Run Left" offsetX="-2"/>
+      <move select="Hinge Left"/>
+      <move select="Forward 2" beats="3"/>
+      <move select="Hinge Right"/>
+    </path>
+    <path couples="3 1">
+      <move select="Forward 2" beats="3"/>
+      <move select="Hinge Left"/>
+      <move select="Run Right" offsetX="-2"/>
+      <move select="Hinge Right"/>
+    </path>
+  </tam>
+
+  <tam title="Reset" from="Left-Hand Box" formation="Box LH" parts="3;1.5;3">
+    <path>
+      <move select="Run Right" offsetX="-2"/>
+      <move select="Hinge Right"/>
+      <move select="Forward 2" beats="3"/>
+      <move select="Hinge Left"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Hinge Right"/>
+      <move select="Run Left" offsetX="-2"/>
+      <move select="Hinge Left"/>
+    </path>
+  </tam>
+
 </tamination>

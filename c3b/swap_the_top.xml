@@ -22,4 +22,37 @@
 -->
 <tamination>
 
+  <tam title="Cross Swap the Top" from="Facing Couples" formation="Facing Couples" group=" ">
+    <path>
+      <move select="Flip Right" beats="4.5"/>
+      <move select="Lead Right" beats="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2"/>
+      <move select="Cast Right"/>
+    </path>
+  </tam>
+
+  <tam title="Mirror Swap the Top" from="Facing Couples" formation="Facing Couples" group=" ">
+    <path>
+      <move select="Forward 2"/>
+      <move select="Cast Right"/>
+    </path>
+    <path>
+      <move select="Flip Left" beats="4.5"/>
+      <move select="Lead Left" beats="2"/>
+    </path>
+  </tam>
+
+  <tam title="Mirror Cross Swap the Top" from="Facing Couples" formation="Facing Couples" group=" ">
+    <path>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY="2"/>
+      <move select="Cast Left"/>
+    </path>
+    <path>
+      <move select="Flip Left" beats="4.5"/>
+      <move select="Lead Left" beats="2"/>
+    </path>
+  </tam>
+
 </tamination>
