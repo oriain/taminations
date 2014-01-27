@@ -31,7 +31,7 @@
 <script src="ext/defineclass.js" type="text/javascript"></script>
 <script src="ext/jquery/jquery-1.11.0.min.js" type="text/javascript"></script>
 <script src="ext/jquery/jquery.svg/jquery.svg.js" type="text/javascript"></script>
-<script src="ext/jquery/jquery.ui/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+<script src="ext/jquery/jquery.ui/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
 <script src="ext/jquery/jquery.mousewheel/jquery-mousewheel-3.1.6/jquery.mousewheel.js" type="text/javascript"></script>
 <script src="src/tamination.js" type="text/javascript"></script>
 <script src="src/tamsvg.js" type="text/javascript"></script>
@@ -55,20 +55,16 @@ function dims()
 function buildAnimation(a,args,call)
 {
   animations = a;
-  var cansvg = !$.browser.msie || $.browser.version > 8;
-  if (cansvg) {
-    TAMination(0,animations,call,'');
-    var d = dims();
-    var svgdim = d.h-100 < d.w ? d.h-100 : d.w;
-    var appletstr='<div id="appletcontainer"><div id="svgdiv" '+
-                  'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div></div>';
-    $("body").prepend(appletstr);
-    $('#svgdiv').svg({onLoad:TamSVG});
-    generateButtonPanel();
-    if (args.play)
-      tamsvg.start();
-  } else
-    TAMination('tamdiv',a,call,params);
+  TAMination(0,animations,call,'');
+  var d = dims();
+  var svgdim = d.h-100 < d.w ? d.h-100 : d.w;
+  var appletstr='<div id="appletcontainer"><div id="svgdiv" '+
+                'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div></div>';
+  $("body").prepend(appletstr);
+  $('#svgdiv').svg({onLoad:TamSVG});
+  generateButtonPanel();
+  if (args.play)
+    tamsvg.start();
 }
 
 function loadXML(page,args,call)
