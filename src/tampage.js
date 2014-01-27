@@ -476,6 +476,8 @@ function getLevel()
     levelstring = "C-2";
   if (document.URL.match(/\/c3a\//))
     levelstring = "C-3A";
+  if (document.URL.match(/\/c3b\//))
+    levelstring = "C-3B";
   return '<span class="level">'+levelstring+'<br/><br/>' +
          '<span class="appButton selected" id="abbrev">Abbrev</span> '+
          '<span class="appButton" id="full">Full</span></span>';
