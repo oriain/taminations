@@ -35,6 +35,20 @@
   </tam>
 
   <tam title="U-Turn Back"
+       from="Sashayed Couples">
+    <formation>
+      <dancer gender="boy" x="-2" y="-1" angle="0" />
+      <dancer gender="girl" x="-2" y="1" angle="0" />
+    </formation>
+    <path>
+      <move select="U-Turn Left" />
+    </path>
+    <path>
+      <move select="U-Turn Right" />
+    </path>
+  </tam>
+
+  <tam title="U-Turn Back"
        from="Couples Facing Out"
        formation="Couples Facing Out"
        parts="1.5" >
