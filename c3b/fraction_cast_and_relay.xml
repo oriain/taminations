@@ -22,4 +22,178 @@
 -->
 <tamination>
 
+  <tam title="1/4 Cast and Relay" from="Right-Hand Waves"
+       parts="1.5;4.5;3">
+    <formation>
+      <dancer gender="boy" y="2" x="3" angle="270"/>
+      <dancer gender="girl" y="2" x="1" angle="90"/>
+      <dancer gender="boy" y="2" x="-1" angle="270"/>
+      <dancer gender="girl" y="2" x="-3" angle="90"/>
+    </formation>
+    <path>
+      <move select="Hinge Right"/>
+      <move select="Cast Left"/>
+      <move select="Swing Right"/>
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Hinge Right"/>
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3"/>
+      <move select="Swing Right"/>
+      <move select="Cast Left"/>
+    </path>
+    <path>
+      <move select="Hinge Right"/>
+      <move select="Cast Left"/>
+      <move select="Hinge Right" beats="3"/>
+      <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Hinge Right"/>
+      <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2"/>
+      <move select="Hinge Right" beats="3"/>
+      <move select="Cast Left"/>
+    </path>
+  </tam>
+
+  <tam title="1/4 Cast and Relay" from="Left-Hand Waves"
+       formation="Ocean Waves LH BGBG">
+    <path>
+      <move select="Hinge Left"/>
+      <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2"/>
+      <move select="Hinge Left" beats="3"/>
+      <move select="Cast Right"/>
+    </path>
+    <path>
+      <move select="Hinge Left"/>
+      <move select="Cast Right"/>
+      <move select="Hinge Left" beats="3"/>
+      <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Hinge Left"/>
+      <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3"/>
+      <move select="Swing Left"/>
+      <move select="Cast Right"/>
+    </path>
+    <path>
+      <move select="Hinge Left"/>
+      <move select="Cast Right"/>
+      <move select="Swing Left"/>
+      <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3"/>
+    </path>
+  </tam>
+
+  <tam title="1/2 Cast and Relay" from="Right-Hand Waves"
+       formation="Ocean Waves RH BGGB" parts="3;4.5;3">
+    <path>
+      <move select="Swing Right"/>
+      <move select="Cast Left"/>
+      <move select="Swing Right"/>
+      <move select="Cast Left"/>
+    </path>
+    <path>
+      <move select="Swing Right"/>
+      <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2"/>
+      <move select="Swing Right"/>
+      <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Swing Right"/>
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3"/>
+      <move select="Swing Right"/>
+      <move select="Cast Left"/>
+    </path>
+    <path>
+      <move select="Swing Right"/>
+      <move select="Cast Left"/>
+      <move select="Swing Right"/>
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3"/>
+    </path>
+  </tam>
+
+  <tam title="1/2 Cast and Relay" from="Left-Hand Waves"
+       formation="Ocean Waves LH BGGB" parts="3;4.5;3">
+    <path>
+      <move select="Swing Left"/>
+      <move select="Cast Right"/>
+      <move select="Swing Left"/>
+      <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Swing Left"/>
+      <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3"/>
+      <move select="Swing Left"/>
+      <move select="Cast Right"/>
+    </path>
+    <path>
+      <move select="Swing Left"/>
+      <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2"/>
+      <move select="Swing Left"/>
+      <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Swing Left"/>
+      <move select="Cast Right"/>
+      <move select="Swing Left"/>
+      <move select="Cast Right"/>
+    </path>
+  </tam>
+
+  <tam title="3/4 Cast and Relay" from="Right-Hand Waves"
+       formation="Ocean Waves RH BGGB" parts="3;4.5;4.5">
+    <path>
+      <move select="Cast Right"/>
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3"/>
+      <move select="Swing Right" beats="4.5"/>
+      <move select="Cast Left"/>
+    </path>
+    <path>
+      <move select="Cast Right"/>
+      <move select="Cast Left"/>
+      <move select="Swing Right" beats="4.5"/>
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Cast Right"/>
+      <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2"/>
+      <move select="Cast Right"/>
+      <move select="Cast Left"/>
+    </path>
+    <path>
+      <move select="Cast Right"/>
+      <move select="Cast Left"/>
+      <move select="Cast Right"/>
+      <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2"/>
+    </path>
+  </tam>
+
+  <tam title="3/4 Cast and Relay" from="Left-Hand Waves"
+       formation="Ocean Waves LH BGGB" parts="3;4.5;4.5">
+    <path>
+      <move select="Cast Left"/>
+      <move select="Cast Right"/>
+      <move select="Cast Left"/>
+      <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Cast Left"/>
+      <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2"/>
+      <move select="Cast Left"/>
+      <move select="Cast Right"/>
+    </path>
+    <path>
+      <move select="Cast Left"/>
+      <move select="Cast Right"/>
+      <move select="Swing Left" beats="4.5"/>
+      <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Cast Left"/>
+      <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3"/>
+      <move select="Swing Left" beats="4.5"/>
+      <move select="Cast Right"/>
+    </path>
+  </tam>
+
 </tamination>
