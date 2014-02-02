@@ -22,4 +22,64 @@
 -->
 <tamination>
 
+  <tam title="Change the Centers" from="Right-Hand Wave" formation="Wave RH" parts="3;3;3">
+    <path>
+      <move select="Swing Right"/>
+      <move select="Swing Left"/>
+      <move select="Run Left" scaleY="2"/>
+      <move select="Stand" beats="3"/>
+    </path>
+    <path>
+      <move select="Swing Right"/>
+      <move select="Stand" beats="3"/>
+      <move select="Dodge Right"/>
+      <move select="Swing Right"/>
+    </path>
+  </tam>
+
+  <tam title="Change the Centers" from="Left-Hand Wave" formation="Wave LH" parts="3;3;3">
+    <path>
+      <move select="Swing Left"/>
+      <move select="Swing Right"/>
+      <move select="Run Right" scaleY="2"/>
+      <move select="Stand" beats="3"/>
+    </path>
+    <path>
+      <move select="Swing Left"/>
+      <move select="Stand" beats="3"/>
+      <move select="Dodge Left"/>
+      <move select="Swing Left"/>
+    </path>
+  </tam>
+
+  <tam title="Change the Wave" from="Right-Hand Wave" formation="Wave RH" parts="3;3;3">
+    <path>
+      <move select="Swing Right"/>
+      <move select="Swing Left"/>
+      <move select="Run Left" scaleY="2"/>
+      <move select="Swing Left"/>
+    </path>
+    <path>
+      <move select="Swing Right"/>
+      <move select="Stand" beats="3"/>
+      <move select="Dodge Right"/>
+      <move select="Swing Left"/>
+    </path>
+  </tam>
+
+  <tam title="Change the Wave" from="Left-Hand Wave" formation="Wave LH" parts="3;3;3">
+    <path>
+      <move select="Swing Left"/>
+      <move select="Swing Right"/>
+      <move select="Run Right" scaleY="2"/>
+      <move select="Swing Right"/>
+    </path>
+    <path>
+      <move select="Swing Left"/>
+      <move select="Stand" beats="3"/>
+      <move select="Dodge Left"/>
+      <move select="Swing Right"/>
+    </path>
+  </tam>
+
 </tamination>
