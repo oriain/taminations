@@ -22,4 +22,45 @@
 -->
 <tamination>
 
+  <tam title="Reverse the Top" from="Facing Couples" parts="6.5">
+    <formation>
+      <dancer gender="boy" y="2" x="1" angle="270" />
+      <dancer gender="girl" y="2" x="-1" angle="270" />
+    </formation>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2"/>
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3"/>
+      <move select="Swing Right"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="Cast Left"/>
+      <move select="Swing Right"/>
+    </path>
+  </tam>
+
+  <tam title="Reverse the Top" from="Right-Hand Wave"
+       formation="Wave RH" parts="4.5">
+    <path>
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3"/>
+      <move select="Swing Right"/>
+    </path>
+    <path>
+      <move select="Cast Left"/>
+      <move select="Swing Right"/>
+    </path>
+  </tam>
+
+  <tam title="Reverse the Top" from="Left-Hand Wave"
+       formation="Wave LH" parts="4.5">
+    <path>
+      <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3"/>
+      <move select="Swing Left"/>
+    </path>
+    <path>
+      <move select="Cast Right"/>
+      <move select="Swing Left"/>
+    </path>
+  </tam>
+
 </tamination>

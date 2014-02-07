@@ -22,4 +22,146 @@
 -->
 <tamination>
 
+  <tam title="Reverse Order Diamond Chain Thru" group="Reverse Order"
+       parts="4.5;3">
+    <formation>
+      <dancer gender="boy" y="2" x="-1" angle="90"/>
+      <dancer gender="girl" y="2" x="-3" angle="90"/>
+      <dancer gender="girl" y="2" x="3" angle="270"/>
+      <dancer gender="boy" y="2" x="1" angle="270"/>
+    </formation>
+    <path>
+      <move select="Cast Right"/>
+      <move select="Swing Left"/>
+      <move select="Lead Right" beats="3" scaleX="3"/>
+    </path>
+    <path>
+      <move select="Stand" beats="7.5"/>
+      <move select="Lead Right" beats="3" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Stand" beats="7.5"/>
+      <move select="Lead Right" beats="3" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Cast Right"/>
+      <move select="Stand" beats="3"/>
+      <move select="Lead Right" beats="3" scaleX="3"/>
+    </path>
+  </tam>
+
+  <tam title="Reverse Order Mix" group="Reverse Order"
+       formation="Wave RH" parts="3">
+    <path>
+      <move select="Stand" beats="3"/>
+      <move select="Dodge Right"/>
+    </path>
+    <path>
+      <move select="Swing Left"/>
+      <move select="Run Left" scaleY="2"/>
+    </path>
+  </tam>
+
+  <tam title="Reverse Order Recoil" group="Reverse Order"
+       formation="Wave RH" parts="3">
+    <path>
+      <move select="Run Right" offsetX="1"/>
+      <move select="U-Turn Left" beats="4" hands="gripleft" offsetX="1" />
+    </path>
+    <path>
+      <move select="Forward" beats="3"/>
+      <move select="Run Left" beats="4" hands="gripleft" scaleX="2" scaleY="2" offsetX="-1" />
+    </path>
+   </tam>
+
+  <tam title="Reverse Order Remake" group="Reverse Order"
+       formation="Ocean Waves RH BGGB" parts="4.5;3">
+    <path>
+      <move select="Cast Right"/>
+      <move select="Stand" beats="3"/>
+      <move select="Hinge Right"/>
+    </path>
+    <path>
+      <move select="Cast Right"/>
+      <move select="Swing Left"/>
+      <move select="Hinge Right"/>
+    </path>
+    <path>
+      <move select="Cast Right"/>
+      <move select="Stand" beats="3"/>
+      <move select="Hinge Right"/>
+    </path>
+    <path>
+      <move select="Cast Right"/>
+      <move select="Swing Left"/>
+      <move select="Hinge Right"/>
+    </path>
+  </tam>
+
+  <tam title="Reverse Order Right and Left Thru" group="Reverse Order"
+       formation="Lines Facing Out" parts="3">
+    <path>
+      <move select="Belle Wheel" scaleX=".67" />
+      <move select="Pull Left" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Beau Wheel" scaleX=".67" />
+      <move select="Pull Left" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Belle Wheel" scaleX=".67" />
+      <move select="Pull Left" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Beau Wheel" scaleX=".67" />
+      <move select="Pull Left" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" scaleX="2" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Reverse Order Scramble" group="Reverse Order"
+       formation="Normal Lines" parts="6">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Extend Right" scaleY=".5"/>
+      <move select="Lead Left" hands="left" beats="2" scaleX="2" scaleY="2" offsetY="-1"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleX="2" scaleY=".5" beats="2"/>
+      <movement beats="4" hands="none" cx1="1" cy1="0" cx2="0" cy2="-2.5" x2="1" y2="-2.5"
+                cx3="1" cx4="1" cy4="-.5" x4="2" y4="-.5"/>
+      <move select="Quarter Left" hands="right" beats="2" offsetY="-1"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleX="2" scaleY=".5" beats="2"/>
+      <movement beats="4" hands="none" cx1="1" cy1="0" cx2="2" cy2="1.5" x2="1" y2="1.5"
+                cx3="1" cx4="1" cy4=".5" x4="2" y4=".5"/>
+      <move select="Quarter Right" hands="left" beats="2" offsetY="1"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Extend Right" scaleY=".5"/>
+      <move select="Lead Right" hands="right" beats="2" scaleX="2" scaleY="2" offsetY="1"/>
+    </path>
+  </tam>
+
+  <tam title="Reverse Order Travel Thru" group="Reverse Order"
+       formation="Two-Faced Line RH" parts="1.5">
+    <path>
+      <move select="Hinge Right" hands="right"/>
+      <move select="Pull Left" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="BackHinge Left" hands="left"/>
+      <move select="Pull Left" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" scaleX="2" scaleY=".5" />
+    </path>
+  </tam>
+
 </tamination>
