@@ -215,4 +215,12 @@
     </path>
   </tam>
 
+     <tamxref
+        title-match="Mirror"
+        title-sub="Mirror (C-3B)"
+        group="Mirror (C-3B)"
+        file="c3b/*.xml"
+        not-file="mirror_concept"
+     />
+
 </tamination>

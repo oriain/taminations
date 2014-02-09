@@ -25,7 +25,7 @@ RM = rm
 COPY = cp
 PYTHON = python
 ZIP = zip
-ZIPFILE = ../tamintion.zip
+ZIPFILE = ../tamination.zip
 DIRS = b1 b2 ms plus adv a1 a2 c1 c2 c3a c3b info .
 XMLSRC = calls.xml callindex.xml formations.xml moves.xml tamination.dtd
 XMLCOPIES = $(foreach dir,$(DIRS),$(addprefix ../$(dir)/,$(XMLSRC)))
@@ -68,5 +68,5 @@ $(CALLINDEX) : $(filter-out $(XMLCOPIES),$(wildcard ../*/*.xml) $(wildcard calls
 
 #  Copy XML files that define menus, moves, and formations to each directory
 #  Browsers can be picky about loading AJAX from different directories
-$(XMLCOPIES) : $(XMLSRC)
+../b1/* : ../src/*
 	$(COPY) $(notdir $@) $@
