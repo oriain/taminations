@@ -20,30 +20,21 @@
 #  You need GNU make to run this file
 #  and Python to generate files
 #  On Windows use Cygwin
-#  Optional: install Java and set JAVA_HOME
-#  to build the applet used with IE on XP
 
 RM = rm
 COPY = cp
 PYTHON = python
+ZIP = zip
+ZIPFILE = ../tamintion.zip
 DIRS = b1 b2 ms plus adv a1 a2 c1 c2 c3a c3b info .
 XMLSRC = calls.xml callindex.xml formations.xml moves.xml tamination.dtd
 XMLCOPIES = $(foreach dir,$(DIRS),$(addprefix ../$(dir)/,$(XMLSRC)))
 XREFXML = $(foreach dir,$(DIRS),$(wildcard ../$(dir)/*.x.xml))
 PYXML = $(addsuffix .xml,$(basename $(basename $(XREFXML))))
 CALLINDEX = callindex.xml
-ifneq '$(JAVA_HOME)' '' 
-JAVA_FILES = TAMination.jar ../tamination.zip 
-JAVA = "$(JAVA_HOME)/bin/java"
-JAVAC = "$(JAVA_HOME)/bin/javac"
-JAR = "$(JAVA_HOME)/bin/jar"
-UNZIP = "$(JAVA_HOME)/bin/jar" xvf
-else
-UNZIP = unzip
-endif
 
 .phony : all
-all : $(CALLINDEX) $(XMLCOPIES) $(PYXML) $(JAVA_FILES) 
+all : $(CALLINDEX) $(XMLCOPIES) $(PYXML) $(ZIPFILE)
 	@echo Build complete
 
 unzip :
@@ -56,20 +47,16 @@ unzip :
 .phony : clean
 clean :
 	-$(RM) *.class *.jar
-	-$(RM) ../tamination.zip
+	-$(RM) $(ZIPFILE)
 	-$(RM) $(PYXML)
 	-$(RM) $(XMLCOPIES)
 	-$(RM) $(CALLINDEX)
 
-#  Make the JAR file.  Tell the compiler to compile for Java 1.3 for maximum compatibility
-TAMination.jar : TAMination.java
-	$(JAVAC) -classpath "$(JAVA_HOME)/jre/lib/plugin.jar" TAMination.java && $(JAR) -cf TAMination.jar *.class
-
 #  Make the zip file.  Exclude my Eclipse project files which are not of interest to others.
 #  The wildcard * pattern apparently conveniently excludes .* files
-../tamination.zip : $(filter-out ../tamination.zip,$(wildcard ../* ../*/*))
-	-cd .. && $(RM) tamination.zip
-	cd .. && $(JAR) cMf tamination.zip info b1 b2 ms plus a1 a2 adv c1 c2 c3a src ext *.html *.txt *.ico *.xml
+../tamination.zip : $(filter-out $(ZIPFILE),$(wildcard ../* ../*/*))
+	-$(RM) $(ZIPFILE)
+	cd .. && $(ZIP) -rq tamination.zip info b1 b2 ms plus a1 a2 adv c1 c2 c3a src ext *.html *.txt *.ico *.xml
 
 #  Generate xml files from x.xml files with cross-references
 %.xml : %.x.xml
