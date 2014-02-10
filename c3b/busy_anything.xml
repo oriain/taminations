@@ -22,4 +22,97 @@
 -->
 <tamination>
 
+  <tam title="Busy Cross Cycle" group="Busy" parts="4" formation="Two-Faced Lines RH">
+    <path>
+      <move select="Forward 2" beats="4" hands="right"/>
+      <move select="Lead Right" beats="4" scaleY="4"/>
+      <move select="Quarter Right" offsetY="1"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" hands="left"/>
+      <move select="Lead Right" beats="2" scaleY="2"/>
+      <move select="Run Right" beats="2"/>
+      <move select="Quarter Right" offsetY="1"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4" hands="left"/>
+      <move select="Dodge Left" beats="4"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4" hands="right" scaleX="3" scaleY="3"/>
+      <move select="Forward 4"/>
+    </path>
+  </tam>
+
+  <tam title="Busy Crossfire" group="Busy" parts="4" formation="Two-Faced Lines LH">
+    <path>
+      <move select="Run Left" beats="4" hands="left" scaleX="3" scaleY="3"/>
+      <move select="Forward 4"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="4" hands="right"/>
+      <move select="Dodge Right" beats="4"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" hands="right"/>
+      <move select="Swing Left" beats="2.5"/>
+      <move select="Forward 2" beats="1.5"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" hands="left"/>
+      <move select="Run Left" beats="4" offsetX="2" scaleY="2"/>
+    </path>
+  </tam>
+
+  <tam title="Busy Mix" group="Busy" parts="4">
+    <formation>
+      <dancer gender="boy" x="2" y="3" angle="0"/>
+      <dancer gender="girl" x="2" y="1" angle="0"/>
+      <dancer gender="girl" x="2" y="-3" angle="180"/>
+      <dancer gender="boy" x="2" y="-1" angle="180"/>
+    </formation>
+    <path>
+      <move select="Run Right" beats="4" hands="right" scaleX="3" scaleY="3"/>
+      <move select="Forward 4"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4" hands="left"/>
+      <move select="Dodge Left" beats="4"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" hands="right"/>
+      <move select="Dodge Right" beats="2" scaleY="1.167"/>
+      <move select="Swing Right" beats="2" scaleX=".667" scaleY=".667"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" hands="left"/>
+      <move select="Run Right" beats="4" scaleY="1.5"/>
+    </path>
+  </tam>
+
+  <tam title="Busy Single Wheel" group="Busy" parts="4">
+    <formation>
+      <dancer gender="boy" x="2" y="3" angle="0"/>
+      <dancer gender="girl" x="2" y="1" angle="0"/>
+      <dancer gender="girl" x="2" y="-3" angle="180"/>
+      <dancer gender="boy" x="2" y="-1" angle="180"/>
+    </formation>
+    <path>
+      <move select="Run Right" beats="4" hands="right" scaleX="3" scaleY="3"/>
+      <move select="Forward 4"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4" hands="left"/>
+      <move select="Dodge Left" beats="4"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" hands="right"/>
+      <move select="U-Turn Right" beats="4" offsetX="2" offsetY="-2"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="4" hands="left"/>
+      <move select="U-Turn Left" beats="4" offsetX="-2"/>
+    </path>
+  </tam>
+
 </tamination>

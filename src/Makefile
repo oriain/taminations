@@ -68,5 +68,5 @@ $(CALLINDEX) : $(filter-out $(XMLCOPIES),$(wildcard ../*/*.xml) $(wildcard calls
 
 #  Copy XML files that define menus, moves, and formations to each directory
 #  Browsers can be picky about loading AJAX from different directories
-../b1/* : ../src/*
+$(XMLCOPIES) : $(XMLSRC)
 	$(COPY) $(notdir $@) $@
