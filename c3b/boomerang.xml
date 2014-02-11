@@ -87,29 +87,7 @@
     </path>
   </tam>
 
-  <tam title="Twosome Boomerang" from="Right-Hand Columns"
-       formation="Column RH GBGB" parts="3">
-    <path>
-      <move select="Run Left" offsetX="-2" />
-      <move select="Run Left" offsetX="2" />
-    </path>
-    <path>
-      <move select="Run Left" offsetX="-2" />
-      <move select="Run Left" offsetX="2" />
-    </path>
-    <path>
-      <move select="Extend Right" scaleX="2" scaleY=".25" beats="1.5"/>
-      <move select="Swing Right" scaleX=".75" scaleY=".75" />
-      <move select="Extend Left" scaleX="2" scaleY=".25" beats="1.5"/>
-    </path>
-    <path>
-      <move select="Extend Right" scaleX="2" scaleY=".25" beats="1.5"/>
-      <move select="Swing Right" scaleX=".5" scaleY=".75" />
-      <move select="Extend Left" scaleX="2" scaleY=".25" beats="1.5"/>
-    </path>
-  </tam>
-
-  <tam title="Twosome Boomerang" from="Right-Hand Two-Faced Lines"
+  <tam title="Couples Twosome Boomerang" group=" "
        formation="Two-Faced Lines RH">
     <path>
       <move select="Extend Right" scaleX="2" scaleY="1.5" beats="1.5"/>
@@ -128,6 +106,28 @@
     <path>
       <move select="Run Left" offsetX="-2" />
       <move select="Run Left" offsetX="2" />
+    </path>
+  </tam>
+
+  <tam title="Tandem Twosome Boomerang" group=" "
+       formation="Column RH GBGB" parts="3">
+    <path>
+      <move select="Run Left" offsetX="-2" />
+      <move select="Run Left" offsetX="2" />
+    </path>
+    <path>
+      <move select="Run Left" offsetX="-2" />
+      <move select="Run Left" offsetX="2" />
+    </path>
+    <path>
+      <move select="Extend Right" scaleX="2.5" scaleY=".25" beats="1.5"/>
+      <move select="Run Right" scaleX=".75" scaleY=".75" />
+      <move select="Extend Left" scaleX="2.5" scaleY=".25" beats="1.5"/>
+    </path>
+    <path>
+      <move select="Extend Right" scaleX="3" scaleY=".25" beats="1.5"/>
+      <move select="Run Right" scaleX=".5" scaleY=".75" />
+      <move select="Extend Left" scaleX="3" scaleY=".25" beats="1.5"/>
     </path>
   </tam>
 

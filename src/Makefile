@@ -21,20 +21,20 @@
 #  and Python to generate files
 #  On Windows use Cygwin
 
-RM = rm
-COPY = cp
-PYTHON = python
-ZIP = zip
+RM ?= rm
+COPY ?= cp
+PYTHON ?= python
+ZIP ?= zip
 ZIPFILE = ../tamination.zip
-DIRS = b1 b2 ms plus adv a1 a2 c1 c2 c3a c3b info .
+DIRS = b1 b2 ms plus a1 a2 c1 c2 c3a c3b info .
 XMLSRC = calls.xml callindex.xml formations.xml moves.xml tamination.dtd
 XMLCOPIES = $(foreach dir,$(DIRS),$(addprefix ../$(dir)/,$(XMLSRC)))
 XREFXML = $(foreach dir,$(DIRS),$(wildcard ../$(dir)/*.x.xml))
-PYXML = $(addsuffix .xml,$(basename $(basename $(XREFXML))))
+GENXML = $(addsuffix .xml,$(basename $(basename $(XREFXML))))
 CALLINDEX = callindex.xml
 
 .phony : all
-all : $(CALLINDEX) $(XMLCOPIES) $(PYXML) $(ZIPFILE)
+all : $(GENXML) $(CALLINDEX) $(XMLCOPIES) $(ZIPFILE)
 	@echo Build complete
 
 unzip :
@@ -48,7 +48,7 @@ unzip :
 clean :
 	-$(RM) *.class *.jar
 	-$(RM) $(ZIPFILE)
-	-$(RM) $(PYXML)
+	-$(RM) $(GENXML)
 	-$(RM) $(XMLCOPIES)
 	-$(RM) $(CALLINDEX)
 
@@ -68,5 +68,28 @@ $(CALLINDEX) : $(filter-out $(XMLCOPIES),$(wildcard ../*/*.xml) $(wildcard calls
 
 #  Copy XML files that define menus, moves, and formations to each directory
 #  Browsers can be picky about loading AJAX from different directories
-$(XMLCOPIES) : $(XMLSRC)
-	$(COPY) $(notdir $@) $@
+../b1/% : %
+	cp $< $@
+../b2/% : %
+	cp $< $@
+../ms/% : %
+	cp $< $@
+../plus/% : %
+	cp $< $@
+../a1/% : %
+	cp $< $@
+../a2/% : %
+	cp $< $@
+../c1/% : %
+	cp $< $@
+../c2/% : %
+	cp $< $@
+../c3a/% : %
+	cp $< $@
+../c3b/% : %
+	cp $< $@
+../info/% : %
+	cp $< $@
+../% : %
+	cp $< $@
+	

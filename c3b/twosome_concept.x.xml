@@ -171,6 +171,13 @@
     </path>
   </tam>
 
+  <tamxref
+     title-match="Couples Twosome"
+     title-sub="Couples Twosome (C-3B)"
+     group="Couples Twosome (C-3B)"
+     file="c3b/*.xml"
+     not-file="twosome_concept"
+  />
 
   <tam title="Tandem Twosome Circulate" group="Tandem Twosome"
        formation="Column RH GBGB">
@@ -218,10 +225,10 @@
       <move select="U-Turn Right" offsetX="1" offsetY="-2"/>
     </path>
     <path>
-      <move select="U-Turn Right" offsetX="-3"/>
+      <move select="U-Turn Left" offsetX="-3"/>
     </path>
     <path>
-      <move select="U-Turn Right" offsetX="-1"/>
+      <move select="U-Turn Left" offsetX="-1"/>
     </path>
   </tam>
 
@@ -244,4 +251,13 @@
       <move select="Forward 4" beats="8"/>
     </path>
   </tam>
+
+  <tamxref
+     title-match="Tandem Twosome"
+     title-sub="Tandem Twosome (C-3B)"
+     group="Tandem Twosome (C-3B)"
+     file="c3b/*.xml"
+     not-file="twosome_concept"
+  />
+
 </tamination>
