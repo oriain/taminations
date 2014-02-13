@@ -177,7 +177,9 @@ $(document).ready(
     //  Everything's ready, show the menus
     $("#menuload").hide();
     $("#menudiv").show();
-
+    //  Adjustments to make everything fit
+    if ($('#how').height() > $('#info').height())
+      $('#how').text('How');
     sizeBody();
 
     //  No longer support IE 8 (on XP)

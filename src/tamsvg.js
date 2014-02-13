@@ -2189,6 +2189,7 @@ function generateButtonPanel()
   $('#optionpanel').append('<input type="button" class="appButton" id="numbersButton" value="#8" style="width:8%"/>');
   if (tamsvg.numbers)
     $('#numbersButton').addClass('selected');
+
   tamsvg.goHexagon = tamsvg.goBigon = function() {
     $('#numbersButton').removeClass('selected');
   };
@@ -2340,6 +2341,14 @@ function generateButtonPanel()
   {
     $('#playButton').attr('value','Play');
   };
+
+  //  Some browsers wrap the top row of buttons, this code is to fix that
+  var fontsize = 14;
+  while ($('#numbersButton').position().top > $('#slowButton').position().top) {
+    fontsize--;
+    $('.appButton').css('font-size',fontsize+'px');
+  }
+
 
 }
 
