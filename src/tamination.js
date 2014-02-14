@@ -44,16 +44,15 @@ preload('formations.xml',function(a) { formationdata = a; });
 var movedata;
 preload('moves.xml',function(a) { movedata = a; });
 
-var TAMination = window.TAMination = function(elemid,xmldoc,call,params)
+var TAMination = window.TAMination = function(xmldoc,call)
 {
-  var elem = document.getElementById(elemid);
   return this instanceof TAMination ?
-      this.init(elem,xmldoc,call,params) :
-      new TAMination(elemid,xmldoc,call,params);
+      this.init(xmldoc,call) :
+      new TAMination(xmldoc,call);
 };
 var tam;
 TAMination.prototype = {
-  init: function(elem,xmldoc,call,params)
+  init: function(xmldoc,call)
   {
     tam = this;
     tam.xmldoc = xmldoc;
@@ -69,47 +68,6 @@ TAMination.prototype = {
       if (str.toLowerCase() == tam.call.toLowerCase())
         tam.callnum = n;
     });
-    var f = tam.getFormation();
-    var parts = tam.getParts();
-    if (elem) {
-      //  IE has a hard time finding the applet, it needs to be told exacty where it is
-      var archive = document.URL.replace(/(embed|info|b1|b2|ms|plus|a1|a2|adv|c1|c2|c3a).*/,"src/TAMination.jar");
-      var appletstr = '<applet id="applet" code="TAMination" archive="'+archive+'" '+
-      'width="'+elem.offsetWidth+'" '+
-      'height="'+elem.offsetHeight+'" '+
-      'mayscript="true">'+
-      '<param name="archive" value="'+archive+'" />'+
-      '<param name="java_code" value="TAMination" />'+
-      '<param name="java_type" value="application/x-java-applet;jpi-version=1.3" />'+
-      '<param name="parts" value="'+parts+'" />'+
-      '<param name="appwidth" value="'+elem.offsetWidth+'" />'+
-      '<param name="appheight" value="'+elem.offsetHeight+'" />'+
-      '<param name="scriptable" value="true" />'+
-      '<param name="formation" value="'+formationToString(f)+'" />';
-      if (params.play != undefined)
-        appletstr += '<param name="play" value="true" />';
-      if (params.loop != undefined)
-        appletstr += '<param name="loop" value="true" />';
-      if (params.phantoms != undefined)
-        appletstr += '<param name="phantoms" value="true" />';
-      if (params.grid != undefined)
-        appletstr += '<param name="grid" value="true" />';
-      if (params.paths != undefined)
-        appletstr += '<param name="paths" value="true" />';
-      if (params.hexagon != undefined)
-        appletstr += '<param name="hexagon" value="true" />';
-      var p = tam.getPath(tam.xmldoc);
-      for (var i=0; i<p.length; i++) {
-        var str = '';
-        for (var j=0; j<p[i].length; j++)
-          str += movementToString(p[i][j]);
-        appletstr += '<param name="dance'+(i+1)+'" value="'+str+'" />';
-      }
-      appletstr +=
-        'Sorry, you need to <a href="http://java.com/">download Java</a> to view TAMinations.'+
-        '</applet>';
-      elem.innerHTML = appletstr;
-    }
   },
 
   //  Return the formation for the current animation.

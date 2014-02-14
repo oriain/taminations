@@ -190,7 +190,6 @@ TamSVG.prototype = {
       var d = new Dancer({
         tamsvg: me,
         gender: Dancer.genders[$(this).attr('gender')],
-        //  TODO maybe change numbers in the formations rather than here??
         x: -Number($(this).attr('y')),
         y: -Number($(this).attr('x')),
         angle: Number($(this).attr('angle'))+180,
@@ -2151,12 +2150,11 @@ Math.anglesEqual = function(a1,a2)
 };
 ////////////////////////////////////////////////////////////////////////////////
 // Build buttons and slider below animation
-// Only used for SVG animation - Java codes them in the applet
 // TODO this cheats a bit peeking into tamsvg data - the interface should be better
 function generateButtonPanel()
 {
   $('#buttonpanel').remove();
-  $('#appletcontainer').append('<div id="buttonpanel" style="background-color: #c0c0c0"></div>');
+  $('#svgcontainer').append('<div id="buttonpanel" style="background-color: #c0c0c0"></div>');
 
   $('#buttonpanel').append('<div id="optionpanel"></div>');
   $('#optionpanel').append('<input type="button" class="appButton" id="slowButton" value="Slow"/>');
@@ -2195,9 +2193,9 @@ function generateButtonPanel()
   };
   // Add popup to display for extra options
   $('#popup').remove();
-  $('#appletcontainer').append(popupMenuHTML);
+  $('#svgcontainer').append(popupMenuHTML);
   $('#popup').hide();
-  $('#appletcontainer').append(popupMenuTitleHTML);
+  $('#svgcontainer').append(popupMenuTitleHTML);
   $('#titlepopup').hide();
   $(tamsvg.floor).mousedown(function(ev) {
     $('#popup').hide();

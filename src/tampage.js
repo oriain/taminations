@@ -88,7 +88,7 @@ $(document).ready(
                           '<span class="level"></span>'+
                         '</div>'+
                       '</td>'+
-                      '<td width="'+animwidth+'%" class="animation"><div id="appletcontainer"></div></td>'+
+                      '<td width="'+animwidth+'%" class="animation"><div id="svgcontainer"></div></td>'+
                       '<td class="animation">'+
                         '<div id="animationlist"></div>'+
                       '</td>'+
@@ -164,7 +164,6 @@ $(document).ready(
         //    and push it up if it flows below the screen
         if (mt+mh > sh)
           mt = sh - mh;
-        $("td:has(applet)").addClass("invisible");  // need to hide the applet to see the menus
         $(".menu").css("top",mt+"px");
         $(".menu").css("left",ml+"px");
       });
@@ -210,7 +209,6 @@ $(document).ready(
 function clearMenus()
 {
   $(".menu").hide();
-  $("td:has(applet)").removeClass("invisible");
   $('.menutitle').removeClass('selected');
 }
 
@@ -236,7 +234,7 @@ function sizeBody()
   $('#iframeright').height(h);
 }
 
-function appletSize()
+function svgSize()
 {
   var aw = 100;
   var ah = 100;
@@ -261,7 +259,6 @@ function generateAnimations()
   //  Put the call definition in the document structure
   $("#deftable").nextAll().appendTo("#definition");
   $("#radio1").attr("checked",true);
-  $("#applet").width(appletSize().width).height(appletSize().height);
   $("h2").first().prepend(getLevel());
   //  Show either full or abbreviated definition
   //  Load saved options from browser cookie
@@ -358,29 +355,20 @@ function generateAnimations()
       callname = arg;
     }
   }
-  //  Insert the applet
+  //  Insert the SVG container
   if ($("tam",animations).size() > 0) {
-    $('#appletcontainer').height($('#appletcontainer').width()+100).width(appletSize().width);
-    //  For non-MSIE, SVG is now the default
-    if (cansvg && cookie.svg != 'false') {
-      TAMination(0,animations,callname,'');
-      var dims = appletSize();
-      var svgdim = dims.width;
-      appletstr='<div id="svgdiv" '+
-                'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div>';
-      $("#appletcontainer").append(appletstr);
-      $('#svgdiv').svg({onLoad:function(x) {
-          var t = new TamSVG(x);
-          t.setPart = setPart;
-        }
-      });
-    }
-    else
-      TAMination('appletcontainer',animations,callname,'');
-    if ($('tam',animations).size() <= 0) {
-      appletstr = '<p style="margin: 20px">No animation for this call.</p>';
-    }
-    $('#appletcontainer').after('<div id="taminatorsays"></div>');
+    $('#svgcontainer').height($('#svgcontainer').width()+100).width(svgSize().width);
+    TAMination(animations,callname);
+    var dims = svgSize();
+    var svgdim = dims.width;
+    svgstr='<div id="svgdiv" '+'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div>';
+    $("#svgcontainer").append(svgstr);
+    $('#svgdiv').svg({onLoad:function(x) {
+        var t = new TamSVG(x);
+        t.setPart = setPart;
+      }
+    });
+    $('#svgcontainer').after('<div id="taminatorsays"></div>');
     //  Make sure the 1st radio button is turned on
     if ($(".selectRadio").get(callnumber))
       $(".selectRadio").get(callnumber).checked = true;
@@ -390,7 +378,7 @@ function generateAnimations()
         .attr("title").replace(/ \(DBD.*/,"").replace(/\W/g,"");
   } else {
     //  no animations
-    $('#appletcontainer').append("<h3><center>No animation for this call.</center></h3>");
+    $('#svgcontainer').append("<h3><center>No animation for this call.</center></h3>");
   }
   sizeBody();
   showTAMinator(callnumber);
@@ -404,13 +392,12 @@ function PickAnimation(n)
   SelectAnimation(n);
   if (tamsvg) {
     tamsvg.stop();
-    $('#appletcontainer').empty();
+    $('#svgcontainer').empty();
     $('#svgdiv').empty();
-    var dims = appletSize();
+    var dims = svgSize();
     var svgdim = dims.width;
-    appletstr='<div id="svgdiv" '+
-              'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div>';
-    $("#appletcontainer").append(appletstr);
+    svgstr='<div id="svgdiv" '+'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div>';
+    $("#svgcontainer").append(svgstr);
     $('#svgdiv').svg({onLoad:TamSVG});
   }
   $('.selectedHighlight').removeClass("selectedHighlight");
@@ -429,7 +416,7 @@ function PickAnimation(n)
   showTAMinator(n);
 }
 
-//Show one specific TAMinator comment
+//  Show one specific TAMinator comment
 function showTAMinator(n)
 {
   $('#taminatorsays').empty();
@@ -449,7 +436,7 @@ function showTAMinator(n)
     else
       tamsays.appendTo('#taminatorquote');
     var h = (window.innerHeight ? window.innerHeight : document.body.clientHeight)
-            -appletSize().height - 116;
+            -svgSize().height - 116;
     $('#taminatorsays').height(h);
   }
 }
