@@ -22,4 +22,42 @@
 -->
 <tamination>
 
+  <tam title="Pitch Right" group=" " formation="Completed Double Pass Thru">
+    <path>
+      <move select="Run Right" beats="2.5" scaleY=".5" offsetX="-1"/>
+      <move select="Lead Right"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="2.5" scaleY=".5" offsetX="-1"/>
+      <move select="Lead Right"/>
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+      <move select="Quarter Right" beats="2" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+      <move select="Quarter Right" beats="2" offsetX="1"/>
+    </path>
+  </tam>
+
+  <tam title="Pitch Left" group=" " formation="Completed Double Pass Thru">
+    <path>
+      <move select="Run Right" beats="2.5" scaleY=".5" offsetX="-1"/>
+      <move select="Lead Right"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="2.5" scaleY=".5" offsetX="-1"/>
+      <move select="Lead Right"/>
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+      <move select="Quarter Left" beats="2" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+      <move select="Quarter Left" beats="2" offsetX="1"/>
+    </path>
+  </tam>
+
 </tamination>

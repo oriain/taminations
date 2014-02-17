@@ -125,7 +125,7 @@ TAMination.prototype = {
     var a = $("tam",this.xmldoc).eq(this.callnum);
     // np is the number of paths not including phantoms (which raise it > 4)
     var np =  Math.min($('path',a).length,4);
-    var retval = [];
+    retval = [1,2,3,4,5,6,7,8];
     var i = 0;
     $("path",a).each(function(n) {
       var n = $(this).attr('numbers');
@@ -135,8 +135,8 @@ TAMination.prototype = {
         retval[i*2+1] = nn[1];
       }
       else if (i > 3) {  // phantoms
-        retval[i*2] = ['a','b','c','d'][i*2-8];
-        retval[i*2+1] = ['a','b','c','d'][i*2-7];
+        retval[i*2] = ['a','b','c','d','e','f','g','h'][i*2-8];
+        retval[i*2+1] = ['a','b','c','d','e','f','g','h'][i*2-7];
       }
       else {
         retval[i*2] = i+1;
@@ -144,8 +144,6 @@ TAMination.prototype = {
       }
       i += 1;
     });
-    if (retval.length == 0)
-      retval = [1,2,3,4,5,6,7,8];
     return retval;
   },
 

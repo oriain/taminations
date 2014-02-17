@@ -17,6 +17,7 @@ var leveldata = [
   { name:"C-1", dir:"c1", selector:"sublevel='C-1'" },
   { name:"C-2", dir:"c2", selector:"sublevel='C-2'" },
   { name:"C-3A", dir:"c3a", selector:"sublevel='C-3A'" },
+  { name:"C-3B", dir:"c3b", selector:"sublevel='C-3B'" },
   //{ name:"All Calls", dir:"all", selector:"@level!='Info' and @sublevel!='Styling'" },
   { name:"Index of All Calls", dir:"all", selector:"level!='Info' and sublevel!='Styling'" }
   //{ name:"Search Calls", dir:"", selector:"" }
@@ -141,7 +142,7 @@ $(document).delegate('#level','pageinit',
     h = h - 50;  // hack
     $('#content').height(h);
     //h = $('#content div div').height();
-    h = Math.floor(h/14);
+    h = Math.floor(h/15);
     $('#content div div').height(h);
   }
 );
@@ -356,7 +357,7 @@ function generateAnimation(n)
             'style="width:'+dims.width+'px; height:'+dims.height+'px;">'+
             '</div></div>';
   $("#animationcontent").empty().append(svgstr).width(dims.width);
-  TAMination(0,animations,'','');
+  TAMination(animations,'');
   SelectAnimation(n);
   $('#animtitle').empty().text(tam.getTitle());
   $('#svgdiv').svg({onLoad:TamSVG});
