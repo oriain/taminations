@@ -174,12 +174,12 @@ function generateAnimations()  // override function in tampage.js
     $('#definition').empty().append($('#sequencepage'));
 
   //  Build the animation
-  TAMination(0,animations,'','');
-  var dims = appletSize();
+  TAMination(animations,'');
+  var dims = svgSize();
   var svgdim = dims.width;
-  appletstr='<div id="svgdiv" '+
+  svgstr='<div id="svgdiv" '+
             'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div>';
-  $("#appletcontainer").empty().width(dims.width).append(appletstr);
+  $("#svgcontainer").empty().width(dims.width).append(svgstr);
   $('#svgdiv').svg({onLoad:function(x) {
       var t = new TamSVG(x);
       t.setPart = setCurrentCall;
