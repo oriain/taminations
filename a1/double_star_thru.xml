@@ -69,4 +69,34 @@
       <move select="Quarter Right" beats="1.5" offsetX="1" offsetY="-.5" />
     </path>
   </tam>
+
+  <tam title="All 4 Couples Double Star Thru" formation="Static Square" group=" ">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Forward" />
+      <move select="Lead Right" />
+      <move select="Extend Left" beats="2" scaleX="2"/>
+      <move select="Lead Left"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3" />
+      <move select="Forward 2" />
+      <move select="Lead Left" scaleY="2"/>
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
+      <move select="Forward" />
+      <move select="Lead Right" />
+      <move select="Extend Left" beats="2" scaleX="2"/>
+      <move select="Lead Left"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3" />
+      <move select="Forward 2" />
+      <move select="Lead Left" scaleY="2"/>
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+  </tam>
+
 </tamination>

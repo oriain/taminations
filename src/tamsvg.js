@@ -183,7 +183,8 @@ TamSVG.prototype = {
     this.handholds = this.svg.group(this.floor);
     this.dancegroup = this.svg.group(this.floor);
     this.dancers = [];
-    var dancerColor = [ Color.red, Color.green, Color.blue, Color.yellow, Color.lightGray, Color.lightGray ];
+    var dancerColor = [ Color.red, Color.green, Color.blue, Color.yellow,
+                        Color.lightGray, Color.lightGray, Color.lightGray, Color.lightGray ];
     var numbers = tam.getNumbers();
     var couples = tam.getCouples();
     $('dancer',formation).each(function(j) {
@@ -232,7 +233,7 @@ TamSVG.prototype = {
 
     //  Mouse wheel moves the animation
     $(this.floorsvg).on('mousewheel',function(event) {
-      me.beat -= event.deltaY * 0.2;
+      me.beat += event.deltaY * 0.2;
       me.animate();
     });
 
@@ -1503,8 +1504,9 @@ Dancer.prototype.bigonify = function(beat)
 
 Dancer.prototype.paint = function()
 {
-  //$('#animslider').val(this.tx.x2);
   this.svg.setAttribute('transform',this.tx.toString());
+  if (this.gender == Dancer.PHANTOM)
+    this.svg.setAttribute('opacity',0.6);
   this.righthand.setAttribute('transform',
       new AffineTransform(this.tx).concatenate(this.rightHandTransform).toString());
   this.lefthand.setAttribute('transform',
