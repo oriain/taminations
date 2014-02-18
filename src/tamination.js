@@ -150,7 +150,7 @@ TAMination.prototype = {
   getCouples : function()
   {
     var a = $("tam",this.xmldoc).eq(this.callnum);
-    var retval = [1,3,1,3,2,4,2,4,5,6,5,6];
+    var retval = [1,3,1,3,2,4,2,4,5,6,5,6,7,8,7,8];
     $("path",a).each(function(n) {
       var c = $(this).attr('couples');
       if (c) {
