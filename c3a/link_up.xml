@@ -44,7 +44,7 @@
       <move select="Forward 2" beats="3.5"/>
     </path>
     <path couples="3 1">
-      <move select="Quarter Left" beats="2" hands="left"/>
+      <move select="Quarter Left" beats="2" hands="right"/>
       <move select="Quarter Left"/>
       <move select="Forward 4" beats="3.5"/>
     </path>
