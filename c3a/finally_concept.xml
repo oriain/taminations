@@ -68,7 +68,7 @@
 
   <tam title="Finally As Couples Pass the Ocean"
        formation="Normal Lines"
-       group="Finally As Couples" parts=" ">
+       group="Finally As Couples" parts="3;1.5">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Extend Right" scaleY=".5"/>
