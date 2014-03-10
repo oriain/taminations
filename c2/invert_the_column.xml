@@ -51,5 +51,68 @@
     </path>
   </tam>
 
+  <tam title="Invert the Column" from="Left-Hand Columns"
+       formation="Column LH GBGB" parts="5;3;3">
+    <path>
+      <move select="Forward" beats="5"/>
+      <move select="Forward" beats="3"/>
+      <move select="Forward" beats="3"/>
+      <move select="U-Turn Right" beats="3" offsetX="3"/>
+    </path>
+    <path>
+      <move select="Forward" beats="5"/>
+      <move select="Forward" beats="3"/>
+      <move select="Run Right" offsetX="1"/>
+      <move select="Extend Right" beats="3" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Forward" beats="5"/>
+      <move select="Run Right" offsetX="-1"/>
+      <move select="Forward" beats="3"/>
+      <move select="Extend Right" beats="3" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Run Right" offsetX="-1"/>
+      <move select="Forward 2"/>
+      <move select="Forward" beats="3"/>
+      <move select="Forward" beats="3"/>
+      <move select="Extend Right" beats="3" scaleY="2"/>
+    </path>
+  </tam>
+
+  <tam title="Magic Column Invert the Column" from="Right-Hand Columns"
+       parts="5;3;4" group=" ">
+    <formation>
+      <dancer gender="boy" x="-3" y="1" angle="0"/>
+      <dancer gender="girl" x="-1" y="-1" angle="0"/>
+      <dancer gender="boy" x="1" y="-1" angle="0"/>
+      <dancer gender="girl" x="3" y="1" angle="0"/>
+    </formation>
+    <path>
+      <move select="Forward" beats="5" />
+      <move select="Extend Right" beats="3" scaleY="2" />
+      <move select="Forward" beats="4"/>
+      <move select="Run Left" offsetX="3"/>
+    </path>
+    <path>
+      <move select="Forward" beats="5"/>
+      <move select="Forward" beats="3"/>
+      <move select="Run Left" beats="4" scaleY="2" offsetX="1"/>
+      <move select="Extend Left" beats="3" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="5" scaleY="2" />
+      <move select="Run Left" offsetX="-1"/>
+      <move select="Forward" beats="4"/>
+      <move select="Extend Left" beats="3" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Run Left" offsetX="-1"/>
+      <move select="Forward 2"/>
+      <move select="Forward" beats="3" />
+      <move select="Forward" beats="4"/>
+      <move select="Extend Left" beats="3" scaleY="2"/>
+    </path>
+  </tam>
 
 </tamination>
