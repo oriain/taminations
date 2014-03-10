@@ -85,4 +85,35 @@
     </path>
   </tam>
 
+  <tam title="Allemande Left" from="Circle Left">
+    <formation>
+      <dancer gender="boy" x="-2.45" y="1" angle="0"/>
+      <dancer gender="girl" x="-2.45" y="-1" angle="45"/>
+      <dancer gender="boy" x="-1" y="-2.45" angle="90"/>
+      <dancer gender="girl" x="1" y="-2.45" angle="135"/>
+    </formation>
+    <path>
+      <move select="Eighth Left" beats="1.5" offsetX="1.1" offsetY=".4"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Left 1/2" beats="2.25" offsetX=".75" offsetY="-.2"/>
+    </path>
+    <path>
+      <move select="Quarter Right"  offsetY="-1" offsetX="-.5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Left 1/2"/>
+      <move select="Quarter Right" offsetX=".9" offsetY="-.1"/>
+    </path>
+    <path>
+      <move select="Eighth Left" beats="1.5" offsetX="1.1" offsetY=".4"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Left 1/2" beats="2.25" offsetX=".75" offsetY="-.2"/>
+    </path>
+    <path>
+      <move select="Quarter Right"  offsetY="-1" offsetX="-.5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Left 1/2"/>
+      <move select="Quarter Right" offsetX=".9" offsetY="-.1"/>
+    </path>
+  </tam>
+
 </tamination>
