@@ -89,8 +89,8 @@
       <move select="Run Right" beats="4" offsetX="-2"/>
       <move select="Extend Left" scaleY=".5"/>
       <move select="Swing Right" scaleX=".5" scaleY=".5"/>
-      <move select="Belle Wheel" scaleX=".5" scaleY=".5"/>
-      <move select="Hinge Left" scaleY=".5"/>
+      <move select="Belle Reverse Wheel" scaleX=".5" scaleY=".5"/>
+      <move select="BackHinge Left" scaleY=".5"/>
     </path>
     <path>
       <move select="Run Left" beats="4" offsetX="-2"/>
@@ -106,8 +106,8 @@
     <path>
       <move select="Swing Left" beats="4" scaleX=".5" scaleY=".5" offsetY="-.5"/>
       <move select="Stand" beats="4"/>
-      <move select="Beau Wheel" scaleX=".5" scaleY=".5"/>
-      <move select="BackHinge Right" scaleY=".5"/>
+      <move select="Beau Reverse Wheel" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Right" scaleY=".5"/>
     </path>
   </tam>
 
