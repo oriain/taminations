@@ -21,10 +21,8 @@
 
 -->
 <tamination>
-  
-  
 
-  <tam title="Very Ends Ripple 3"
+  <tam title="Very Ends Ripple 3" group=" "
        from="Tidal Wave"
        formation="Tidal Wave RH BGGB"
        parts="3;3" >
@@ -50,29 +48,36 @@
     </path>
   </tam>
 
-  <tam title="Very Ends Ripple 3"
-       from="Tidal Line"
-       formation="Tidal Line RH"
-       parts="3;3" >
+  <tam title="Very Ends Ripple 7" group=" "
+       from="Right-Hand Tidal Wave"
+       formation="Tidal Wave RH BGGB"
+       parts="3;3;3;3;3;3" >
     <path>
-      <move select="Run Right" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
       <move select="Swing Left" scaleX=".5" scaleY=".5" />
-      <move select="Run Right" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
     </path>
     <path>
-      <move select="Flip Left" scaleY=".5" />
-      <move select="Stand" beats="3" />
-      <move select="Stand" beats="3" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Stand" beats="15" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
     </path>
     <path>
       <move select="Stand" beats="3" />
       <move select="Swing Left" scaleX=".5" scaleY=".5" />
-      <move select="Stand" beats="3" />
+      <move select="Stand" beats="9" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
     </path>
     <path>
+      <move select="Stand" beats="6" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
       <move select="Stand" beats="3" />
-      <move select="Stand" beats="3" />
-      <move select="Flip Left" scaleY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
     </path>
   </tam>
+
 </tamination>

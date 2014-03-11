@@ -21,13 +21,13 @@
 
 -->
 <tamination>
-  
-  
 
-  <tam title="Ends Ripple the Wave"
+
+
+  <tam title="Ends Ripple the Wave" group=" "
        from="Right-Hand Wave"
        formation="Wave RH"
-       parts="" >
+       parts="3;3" >
     <path>
       <move select="Swing Right" />
       <move select="Swing Left" />
@@ -40,35 +40,30 @@
     </path>
   </tam>
 
-  <tam title="Very Ends Ripple the Wave"
-       from="Right-Hand Tidal Wave"
-       formation="Tidal Wave RH BGGB"
-       parts="" >
+  <tam title="Very Ends Ripple the Wave" group=" "
+       from="Tidal Line"
+       formation="Tidal Line RH"
+       parts="3;3" >
     <path>
-      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Run Right" scaleY=".5" />
       <move select="Swing Left" scaleX=".5" scaleY=".5" />
-      <move select="Swing Right" scaleX=".5" scaleY=".5" />
-      <move select="Swing Left" scaleX=".5" scaleY=".5" />
-      <move select="Swing Right" scaleX=".5" scaleY=".5" />
-      <move select="Swing Left" scaleX=".5" scaleY=".5" />
-      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Run Right" scaleY=".5" />
     </path>
     <path>
-      <move select="Swing Right" scaleX=".5" scaleY=".5" />
-      <move select="Stand" beats="15" />
-      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Flip Left" scaleY=".5" />
+      <move select="Stand" beats="3" />
+      <move select="Stand" beats="3" />
     </path>
     <path>
       <move select="Stand" beats="3" />
       <move select="Swing Left" scaleX=".5" scaleY=".5" />
-      <move select="Stand" beats="9" />
-      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Stand" beats="3" />
     </path>
     <path>
-      <move select="Stand" beats="6" />
-      <move select="Swing Right" scaleX=".5" scaleY=".5" />
       <move select="Stand" beats="3" />
-      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Stand" beats="3" />
+      <move select="Flip Left" scaleY=".5" />
     </path>
   </tam>
+
 </tamination>
