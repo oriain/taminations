@@ -22,4 +22,64 @@
 -->
 <tamination>
 
+  <tam title="Chuck-A-Luck" group=" " parts="3">
+    <formation>
+      <dancer gender="girl" x="2" y="1" angle="0"/>
+      <dancer gender="boy" x="2" y="3" angle="0"/>
+      <dancer gender="boy" x="-2" y="3" angle="180"/>
+      <dancer gender="girl" x="-2" y="1" angle="180"/>
+    </formation>
+    <path>
+      <move select="Run Left" offsetX="-1"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Quarter Left" beats="1" offsetX="1" offsetY="-.5"/>
+    </path>
+    <path>
+      <move select="Quarter Right" beats="3" offsetY="-2" offsetX="-1"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Quarter Left" beats="3" offsetY="2" offsetX="-1"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Right" offsetX="-1"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Quarter Right" beats="1" offsetX="1" offsetY="-.5"/>
+    </path>
+  </tam>
+
+  <tam title="Cross Chuck-A-Luck" group=" " parts="4">
+    <formation>
+      <dancer gender="girl" x="2" y="1" angle="0"/>
+      <dancer gender="boy" x="2" y="3" angle="0"/>
+      <dancer gender="boy" x="-2" y="3" angle="180"/>
+      <dancer gender="girl" x="-2" y="1" angle="180"/>
+    </formation>
+    <path>
+      <move select="Run Right" beats="4" scaleX="2" scaleY="2" offsetX="-1"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Quarter Right" beats="1" offsetX="1" offsetY="-.5"/>
+    </path>
+    <path>
+      <move select="Quarter Right" beats="4" offsetY="-2" offsetX="-1"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <movement beats="4" hands="none" cx1="1" cy1="0" cx2="0" cy2="-2.5" x2="1" y2="-2.5"
+                cx3="1" cx4="1" cy4="-.5" x4="2" y4="-.5"/>
+    </path>
+    <path>
+      <move select="Quarter Left" beats="4" offsetY="2" offsetX="-1"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <movement beats="4" hands="none" cx1="1.5" cy1="0" cx2="2" cy2="1.5" x2="1" y2="1.5"
+                cx3="1" cx4="1" cy4=".5" x4="2" y4=".5"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleY="2" offsetX="-1"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Quarter Left" beats="1" offsetX="1" offsetY="-.5"/>
+    </path>
+  </tam>
+
 </tamination>
