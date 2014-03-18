@@ -22,4 +22,58 @@
 -->
 <tamination>
 
+  <tam title="Good Show" from="Right-Hand Waves" formation="Ocean Waves RH BGGB">
+    <path couples="2 4">
+      <move select="Forward 4"/>
+    </path>
+    <path couples="2 4">
+      <move select="Run Right" beats="4"/>
+    </path>
+    <path couples="3 1">
+      <move select="Forward 4"/>
+      <move select="U-Turn Right"/>
+    </path>
+    <path couples="3 1">
+      <move select="Dodge Right" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Good Show" from="Left-Hand Waves" formation="Ocean Waves LH BGGB">
+    <path>
+      <move select="Dodge Left" beats="4"/>
+    </path>
+    <path>
+      <move select="Forward 4"/>
+      <move select="U-Turn Left"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="4"/>
+    </path>
+    <path>
+      <move select="Forward 4"/>
+    </path>
+  </tam>
+
+  <tam title="Good Show" from="Right-Hand Columns">
+    <formation>
+      <dancer gender="girl" y="1" x="1" angle="270"/>
+      <dancer gender="boy" y="3" x="1" angle="270"/>
+      <dancer gender="boy" y="3" x="-1" angle="90"/>
+      <dancer gender="girl" y="1" x="-1" angle="90"/>
+    </formation>
+    <path>
+      <move select="Run Right" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="3"/>
+    </path>
+    <path>
+      <move select="Dodge Right"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="U-Turn Right"/>
+    </path>
+  </tam>
+
 </tamination>
