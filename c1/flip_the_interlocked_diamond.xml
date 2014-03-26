@@ -58,6 +58,9 @@
     </path>
   </tam>
 
+<!--  Although technically possible from the definition, these are
+      potentially confusing and not used
+
   <tam title="Flip the Interlocked Diamond"
        from="Right-Hand Point-to-Point Interlocked Diamonds"
        formation="Interlocked Diamonds RH PTP Girl Points"
@@ -93,4 +96,7 @@
       <move select="Run Left" scaleY="1.25" />
     </path>
   </tam>
+
+   -->
+
 </tamination>
