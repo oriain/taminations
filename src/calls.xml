@@ -563,6 +563,7 @@
     <call text="Take n" level="Challenge" sublevel="C-3B" link="c3b/take_n.html"/>
     <call text="Tag Back to a Wave" level="Challenge" sublevel="C-1" link="c1/tagging_calls_back_to_a_wave.html" anim="TagBacktoaWavefromLines"/>
     <call text="Tag the Line" level="Basic and Mainstream" sublevel="Mainstream" link="ms/tag.html"/>
+    <call text="Tag the Top" level="Challenge" sublevel="C-3B" link="c3b/anything_the_top.html"/>
     <call text="Tag Your Neighbor" level="Challenge" sublevel="C-2" link="c2/tag_your_neighbor.html"/>
     <call text="Tally Ho" level="Challenge" sublevel="C-1" link="c1/tally_ho.html"/>
     <call text="Tandem Based Triangle" level="Challenge" sublevel="C-2" link="c2/tandem_based_triangle.html"/>
