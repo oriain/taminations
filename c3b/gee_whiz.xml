@@ -25,11 +25,11 @@
   <tam title="Gee Whiz" from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH">
     <path>
+      <move select="Stand" beats="2"/>
       <move select="Extend Right" beats="3" scaleX="3" scaleY="2"/>
-      <move select="Forward 2"/>
     </path>
     <path>
-      <move select="Stand" beats="2"/>
+      <move select="Forward 2"/>
       <move select="Forward 3" beats="3"/>
     </path>
     <path>
@@ -89,14 +89,14 @@
       <move select="Forward"/>
     </path>
     <path>
-      <move select="Flip Left" beats="2" offsetX=".5" offsetY="-.5" />
+      <move select="U-Turn Left" beats="2" offsetX="-1.5" offsetY=".5"/>
       <move select="Forward 2" beats="1.5" />
-      <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5" />
     </path>
     <path>
-      <move select="U-Turn Right" beats="2" offsetX="-1.5" offsetY="-.5"/>
+      <move select="Flip Right" beats="2" offsetX=".5" offsetY=".5" />
       <move select="Forward" beats=".5" />
-      <move select="Extend Left" beats="2.5" scaleX="2.5" scaleY="1.5" />
+      <move select="Extend Left" beats="2.5" scaleX="2.5" scaleY=".5" />
     </path>
   </tam>
 
