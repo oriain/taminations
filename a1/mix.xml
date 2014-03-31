@@ -121,10 +121,9 @@
       <move select="Flip Left" />
     </path>
     <path>
-      <move select="Run Left" beats="4" scaleX="2" scaleY="2" />
+      <move select="Run Left" beats="4" scaleY="2" />
     </path>
     <path>
-      <move select="Stand" />
       <move select="Run Right" beats="4" scaleX="2" scaleY="2" />
     </path>
     <path>
@@ -140,10 +139,9 @@
       <move select="Swing Right" />
     </path>
     <path numbers="6 3">
-      <move select="Run Left" beats="4" scaleX="2" scaleY="2" />
+      <move select="Run Left" beats="4" scaleY="2" />
     </path>
     <path numbers="7 2">
-      <move select="Stand" />
       <move select="Run Right" beats="4" scaleX="2" scaleY="2" />
     </path>
     <path numbers="8 1">
