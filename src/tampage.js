@@ -193,15 +193,9 @@ $(document).ready(
       return;
     }
 
-    //  Load XML documents that define the animations
-    var docname = document.URL.match(/(\w+)\.html/)[1];
-    $.ajax({url:docname+".xml",dataType:"xml",
-      success:function(a) {
-        $("#menudiv").after(htmlstr);
-        animations = a;
-        generateAnimations();
-      },
-    });
+    //  Finally insert the document structure and build the menu of animations
+    $("#menudiv").after(htmlstr);
+    generateAnimations();
     //  end of menu load function
 
   });  // end of document ready function
@@ -256,6 +250,16 @@ function svgSize()
 function generateAnimations()
 {
   var showDiffLegend = false;
+  //  If a specific animation is requested in the URL, switch to it
+  callnumber = 0;
+  callname = '';
+  for (var arg in args) {
+    if (animationNumber[arg] != undefined) {
+      callnumber = animationNumber[arg];
+      callname = arg;
+    }
+  }
+  TAMination(animations,callname);
   //  Put the call definition in the document structure
   $("#deftable").nextAll().appendTo("#definition");
   $("#radio1").attr("checked",true);
@@ -294,7 +298,7 @@ function generateAnimations()
   var prevtitle = "";
   var prevgroup = "";
   $("#animationlist").empty();  //  disable to restore old animations
-  $('tam[display!="none"]',animations).each(function(n) {
+  tam.animations().each(function(n) {
     var callname = $(this).attr('title') + 'from' + $(this).attr('from');
     var name = $(this).attr('from');
     if ($(this).attr("group") != undefined) {
@@ -346,19 +350,9 @@ function generateAnimations()
   if (cansvg && cookie.svg == 'false')
     $('#animationlist').append('Problems with Java? Try the <a href="'+
                                here+'?svg=true">SVG animation</a>.');
-  //  If a specific animation is requested in the URL, switch to it
-  callnumber = 0;
-  callname = '';
-  for (var arg in args) {
-    if (animationNumber[arg] != undefined) {
-      callnumber = animationNumber[arg];
-      callname = arg;
-    }
-  }
   //  Insert the SVG container
-  if ($("tam",animations).size() > 0) {
+  if (tam.animations().size() > 0) {
     $('#svgcontainer').height($('#svgcontainer').width()+100).width(svgSize().width);
-    TAMination(animations,callname);
     var dims = svgSize();
     var svgdim = dims.width;
     svgstr='<div id="svgdiv" '+'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div>';

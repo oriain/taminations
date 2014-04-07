@@ -22,6 +22,7 @@
 var animations = 0;
 var formations = 0;
 var paths = 0;
+var crossrefs = {};
 
 //Extra XML data that needs to be loaded to build menus and animations
 function preload(url,f)
@@ -39,10 +40,26 @@ function preload(url,f)
     complete:function() { $.holdReady(false); }
   });
 }
+
 var formationdata;
-preload('formations.xml',function(a) { formationdata = a; });
+preload('../src/formations.xml',function(a) { formationdata = a; });
 var movedata;
-preload('moves.xml',function(a) { movedata = a; });
+preload('../src/moves.xml',function(a) { movedata = a; });
+//  Load the XML doc that defines the animations
+var docname = document.URL.match(/(\w+)\.html/)[1];
+preload(docname+'.xml',function(a)
+  {
+    //  Stuff the animations in a global variable
+    //  TODO it would be better for the animations to be a property of
+    //  the Taminations object
+    animations = a;
+    //  Scan the doc for cross-references and load any found
+    $('tamxref',a).each(function() {
+      preload('../'+$(this).attr('xref-link')+'.xml',function(b) {
+        crossrefs[$(this).attr('xref-link')] = b;
+      });
+    });
+  });
 
 var TAMination = window.TAMination = function(xmldoc,call)
 {
@@ -51,6 +68,7 @@ var TAMination = window.TAMination = function(xmldoc,call)
       new TAMination(xmldoc,call);
 };
 var tam;
+
 TAMination.prototype = {
   init: function(xmldoc,call)
   {
@@ -70,19 +88,48 @@ TAMination.prototype = {
     });
   },
 
+  selectAnimation: function(n)
+  {
+    this.callnum = n;
+  },
+
+  animations: function()
+  {
+    return $('tam[display!="none"],tamxref',this.xmldoc);
+  },
+
+  animation: function(n)
+  {
+    if (arguments.length == 0 || typeof n == 'undefined')
+      n = this.callnum;
+    return this.animations().eq(n);
+  },
+
+  animationXref: function(n)
+  {
+    var a = this.animation(n);
+    if (a.attr('xref-link') != undefined) {
+      var t = a.attr('xref-title');
+      a = $('tam',crossrefs[a.attr('xref-link')]);
+      a = $('tam[title="'+t+'"]',crossrefs[a.attr('xref-link')]);
+    }
+    return a;
+  },
+
   //  Return the formation for the current animation.
   //  If the animation uses a named formation, it is looked up and
   //  the definition returned.
   //  The return value is an XML document element with dancers
   getFormation: function()
   {
-    var a = $("tam",this.xmldoc).eq(this.callnum);
+    var a = this.animationXref();
     var f = $(a).find("formation");
     var retval = undefined;
     if (f.length > 0) {
-      //  Formation defined inline
+      //  Formation defined as an element in the animation
       retval = f;
     } else {
+      //  Named formation as an attribute
       retval = getNamedFormation(a.attr('formation'));
       if (!retval) {  //  must be sequence
         a = startingFormation;
@@ -99,13 +146,13 @@ TAMination.prototype = {
 
   getParts: function()
   {
-    var a = $("tam",this.xmldoc).eq(this.callnum);
+    var a = this.animationXref();
     return a.attr("parts") ? a.attr("parts") : '';
   },
 
   getTitle: function()
   {
-    var a = $("tam",this.xmldoc).eq(this.callnum);
+    var a = this.animation();
     return a.attr("title");
   },
 
@@ -113,7 +160,7 @@ TAMination.prototype = {
   {
     var tam = this;
     var retval = [];
-    $("path",$("tam",xmldoc).eq(this.callnum)).each(function(n) {
+    $("path",this.animationXref()).each(function(n) {
       var onepath = tam.translatePath(this);
       retval.push(onepath);
     });
@@ -122,7 +169,7 @@ TAMination.prototype = {
 
   getNumbers : function()
   {
-    var a = $("tam",this.xmldoc).eq(this.callnum);
+    var a = this.animationXref();
     // np is the number of paths not including phantoms (which raise it > 4)
     var np =  Math.min($('path',a).length,4);
     retval = [1,2,3,4,5,6,7,8];
@@ -149,7 +196,7 @@ TAMination.prototype = {
 
   getCouples : function()
   {
-    var a = $("tam",this.xmldoc).eq(this.callnum);
+    var a = this.animationXref();
     var retval = [1,3,1,3,2,4,2,4,5,6,5,6,7,8,7,8];
     $("path",a).each(function(n) {
       var c = $(this).attr('couples');
@@ -272,7 +319,7 @@ TAMination.prototype = {
     return [movement];
   }
 
-};
+};  // end of TAMination class
 
 function cloneObject(obj)
 {
@@ -292,28 +339,13 @@ function objectToString(obj)
 
 function getParts(n)
 {
-  var a = $("tam",animations).eq(n);
+  var a = tam.animationXref(n);
   return a.attr("parts") ? a.attr("parts") : '';
 }
 
 function SelectAnimation(n)
 {
-  tam.callnum = n;
-  var applet = document.getElementById('applet');
-  if (applet)
-    applet.setFormation(formationToString(tam.getFormation()));
-  var p = tam.getPath(tam.xmldoc);
-  for (var i=0; i<p.length; i++) {
-    var str = '';
-    for (var j=0; j<p[i].length; j++)
-      str += movementToString(p[i][j]);
-    if (applet)
-      applet.addDancer(i+1,str);
-  }
-  if (applet) {
-    applet.setParts(tam.getParts());
-    applet.rebuildUI();
-  }
+  tam.selectAnimation(n);
 }
 
 function formationToString(f)
@@ -355,21 +387,5 @@ function setPart(part)
 
 function getNamedFormation(name)
 {
-  retval = name;
-  //  TODO since we are getting rid of the formmation attribute, this
-  //  will no longer apply
-  if (retval && retval.indexOf('Formation') != 0)
-    retval = $('formation[name="'+name+'"]',formationdata);
-  return retval;
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//Take a object describing a movement and return a string for passing to the applet
-function movement(m)
-{
-  var str = "movement "+m.hands+" "+m.beats+" "+m.cx1+" "+m.cy1+" "+m.cx2+" "+m.cy2+" "+m.x2+" "+m.y2;
-  if (m.cx3 != undefined)
-    str += " "+m.cx3+" "+m.cx4+" "+m.cy4+" "+m.x4+" "+m.y4;
-  return str + ";";
+  return $('formation[name="'+name+'"]',formationdata);
 }
