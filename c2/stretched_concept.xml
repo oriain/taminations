@@ -140,4 +140,25 @@
       <move select="U-Turn Right" beats="2" offsetX="1" offsetY="-1.5" />
     </path>
   </tam>
+
+  <tamxref title="Stretched Box Circulate"
+           from="Normal Lines"
+           xref-link="c3a/scatter_circulate"
+           xref-from="Normal Lines" />
+
+  <tamxref title="Stretched Box Circulate"
+           from="Lines Facing Out"
+           xref-link="c3a/scatter_circulate"
+           xref-from="Lines Facing Out" />
+
+  <tamxref title="Stretched Box Circulate"
+           from="Right-Hand Two-Faced Lines"
+           xref-link="c3a/scatter_circulate"
+           xref-from="Right-Hand Two-Faced Lines" />
+
+  <tamxref title="Stretched Box Circulate"
+           from="Left-Hand Two-Faced Lines"
+           xref-link="c3a/scatter_circulate"
+           xref-from="Left-Hand Two-Faced Lines" />
+
 </tamination>
