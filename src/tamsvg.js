@@ -114,7 +114,7 @@ TamSVG.prototype = {
     this.floorsvg = this.svg.svg(null,0,0,100,100,-6.5,-6.5,13,13);
     this.floorsvg.setAttribute('width','100%');
     this.floorsvg.setAttribute('height','100%');
-    this.allp = tam.getPath(tam.xmldoc);
+    this.allp = tam.getPath();
     if (tam.getParts() == '')
       this.parts = [];
     else {
@@ -131,7 +131,7 @@ TamSVG.prototype = {
 
     //  Add title, optionally with audio link
      if (typeof tam.getTitle() != "undefined") {
-      var tt = tam.getTitle().replace(/ \(.*\)/,' ');
+      var tt = tam.getTitle().replace(/ \(.*?\)/g,' ');
       var t = this.svg.text(this.floorsvg,0,0,tt,{fontSize: "10", transform:"translate(-6.4,-5.5) scale(0.1)"});
       l = t.getComputedTextLength();
       if (l > 110) {

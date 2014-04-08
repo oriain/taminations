@@ -192,7 +192,7 @@
   <tam title="As Couples Three Quarter Thru"
        from="Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       parts="9" >
+       parts="9" group=" ">
     <path>
       <move select="Cast Right" beats="9" scaleX="1.5" scaleY="3" />
     </path>
@@ -212,7 +212,7 @@
   <tam title="All 8 Three Quarter Thru"
        from="Static Mini-Waves"
        formation="Static MiniWaves RH"
-       parts="4.5" >
+       parts="4.5" group=" ">
     <path>
       <move select="Swing Right"/>
       <move select="Quarter Right" hands="right" offsetY="-1"/>

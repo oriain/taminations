@@ -76,7 +76,7 @@
   <tam title="As Couples Reverse Swap Around"
        from="Normal Lines"
        formation="Normal Lines"
-       parts="2" >
+       parts="2" group=" " >
     <path>
       <move select="Forward 4" hands="right" />
     </path>
@@ -94,7 +94,7 @@
   <tam title="All 8 Reverse Swap Around"
        from="Static Square"
        formation="Static Square"
-       parts="3" >
+       parts="3" group=" ">
     <path>
       <move select="Forward 6" />
     </path>

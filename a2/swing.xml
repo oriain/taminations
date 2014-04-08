@@ -115,7 +115,7 @@
   <tam title="As Couples Swing"
        from="Two-Faced Tidal Line"
        formation="Two-Faced Tidal Line RH"
-       parts="2" >
+       parts="2" group=" ">
     <path>
       <move select="Swing Right" beats="4" scaleX="1.5" scaleY="1.5" />
     </path>
@@ -133,7 +133,7 @@
   <tam title="All 8 Swing"
        from="Thar"
        formation="Thar LH Boys"
-       parts="1.5" >
+       parts="1.5" group=" ">
     <path>
       <move select="Swing Right" />
     </path>

@@ -40,11 +40,11 @@
               display CDATA #IMPLIED >
 
 <!ELEMENT tamxref EMPTY>
-<!ATTLIST tamxref file CDATA #REQUIRED
-                  not-file CDATA #IMPLIED
-                  title-match CDATA #IMPLIED
-                  title-sub CDATA #IMPLIED
-                  group CDATA #IMPLIED >
+<!ATTLIST tamxref title CDATA #IMPLIED
+                  group CDATA #IMPLIED
+                  xref-link CDATA #IMPLIED
+                  xref-title CDATA #IMPLIED
+                  xref-from CDATA #IMPLIED >
 
 <!ELEMENT taminator ANY>
 

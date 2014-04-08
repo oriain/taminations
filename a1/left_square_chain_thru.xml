@@ -126,7 +126,7 @@
   <tam title="As Couples Left Square Chain Thru"
        from="Lines"
        formation="Normal Lines"
-       parts="" >
+       group=" " >
     <path>
       <move select="Extend Right" beats="2" hands="right" scaleX="2" scaleY="1.5" />
       <move select="Lead Right" beats="4" scaleX="3.5" scaleY="1.5" />

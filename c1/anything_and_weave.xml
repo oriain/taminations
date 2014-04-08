@@ -159,7 +159,7 @@
   <tam title="As Couples And Weave"
        from="Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       parts="" >
+       group=" " >
     <path>
       <move select="Extend Right" hands="right" beats="3" scaleX="2" scaleY="3.5" />
       <move select="Lead Left" hands="both" beats="2" scaleX=".5" scaleY=".5" />
@@ -179,7 +179,7 @@
   <tam title="All 8 And Weave"
        from="Mini Waves"
        formation="Static MiniWaves RH"
-       parts="" >
+       group=" " >
     <path>
       <move select="Extend Right" beats="3" scaleX="3" scaleY="2" />
       <move select="Hinge Left" />

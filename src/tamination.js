@@ -24,8 +24,8 @@ var formations = 0;
 var paths = 0;
 var crossrefs = {};
 
-//Extra XML data that needs to be loaded to build menus and animations
-function preload(url,f)
+//  Extra XML data that needs to be loaded to build menus and animations
+function preload(url,f,e)
 {
   //  No longer working on IE 8 (on XP)
   if (navigator.userAgent.indexOf('MSIE 8') > 0)
@@ -33,7 +33,7 @@ function preload(url,f)
   $.holdReady(true);
   $.ajax(url,{
     dataType:"xml",
-    error: function(jq,stat,err) {
+    error: typeof e == 'function' ? e : function(jq,stat,err) {
       alert("Unable to load "+url+" : "+stat+' '+err);
     },
     success: f,
@@ -42,11 +42,12 @@ function preload(url,f)
 }
 
 var formationdata;
-preload('../src/formations.xml',function(a) { formationdata = a; });
+preload('formations.xml',function(a) { formationdata = a; });
 var movedata;
-preload('../src/moves.xml',function(a) { movedata = a; });
+preload('moves.xml',function(a) { movedata = a; });
 //  Load the XML doc that defines the animations
 var docname = document.URL.match(/(\w+)\.html/)[1];
+if (docname != 'index')
 preload(docname+'.xml',function(a)
   {
     //  Stuff the animations in a global variable
@@ -55,11 +56,14 @@ preload(docname+'.xml',function(a)
     animations = a;
     //  Scan the doc for cross-references and load any found
     $('tamxref',a).each(function() {
-      preload('../'+$(this).attr('xref-link')+'.xml',function(b) {
-        crossrefs[$(this).attr('xref-link')] = b;
+      var link = $(this).attr('xref-link');
+      preload('../'+link+'.xml',function(b) {
+        crossrefs[link] = b;
       });
     });
-  });
+  //  Some pages in the info section do not have xml, so ignore
+  //  any errors
+  }, function() { });
 
 var TAMination = window.TAMination = function(xmldoc,call)
 {
@@ -109,9 +113,12 @@ TAMination.prototype = {
   {
     var a = this.animation(n);
     if (a.attr('xref-link') != undefined) {
-      var t = a.attr('xref-title');
-      a = $('tam',crossrefs[a.attr('xref-link')]);
-      a = $('tam[title="'+t+'"]',crossrefs[a.attr('xref-link')]);
+      var s = '';
+      if (a.attr('xref-title') != undefined)
+        s += "[title|='"+a.attr('xref-title')+"']";
+      if (a.attr('xref-from') != undefined)
+        s += '[from="'+a.attr('xref-from')+'"]';
+      a = $('tam'+s,crossrefs[a.attr('xref-link')]);
     }
     return a;
   },
@@ -122,6 +129,8 @@ TAMination.prototype = {
   //  The return value is an XML document element with dancers
   getFormation: function()
   {
+    if (typeof startingFormation != 'undefined')  // sequence
+      return getNamedFormation(startingFormation);
     var a = this.animationXref();
     var f = $(a).find("formation");
     var retval = undefined;
@@ -131,10 +140,6 @@ TAMination.prototype = {
     } else {
       //  Named formation as an attribute
       retval = getNamedFormation(a.attr('formation'));
-      if (!retval) {  //  must be sequence
-        a = startingFormation;
-        retval = getNamedFormation(a);
-      }
     }
     return retval;
   },
@@ -156,7 +161,7 @@ TAMination.prototype = {
     return a.attr("title");
   },
 
-  getPath: function(xmldoc)
+  getPath: function()
   {
     var tam = this;
     var retval = [];

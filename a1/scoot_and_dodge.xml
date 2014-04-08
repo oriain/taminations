@@ -141,7 +141,7 @@
   <tam title="As Couples Scoot and Dodge"
        from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       parts="" >
+       group=" " >
     <path>
       <move select="Extend Right" hands="right" beats="2" scaleX="2" scaleY="1.5" />
       <move select="Swing Right" scaleX="1.5" scaleY="1.5" />
@@ -163,7 +163,7 @@
   <tam title="All 8 Scoot and Dodge"
        from="Static Mini-Waves"
        formation="Static MiniWaves RH"
-       parts="" >
+       group=" " >
     <path>
       <move select="Forward 3" />
       <move select="Swing Right" />

@@ -85,7 +85,7 @@
   <tam title="As Couples Pass Out"
        from="Lines"
        formation="Normal Lines"
-       parts="" >
+       group=" " >
     <path>
       <move select="Extend Left" beats="2" hands="right" scaleX="2" scaleY=".5" />
       <move select="Quarter Left" hands="gripright" beats="2" offsetX="1" offsetY="-1.5" />
@@ -104,7 +104,8 @@
     </path>
   </tam>
 
-  <tam title="All 4 Couples Pass Out" from="Static Square" formation="Static Square">
+  <tam title="All 4 Couples Pass Out" from="Static Square"
+       formation="Static Square" group=" ">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
       <move select="Forward" />

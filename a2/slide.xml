@@ -118,7 +118,7 @@
   <tam title="As Couples Slide"
        from="Two-Faced Tidal Line"
        formation="Two-Faced Tidal Line RH"
-       parts="2" >
+       parts="2" group=" ">
     <path>
       <move select="BackSashay Right" beats="4" scaleX="2" />
     </path>
@@ -136,7 +136,7 @@
   <tam title="All 8 Slide"
        from="Thar"
        formation="Thar LH Boys"
-       parts="1.5" >
+       parts="1.5" group=" ">
     <path>
       <move select="BackSashay Right" scaleX="1.5" />
     </path>

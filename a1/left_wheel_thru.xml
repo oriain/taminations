@@ -87,7 +87,7 @@
   <tam title="As Couples Left Wheel Thru"
        from="Lines"
        formation="Normal Lines"
-       parts="" >
+       group=" " >
     <path>
       <move select="BackHinge Right" />
     </path>
@@ -107,7 +107,7 @@
   <tam title="All 8 Left Wheel Thru"
        from="Static Square"
        formation="Static Square"
-       parts="" >
+       group=" " >
     <path>
       <move select="Lead Left" beats="7.5" scaleX="2" scaleY="2" />
     </path>

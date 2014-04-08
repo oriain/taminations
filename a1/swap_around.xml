@@ -76,7 +76,7 @@
   <tam title="As Couples Swap Around"
        from="Normal Lines"
        formation="Normal Lines"
-       parts="2" >
+       parts="2" group=" ">
     <path>
       <move select="Run Right" beats="4" hands="gripright" scaleY="3" />
     </path>
@@ -94,7 +94,7 @@
   <tam title="All 8 Swap Around"
        from="Static Square"
        formation="Static Square"
-       parts="3" >
+       parts="3" group=" ">
     <path>
       <move select="Flip Right" beats="6" />
     </path>

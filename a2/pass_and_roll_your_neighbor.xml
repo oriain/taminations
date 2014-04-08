@@ -91,7 +91,7 @@
   <tam title="All 8 Pass and Roll Your Neighbor and Spread"
        from="Facing Dancers"
        formation="Static Facing"
-       parts="" >
+       group=" " >
     <path>
       <move select="Extend Left" scaleY=".5" />
       <move select="Extend Left" beats="3" scaleX="3" scaleY=".5" />

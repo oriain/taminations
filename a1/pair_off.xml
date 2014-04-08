@@ -80,7 +80,7 @@
   <tam title="As Couples Pair Off"
        from="Lines"
        formation="Normal Lines"
-       parts="" >
+       group=" " >
     <path>
       <move select="BackHinge Right" />
     </path>
@@ -98,7 +98,7 @@
   <tam title="All 4 Couples Pair Off"
        from="Static Square"
        formation="Static Square"
-       parts="" >
+       group=" " >
     <path>
       <move select="Eighth Left" beats=".5" />
       <move select="Forward" beats="3" scaleX="2.828" scaleY="2.828" />

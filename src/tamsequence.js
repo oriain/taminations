@@ -338,7 +338,6 @@ function buildSequence()
   $('#errormsg').remove();
   for (var n2 in calls) {
     var m = false;
-    var mxml = false;
     var callname = calls[n2];
     var ctx = new CallContext(tamsvg);
     var callfound = false;
@@ -385,9 +384,10 @@ function buildSequence()
                 }
                 if (mm) {
                   m = mm;
-                  mxml = tamxml;
-                  tam.callnum = x; // ugly hack
-                  allp = tam.getPath(mxml);
+                  tam.xmldoc = tamxml;  // ugly hack
+                  tam.selectAnimation(x);
+                  //tam.callnum = x; // ugly hack
+                  allp = tam.getPath();
                   for (var i3 in allp) {
                     var p = new Path(allp[i3]);
                     ctx.paths[m[i3*2]] = p;
@@ -485,11 +485,6 @@ function gotoCall(n)
   for (var i=0; i<n; i++)
     b += tamsvg.parts[i];
   tamsvg.setBeat(b);
-}
-
-function getFormation()  // override function in tamination.js
-{
-  return getNamedFormation(startingFormation);
 }
 
 function getDancers(formation)

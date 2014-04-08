@@ -195,7 +195,8 @@ $(document).ready(
 
     //  Finally insert the document structure and build the menu of animations
     $("#menudiv").after(htmlstr);
-    generateAnimations();
+    if (animations)
+      generateAnimations();
     //  end of menu load function
 
   });  // end of document ready function
@@ -323,7 +324,7 @@ function generateAnimations()
       .click(function() { PickAnimation(n); });
     $("#animationlist").append('<a class="selectAnimation" href="javascript:PickAnimation('+n+')">'+
           name + '</a>');
-    if ($("path",this).length == 2)
+    if ($("path",tam.animationXref(n)).length == 2)
       $("#animationlist").append(' <span class="comment">(4 dancers)</span>');
     $("#animationlist").append('<br />');
   });
