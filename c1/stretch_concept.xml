@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!DOCTYPE tamination SYSTEM "tamination.dtd">
+<!DOCTYPE tamination SYSTEM "../src/tamination.dtd">
 <!--
 
     Copyright 2014 Brad Christie
@@ -346,7 +346,12 @@
   <tam title="Stretch Shakedown"
        from="Lines Facing Out"
        group="Stretch" >
-     <formation>      <dancer gender="girl" x="3" y="2" angle="90"/>      <dancer gender="boy" x="1" y="2" angle="90"/>      <dancer gender="girl" x="-1" y="2" angle="90"/>      <dancer gender="boy" x="-3" y="2" angle="90"/>    </formation>
+     <formation>
+      <dancer gender="girl" x="3" y="2" angle="90"/>
+      <dancer gender="boy" x="1" y="2" angle="90"/>
+      <dancer gender="girl" x="-1" y="2" angle="90"/>
+      <dancer gender="boy" x="-3" y="2" angle="90"/>
+    </formation>
     <path numbers="1 8">
       <move select="U-Turn Right" offsetX="-1.5" offsetY="-1" />
       <move select="Lead Right" scaleX="1.5" />
@@ -672,19 +677,56 @@
     </path>
   </tam>
 
-  <tamxref title-match="Stretch"
-           title-sub="Stretch (C-1)"
-           group="Stretch (C-1)"
-           file="c1/*.xml" />
+  <tamxref title="Stretch (C-1) Ah So" group="Stretch (C-1)"
+           xref-link="c1/ah_so"
+           xref-title="Stretch Ah So"/>
 
-  <tamxref title-match="^Stretch\b"
-           title-sub="Stretch (C-2)"
-           group="Stretch (C-2)"
-           file="c2/*.xml" />
+  <tamxref title="Stretch (C-1) Follow Thru" group="Stretch (C-1)"
+           xref-link="c1/follow_thru"
+           xref-title="Stretch Follow Thru"/>
 
-  <tamxref title-match="^Stretch\b"
-           title-sub="Stretch (C-3A)"
-           group="Stretch (C-3A)"
-           file="c3a/*.xml" />
+  <tamxref title="Stretch (C-1) Reverse Explode" group="Stretch (C-1)"
+           xref-link="c1/reverse_explode"
+           xref-title="Stretch Reverse Explode"/>
+
+  <tamxref title="Stretch (C-1) Shakedown (from columns)" group="Stretch (C-1)"
+           xref-link="c1/shakedown"
+           xref-title="Stretch Shakedown (from columns)"/>
+
+  <tamxref title="Stretch (C-1) Shakedown (from lines)" group="Stretch (C-1)"
+           xref-link="c1/shakedown"
+           xref-title="Stretch Shakedown (from lines)"/>
+
+  <tamxref title="Stretch (C-1) Left Shakedown (from columns)" group="Stretch (C-1)"
+           xref-link="c1/shakedown"
+           xref-title="Stretch Left Shakedown (from columns)"/>
+
+  <tamxref title="Stretch (C-1) Left Shakedown (from lines)" group="Stretch (C-1)"
+           xref-link="c1/shakedown"
+           xref-title="Stretch Left Shakedown (from lines)"/>
+
+  <tamxref title="Stretch (C-1) Step and Fold" group="Stretch (C-1)"
+           xref-link="c1/step_and_fold"
+           xref-title="Stretch Step and Fold"/>
+
+  <tamxref title="Stretch (C-1) Wheel Fan Thru" group="Stretch (C-1)"
+           xref-link="c1/wheel_fan_thru"
+           xref-title="Stretch Wheel Fan Thru"/>
+
+  <tamxref title="Stretch (C-1) Left Wheel Fan Thru" group="Stretch (C-1)"
+           xref-link="c1/wheel_fan_thru"
+           xref-title="Stretch Left Wheel Fan Thru"/>
+
+  <tamxref title="Stretch (C-1) Zing" group="Stretch (C-1)"
+           xref-link="c1/zing"
+           xref-title="Stretch Zing"/>
+
+  <tamxref title="Stretch (C-2) Turn to a Line" group="Stretch (C-2)"
+           xref-link="c2/turn_to_a_line"
+           xref-title="Stretch Turn to a Line"/>
+
+  <tamxref title="Stretch (C-3A) Mini Chase" group="Stretch (C-3A)"
+           xref-link="c3a/mini_chase"
+           xref-title="Stretch Mini Chase"/>
 
 </tamination>

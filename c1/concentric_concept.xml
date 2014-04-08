@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!DOCTYPE tamination SYSTEM "tamination.dtd">
+<!DOCTYPE tamination SYSTEM "../src/tamination.dtd">
 <!--
 
     Copyright 2014 Brad Christie
@@ -722,7 +722,12 @@
   </tam>
 
   <tam title="From lines, Concentric Slide Thru" group="From lines, Concentric">
-     <formation>      <dancer gender="boy" x="-2" y="3" angle="0"/>      <dancer gender="girl" x="-2" y="-1" angle="0"/>      <dancer gender="boy" x="-2" y="1" angle="0"/>      <dancer gender="girl" x="-2" y="-3" angle="0"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-2" y="3" angle="0"/>
+      <dancer gender="girl" x="-2" y="-1" angle="0"/>
+      <dancer gender="boy" x="-2" y="1" angle="0"/>
+      <dancer gender="girl" x="-2" y="-3" angle="0"/>
+    </formation>
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Lead Right" beats="3" scaleX="3" scaleY="1.5" />
@@ -743,7 +748,12 @@
   </tam>
 
   <tam title="From lines, Concentric Star Thru" group="From lines, Concentric">
-     <formation>      <dancer gender="boy" x="3" y="2" angle="270"/>      <dancer gender="girl" x="-1" y="2" angle="270"/>      <dancer gender="boy" x="1" y="2" angle="270"/>      <dancer gender="girl" x="-3" y="2" angle="270"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="3" y="2" angle="270"/>
+      <dancer gender="girl" x="-1" y="2" angle="270"/>
+      <dancer gender="boy" x="1" y="2" angle="270"/>
+      <dancer gender="girl" x="-3" y="2" angle="270"/>
+    </formation>
     <path numbers="7 2">
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Lead Right" beats="3" scaleX="3" scaleY="1.5" />
@@ -836,7 +846,12 @@
   </tam>
 
   <tam title="From T-Bones, Concentric Star Thru" group="From T-Bones, Concentric">
-     <formation>      <dancer gender="boy" x="3" y="1" angle="270"/>      <dancer gender="girl" x="-1" y="1" angle="0"/>      <dancer gender="boy" x="1" y="1" angle="180"/>      <dancer gender="girl" x="-3" y="1" angle="270"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="3" y="1" angle="270"/>
+      <dancer gender="girl" x="-1" y="1" angle="0"/>
+      <dancer gender="boy" x="1" y="1" angle="180"/>
+      <dancer gender="girl" x="-3" y="1" angle="270"/>
+    </formation>
     <path numbers="7 2">
       <move select="Extend Left" scaleY=".5"/>
       <move select="Lead Right" beats="4" scaleX="3" scaleY="2.5"/>
@@ -1177,19 +1192,76 @@
     </path>
   </tam>
 
-  <tamxref title-match="Concentric"
-           title-sub="Concentric (C-1)"
-           group="Concentric (C-1)"
-           file="c1/*.xml" />
+  <tamxref title="Concentric (C-1) Box Recycle" group="Concentric (C-1)"
+           xref-link="c1/box_split_recycle"
+           xref-title="Concentric Box Recycle"/>
 
-  <tamxref title-match="^Concentric"
-           title-sub="Concentric (C-2)"
-           group="Concentric (C-2)"
-           file="c2/*.xml" />
+  <tamxref title="Concentric (C-1) Chase Your Neighbor" group="Concentric (C-1)"
+           xref-link="c1/chase_your_neighbor"
+           xref-title="Concentric Chase Your Neighbor"/>
 
-  <tamxref title-match="^Concentric"
-           title-sub="Concentric (C-3A)"
-           group="Concentric (C-3A)"
-           file="c3a/*.xml" />
+  <tamxref title="Concentric (C-1) Cross and Turn" group="Concentric (C-1)"
+           xref-link="c1/cross_and_turn"
+           xref-title="Concentric Cross and Turn"/>
+
+  <tamxref title="Concentric (C-1) Cross Roll" group="Concentric (C-1)"
+           xref-link="c1/cross_roll"
+           xref-title="Concentric Cross Roll"/>
+
+  <tamxref title="Concentric (C-1) Follow Thru" group="Concentric (C-1)"
+           xref-link="c1/follow_thru"
+           xref-title="Concentric Follow Thru"/>
+
+  <tamxref title="Concentric (C-1) Reverse Cross and Turn" group="Concentric (C-1)"
+           xref-link="c1/reverse_cross_and_turn"
+           xref-title="Concentric Reverse Cross and Turn"/>
+
+  <tamxref title="Concentric (C-1) Reverse Explode" group="Concentric (C-1)"
+           xref-link="c1/reverse_explode"
+           xref-title="Concentric Reverse Explode"/>
+
+  <tamxref title="Concentric (C-1) Shakedown" group="Concentric (C-1)"
+           xref-link="c1/shakedown"
+           xref-title="Concentric Shakedown"/>
+
+  <tamxref title="Concentric (C-1) Left Shakedown" group="Concentric (C-1)"
+           xref-link="c1/shakedown"
+           xref-title="Concentric Left Shakedown"/>
+
+  <tamxref title="Concentric (C-1) Step and Fold" group="Concentric (C-1)"
+           xref-link="c1/step_and_fold"
+           xref-title="Concentric Step and Fold"/>
+
+  <tamxref title="Concentric (C-1) Diamond Step and Fold" group="Concentric (C-1)"
+           xref-link="c1/step_and_fold"
+           xref-title="Concentric Diamond Step and Fold"/>
+
+  <tamxref title="Concentric (C-1) Zing" group="Concentric (C-1)"
+           xref-link="c1/zing"
+           xref-title="Concentric Zing"/>
+
+  <tamxref title="Concentric (C-2) Criss Cross Your Neighbor" group="Concentric (C-2)"
+           xref-link="c2/criss_cross_your_neighbor"
+           xref-title="Concentric Criss Cross Your Neighbor"/>
+
+  <tamxref title="Concentric (C-2) Peel to a Diamond" group="Concentric (C-2)"
+           xref-link="c2/peel_to_a_diamond"
+           xref-title="Concentric Peel to a Diamond"/>
+
+  <tamxref title="Concentric (C-2) Trail to a Diamond" group="Concentric (C-2)"
+           xref-link="c2/trail_to_a_diamond"
+           xref-title="Concentric Trail to a Diamond"/>
+
+  <tamxref title="Concentric (C-2) Turn to a Line" group="Concentric (C-2)"
+           xref-link="c2/turn_to_a_line"
+           xref-title="Concentric Turn to a Line"/>
+
+  <tamxref title="Concentric (C-3A) Couple Up" group="Concentric (C-3A)"
+           xref-link="c3a/couple_up"
+           xref-title="Concentric Couple Up"/>
+
+  <tamxref title="Concentric (C-3A) Mini Chase" group="Concentric (C-3A)"
+           xref-link="c3a/mini_chase"
+           xref-title="Concentric Mini Chase"/>
 
 </tamination>

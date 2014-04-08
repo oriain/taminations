@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!DOCTYPE tamination SYSTEM "tamination.dtd">
+<!DOCTYPE tamination SYSTEM "../src/tamination.dtd">
 <!--
 
     Copyright 2014 Brad Christie
@@ -171,13 +171,9 @@
     </path>
   </tam>
 
-  <tamxref
-     title-match="Couples Twosome"
-     title-sub="Couples Twosome (C-3B)"
-     group="Couples Twosome (C-3B)"
-     file="c3b/*.xml"
-     not-file="twosome_concept"
-  />
+  <tamxref title="Couples Twosome (C-3B) Boomerang" group="Couples Twosome (C-3B)"
+           xref-link="c3b/boomerang"
+           xref-title="Couples Twosome Boomerang"/>
 
   <tam title="Tandem Twosome Circulate" group="Tandem Twosome"
        formation="Column RH GBGB">
@@ -252,12 +248,9 @@
     </path>
   </tam>
 
-  <tamxref
-     title-match="Tandem Twosome"
-     title-sub="Tandem Twosome (C-3B)"
-     group="Tandem Twosome (C-3B)"
-     file="c3b/*.xml"
-     not-file="twosome_concept"
-  />
+  <tamxref title="Tandem Twosome (C-3B) Boomerang" group="Tandem Twosome (C-3B)"
+           xref-link="c3b/boomerang"
+           xref-title="Tandem Twosome Boomerang"/>
 
 </tamination>
+
