@@ -22,4 +22,197 @@
 -->
 <tamination>
 
+  <tam title="Change Your Image" from="Right-Hand Waves"
+       formation="Ocean Waves RH BGGB" parts="3">
+    <path>
+      <move select="Forward 3"/>
+      <move select="Run Right"/>
+    </path>
+    <path>
+      <move select="Forward" beats="3"/>
+      <move select="Run Left"/>
+    </path>
+    <path>
+      <move select="Forward 3"/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+    <path>
+      <move select="Run Right" offsetX="-1"/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+  </tam>
+
+  <tam title="Change Your Image" from="Left-Hand Waves"
+       formation="Ocean Waves LH BGGB" parts="3">
+    <path>
+      <move select="Run Left" offsetX="-1"/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+    <path>
+      <move select="Forward 3"/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+    <path>
+      <move select="Forward" beats="3"/>
+      <move select="Run Right"/>
+    </path>
+    <path>
+      <move select="Forward 3"/>
+      <move select="Run Left"/>
+    </path>
+  </tam>
+
+  <tam title="Change Your Image" from="Right-Hand Two-Faced Lines"
+       formation="Two-Faced Lines RH" parts="3">
+    <path>
+      <move select="Forward 3"/>
+      <move select="Run Right"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="3" scaleY=".5"/>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Forward" beats="3"/>
+      <move select="Run Right"/>
+    </path>
+    <path>
+      <move select="Run Right" offsetX="-1" scaleY="0.75"/>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Change Your Image" from="Inverted Lines, Ends Facing In"
+       formation="Inverted Lines Ends Facing In" parts="3">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" scaleY=".5"/>
+      <move select="Run Right"/>
+    </path>
+    <path>
+      <move select="Forward" beats="3"/>
+      <move select="Flip Left"/>
+    </path>
+    <path>
+      <move select="Forward" beats="3"/>
+      <move select="Run Right"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" scaleY=".5"/>
+       <move select="Run Left"/>
+    </path>
+  </tam>
+
+  <tam title="Change Your Image" from="Inverted Lines, Ends Facing Out"
+       formation="Inverted Lines Ends Facing Out">
+    <path>
+      <move select="Stand" beats="4"/>
+      <move select="Run Left" offsetX="-1"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="3" scaleX="3" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="3" scaleX="3" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Stand" beats="4"/>
+      <move select="Run Right" offsetX="-1"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Change Your Image" from="Right-Hand Columns"
+       formation="Column RH GBGB" parts="3">
+    <path>
+      <move select="Run Right"/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Run Right"/>
+    </path>
+    <path>
+      <move select="Forward 4" beats="6"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Run Right" scaleX=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Change Your Image" from="Left-Hand Columns"
+       formation="Column LH GBGB" parts="3">
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Run Left" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Forward 4" beats="6"/>
+    </path>
+    <path>
+      <move select="Forward 2" beats="3"/>
+      <move select="Run Left"/>
+    </path>
+    <path>
+      <move select="Run Left"/>
+      <move select="Forward 2" beats="3"/>
+    </path>
+  </tam>
+
+  <tam title="Change Your Image" from="Magic Columns"
+       formation="Magic Column RH" parts="3">
+    <path>
+      <move select="Extend Left" beats="1.5" scaleY=".5"/>
+      <move select="Forward" beats="1.5"/>
+      <move select="Run Left" scaleX=".5" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="1.5" scaleY=".5"/>
+      <move select="Forward" beats="1.5"/>
+      <move select="Run Right" scaleY="1.25"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY=".5"/>
+      <move select="Forward" beats="1.5"/>
+      <move select="Extend Right" beats="1.5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Left" scaleY=".75"/>
+      <move select="Forward" beats="1.5"/>
+      <move select="Extend Right" beats="1.5" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Change Your Image" from="T-Bones" parts="3">
+    <formation>
+      <dancer gender="boy" x="1" y="3" angle="270"/>
+      <dancer gender="girl" x="1" y="1" angle="270"/>
+      <dancer gender="boy" x="1" y="-1" angle="0"/>
+      <dancer gender="girl" x="1" y="-3" angle="180"/>
+    </formation>
+  <path>
+    <move select="Forward 2" beats="3"/>
+    <move select="Run Right" scaleX=".5"/>
+  </path>
+  <path>
+    <move select="Forward 2" beats="3"/>
+    <move select="Forward 2" beats="3"/>
+  </path>
+  <path>
+    <move select="Forward 2" beats="3"/>
+    <move select="Run Left"/>
+  </path>
+  <path>
+    <move select="Forward 2" beats="3"/>
+    <move select="Run Right"/>
+  </path>
+  </tam>
+
 </tamination>
