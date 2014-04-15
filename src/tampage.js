@@ -251,16 +251,9 @@ function svgSize()
 function generateAnimations()
 {
   var showDiffLegend = false;
-  //  If a specific animation is requested in the URL, switch to it
   callnumber = 0;
   callname = '';
-  for (var arg in args) {
-    if (animationNumber[arg] != undefined) {
-      callnumber = animationNumber[arg];
-      callname = arg;
-    }
-  }
-  TAMination(animations,callname);
+  TAMination(animations,'');
   //  Put the call definition in the document structure
   $("#deftable").nextAll().appendTo("#definition");
   $("#radio1").attr("checked",true);
@@ -379,6 +372,14 @@ function generateAnimations()
   showTAMinator(callnumber);
   if (tamsvg)
     generateButtonPanel();
+  //  If a specific animation is requested in the URL, switch to it
+  for (var arg in args) {
+    if (animationNumber[arg] != undefined) {
+      callnumber = animationNumber[arg];
+      callname = arg;
+      PickAnimation(callnumber);
+    }
+  }
 }
 
 
