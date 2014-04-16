@@ -186,7 +186,7 @@
       <move select="Lead Right" beats="3" scaleX="3" scaleY="2"/>
     </path>
     <path>
-      <move select="Quarter Right" beats="2" offsetY=""/>
+      <move select="Quarter Right" beats="2"/>
       <move select="Forward 2" beats="3"/>
     </path>
   </tam>
