@@ -29,12 +29,10 @@ ZIPFILE = ../tamination.zip
 DIRS = b1 b2 ms plus a1 a2 c1 c2 c3a c3b info .
 XMLSRC = calls.xml callindex.xml formations.xml moves.xml tamination.dtd
 XMLCOPIES = $(foreach dir,$(DIRS),$(addprefix ../$(dir)/,$(XMLSRC)))
-XREFXML = $(foreach dir,$(DIRS),$(wildcard ../$(dir)/*.x.xml))
-GENXML = $(addsuffix .xml,$(basename $(basename $(XREFXML))))
 CALLINDEX = callindex.xml
 
 .phony : all
-all : $(GENXML) $(CALLINDEX) $(XMLCOPIES) $(ZIPFILE)
+all : $(CALLINDEX) $(XMLCOPIES) $(ZIPFILE)
 	@echo Build complete
 
 unzip :
@@ -48,7 +46,6 @@ unzip :
 clean :
 	-$(RM) *.class *.jar
 	-$(RM) $(ZIPFILE)
-	-$(RM) $(GENXML)
 	-$(RM) $(XMLCOPIES)
 	-$(RM) $(CALLINDEX)
 
@@ -57,10 +54,6 @@ clean :
 ../tamination.zip : $(filter-out $(ZIPFILE),$(wildcard ../* ../*/*))
 	-$(RM) $(ZIPFILE)
 	cd .. && $(ZIP) -rq tamination.zip info b1 b2 ms plus a1 a2 adv c1 c2 c3a src ext *.html *.txt *.ico *.xml
-
-#  Generate xml files from x.xml files with cross-references
-%.xml : %.x.xml
-	$(PYTHON) expandxrefs.py $< >$@
 
 #  Generate index used by sequencer
 $(CALLINDEX) : $(filter-out $(XMLCOPIES),$(wildcard ../*/*.xml) $(wildcard calls/*.js))
