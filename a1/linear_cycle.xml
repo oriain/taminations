@@ -63,4 +63,60 @@
     </path>
   </tam>
 
+  <tam title="Linear Cycle" from="Inverted Lines, Ends Facing In"
+       formation="Inverted Lines Ends Facing In">
+    <path>
+      <move select="Hinge Right"/>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Forward 2"/>
+      <move select="Run Right" scaleY="1.25"/>
+    </path>
+    <path>
+      <move select="Hinge Right"/>
+      <move select="Run Right" scaleY="1.25"/>
+      <move select="Forward 2" />
+      <move select="U-Turn Right" beats="2" offsetX="2" offsetY="-.5"/>
+    </path>
+    <path>
+      <move select="Hinge Left"/>
+      <move select="Run Left" scaleY="0.75"/>
+      <move select="Forward 2"/>
+      <move select="U-Turn Left" beats="2" offsetX="2" offsetY="-.5"/>
+    </path>
+    <path>
+      <move select="Hinge Left"/>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Forward 2"/>
+      <move select="Run Left" scaleY="0.75"/>
+    </path>
+  </tam>
+
+  <tam title="Linear Cycle" from="Inverted Lines, Ends Facing Out"
+       formation="Inverted Lines Ends Facing Out">
+    <path>
+      <move select="Hinge Left"/>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Forward 2"/>
+      <move select="Run Left" scaleY="0.75"/>
+    </path>
+    <path>
+      <move select="Hinge Left"/>
+      <move select="Run Left" scaleY="0.75"/>
+      <move select="Forward 2"/>
+      <move select="U-Turn Left" beats="2" offsetX="2" offsetY="-.5"/>
+    </path>
+    <path>
+      <move select="Hinge Right"/>
+      <move select="Run Right" scaleY="1.25"/>
+      <move select="Forward 2" />
+      <move select="U-Turn Right" beats="2" offsetX="2" offsetY="-.5"/>
+    </path>
+    <path>
+      <move select="Hinge Right"/>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Forward 2"/>
+      <move select="Run Right" scaleY="1.25"/>
+    </path>
+  </tam>
+
 </tamination>

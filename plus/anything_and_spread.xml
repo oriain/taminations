@@ -182,34 +182,10 @@
     </path>
   </tam>
 
-  <tam title="Follow Your Neighbor and Spread" group=" "
-       from="Ocean Waves"
-       formation="Ocean Waves RH BGGB"
-       parts="" difficulty="1">
-    <path>
-      <move select="Forward 2" beats="1.5" offsetY="-.25" />
-      <move select="Swing Right" scaleX=".75" scaleY=".75" />
-      <move select="Lead Right" beats="2" offsetX="2" offsetY=".25" />
-    </path>
-    <path>
-      <move select="Lead Right" beats="3" />
-      <move select="Run Right" beats="3" />
-    </path>
-    <path>
-      <move select="Forward 2" beats="1.5" offsetY="-.25" />
-      <move select="Swing Right" scaleX=".75" scaleY=".75" />
-      <move select="Lead Right" beats="2" offsetX="2" offsetY=".25" />
-    </path>
-    <path>
-      <move select="Lead Right" beats="3" />
-      <move select="Run Right" beats="3" />
-    </path>
-    <taminator>
-    Our caller feels that Follow Your Neighbor and Spread is so
-    over-used that he only calls it when the timing of a singing
-    call makes it necessary.
-    </taminator>
-  </tam>
+  <tamxref title="Follow Your Neighbor and Spread" group=" "
+           xref-link="plus/follow_your_neighbor"
+           xref-title="Follow Your Neighbor and Spread"
+           xref-from="Ocean Waves"/>
 
   <tam title="Heads Star Thru and Spread" group=" "
        formation="Static Square" difficulty="1">
