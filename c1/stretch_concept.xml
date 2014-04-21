@@ -705,6 +705,10 @@
            xref-link="c1/shakedown"
            xref-title="Stretch Left Shakedown (from lines)"/>
 
+  <tamxref title="Stretch (C-1) Step and Flip" group="Stretch (C-1)"
+           xref-link="c1/step_and_flip"
+           xref-title="Stretch Step and Flip"/>
+
   <tamxref title="Stretch (C-1) Step and Fold" group="Stretch (C-1)"
            xref-link="c1/step_and_fold"
            xref-title="Stretch Step and Fold"/>

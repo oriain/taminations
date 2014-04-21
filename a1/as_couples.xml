@@ -905,6 +905,10 @@
            xref-link="c1/shakedown"
            xref-title="As Couples Left Shakedown" />
 
+  <tamxref title="As Couples (C-1) Step and Flip" group="As Couples (C-1)"
+           xref-link="c1/step_and_flip"
+           xref-title="As Couples Step and Flip" />
+
   <tamxref title="As Couples (C-1) Step and Fold" group="As Couples (C-1)"
            xref-link="c1/step_and_fold"
            xref-title="As Couples Step and Fold" />

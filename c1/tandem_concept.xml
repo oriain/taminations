@@ -444,6 +444,10 @@
            xref-link="c1/reverse_explode"
            xref-title="Tandem Reverse Explode"/>
 
+  <tamxref title="Tandem (C-1) Step and Flip" group="Tandem (C-1)"
+           xref-link="c1/step_and_flip"
+           xref-title="Tandem Step and Flip"/>
+
   <tamxref title="Tandem (C-1) Step and Fold" group="Tandem (C-1)"
            xref-link="c1/step_and_fold"
            xref-title="Tandem Step and Fold"/>
