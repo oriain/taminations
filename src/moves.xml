@@ -253,6 +253,15 @@
     <move select="Lead Left" reflect="-1" />
   </path>
 
+  <!-- Like Lead Right but with extra space for Wheel Thru -->
+  <path name="Wheel Thru Right">
+    <movement  beats="3" cx1="2.5" cy1="0" cx2="3" cy2="-.5" x2="3" y2="-3" hands="none"/>
+  </path>
+  <path name="Wheel Thru Left">
+    <movement  beats="3" cx1="2.5" cy1="0" cx2="3" cy2=".5" x2="3" y2="3" hands="none"/>
+  </path>
+
+
   <!-- Turn in place 45 degrees to the left -->
   <path name="Eighth Left">
     <movement hands="none" beats="0.75" cx1="0" cy1="0" cx2="0" cy2="0" x2="0" y2="0"

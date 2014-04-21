@@ -516,4 +516,8 @@
            xref-link="c3a/mini_chase"
            xref-title="Tandem Mini Chase"/>
 
+  <tamxref title="Tandem (C-3B) Bingo" group="Tandem (C-3B)"
+           xref-link="c3b/bingo"
+           xref-title="Tandem Bingo"/>
+
 </tamination>

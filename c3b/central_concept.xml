@@ -147,6 +147,10 @@
     </path>
   </tam>
 
+  <tamxref title="Central Scramble" group="Central"
+           xref-link="c3b/scramble"
+           xref-title="Central Scramble"/>
+
   <tam title="Central Stampede" group="Central"
        formation="Ocean Waves RH BGGB">
     <path>
