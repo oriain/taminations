@@ -73,7 +73,7 @@ h3, h3 > a {
 
 /*  B is used for call variations  */
 b {
-  font: medium Helvetica, Arial, Sans Serif;
+  font: bold medium Helvetica, Arial, Sans Serif;
   color: #008000;
 }
 
@@ -149,6 +149,12 @@ p.timing {
 
 /*  Comment after list of animations  */
 .comment {
+  color: maroon;
+}
+
+/*  Calls removed from a list  */
+p.obsolete {
+  font: bold medium Helvetica, Arial, Sans Serif;
   color: maroon;
 }
 
