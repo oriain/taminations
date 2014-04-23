@@ -76,6 +76,7 @@ TamSVG.prototype = {
     var me = this;
     cookie = new Cookie("TAMination");
     this.cookie = cookie;
+    this.animationListener = null;
     $(document).bind("contextmenu",function() { return false; });
     //  Get initial values from cookie
     //  This is a hook to test hexagon
@@ -268,6 +269,11 @@ TamSVG.prototype = {
       this.goBigon();
   },
 
+  setAnimationListener: function(l)
+  {
+    this.animationListener = l;
+  },
+
   //  This function is called repeatedly to move the dancers
   animate: function()
   {
@@ -282,7 +288,9 @@ TamSVG.prototype = {
     //  Update the slider
     //  would probably be better to do this with a callback
     $('#playslider').slider('value',this.beat*100);
-    $('#animslider').val(Math.floor(this.beat*100)).slider('refresh');
+    if (this.animationListener != null)
+      this.animationListener(this.beat);
+    //$('#animslider').val(Math.floor(this.beat*100)).slider('refresh');
     if (this.beat >= this.beats) {
       if (this.loop)
         this.beat = -2;
@@ -514,7 +522,6 @@ TamSVG.prototype = {
     this.timer = null;
     this.running = false;
     this.animationStopped();
-    //$('#playButton').attr('value','Play'); // for mobile .button('refresh');
   },
 
   start: function()

@@ -387,16 +387,36 @@ function generateAnimation(n)
 
 }
 
+
 function bindControls()
 {
-  $('#animslider').attr('max',Math.floor(tamsvg.beats*100));
+  var wasRunning = false;
+  var isSliding = false;
+  $('#animslider').attr('max',Math.floor(tamsvg.beats*100))
+                  .slider({start: function() {
+                    wasRunning = tamsvg.running;
+                    isSliding = true;
+                    tamsvg.stop();
+                    },
+                    stop: function() {
+                      if (wasRunning)
+                        tamsvg.start();
+                      isSliding = false;
+                    }}
+                  );
   tamsvg.animationStopped = function()
   {
     $('#playButton').attr('value','Play').button('refresh');
   };
-  //$('#animslider').change(function()
-  //  {
-  //    tamsvg.setBeat($('#animslider').val()/100);
-  //    tamsvg.paint();
-  //  });
+  $('#animslider').change(function()
+    {
+      if (isSliding) {
+        tamsvg.setBeat($('#animslider').val()/100);
+        tamsvg.paint();
+      }
+    });
+  tamsvg.setAnimationListener(function(beat) {
+    if (!isSliding)
+      $('#animslider').val(Math.floor(beat*100)).slider('refresh');
+  });
 }
