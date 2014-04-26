@@ -177,22 +177,22 @@ TAMination.prototype = {
     var a = this.animationXref();
     // np is the number of paths not including phantoms (which raise it > 4)
     var np =  Math.min($('path',a).length,4);
-    retval = [1,2,3,4,5,6,7,8];
+    retval = ['1','2','3','4','5','6','7','8'];
     var i = 0;
     $("path",a).each(function(n) {
       var n = $(this).attr('numbers');
-      if (n) {
+      if (n) {  //  numbers given in animation XML
         var nn = n.split(/ /);
         retval[i*2] = nn[0];
         retval[i*2+1] = nn[1];
       }
       else if (i > 3) {  // phantoms
-        retval[i*2] = ['a','b','c','d','e','f','g','h'][i*2-8];
-        retval[i*2+1] = ['a','b','c','d','e','f','g','h'][i*2-7];
+        retval[i*2] = ' ';
+        retval[i*2+1] = ' ';
       }
-      else {
-        retval[i*2] = i+1;
-        retval[i*2+1] = i+1+np;
+      else {  //  default numbering
+        retval[i*2] = (i+1)+'';
+        retval[i*2+1] = (i+1+np)+'';
       }
       i += 1;
     });
@@ -202,13 +202,13 @@ TAMination.prototype = {
   getCouples : function()
   {
     var a = this.animationXref();
-    var retval = [1,3,1,3,2,4,2,4,5,6,5,6,7,8,7,8];
+    var retval = ['1','3','1','3','2','4','2','4','5','6','5','6',' ',' ',' ',' '];
     $("path",a).each(function(n) {
       var c = $(this).attr('couples');
       if (c) {
         var cc = c.split(/ /);
-        retval[n*2] = Number(cc[0]);
-        retval[n*2+1] = Number(cc[1]);
+        retval[n*2] = cc[0];
+        retval[n*2+1] = cc[1];
       }
     });
     return retval;

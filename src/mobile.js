@@ -93,37 +93,62 @@ $(document).ready(function(){
     tamsvg.fast();
   });
   $('#loopButton').bind('change',function(event,ui) {
-    tamsvg.setLoop($('#loopButton').attr('checked')=='checked');
+    tamsvg.setLoop($('#loopButton:checked').length==1);
   });
   $('#gridButton').bind('change',function(event,ui) {
-    tamsvg.setGrid($('#gridButton').attr('checked')=='checked');
+    tamsvg.setGrid($('#gridButton:checked').length==1);
   });
   $('#pathsButton').bind('change',function(event,ui) {
-    tamsvg.setPaths($('#pathsButton').attr('checked')=='checked');
+    tamsvg.setPaths($('#pathsButton:checked').length==1);
   });
-  $('#numbersButton').bind('change',function(event,ui) {
-    tamsvg.setNumbers($('#numbersButton').attr('checked')=='checked');
+
+  $('#numbersNoneButton').bind('change',function(event,ui) {
+    tamsvg.setNumbers(false);
+    tamsvg.setCouples(false);
   });
+  $('#numbersDancersButton').bind('change',function(event,ui) {
+    tamsvg.setNumbers(true);
+  });
+  $('#numbersCouplesButton').bind('change',function(event,ui) {
+    tamsvg.setCouples(true);
+  });
+
+  $('#geometryNoneButton').bind('change',function(event,ui) {
+    if (tamsvg.setHexagon())
+      tamsvg.setHexagon(false);
+    if (tamsvg.setBigon())
+      tamsvg.setBigon(false);
+  });
+  $('#geometryHexagonButton').bind('change',function(event,ui) {
+    tamsvg.setHexagon(true);
+  });
+  $('#geometryBigonButton').bind('change',function(event,ui) {
+    tamsvg.setBigon(true);
+  });
+
   $('#hexagonButton').bind('change',function(event,ui) {
-    var ishex = $('#hexagonButton').attr('checked')=='checked';
+    var ishex = $('#hexagonButton:checked').length==1;
     tamsvg.setHexagon(ishex);
     if (ishex) {
-      $('#numbersButton').removeAttr('checked').checkboxradio('refresh').checkboxradio('disable');
       $('#bigonButton').removeAttr('checked').checkboxradio('refresh');
     }
     else
       $('#numbersButton').checkboxradio('enable');
   });
   $('#bigonButton').bind('change',function(event,ui) {
-    var isbigon = $('#bigonButton').attr('checked')=='checked';
+    var isbigon = $('#bigonButton:checked').length==1;
     tamsvg.setBigon(isbigon);
     if (isbigon) {
-      $('#numbersButton').removeAttr('checked').checkboxradio('refresh').checkboxradio('disable');
       $('#hexagonButton').removeAttr('checked').checkboxradio('refresh');
     }
     else
       $('#numbersButton').checkboxradio('enable');
   });
+
+  $('#phantomsButton').bind('change',function(event,ui){
+    tamsvg.setPhantoms($('#phantomsButton:checked').length==1);
+  });
+
 });
 
 //  This is needed to keep the green color for the level header
@@ -304,18 +329,25 @@ $(document).bind('pagebeforechange',function(e,data)
           $('#pathsButton').attr('checked','checked');
         else
           $('#pathsButton').removeAttr('checked');
+
         if (tamsvg.setNumbers())
-          $('#numbersButton').attr('checked','checked');
+          $('#numbersDancersButton').attr('checked','checked');
+        else if (tamsvg.setCouples())
+          $('#numbersCouplesButton').attr('checked','checked');
         else
-          $('#numbersButton').removeAttr('checked');
+          $('#numbersNoneButton').attr('checked','checked');
+
         if (tamsvg.setHexagon())
-          $('#hexagonButton').attr('checked','checked');
+          $('#geometryHexagonButton').attr('checked','checked');
+        else if (tamsvg.setBigon())
+          $('#geometryBigonButton').attr('checked','checked');
         else
-          $('#hexagonButton').removeAttr('checked');
-        if (tamsvg.setBigon())
-          $('#bigonButton').attr('checked','checked');
+          $('#geometryNoneButton').attr('checked','checked');
+
+        if (tamsvg.setPhantoms())
+          $('#phantomsButton').attr('checked','checked');
         else
-          $('#bigonButton').removeAttr('checked');
+          $('#phantomssButton').removeAttr('checked');
       }
     }
   }

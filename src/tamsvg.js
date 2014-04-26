@@ -189,33 +189,32 @@ TamSVG.prototype = {
     var numbers = tam.getNumbers();
     var couples = tam.getCouples();
     $('dancer',formation).each(function(j) {
+      var gender = Dancer.genders[$(this).attr('gender')];
       var d = new Dancer({
         tamsvg: me,
-        gender: Dancer.genders[$(this).attr('gender')],
+        gender: gender,
         x: -Number($(this).attr('y')),
         y: -Number($(this).attr('x')),
         angle: Number($(this).attr('angle'))+180,
         color:  dancerColor[couples[j*2]-1],
         path: me.allp[j],
-        number: numbers[me.dancers.length],
-        couplesnumber: couples[j*2]
+        number: gender==Dancer.PHANTOM ? ' ' : numbers[me.dancers.length],
+        couplesnumber: gender==Dancer.PHANTOM ? ' ' : couples[j*2],
+        hidden: gender == Dancer.PHANTOM && !me.showPhantoms
       });
-      if (d.gender == Dancer.PHANTOM && !this.showPhantoms)
-        d.hide();
       me.dancers.push(d);
       d = new Dancer({
         tamsvg: me,
-        gender: Dancer.genders[$(this).attr('gender')],
+        gender: gender,
         x: Number($(this).attr('y')),
         y: Number($(this).attr('x')),
         angle: Number($(this).attr('angle')),
         color:  dancerColor[couples[j*2+1]-1],
         path: me.allp[j],
-        number: numbers[me.dancers.length],
-        couplesnumber: couples[j*2+1]
+        number: gender==Dancer.PHANTOM ? ' ' : numbers[me.dancers.length],
+        couplesnumber: gender==Dancer.PHANTOM ? ' ' : couples[j*2+1],
+        hidden: gender == Dancer.PHANTOM && !me.showPhantoms
       });
-      if (d.gender == Dancer.PHANTOM && !this.showPhantoms)
-        d.hide();
       me.dancers.push(d);
     });
     this.barstoolmark = this.svg.circle(this.floor,0,0,0.2,{fill:'black'});
@@ -657,9 +656,7 @@ TamSVG.prototype = {
   {
     if (arguments.length > 0) {
       this.numbers = v;
-      if (this.hexagon || this.bigon)
-        this.numbers = false;
-      else if (this.numbers)
+      if (this.numbers)
         this.couples = false;
       for (var i in this.dancers) {
         var d = this.dancers[i];
@@ -679,9 +676,7 @@ TamSVG.prototype = {
   {
     if (arguments.length > 0) {
       this.couples = v;
-      if (this.hexagon || this.bigon)
-        this.couples = false;
-      else if (this.couples)
+      if (this.couples)
         this.numbers = false;
       for (var i in this.dancers) {
         var d = this.dancers[i];
@@ -697,14 +692,28 @@ TamSVG.prototype = {
     return this.couples;
   },
 
+  setPhantoms: function(v)
+  {
+    if (arguments.length > 0) {
+      this.showPhantoms = v;
+      for (var i in this.dancers)
+        if (this.dancers[i].gender == Dancer.PHANTOM) {
+          if (this.showPhantoms)
+            this.dancers[i].show();
+          else
+            this.dancers[i].hide();
+        }
+    }
+    this.cookie.phantoms = this.showPhantoms;
+    this.cookie.store(365,'/tamination');
+    return this.showPhantoms;
+  },
+
   setHexagon: function(v)
   {
     if (arguments.length > 0) {
       this.hexagon = v;
       if (this.hexagon) {
-        //  For now, no numbers for hex or bigon
-        this.setNumbers(false);
-        this.setCouples(false);
         if (this.bigon) {
           this.bigon = false;
           this.revertFromBigon();
@@ -726,9 +735,9 @@ TamSVG.prototype = {
       }
       for (var i in this.dancers)
         this.dancers[i].paintPath();
-      this.setNumbers();
       this.animate();
       this.cookie.hexagon = this.hexagon;
+      this.cookie.bigon = false;
       this.cookie.store(365,'/tamination');
     }
     return this.hexagon;
@@ -739,8 +748,6 @@ TamSVG.prototype = {
     if (arguments.length > 0) {
       this.bigon = v;
       if (this.bigon) {
-        //  For now, no numbers for hex or bigon
-        this.setNumbers(false);
         if (this.hexagon) {
           this.hexagon = false;
           this.revertFromHexagon();
@@ -764,6 +771,7 @@ TamSVG.prototype = {
         this.dancers[i].paintPath();
       this.animate();
       this.cookie.bigon = this.bigon;
+      this.cookie.hexagon = false;
       this.cookie.store(365,'/tamination');
     }
     return this.bigon;
@@ -829,13 +837,33 @@ TamSVG.prototype = {
     this.dancers = [];
     var dancerColor = [ Color.red, Color.green, Color.magenta, Color.blue, Color.yellow,
                         Color.cyan, Color.lightGray ];
+    var hexnumbers = [ "A","E","I","B","F","J",
+                       "C","G","K","D","H","L",' ' ];
+    var hexcouples = [ "1", "3", "5", "1", "3", "5",
+                       "2", "4", "6", "2", "4", "6", ' ' ];
     //  Generate hexagon dancers
     for (var i=0; i<this.saveDancers.length; i+=2) {
       var j = Math.floor(i/4);
       var jj = j <= 1 ? [j,j+2,j+4] : [6, 6, 6];
-      this.dancers.push(new Dancer({dancer:this.saveDancers[i],angle:30,color:dancerColor[jj[0]]}));
-      this.dancers.push(new Dancer({dancer:this.saveDancers[i],angle:150,color:dancerColor[jj[1]]}));
-      this.dancers.push(new Dancer({dancer:this.saveDancers[i],angle:270,color:dancerColor[jj[2]]}));
+      var isPh = this.saveDancers[i].gender == Dancer.PHANTOM;
+      this.dancers.push(new Dancer({dancer:this.saveDancers[i],
+                                    angle:30,
+                                    color:dancerColor[jj[0]],
+                                    hidden: isPh && !this.showPhantoms,
+                                    number:isPh?' ':hexnumbers[i/2*3],
+                                    couplesnumber:isPh?' ':hexcouples[i/2*3]}));
+      this.dancers.push(new Dancer({dancer:this.saveDancers[i],
+                                    angle:150,
+                                    color:dancerColor[jj[1]],
+                                    hidden: isPh && !this.showPhantoms,
+                                    number:isPh?' ':hexnumbers[i/2*3+1],
+                                    couplesnumber:isPh?' ':hexcouples[i/2*3+1]}));
+      this.dancers.push(new Dancer({dancer:this.saveDancers[i],
+                                    angle:270,
+                                    color:dancerColor[jj[2]],
+                                    hidden: isPh && !this.showPhantoms,
+                                    number:isPh?' ':hexnumbers[i/2*3+2],
+                                    couplesnumber:isPh?' ':hexcouples[i/2*3+2]}));
     }
     //  Convert to hexagon positions and paths
     for (var i=0; i<this.dancers.length; i++) {
@@ -854,7 +882,12 @@ TamSVG.prototype = {
                         Color.magenta, Color.cyan ];
     for (var i=0; i<this.saveDancers.length; i+=2) {
       var j = Math.floor(i/2);
-      this.dancers.push(new Dancer({dancer:this.saveDancers[i],color:dancerColor[j]}));
+      var isPh = this.saveDancers[i].gender == Dancer.PHANTOM;
+      var numstr = isPh ? ' ' : (j+1)+'';
+      this.dancers.push(new Dancer({dancer:this.saveDancers[i],
+                                    number:numstr,couplesnumber:numstr,
+                                    hidden: isPh && !this.showPhantoms,
+                                    color:dancerColor[j]}));
     }
     //  Generate BIgon dancers
     for (var i=0; i<this.dancers.length; i++) {
@@ -870,6 +903,7 @@ TamSVG.prototype = {
       this.dancers[i].hide();
     this.dancers = this.saveDancers;
     for (var i in this.dancers)
+      if (this.dancers[i].gender != Dancer.PHANTOM || this.showPhantoms)
       this.dancers[i].show();
     this.animate();
   },
@@ -1246,8 +1280,8 @@ function(args)   // (tamsvg,sex,x,y,angle,color,p,number,couplesnumber)
     this.body = this.tamsvg.svg.rect(this.svg,-.5,-.5,1,1,.2,.2,      // with rounded corners
              {fill:this.fillcolor.toString(),
               stroke:this.drawcolor.toString(),'stroke-width':0.1});
-  this.numbersvg = this.tamsvg.svg.text(this.svg,-4,5,this.number+'',{fontSize: "14",transform:"scale(0.04 -0.04)"});
-  this.couplessvg = this.tamsvg.svg.text(this.svg,-4,5,this.couplesnumber+'',{fontSize: "14",transform:"scale(0.04 -0.04)"});
+  this.numbersvg = this.tamsvg.svg.text(this.svg,-4,5,this.number,{fontSize: "14",transform:"scale(0.04 -0.04)"});
+  this.couplessvg = this.tamsvg.svg.text(this.svg,-4,5,this.couplesnumber,{fontSize: "14",transform:"scale(0.04 -0.04)"});
   if (this.tamsvg.numbers || this.tamsvg.couples)
     this.body.setAttribute('fill',this.fillcolor.veryBright().toString());
   if (!this.tamsvg.numbers)
@@ -1258,6 +1292,8 @@ function(args)   // (tamsvg,sex,x,y,angle,color,p,number,couplesnumber)
   this.pathgroup = this.tamsvg.svg.group(this.tamsvg.pathparent);
   this.beziergroup = this.tamsvg.svg.group(this.tamsvg.pathparent);
   this.paintPath();
+  if (args.hidden != undefined && args.hidden)
+    this.hide();
 });
 Dancer.BOY = 1;
 Dancer.GIRL = 2;
@@ -2276,21 +2312,14 @@ function generateButtonPanel()
     cookie.store(365,'/tamination');
   });
   $('#phantomButton').click(function() {
-    if (tamsvg.showPhantoms) {
-      tamsvg.showPhantoms = false;
-      for (var i in tamsvg.dancers)
-        if (tamsvg.dancers[i].gender == Dancer.PHANTOM)
-          tamsvg.dancers[i].hide();
-      tamsvg.animate();
+    if (tamsvg.setPhantoms()) {
+      tamsvg.setPhantoms(false);
       $('#phantomButton').removeClass('selected');
     } else {
-      tamsvg.showPhantoms = true;
-      for (var i in tamsvg.dancers)
-        if (tamsvg.dancers[i].gender == Dancer.PHANTOM)
-          tamsvg.dancers[i].show();
-      tamsvg.animate();
+      tamsvg.setPhantoms(true);
       $('#phantomButton').addClass('selected');
     }
+    tamsvg.animate();
   });
   $('#numbersButton').click(function() {
     tamsvg.setNumbers(!tamsvg.setNumbers());
