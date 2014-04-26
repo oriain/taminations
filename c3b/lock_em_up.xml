@@ -22,4 +22,61 @@
 -->
 <tamination>
 
+  <tam title="Lock 'Em Up" from="Tidal Wave" formation="Tidal Wave RH BGGB" parts="2;2;5">
+    <path couples="3 1">
+      <move select="Lead Right" beats="2" scaleX="3" scaleY="1.5"/>
+      <move select="Hinge Right" beats="2"/>
+      <move select="Hinge Left" beats="5"/>
+      <move select="Hinge Right" beats="3"/>
+    </path>
+    <path couples="3 1">
+      <move select="Hinge Left" beats="2" scaleY=".5"/>
+      <move select="Hinge Right" beats="2"/>
+      <move select="Hinge Left" beats="5"/>
+      <move select="Lead Left" beats="3" scaleX="3" scaleY="3"/>
+    </path>
+    <path couples="4 2">
+      <move select="Hinge Left" beats="2" scaleY=".5"/>
+      <move select="Hinge Right" beats="2"/>
+      <move select="Lead Right" beats="2" scaleX="2" scaleY="2"/>
+      <move select="Forward 2" beats="3"/>
+      <move select="Quarter Right" beats="3" offsetY="-1"/>
+    </path>
+    <path couples="4 2">
+      <move select="Lead Right" beats="2" scaleX="3" scaleY="1.5"/>
+      <move select="Hinge Right" beats="2"/>
+      <move select="Forward 4" beats="3"/>
+      <move select="Lead Right" beats="2" scaleX="2" scaleY="2"/>
+      <move select="Quarter Right" beats="3" offsetY="-1"/>
+    </path>
+  </tam>
+
+  <tam title="Lock 'Em Up" from="Two-Faced Lines"
+       formation="Two-Faced Lines LH" parts="3;1.5;4">
+    <path couples="4 2">
+      <move select="Lead Left" beats="3" hands="left" scaleX="1.5" scaleY="3"/>
+      <move select="Quarter Left" beats="1.5" offsetX="-1" offsetY=".5"/>
+      <move select="Counter Rotate Right 4 2" beats="4" hands="right" offsetY="1"/>
+      <move select="Quarter Right" beats="2" offsetX="-.2"/>
+    </path>
+    <path couples="4 2">
+      <move select="Lead Left" beats="3" hands="both" scaleX=".5"/>
+      <move select="Lead Right" beats="1.5" scaleY=".5"/>
+      <move select="Counter Rotate Right -2 -4" beats="4" hands="right" offsetY="-1"/>
+      <move select="Quarter Right" beats="2" offsetX=".2"/>
+    </path>
+    <path couples="3 1">
+      <move select="Lead Left" beats="3" hands="both" scaleX=".5"/>
+      <move select="Lead Right" beats="1.5" scaleY=".5"/>
+      <move select="Hinge Right" beats="4" scaleX=".5" offsetX="-.25"/>
+      <move select="Hinge Left" beats="2" scaleX=".75" scaleY=".75"/>
+    </path>
+    <path couples="3 1">
+      <move select="Lead Left" beats="3" hands="left" scaleX="1.5" scaleY="3"/>
+      <move select="Quarter Left" beats="1.5" offsetX="-1" offsetY=".5"/>
+      <move select="Hinge Right" beats="4" scaleX=".5" offsetX=".75"/>
+      <move select="Lead Right" beats="2" scaleX="2.25" scaleY="2.25"/>
+    </path>
+  </tam>
+
 </tamination>
