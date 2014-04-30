@@ -119,5 +119,25 @@
     </path>
   </tam>
 
+  <tam title="Cross Reactivate" from="Quarter Tag" formation="Quarter Tag" parts="">
+    <path>
+      <move select="Forward" beats="3"/>
+      <move select="Swing Right" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2"/>
+      <move select="Forward"/>
+      <move select="Swing Right" scaleX=".5"/>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Lead Right" beats="6" scaleX="4" scaleY="3"/>
+      <move select="Lead Right" beats="3" scaleX="3" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY="2"/>
+      <move select="Swing Right" scaleX=".5"/>
+    </path>
+  </tam>
 
 </tamination>
