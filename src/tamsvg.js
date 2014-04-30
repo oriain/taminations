@@ -131,9 +131,10 @@ TamSVG.prototype = {
     this.svg.rect(this.floor,-6.5,-6.5,13,13,{fill:'#ffffc0'});
 
     //  Add title, optionally with audio link
-     if (typeof tam.getTitle() != "undefined") {
+    if (typeof tam.getTitle() != "undefined") {
+      this.titlegroup = this.svg.group(this.floorsvg);
       var tt = tam.getTitle().replace(/ \(.*?\)/g,' ');
-      var t = this.svg.text(this.floorsvg,0,0,tt,{fontSize: "10", transform:"translate(-6.4,-5.5) scale(0.1)"});
+      var t = this.svg.text(this.titlegroup,0,0,tt,{fontSize: "10", transform:"translate(-6.4,-5.5) scale(0.1)"});
       l = t.getComputedTextLength();
       if (l > 110) {
         var s = 110/l;
@@ -143,7 +144,7 @@ TamSVG.prototype = {
       var ttid = '#'+tt.replace(/ /g,'_').replace(/\W/g,'').toLowerCase()+'_audio';
       if ($(ttid).length > 0) {
         //  Speaker SVG grabbed from Wikipedia (public domain)
-        var speakergroup = this.svg.group(this.floor,
+        var speakergroup = this.svg.group(this.titlegroup,
             {fill:"none",stroke:"brown",strokeWidth:5,'stroke-linejoin':"round",'stroke-linecap':"round",
           transform:"translate(4.7,5) scale(0.02)"});
         this.svg.polygon(speakergroup,
@@ -250,6 +251,11 @@ TamSVG.prototype = {
       this.dancers[i].recalculate(i==4);
     this.lastPaintTime = new Date().getTime();
     this.animate();
+  },
+
+  hideTitle: function()
+  {
+    this.titlegroup.setAttribute('visibility','hidden');
   },
 
   toggleHexagon: function()

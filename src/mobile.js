@@ -1,32 +1,70 @@
+/*
+
+    Copyright 2014 Brad Christie
+
+    This file is part of Taminations.
+
+    Taminations is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Taminations is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
+
+ */
 
 var animations = 0;
 var currentcall = '';  // needed for tamination.js
 var callnamedict = {};
 var calldata;
 
+/*
+ *    Themes
+ *    a  default (not used?)
+ *    b     not used
+ *    c  default list items
+ *    d  Green headers
+ *    e     not used
+ *    f  Basic and Mainstream
+ *    g  Basic 1 / Basic 2 / Mainstream
+ *    h  Plus and common call
+ *    i  Advanced
+ *    j  A-1 / A-2 and harder call
+ *    k  Challenge and expert call
+ *    l  C-1 / C-2 / C-3A / C-3B
+ *    m
+ *    n
+ *    o
+ *    p
+ */
+
 var leveldata = [
-  { name:"Basic and Mainstream", dir:"bms", selector:"level='Basic and Mainstream'" },
-  { name:"Basic 1", dir:"b1", selector:"sublevel='Basic 1'" },
-  { name:"Basic 2", dir:"b2", selector:"sublevel='Basic 2'" },
-  { name:"Mainstream", dir:"ms", selector:"sublevel='Mainstream'" },
-  { name:"Plus", dir:"plus", selector:"level='Plus'" },
-  { name:"Advanced", dir:"adv", selector:"level='Advanced'" },
-  { name:"A-1", dir:"a1", selector:"sublevel='A-1'" },
-  { name:"A-2", dir:"a2", selector:"sublevel='A-2'" },
-  { name:"Challenge", dir:"challenge", selector:"level='Challenge'" },
-  { name:"C-1", dir:"c1", selector:"sublevel='C-1'" },
-  { name:"C-2", dir:"c2", selector:"sublevel='C-2'" },
-  { name:"C-3A", dir:"c3a", selector:"sublevel='C-3A'" },
-  { name:"C-3B", dir:"c3b", selector:"sublevel='C-3B'" },
-  //{ name:"All Calls", dir:"all", selector:"@level!='Info' and @sublevel!='Styling'" },
+  { name:"Basic and Mainstream", dir:"bms", selector:"level='Basic and Mainstream'", theme:'f' },
+  { name:"Basic 1", dir:"b1", selector:"sublevel='Basic 1'", theme:'g' },
+  { name:"Basic 2", dir:"b2", selector:"sublevel='Basic 2'", theme:'g' },
+  { name:"Mainstream", dir:"ms", selector:"sublevel='Mainstream'", theme:'g' },
+  { name:"Plus", dir:"plus", selector:"level='Plus'", theme:'h' },
+  { name:"Advanced", dir:"adv", selector:"level='Advanced'", theme:'i' },
+  { name:"A-1", dir:"a1", selector:"sublevel='A-1'", theme: 'j' },
+  { name:"A-2", dir:"a2", selector:"sublevel='A-2'", theme:'j' },
+  { name:"Challenge", dir:"challenge", selector:"level='Challenge'", theme:'k' },
+  { name:"C-1", dir:"c1", selector:"sublevel='C-1'", theme:'l' },
+  { name:"C-2", dir:"c2", selector:"sublevel='C-2'", theme:'l' },
+  { name:"C-3A", dir:"c3a", selector:"sublevel='C-3A'", theme:'l' },
+  { name:"C-3B", dir:"c3b", selector:"sublevel='C-3B'", theme:'l' },
   { name:"Index of All Calls", dir:"all", selector:"level!='Info' and sublevel!='Styling'" }
-  //{ name:"Search Calls", dir:"", selector:"" }
 ];
 
 function findLevel(str)
 {
   for (var i=0; i<leveldata.length; i++) {
-    if (leveldata[i].dir == str)
+    if (leveldata[i].dir == str || leveldata[i].name == str)
       return leveldata[i];
   }
 }
@@ -55,7 +93,7 @@ function parseArgs(str)
 
 //  This function is called just once after the html has loaded
 //  Other mobile-specific callbacks are called for each page change
-$(document).ready(function(){
+$(document).ready(function() {
   //  Add the functions for the buttons.
   //  Do it here because it should only be done once.
   $('#rewindButton').bind('tap',function(event,ui) {
@@ -157,7 +195,20 @@ $(document).bind('mobileinit',function()
     $.mobile.page.prototype.options.headerTheme = "d";
     $.mobile.listview.prototype.options.headerTheme = "d";
     $.mobile.pushStateEnabled = false;
+    $.mobile.defaultPageTransition = 'slide';
   });
+
+/*
+$('*').on('pagecontainerhide', function() {
+  console.log("Show");
+  $.mobile.loading( "show", {
+    text: "Loading",
+    textVisible: true,
+    theme: "c",
+    html: ""
+    });
+  });
+*/
 
 $(document).delegate('#level','pageinit',
   function()
@@ -172,27 +223,36 @@ $(document).delegate('#level','pageinit',
   }
 );
 
-
-
-$(document).bind('pagechange',
- function(ev,data)
- {
+//  This generates the list of calls for a specific level
+$(document).bind('pagechange', function(ev,data) {
     if (data.toPage.attr('id') == 'calllistpage') {
       var leveldata = findLevel(data.options.pageData.dir);
       $('#leveltitle').empty().text(leveldata.name);
       $('#calllist').empty();
       $('call['+leveldata.selector+']',calldata).each(function() {
+        if ($(this).attr('level') == 'Info')
+          return;
         var text = $(this).attr('text');
         var link = $(this).attr('link');
+        var level = $(this).attr('sublevel');
+        var theme = findLevel(level).theme;
         var htmlpage = encodeURIComponent(link);
-        var xmlpage = htmlpage.replace('html','xml');
+        var xmlpage = link.replace('html','xml');
         if ($(this).attr('anim') == undefined)
           callnamedict[xmlpage] = text;
-        var html = '<li><a href="#animlistpage&'+htmlpage+'">'+text+'</a></li>';
+        var html = '<li data-theme="'+theme+'" data-icon="false">' +
+        '<a href="#animlistpage&'+htmlpage+'">'+text+'</a>'+
+        '<span class="ui-li-count">' + level + '</span>' +
+        '</li>';
         $('#calllist').append(html);
       });
       $('#calllist').listview('refresh');
     }
+    if (typeof data.options.n != "undefined") {
+      generateAnimation(n);
+      bindControls();
+    }
+
  });
 
 
@@ -201,24 +261,24 @@ $(document).bind('pagechange',
 function loadcall(options,htmlpage)
 {
   if (htmlpage.length > 0) {
-    console.log(htmlpage);
+    htmlpage = decodeURIComponent(htmlpage);
     //  Some browsers do better loading the definition as xml, others as html
     //  So we will try both
-    $.ajax({url:decodeURIComponent(htmlpage), datatype:'xml', success:function(a) {
+    $.ajax({url:htmlpage, datatype:'xml', success:function(a) {
       if ($('body',a).size() > 0) {
         $('#definitioncontent').empty().append($('body',a).children());
         repairDefinition(htmlpage);
       }
       else {
-        $.ajax({url:decodeURIComponent(htmlpage), datatype:'html', success:function(a) {
-          $('#definitioncontent').empty().append(a.match(/<body>((.|\n)*)<\/body>/)[1]);
+        $.ajax({url:htmlpage, datatype:'html', success:function(a) {
+          $('#definitioncontent').empty().append(a.match(/<body>((.|\s)*)<\/body>/)[1]);
           repairDefinition(htmlpage);
         }});
       }
     }});
     //  Load the xml file of animations
     var xmlpage = htmlpage.replace('html','xml');
-    $.ajax({url:decodeURIComponent(xmlpage), datatype:'xml',success:function(a) {
+    $.ajax({url:xmlpage, datatype:'xml',success:function(a) {
       animations = a;
       var prevtitle = "";
       var prevgroup = "";
@@ -226,6 +286,7 @@ function loadcall(options,htmlpage)
       var content = page.children(":jqmData(role=content)");
       content.empty();
       var html = '<ul data-role="listview">';
+      var showDiffLegend = false;
       $("tam",animations).each(function(n) {
         var callname = $(this).attr('title') + 'from' + $(this).attr('from');
         var name = $(this).attr('from');
@@ -237,10 +298,12 @@ function loadcall(options,htmlpage)
         }
         else if ($(this).attr("title") != prevtitle)
           html += '<li data-role="list-divider">'+$(this).attr("title")+" from</li>";
-        //if ($(this).attr("difficulty") != undefined) {
-        //  name = name + difficultText[Number($(this).attr("difficulty"))-1];
-        //  showDiffLegend = true;
-        //}
+        var theme = "c";
+        if ($(this).attr("difficulty") != undefined) {
+          var j = Number($(this).attr("difficulty"));
+          theme = ['c','h','j','k'][j];
+          showDiffLegend = true;
+        }
         //  First replace strips "(DBD)" et al
         //  Second strips all non-alphanums, not valid in html ids
         callname = callname.replace(/ \(DBD.*/,"").replace(/\W/g,"");
@@ -249,13 +312,24 @@ function loadcall(options,htmlpage)
         prevgroup = $(this).attr('group');
         if ($("path",this).length == 2)
           name += ' (4 dancers)';
-        html += '<li><a href="#animation-'+n+'">'+name+'</a></li>';
+        //  Finally add the line for the call
+        //  By setting the style "white-space: normal" we override jQuery Mobile
+        //  which always wants to truncate the text
+        html += '<li data-theme="'+theme+'" data-icon="false"><a style="white-space:normal" href="#animation-'+n+'">'+name+'</a></li>';
       });
       content.html(html);
       page.page();
       content.find(':jqmData(role=listview)').listview();
       $('#calltitle').empty().text(callnamedict[xmlpage]);
-      $('#backtocall').empty().text($('#leveltitle').text());
+      $('#deftitle').empty().text(callnamedict[xmlpage]);
+      if (showDiffLegend)
+        $('#difficultylegend').show();
+      else
+        $('#difficultylegend').hide();
+      var dir = xmlpage.split('/')[0];
+      var level = findLevel(dir).name;
+      //  Set the level icon to go back to the specific level for this call
+      $('.levelbutton').attr('href','#calllistpage?dir='+dir).empty().text(level);
       $.mobile.changePage($('#animlistpage'),options);
     }});
   }
@@ -267,7 +341,7 @@ function repairDefinition(htmlpage)
 {
   //  Repair image locations
   $('#definitioncontent img').each(function(i) {
-    $(this).attr('src',htmlpage.match(/(.*)%/)[1]+'/'+$(this).attr('src'));
+    $(this).attr('src',htmlpage.match(/(.*)\//)[1]+'/'+$(this).attr('src'));
   });
   //  Strip out any links
   $('#definitioncontent a').each(function(i) {
@@ -284,12 +358,12 @@ $(document).bind('pagebeforechange',function(e,data)
   if (typeof data.toPage == 'string') {
     var u = $.mobile.path.parseUrl(data.toPage);
     if (u.hash.indexOf('#animlistpage') == 0) {
-      xmlpage = u.hash.substring(14);
-      if (xmlpage.length < 1 && !animations)
+      htmlpage = u.hash.substring(14);
+      if (htmlpage.length < 1 && !animations)
         // "refresh" - go back to main page
         $.mobile.changePage('#level');
       else
-        loadcall(data.options,xmlpage);
+        loadcall(data.options,htmlpage);
       e.preventDefault();
     }
     else if (u.hash.indexOf('#animation') == 0) {
@@ -353,29 +427,21 @@ $(document).bind('pagebeforechange',function(e,data)
   }
 });
 
-$(document).bind('pagechange',function(e,data)
-{
-  if (typeof data.options.n != "undefined") {
-    generateAnimation(n);
-    bindControls();
-  }
-});
 
 
 //  Code to build animation
 var args = {};
 var animations;
 var definitiondoc;
-var isSmall = true;
 function svgSize()
 {
-  var aw = 100;
-  var ah = 100;
+  var aw = 90;
+  var ah = 90;
   var h = window.innerHeight ? window.innerHeight : document.body.offsetHeight;
   var w = window.innerWidth ? window.innerWidth : document.body.offsetWidth;
   if (typeof h == "number" && typeof w == "number") {
     h = h - $('#animform').height() - $('#animheader').height();
-    aw = ah = h > w ? w : h;
+    aw = ah = (h > w ? w : h)-10;
   }
   aw = Math.floor(aw);
   ah = Math.floor(ah);
@@ -384,21 +450,30 @@ function svgSize()
 
 function generateAnimation(n)
 {
-  var dims = svgSize();
-  svgstr='<div id="appletcontainer"><div id="svgdiv" '+
-            'style="width:'+dims.width+'px; height:'+dims.height+'px;">'+
-            '</div></div>';
-  $("#animationcontent").empty().append(svgstr).width(dims.width);
   TAMination(animations,'');
   SelectAnimation(n);
   $('#animtitle').empty().text(tam.getTitle());
+  var dims = svgSize();
+  svgstr='<div id="svgdiv" '+
+            'style="width:'+dims.width+'px; height:'+dims.height+'px; overflow:hidden">'+
+            '</div>';
+  $("#animationcontent").empty().append(svgstr).width(dims.width).height(dims.height);
   $('#svgdiv').svg({onLoad:TamSVG});
+  tamsvg.hideTitle();
+  //  Force the slider to align with the scale below it
+  var o = $('.ui-slider-track').offset();
+  var p = $('#playslidertics').offset();
+  $('.ui-slider-track').width($('#playslidertics').width());
+  o.left = p.left;
+  $('.ui-slider-track').offset(o);
+  //  And hide the box showing the numerical value, which makes no sense here
+  $('.ui-slider-input').hide();
   //  Rest of code logic from tampage.js
   //  Add tic  marks and labels to slider
   $('#playslidertics').empty();
   for (var i=-1; i<tamsvg.beats; i++) {
     var x = (i+2) * $('#playslidertics').width() / (tamsvg.beats+2);
-    $('#playslidertics').append('<div style="position: absolute; background-color: black; top:0; left:'+x+'px; height:100%; width: 1px"></div>');
+    $('#playslidertics').append('<div style="position: absolute; background-color: white; top:0; left:'+x+'px; height:100%; width: 1px"></div>');
   }
   //  "Start", "End" and part numbers below slider
   $('#playsliderlabels').empty();
@@ -416,7 +491,6 @@ function generateAnimation(n)
           'px; width:40px; text-align: center">'+t+'</div>');
     }
   }
-
 }
 
 
