@@ -248,7 +248,7 @@ TamSVG.prototype = {
     //this.speed = 500;  now set above checking cookie
     this.running = false;
     for (var i in this.dancers)
-      this.dancers[i].recalculate(i==4);
+      this.dancers[i].recalculate();
     this.lastPaintTime = new Date().getTime();
     this.animate();
   },
@@ -1200,8 +1200,6 @@ function(args)   // (tamsvg,sex,x,y,angle,color,p,number,couplesnumber)
   this.leftHandTransform = new AffineTransform();
   this.prevangle = 0;
   this.computeStart();
-  if (!args.color)
-    return;
   //  Create SVG representation
   this.svg = this.tamsvg.svg.group(this.tamsvg.dancegroup);
   var dancer = this;
@@ -1401,9 +1399,9 @@ Dancer.prototype.hideNumbers = function()
   this.couplessvg.setAttribute('visibility','hidden');
 };
 
-Dancer.prototype.recalculate = function(debug)
+Dancer.prototype.recalculate = function()
 {
-  this.path.recalculate(debug);
+  this.path.recalculate();
   this.paintPath();
 };
 
@@ -1608,8 +1606,10 @@ Path.prototype.clear = function()
   this.transformlist = [];
 };
 
+var recalc_count = 0;
 Path.prototype.recalculate = function()
 {
+  recalc_count++;
   this.transformlist = [];
   var tx = new AffineTransform();
   for (var i in this.movelist) {
