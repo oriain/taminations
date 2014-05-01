@@ -22,12 +22,9 @@
 -->
 <tamination>
 
-
-
   <tam title="Counter"
        from="Quarter Tag"
-       formation="Quarter Tag"
-       parts="" >
+       formation="Quarter Tag" >
     <path>
       <move select="Extend Left" beats="4" scaleX="3" scaleY="3" />
       <move select="Swing Right" scaleX=".5" scaleY=".5" />
@@ -52,8 +49,7 @@
 
   <tam title="Counter"
        from="Quarter Line"
-       formation="Quarter Lines RH"
-       parts="" >
+       formation="Quarter Lines RH" >
     <path>
       <move select="Extend Left" beats="4" scaleX="3" scaleY="3" />
       <move select="Swing Right" scaleX=".5" scaleY=".5" />
@@ -77,4 +73,30 @@
       <move select="Quarter Right" beats="2" offsetX="1" offsetY=".5" />
     </path>
   </tam>
+
+  <tam title="Counter"
+       from="3/4 Tag"
+       formation="3/4 Tag" >
+    <path>
+      <move select="Run Right" beats="4" scaleY="1.5" offsetX="-3"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Forward 2" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" offsetX="-3"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Run Right" beats="2" offsetX="2" offsetY="1" />
+    </path>
+    <path>
+      <move select="Hinge Right" />
+      <move select="Swing Right" offsetX="1" />
+      <move select="Quarter Right" beats="3" hands="gripright" offsetY="-3" />
+    </path>
+    <path>
+      <move select="Hinge Right" />
+      <move select="Swing Right" offsetX="-1" />
+      <move select="Quarter Right" beats="3" hands="gripright" offsetX="2" offsetY="1" />
+    </path>
+  </tam>
+
 </tamination>
