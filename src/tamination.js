@@ -213,10 +213,15 @@ TAMination.prototype = {
     return a.attr("parts") ? a.attr("parts") : '';
   },
 
-  getTitle: function()
+  getTitle: function(n)
   {
-    var a = this.animation();
+    var a = this.animation(n);
     return a.attr("title");
+  },
+
+  getComment: function(n)
+  {
+    return this.animation(n).find('taminator').text();
   },
 
   getPath: function(a)

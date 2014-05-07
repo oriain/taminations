@@ -213,7 +213,7 @@ function getTitle()
   return '<div class="title">' +
          '<a href="http://www.tamtwirlers.org/">'+
          '<img height="72" border="0" align="right" src="'+prefix+'info/badge.gif"></a>'+
-         '<a href="'+prefix+'info/index.html">Taminations</a></div>';
+         '<span id="title">Taminations</span></div>';
 }
 
 //Set height of page sections to fit the window
@@ -356,7 +356,6 @@ function generateAnimations()
         t.setPart = setPart;
       }
     });
-    $('#svgcontainer').after('<div id="taminatorsays"></div>');
     //  Make sure the 1st radio button is turned on
     if ($(".selectRadio").get(callnumber))
       $(".selectRadio").get(callnumber).checked = true;
@@ -369,9 +368,9 @@ function generateAnimations()
     $('#svgcontainer').append("<h3><center>No animation for this call.</center></h3>");
   }
   sizeBody();
-  showTAMinator(callnumber);
   if (tamsvg)
     generateButtonPanel();
+  PickAnimation(0);
   //  If a specific animation is requested in the URL, switch to it
   for (var arg in args) {
     if (animationNumber[arg] != undefined) {
@@ -393,8 +392,19 @@ function PickAnimation(n)
     var dims = svgSize();
     var svgdim = dims.width;
     svgstr='<div id="svgdiv" '+'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div>';
+    commentstr = '<div style="color: black; position:relative; top:0; left;0"><div id="commentdiv" style="position:absolute; top:0; left:0"> </div></div>';
+    commentback = '<div style="position:relative; top:0; left;0"><div id="commentback" style="position:absolute; top:0; left:0"></div></div>';
+    $("#svgcontainer").append(commentback);
+    $("#svgcontainer").append(commentstr);
+    $('#commentdiv').text(tam.getComment());
+    $('#commentback').width('100%').height($('#commentdiv').height()).css('background-color','white').css('opacity','0.7');
     $("#svgcontainer").append(svgstr);
     $('#svgdiv').svg({onLoad:TamSVG});
+    tamsvg.setAnimationListener(function(beat) {
+      var op = beat < 0 ? -beat/2.0 : 0;
+      $('#commentback').css('opacity',op*0.7);
+      $('#commentdiv').css('opacity',op);
+    });
   }
   $('.selectedHighlight').removeClass("selectedHighlight");
   $("#animationlist > a").eq(n).addClass("selectedHighlight");
@@ -407,36 +417,15 @@ function PickAnimation(n)
     setPart(0);
   }
   currentcall = $('tam',animations).eq(n)
-      .attr("title").replace(/ \(DBD.*/,"").replace(/\W/g,"");
-  //  Show any comments below the animation
-  showTAMinator(n);
-}
-
-//  Show one specific TAMinator comment
-function showTAMinator(n)
-{
-  $('#taminatorsays').empty();
-  var tamsays = false;
-  if ($('tam',animations).eq(n).find('taminator').size() > 0) {
-    tamsays = $('tam',animations).eq(n).find('taminator').text();
-  } else if (Math.random() > 0.8) {
-    var tipnum = Math.floor(Math.random()*tips.length);
-    tamsays = 'Tip: '+tips[tipnum];
+      .attr("title").replace(/ \(DBD.*/,"");
+  $('#title').text(currentcall);
+  var fontsize = 50;
+  while (fontsize > 7 && $('#title').height() > $('.title').height()) {
+    $('#title').css('font-size',(--fontsize)+'px');
   }
-  if (tamsays) {
-    $('#taminatorsays').append('<img src="../src/taminator.gif" />')
-                       .append('<img src="../src/thetaminatorsays.gif" />')
-                       .append('<p class="styling" id="taminatorquote"></p>');
-    if (typeof tamsays == 'string')
-      $('#taminatorquote').append(tamsays);
-    else
-      tamsays.appendTo('#taminatorquote');
-    var h = (window.innerHeight ? window.innerHeight : document.body.clientHeight)
-            -svgSize().height - 116;
-    $('#taminatorsays').height(h);
-  }
+  //  Strip out spaces for synchronizing with parts from animation
+  currentcall = currentcall.replace(/\W/g,"");
 }
-
 
 function getLevel()
 {
