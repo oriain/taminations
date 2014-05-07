@@ -24,6 +24,62 @@ var formations = 0;
 var paths = 0;
 var crossrefs = {};
 
+var funcprop = {writable: false, enumerable: false};
+Object.prototype.childClass = function(c)
+{
+  c = c || function() { };
+  c.prototype = Object.create(this.prototype);
+  c.prototype.constructor = c;
+  c.prototype.superclass = this;
+  return c;
+};
+
+/**
+ *   This defines a forEach function for objects similar to the Array function
+ *   Parameters:
+ *   f(p,v)
+ *      A function called for every enumerable property of the object
+ *      p is the property, and v is its value
+ *   o
+ *      An optional object to bind 'this' in the function given as the first parameter
+ *
+ */
+Object.prototype.forEach = function(f,o) {
+    for (var p in this) {
+      f.call(o,p,this[p]);
+    }
+};
+Object.defineProperties(Object.prototype, {
+  childClass: funcprop,
+  forEach: funcprop
+});
+
+String.prototype.toCapCase = function()
+{
+  return this.replace(/\b\w+\b/g, function(word)
+      {
+        return word.substring(0,1).toUpperCase() +
+               word.substring(1).toLowerCase();
+      }
+ );
+};
+String.prototype.trim = function () {
+  return this.replace(/^\s+|\s+$/g, "");
+};
+String.prototype.collapse = function() {
+  return this.replace(/\s+/g,'');
+};
+String.prototype.toCamelCase = function() {
+  return this.toCapCase().collapse();
+};
+
+Object.defineProperties(String.prototype, {
+  toCapCase: funcprop,
+  trim: funcprop,
+  collapse: funcprop,
+  toCamelCase: funcprop
+});
+
 //  Extra XML data that needs to be loaded to build menus and animations
 function preload(url,f,e)
 {
@@ -106,7 +162,9 @@ TAMination.prototype = {
   {
     if (arguments.length == 0 || typeof n == 'undefined')
       n = this.callnum;
-    return this.animations().eq(n);
+    if (typeof n == 'number')
+      return this.animations().eq(n);
+    return $(n);  // should be a tam element
   },
 
   animationXref: function(n)
@@ -161,11 +219,11 @@ TAMination.prototype = {
     return a.attr("title");
   },
 
-  getPath: function()
+  getPath: function(a)
   {
     var tam = this;
     var retval = [];
-    $("path",this.animationXref()).each(function(n) {
+    $("path",this.animationXref(a)).each(function(n) {
       var onepath = tam.translatePath(this);
       retval.push(onepath);
     });

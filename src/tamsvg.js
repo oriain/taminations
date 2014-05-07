@@ -969,19 +969,19 @@ TamSVG.prototype = {
 //  double score;
 //  private boolean isincenter = false;
 //  public static double dfactor0 = 1.0;
-Handhold = defineClass(
+Handhold =
   function(/*Dancer*/ dd1, /*Dancer*/ dd2,
              /*int*/ hh1, /*int*/ hh2, /*angle*/ ahh1, ahh2, /*distance*/ d, s)
-  {
-    this.d1 = dd1;
-    this.d2 = dd2;
-    this.h1 = hh1;
-    this.h2 = hh2;
-    this.ah1 = ahh1;
-    this.ah2 = ahh2;
-    this.distance = d;
-    this.score = s;
-  });
+{
+  this.d1 = dd1;
+  this.d2 = dd2;
+  this.h1 = hh1;
+  this.h2 = hh2;
+  this.ah1 = ahh1;
+  this.ah2 = ahh2;
+  this.distance = d;
+  this.score = s;
+};
 
   //  If two dancers can hold hands, create and return a handhold.
   //  Else return null.
@@ -1150,18 +1150,21 @@ Handhold.prototype.paint = function()
 };
 ////////////////////////////////////////////////////////////////////////////////
 //  Dancer class
-Dancer = defineClass(
-function(args)   // (tamsvg,sex,x,y,angle,color,p,number,couplesnumber)
+Dancer = function(args)   // (tamsvg,sex,x,y,angle,color,p,number,couplesnumber)
 {
   this.startangle = 0;
   this.path = new Path();
   if (args.tamsvg)
     this.tamsvg = args.tamsvg;
   if (args.dancer) {
-    var props = ['tamsvg','fillcolor','drawcolor','startx','starty','startangle','gender','number'];
-    for (var i in props)
-      this[props[i]] = args.dancer[props[i]];
-    this.path = new Path(args.dancer.path);
+    ['tamsvg','fillcolor','drawcolor','gender','number'].forEach(function(p) {
+      this[p] = args.dancer[p];
+    },this);
+    this.path = new Path();
+    var loc = args.dancer.location();
+    this.startx = loc.x;
+    this.starty = loc.y;
+    this.startangle = args.dancer.angle;
   }
   if (args.gender)
     this.gender = args.gender;
@@ -1189,6 +1192,7 @@ function(args)   // (tamsvg,sex,x,y,angle,color,p,number,couplesnumber)
     this.number = args.number;
   if (args.couplesnumber !== undefined)
     this.couplesnumber = args.couplesnumber;
+  this.computeOnly = args.computeOnly || false;
 
   this.hidden = false;
   this.pathVisible = this.tamsvg.showPaths;
@@ -1200,6 +1204,8 @@ function(args)   // (tamsvg,sex,x,y,angle,color,p,number,couplesnumber)
   this.leftHandTransform = new AffineTransform();
   this.prevangle = 0;
   this.computeStart();
+  if (this.computeOnly)  // temp dancer used for compiling sequences
+    return;
   //  Create SVG representation
   this.svg = this.tamsvg.svg.group(this.tamsvg.dancegroup);
   var dancer = this;
@@ -1298,7 +1304,7 @@ function(args)   // (tamsvg,sex,x,y,angle,color,p,number,couplesnumber)
   this.paintPath();
   if (args.hidden != undefined && args.hidden)
     this.hide();
-});
+};
 Dancer.BOY = 1;
 Dancer.GIRL = 2;
 Dancer.PHANTOM = 3;
@@ -1402,7 +1408,8 @@ Dancer.prototype.hideNumbers = function()
 Dancer.prototype.recalculate = function()
 {
   this.path.recalculate();
-  this.paintPath();
+  if (!this.computeOnly)
+    this.paintPath();
 };
 
 //  Return location as a Vector object
@@ -1571,34 +1578,33 @@ Dancer.prototype.paint = function()
 
 ////////////////////////////////////////////////////////////////////////////////
 //  Path class
-Path = defineClass(
-  function(p)
-  {
-    this.movelist = [];
-    this.transformlist = [];
-    if (p instanceof Path) {
-      for (var m in p.movelist)
-        this.add(p.movelist[m].clone());
+Path = function(p)
+{
+  this.movelist = [];
+  this.transformlist = [];
+  if (p instanceof Path) {
+    for (var m in p.movelist)
+      this.add(p.movelist[m].clone());
+  }
+  else if (p && (p.select != undefined)) {
+    var mm = tam.translateMove(p);
+    for (var m in mm)
+      this.add(new Movement(mm[m]));
+  }
+  else if (p instanceof Movement) {
+    this.add(p.clone());
+  }
+  else if (p) {
+    for (var i=0; i<p.length; i++) {
+      if (p[i] instanceof Movement)
+        this.add(p[i]);
+      else if (p[i].cx1 != undefined)
+        this.add(new Movement(p[i]));
+      else
+        this.add(new Path(p[i]));
     }
-    else if (p && (p.select != undefined)) {
-      var mm = tam.translateMove(p);
-      for (var m in mm)
-        this.add(new Movement(mm[m]));
-    }
-    else if (p instanceof Movement) {
-      this.add(p.clone());
-    }
-    else if (p) {
-      for (var i=0; i<p.length; i++) {
-        if (p[i] instanceof Movement)
-          this.add(p[i]);
-        else if (p[i].cx1 != undefined)
-          this.add(new Movement(p[i]));
-        else
-          this.add(new Path(p[i]));
-      }
-    }
-  });
+  }
+};
 
 Path.prototype.clear = function()
 {
@@ -1663,10 +1669,8 @@ Path.prototype.scale = function(x,y)
 //  Skew the path by translating the destination point
 Path.prototype.skew = function(x,y)
 {
-  if (self.movelist != null) {
-    for (var i in this.movelist)
-      this.movelist[i].skew(x,y);
-  }
+  if (this.movelist != null)
+    this.movelist[this.movelist.length-1].skew(x,y);
 };
 
 //  Append one movement to the end of the Path
@@ -1691,42 +1695,42 @@ Path.prototype.reflect = function()
 
 ////////////////////////////////////////////////////////////////////////////////
 //  Movement class
-Movement = defineClass(
+Movement =
   //  Constructor for independent heading and movement
   function(h,b,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2,
            ctrlx3,ctrly3,ctrlx4,ctrly4,x4,y4)
-  {
-    if (arguments.length == 1) {
-      b = h.beats;
-      ctrlx1 = h.cx1;
-      ctrly1 = h.cy1;
-      ctrlx2 = h.cx2;
-      ctrly2 = h.cy2;
-      x2 = h.x2;
-      y2 = h.y2;
-      ctrlx3 = h.cx3;
-      ctrly3 = 0;
-      ctrlx4 = h.cx4;
-      ctrly4 = h.cy4;
-      x4 = h.x4;
-      y4 = h.y4;
-      h = h.hands;
-    }
-    this.btranslate = new Bezier(0,0,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2);
-    this.numargs = arguments.length;
-    this.myargs = [];
-    for (var i in arguments)
-      this.myargs[i] = arguments[i];
-    if (ctrlx3 != undefined)
-      this.brotate = new Bezier(0,0,ctrlx3,ctrly3,ctrlx4,ctrly4,x4,y4);
-    else
-      this.brotate = new Bezier(0,0,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2);
-    this.beats = b;
-    if (typeof h == "string")
-      this.usehands = Movement.setHands[h];
-    else
-      this.usehands = h;
-  });
+{
+  if (arguments.length == 1) {
+    b = h.beats;
+    ctrlx1 = h.cx1;
+    ctrly1 = h.cy1;
+    ctrlx2 = h.cx2;
+    ctrly2 = h.cy2;
+    x2 = h.x2;
+    y2 = h.y2;
+    ctrlx3 = h.cx3;
+    ctrly3 = 0;
+    ctrlx4 = h.cx4;
+    ctrly4 = h.cy4;
+    x4 = h.x4;
+    y4 = h.y4;
+    h = h.hands;
+  }
+  this.btranslate = new Bezier(0,0,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2);
+  this.numargs = arguments.length;
+  this.myargs = [];
+  for (var i in arguments)
+    this.myargs[i] = arguments[i];
+  if (ctrlx3 != undefined)
+    this.brotate = new Bezier(0,0,ctrlx3,ctrly3,ctrlx4,ctrly4,x4,y4);
+  else
+    this.brotate = new Bezier(0,0,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2);
+  this.beats = b;
+  if (typeof h == "string")
+    this.usehands = Movement.setHands[h];
+  else
+    this.usehands = h;
+};
 
 Movement.NOHANDS = 0;
 Movement.LEFTHAND = 1;
@@ -1764,20 +1768,33 @@ Movement.prototype.clone = function()
   return m;
 };
 
-Movement.prototype.translate = function(t) {
+Movement.prototype.translate = function(t)
+{
+  if (typeof t != 'number')
+    t = this.beats;
   var tt = Math.min(Math.max(0,t),this.beats);
   return this.btranslate.translate(tt/this.beats);
+};
+
+Movement.prototype.rotate = function(t)
+{
+  if (typeof t != 'number')
+    t = this.beats;
+  var tt = Math.min(Math.max(0,t),this.beats);
+  return this.brotate.rotate(tt/this.beats);
+};
+
+Movement.prototype.transform = function(t)
+{
+  var tx = new AffineTransform();
+  tx.concatenate(this.translate(t));
+  tx.concatenate(this.rotate(t));
+  return tx;
 };
 
 Movement.prototype.reflect = function()
 {
   return this.scale(1,-1);
-};
-
-Movement.prototype.rotate = function(t)
-{
-  var tt = Math.min(Math.max(0,t),this.beats);
-  return this.brotate.rotate(tt/this.beats);
 };
 
 Movement.prototype.scale = function(x,y)
@@ -1803,25 +1820,35 @@ Movement.prototype.scale = function(x,y)
   return this;
 };
 
+Movement.prototype.skew = function(x,y)
+{
+  this.btranslate = new Bezier(0,0,this.btranslate.ctrlx1,
+                                   this.btranslate.ctrly1,
+                                   this.btranslate.ctrlx2+x,
+                                   this.btranslate.ctrly2+y,
+                                   this.btranslate.x2+x,
+                                   this.btranslate.y2+y);
+  return this;
+};
+
 Movement.prototype.toString = function()
 {
   return this.btranslate.toString() + ' '+this.brotate.toString();
 };
 ////////////////////////////////////////////////////////////////////////////////
 //  Bezier class
-Bezier = defineClass(
-  function (x1,y1,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2)
-  {
-    this.x1 = x1;
-    this.y1 = y1;
-    this.ctrlx1 = ctrlx1;
-    this.ctrly1 = ctrly1;
-    this.ctrlx2 = ctrlx2;
-    this.ctrly2 = ctrly2;
-    this.x2 = x2;
-    this.y2 = y2;
-    this.calculatecoefficients();
-  });
+Bezier = function (x1,y1,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2)
+{
+  this.x1 = x1;
+  this.y1 = y1;
+  this.ctrlx1 = ctrlx1;
+  this.ctrly1 = ctrly1;
+  this.ctrlx2 = ctrlx2;
+  this.ctrly2 = ctrly2;
+  this.x2 = x2;
+  this.y2 = y2;
+  this.calculatecoefficients();
+};
 
 Bezier.prototype.calculatecoefficients = function()
 {
@@ -1861,19 +1888,18 @@ Bezier.prototype.toString = function()
 };
 ////////////////////////////////////////////////////////////////////////////////
 //   Vector class
-Vector = defineClass(
-  function(x,y,z)
-  {
-    if (arguments.length > 0 && x instanceof Vector) {
-      this.x = x.x;
-      this.y = x.y;
-      this.z = x.z;
-    } else {
-      this.x = arguments.length > 0 ? x : 0;
-      this.y = arguments.length > 1 ? y : 0;
-      this.z = arguments.length > 2 ? z : 0;
-    }
-  });
+Vector = function(x,y,z)
+{
+  if (arguments.length > 0 && x instanceof Vector) {
+    this.x = x.x;
+    this.y = x.y;
+    this.z = x.z;
+  } else {
+    this.x = arguments.length > 0 ? x : 0;
+    this.y = arguments.length > 1 ? y : 0;
+    this.z = arguments.length > 2 ? z : 0;
+  }
+};
 
 //  Add/subtract two vectors
 Vector.prototype.add = function(v)
@@ -1951,28 +1977,27 @@ Vector.prototype.toString = function()
 };
 ////////////////////////////////////////////////////////////////////////////////
 //   AffineTransform class
-AffineTransform = defineClass({
-  construct: function(tx)
-  {
-    if (arguments.length == 0) {
-      //  default constructor - return the identity matrix
-      this.x1 = 1.0;
-      this.x2 = 0.0;
-      this.x3 = 0.0;
-      this.y1 = 0.0;
-      this.y2 = 1.0;
-      this.y3 = 0.0;
-    }
-    else if (tx instanceof AffineTransform) {
-      //  return a copy
-      this.x1 = tx.x1;
-      this.x2 = tx.x2;
-      this.x3 = tx.x3;
-      this.y1 = tx.y1;
-      this.y2 = tx.y2;
-      this.y3 = tx.y3;
-    }
-  }});
+AffineTransform = function(tx)
+{
+  if (arguments.length == 0) {
+    //  default constructor - return the identity matrix
+    this.x1 = 1.0;
+    this.x2 = 0.0;
+    this.x3 = 0.0;
+    this.y1 = 0.0;
+    this.y2 = 1.0;
+    this.y3 = 0.0;
+  }
+  else if (tx instanceof AffineTransform) {
+    //  return a copy
+    this.x1 = tx.x1;
+    this.x2 = tx.x2;
+    this.x3 = tx.x3;
+    this.y1 = tx.y1;
+    this.y2 = tx.y2;
+    this.y3 = tx.y3;
+  }
+};
 
 //  Generate a new transform that moves to a new location
 AffineTransform.getTranslateInstance = function(x,y)
@@ -2115,13 +2140,12 @@ AffineTransform.prototype.print = function()
 };
 ////////////////////////////////////////////////////////////////////////////////
 //   Color class
-Color = defineClass(
-  function (r,g,b)
-  {
-    this.r = Math.floor(r);
-    this.g = Math.floor(g);
-    this.b = Math.floor(b);
-  });
+Color = function (r,g,b)
+{
+  this.r = Math.floor(r);
+  this.g = Math.floor(g);
+  this.b = Math.floor(b);
+};
 Color.FACTOR = 0.7;  // from Java
 Color.hex = [ '0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
 Color.black = new Color(0,0,0);
@@ -2354,6 +2378,7 @@ function generateButtonPanel()
   $('#buttonpanel').append('<div id="playslider" style="margin:10px 10px 0 10px"></div>');
   $('#playslider').slider({min: -200, max: tamsvg.beats*100, value: -200,
     slide: function(event,ui) {
+      console.log('slide');
       //tamsvg.beat = ui.value/100;
       //tamsvg.lastPaintTime = new Date().getTime();
       //tamsvg.animate();
