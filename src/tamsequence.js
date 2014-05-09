@@ -38,6 +38,8 @@ var synonyms = {
   '1/4' : ['a','quarter'],
   '1/2' : 'half',
   '3/4' : ['three','quarters'],
+  'booy' : 'boys',   //  TODO et al including Facing
+  //  Is this necessary???
   keys : function() {
     var retval = [];
     for (var k in this)
@@ -66,54 +68,35 @@ var timeoutID = null;
 $(document).ready(function() {
   //  Make sure this is run *after* the document.ready function
   //  in tampage.js.  This is a bit of a hack.
-  window.setTimeout(function() {
+  //  *** No longer needed ??
+  //window.setTimeout(function() {
   tinymce.init({
-    mode : "textareas",
+    selector : "textarea",
     convert_newlines_to_brs : true,
     forced_root_block: false,
-    setup: function(ed) {
-      window.setInterval(textChange,1000);
-    },
-
-
     toolbar: false,
     menubar: false,
     statusbar: false,
+    content_css: "sequence.css",
 
-    themeOff: function(editor, target) {
-      var dom = tinymce.DOM, editorContainer;
-
-      // Generate UI
-      editorContainer = dom.insertAfter(dom.create('div', {style: 'border: 1px solid gray'},
-          '<div style="border-top: 1px solid gray"></div>'
-      ), target);
-
-      // Set editor container size to target element size
-      dom.setStyle(editorContainer, 'width', target.offsetWidth);
-
-      // Return editor and iframe containers
-      return {
-        editorContainer: editorContainer,
-        iframeContainer: editorContainer.lastChild,
-        // iframe height = target height
-        iframeHeight: target.offsetHeight
-      };
+    setup: function(ed) {
+      ed.on('init',function() {
+        editor = tinymce.editors['calls'];
+        editor.dom.loadCSS('sequence.css');
+        editor.focus();
+        tamsvg.setPart = setCurrentCall;
+        calllink = document.URL.split(/\?/)[0];
+        var calls = document.URL.split(/\?/)[1];
+        if (calls) {
+          calls = unescape(calls).split(/\&/);
+          startingFormation = calls.shift().trim();
+          editor.setContent(calls.join('<br/>'));
+        }
+        updateSequence();
+        window.setInterval(textChange,1000);
+      });
     },
 
-    oninit: function() {
-      editor = tinymce.editors['calls'];
-      editor.dom.loadCSS('sequence.css');
-      editor.focus();
-      tamsvg.setPart = setCurrentCall;
-      calllink = document.URL.split(/\?/)[0];
-      var calls = document.URL.split(/\?/)[1];
-      if (calls) {
-        calls = unescape(calls).split(/\&/);
-        startingFormation = calls.shift().trim();
-        editor.setContent(calls.join('<br/>'));
-      }
-      updateSequence();
-    }
   });  // end of tinymce.init
 
   startingFormation = $('input[name="formation"]:checked').val();
@@ -166,7 +149,7 @@ $(document).ready(function() {
   });
 
 });
-},1000);
+//},1000);
 
 function generateAnimations()  // override function in tampage.js
 {
@@ -261,7 +244,7 @@ function updateSequence()
     return;
   var newhtml = editor.getContent();
      // $('#calls').html();
-  if (newhtml == prevhtml)
+  if (newhtml.replace(/<.*?>/g) == prevhtml.replace(/<.*?>/g))
     return;
   prevhtml = newhtml;
   calls = processCallText();
@@ -275,12 +258,7 @@ function updateSequence()
                             .replace(compattern,'')     // remove comments
                             .split(/\s+/);
     callwords = $.map(callwords,function(a) {
-      for (var k in synindex) {
-        var syn = synindex[k];
-        if (a == syn)
-          a = synonyms[syn];
-      }
-      return a;
+      return a in synonyms ? synonyms[a] : a;
     });
     //  Fetch calls that are any part of the callname,
     //  to get concepts and modifications
@@ -331,10 +309,10 @@ function updateSequence()
 function buildSequence()
 {
   //  First clear out the previous animation
-  for (var i in tamsvg.dancers) {
-    tamsvg.dancers[i].path.clear();
-    tamsvg.dancers[i].animate(0);
-  }
+  tamsvg.dancers.forEach(function(d) {
+    d.path.clear();
+    d.animate(0);
+  });
   $('#errormsg').remove();
   for (var n2 in calls) {
     var m = false;
@@ -362,10 +340,9 @@ function buildSequence()
       for (var i=callwords.length, looking=true; looking && i>0; i--) {
         var call = callwords.slice(0,i).join('');
         //  First try to find an explicit xml animation
-        //  But only for the complete call
         $('call[text="'+call+'"]',callindex).each( function () {
           var tamxml = xmldata[$(this).attr('link')];
-          if (typeof tamxml == 'object' && doxml && i==callwords.length) {
+          if (typeof tamxml == 'object' && doxml) {
             for (var x=0; x<$('tam',tamxml).length; x++) {
               var xelem = $('tam',tamxml)[x];
               if (call == $(xelem).attr('title').toLowerCase().replace(/\W/g,'')) {
@@ -385,13 +362,13 @@ function buildSequence()
                 if (mm) {
                   m = mm;
                   tam.xmldoc = tamxml;  // ugly hack
-                  tam.selectAnimation(x);
-                  //tam.callnum = x; // ugly hack
-                  allp = tam.getPath();
+                  allp = tam.getPath(xelem);
                   for (var i3 in allp) {
                     var p = new Path(allp[i3]);
-                    ctx.paths[m[i3*2]] = p;
-                    ctx.paths[m[i3*2+1]] = p;
+                    ctx.dancers[m[i3*2]].path = p;
+                    ctx.dancers[m[i3*2]].animate(999);
+                    ctx.dancers[m[i3*2+1]].path = p;
+                    ctx.dancers[m[i3*2+1]].animate(999);
                   }
                   ctx.levelBeats();
                   callwords = callwords.slice(i,callwords.length);
@@ -407,10 +384,14 @@ function buildSequence()
         if (looking && typeof tamxml == 'function') {
           callfound = true;
           var nextcall = new tamxml();
-          nextcall.performCall(ctx);
-          callwords = callwords.slice(i,callwords.length);
-          doxml = false;
-          looking = false;
+          //  A script call must be either the entire call or have the ability
+          //  to modify the other parts of the call
+          //// FIXME if (i==callwords.length || nextcall.canModifyCall()) {
+            nextcall.performCall(ctx);
+            callwords = callwords.slice(i,callwords.length);
+            doxml = false;
+            looking = false;
+          ////}
         }
       }
 
@@ -439,14 +420,12 @@ function buildSequence()
         throw err;
     }
 
-    if (ctx.paths[0].beats() > 0) {  //  Call and formation found
-      tamsvg.paths = [];
+    if (ctx.dancers[0].path.beats() > 0) {  //  Call and formation found
       for (var d in tamsvg.dancers) {
-        tamsvg.paths[d] = tamsvg.dancers[d].path;  // for levelBeats
-        tamsvg.dancers[d].path.add(ctx.paths[d]);
+        tamsvg.dancers[d].path.add(ctx.dancers[d].path);
         tamsvg.dancers[d].animate(999);
       }
-      tamsvg.parts.push(ctx.paths[0].beats());
+      tamsvg.parts.push(ctx.dancers[0].path.beats());
     }
     else if (callfound) {  //  Call found but no matching formation
       showError(Number(n2)+1);
@@ -494,6 +473,7 @@ function getDancers(formation)
   $('dancer',formation).each(function() {
     var d = new Dancer({
          tamsvg:tamsvg,
+         computeOnly:true,
          gender:Dancer.genders[$(this).attr('gender')],
          x:-Number($(this).attr('y')),
          y:-Number($(this).attr('x')),
@@ -502,6 +482,7 @@ function getDancers(formation)
     dancers.push(d);
     d = new Dancer({
          tamsvg:tamsvg,
+         computeOnly:true,
          gender:Dancer.genders[$(this).attr('gender')],
          x:Number($(this).attr('y')),
          y:Number($(this).attr('x')),

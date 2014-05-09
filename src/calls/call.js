@@ -19,17 +19,25 @@
 
  */
 
-Call = defineClass({});
+Call = Object.childClass();
 Call.classes = {};
-CallError = defineClass({
-  extend:Error,
-  construct: function(msg) { this.superclass(msg);
-                             this.name="CallError";
-                             this.message = msg; }
+Call.childCall = function(name,c)
+{
+  c = Call.childClass(c);
+  Call.classes[name] = c;
+  c.prototype.name = name;
+  return c;
+};
+
+CallError = Error.childClass(function(msg)
+{
+  this.superclass(msg);
+  this.name="CallError";
+  this.message = msg;
 });
-NoDancerError = defineClass({
-  extend:Error
-});
+
+NoDancerError = Error.childClass();
+
 function dancerNum(d)
 {
   return Math.floor(d)+1;
@@ -41,22 +49,22 @@ Call.prototype.performCall = function(ctx) {
   this.perform(ctx);
   ctx.levelBeats();
 };
+
 //  Default method to perform one call
 //  Pass the call on to each active dancer
-//  Then collect each path into an array corresponding to the array of dancers
-//  And level off the number of beats as needed by adding Stand moves
+//  Then append the returned paths to each dancer
 Call.prototype.perform = function(ctx) {
   //  Get all the paths with performOne calls
   var didsomething = false;
-  for (var d in ctx.dancers) {
-    if (d in ctx.active) {
-      var p = this.performOne(ctx,d);
-      if (p != undefined) {
-        ctx.paths[d].add(p);
-        didsomething = true;
-      }
+  ctx.active.forEach(function(prop,d) {
+    var p = this.performOne(ctx,d);
+    if (p != undefined) {
+      ctx.dancers[d].path.add(p);
+      ctx.dancers[d].recalculate();
+      ctx.dancers[d].animate(999);
+      didsomething = true;
     }
-  }
+  },this);
   if (!didsomething)
     throw new NoDancerError();
 };
@@ -68,42 +76,62 @@ Call.prototype.performOne = function(ctx,d)
   return new Path();
 };
 
+//  If a call can modify another call by reading its output
+//  and performing its modification it should override this method
+Call.prototype.canModifyCall = function()
+{
+  return false;
+};
+
+///////   CallContext class    //////////////
 //  An instance of the CallContext class is passed around calls
-//  to hold the working data
-CallContext = defineClass({
-  construct: function(source)
-  {
-    this.dancers = source.dancers;
-    this.active = {};
-    for (var d in (source.active || source.dancers))
-      this.active[d] = source.dancers[d];
-    this.paths = [];
-    for (d in this.dancers)
-      this.paths.push(new Path());
-    if (source.map != undefined)
-      this.map = source.map;
+//  to hold the working data - dancers, paths, and
+//  progress performing a call
+//
+//  A CallContext can be created by any of
+//  * cloning another CallContext
+//  * current state of TamSVG animation
+//  * XML formation
+CallContext = function(source)
+{
+  if (source instanceof CallContext || source instanceof TamSVG) {
+    this.dancers = source.dancers.map(function(d) {
+      return new Dancer({dancer:d,computeOnly:true});
+    });
+    this.active = (source.active || source.dancers).map(function(d) {
+      return d;
+    });
+  } else {
+
   }
-});
+  if (source.map != undefined)
+    this.map = source.map;
+};
+
+//  Static function to copy an array of dancers
+CallContext.copyDancers = function(dancers)
+{
+  return dancers.map(function(d) {
+    return new Dancer({dancer:dancers[d],computeOnly:true});
+  });
+};
 
 //  Level off the number of beats for each dancer
 CallContext.prototype.levelBeats = function()
 {
   //  get the longest number of beats
-  var maxbeats = 0;
-  for (var d in this.dancers) {
-    var b = this.paths[d].beats();
-    if (b > maxbeats)
-      maxbeats = b;
-  }
+  var maxbeats = this.dancers.reduce(function(v,d) {
+    return Math.max(v,d.path.beats());
+  },0);
   //  add that number as needed by using the "Stand" move
-  for (var d in this.dancers) {
-    var b = maxbeats - this.paths[d].beats();
+  this.dancers.forEach(function(d) {
+    var b = maxbeats - d.path.beats();
     if (b > 0) {
       var m = tam.translate($('path[name="Stand"]',movedata));
       m[0].beats = b;
-      this.paths[d].add(new Path(m));
+      d.path.add(new Path(m));
     }
-  }
+  });
 };
 
 ////    Routines to analyze dancers
@@ -159,36 +187,25 @@ CallContext.prototype.isRight = function(d1,d2)
 //  Return closest dancer that satisfies a given conditional
 CallContext.prototype.dancerClosest = function(d,f)
 {
-  var bestd = undefined;
-  for (var d2 in this.dancers) {
-    if (f(d2) &&
-        (bestd == undefined || this.distance(d2,d) < this.distance(bestd,d)))
-      bestd = d2;
-  }
-  return bestd;
+  var ctx = this;
+  return this.dancers.filter(f,ctx).reduce(function(best,d2) {
+    return best == undefined || ctx.distance(d2,d) < ctx.distance(best,d)
+      ? d2 : best;
+  });
 };
 
 //  Return all dancers, ordered by distance, that satisfies a conditional
 CallContext.prototype.dancersInOrder = function(d,f)
 {
-  //  First get the dancers that satisfy the conditional
-  var retval = [];
-  for (var d2 in this.dancers) {
-    if (f(d2))
-      retval.push(d2);
-  }
-  //  Now sort them by distance
   var ctx = this;
-  retval.sort(function(a,b) {
+  return this.dancers.filter(f,ctx).sort(function(a,b) {
     return ctx.distance(d,a) - ctx.distance(d,b);
   });
-  return retval;
 };
 
 //  Return dancer directly in front of given dancer
 CallContext.prototype.dancerInFront = function(d)
 {
-  var ctx = this;
   return this.dancerClosest(d,function(d2) {
     return ctx.isInFront(d,d2);
   });
@@ -197,45 +214,40 @@ CallContext.prototype.dancerInFront = function(d)
 //  Return dancer directly in back of given dancer
 CallContext.prototype.dancerInBack = function(d)
 {
-  var ctx = this;
   return this.dancerClosest(d,function(d2) {
-    return ctx.isInBack(d,d2);
+    return this.isInBack(d,d2);
   });
 };
 
 //  Return dancers that are in between two other dancers
 CallContext.prototype.inBetween = function(d1,d2)
 {
-  var retval = [];
-  for (var d in this.dancers) {
-    if (d != d1 && d != d2 &&
+  return this.dancers.filter(function(d) {
+    return d != d1 && d != d2 &&
         Math.isApprox(this.distance(d,d1)+this.distance(d,d2),
-                      this.distance(d1,d2)))
-      retval.push(d);
-  }
-  return retval;
+                      this.distance(d1,d2));
+  });
 };
 
 //  Return all the dancers to the right, in order
 CallContext.prototype.dancersToRight = function(d)
 {
-  var ctx = this;
   return this.dancersInOrder(d,function(d2) {
-    return ctx.isRight(d,d2);
+    return this.isRight(d,d2);
   });
 };
 
 //  Return all the dancers to the left, in order
 CallContext.prototype.dancersToLeft = function(d)
 {
-  var ctx = this;
   return this.dancersInOrder(d,function(d2) {
-    return ctx.isLeft(d,d2);
+    return this.isLeft(d,d2);
   });
 };
 
 CallContext.prototype.analyze = function()
 {
+  this.dancers.forEach(function(d) { d.animate(999); });
   this.beau = {};
   this.belle = {};
   this.leader = {};

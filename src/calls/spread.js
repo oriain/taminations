@@ -15,27 +15,26 @@
     GNU Affero General Public License for more details.
 
     You should have received a copy of the GNU Affero General Public License
-    along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
+    along with TAMinations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-QuarterLeft = Call.childCall('quarterleft');
-QuarterLeft.prototype.performOne = function(ctx,d)
+AndSpread = Call.childCall('andspread');
+AndSpread.prototype.canModifyCall = function() { return true; };
+AndSpread.prototype.performOne = function(ctx,d)
 {
-  var offsetX = 0;
-  var offsetY = 0;
-  if (ctx.isFacingIn(d))
-    offsetX = 1;
-  else if (ctx.isFacingOut(d))
-    offsetX = -1;
-  else
-    return undefined;  // TODO for now just handle dancers in boxes
-  if (ctx.beau[d])
-    offsetY = 1;
-  else if (ctx.belle[d])
-    offsetY = -1;
-  else
-    return undefined;    // TODO for now just handle dancers in boxes
-  return new Path({select: 'Quarter Left', offsetX: offsetX, offsetY: offsetY });
+  var p = ctx.dancers[d].path;
+  //  This is for waves only TODO tandem couples, single dancers (C-1)
+  var v = new Vector();
+  if (ctx.belle[d])
+    v = new Vector(0,1);
+  else if (ctx.beau[d])
+    v = new Vector(0,-1);
+  var m = p.movelist[p.movelist.length-1];
+  var tx = m.rotate();
+  v = v.preConcatenate(tx);
+  m.skew(v.x,v.y);
+  m.usehands = Movement.NOHANDS;
+  return new Path();
 };
 
-//# sourceURL=quarter_left.js
+//# sourceURL=spread.js

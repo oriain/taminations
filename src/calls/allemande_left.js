@@ -1,8 +1,8 @@
 /*
 
-    Copyright 2012 Brad Christie
+    Copyright 2014 Brad Christie
 
-    This file is part of TAMinations.
+    This file is part of Taminations.
 
     Taminations is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published
@@ -18,31 +18,23 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
+AllemandeLeft = Call.childCall('allemandeleft');
+AllemandeLeft.prototype.performOne = function(ctx,d)
+{
+  //  Can only turn thru with another dancer
+  //  in front of this dancer
+  //  who is also facing this dancer
+  var d2 = ctx.dancerInFront(d);
+  if (d2 != undefined && ctx.dancerInFront(d2) == d) {
+    var dist = ctx.distance(d,d2);
+    var moves = [{ select: 'Extend Right', scaleX: dist/2, scaleY: 0.5 },
+                 { select: 'Swing Left', scaleX: 0.5, scaleY: 0.5 },
+                 { select: 'Extend Left', scaleX: dist/2, scaleY: 0.5 }];
+    return new Path(moves);
+  }
+  throw new CallError('Cannot find dancer to turn with '+dancerNum(d));
+};
 
-Call.classes['allemandeleft'] = defineClass({
-  name: "Allemande Left",
-  extend: Call,
-  methods: {
-    performOne: function(ctx,d) {
-      //  Can only turn thru with another dancer
-      //  in front of this dancer
-      //  who is also facing this dancer
-      var d2 = ctx.dancerInFront(d);
-      if (d2 != undefined && ctx.dancerInFront(d2) == d) {
-        var dist = ctx.distance(d,d2);
-        var moves = [{ select: 'Extend Right', scaleX: dist/2, scaleY: 0.5 },
-                     { select: 'Swing Left', scaleX: 0.5, scaleY: 0.5 },
-                     { select: 'Extend Left', scaleX: dist/2, scaleY: 0.5 }];
-        return new Path(moves);
-      }
-      throw new CallError('Cannot find dancer to turn with '+dancerNum(d));
-    }
+Call.childCall('leftturnthru').prototype = AllemandeLeft.prototype;
 
-  },
-});
-
-Call.classes['leftturnthru'] =
-  defineClass({
-  name: "Left Turn Thru",
-  extend: Call.classes['allemandeleft']
-});
+//# sourceURL=allemandeleft.js
