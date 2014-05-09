@@ -53,7 +53,7 @@ clean :
 #  The wildcard * pattern apparently conveniently excludes .* files
 ../tamination.zip : $(filter-out $(ZIPFILE),$(wildcard ../* ../*/*))
 	-$(RM) $(ZIPFILE)
-	cd .. && $(ZIP) -rq tamination.zip info b1 b2 ms plus a1 a2 adv c1 c2 c3a src ext *.html *.txt *.ico *.xml
+	cd .. && $(ZIP) -rq tamination.zip info $(DIRS) src ext *.html *.txt *.ico *.xml
 
 #  Generate index used by sequencer
 $(CALLINDEX) : $(filter-out $(XMLCOPIES),$(wildcard ../*/*.xml) $(wildcard calls/*.js))
