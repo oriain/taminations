@@ -425,7 +425,17 @@ TamSVG.prototype = {
         var d2 = this.dancers[i2];
         if (d2.gender==Dancer.phantom && !this.showPhantoms)
           continue;
-        var hh = Handhold.getHandhold(d1,d2);
+        //  Check that there is no dancer between these two
+        //  This is particularly useful for calls with phantoms, where
+        //  without the phantom there would be a handhold
+        var d1d2 = d1.distanceTo(d2);
+        for (var i3=0; i3<this.dancers.length; i3++) {
+          var d3 = this.dancers[i3];
+          if (i3!=i1 && i3!=i2 && Math.isApprox(d3.distanceTo(d1)+d3.distanceTo(d2),d1d2))
+            d1d2 = 0;
+        }
+        if (d1d2==0)
+          continue;        var hh = Handhold.getHandhold(d1,d2);
         if (hh != null)
           hhlist.push(hh);
       }
@@ -1425,6 +1435,14 @@ Dancer.prototype.distance = function()
   var x = this.tx.getTranslateX();
   var y = this.tx.getTranslateY();
   return Math.sqrt(x*x+y*y);
+};
+
+//  Return distance to another dancer
+Dancer.prototype.distanceTo = function(d2)
+{
+  var loc1 = this.location();
+  var loc2 = d2.location();
+  return Math.sqrt((loc1.x-loc2.x)*(loc1.x-loc2.x) + (loc1.y-loc2.y)*(loc1.y-loc2.y));
 };
 
 //  Return angle from dancer's facing direction to center
