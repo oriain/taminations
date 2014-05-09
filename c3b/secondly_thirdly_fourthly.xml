@@ -22,4 +22,151 @@
 -->
 <tamination>
 
+  <tam title="Secondly Generous Crazy Hinge" group="Secondly" parts="2;3;2"
+       formation="Ocean Waves RH BGGB">
+    <path>
+      <move select="Hinge Right" beats="2"/>
+      <move select="Swing Left"/>
+      <move select="Hinge Right" beats="2"/>
+    </path>
+    <path>
+      <move select="Hinge Right" beats="2"/>
+      <move select="Stand" beats="3"/>
+      <move select="Hinge Right" beats="2"/>
+    </path>
+    <path>
+      <move select="Hinge Right" beats="2"/>
+      <move select="Swing Left"/>
+      <move select="Hinge Right" beats="2"/>
+      <move select="Hinge Left" beats="2"/>
+    </path>
+    <path>
+      <move select="Hinge Right" beats="2"/>
+      <move select="Stand" beats="3"/>
+      <move select="Hinge Right" beats="2"/>
+      <move select="Hinge Left" beats="2"/>
+    </path>
+  </tam>
+
+  <tam title="Secondly Split Turn the Key" group="Secondly" parts="3;2"
+       formation="Ocean Waves RH BGGB">
+    <path>
+      <move select="Swing Right"/>
+      <move select="Counter Rotate Right 0 -2" hands="right" offsetX="-1"/>
+      <move select="Hinge Right" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Swing Right"/>
+      <move select="Counter Rotate Right 2 0" hands="right" offsetX="1"/>
+      <move select="Hinge Right" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Swing Right"/>
+      <move select="Counter Rotate Right 0 -2" hands="right" offsetX="-1"/>
+      <move select="Hinge Right" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Swing Right"/>
+      <move select="Counter Rotate Right 2 0" hands="right" offsetX="1"/>
+      <move select="Hinge Right" scaleX=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Secondly Tandem Reset" group="Secondly" parts="3;3;3">
+    <formation>
+      <dancer gender="girl" y="1" x="1" angle="270"/>
+      <dancer gender="boy" y="3" x="1" angle="270"/>
+      <dancer gender="girl" y="3" x="-1" angle="90"/>
+      <dancer gender="boy" y="1" x="-1" angle="90"/>
+    </formation>
+    <path>
+      <move select="Run Left" offsetX="-1"/>
+      <move select="Counter Rotate Left 0 2" beats="3" hands="left" offsetX="-1"/>
+      <move select="Run Right" offsetX="-1"/>
+      <move select="Hinge Right" beats="2"/>
+    </path>
+    <path>
+      <move select="Forward" beats="3"/>
+      <move select="Counter Rotate Left 2 0" beats="3" hands="left" offsetX="1"/>
+      <move select="Forward" beats="3"/>
+      <move select="Hinge Right" beats="2"/>
+    </path>
+    <path>
+      <move select="Run Left" offsetX="-1"/>
+      <move select="Counter Rotate Left 2 0" beats="3" hands="left" offsetX="1"/>
+      <move select="Forward" beats="3"/>
+      <move select="Hinge Right" beats="2"/>
+    </path>
+    <path>
+      <move select="Forward" beats="3"/>
+      <move select="Counter Rotate Left 0 2" beats="3" hands="left" offsetX="-1"/>
+      <move select="Run Right" offsetX="-1"/>
+      <move select="Hinge Right" beats="2"/>
+    </path>
+  </tam>
+
+  <tam title="Thirdly Tandem Reset" group="Thirdly"
+       formation="Ocean Waves RH BGGB" parts="3;1.5;5">
+    <path couples="2 4">
+      <move select="Extend Right" beats="3" scaleX="2" scaleY=".5"/>
+      <move select="Hinge Left" scaleY=".5"/>
+      <move select="Run Right" offsetX="-1"/>
+      <move select="Forward 4" beats="2"/>
+      <move select="Hinge Right"/>
+    </path>
+    <path couples="2 4">
+      <move select="Run Left" scaleX=".5" scaleY=".25" offsetX="-2"/>
+      <move select="Hinge Left" scaleY=".5"/>
+      <move select="Forward 2"/>
+      <move select="Run Right" offsetX="-1"/>
+      <move select="Hinge Right"/>
+    </path>
+    <path couples="3 1">
+      <move select="Extend Right" beats="3" scaleX="2" scaleY=".5"/>
+      <move select="Hinge Left" scaleY=".5"/>
+      <move select="Forward 3" beats="5"/>
+      <move select="Hinge Right"/>
+    </path>
+    <path couples="3 1">
+      <move select="Run Left" scaleX=".5" scaleY=".25" offsetX="-2"/>
+      <move select="Hinge Left" scaleY=".5"/>
+      <move select="Forward" beats="5"/>
+      <move select="Hinge Right"/>
+    </path>
+  </tam>
+
+  <tam title="Fourthly Tandem Swing the Fractions" group="Fourthly" parts="2;3;5;4"
+       formation="Ocean Waves RH BGGB">
+    <path couples="2 4">
+      <move select="Hinge Right" beats="2"/>
+      <move select="Swing Left"/>
+      <move select="Cast Right" beats="5"/>
+      <move select="Counter Rotate Left 2 0" hands="left" offsetX="1"/>
+      <move select="Counter Rotate Left 2 0" hands="left" offsetY="-1"/>
+      <move select="Hinge Right" beats="2"/>
+    </path>
+    <path couples="2 4">
+      <move select="Hinge Right" beats="2"/>
+      <move select="Stand" beats="3"/>
+      <move select="Cast Right" beats="5"/>
+      <move select="Counter Rotate Left 0 2" hands="left" offsetX="-1"/>
+      <move select="Counter Rotate Left 0 2" hands="left" offsetY="1"/>
+      <move select="Hinge Right" beats="2"/>
+    </path>
+    <path couples="3 1">
+      <move select="Hinge Right" beats="2"/>
+      <move select="Swing Left"/>
+      <move select="Cast Right" beats="5"/>
+      <move select="Stand" beats="4"/>
+      <move select="Hinge Right" beats="2"/>
+    </path>
+    <path couples="3 1">
+      <move select="Hinge Right" beats="2"/>
+      <move select="Stand" beats="3"/>
+      <move select="Cast Right" beats="5"/>
+      <move select="Stand" beats="4"/>
+      <move select="Hinge Right" beats="2"/>
+    </path>
+  </tam>
+
 </tamination>
