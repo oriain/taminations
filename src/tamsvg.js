@@ -77,6 +77,7 @@ TamSVG.prototype = {
     cookie = new Cookie("TAMination");
     this.cookie = cookie;
     this.animationListener = null;
+    this.titlegroup = false;
     $(document).bind("contextmenu",function() { return false; });
     //  Get initial values from cookie
     //  This is a hook to test hexagon
@@ -255,7 +256,8 @@ TamSVG.prototype = {
 
   hideTitle: function()
   {
-    this.titlegroup.setAttribute('visibility','hidden');
+    if (this.titlegroup)
+      this.titlegroup.setAttribute('visibility','hidden');
   },
 
   toggleHexagon: function()
@@ -1175,6 +1177,7 @@ Dancer = function(args)   // (tamsvg,sex,x,y,angle,color,p,number,couplesnumber)
     this.startx = loc.x;
     this.starty = loc.y;
     this.startangle = args.dancer.angle;
+    this.clonedFrom = args.dancer;
   }
   if (args.gender)
     this.gender = args.gender;

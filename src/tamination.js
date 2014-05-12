@@ -280,7 +280,7 @@ TAMination.prototype = {
   translate: function(item)
   {
     var tag = $(item).prop('tagName');
-    tag = tag.substr(0,1).toUpperCase()+tag.substr(1);
+    tag = tag.toCapCase();
     return this['translate'+tag](item);
   },
 

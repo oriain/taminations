@@ -249,7 +249,7 @@ $(document).bind('pagechange', function(ev,data) {
       $('#calllist').listview('refresh');
     }
     if (typeof data.options.n != "undefined") {
-      generateAnimation(n);
+      generateAnimation(Number(n));
       bindControls();
     }
 
