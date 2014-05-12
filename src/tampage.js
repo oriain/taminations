@@ -399,6 +399,7 @@ function PickAnimation(n)
     $('#commentdiv').text(tam.getComment());
     $('#commentback').width('100%').height($('#commentdiv').height()).css('background-color','white').css('opacity','0.7');
     $("#svgcontainer").append(svgstr);
+    $('#svgcontainer > div').css('top',$('#svgdiv').height()-$('#commentdiv').height());
     $('#svgdiv').svg({onLoad:TamSVG});
     tamsvg.setAnimationListener(function(beat) {
       var op = beat < 0 ? -beat/2.0 : 0;
@@ -418,11 +419,6 @@ function PickAnimation(n)
   }
   currentcall = $('tam',animations).eq(n)
       .attr("title").replace(/ \(DBD.*/,"");
-  $('#title').text(currentcall);
-  var fontsize = 50;
-  while (fontsize > 7 && $('#title').height() > $('.title').height()) {
-    $('#title').css('font-size',(--fontsize)+'px');
-  }
   //  Strip out spaces for synchronizing with parts from animation
   currentcall = currentcall.replace(/\W/g,"");
 }

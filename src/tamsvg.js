@@ -130,11 +130,10 @@ TamSVG.prototype = {
     this.floor.setAttribute('transform',AffineTransform.getScaleInstance(1,-1).toString());
     this.svg.rect(this.floor,-6.5,-6.5,13,13,{fill:'#ffffc0'});
 
-    //  Add any comment
-    /*
-    if (typeof tam.getComment() != "undefined") {
+    //  Add title, optionally with audio link
+    if (typeof tam.getTitle() != "undefined") {
       this.titlegroup = this.svg.group(this.floorsvg);
-      var tt = tam.getComment();
+      var tt = tam.getTitle().replace(/ \(.*?\)/g,' ');
       var t = this.svg.text(this.titlegroup,0,0,tt,{fontSize: "10", transform:"translate(-6.4,-5.5) scale(0.1)"});
       l = t.getComputedTextLength();
       if (l > 110) {
@@ -165,7 +164,7 @@ TamSVG.prototype = {
           $(ttid).get(0).play();
         });
       }
-    }  */
+    }
 
     this.gridgroup = this.svg.group(this.floor,{fill:"none",stroke:"black",strokeWidth:0.01});
     this.hexgridgroup = this.svg.group(this.floor,{fill:"none",stroke:"black",strokeWidth:0.01});
