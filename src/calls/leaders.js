@@ -18,7 +18,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-Leaders = Call.childCall('leaders');
+Leaders = Call.extend('leaders');
 Leaders.prototype.perform = function(ctx)
 {
   var newactive = {};

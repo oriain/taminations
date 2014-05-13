@@ -18,7 +18,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-QuarterLeft = Call.childCall('quarterleft');
+QuarterLeft = Call.extend('quarterleft');
 QuarterLeft.prototype.performOne = function(ctx,d)
 {
   var offsetX = 0;

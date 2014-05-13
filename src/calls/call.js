@@ -19,24 +19,23 @@
 
  */
 
-Call = Object.childClass();
+Call = Object.extend();
 Call.classes = {};
-Call.childCall = function(name,c)
+Call.extend = function(name,c)
 {
-  c = Call.childClass(c);
+  c = Object.extend.apply(this,c);
   Call.classes[name] = c;
   c.prototype.name = name;
   return c;
 };
 
-CallError = Error.childClass(function(msg)
+CallError = Object.extend(function(msg)
 {
-  this.superclass(msg);
-  this.name="CallError";
   this.message = msg;
 });
+CallError.prototype.name="CallError";
 
-NoDancerError = Error.childClass();
+NoDancerError = CallError.extend();
 
 function dancerNum(d)
 {
@@ -90,8 +89,9 @@ Call.prototype.canModifyCall = function()
 //
 //  A CallContext can be created by any of
 //  * cloning another CallContext
+//  * copying an array of dancers
 //  * current state of TamSVG animation
-//  * XML formation
+//  * XML formation (?)
 CallContext = function(source)
 {
   if (source instanceof CallContext || source instanceof TamSVG) {
@@ -101,10 +101,17 @@ CallContext = function(source)
     this.active = (source.active || source.dancers).map(function(d) {
       return d;
     });
-  } else {
 
+  } else if (source instanceof Array) {
+    this.dancers = source.map(function(d) {
+      return new Dancer({dancer:d,computeOnly:true});
+    });
+    this.active = this.dancers.map(function(d) {
+      return d;
+    });
   }
-  if (source.map != undefined)
+
+  if (source.map != undefined)  //  FIXME obsolete ??
     this.map = source.map;
 };
 

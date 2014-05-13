@@ -18,7 +18,7 @@
     along with TAMinations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-AndSpread = Call.childCall('andspread');
+AndSpread = Call.extend('andspread');
 AndSpread.prototype.canModifyCall = function() { return true; };
 AndSpread.prototype.performOne = function(ctx,d)
 {

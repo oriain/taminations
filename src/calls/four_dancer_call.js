@@ -18,7 +18,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-FourDancerCall = Call.childCall('fourdancers');
+FourDancerCall = Call.extend('fourdancers');
 FourDancerCall.prototype.perform = function(ctx)
 {
   //  If there are just 4 dancers, run the call with no modifications
@@ -27,69 +27,58 @@ FourDancerCall.prototype.perform = function(ctx)
     Call.prototype.perform.call(this,ctx);
   else {
     //  8 dancers
-    //  Divide into 2 groups of 4, try both vertical and horizontal
-    splitctx = [this.split(ctx,function(loc) { return loc.x; }),
-                this.split(ctx,function(loc) { return loc.y; })];
-    for (var ix2 in splitctx) {
-      var ctx2 = splitctx[ix2];
-      if (ctx2 == null)
-        continue;
-      try {
-        for (var ix3 in ctx2) {
-          var ctx3 = ctx2[ix3];
-          //  Transform splits, then pass on using performOne calls
-          this.center(ctx3);
-          //  TODO add transform here
-          Call.prototype.performCall.call(this,ctx3);
-          //  If that works, transform paths back
-          for (var d in ctx3.dancers)
-            ctx.paths[ctx3.map[d]].add(ctx3.paths[d]);
+    //  Divide into 2 alternatives of 2 4-dancer contexts,
+    //  trying both vertical and horizontal
+    var splitctx = [ this.split(ctx,function(loc) { return loc.x; }),
+                     this.split(ctx,function(loc) { return loc.y; })];
+    splitctx.filter(function(a) { return a!=null; })
+            .forEach(function(ctxpair) {
+      ctxpair.forEach(function(ctx2) {
+        try {
+          ctx2.center();
+          // TODO Need to do additional transforms here e.g. expand
+          //  Perform the requested call on this 4-dancer unit
+          Call.prototype.perform.call(this,ctx2);
+          // TODO And transform the resulting paths back
+          //  Now apply the result to the 8-dancer context
+          ctx2.dancers.forEach(function(d) {
+            d.clonedFrom.path.add(d.path);
+          });
+        } catch (err) {
+          ;  // ignore error, try the other split
         }
-      } catch(err) {
-        //  Unable to perform call for one split, try the other direction
-        continue;  // with outer loop
-      }
-    }
+      });
+    });
+
   }
 };
 
+//  This returns an array of 2 contexts, 4 dancers each
+//  divided by an axis
 FourDancerCall.prototype.split = function(ctx,f)
 {
-  var v1 = { dancers: [], map: [] };
-  var v2 = { dancers: [], map: [] };
-  for (var d in ctx.dancers) {
-    var loc = ctx.dancers[d].location();
-    var da = ctx.dancers[d].angle - ctx.dancers[d].startangle;
-    if (f(loc) < 0) {
-      //  Push copies of dancers - The start positions are different
-      //  Might need to negate y values or fix Dancer constructor
-      var d2 = new Dancer({dancer:ctx.dancers[d],x:loc.x,y:loc.y,angle:da});
-      v1.dancers.push(d2);
-      v1.map.push(d);
-    }
-    else if (f(loc) > 0) {
-      var d2 = new Dancer({dancer:ctx.dancers[d],x:loc.x,y:loc.y,angle:da});
-      v2.dancers.push(d2);
-      v2.map.push(d);
-    }
-    else
-      //  Dancer on axis, unable to split
-      return null;
-  }
-  return [new CallContext(v1), new CallContext(v2)];
+  //  Fail if there are any dancers on the axis
+  if (ctx.dancers.forEach(function(d) {
+    Math.isApprox(f(d.location()),0);
+  }))
+    return null;
+  //  Create the two contexts
+  return [ new CallContext(ctx.dancers.filter(function(d) {
+    f(d.location()) > 0;
+  })),
+          new CallContext(ctx.dancers.filter(function(d) {
+    f(d.location()) < 0;
+  })) ];
 };
 
+//  Moves the start position of a group of dancers
+//  so they are centered around the origin
 FourDancerCall.prototype.center = function(ctx)
 {
-  var xtot = 0;
-  var ytot = 0;
-  for (var d in ctx.dancers) {
-    xtot += ctx.dancers[d].startx;
-    ytot += ctx.dancers[d].starty;
-  }
-  var dtot = ctx.dancers.length;
-  for (var d in ctx.dancers) {
-    ctx.dancers[d].startx -= xtot/dtot;
-    ctx.dancers[d].starty -= ytot/dtot;
-  }
+  var xave = ctx.dancers.reduce(function(a,b) { return a+b.startx; },0) / ctx.dancers.length;
+  var yave = ctx.dancers.reduce(function(a,b) { return a+b.starty; },0) / ctx.dancers.length;
+  ctx.dancers.forEach(function(d) {
+    d.startx -= xave;
+    d.starty -= yave;
+  });
 };

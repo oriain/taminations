@@ -23,14 +23,21 @@ var animations = 0;
 var formations = 0;
 var paths = 0;
 var crossrefs = {};
-
-var funcprop = {writable: false, enumerable: false};
-Object.prototype.childClass = function(c)
+//////////////////////////////////////////////////
+//  Extend Object class with useful stuff
+//  This can be dangerous but we will be careful
+var funcprop = {writable: true, enumerable: false};
+/**
+ *   This is a simple sub-classing method
+ *   Use as
+ *     SubClass = ParentClass.extend(constructor);
+ *     If no constructor is given, a default empty one is created.
+ */
+Object.prototype.extend = function(c)
 {
   c = c || function() { };
   c.prototype = Object.create(this.prototype);
   c.prototype.constructor = c;
-  c.prototype.superclass = this;
   return c;
 };
 
@@ -50,10 +57,14 @@ Object.prototype.forEach = function(f,o) {
     }
 };
 Object.defineProperties(Object.prototype, {
-  childClass: funcprop,
+  extend: funcprop,
   forEach: funcprop
 });
-
+////////////////////////////////////////
+//  Extend String with some useful stuff
+/**
+ *   Return string with first letter of each word capitalized
+ */
 String.prototype.toCapCase = function()
 {
   return this.replace(/\b\w+\b/g, function(word)
@@ -63,12 +74,15 @@ String.prototype.toCapCase = function()
       }
  );
 };
+/** Remove leading and trailing whitespace  */
 String.prototype.trim = function () {
   return this.replace(/^\s+|\s+$/g, "");
 };
+/**  Remove all spaces  */
 String.prototype.collapse = function() {
   return this.replace(/\s+/g,'');
 };
+/**  Capitalize every word and remove all spaces  */
 String.prototype.toCamelCase = function() {
   return this.toCapCase().collapse();
 };
@@ -78,6 +92,42 @@ Object.defineProperties(String.prototype, {
   trim: funcprop,
   collapse: funcprop,
   toCamelCase: funcprop
+});
+/////////////////////////////////////////////
+//  Math class extensions
+Math.toRadians = function(deg)
+{
+return deg * Math.PI / 180;
+};
+Math.toDegrees = function(rad)
+{
+return rad * 180 / Math.PI;
+};
+Math.IEEEremainder = function(d1,d2)
+{
+var n = Math.round(d1/d2);
+return d1 - n*d2;
+};
+Math.isApprox = function(a,b,delta)
+{
+if (!delta)
+delta = 0.1;
+return Math.abs(a-b) < delta;
+};
+Math.angleDiff = function(a1,a2)
+{
+return ((((a1-a2) % (Math.PI*2)) + (Math.PI*3)) % (Math.PI*2)) - Math.PI;
+};
+
+Math.anglesEqual = function(a1,a2)
+{
+return Math.isApprox(Math.angleDiff(a1,a2),0);
+};
+Object.defineProperties(Math,{
+  toRadians: funcprop,
+  IEEEremainder: funcprop,
+  isApprox: funcprop,
+  angleDiff: funcprop
 });
 
 //  Extra XML data that needs to be loaded to build menus and animations

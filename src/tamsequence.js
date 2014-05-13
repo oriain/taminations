@@ -205,8 +205,7 @@ function processCallText()
   //  Except of course the bookmark that we just added
   $(editor.getDoc()).find('span').not('span[data-mce-type]').contents().unwrap();
   var lines = editor.getContent({format:'raw'}).split(/<br\s*\/?>/);
-  for (var i=0; i<lines.length; i++) {
-    var line = lines[i];
+  lines.forEach(function(line) {
     var calltext = line;
     var comchar = line.search(/[*#]/);
     if (comchar >= 0) {
@@ -228,8 +227,7 @@ function processCallText()
       retval.push(calltext);
     }
     html.push(line);
-
-  }
+  });
   //  Replace the text with our marked-up version
   tinymce.activeEditor.setContent(html.join('<br/>'));
   //  And restore the user's current editing location
@@ -258,7 +256,7 @@ function updateSequence()
                             .replace(compattern,'')     // remove comments
                             .split(/\s+/);
     callwords = $.map(callwords,function(a) {
-      return a in synonyms ? synonyms[a] : a;
+      return synonyms.hasOwnProperty(a) ? synonyms[a] : a;
     });
     //  Fetch calls that are any part of the callname,
     //  to get concepts and modifications
@@ -466,6 +464,11 @@ function gotoCall(n)
   tamsvg.setBeat(b);
 }
 
+/**
+ *   Reads an XML formation and returns array of the dancers
+ * @param formation   XML formation element
+ * @returns Array of dancers
+ */
 function getDancers(formation)
 {
   var dancers = [];
@@ -492,47 +495,50 @@ function getDancers(formation)
   });
   return dancers;
 }
-
+/**
+ *   Rotates a formation 90 degrees by changing the position and
+ *   angle of each dancer
+ * @param d   Array of dancers to move.  Changed in place.
+ */
 function rotateFormation(d)
 {
-  for (var i in d) {
-    var x = d[i].starty;
-    var y = -d[i].startx;
-    d[i].startx = x;
-    d[i].starty = y;
-    d[i].startangle = (d[i].startangle + 270) % 360;
-    d[i].computeStart();
-  }
+  d.forEach(function(di) {
+    var x = di.starty;
+    var y = -di.startx;
+    di.startx = x;
+    di.starty = y;
+    di.startangle = (di.startangle + 270) % 360;
+    di.computeStart();
+  });
 }
 
-//  Returns a normalized difference between two angles
-function angleDiff(a1,a2)
-{
-  return ((((a1-a2) % (Math.PI*2)) + (Math.PI*3)) % (Math.PI*2)) - Math.PI;
-}
-
+/**
+ *   Match two formations
+ * @param d1  Array of dancers from the first formation
+ * @param d2  Array of dancers from the second formaton
+ * @param sexy  True if genders must match
+ * @returns   False if no match, otherwise array mapping d2 to d1
+ */
 function matchFormations(d1,d2,sexy)
 {
   if (d1.length != d2.length)
     return false;
   var retval = {};
-  var count = 0;
-  for (i in d1) {
-    for (j in d2) {
-      if (sexy && (d1[i].gender != d2[j].gender))
-        continue;
-      if (Math.abs(d1[i].tx.getTranslateX()-d2[j].start.getTranslateX()) > 0.1)
-        continue;
-      if (Math.abs(d1[i].tx.getTranslateY()-d2[j].start.getTranslateY()) > 0.1)
-        continue;
-      var anglediff = angleDiff(d1[i].tx.getAngle(),d2[j].start.getAngle());
-      if (Math.abs(anglediff) > 10*Math.PI/180)
-        continue;
+  if (!d1.every(function(d1d,i) {
+    return d2.some(function(d2d,j) {
+      if (sexy && (d1d.gender != d2d.gender))
+        return false;
+      if (Math.abs(d1d.tx.getTranslateX()-d2d.start.getTranslateX()) > 0.1)
+        return false;
+      if (Math.abs(d1d.tx.getTranslateY()-d2d.start.getTranslateY()) > 0.1)
+        return false;
+      var ad = Math.angleDiff(d1d.tx.getAngle(),d2d.start.getAngle());
+      if (Math.abs(ad) > 10*Math.PI/180)
+        return false;
       retval[j] = i;
-      count++;
-    }
-  }
-  if (count != d1.length)
+      return true;
+    });
+  }))
     retval = false;
   return retval;
 }

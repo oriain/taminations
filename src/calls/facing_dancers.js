@@ -18,7 +18,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-FacingDancers = Call.childCall('facingdancers');
+FacingDancers = Call.extend('facingdancers');
 FacingDancers.prototype.perform = function(ctx)
 {
   var newactive = {};

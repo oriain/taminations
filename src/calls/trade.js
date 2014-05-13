@@ -18,7 +18,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 */
-Trade = Call.childCall('trade');
+Trade = Call.extend('trade');
 Trade.prototype.performOne = function(ctx,d)
 {
   //  Figure out what dancer we're trading with

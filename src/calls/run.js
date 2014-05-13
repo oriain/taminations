@@ -18,7 +18,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-Run = Call.childCall('run');
+Run = Call.extend('run');
 Run.prototype.perform = function(ctx)
 {
   for (var d in ctx.dancers) {

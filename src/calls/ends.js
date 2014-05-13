@@ -18,7 +18,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-Ends = Call.childCall('ends');
+Ends = Call.extend('ends');
 Ends.prototype.perform = function(ctx)
 {
   var newactive = {};

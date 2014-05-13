@@ -18,7 +18,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-Zoom = Call.childCall('zoom');
+Zoom = Call.extend('zoom');
 Zoom.prototype.performOne = function(ctx,d)
 {
   var m = [];

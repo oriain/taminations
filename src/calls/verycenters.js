@@ -18,7 +18,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-VeryCenters = Call.childCall('verycenters');
+VeryCenters = Call.extend('verycenters');
 VeryCenters.prototype.perform = function(ctx)
 {
   ctx.active = {};

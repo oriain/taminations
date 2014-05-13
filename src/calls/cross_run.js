@@ -18,7 +18,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-CrossRun = Call.childCall('crossrun');
+CrossRun = Call.extend('crossrun');
 CrossRun.prototype.perform = function(ctx)
 {
   for (var d in ctx.dancers) {

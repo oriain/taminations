@@ -18,7 +18,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-TurnThru = Call.childCall('turnthru');
+TurnThru = Call.extend('turnthru');
 TurnThru.prototype.performOne = function(ctx,d)
 {
   //  Can only turn thru with another dancer

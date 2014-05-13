@@ -18,7 +18,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-Girls = Call.childCall('girls');
+Girls = Call.extend('girls');
 Girls.prototype.perform = function(ctx)
 {
   var newactive = {};

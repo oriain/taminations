@@ -2216,35 +2216,6 @@ Color.prototype.toString = function()
                Color.hex[this.b>>4] + Color.hex[this.b&0xf];
 };
 ////////////////////////////////////////////////////////////////////////////////
-//  Misc
-Math.toRadians = function(deg)
-{
-  return deg * Math.PI / 180;
-};
-Math.toDegrees = function(rad)
-{
-  return rad * 180 / Math.PI;
-};
-Math.IEEEremainder = function(d1,d2)
-{
-  var n = Math.round(d1/d2);
-  return d1 - n*d2;
-};
-Math.isApprox = function(a,b,delta)
-{
-  if (!delta)
-    delta = 0.1;
-  return Math.abs(a-b) < delta;
-};
-Math.angleDiff = function(a1,a2)
-{
-  return ((((a1-a2) % (Math.PI*2)) + (Math.PI*3)) % (Math.PI*2)) - Math.PI;
-};
-Math.anglesEqual = function(a1,a2)
-{
-  return Math.isApprox(Math.angleDiff(a1,a2),0);
-};
-////////////////////////////////////////////////////////////////////////////////
 // Build buttons and slider below animation
 // TODO this cheats a bit peeking into tamsvg data - the interface should be better
 function generateButtonPanel()

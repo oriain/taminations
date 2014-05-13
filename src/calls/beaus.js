@@ -18,7 +18,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-Beaus = Call.childCall('beaus');
+Beaus = Call.extend('beaus');
 Beaus.prototype.perform = function(ctx)
 {
   var newactive = {};

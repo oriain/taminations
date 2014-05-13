@@ -18,7 +18,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-Belles = Call.childCall('belles');
+Belles = Call.extend('belles');
 Belles.prototype.perform = function(ctx)
 {
   var newactive = {};

@@ -18,7 +18,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-AllemandeLeft = Call.childCall('allemandeleft');
+AllemandeLeft = Call.extend('allemandeleft');
 AllemandeLeft.prototype.performOne = function(ctx,d)
 {
   //  Can only turn thru with another dancer

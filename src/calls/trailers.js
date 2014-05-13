@@ -18,7 +18,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 */
-Trailers = Call.childCall('trailers');
+Trailers = Call.extend('trailers');
 Trailers.prototype.perform = function(ctx)
 {
   var newactive = {};

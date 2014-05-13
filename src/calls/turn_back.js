@@ -18,7 +18,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-TurnBack = Call.childCall('turnback');
+TurnBack = Call.extend('turnback');
 TurnBack.prototype.performOne = function(ctx,d)
 {
   var m = ctx.beau[d] ? 'U-Turn Right' : 'U-Turn Left';

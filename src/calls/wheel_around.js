@@ -18,7 +18,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-WheelAround = Call.childCall('wheelaround');
+WheelAround = Call.extend('wheelaround');
 WheelAround.prototype.performOne = function(ctx,d)
 {
   var d2 = ctx.partner[d];
