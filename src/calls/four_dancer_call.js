@@ -36,6 +36,7 @@ FourDancerCall.prototype.perform = function(ctx)
       ctxpair.forEach(function(ctx2) {
         try {
           ctx2.center();
+          ctx2.analyze();
           // TODO Need to do additional transforms here e.g. expand
           //  Perform the requested call on this 4-dancer unit
           Call.prototype.perform.call(this,ctx2);
@@ -47,9 +48,8 @@ FourDancerCall.prototype.perform = function(ctx)
         } catch (err) {
           ;  // ignore error, try the other split
         }
-      });
-    });
-
+      },this);
+    },this);
   }
 };
 
@@ -58,27 +58,15 @@ FourDancerCall.prototype.perform = function(ctx)
 FourDancerCall.prototype.split = function(ctx,f)
 {
   //  Fail if there are any dancers on the axis
-  if (ctx.dancers.forEach(function(d) {
+  if (ctx.dancers.some(function(d) {
     Math.isApprox(f(d.location()),0);
   }))
     return null;
   //  Create the two contexts
   return [ new CallContext(ctx.dancers.filter(function(d) {
-    f(d.location()) > 0;
+    return f(d.location()) > 0;
   })),
           new CallContext(ctx.dancers.filter(function(d) {
-    f(d.location()) < 0;
+    return f(d.location()) < 0;
   })) ];
-};
-
-//  Moves the start position of a group of dancers
-//  so they are centered around the origin
-FourDancerCall.prototype.center = function(ctx)
-{
-  var xave = ctx.dancers.reduce(function(a,b) { return a+b.startx; },0) / ctx.dancers.length;
-  var yave = ctx.dancers.reduce(function(a,b) { return a+b.starty; },0) / ctx.dancers.length;
-  ctx.dancers.forEach(function(d) {
-    d.startx -= xave;
-    d.starty -= yave;
-  });
 };

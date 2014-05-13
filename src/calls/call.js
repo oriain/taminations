@@ -26,6 +26,7 @@ Call.extend = function(name,c)
   c = Object.extend.apply(this,c);
   Call.classes[name] = c;
   c.prototype.name = name;
+  c.extend = Call.extend;
   return c;
 };
 
@@ -141,6 +142,19 @@ CallContext.prototype.levelBeats = function()
   });
 };
 
+//  Moves the start position of a group of dancers
+//  so they are centered around the origin
+CallContext.prototype.center = function()
+{
+  var xave = this.dancers.reduce(function(a,b) { return a+b.startx; },0) / this.dancers.length;
+  var yave = this.dancers.reduce(function(a,b) { return a+b.starty; },0) / this.dancers.length;
+  this.dancers.forEach(function(d) {
+    d.startx -= xave;
+    d.starty -= yave;
+    d.computeStart();
+  });
+};
+
 ////    Routines to analyze dancers
 //  Distance between two dancers
 //  If d2 not given, returns distance from origin
@@ -165,13 +179,13 @@ CallContext.prototype.angle = function(d1,d2)
 };
 CallContext.prototype.isFacingIn = function(d)
 {
-  var a = this.angle(d);
-  return Math.abs(a) < Math.PI/4;
+  var a = Math.abs(this.angle(d));
+  return !Math.isApprox(a,Math.PI/2) && a < Math.PI/2;
 };
 CallContext.prototype.isFacingOut = function(d)
 {
-  var a = this.angle(d);
-  return Math.abs(a) > Math.PI/4;
+  var a = Math.abs(this.angle(d));
+  return !Math.isApprox(a,Math.PI/2) && a > Math.PI/2;
 };
 //  Test if dancer d2 is directly in front, back. left, right of dancer d1
 CallContext.prototype.isInFront = function(d1,d2)

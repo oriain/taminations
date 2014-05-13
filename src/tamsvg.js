@@ -2370,10 +2370,6 @@ function generateButtonPanel()
   $('#buttonpanel').append('<div id="playslider" style="margin:10px 10px 0 10px"></div>');
   $('#playslider').slider({min: -200, max: tamsvg.beats*100, value: -200,
     slide: function(event,ui) {
-      console.log('slide');
-      //tamsvg.beat = ui.value/100;
-      //tamsvg.lastPaintTime = new Date().getTime();
-      //tamsvg.animate();
       tamsvg.setBeat(ui.value/100);
     }});
   // Slider tick marks
