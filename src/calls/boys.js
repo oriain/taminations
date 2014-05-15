@@ -21,17 +21,11 @@
 Boys = Call.extend('boys');
 Boys.prototype.perform = function(ctx)
 {
-  var newactive = {};
-  var count = 0;
-  for (var d in ctx.active) {
-    if (ctx.active[d].gender == Dancer.BOY) {
-      newactive[d] = ctx.dancers[d];
-      count++;
-    }
-  }
-  if (count == 0)
-    throw new NoDancerError();
-  ctx.active = newactive;
+  ctx.actives.filter(function(d) {
+    return d.gender != Dancer.BOY;
+  }).forEach(function(d) {
+    d.active = false;
+  });
 };
 
 //# sourceURL=boys.js

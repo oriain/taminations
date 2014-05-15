@@ -21,17 +21,11 @@
 Beaus = Call.extend('beaus');
 Beaus.prototype.perform = function(ctx)
 {
-  var newactive = {};
-  var count = 0;
-  for (var d in ctx.active) {
-    if (ctx.beau[d]) {
-      newactive[d] = ctx.dancers[d];
-      count++;
-    }
-  }
-  if (count == 0)
-    throw new NoDancerError();
-  ctx.active = newactive;
+  ctx.actives.filter(function(d) {
+    return !d.beau;
+  }).forEach(function(d) {
+    d.active = false;
+  });
 };
 
 //# sourceURL=beaus.js

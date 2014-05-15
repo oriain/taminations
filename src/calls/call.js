@@ -58,12 +58,12 @@ Call.prototype.performCall = function(ctx) {
 Call.prototype.perform = function(ctx) {
   //  Get all the paths with performOne calls
   var didsomething = false;
-  ctx.active.forEach(function(prop,d) {
-    var p = this.performOne(ctx,d);
+  ctx.dancers.filter(function(d) { return d.active; }).forEach(function(d) {
+    var p = this.performOne(d,ctx);
     if (p != undefined) {
-      ctx.dancers[d].path.add(p);
-      ctx.dancers[d].recalculate();
-      ctx.dancers[d].animate();
+      d.path.add(p);
+      d.recalculate();
+      d.animate();
       didsomething = true;
     }
   },this);
@@ -73,7 +73,7 @@ Call.prototype.perform = function(ctx) {
 
 //  Default method for one dancer to perform one call
 //  Returns an empty path (the dancer just stands there)
-Call.prototype.performOne = function(ctx,d)
+Call.prototype.performOne = function()
 {
   return new Path();
 };
@@ -97,24 +97,30 @@ Call.prototype.canModifyCall = function()
 //  * XML formation (?)
 CallContext = function(source)
 {
-  if (source instanceof CallContext || source instanceof TamSVG) {
+  if (source instanceof CallContext) {
     this.dancers = source.dancers.map(function(d) {
-      return new Dancer({dancer:d,computeOnly:true});
+      return new Dancer({dancer:d,computeOnly:true,active:d.active});
     });
-    this.active = (source.active || source.dancers).map(function(d) {
-      return d;
-    });
+  }
 
-  } else if (source instanceof Array) {
-    this.dancers = source.map(function(d) {
-      return new Dancer({dancer:d,computeOnly:true});
+  else if (source instanceof TamSVG) {
+    this.dancers = source.dancers.map(function(d) {
+      return new Dancer({dancer:d,computeOnly:true,active:true});
     });
-    this.active = this.dancers.map(function(d) {
-      return d;
+  }
+
+  else if (source instanceof Array) {
+    this.dancers = source.map(function(d) {
+      return new Dancer({dancer:d,computeOnly:true,active:true});
     });
   }
 
 };
+Object.defineProperty(CallContext.prototype,'actives',{
+  get: function() {
+    return this.dancers.filter(function(d) { return d.active; });
+  }
+});
 
 //  Level off the number of beats for each dancer
 CallContext.prototype.levelBeats = function()
@@ -240,7 +246,7 @@ CallContext.prototype.dancerInBack = function(d)
 CallContext.prototype.inBetween = function(d1,d2)
 {
   return this.dancers.filter(function(d) {
-    return d != d1 && d != d2 &&
+    return d !== d1 && d !== d2 &&
         Math.isApprox(this.distance(d,d1)+this.distance(d,d2),
                       this.distance(d1,d2));
   });
@@ -264,72 +270,74 @@ CallContext.prototype.dancersToLeft = function(d)
 
 CallContext.prototype.analyze = function()
 {
-  this.dancers.forEach(function(d) { d.animate(); });
-  this.beau = {};
-  this.belle = {};
-  this.leader = {};
-  this.trailer = {};
-  this.partner = {};
-  this.center = {};
-  this.end = {};
-  this.verycenter = {};
+  this.dancers.forEach(function(d) {
+    d.animateToEnd();
+    d.beau = false;
+    d.belle = false;
+    d.leader = false;
+    d.trailer = false;
+    d.partner = false;
+    d.center = false;
+    d.end = false;
+    d.verycenter = false;
+  });
   var istidal = false;
-  for (var d1 in this.dancers) {
-    var bestleft = -1;
-    var bestright = -1;
+  this.dancers.forEach(function(d1) {
+    var bestleft = false;
+    var bestright = false;
     var leftcount = 0;
     var rightcount = 0;
     var frontcount = 0;
     var backcount = 0;
-    for (var d2 in this.dancers) {
-      if (d2 == d1)
-        continue;
+    this.dancers.filter(function(d2) {
+      return d1 !== d2;
+    },this).forEach(function(d2) {
       //  Count dancers to the left and right, and find the closest on each side
       if (this.isRight(d1,d2)) {
         rightcount++;
-        if (bestright < 0 || this.distance(d1,d2) < this.distance(d1,bestright))
-          bestright = Number(d2);
+        if (!bestright || this.distance(d1,d2) < this.distance(d1,bestright))
+          bestright = d2;
       }
       else if (this.isLeft(d1,d2)) {
         leftcount++;
-        if (bestleft < 0 || this.distance(d1,d2) < this.distance(d1,bestleft))
-          bestleft = Number(d2);
+        if (!bestleft || this.distance(d1,d2) < this.distance(d1,bestleft))
+          bestleft = d2;
       }
       //  Also count dancers in front and in back
       else if (this.isInFront(d1,d2))
         frontcount++;
       else if (this.isInBack(d1,d2))
         backcount++;
-    }
+    },this);
     //  Use the results of the counts to assign belle/beau/leader/trailer
     //  and partner
     if (leftcount % 2 == 1 && rightcount % 2 == 0 &&
         this.distance(d1,bestleft) < 3) {
-      this.partner[d1] = bestleft;
-      this.belle[d1] = true;
+      d1.partner = bestleft;
+      d1.belle = true;
     }
     else if (rightcount % 2 == 1 && leftcount % 2 == 0 &&
         this.distance(d1,bestright) < 3) {
-      this.partner[d1] = bestright;
-      this.beau[d1] = true;
+      d1.partner = bestright;
+      d1.beau = true;
     }
     if (frontcount % 2 == 0 && backcount % 2 == 1)
-      this.leader[d1] = true;
+      d1.leader = true;
     else if (frontcount % 1 == 0 && backcount % 2 == 0)
-      this.trailer[d1] = true;
+      d1.trailer = true;
     //  Assign ends
     if (rightcount == 0 && leftcount > 1)
-      this.end[d1] = true;
+      d1.end = true;
     else if (leftcount == 0 && rightcount > 1)
-      this.end[d1] = true;
+      d1.end = true;
     //  The very centers of a tidal wave are ends
     //  Remember this special case for assigning centers later
     if (rightcount == 3 && leftcount == 4 ||
         rightcount == 4 && leftcount == 3) {
-      this.end[d1] = true;
+      d1.end = true;
       istidal = true;
     }
-  }
+  },this);
   //  Analyze for centers and very centers
   //  Sort dancers by distance from center
   var dorder = [];
@@ -341,24 +349,24 @@ CallContext.prototype.analyze = function()
   });
   // The closest 2 dancers are very centers
   if (!Math.isApprox(this.distance(dorder[1]),this.distance(dorder[2]))) {
-    this.verycenter[dorder[0]] = true;
-    this.verycenter[dorder[1]] = true;
+    dorder[0].verycenter = true;
+    dorder[1].verycenter = true;
   }
   // If tidal, then the next 4 dancers are centers
   if (istidal) {
-    this.center[dorder[2]] = true;
-    this.center[dorder[3]] = true;
-    this.center[dorder[4]] = true;
-    this.center[dorder[5]] = true;
+    dorder[2].center = true;
+    dorder[3].center = true;
+    dorder[4].center = true;
+    dorder[5].center = true;
   }
   // Otherwise, if there are 4 dancers closer to the center than the other 4,
   // they are the centers
   else if (this.dancers.length > 4 &&
            !Math.isApprox(this.distance(dorder[3]),this.distance(dorder[4]))) {
-    this.center[dorder[0]] = true;
-    this.center[dorder[1]] = true;
-    this.center[dorder[2]] = true;
-    this.center[dorder[3]] = true;
+    dorder[0].center = true;
+    dorder[1].center = true;
+    dorder[2].center = true;
+    dorder[3].center = true;
   }
 
 };

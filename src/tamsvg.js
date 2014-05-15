@@ -1540,6 +1540,11 @@ Dancer.prototype.animate = function(beat)
     this.hands = Movement.BOTHHANDS;  // hold hands in ending formation
   this.angle = Math.toDegrees(this.tx.angle);
 };
+Dancer.prototype.animateToEnd = function()
+{
+  this.animate(this.beats());
+};
+
 Dancer.prototype.hexagonify = function(beat)
 {
   var a0 = Math.atan2(this.starty,this.startx);  // hack

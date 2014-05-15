@@ -19,9 +19,9 @@
 
  */
 TurnBack = Call.extend('turnback');
-TurnBack.prototype.performOne = function(ctx,d)
+TurnBack.prototype.performOne = function(d)
 {
-  var m = ctx.beau[d] ? 'U-Turn Right' : 'U-Turn Left';
+  var m = d.beau ? 'U-Turn Right' : 'U-Turn Left';
   return new Path({select: m});
 };
 
