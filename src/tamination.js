@@ -94,6 +94,20 @@ Object.defineProperties(String.prototype, {
   toCamelCase: funcprop
 });
 /////////////////////////////////////////////
+//  Array class extensions
+Array.prototype.first = function()
+{
+  return this[0];
+};
+Array.prototype.last = function()
+{
+  return this[this.length-1];
+};
+Object.defineProperties(Array.prototype, {
+  first: funcprop,
+  last: funcprop
+});
+/////////////////////////////////////////////
 //  Math class extensions
 Math.toRadians = function(deg)
 {
@@ -128,7 +142,8 @@ Object.defineProperties(Math,{
   isApprox: funcprop,
   angleDiff: funcprop
 });
-
+//  End of monkey patching
+///////////////////////////////////////////////////////////////
 //  Extra XML data that needs to be loaded to build menus and animations
 function preload(url,f,e)
 {

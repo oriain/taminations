@@ -350,7 +350,7 @@ TamSVG.prototype = {
       for (var i in this.dancers) {
         var d = this.dancers[i];
         var a0 = Math.atan2(d.starty,d.startx);  // hack
-        var a1 = Math.atan2(d.tx.getTranslateY(),d.tx.getTranslateX());
+        var a1 = d.tx.location.angle;
         //  Correct for wrapping around +/- pi
         if (this.beat <= 0.0)
           d.prevangle = a1;
@@ -366,7 +366,7 @@ TamSVG.prototype = {
       for (var i in this.dancers) {
         var d = this.dancers[i];
         var a0 = Math.atan2(d.starty,d.startx);  // hack
-        var a1 = Math.atan2(d.tx.getTranslateY(),d.tx.getTranslateX());
+        var a1 = d.tx.location.angle;
         //  Correct for wrapping around +/- pi
         if (this.beat <= 0.0)
           d.prevangle = a1;
@@ -381,8 +381,8 @@ TamSVG.prototype = {
     //  If barstool, translate to keep the barstool dancer stationary in center
     if (this.barstool) {
       var tx = AffineTransform.getTranslateInstance(
-          -this.barstool.tx.getTranslateX(),
-          -this.barstool.tx.getTranslateY());
+          -this.barstool.tx.translateX,
+          -this.barstool.tx.translateY);
       for (var i in this.dancers) {
         this.dancers[i].concatenate(tx);
       }
@@ -396,14 +396,13 @@ TamSVG.prototype = {
     //  If compass, rotate relative to compass dancer
     if (this.compass) {
       var tx = AffineTransform.getRotateInstance(
-          this.compass.startangle*Math.PI/180-this.compass.tx.getAngle());
+          this.compass.startangle*Math.PI/180-this.compass.tx.angle);
       for (var i in this.dancers) {
         this.dancers[i].concatenate(tx);
       }
       this.compassmark.setAttribute('transform',
           AffineTransform.getTranslateInstance(
-              this.compass.tx.getTranslateX(),
-              this.compass.tx.getTranslateY()));
+              this.compass.tx.location));
       this.compassmark.setAttribute('visibility','visible');
     }
     else
@@ -446,7 +445,7 @@ TamSVG.prototype = {
     for (var h in hhlist) {
       var hh = hhlist[h];
       /*if (this.bigon) {
-        if (Math.abs(hh.d1.centerAngle()-3*Math.PI/2) < 3 &&
+        if (Math.abs(hh.d1.centerAngle-3*Math.PI/2) < 3 &&
             hh.d1.hands == Movement.RIGHTHAND)
           continue;
       }*/
@@ -849,6 +848,7 @@ TamSVG.prototype = {
   convertToHexagon: function()
   {
     //  Save current dancers
+    this.setBeat(0);
     for (var i in this.dancers)
       this.dancers[i].hide();
     this.saveDancers = this.dancers;
@@ -865,18 +865,21 @@ TamSVG.prototype = {
       var jj = j <= 1 ? [j,j+2,j+4] : [6, 6, 6];
       var isPh = this.saveDancers[i].gender == Dancer.PHANTOM;
       this.dancers.push(new Dancer({dancer:this.saveDancers[i],
+                                    path:this.saveDancers[i].path,
                                     angle:30,
                                     color:dancerColor[jj[0]],
                                     hidden: isPh && !this.showPhantoms,
                                     number:isPh?' ':hexnumbers[i/2*3],
                                     couplesnumber:isPh?' ':hexcouples[i/2*3]}));
       this.dancers.push(new Dancer({dancer:this.saveDancers[i],
+                                    path:this.saveDancers[i].path,
                                     angle:150,
                                     color:dancerColor[jj[1]],
                                     hidden: isPh && !this.showPhantoms,
                                     number:isPh?' ':hexnumbers[i/2*3+1],
                                     couplesnumber:isPh?' ':hexcouples[i/2*3+1]}));
       this.dancers.push(new Dancer({dancer:this.saveDancers[i],
+                                    path:this.saveDancers[i].path,
                                     angle:270,
                                     color:dancerColor[jj[2]],
                                     hidden: isPh && !this.showPhantoms,
@@ -903,6 +906,7 @@ TamSVG.prototype = {
       var isPh = this.saveDancers[i].gender == Dancer.PHANTOM;
       var numstr = isPh ? ' ' : (j+1)+'';
       this.dancers.push(new Dancer({dancer:this.saveDancers[i],
+                                    path:this.saveDancers[i].path,
                                     number:numstr,couplesnumber:numstr,
                                     hidden: isPh && !this.showPhantoms,
                                     color:dancerColor[j]}));
@@ -1013,10 +1017,10 @@ Handhold.getHandhold = function(/*Dancer*/ d1, /*Dancer*/ d2)
 
 
   //  Check distance
-  var x1 = d1.tx.getTranslateX();
-  var y1 = d1.tx.getTranslateY();
-  var x2 = d2.tx.getTranslateX();
-  var y2 = d2.tx.getTranslateY();
+  var x1 = d1.tx.translateX;
+  var y1 = d1.tx.translateY;
+  var x2 = d2.tx.translateX;
+  var y2 = d2.tx.translateY;
   var dx = x2-x1;
   var dy = y2-y1;
   var dfactor1 = 0.1;  // for distance up to 2.0
@@ -1033,8 +1037,8 @@ Handhold.getHandhold = function(/*Dancer*/ d1, /*Dancer*/ d2)
   //  Angle between dancers
   var a0 = Math.atan2(dy,dx);
   //  Angle each dancer is facing
-  var a1 = Math.atan2(d1.tx.getShearY(),d1.tx.getScaleY());
-  var a2 = Math.atan2(d2.tx.getShearY(),d2.tx.getScaleY());
+  var a1 = Math.atan2(d1.tx.shearY,d1.tx.scaleY);
+  var a2 = Math.atan2(d2.tx.shearY,d2.tx.scaleY);
   //  For each dancer, try left and right hands
   var h1 = 0;
   var h2 = 0;
@@ -1104,12 +1108,8 @@ Handhold.getHandhold = function(/*Dancer*/ d1, /*Dancer*/ d2)
 /* boolean */
 Handhold.prototype.inCenter = function()
 {
-  var x1 = this.d1.tx.getTranslateX();
-  var y1 = this.d1.tx.getTranslateY();
-  var x2 = this.d2.tx.getTranslateX();
-  var y2 = this.d2.tx.getTranslateY();
-  this.isincenter = Math.sqrt(x1*x1+y1*y1) < 1.1 &&
-         Math.sqrt(x2*x2+y2*y2) < 1.1;
+  this.isincenter = this.d1.location.distance < 1.1 &&
+                    this.d2.location.distance < 1.1;
   if (this.isincenter) {
     this.ah1 = 0;
     this.ah2 = 0;
@@ -1166,30 +1166,34 @@ Dancer = function(args)   // (tamsvg,sex,x,y,angle,color,p,number,couplesnumber)
 {
   this.startangle = 0;
   this.path = new Path();
-  if (args.tamsvg)
-    this.tamsvg = args.tamsvg;
-  if (args.dancer) {
-    ['tamsvg','fillcolor','drawcolor','gender','number'].forEach(function(p) {
-      this[p] = args.dancer[p];
-    },this);
-    this.path = new Path();
-    var loc = args.dancer.location();
-    this.startx = loc.x;
-    this.starty = loc.y;
-    this.startangle = args.dancer.angle;
-    this.clonedFrom = args.dancer;
-  }
-  if (args.gender)
-    this.gender = args.gender;
-  if (args.x !== undefined)
-    this.startx = args.x;
-  if (args.y !== undefined)
-    this.starty = -args.y;
-  if (args.angle !== undefined) {
-    if (args.dancer)
-      this.startangle += args.angle;
-    else
-      this.startangle = args.angle-90;
+  for (var arg in args) {
+    if (arg == 'dancer') {  //  Copying another dancer
+      ['tamsvg','fillcolor','drawcolor','gender','number'].forEach(function(p) {
+        this[p] = args.dancer[p];
+      },this);
+      var loc = args.dancer.location;
+      this.startx = loc.x;
+      this.starty = loc.y;
+      this.startangle = args.dancer.angle;
+      this.clonedFrom = args.dancer;
+    }
+    //  Get additional optional args
+    else if (arg == 'x')
+      this.startx = args.x;
+    else if (arg == 'y')
+      this.starty = -args.y;
+    else if (arg == 'angle') {
+      if (args.dancer)
+        this.startangle += args.angle;
+      else
+        this.startangle = args.angle-90;
+    }
+    //  If a path is given, clone it, so the original does not
+    //  get clobbered if we make modifications
+    else if (arg == 'path')
+      this.path = new Path(args.path);
+    else if (args[arg] != undefined)
+      this[arg] = args[arg];
   }
   if (this.gender == Dancer.PHANTOM) {
     this.fillcolor = Color.gray;
@@ -1199,13 +1203,6 @@ Dancer = function(args)   // (tamsvg,sex,x,y,angle,color,p,number,couplesnumber)
     this.fillcolor = args.color;
     this.drawcolor = args.color.darker();
   }
-  if (args.path)
-    this.path = new Path(args.path);
-  if (args.number !== undefined)
-    this.number = args.number;
-  if (args.couplesnumber !== undefined)
-    this.couplesnumber = args.couplesnumber;
-  this.computeOnly = args.computeOnly || false;
 
   this.hidden = false;
   this.pathVisible = this.tamsvg.showPaths;
@@ -1324,6 +1321,20 @@ Dancer.PHANTOM = 3;
 Dancer.genders =
   { 'boy':Dancer.BOY, 'girl':Dancer.GIRL, 'phantom':Dancer.PHANTOM };
 
+Object.defineProperties(Dancer.prototype, {
+  location: { get: function() {
+    return this.tx.location;
+  }},
+  //  Return distance from center
+  distance: { get: function() {
+    return this.tx.location.distance;
+  }},
+  //  Return angle from dancer's facing direction to center
+  centerAngle: { get: function() {
+    return this.tx.angle + this.location.angle;
+  }}
+});
+
 Dancer.prototype.hidePath = function()
 {
   this.pathgroup.setAttribute('visibility','hidden');
@@ -1383,12 +1394,9 @@ Dancer.prototype.computeStart = function()
 
 Dancer.prototype.beats = function()
 {
-  var b = 0;
-  if (this.path != null) {
-    for (var i in this.path.movelist)
-      b += this.path.movelist[i].beats;
-  }
-  return b;
+  return this.path.movelist.reduce(function(s,m) {
+    return s + m.beats;
+  },0);
 };
 
 Dancer.prototype.showNumber = function()
@@ -1425,34 +1433,15 @@ Dancer.prototype.recalculate = function()
     this.paintPath();
 };
 
-//  Return location as a Vector object
-Dancer.prototype.location = function()
-{
-  return new Vector(this.tx.getTranslateX(),this.tx.getTranslateY());
-};
-
-//  Return distance from center
-Dancer.prototype.distance = function()
-{
-  var x = this.tx.getTranslateX();
-  var y = this.tx.getTranslateY();
-  return Math.sqrt(x*x+y*y);
-};
 
 //  Return distance to another dancer
 Dancer.prototype.distanceTo = function(d2)
 {
-  var loc1 = this.location();
-  var loc2 = d2.location();
+  var loc1 = this.location;
+  var loc2 = d2.location;
   return Math.sqrt((loc1.x-loc2.x)*(loc1.x-loc2.x) + (loc1.y-loc2.y)*(loc1.y-loc2.y));
 };
 
-//  Return angle from dancer's facing direction to center
-Dancer.prototype.centerAngle = function()
-{
-  var a1 = Math.atan2(this.tx.getTranslateY(),this.tx.getTranslateX());
-  return this.tx.getAngle() + a1;
-};
 
 Dancer.prototype.concatenate = function(tx2)
 {
@@ -1472,7 +1461,7 @@ Dancer.prototype.paintPath = function()
       this.hexagonify(b);
     if (this.tamsvg.bigon)
       this.bigonify(b);
-    points.push([this.tx.getTranslateX(),this.tx.getTranslateY()]);
+    points.push([this.tx.translateX,this.tx.translateY]);
   }
   this.tamsvg.svg.polyline(this.pathgroup,points,
       {fill:'none',stroke:this.drawcolor.toString(),strokeWidth:0.1,strokeOpacity:.3});
@@ -1513,6 +1502,8 @@ Dancer.prototype.paintBezier = function()
 var count = 0;
 Dancer.prototype.animate = function(beat)
 {
+  if (beat == undefined)
+    beat = this.beats();
   // Be sure to reset grips at start
   if (beat == 0)
     this.rightgrip = this.leftgrip = null;
@@ -1547,12 +1538,12 @@ Dancer.prototype.animate = function(beat)
   }
   else  // End of movement
     this.hands = Movement.BOTHHANDS;  // hold hands in ending formation
-  this.angle = Math.toDegrees(this.tx.getAngle());
+  this.angle = Math.toDegrees(this.tx.angle);
 };
 Dancer.prototype.hexagonify = function(beat)
 {
   var a0 = Math.atan2(this.starty,this.startx);  // hack
-  var a1 = Math.atan2(this.tx.getTranslateY(),this.tx.getTranslateX());
+  var a1 = this.tx.location.angle;
   //  Correct for wrapping around +/- pi
   if (beat <= 0.0)
     this.prevangle = a1;
@@ -1566,7 +1557,7 @@ Dancer.prototype.hexagonify = function(beat)
 Dancer.prototype.bigonify = function(beat)
 {
   var a0 = Math.atan2(this.starty,this.startx);  // hack
-  var a1 = Math.atan2(this.tx.getTranslateY(),this.tx.getTranslateX());
+  var a1 = this.tx.location.angle;
   //  Correct for wrapping around +/- pi
   if (beat <= 0.0)
     this.prevangle = a1;
@@ -1587,7 +1578,7 @@ Dancer.prototype.paint = function()
   this.lefthand.setAttribute('transform',
       new AffineTransform(this.tx).concatenate(this.leftHandTransform).toString());
   if (this.tamsvg.numbers || this.tamsvg.couples) {
-    var a = this.tx.getAngle();
+    var a = this.tx.angle;
     var t1 = AffineTransform.getScaleInstance(0.04,-0.04);
     var t2 = AffineTransform.getRotateInstance(a);
     if (this.tamsvg.numbers)
@@ -1922,6 +1913,17 @@ Vector = function(x,y,z)
   }
 };
 
+Object.defineProperties(Vector.prototype, {
+  //  Return angle of vector from the origin
+  angle: { get: function() {
+    return Math.atan2(this.y,this.x);
+  }},
+  //  Return distance from origin
+  distance: { get: function() {
+    return Math.sqrt(this.x*this.x+this.y*this.y+this.z*this.z);
+  }},
+});
+
 //  Add/subtract two vectors
 Vector.prototype.add = function(v)
 {
@@ -1940,38 +1942,30 @@ Vector.prototype.cross = function(v)
       this.x*v.y - this.y*v.x
   );
 };
-//  Return angle of vector from the origin
-Vector.prototype.angle = function()
-{
-  return Math.atan2(this.y,this.x);
-};
-//  Return distance from origin
-Vector.prototype.distance = function()
-{
-  return Math.sqrt(this.x*this.x+this.y*this.y+this.z*this.z);
-};
+
 //  Rotate by a given angle
 Vector.prototype.rotate = function(th)
 {
   var d = Math.sqrt(this.x*this.x+this.y*this.y);
-  var a = this.angle() + th;
+  var a = this.angle + th;
   return new Vector(
       d * Math.cos(a),
       d * Math.sin(a),
       this.z);
 };
+
 //  Apply a transform
 Vector.prototype.concatenate = function(tx)
 {
   var vx = AffineTransform.getTranslateInstance(this.x,this.y);
   vx = vx.concatenate(tx);
-  return new Vector(vx.getTranslateX(),vx.getTranslateY());
+  return vx.location;
 };
 Vector.prototype.preConcatenate = function(tx)
 {
   var vx = AffineTransform.getTranslateInstance(this.x,this.y);
   vx = vx.preConcatenate(tx);
-  return new Vector(vx.getTranslateX(),vx.getTranslateY());
+  return vx.location;
 };
 
 //  Return true if this vector followed by vector 2 is clockwise
@@ -1979,6 +1973,7 @@ Vector.prototype.isCW = function(v)
 {
   return this.cross(v).z < 0;
 };
+
 Vector.prototype.isCCW = function(v)
 {
   return this.cross(v).z > 0;
@@ -2020,12 +2015,23 @@ AffineTransform = function(tx)
   }
 };
 
+Object.defineProperties(AffineTransform.prototype, {
+  scaleX: { get: function() { return this.x1; } },
+  scaleY: { get: function() { return this.y2; } },
+  shearX: { get: function() { return this.x2; } },
+  shearY: { get: function() { return this.y1; } },
+  translateX: { get: function() { return this.x3; } },
+  translateY: { get: function() { return this.y3; } },
+  location: { get: function() { return new Vector(this.x3,this.y3); } },
+  angle: { get: function() { return Math.atan2(this.y1,this.y2); } }
+});
+
 //  Generate a new transform that moves to a new location
 AffineTransform.getTranslateInstance = function(x,y)
 {
   var a = new AffineTransform();
-  a.x3 = x;
-  a.y3 = y;
+  a.x3 = x instanceof Vector ? x.x : x;
+  a.y3 = x instanceof Vector ? x.y : y;
   return a;
 };
 //  Generate a new transform that does a rotation
@@ -2104,34 +2110,7 @@ AffineTransform.prototype.preConcatenate = function(tx)
   this.y3 = tx.y1 * copy.x3 + tx.y2 * copy.y3 + tx.y3;
   return this;
 };
-AffineTransform.prototype.getScaleX = function()
-{
-  return this.x1;
-};
-AffineTransform.prototype.getScaleY = function()
-{
-  return this.y2;
-};
-AffineTransform.prototype.getShearX = function()
-{
-  return this.x2;
-};
-AffineTransform.prototype.getShearY = function()
-{
-  return this.y1;
-};
-AffineTransform.prototype.getTranslateX = function()
-{
-  return this.x3;
-};
-AffineTransform.prototype.getTranslateY = function()
-{
-  return this.y3;
-};
-AffineTransform.prototype.getAngle = function()
-{
-  return Math.atan2(this.y1,this.y2);
-};
+
 //  Compute and return the inverse matrix - only for affine transform matrix
 AffineTransform.prototype.getInverse = function()
 {
@@ -2161,7 +2140,7 @@ AffineTransform.prototype.print = function()
 };
 ////////////////////////////////////////////////////////////////////////////////
 //   Color class
-Color = function (r,g,b)
+Color = function(r,g,b)
 {
   this.r = Math.floor(r);
   this.g = Math.floor(g);

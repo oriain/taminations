@@ -32,15 +32,31 @@ FourDancerCall.prototype.perform = function(ctx)
     var splitctx = [ this.split(ctx,function(loc) { return loc.x; }),
                      this.split(ctx,function(loc) { return loc.y; })];
     splitctx.filter(function(a) { return a!=null; })
-            .forEach(function(ctxpair) {
+            .forEach(function(ctxpair,isVerticalSplit) {
       ctxpair.forEach(function(ctx2) {
         try {
           ctx2.center();
-          ctx2.analyze();
           // TODO Need to do additional transforms here e.g. expand
+          ctx2.analyze();
           //  Perform the requested call on this 4-dancer unit
           Call.prototype.perform.call(this,ctx2);
-          // TODO And transform the resulting paths back
+          // And transform the resulting paths back
+          ctx2.dancers.forEach(function(d) {
+            //  First figure out the direction this dancer needs to move
+            var v = new Vector(
+                isVerticalSplit ? 0 : -Math.round(d.location.x/3),
+                isVerticalSplit ? -Math.round(d.location.y/3) : 0
+            );
+            //  Get the dancer's facing angle for the last movement
+            var m = d.path.movelist.last();
+            d.animate(d.beats()-m.beats);
+            var tx = AffineTransform.getRotateInstance(d.tx.angle);
+            //  Apply that angle to the direction we need to shift
+            v = v.preConcatenate(tx);
+            //  Finally apply it to the last movement
+            m.skew(v.x,v.y);
+          });
+
           //  Now apply the result to the 8-dancer context
           ctx2.dancers.forEach(function(d) {
             d.clonedFrom.path.add(d.path);
@@ -59,14 +75,14 @@ FourDancerCall.prototype.split = function(ctx,f)
 {
   //  Fail if there are any dancers on the axis
   if (ctx.dancers.some(function(d) {
-    Math.isApprox(f(d.location()),0);
+    Math.isApprox(f(d.location),0);
   }))
     return null;
   //  Create the two contexts
   return [ new CallContext(ctx.dancers.filter(function(d) {
-    return f(d.location()) > 0;
+    return f(d.location) > 0;
   })),
           new CallContext(ctx.dancers.filter(function(d) {
-    return f(d.location()) < 0;
+    return f(d.location) < 0;
   })) ];
 };

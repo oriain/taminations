@@ -528,11 +528,11 @@ function matchFormations(d1,d2,sexy)
     return d2.some(function(d2d,j) {
       if (sexy && (d1d.gender != d2d.gender))
         return false;
-      if (Math.abs(d1d.tx.getTranslateX()-d2d.start.getTranslateX()) > 0.1)
+      if (Math.abs(d1d.tx.translateX-d2d.start.translateX) > 0.1)
         return false;
-      if (Math.abs(d1d.tx.getTranslateY()-d2d.start.getTranslateY()) > 0.1)
+      if (Math.abs(d1d.tx.translateY-d2d.start.translateY) > 0.1)
         return false;
-      var ad = Math.angleDiff(d1d.tx.getAngle(),d2d.start.getAngle());
+      var ad = Math.angleDiff(d1d.tx.angle,d2d.start.angle);
       if (Math.abs(ad) > 10*Math.PI/180)
         return false;
       retval[j] = i;

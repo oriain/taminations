@@ -24,8 +24,10 @@ Call.classes = {};
 Call.extend = function(name,c)
 {
   c = Object.extend.apply(this,c);
-  Call.classes[name] = c;
-  c.prototype.name = name;
+  if (name) {
+    Call.classes[name] = c;
+    c.prototype.name = name;
+  }
   c.extend = Call.extend;
   return c;
 };
@@ -61,7 +63,7 @@ Call.prototype.perform = function(ctx) {
     if (p != undefined) {
       ctx.dancers[d].path.add(p);
       ctx.dancers[d].recalculate();
-      ctx.dancers[d].animate(999);
+      ctx.dancers[d].animate();
       didsomething = true;
     }
   },this);
@@ -112,16 +114,6 @@ CallContext = function(source)
     });
   }
 
-  if (source.map != undefined)  //  FIXME obsolete ??
-    this.map = source.map;
-};
-
-//  Static function to copy an array of dancers
-CallContext.copyDancers = function(dancers)
-{
-  return dancers.map(function(d) {
-    return new Dancer({dancer:dancers[d],computeOnly:true});
-  });
 };
 
 //  Level off the number of beats for each dancer
@@ -156,14 +148,18 @@ CallContext.prototype.center = function()
 };
 
 ////    Routines to analyze dancers
+CallContext.prototype.dancer = function(d)
+{
+  return d instanceof Dancer ? d : this.dancers[d];
+};
 //  Distance between two dancers
 //  If d2 not given, returns distance from origin
 CallContext.prototype.distance = function(d1,d2)
 {
-  var v = this.dancers[d1].location();
+  var v = this.dancer(d1).location;
   if (d2 != undefined)
-    v = v.subtract(this.dancers[d2].location());
-  return v.distance();
+    v = v.subtract(this.dancer(d2).location);
+  return v.distance;
 };
 //  Angle of d2 as viewed from d1
 //  If angle is 0 then d2 is in front of d1
@@ -173,9 +169,9 @@ CallContext.prototype.angle = function(d1,d2)
 {
   var v = new Vector(0,0);
   if (d2 != undefined)
-    v = this.dancers[d2].location();
-  var v2 = v.preConcatenate(this.dancers[d1].tx.getInverse());
-  return v2.angle();
+    v = this.dancer(d2).location;
+  var v2 = v.preConcatenate(this.dancer(d1).tx.getInverse());
+  return v2.angle;
 };
 CallContext.prototype.isFacingIn = function(d)
 {
@@ -268,7 +264,7 @@ CallContext.prototype.dancersToLeft = function(d)
 
 CallContext.prototype.analyze = function()
 {
-  this.dancers.forEach(function(d) { d.animate(999); });
+  this.dancers.forEach(function(d) { d.animate(); });
   this.beau = {};
   this.belle = {};
   this.leader = {};

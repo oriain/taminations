@@ -16,8 +16,7 @@ def main():
   #  Build table of calls in each file
   r = re.compile(r'title="(.*?)"')
   r2 = re.compile(r'/(b1|b2|ms|plus|a1|a2|c1|c2|c3a)/')
-  r3 = re.compile(r"Call\.classes\['(.*?)'\]")
-  r3py = re.compile(r"caller\['classes'\]\['(.*)'\]")
+  r3 = re.compile(r"\.extend\('(.*?)'\)")
   r4 = re.compile(r'\W')
   #  Start a new xml document for the output
   newtree = ET.ElementTree(ET.Element('calls'))
@@ -40,7 +39,7 @@ def main():
   #  Read scripts from javascript and python files
   for filename in glob.glob('calls/*.js'): # + glob.glob('../squareplay/src/calls/*.py'):
     for line in open(filename):
-      m = r3.search(line) or r3py.search(line)
+      m = r3.search(line)
       if m:
         c = ET.SubElement(newroot,'call')
         c.set('text',re.sub(r4,'',m.group(1).lower()))

@@ -18,8 +18,8 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-QuarterLeft = FourDancerCall.extend('quarterleft');
-QuarterLeft.prototype.performOne = function(ctx,d)
+QuarterInOutLeftRight = FourDancerCall.extend();
+QuarterInOutLeftRight.prototype.performOne = function(ctx,d)
 {
   var offsetX = 0;
   var offsetY = 0;
@@ -35,7 +35,32 @@ QuarterLeft.prototype.performOne = function(ctx,d)
     offsetY = -1;
   else
     return undefined;    // TODO for now just handle dancers in boxes
-  return new Path({select: 'Quarter Left', offsetX: offsetX, offsetY: offsetY });
+  return new Path({select: this.select(ctx,d), offsetX: offsetX, offsetY: offsetY });
+};
+
+QuarterLeft = QuarterInOutLeftRight.extend('quarterleft');
+QuarterLeft.prototype.select = function() {
+  return "Quarter Left";
+};
+
+QuarterRight = QuarterInOutLeftRight.extend('quarterright');
+QuarterRight.prototype.select = function() {
+  return "Quarter Right";
+};
+
+QuarterIn = QuarterInOutLeftRight.extend('quarterin');
+QuarterIn.prototype.select = function(ctx,d) {
+  return ctx.beau[d] ? 'Quarter Right' : 'Quarter Left';
+};
+
+QuarterOut = QuarterInOutLeftRight.extend('quarterout');
+QuarterIn.prototype.select = function(ctx,d) {
+  return ctx.beau[d] ? 'Quarter Left' : 'Quarter Right';
+};
+
+FaceIn = QuarterInOutLeftRight.extend('facein');
+FaceIn.prototype.select = function(ctx,d) {
+  return ctx.angle(d) < 0 ? 'Quarter Right' : 'Quarter Left';
 };
 
 //# sourceURL=quarter_left.js
