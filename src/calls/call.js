@@ -341,32 +341,37 @@ CallContext.prototype.analyze = function()
   //  Analyze for centers and very centers
   //  Sort dancers by distance from center
   var dorder = [];
-  for (d1 in this.dancers)
-    dorder[d1] = d1;
+  this.dancers.forEach(function(d1) {
+    dorder.push(d1);
+  });
   var ctx = this;
   dorder.sort(function(a,b) {
     return ctx.distance(a) - ctx.distance(b);
   });
-  // The closest 2 dancers are very centers
+  //  The 2 dancers closest to the center
+  //  are centers (4 dancers) or very centers (8 dancers)
   if (!Math.isApprox(this.distance(dorder[1]),this.distance(dorder[2]))) {
-    dorder[0].verycenter = true;
-    dorder[1].verycenter = true;
+    if (this.dancers.length == 4) {
+      dorder[0].center = true;
+      dorder[1].center = true;
+    } else {
+      dorder[0].verycenter = true;
+      dorder[1].verycenter = true;
+    }
   }
   // If tidal, then the next 4 dancers are centers
   if (istidal) {
-    dorder[2].center = true;
-    dorder[3].center = true;
-    dorder[4].center = true;
-    dorder[5].center = true;
+    [2,3,4,5].forEach(function(i) {
+      dorder[i].center = true;
+    });
   }
   // Otherwise, if there are 4 dancers closer to the center than the other 4,
   // they are the centers
   else if (this.dancers.length > 4 &&
            !Math.isApprox(this.distance(dorder[3]),this.distance(dorder[4]))) {
-    dorder[0].center = true;
-    dorder[1].center = true;
-    dorder[2].center = true;
-    dorder[3].center = true;
+    [0,1,2,3].forEach(function(i) {
+      dorder[i].center = true;
+    });
   }
 
 };
