@@ -27,18 +27,18 @@ Zoom.prototype.performOne = function(ctx,d)
     var a = ctx.angle(d);
     var c = a < 0 ? 'Run Left' : 'Run Right';
     if (!ctx.active[d2])
-      throw new CallError('Trailer of dancer '+dancerNum(d)+' is not active.');
+      throw new CallError('Trailer of dancer '+d+' is not active.');
     var dist = ctx.distance(d,d2);
     m.push({select:c,beats:2,offsetX:-dist/2});
     m.push({select:c,beats:2,offsetX:dist/2});
   } else if (ctx.trailer[d]) {
     var d2 = ctx.dancerInFront(d);
     if (!ctx.active[d2])
-      throw new CallError('Leader of dancer '+dancerNum(d)+' is not active.');
+      throw new CallError('Leader of dancer '+d+' is not active.');
     var dist = ctx.distance(d,d2);
     m.push({ select:'Forward', beats:4, scaleX:dist });
   } else {
-    throw new CallError('Dancer '+dancerNum(d)+' cannot Zoom.');
+    throw new CallError('Dancer '+d+' cannot Zoom.');
   }
   var moves = tam.translatePath(m);
   return new Path(moves);

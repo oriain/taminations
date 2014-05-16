@@ -19,20 +19,20 @@
 
  */
 WheelAround = Call.extend('wheelaround');
-WheelAround.prototype.performOne = function(ctx,d)
+WheelAround.prototype.performOne = function(d,ctx)
 {
-  var d2 = ctx.partner[d];
-  if (d2 == undefined || !ctx.active[d2])
-    throw new CallError('Dancer '+dancerNum(d)+' must Wheel Around with partner.');
+  var d2 = d.partner;
+  if (!d2 || !d2.active)
+    throw new CallError('Dancer '+d+' must Wheel Around with partner.');
   var m = {};
-  if (ctx.belle[d]) {
-    if (!ctx.beau[d2])
-      throw new CallError('Dancer '+dancerNum(d)+' is not part of a Facing Couple.');
+  if (d.belle) {
+    if (!d2.beau)
+      throw new CallError('Dancer '+d+' is not part of a Facing Couple.');
     m = { select: 'Belle Wheel' };
   }
   else {
-    if (!ctx.belle[d2])
-      throw new CallError('Dancer '+dancerNum(d)+' is not part of a Facing Couple.');
+    if (!d2.belle)
+      throw new CallError('Dancer '+d+' is not part of a Facing Couple.');
     m = { select: 'Beau Wheel' };
   }
   return new Path(m);

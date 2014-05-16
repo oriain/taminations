@@ -52,13 +52,18 @@ Object.prototype.extend = function(c)
  *
  */
 Object.prototype.forEach = function(f,o) {
-    for (var p in this) {
-      f.call(o,p,this[p]);
-    }
+  for (var p in this) {
+    f.call(o,p,this[p]);
+  }
 };
+//  Object comes with a keys method but not a values method
+Object.values = function(o) {
+  return Object.keys(o).map(function(k) { return this[k]; },o);
+};
+
 Object.defineProperties(Object.prototype, {
   extend: funcprop,
-  forEach: funcprop
+  forEach: funcprop,
 });
 ////////////////////////////////////////
 //  Extend String with some useful stuff
@@ -105,7 +110,7 @@ Array.prototype.last = function()
 };
 Object.defineProperties(Array.prototype, {
   first: funcprop,
-  last: funcprop
+  last: funcprop,
 });
 /////////////////////////////////////////////
 //  Math class extensions

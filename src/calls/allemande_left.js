@@ -19,7 +19,7 @@
 
  */
 AllemandeLeft = Call.extend('allemandeleft');
-AllemandeLeft.prototype.performOne = function(ctx,d)
+AllemandeLeft.prototype.performOne = function(d,ctx)
 {
   //  Can only turn thru with another dancer
   //  in front of this dancer
@@ -35,6 +35,6 @@ AllemandeLeft.prototype.performOne = function(ctx,d)
   throw new CallError('Cannot find dancer to turn with '+dancerNum(d));
 };
 
-Call.childCall('leftturnthru').prototype = AllemandeLeft.prototype;
+Call.extend('leftturnthru').prototype = AllemandeLeft.prototype;
 
 //# sourceURL=allemandeleft.js

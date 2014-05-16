@@ -21,30 +21,28 @@
 CrossRun = Call.extend('crossrun');
 CrossRun.prototype.perform = function(ctx)
 {
-  for (var d in ctx.dancers) {
-    var p = new Path();
-    if (d in ctx.active) {
+  //  We need to look at all the dancers, not just actives
+  //  because partners of the runners need to dodge
+  ctx.dancers.forEach(function(d) {
+    if (d.active) {
       //  Must be in a 4-dancer wave or line
-      if (!ctx.center[d] && !ctx.end[d])
+      if (!d.center && !d.end)
         throw new CallError('General line required for Cross Run');
       //  Partner must be inactive
-      var d2 = ctx.partner[d];
-      if (d2 == null || ctx.active[d2])
+      var d2 = d.partner;
+      if (!d2 || d2.active)
         throw new CallError('Dancer and partner cannot both Cross Run');
       //  Center beaus and end belles run left
-      var isright = ctx.beau[d] ^ ctx.center[d];
+      var isright = d.beau ^ d.center;
       var m = isright ? 'Run Right' : 'Run Left';
       //  TODO check for runners crossing paths
-      var moves = tam.translateMovement({ select: m, scaleY: 2 });
-      p = new Path(moves);
+      d.path = new Path({ select: m, scaleY: 2 });
     }
-    else if (ctx.partner[d] in ctx.active) {
-      var m = ctx.beau[d] ? 'Dodge Right' : 'Dodge Left';
-      var moves = tam.translateMovement({ select: m });
-      p = new Path(moves);
+    else if (d.partner && d.partner.active) {
+      var m = d.beau ? 'Dodge Right' : 'Dodge Left';
+      d.path = new Path({ select: m });
     }
-    ctx.dancers[d].path.add(p);
-  }
+  });
 };
 
 //# sourceURL=crossrun.js

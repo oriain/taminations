@@ -19,7 +19,7 @@
 
  */
 PassThru = Call.extend('passthru');
-PassThru.prototype.performOne = function(ctx,d)
+PassThru.prototype.performOne = function(d,ctx)
 {
   //  Can only pass thru with another dancer
   //  in front of this dancer

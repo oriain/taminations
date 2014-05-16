@@ -1394,9 +1394,7 @@ Dancer.prototype.computeStart = function()
 
 Dancer.prototype.beats = function()
 {
-  return this.path.movelist.reduce(function(s,m) {
-    return s + m.beats;
-  },0);
+  return this.path.beats();
 };
 
 Dancer.prototype.showNumber = function()
@@ -1593,6 +1591,10 @@ Dancer.prototype.paint = function()
   }
 };
 
+Dancer.prototype.toString = function()
+{
+  return this.number;
+};
 ////////////////////////////////////////////////////////////////////////////////
 //  Path class
 Path = function(p)

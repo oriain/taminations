@@ -21,24 +21,23 @@
 Run = Call.extend('run');
 Run.prototype.perform = function(ctx)
 {
-  for (var d in ctx.dancers) {
-    var p = new Path();
-    if (d in ctx.active) {
+  //  We need to look at all the dancers, not just actives
+  //  because partners of the runners need to dodge
+  ctx.dancers.forEach(function(d) {
+    if (d.active) {
       //  Partner must be inactive
-      var d2 = ctx.partner[d];
-      if (d2 == null || ctx.active[d2])
-        throw new CallError('Dancer '+dancerNum(d)+' has nobody to Run around.');
-      var m = ctx.beau[d] ? 'Run Right' : 'Run Left';
-      var moves = tam.translateMovement({ select: m });
-      p = new Path(moves);
+      var d2 = d.partner;
+      if (!d2 || d2.active)
+        throw new CallError('Dancer '+d+' has nobody to Run around.');
+      var m = d.beau ? 'Run Right' : 'Run Left';
+      d.path = new Path({ select: m });
     }
-    else if (ctx.partner[d] in ctx.active) {
-      var m = ctx.beau[d] ? 'Dodge Right' : 'Dodge Left';
-      var moves = tam.translateMovement({ select: m });
-      p = new Path(moves);
+    else if (d.partner && d.partner.active) {
+      var m = d.beau ? 'Dodge Right' : 'Dodge Left';
+      d.path = new Path({ select: m });
     }
-    ctx.dancers[d].path.add(p);
-  }
+  });
+
 };
 
 //# sourceURL=run.js

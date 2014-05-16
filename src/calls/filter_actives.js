@@ -22,7 +22,7 @@ FilterActives = Call.extend('filteractives');
 FilterActives.prototype.perform = function(ctx)
 {
   ctx.actives.filter(function(d) {
-    return !this.test(d);
+    return !this.test(d,ctx);
   },this).forEach(function(d) {
     d.active = false;
   });
@@ -71,6 +71,12 @@ Leaders.prototype.test = function(d) {
 Trailers = FilterActives.extend('trailers');
 Trailers.prototype.test = function(d) {
   return d.trailer;
+};
+
+FacingDancers = FilterActives.extend('facingdancers');
+FacingDancers.prototype.test = function(d,ctx) {
+  var d2 = ctx.dancerInFront(d);
+  return d2 != undefined && ctx.dancerInFront(d2) == d;
 };
 
 //# sourceURL=filter_actives.js

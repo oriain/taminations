@@ -19,16 +19,16 @@
 
 */
 Trade = Call.extend('trade');
-Trade.prototype.performOne = function(ctx,d)
+Trade.prototype.performOne = function(d,ctx)
 {
   //  Figure out what dancer we're trading with
   var leftcount = 0;
   var bestleft = -1;
   var rightcount = 0;
   var bestright = -1;
-  for (var d2 in ctx.active) {
+  ctx.actives.forEach(function(d2) {
     if (d2 == d)
-      continue;
+      return;
     if (ctx.isLeft(d,d2)) {
       if (!leftcount || ctx.distance(d,d2) < ctx.distance(d,bestleft))
         bestleft = d2;
@@ -38,7 +38,7 @@ Trade.prototype.performOne = function(ctx,d)
         bestright = d2;
       rightcount++;
     }
-  }
+  });
 
   var dtrade = -1;
   var samedir = false;

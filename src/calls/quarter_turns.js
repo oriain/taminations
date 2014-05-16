@@ -18,8 +18,8 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-QuarterInOutLeftRight = FourDancerCall.extend();
-QuarterInOutLeftRight.prototype.performOne = function(ctx,d)
+QuarterTurns = FourDancerCall.extend();
+QuarterTurns.prototype.performOne = function(d,ctx)
 {
   var offsetX = 0;
   var offsetY = 0;
@@ -29,38 +29,43 @@ QuarterInOutLeftRight.prototype.performOne = function(ctx,d)
     offsetX = -1;
   else
     return undefined;  // TODO for now just handle dancers in boxes
-  if (ctx.beau[d])
+  if (d.beau)
     offsetY = 1;
-  else if (ctx.belle[d])
+  else if (d.belle)
     offsetY = -1;
   else
     return undefined;    // TODO for now just handle dancers in boxes
   return new Path({select: this.select(ctx,d), offsetX: offsetX, offsetY: offsetY });
 };
 
-QuarterLeft = QuarterInOutLeftRight.extend('quarterleft');
-QuarterLeft.prototype.select = function() {
+FaceLeft = QuarterTurns.extend('faceleft');
+FaceLeft.prototype.select = function() {
   return "Quarter Left";
 };
 
-QuarterRight = QuarterInOutLeftRight.extend('quarterright');
-QuarterRight.prototype.select = function() {
+FaceRight = QuarterTurns.extend('faceright');
+FaceRight.prototype.select = function() {
   return "Quarter Right";
 };
 
-QuarterIn = QuarterInOutLeftRight.extend('quarterin');
-QuarterIn.prototype.select = function(ctx,d) {
-  return ctx.beau[d] ? 'Quarter Right' : 'Quarter Left';
-};
-
-QuarterOut = QuarterInOutLeftRight.extend('quarterout');
-QuarterIn.prototype.select = function(ctx,d) {
-  return ctx.beau[d] ? 'Quarter Left' : 'Quarter Right';
-};
-
-FaceIn = QuarterInOutLeftRight.extend('facein');
+FaceIn = QuarterTurns.extend('facein');
 FaceIn.prototype.select = function(ctx,d) {
   return ctx.angle(d) < 0 ? 'Quarter Right' : 'Quarter Left';
+};
+
+FaceOut = QuarterTurns.extend('faceout');
+FaceOut.prototype.select = function(ctx,d) {
+  return ctx.angle(d) < 0 ? 'Quarter Right' : 'Quarter Left';
+};
+
+QuarterIn = QuarterTurns.extend('quarterin');
+QuarterIn.prototype.select = function(ctx,d) {
+  return d.beau ? 'Quarter Right' : 'Quarter Left';
+};
+
+QuarterOut = QuarterTurns.extend('quarterout');
+QuarterIn.prototype.select = function(ctx,d) {
+  return d.beau ? 'Quarter Left' : 'Quarter Right';
 };
 
 //# sourceURL=quarter_left.js

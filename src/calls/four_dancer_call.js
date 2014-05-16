@@ -39,7 +39,7 @@ FourDancerCall.prototype.perform = function(ctx)
           // TODO Need to do additional transforms here e.g. expand
           ctx2.analyze();
           //  Perform the requested call on this 4-dancer unit
-          Call.prototype.perform.call(this,ctx2);
+          Call.prototype.performCall.call(this,ctx2);
           // And transform the resulting paths back
           ctx2.dancers.forEach(function(d) {
             //  First figure out the direction this dancer needs to move

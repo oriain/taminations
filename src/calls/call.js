@@ -40,15 +40,15 @@ CallError.prototype.name="CallError";
 
 NoDancerError = CallError.extend();
 
-function dancerNum(d)
-{
-  return Math.floor(d)+1;
-}
-
 //  Wrapper method for performing one call
-Call.prototype.performCall = function(ctx) {
+Call.prototype.performCall = function(ctx)
+{
   ctx.analyze();
   this.perform(ctx);
+  ctx.dancers.forEach(function(d) {
+    d.recalculate();
+    d.animateToEnd();
+  },this);
   ctx.levelBeats();
 };
 
@@ -57,18 +57,9 @@ Call.prototype.performCall = function(ctx) {
 //  Then append the returned paths to each dancer
 Call.prototype.perform = function(ctx) {
   //  Get all the paths with performOne calls
-  var didsomething = false;
-  ctx.dancers.filter(function(d) { return d.active; }).forEach(function(d) {
-    var p = this.performOne(d,ctx);
-    if (p != undefined) {
-      d.path.add(p);
-      d.recalculate();
-      d.animate();
-      didsomething = true;
-    }
+  ctx.actives.forEach(function(d) {
+    d.path = this.performOne(d,ctx);
   },this);
-  if (!didsomething)
-    throw new NoDancerError();
 };
 
 //  Default method for one dancer to perform one call
@@ -214,7 +205,7 @@ CallContext.prototype.dancerClosest = function(d,f)
   return this.dancers.filter(f,ctx).reduce(function(best,d2) {
     return best == undefined || ctx.distance(d2,d) < ctx.distance(best,d)
       ? d2 : best;
-  });
+  },undefined);
 };
 
 //  Return all dancers, ordered by distance, that satisfies a conditional
@@ -230,8 +221,8 @@ CallContext.prototype.dancersInOrder = function(d,f)
 CallContext.prototype.dancerInFront = function(d)
 {
   return this.dancerClosest(d,function(d2) {
-    return ctx.isInFront(d,d2);
-  });
+    return this.isInFront(d,d2);
+  },this);
 };
 
 //  Return dancer directly in back of given dancer
@@ -249,7 +240,7 @@ CallContext.prototype.inBetween = function(d1,d2)
     return d !== d1 && d !== d2 &&
         Math.isApprox(this.distance(d,d1)+this.distance(d,d2),
                       this.distance(d1,d2));
-  });
+  },this);
 };
 
 //  Return all the dancers to the right, in order

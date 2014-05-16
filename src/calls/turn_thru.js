@@ -19,7 +19,7 @@
 
  */
 TurnThru = Call.extend('turnthru');
-TurnThru.prototype.performOne = function(ctx,d)
+TurnThru.prototype.performOne = function(d,ctx)
 {
   //  Can only turn thru with another dancer
   //  in front of this dancer
@@ -27,12 +27,11 @@ TurnThru.prototype.performOne = function(ctx,d)
   var d2 = ctx.dancerInFront(d);
   if (d2 != undefined && ctx.dancerInFront(d2) == d) {
     var dist = ctx.distance(d,d2);
-    var moves = tam.translatePath([{ select: 'Extend Left', scaleX: dist/2, scaleY: 0.5 },
-                                   { select: 'Swing Right', scaleX: 0.5, scaleY: 0.5 },
-                                   { select: 'Extend Right', scaleX: dist/2, scaleY: 0.5 }]);
-    return new Path(moves);
+    return new Path([{ select: 'Extend Left', scaleX: dist/2, scaleY: 0.5 },
+                     { select: 'Swing Right', scaleX: 0.5, scaleY: 0.5 },
+                     { select: 'Extend Right', scaleX: dist/2, scaleY: 0.5 }]);
   }
-  throw new Error('Cannot find dancer to Turn Thru with '+dancerNum(d));
+  throw new Error('Cannot find dancer to Turn Thru with '+d);
 };
 
 //# sourceURL=turn_thru.js

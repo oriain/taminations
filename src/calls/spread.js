@@ -20,21 +20,21 @@
  */
 AndSpread = Call.extend('andspread');
 AndSpread.prototype.canModifyCall = function() { return true; };
-AndSpread.prototype.performOne = function(ctx,d)
+AndSpread.prototype.performOne = function(d,ctx)
 {
-  var p = ctx.dancers[d].path;
+  var p = d.path;
   //  This is for waves only TODO tandem couples, single dancers (C-1)
   var v = new Vector();
-  if (ctx.belle[d])
+  if (d.belle)
     v = new Vector(0,1);
-  else if (ctx.beau[d])
+  else if (d.beau)
     v = new Vector(0,-1);
   var m = p.movelist[p.movelist.length-1];
   var tx = m.rotate();
   v = v.preConcatenate(tx);
   m.skew(v.x,v.y);
   m.usehands = Movement.NOHANDS;
-  return new Path();
+  return p;
 };
 
 //# sourceURL=spread.js
