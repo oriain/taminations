@@ -56,8 +56,8 @@
        parts="3.5;2" >
      <formation>      <dancer gender="boy" x="-3" y="1" angle="0"/>      <dancer gender="girl" x="-3" y="-1" angle="0"/>      <dancer gender="boy" x="0" y="-3" angle="0"/>      <dancer gender="girl" x="0" y="-1" angle="180"/>    </formation>
     <path numbers="1 8">
-      <move select="Forward" beats="2" />
-      <move select="Hinge Right" />
+      <move select="Forward" scaleX=".5" beats="2"/>
+      <move select="Hinge Right" offsetX=".5" />
       <move select="Hinge Left" beats="2" />
       <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2" />
     </path>
@@ -73,8 +73,9 @@
       <move select="Cast Right" />
     </path>
     <path numbers="5 4">
-      <move select="Extend Left" beats="2" scaleX="1.5" scaleY=".5" />
-      <move select="Hinge Right" offsetX=".5" offsetY="-.5" />
+      <move select="Extend Left" scaleX="1.5" scaleY=".5" />
+      <move select="Extend Right" scaleX="1" scaleY=".5" />
+      <move select="Hinge Right" offsetX="-.5"  />
       <move select="Swing Left" beats="2" />
       <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3" />
     </path>
