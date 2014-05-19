@@ -104,8 +104,8 @@
        difficulty="1" >
     <formation>
       <dancer gender="boy" x="-3" y="1" angle="0"/>
-      <dancer gender="boy" x="-3" y="-1" angle="0"/>
       <dancer gender="girl" x="-1" y="1" angle="0"/>
+      <dancer gender="boy" x="-3" y="-1" angle="0"/>
       <dancer gender="girl" x="-1" y="-1" angle="0"/>
     </formation>
     <path>
@@ -114,13 +114,13 @@
       <move select="Hinge Left" scaleY=".5" />
     </path>
     <path>
-      <move select="Stand" beats="2" />
-      <move select="Extend Right" scaleY=".5" />
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" />
       <move select="Hinge Left" scaleY=".5" />
     </path>
     <path>
-      <move select="Extend Left" scaleY=".5" />
-      <move select="Extend Right" beats="2" scaleX="2" />
+      <move select="Stand" beats="2" />
+      <move select="Extend Right" scaleY=".5" />
       <move select="Hinge Left" scaleY=".5" />
     </path>
     <path>
