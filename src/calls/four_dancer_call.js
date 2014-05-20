@@ -18,7 +18,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-FourDancerCall = Call.extend('fourdancers');
+var FourDancerCall = Call.extend('fourdancers');
 FourDancerCall.prototype.perform = function(ctx)
 {
   //  If there are just 4 dancers, run the call with no modifications

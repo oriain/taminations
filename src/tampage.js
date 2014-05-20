@@ -18,6 +18,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
+"use strict";
 var prefix = '';
 //  Make the links work from both taminations directory and its subdirectories
 if (document.URL.search(/(info|b1|b2|ms|plus|adv|a1|a2|c1|c2|c3a|c3b)/) >= 0)
@@ -35,7 +36,7 @@ if (search != null)
   search = search.split(/\&/);
 else
   search = [];
-args = {};
+var args = {};
 for (var i=0; i<search.length; i++) {
   var arg1 = search[i].split(/=/);
   if (arg1.length > 1)
@@ -67,12 +68,10 @@ var levelselectors = {
       c3b: 'call[sublevel="C-3B"]' };
 
 // Body onload function
+var defwidth = 40;
+var animwidth = 30;
 $(document).ready(
   function() {
-    if (typeof defwidth == 'undefined')
-      defwidth = 40;
-    if (typeof animwidth == 'undefined')
-      animwidth = 30;
     $(".noshow").hide();
     //  Load the menus
     $("body").prepend('<div style="width:100%; height:48px" id="menudiv"></div>');
@@ -252,7 +251,7 @@ function generateAnimations()
 {
   var showDiffLegend = false;
   callnumber = 0;
-  callname = '';
+  var callname = '';
   TAMination(animations,'');
   //  Put the call definition in the document structure
   $("#deftable").nextAll().appendTo("#definition");
@@ -293,7 +292,7 @@ function generateAnimations()
   var prevgroup = "";
   $("#animationlist").empty();  //  disable to restore old animations
   tam.animations().each(function(n) {
-    var callname = $(this).attr('title') + 'from' + $(this).attr('from');
+    callname = $(this).attr('title') + 'from' + $(this).attr('from');
     var name = $(this).attr('from');
     if ($(this).attr("group") != undefined) {
       if ($(this).attr("group") != prevgroup)
@@ -349,7 +348,7 @@ function generateAnimations()
     $('#svgcontainer').height($('#svgcontainer').width()+100).width(svgSize().width);
     var dims = svgSize();
     var svgdim = dims.width;
-    svgstr='<div id="svgdiv" '+'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div>';
+    var svgstr='<div id="svgdiv" '+'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div>';
     $("#svgcontainer").append(svgstr);
     $('#svgdiv').svg({onLoad:function(x) {
         var t = new TamSVG(x);
@@ -391,9 +390,9 @@ function PickAnimation(n)
     $('#svgdiv').empty();
     var dims = svgSize();
     var svgdim = dims.width;
-    svgstr='<div id="svgdiv" '+'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div>';
-    commentstr = '<div style="color: black; position:relative; top:0; left;0"><div id="commentdiv" style="position:absolute; top:0; left:0"> </div></div>';
-    commentback = '<div style="position:relative; top:0; left;0"><div id="commentback" style="position:absolute; top:0; left:0"></div></div>';
+    var svgstr='<div id="svgdiv" '+'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div>';
+    var commentstr = '<div style="color: black; position:relative; top:0; left;0"><div id="commentdiv" style="position:absolute; top:0; left:0"> </div></div>';
+    var commentback = '<div style="position:relative; top:0; left;0"><div id="commentback" style="position:absolute; top:0; left:0"></div></div>';
     $("#svgcontainer").append(commentback);
     $("#svgcontainer").append(commentstr);
     $('#commentdiv').text(tam.getComment());

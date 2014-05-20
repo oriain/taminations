@@ -18,29 +18,31 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-
+"use strict";
 var animations = 0;
 var formations = 0;
 var paths = 0;
 var crossrefs = {};
+
 //////////////////////////////////////////////////
 //  Extend Object class with useful stuff
-//  This can be dangerous but we will be careful
+var Env = function() { };
 var funcprop = {writable: true, enumerable: false};
 /**
  *   This is a simple sub-classing method
  *   Use as
- *     SubClass = ParentClass.extend(constructor);
+ *     SubClass = Env.extend(ParentClass,constructor);
+ *     If ParentClass is not given, then Env is the parent
  *     If no constructor is given, a default empty one is created.
  */
-Object.prototype.extend = function(c)
+Env.extend = function(p,c)
 {
+  p = p || Env;
   c = c || function() { };
-  c.prototype = Object.create(this.prototype);
+  c.prototype = Object.create(p.prototype);
   c.prototype.constructor = c;
   return c;
 };
-
 /**
  *   This defines a forEach function for objects similar to the Array function
  *   Parameters:
@@ -49,21 +51,41 @@ Object.prototype.extend = function(c)
  *      p is the property, and v is its value
  *   o
  *      An optional object to bind 'this' in the function given as the first parameter
+ *      If not given then the calling object is bound
  *
  */
-Object.prototype.forEach = function(f,o) {
+Env.prototype.forEach = function(f,o) {
+  o = o || this;
   for (var p in this) {
     f.call(o,p,this[p]);
   }
 };
+Env.prototype.every = function(f,o) {
+  o = o || this;
+  for (var p in this) {
+    if (!f.call(o,p,this[p]))
+      return false;
+  }
+  return true;
+};
+Env.prototype.some = function(f,o) {
+  o = o || this;
+  for (var p in this) {
+    if (f.call(o,p,this[p]))
+      return true;
+  }
+  return false;
+};
 //  Object comes with a keys method but not a values method
-Object.values = function(o) {
+Env.prototype.values = function(o) {
   return Object.keys(o).map(function(k) { return this[k]; },o);
 };
 
-Object.defineProperties(Object.prototype, {
+Object.defineProperties(Env.prototype, {
   extend: funcprop,
   forEach: funcprop,
+  every: funcprop,
+  some: funcprop,
 });
 ////////////////////////////////////////
 //  Extend String with some useful stuff
@@ -108,9 +130,19 @@ Array.prototype.last = function()
 {
   return this[this.length-1];
 };
+/**
+ *  Takes a nested array and returns a non-nested array
+ *  with the elements in depth-first order
+ */
+Array.prototype.flatten = function() {
+  return this.reduce(function(a1,a2) {
+    return a1.concat(a2 instanceof Array ? a2.flatten() : a2);
+  },[]);
+};
 Object.defineProperties(Array.prototype, {
   first: funcprop,
   last: funcprop,
+  flatten: funcprop,
 });
 /////////////////////////////////////////////
 //  Math class extensions
@@ -309,7 +341,7 @@ TAMination.prototype = {
     var a = this.animationXref();
     // np is the number of paths not including phantoms (which raise it > 4)
     var np =  Math.min($('path',a).length,4);
-    retval = ['1','2','3','4','5','6','7','8'];
+    var retval = ['1','2','3','4','5','6','7','8'];
     var i = 0;
     $("path",a).each(function(n) {
       var n = $(this).attr('numbers');
@@ -460,7 +492,7 @@ TAMination.prototype = {
 
 function cloneObject(obj)
 {
-  retval = { };
+  var retval = { };
   for (p in obj)
     retval[p] = obj[p];
   return retval;
@@ -468,7 +500,7 @@ function cloneObject(obj)
 
 function objectToString(obj)
 {
-  retval = '';
+  var retval = '';
   for (p in obj)
     retval += p + ': ' + obj[p] + "\n";
   return retval;

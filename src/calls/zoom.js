@@ -19,29 +19,28 @@
 
  */
 Zoom = Call.extend('zoom');
-Zoom.prototype.performOne = function(ctx,d)
+Zoom.prototype.performOne = function(d,ctx)
 {
   var m = [];
-  if (ctx.leader[d]) {
+  if (d.leader) {
     var d2 = ctx.dancerInBack(d);
     var a = ctx.angle(d);
     var c = a < 0 ? 'Run Left' : 'Run Right';
-    if (!ctx.active[d2])
+    if (!d2.active)
       throw new CallError('Trailer of dancer '+d+' is not active.');
     var dist = ctx.distance(d,d2);
     m.push({select:c,beats:2,offsetX:-dist/2});
     m.push({select:c,beats:2,offsetX:dist/2});
-  } else if (ctx.trailer[d]) {
+  } else if (d.trailer) {
     var d2 = ctx.dancerInFront(d);
-    if (!ctx.active[d2])
+    if (!d2.active)
       throw new CallError('Leader of dancer '+d+' is not active.');
     var dist = ctx.distance(d,d2);
     m.push({ select:'Forward', beats:4, scaleX:dist });
   } else {
     throw new CallError('Dancer '+d+' cannot Zoom.');
   }
-  var moves = tam.translatePath(m);
-  return new Path(moves);
+  return new Path(m);
 };
 
 //# sourceURL=zoom.js

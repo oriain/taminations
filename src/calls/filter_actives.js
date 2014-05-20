@@ -19,6 +19,11 @@
 
  */
 FilterActives = Call.extend('filteractives');
+FilterActives.extend = function(name,c) {
+  c = Call.extend(name,c);
+  Env.extend(FilterActives,c);
+  return c;
+};
 FilterActives.prototype.perform = function(ctx)
 {
   ctx.actives.filter(function(d) {

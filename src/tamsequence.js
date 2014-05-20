@@ -18,6 +18,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
+"use strict";
 
 var startingFormation="Static Square";
 var callindex = 0;
@@ -31,24 +32,107 @@ var compattern = /[*#].*/;
 var prevhtml = '';
 var editor = null;
 
-var synonyms = {
-  '&' : 'and',
-  '&amp;' : 'and',
-  'through' : 'thru',
-  '1/4' : ['a','quarter'],
-  '1/2' : 'half',
-  '3/4' : ['three','quarters'],
-  'booy' : 'boys',   //  TODO et al including Facing
-  //  Is this necessary???
-  keys : function() {
-    var retval = [];
-    for (var k in this)
-      if (typeof k == 'string')
-        retval.push(k);
-    return retval.sort(function(a,b) { return b.length - a.length; });
-  }
+var CallNotFoundError = Env.extend(CallError);
+var FormationNotFoundError = Env.extend(CallError);
+
+
+//  String extension to help with parsing
+//  Returns an array of strings, starting with the entire string,
+//  and each subsequent string chopping one word off the end
+String.prototype.chopped = function() {
+  var ss = [];
+  return this.split(/\s+/).map(function(s) {
+    ss.push(s);
+    return ss.join(' ');
+  }).reverse();
 };
-var synindex = synonyms.keys();
+
+//  Return an array of strings, each removing one word from the start
+String.prototype.diced = function() {
+  var ss = [];
+  return this.split(/\s+/).reverse().map(function(s) {
+    ss.unshift(s);
+    return ss.join(' ');
+  }).reverse();
+};
+
+/**
+ *   Return all combinations of words from a string
+ */
+String.prototype.minced = function()
+{
+  return this.chopped().map(function(s) {
+    return s.diced();
+  }).flatten();
+};
+
+var SynonymReplacer = Env.extend(Env,function(str) {
+  var synonyms;
+  synonyms = [
+    ['&' , '&amp;', 'and'],
+    ['through' , 'thru'],
+    ['1/4' , 'quarter', 'a quarter'],
+    ['1/2' , 'half', 'a half'],
+    ['3/4' , 'three quarters'],
+    ['center', 'centers'],
+    ['end', 'ends'],
+    ['facing dancers', 'facing'],
+    ['swap around', 'swap'],
+    ['head', 'heads'],
+    ['side', 'sides'],
+  ];
+  //  Combine all the synonyms into one regex
+  var synregex = synonyms.map(function(a){return a.join('|');}).join('|');
+  //  Find the first match in the string
+  var m = str.match('^(.*?)\\b('+synregex+')\\b(.*)$');
+  if (m) {
+    this.prefix = m[1];
+    this.syn = m[2];
+    //  Make more replacers out of the suffix???
+    this.suffix = m[3];
+    this.replacer = new SynonymReplacer(this.suffix);
+    //  Get the list of synonyms to use for this match
+    this.synlist = synonyms.filter(function(a) {
+      return a.indexOf(this.syn) >= 0;
+    },this)[0];
+  }
+  else {
+    this.prefix = '';
+    this.synlist = [str];
+    this.suffix = '';
+    this.replacer = null;
+  }
+  this.count = 0;
+});
+
+SynonymReplacer.prototype.next = function()
+{
+  var retval = null;
+  if (this.replacer) {
+    var rstr = this.replacer.next();
+    if (rstr != null)
+      retval = this.prefix + this.synlist[this.count] + rstr;
+    else if (++this.count < this.synlist.length) {
+      this.replacer = new SynonymReplacer(this.suffix);
+      rstr = this.replacer.next();
+      retval = this.prefix + this.synlist[this.count] + rstr;
+    }
+  }
+  else if (this.count++ == 0)
+    retval = this.synlist[0];
+  return retval;
+};
+
+String.prototype.syns = function()
+{
+  var retval = [];
+  var replacer = new SynonymReplacer(this);
+  var s;
+  while ((s=replacer.next()) != null)
+    retval.push(s);
+  return retval;
+};
+
 
 preload('callindex.xml',function(a) { callindex = a; });
 
@@ -160,7 +244,7 @@ function generateAnimations()  // override function in tampage.js
   TAMination(animations,'');
   var dims = svgSize();
   var svgdim = dims.width;
-  svgstr='<div id="svgdiv" '+
+  var svgstr='<div id="svgdiv" '+
             'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div>';
   $("#svgcontainer").empty().width(dims.width).append(svgstr);
   $('#svgdiv').svg({onLoad:function(x) {
@@ -180,6 +264,7 @@ function setCurrentCall(n)
   $(editor.getDoc()).find('span').removeClass('callhighlight')
      .filter('.Part'+n).addClass('callhighlight');
 }
+//  Highlight a line that has an error
 function showError(n)
 {
   $(editor.getDoc()).find('span.Part'+n).addClass('callerror');
@@ -251,19 +336,14 @@ function updateSequence()
   tamsvg.parts = [];
   for (var i in calls) {
     //  Need to load xml files, 1 or more for each call
-    var callwords = calls[i].toLowerCase()
-                            .replace(/\s/g,' ')  // coalesce spaces
-                            .replace(compattern,'')     // remove comments
-                            .split(/\s+/);
-    callwords = $.map(callwords,function(a) {
-      return synonyms.hasOwnProperty(a) ? synonyms[a] : a;
-    });
+    var callline = calls[i].toLowerCase()
+                           .replace(/\s/g,' ')  // coalesce spaces
+                           .replace(compattern,'');     // remove comments
     //  Fetch calls that are any part of the callname,
     //  to get concepts and modifications
-    for (var s=0; s<callwords.length; s++) {
-      for (var e=s+1; e<=callwords.length; e++) {
-        var call = callwords.slice(s,e).join('');
-        $('call[text="'+call+'"]',callindex).each( function () {
+    callline.syns().forEach(function(s1) {
+      s1.minced().forEach(function(s2) {
+        $('call[text="'+s2.collapse()+'"]',callindex).each( function () {
           var f = $(this).attr('link');
           if (!xmldata[f]) {
             if (f.indexOf('.js') > 0) {
@@ -295,8 +375,8 @@ function updateSequence()
             }
           }
         });
-      }
-    }
+      });
+    });
   }
   filecount -= 100;
   if (!filecount)
@@ -312,133 +392,77 @@ function buildSequence()
     d.animate(0);
   });
   $('#errormsg').remove();
-  for (var n2 in calls) {
-    var m = false;
-    var callname = calls[n2];
-    var ctx = new CallContext(tamsvg);
-    var callfound = false;
-
-    //  Break up the call as above to find and perform modifications
-    var doxml = true;
-    var callwords = calls[n2].toLowerCase()
-                             .replace(/\s/g,' ')  // coalesce spaces
-                             .replace(compattern,'')     // remove comments
-                             .split(/\s+/);
-    callwords = $.map(callwords,function(a) {
-      for (var k in synindex) {
-        var syn = synindex[k];
-        if (a == syn)
-          a = synonyms[syn];
-      }
-      return a;
-    });
-    try {
-    while (callwords.length > 0) {
-      callfound = false;
-      for (var i=callwords.length, looking=true; looking && i>0; i--) {
-        var call = callwords.slice(0,i).join('');
-        //  First try to find an explicit xml animation
-        $('call[text="'+call+'"]',callindex).each( function () {
-          var tamxml = xmldata[$(this).attr('link')];
-          if (typeof tamxml == 'object' && doxml) {
-            for (var x=0; x<$('tam',tamxml).length; x++) {
-              var xelem = $('tam',tamxml)[x];
-              if (call == $(xelem).attr('title').toLowerCase().replace(/\W/g,'')) {
-                callfound = true;
-                var f = $(xelem).find('formation');
-                if (f.size() <= 0) {
-                  var fs = $(xelem).attr('formation');
-                  f = getNamedFormation(fs);
-                }
-                var d = getDancers(f);
-                var sexy = $(xelem).attr('gender-specific');
-                mm = matchFormations(tamsvg.dancers,d,sexy);
-                if (!mm) {
-                  rotateFormation(d);
-                  mm = matchFormations(tamsvg.dancers,d,sexy);
-                }
-                if (mm) {
-                  m = mm;
-                  tam.xmldoc = tamxml;  // ugly hack
-                  allp = tam.getPath(xelem);
-                  for (var i3 in allp) {
-                    var p = new Path(allp[i3]);
-                    ctx.dancers[m[i3*2]].path = p;
-                    ctx.dancers[m[i3*2]].animate(999);
-                    ctx.dancers[m[i3*2+1]].path = p;
-                    ctx.dancers[m[i3*2+1]].animate(999);
-                  }
-                  ctx.levelBeats();
-                  callwords = callwords.slice(i,callwords.length);
-                  looking = false;
-                  return;
-                }
-              }
+  var n2 = 0;
+  var callname = '';
+  try {
+    for (n2 in calls) {
+      callname = calls[n2];
+      var ctx = new CallContext(tamsvg);
+      //  Break up the call as above to find and perform modifications
+      var callline = calls[n2].toLowerCase()
+                              .replace(/\s/g,' ')  // coalesce spaces
+                              .replace(compattern,'');     // remove comments
+      //  Various user errors in applying calls are detected and thrown here
+      //  and also by lower-level code
+      if (!callline.syns().some(function(callwords) {
+        var isfirst = true;
+        while (callwords.length > 0) {
+          if (!callwords.chopped().some(function(s2) {
+            var call = s2.collapse();
+            //  First try to find an explicit xml animation
+            //  But (for now) it cannot follow any concept or modification
+            if ((isfirst && matchXMLcall(ctx,call)) ||
+                //  Then try to find a script for the call
+                matchJScall(ctx,call)) {
+              callwords = callwords.replace(s2,'').trim();
+              isfirst = false;
+              return true;  //  breaks out of callwords.chopped loop
             }
-          }
-        });
-        //  Failed to find XML-defined animation, check for a script
-        var tamxml = Call.classes[call];
-        if (looking && typeof tamxml == 'function') {
-          callfound = true;
-          var nextcall = new tamxml();
-          //  A script call must be either the entire call or have the ability
-          //  to modify the other parts of the call
-          //// FIXME if (i==callwords.length || nextcall.canModifyCall()) {
-            nextcall.performCall(ctx);
-            callwords = callwords.slice(i,callwords.length);
-            doxml = false;
-            looking = false;
-          ////}
+            return false;  // continue with callwords.chopped loop
+          }))
+            //  Unable to parse anything
+            //  Break to next synonym selection
+            break;
         }
-      }
+        return callwords.length == 0;
+      }))
+        throw new CallNotFoundError();
 
-      //  If we fell through to here, and have not parsed anything,
-      //  then parsing the call has failed
-      if (looking && callwords.length > 0 && i==0) {
-        break;
-      }
-
-    }
-
-    }
-    catch (err) {
-      showError(Number(n2)+1);
-      if (err instanceof CallError) {
-        $('#errortext').html('I am unable to do<br/><span class="calltext">'+
-            calls[n2] +
-            '</span><br/>from this formation.<br/>'+err.message);
-        break;
-      } else if (err instanceof NoDancerError) {
-        $('#errortext').html('There are no dancers that can do <br/><span class="calltext">'+
-            calls[n2] +
-            '</span>.<br/>'+err.message);
-        break;
-      } else
-        throw err;
-    }
-
-    if (ctx.dancers[0].path.beats() > 0) {  //  Call and formation found
-      for (var d in tamsvg.dancers) {
-        tamsvg.dancers[d].path.add(ctx.dancers[d].path);
-        tamsvg.dancers[d].animate(999);
-      }
+      //  If no error thrown, then we found the call
+      //  and created the animation successfully
+      //  Copy the call from the working context to each dancer
+      tamsvg.dancers.forEach(function(d,i) {
+        d.path.add(ctx.dancers[i].path);
+        d.animateToEnd();
+      });
+      //  Each call shown as one "part" on the slider
       tamsvg.parts.push(ctx.dancers[0].path.beats());
-    }
-    else if (callfound) {  //  Call found but no matching formation
-      showError(Number(n2)+1);
-      $('#errortext').html('No animation for <span class="calltext">'+callname+
-                                 '</span> from that formation.');
-      break;
-    }
-    else {  //  Call not found
-      showError(Number(n2)+1);
-      $('#errortext').html('Call <span class="calltext">'+callname+
-                                 '</span> not found.');
-      break;
-    }
 
+    } //  repeat for every call
+
+  }  // end of try block
+
+  catch (err) {
+    showError(Number(n2)+1);
+    if (err instanceof NoDancerError) {
+      $('#errortext').html('There are no dancers that can do <br/><span class="calltext">'+
+          calls[n2] + '</span>.<br/>');
+    } else if (err instanceof CallNotFoundError) {
+      $('#errortext').html('Call <span class="calltext">'+callname+
+      '</span> not found.');
+    } else if (err instanceof FormationNotFoundError) {
+      $('#errortext').html('No animation for <span class="calltext">'+callname+
+      '</span> from that formation.');
+    }
+    else if (err instanceof CallError) {
+      $('#errortext').html('No animation for<br/><span class="calltext">'+
+          calls[n2] + '</span><br/>'+err.message+'<br/>');
+    }
+    else
+      throw err;
   }
+
+  //  All calls parsed and created
   tamsvg.parts.pop();  // last part is implied
   var lastcallstart = tamsvg.beats - 2;
   tamsvg.beats = tamsvg.dancers[0].beats() + 2;
@@ -449,11 +473,77 @@ function buildSequence()
   updateSliderMarks(true);
   //  Generate link from calls
   calllink = document.URL.split(/\?/)[0]
-    + '?' + escape(startingFormation) + '&' +
-         editor.getContent({format:'raw'})
-               .replace(/&nbsp;/g,' ')
-               .replace(/<br\/?>/g,'&')
-               .replace(/<.*?>/g,'');
+  + '?' + escape(startingFormation) + '&' +
+  editor.getContent({format:'raw'})
+        .replace(/&nbsp;/g,' ')
+        .replace(/<br\/?>/g,'&')
+        .replace(/<.*?>/g,'');
+
+}
+
+//  Given a context and string, try to find an XML animation
+//  If found, the call is added to the context
+function matchXMLcall(ctx,call)
+{
+  var found = false;
+  var match = false;
+  call = call.collapse();
+  $('call[text="'+call+'"]',callindex).each(function () {
+    var tamxml = xmldata[$(this).attr('link')];
+    if (typeof tamxml == 'object') {
+      for (var x=0; x<$('tam',tamxml).length; x++) {
+        var xelem = $('tam',tamxml)[x];
+        if (call == $(xelem).attr('title').toLowerCase().collapse()) {
+          found = true;
+          var f = $(xelem).find('formation');
+          if (f.size() <= 0) {
+            var fs = $(xelem).attr('formation');
+            f = getNamedFormation(fs);
+          }
+          var d = getDancers(f);
+          var sexy = $(xelem).attr('gender-specific');
+          var mm = matchFormations(ctx.dancers,d,sexy);
+          if (!mm) {
+            rotateFormation(d);
+            mm = matchFormations(ctx.dancers,d,sexy);
+          }
+          if (mm) {
+            tam.xmldoc = tamxml;  // ugly hack
+            var allp = tam.getPath(xelem);
+            for (var i3 in allp) {
+              var p = new Path(allp[i3]);
+              ctx.dancers[mm[i3*2]].path = p;
+              ctx.dancers[mm[i3*2+1]].path = p;
+            }
+            ctx.levelBeats();
+            match = true;
+          }
+        }
+      }
+    }
+  });
+  if (found && !match) {
+    //  Found the call but formations did not match
+    throw new FormationNotFoundError();
+  }
+  return match;
+}
+
+//  Given a context and string, try to find an animation generated by code
+//  If found, the call is added to the context
+function matchJScall(ctx,call)
+{
+  var callclass = Call.classes[call];
+  if (typeof callclass == 'function') {
+    var nextcall = new callclass();
+    //  A script call must be either the entire call or have the ability
+    //  to modify the other parts of the call
+    if (ctx.dancers[0].beats() > 0 && !nextcall.canModifyCall())
+      throw new CallError();
+    nextcall.performCall(ctx);
+    return true;
+  }
+  return false;  // continue with callwords.chopped loop
 }
 
 function gotoCall(n)

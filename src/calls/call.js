@@ -19,26 +19,27 @@
 
  */
 
-Call = Object.extend();
+"use strict";
+
+var Call = Env.extend();
 Call.classes = {};
 Call.extend = function(name,c)
 {
-  c = Object.extend.apply(this,c);
+  c = Env.extend(Call,c);
   if (name) {
     Call.classes[name] = c;
     c.prototype.name = name;
   }
-  c.extend = Call.extend;
   return c;
 };
 
-CallError = Object.extend(function(msg)
+var CallError = Env.extend(Error,function(msg)
 {
   this.message = msg;
 });
 CallError.prototype.name="CallError";
 
-NoDancerError = CallError.extend();
+var NoDancerError = Env.extend(CallError);
 
 //  Wrapper method for performing one call
 Call.prototype.performCall = function(ctx)
@@ -86,7 +87,7 @@ Call.prototype.canModifyCall = function()
 //  * copying an array of dancers
 //  * current state of TamSVG animation
 //  * XML formation (?)
-CallContext = function(source)
+var CallContext = function(source)
 {
   if (source instanceof CallContext) {
     this.dancers = source.dancers.map(function(d) {
