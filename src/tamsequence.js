@@ -84,7 +84,7 @@ var SynonymReplacer = Env.extend(Env,function(str) {
   //  Combine all the synonyms into one regex
   var synregex = synonyms.map(function(a){return a.join('|');}).join('|');
   //  Find the first match in the string
-  var m = str.match('^(.*?)\\b('+synregex+')\\b(.*)$');
+  var m = str.match('(^|.*?\\s)('+synregex+')(?!\\w)(.*)$');
   if (m) {
     this.prefix = m[1];
     this.syn = m[2];
@@ -289,7 +289,7 @@ function processCallText()
   //  Remove existing spans, they will be re-generated
   //  Except of course the bookmark that we just added
   $(editor.getDoc()).find('span').not('span[data-mce-type]').contents().unwrap();
-  var lines = editor.getContent({format:'raw'}).split(/<br\s*\/?>/);
+  var lines = editor.getContent({format:'raw'}).split(/<(?:br|div)\s*\/?>/);
   lines.forEach(function(line) {
     var calltext = line;
     var comchar = line.search(/[*#]/);
@@ -343,7 +343,7 @@ function updateSequence()
     //  to get concepts and modifications
     callline.syns().forEach(function(s1) {
       s1.minced().forEach(function(s2) {
-        $('call[text="'+s2.collapse()+'"]',callindex).each( function () {
+        $('call[text="'+s2.collapse().replace(/\W/g,'')+'"]',callindex).each( function () {
           var f = $(this).attr('link');
           if (!xmldata[f]) {
             if (f.indexOf('.js') > 0) {
@@ -397,7 +397,7 @@ function buildSequence()
   try {
     for (n2 in calls) {
       callname = calls[n2];
-      var ctx = new CallContext(tamsvg);
+      var ctx = null;
       //  Break up the call as above to find and perform modifications
       var callline = calls[n2].toLowerCase()
                               .replace(/\s/g,' ')  // coalesce spaces
@@ -405,17 +405,14 @@ function buildSequence()
       //  Various user errors in applying calls are detected and thrown here
       //  and also by lower-level code
       if (!callline.syns().some(function(callwords) {
-        var isfirst = true;
+        ctx = new CallContext(tamsvg);
         while (callwords.length > 0) {
           if (!callwords.chopped().some(function(s2) {
-            var call = s2.collapse();
+            var call = s2.collapse().replace(/\W/g,'');
             //  First try to find an explicit xml animation
             //  But (for now) it cannot follow any concept or modification
-            if ((isfirst && matchXMLcall(ctx,call)) ||
-                //  Then try to find a script for the call
-                matchJScall(ctx,call)) {
+            if (ctx.interpretCall(call)) {
               callwords = callwords.replace(s2,'').trim();
-              isfirst = false;
               return true;  //  breaks out of callwords.chopped loop
             }
             return false;  // continue with callwords.chopped loop
@@ -493,7 +490,7 @@ function matchXMLcall(ctx,call)
     if (typeof tamxml == 'object') {
       for (var x=0; x<$('tam',tamxml).length; x++) {
         var xelem = $('tam',tamxml)[x];
-        if (call == $(xelem).attr('title').toLowerCase().collapse()) {
+        if (call == $(xelem).attr('title').toLowerCase().collapse().replace(/\W/g,'')) {
           found = true;
           var f = $(xelem).find('formation');
           if (f.size() <= 0) {
@@ -508,7 +505,6 @@ function matchXMLcall(ctx,call)
             mm = matchFormations(ctx.dancers,d,sexy);
           }
           if (mm) {
-            tam.xmldoc = tamxml;  // ugly hack
             var allp = tam.getPath(xelem);
             for (var i3 in allp) {
               var p = new Path(allp[i3]);

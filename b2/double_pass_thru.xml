@@ -23,9 +23,24 @@
 <tamination>
 
   <tam title="Double Pass Thru"
+       from="Single Column" formation="Single Double Pass Thru"
+       difficulty="1">
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Forward 2" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Forward 2" />
+      <move select="Extend Right" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Double Pass Thru"
        from="Double Pass Thru"
        formation="Double Pass Thru"
-       parts="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Extend Left" scaleY=".5" />
       <move select="Forward 2" />
@@ -51,7 +66,7 @@
   <tam title="Double Pass Thru"
        from="Quarter Tag"
        formation="Quarter Tag"
-       parts="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5" />
       <move select="Forward" />

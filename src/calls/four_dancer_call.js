@@ -18,7 +18,19 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-var FourDancerCall = Call.extend('fourdancers');
+var FourDancerCall = Call.extend('_fourdancers');
+FourDancerCall.extend =  function(name,c) {
+  c = Call.extend(name,c);
+  Env.extend(FourDancerCall,c);
+  return c;
+};
+
+FourDancerCall.prototype.preferFilter = function(ctx) { return true; };
+var BoxCall = FourDancerCall.extend('_box');
+BoxCall.prototype.preferFilter = function(ctx) { return ctx.isBox(); };
+var LineCall = FourDancerCall.extend('_line');
+LineCall.prototype.preferFilter = function(ctx) { return ctx.isLine(); };
+
 FourDancerCall.prototype.perform = function(ctx)
 {
   //  If there are just 4 dancers, run the call with no modifications
@@ -29,60 +41,68 @@ FourDancerCall.prototype.perform = function(ctx)
     //  8 dancers
     //  Divide into 2 alternatives of 2 4-dancer contexts,
     //  trying both vertical and horizontal
-    var splitctx = [ this.split(ctx,function(loc) { return loc.x; }),
-                     this.split(ctx,function(loc) { return loc.y; })];
-    splitctx.filter(function(a) { return a!=null; })
-            .forEach(function(ctxpair,isVerticalSplit) {
-      ctxpair.forEach(function(ctx2) {
-        try {
-          ctx2.center();
-          // TODO Need to do additional transforms here e.g. expand
-          ctx2.analyze();
-          //  Perform the requested call on this 4-dancer unit
-          Call.prototype.performCall.call(this,ctx2);
-          // And transform the resulting paths back
-          ctx2.dancers.forEach(function(d) {
-            //  First figure out the direction this dancer needs to move
-            var v = new Vector(
-                isVerticalSplit ? 0 : -Math.round(d.location.x/3),
-                isVerticalSplit ? -Math.round(d.location.y/3) : 0
-            );
-            //  Get the dancer's facing angle for the last movement
-            var m = d.path.movelist.last();
-            d.animate(d.beats()-m.beats);
-            var tx = AffineTransform.getRotateInstance(d.tx.angle);
-            //  Apply that angle to the direction we need to shift
-            v = v.preConcatenate(tx);
-            //  Finally apply it to the last movement
-            m.skew(v.x,v.y);
-          });
-
-          //  Now apply the result to the 8-dancer context
-          ctx2.dancers.forEach(function(d) {
-            d.clonedFrom.path.add(d.path);
-          });
-        } catch (err) {
-          ;  // ignore error, try the other split
-        }
-      },this);
+    var splitctx = this.split(ctx,false).concat(this.split(ctx,true));
+    splitctx.forEach(function(ctx2) {
+      this.preProcess(ctx2);
+    },this);
+    if (splitctx.length > 2)
+      splitctx = splitctx.filter(this.preferFilter);
+    //  error if still 4 contexts???
+    splitctx.forEach(function(ctx2) {
+      //  Perform the requested call on this 4-dancer unit
+      Call.prototype.performCall.call(this,ctx2);
+      //  Adjust to fit 8-dancer positions
+      this.postProcess(ctx2);
+      //  Now apply the result to the 8-dancer context
+      ctx2.dancers.forEach(function(d) {
+        d.clonedFrom.path.add(d.path);
+      });
     },this);
   }
 };
 
+FourDancerCall.prototype.preProcess = function(ctx) {
+  ctx.center();
+  // TODO Need to do additional transforms here e.g. expand
+  ctx.analyze();
+};
+
+FourDancerCall.prototype.postProcess = function(ctx) {
+  // And transform the resulting paths back
+  ctx.dancers.forEach(function(d) {
+    //  First figure out the direction this dancer needs to move
+    var v = new Vector(
+        ctx.isVerticalSplit ? 0 : -Math.round(d.location.x/3),
+        ctx.isVerticalSplit ? -Math.round(d.location.y/3) : 0
+    );
+    //  Get the dancer's facing angle for the last movement
+    var m = d.path.movelist.last();
+    d.animate(d.beats()-m.beats);
+    var tx = AffineTransform.getRotateInstance(d.tx.angle);
+    //  Apply that angle to the direction we need to shift
+    v = v.preConcatenate(tx);
+    //  Finally apply it to the last movement
+    m.skew(v.x,v.y);
+  });
+};
+
 //  This returns an array of 2 contexts, 4 dancers each
 //  divided by an axis
-FourDancerCall.prototype.split = function(ctx,f)
+FourDancerCall.prototype.split = function(ctx,isVertical)
 {
+  var f = function(d) { return isVertical ? d.location.y : d.location.x; };
   //  Fail if there are any dancers on the axis
   if (ctx.dancers.some(function(d) {
-    Math.isApprox(f(d.location),0);
+    Math.isApprox(f(d),0);
   }))
-    return null;
+    return [];
   //  Create the two contexts
-  return [ new CallContext(ctx.dancers.filter(function(d) {
-    return f(d.location) > 0;
+  var retval = [ new CallContext(ctx.dancers.filter(function(d) {
+    return f(d) > 0;
   })),
           new CallContext(ctx.dancers.filter(function(d) {
-    return f(d.location) < 0;
+    return f(d) < 0;
   })) ];
+  retval.forEach(function(ctx2) { ctx2.isVerticalSplit = isVertical; });
+  return retval;
 };

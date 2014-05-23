@@ -89,6 +89,7 @@ Call.prototype.canModifyCall = function()
 //  * XML formation (?)
 var CallContext = function(source)
 {
+  this.isfirst = true;
   if (source instanceof CallContext) {
     this.dancers = source.dancers.map(function(d) {
       return new Dancer({dancer:d,computeOnly:true,active:d.active});
@@ -113,6 +114,22 @@ Object.defineProperty(CallContext.prototype,'actives',{
     return this.dancers.filter(function(d) { return d.active; });
   }
 });
+
+CallContext.prototype.interpretCall = function(calltext) {
+  var retval = false;
+  try {
+    if (this.isfirst)
+      retval = matchXMLcall(this,calltext);
+  } catch (err) {
+    if (err instanceof FormationNotFoundError)
+      retval = matchJScall(this,calltext);
+    if (!retval)
+      throw err;
+  }
+  retval = retval || matchJScall(this,calltext);
+  this.isfirst = false;
+  return retval;
+};
 
 //  Level off the number of beats for each dancer
 CallContext.prototype.levelBeats = function()
@@ -260,6 +277,37 @@ CallContext.prototype.dancersToLeft = function(d)
   });
 };
 
+//  Return true if this is 4 dancers in a box
+CallContext.prototype.isBox = function()
+{
+  //  Must have 4 dancers
+  return this.dancers.length == 4 &&
+         this.dancers.every(function(d) {
+    //  Each dancer must have a partner
+    //  and must be either a leader or a trailer
+    return d.partner && (d.leader || d.trailer);
+  });
+};
+
+//  Return true if this is 4 dancers in any kind of line, including waves
+CallContext.prototype.isLine = function()
+{
+  //  Must have 4 dancers
+  return this.dancers.length == 4 &&
+    //  Each dancer must have right or left shoulder to origin
+    this.dancers.every(function(d) {
+      return Math.isApprox(Math.abs(this.angle(d)),Math.PI/2);
+  },this) &&
+       //  All dancers must either be on the y axis
+       (this.dancers.every(function(d) {
+          return Math.isApprox(d.location.x,0);
+       }) ||
+         //  or on the x axis
+        this.dancers.every(function(d) {
+          return Math.isApprox(d.location.y,0);
+  }));
+};
+
 CallContext.prototype.analyze = function()
 {
   this.dancers.forEach(function(d) {
@@ -315,7 +363,7 @@ CallContext.prototype.analyze = function()
     }
     if (frontcount % 2 == 0 && backcount % 2 == 1)
       d1.leader = true;
-    else if (frontcount % 1 == 0 && backcount % 2 == 0)
+    else if (frontcount % 2 == 1 && backcount % 2 == 0)
       d1.trailer = true;
     //  Assign ends
     if (rightcount == 0 && leftcount > 1)
