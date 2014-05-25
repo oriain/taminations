@@ -18,11 +18,15 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-TurnBack = Call.extend('turnback');
-TurnBack.prototype.performOne = function(d)
-{
-  var m = d.beau ? 'U-Turn Right' : 'U-Turn Left';
-  return new Path({select: m});
-};
+define(function(){
+  var TurnBack = Env.extend(Call);
+  Call.classes.turnback = TurnBack;
+  TurnBack.prototype.performOne = function(d)
+  {
+    var m = d.beau ? 'U-Turn Right' : 'U-Turn Left';
+    return new Path({select: m});
+  };
+  return TurnBack;
+});
 
 //# sourceURL=turn_back.js

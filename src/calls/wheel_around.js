@@ -18,24 +18,28 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-WheelAround = Call.extend('wheelaround');
-WheelAround.prototype.performOne = function(d,ctx)
-{
-  var d2 = d.partner;
-  if (!d2 || !d2.active)
-    throw new CallError('Dancer '+d+' must Wheel Around with partner.');
-  var m = {};
-  if (d.belle) {
-    if (!d2.beau)
-      throw new CallError('Dancer '+d+' is not part of a Facing Couple.');
-    m = { select: 'Belle Wheel' };
-  }
-  else {
-    if (!d2.belle)
-      throw new CallError('Dancer '+d+' is not part of a Facing Couple.');
-    m = { select: 'Beau Wheel' };
-  }
-  return new Path(m);
-};
+define(function(){
+  var WheelAround = Env.extend(Call);
+  Call.classes.wheelaround = WheelAround;
+  WheelAround.prototype.performOne = function(d,ctx)
+  {
+    var d2 = d.partner;
+    if (!d2 || !d2.active)
+      throw new CallError('Dancer '+d+' must Wheel Around with partner.');
+    var m = {};
+    if (d.belle) {
+      if (!d2.beau)
+        throw new CallError('Dancer '+d+' is not part of a Facing Couple.');
+      m = { select: 'Belle Wheel' };
+    }
+    else {
+      if (!d2.belle)
+        throw new CallError('Dancer '+d+' is not part of a Facing Couple.');
+      m = { select: 'Beau Wheel' };
+    }
+    return new Path(m);
+  };
+  return WheelAround;
+});
 
 //# sourceURL=wheel_around.js

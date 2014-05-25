@@ -18,7 +18,9 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 */
-Trade = Call.extend('trade');
+define(function(){
+var Trade = Env.extend(Call);
+Call.classes.trade = Trade;
 Trade.prototype.performOne = function(d,ctx)
 {
   //  Figure out what dancer we're trading with
@@ -85,5 +87,6 @@ Trade.prototype.performOne = function(d,ctx)
                                       scaleY: dist/2, scaleX: scaleX });
   return new Path(moves);
 };
+});
 
 //# sourceURL=trade.js

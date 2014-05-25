@@ -18,29 +18,36 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-Zoom = Call.extend('zoom');
-Zoom.prototype.performOne = function(d,ctx)
-{
-  var m = [];
-  if (d.leader) {
-    var d2 = ctx.dancerInBack(d);
-    var a = ctx.angle(d);
-    var c = a < 0 ? 'Run Left' : 'Run Right';
-    if (!d2.active)
-      throw new CallError('Trailer of dancer '+d+' is not active.');
-    var dist = ctx.distance(d,d2);
-    m.push({select:c,beats:2,offsetX:-dist/2});
-    m.push({select:c,beats:2,offsetX:dist/2});
-  } else if (d.trailer) {
-    var d2 = ctx.dancerInFront(d);
-    if (!d2.active)
-      throw new CallError('Leader of dancer '+d+' is not active.');
-    var dist = ctx.distance(d,d2);
-    m.push({ select:'Forward', beats:4, scaleX:dist });
-  } else {
-    throw new CallError('Dancer '+d+' cannot Zoom.');
-  }
-  return new Path(m);
-};
+
+define(function() {
+
+  var Zoom = Env.extend(Call);
+  Call.classes.zoom = Zoom;
+  Zoom.prototype.performOne = function(d,ctx)
+  {
+    var m = [];
+    if (d.leader) {
+      var d2 = ctx.dancerInBack(d);
+      var a = ctx.angle(d);
+      var c = a < 0 ? 'Run Left' : 'Run Right';
+      if (!d2.active)
+        throw new CallError('Trailer of dancer '+d+' is not active.');
+      var dist = ctx.distance(d,d2);
+      m.push({select:c,beats:2,offsetX:-dist/2});
+      m.push({select:c,beats:2,offsetX:dist/2});
+    } else if (d.trailer) {
+      var d2 = ctx.dancerInFront(d);
+      if (!d2.active)
+        throw new CallError('Leader of dancer '+d+' is not active.');
+      var dist = ctx.distance(d,d2);
+      m.push({ select:'Forward', beats:4, scaleX:dist });
+    } else {
+      throw new CallError('Dancer '+d+' cannot Zoom.');
+    }
+    return new Path(m);
+  };
+  return Zoom;
+
+});
 
 //# sourceURL=zoom.js

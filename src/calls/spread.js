@@ -18,23 +18,27 @@
     along with TAMinations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-AndSpread = Call.extend('andspread');
-AndSpread.prototype.canModifyCall = function() { return true; };
-AndSpread.prototype.performOne = function(d,ctx)
-{
-  var p = d.path;
-  //  This is for waves only TODO tandem couples, single dancers (C-1)
-  var v = new Vector();
-  if (d.belle)
-    v = new Vector(0,1);
-  else if (d.beau)
-    v = new Vector(0,-1);
-  var m = p.movelist[p.movelist.length-1];
-  var tx = m.rotate();
-  v = v.preConcatenate(tx);
-  m.skew(v.x,v.y);
-  m.usehands = Movement.NOHANDS;
-  return p;
-};
+define(function(){
+  var AndSpread = Env.extend(Call);
+  Call.classes.andspread = AndSpread;
+  AndSpread.prototype.canModifyCall = function() { return true; };
+  AndSpread.prototype.performOne = function(d,ctx)
+  {
+    var p = d.path;
+    //  This is for waves only TODO tandem couples, single dancers (C-1)
+    var v = new Vector();
+    if (d.belle)
+      v = new Vector(0,1);
+    else if (d.beau)
+      v = new Vector(0,-1);
+    var m = p.movelist[p.movelist.length-1];
+    var tx = m.rotate();
+    v = v.preConcatenate(tx);
+    m.skew(v.x,v.y);
+    m.usehands = Movement.NOHANDS;
+    return p;
+  };
+  return AndSpread;
+});
 
 //# sourceURL=spread.js

@@ -18,31 +18,35 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-CrossRun = Call.extend('crossrun');
-CrossRun.prototype.perform = function(ctx)
-{
-  //  We need to look at all the dancers, not just actives
-  //  because partners of the runners need to dodge
-  ctx.dancers.forEach(function(d) {
-    if (d.active) {
-      //  Must be in a 4-dancer wave or line
-      if (!d.center && !d.end)
-        throw new CallError('General line required for Cross Run');
-      //  Partner must be inactive
-      var d2 = d.partner;
-      if (!d2 || d2.active)
-        throw new CallError('Dancer and partner cannot both Cross Run');
-      //  Center beaus and end belles run left
-      var isright = d.beau ^ d.center;
-      var m = isright ? 'Run Right' : 'Run Left';
-      //  TODO check for runners crossing paths
-      d.path = new Path({ select: m, scaleY: 2 });
-    }
-    else if (d.partner && d.partner.active) {
-      var m = d.beau ? 'Dodge Right' : 'Dodge Left';
-      d.path = new Path({ select: m });
-    }
-  });
-};
+define(function() {
+  var CrossRun = Env.extend(Call);
+  Call.classes.crossrun = CrossRun;
+  CrossRun.prototype.perform = function(ctx)
+  {
+    //  We need to look at all the dancers, not just actives
+    //  because partners of the runners need to dodge
+    ctx.dancers.forEach(function(d) {
+      if (d.active) {
+        //  Must be in a 4-dancer wave or line
+        if (!d.center && !d.end)
+          throw new CallError('General line required for Cross Run');
+        //  Partner must be inactive
+        var d2 = d.partner;
+        if (!d2 || d2.active)
+          throw new CallError('Dancer and partner cannot both Cross Run');
+        //  Center beaus and end belles run left
+        var isright = d.beau ^ d.center;
+        var m = isright ? 'Run Right' : 'Run Left';
+        //  TODO check for runners crossing paths
+        d.path = new Path({ select: m, scaleY: 2 });
+      }
+      else if (d.partner && d.partner.active) {
+        var m = d.beau ? 'Dodge Right' : 'Dodge Left';
+        d.path = new Path({ select: m });
+      }
+    });
+  };
+  return CrossRun;
+});
 
 //# sourceURL=crossrun.js

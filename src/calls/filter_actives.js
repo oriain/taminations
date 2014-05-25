@@ -18,70 +18,18 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-FilterActives = Call.extend('filteractives');
-FilterActives.extend = function(name,c) {
-  c = Call.extend(name,c);
-  Env.extend(FilterActives,c);
-  return c;
-};
-FilterActives.prototype.perform = function(ctx)
-{
-  ctx.actives.filter(function(d) {
-    return !this.test(d,ctx);
-  },this).forEach(function(d) {
-    d.active = false;
-  });
-};
 
-Beaus = FilterActives.extend('beaus');
-Beaus.prototype.test = function(d) {
-  return d.beau;
-};
+define(function() {
+  var FilterActives = Env.extend(Call);
+  FilterActives.prototype.perform = function(ctx)
+  {
+    ctx.actives.filter(function(d) {
+      return !this.test(d,ctx);
+    },this).forEach(function(d) {
+      d.active = false;
+    });
+  };
+  return FilterActives;
+});
 
-Belles = FilterActives.extend('belles');
-Belles.prototype.test = function(d) {
-  return d.belle;
-};
-
-Boys = FilterActives.extend('boys');
-Boys.prototype.test = function(d) {
-  return d.gender == Dancer.BOY;
-};
-
-Girls = FilterActives.extend('girls');
-Girls.prototype.test = function(d) {
-  return d.gender == Dancer.GIRL;
-};
-
-Centers = FilterActives.extend('centers');
-Centers.prototype.test = function(d) {
-  return d.center;
-};
-
-Ends = FilterActives.extend('ends');
-Ends.prototype.test = function(d) {
-  return d.end;
-};
-
-VeryCenters = FilterActives.extend('verycenters');
-VeryCenters.prototype.test = function(d) {
-  return d.verycenter;
-};
-
-Leaders = FilterActives.extend('leaders');
-Leaders.prototype.test = function(d) {
-  return d.leader;
-};
-
-Trailers = FilterActives.extend('trailers');
-Trailers.prototype.test = function(d) {
-  return d.trailer;
-};
-
-FacingDancers = FilterActives.extend('facingdancers');
-FacingDancers.prototype.test = function(d,ctx) {
-  var d2 = ctx.dancerInFront(d);
-  return d2 != undefined && ctx.dancerInFront(d2) == d;
-};
-
-//# sourceURL=filter_actives.js
+//# sourceURL=spread.js

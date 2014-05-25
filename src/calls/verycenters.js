@@ -18,24 +18,14 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-define(function() {
-  var PassThru = Env.extend(Call);
-  Call.classes.passthru = PassThru;
-  PassThru.prototype.performOne = function(d,ctx)
-  {
-    //  Can only pass thru with another dancer
-    //  in front of this dancer
-    //  who is also facing this dancer
-    var d2 = ctx.dancerInFront(d);
-    if (d2 != undefined && ctx.dancerInFront(d2) == d) {
-      var dist = ctx.distance(d,d2);
-      var moves = [{ select: 'Extend Left', scaleX: dist/2, scaleY:0.5 },
-                   { select: 'Extend Right', scaleX: dist/2, scaleY:0.5 }];
-      return new Path(moves);
-    }
-    throw new Error();
+
+define(["calls/filter_actives"],function(FilterActives) {
+  var VeryCenters = Env.extend(FilterActives);
+  Call.classes.verycenters = VeryCenters;
+  VeryCenters.prototype.test = function(d) {
+    return d.verycenter;
   };
-  return PassThru;
+  return VeryCenters;
 });
 
-//# sourceURL=passthru.js
+//# sourceURL=verycenters.js

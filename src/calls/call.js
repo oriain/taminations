@@ -23,15 +23,6 @@
 
 var Call = Env.extend();
 Call.classes = {};
-Call.extend = function(name,c)
-{
-  c = Env.extend(Call,c);
-  if (name) {
-    Call.classes[name] = c;
-    c.prototype.name = name;
-  }
-  return c;
-};
 
 var CallError = Env.extend(Error,function(msg)
 {

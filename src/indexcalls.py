@@ -16,7 +16,7 @@ def main():
   #  Build table of calls in each file
   r = re.compile(r'title="(.*?)"')
   r2 = re.compile(r'/(b1|b2|ms|plus|a1|a2|c1|c2|c3a)/')
-  r3 = re.compile(r"\.extend\('(.*?)'\)")
+  r3 = re.compile(r'Call\.classes\.(.+?)\s*=')
   r4 = re.compile(r'\W')
   #  Start a new xml document for the output
   newtree = ET.ElementTree(ET.Element('calls'))

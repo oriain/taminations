@@ -320,20 +320,59 @@ function processCallText()
   return retval;
 }
 
+var filecount = 0;
+function fetchCall(callname)
+{
+  $('call[text="'+callname.collapse().replace(/\W/g,'')+'"]',callindex).each( function () {
+    var f = $(this).attr('link');
+    if (!xmldata[f]) {
+      if (f.indexOf('.js') > 0) {
+        //  Call is interpreted by a script
+        filecount++;
+        //  Read and interpret the script
+        require([f.replace('.js','')],function(){
+          xmldata[f] = true;
+          if (--filecount == 0)
+            buildSequence();
+        });
+        /*
+        $.getScript('src/'+f,function(data,status,jqxhr) {
+          xmldata[f] = true;
+          if (--filecount == 0)
+            buildSequence();
+        }).fail(function(jqxhr,settings,exception) {
+          alert('script failed '+settings);
+        }); */
+      }
+      else if (f.indexOf('.xml') > 0) {
+        //  Call is interpreted by animations
+        filecount++;
+        //  Read and store the animation
+        $.get(f,function(data,status,jqxhr) {
+          xmldata[f] = data;
+          if (--filecount == 0) {
+            //  All xml has been read, now we can interpret the calls
+            buildSequence();
+          }
+        },"xml").filename = f;
+      }
+    }
+  });
+}
+
 function updateSequence()
 {
   //  Don't do anything if there's no change
   if (!editor)
     return;
   var newhtml = editor.getContent();
-     // $('#calls').html();
   if (newhtml.replace(/<.*?>/g) == prevhtml.replace(/<.*?>/g))
     return;
   prevhtml = newhtml;
   calls = processCallText();
+  //  Make sure all calls are sent to be fetched
+  filecount = 100;
   //  Look up the calls fetch the necessary files
-  var filecount = 100;
-  tamsvg.parts = [];
   for (var i in calls) {
     //  Need to load xml files, 1 or more for each call
     var callline = calls[i].toLowerCase()
@@ -343,41 +382,11 @@ function updateSequence()
     //  to get concepts and modifications
     callline.syns().forEach(function(s1) {
       s1.minced().forEach(function(s2) {
-        $('call[text="'+s2.collapse().replace(/\W/g,'')+'"]',callindex).each( function () {
-          var f = $(this).attr('link');
-          if (!xmldata[f]) {
-            if (f.indexOf('.js') > 0) {
-              //  Call is interpreted by a script
-              filecount++;
-              //  Read and interpret the script
-              $.getScript('src/'+f,function(data,status,jqxhr) {
-                // xmldata set by script
-                if (--filecount == 0)
-                  buildSequence();
-              }).fail(function(jqxhr,settings,exception) {
-                alert('script failed '+settings);
-              });
-            }
-            else if (f.indexOf('.xml') > 0) {
-              //  Call is interpreted by animations
-              filecount++;
-              //  Read and store the animation
-              $.get(f,function(data,status,jqxhr) {
-                //  Location of the filename depends (I think)
-                //  on whether the callback is run now or later
-                var ff = 'filename' in jqxhr ? jqxhr.filename : a[x];
-                xmldata[ff] = data;
-                if (--filecount == 0) {
-                  //  All xml has been read, now we can interpret the calls
-                  buildSequence();
-                }
-              },"xml").filename = f;
-            }
-          }
-        });
+        fetchCall(s2);
       });
     });
   }
+  //  All calls sent to be fetched, we can remove the safety
   filecount -= 100;
   if (!filecount)
     //  We already have all the files
@@ -391,6 +400,7 @@ function buildSequence()
     d.path.clear();
     d.animate(0);
   });
+  tamsvg.parts = [];
   $('#errormsg').remove();
   var n2 = 0;
   var callname = '';

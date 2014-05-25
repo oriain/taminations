@@ -18,20 +18,23 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-TurnThru = Call.extend('turnthru');
-TurnThru.prototype.performOne = function(d,ctx)
-{
-  //  Can only turn thru with another dancer
-  //  in front of this dancer
-  //  who is also facing this dancer
-  var d2 = ctx.dancerInFront(d);
-  if (d2 != undefined && ctx.dancerInFront(d2) == d) {
-    var dist = ctx.distance(d,d2);
-    return new Path([{ select: 'Extend Left', scaleX: dist/2, scaleY: 0.5 },
-                     { select: 'Swing Right', scaleX: 0.5, scaleY: 0.5 },
-                     { select: 'Extend Right', scaleX: dist/2, scaleY: 0.5 }]);
-  }
-  throw new Error('Cannot find dancer to Turn Thru with '+d);
-};
+define(function(){
+  var TurnThru = Env.extend(Call);
+  Call.classes.turnthru = TurnThru;
+  TurnThru.prototype.performOne = function(d,ctx)
+  {
+    //  Can only turn thru with another dancer
+    //  in front of this dancer
+    //  who is also facing this dancer
+    var d2 = ctx.dancerInFront(d);
+    if (d2 != undefined && ctx.dancerInFront(d2) == d) {
+      var dist = ctx.distance(d,d2);
+      return new Path([{ select: 'Extend Left', scaleX: dist/2, scaleY: 0.5 },
+                       { select: 'Swing Right', scaleX: 0.5, scaleY: 0.5 },
+                       { select: 'Extend Right', scaleX: dist/2, scaleY: 0.5 }]);
+    }
+    throw new Error('Cannot find dancer to Turn Thru with '+d);
+  };
+});
 
 //# sourceURL=turn_thru.js

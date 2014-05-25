@@ -18,7 +18,9 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-AllemandeLeft = Call.extend('allemandeleft');
+var AllemandeLeft = Env.extend(Call);
+Call.classes.allemandeleft = AllemandeLeft;
+Call.classes.leftturnthru = AllemandeLeft;
 AllemandeLeft.prototype.performOne = function(d,ctx)
 {
   //  Can only turn thru with another dancer
@@ -34,7 +36,5 @@ AllemandeLeft.prototype.performOne = function(d,ctx)
   }
   throw new CallError('Cannot find dancer to turn with '+dancerNum(d));
 };
-
-Call.extend('leftturnthru').prototype = AllemandeLeft.prototype;
 
 //# sourceURL=allemandeleft.js

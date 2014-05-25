@@ -18,26 +18,30 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-Run = Call.extend('run');
-Run.prototype.perform = function(ctx)
-{
-  //  We need to look at all the dancers, not just actives
-  //  because partners of the runners need to dodge
-  ctx.dancers.forEach(function(d) {
-    if (d.active) {
-      //  Partner must be inactive
-      var d2 = d.partner;
-      if (!d2 || d2.active)
-        throw new CallError('Dancer '+d+' has nobody to Run around.');
-      var m = d.beau ? 'Run Right' : 'Run Left';
-      d.path = new Path({ select: m });
-    }
-    else if (d.partner && d.partner.active) {
-      var m = d.beau ? 'Dodge Right' : 'Dodge Left';
-      d.path = new Path({ select: m });
-    }
-  });
+define(function(){
+  var Run = Env.extend(Call);
+  Call.classes.run = Run;
+  Run.prototype.perform = function(ctx)
+  {
+    //  We need to look at all the dancers, not just actives
+    //  because partners of the runners need to dodge
+    ctx.dancers.forEach(function(d) {
+      if (d.active) {
+        //  Partner must be inactive
+        var d2 = d.partner;
+        if (!d2 || d2.active)
+          throw new CallError('Dancer '+d+' has nobody to Run around.');
+        var m = d.beau ? 'Run Right' : 'Run Left';
+        d.path = new Path({ select: m });
+      }
+      else if (d.partner && d.partner.active) {
+        var m = d.beau ? 'Dodge Right' : 'Dodge Left';
+        d.path = new Path({ select: m });
+      }
+    });
 
-};
+  };
+  return Run;
+});
 
 //# sourceURL=run.js
