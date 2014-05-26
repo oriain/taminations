@@ -387,6 +387,7 @@
     <call text="Press Ahead" level="Challenge" sublevel="C-1" link="c1/press.html"/>
     <call text="Press In/Out/Left/Right" level="Challenge" sublevel="C-2" link="c2/press.html"/>
     <call text="Promenade" level="Basic and Mainstream" sublevel="Basic 1" link="b1/promenade.html"/>
+    <call text="Pull By" level="Basic and Mainstream" sublevel="Basic 1" link="b1/pull_by.html"/>
     <call text="Quadruple Formation" level="Challenge" sublevel="C-3B" link="c3b/quadruple_formation.html"/>
     <call text="Quarter In" level="Advanced" sublevel="A-1" link="a1/quarter_in.html"/>
     <call text="Quarter Out" level="Advanced" sublevel="A-1" link="a1/quarter_out.html"/>

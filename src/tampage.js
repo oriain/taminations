@@ -367,15 +367,16 @@ function generateAnimations()
     $('#svgcontainer').append("<h3><center>No animation for this call.</center></h3>");
   }
   sizeBody();
-  if (tamsvg)
+  if (tamsvg) {
     generateButtonPanel();
-  PickAnimation(0);
-  //  If a specific animation is requested in the URL, switch to it
-  for (var arg in args) {
-    if (animationNumber[arg] != undefined) {
-      callnumber = animationNumber[arg];
-      callname = arg;
-      PickAnimation(callnumber);
+    PickAnimation(0);
+    //  If a specific animation is requested in the URL, switch to it
+    for (var arg in args) {
+      if (animationNumber[arg] != undefined) {
+        callnumber = animationNumber[arg];
+        callname = arg;
+        PickAnimation(callnumber);
+      }
     }
   }
 }
