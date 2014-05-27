@@ -101,24 +101,6 @@
     </path>
   </tam>
 
-  <tam title="Pass the Ocean"
-       from="Left-Hand Waves"
-       formation="Ocean Waves LH BGGB"
-       parts="" difficulty="3">
-    <path>
-      <move select="Lead Left" beats="4" scaleX=".5" scaleY="3" />
-    </path>
-    <path>
-      <move select="Lead Right" beats="2" scaleX="1.5" />
-    </path>
-    <path>
-      <move select="Lead Right" beats="2" scaleX="1.5" />
-    </path>
-    <path>
-      <move select="Lead Left" beats="4" scaleX=".5" scaleY="3" />
-    </path>
-  </tam>
-
   <tam title="Heads Pass the Ocean" from="Static Square" group=" "
        formation="Static Square" difficulty="1">
     <path>
