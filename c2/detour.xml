@@ -27,13 +27,13 @@
        formation="Ocean Waves RH BGGB">
     <path couples="4 2">
       <move select="Forward 2" />
-      <move select="Hinge Left" offsetY="-1" />
+      <move select="Quarter Left" hands="left" offsetX="1" />
     </path>
     <path couples="4 2">
-      <move select="Quarter Left" beats="3.5" hands="left" offsetX="-1" offsetY="2" />
+      <move select="Counter Rotate Left 0 2" beats="3.5" hands="left" offsetX="-1"/>
     </path>
     <path couples="3 1">
-      <move select="Quarter Left" beats="3.5" hands="left" offsetX="3" />
+      <move select="Counter Rotate Left 2 0" beats="3.5" hands="left" offsetX="1"/>
     </path>
     <path couples="3 1">
       <move select="Run Left" beats="2" offsetX="-2" offsetY="-1" />
@@ -46,13 +46,13 @@
        formation="Two-Faced Lines RH">
     <path numbers="1 8">
       <move select="Forward 2" />
-      <move select="Hinge Left" offsetY="-1" />
+      <move select="Quarter Left" hands="left" offsetX="1" />
     </path>
     <path numbers="2 7">
-      <move select="Quarter Right" beats="3.5" hands="right" offsetX="3" />
+      <move select="Counter Rotate Right 2 0" beats="3.5" hands="right" offsetX="1"/>
     </path>
     <path numbers="3 6">
-      <move select="Quarter Right" beats="3.5" hands="right" offsetX="-1" offsetY="-2" />
+      <move select="Counter Rotate Right 0 -2" beats="3.5" hands="right" offsetX="-1"/>
     </path>
     <path numbers="4 5">
       <move select="Run Left" beats="2" offsetX="-2" offsetY="-1" />
@@ -69,14 +69,14 @@
       <move select="Hinge Right" />
     </path>
     <path>
-      <move select="Quarter Right" beats="3.5" hands="right" offsetX="3" />
+      <move select="Counter Rotate Right 2 0" beats="3.5" hands="right" offsetX="1"/>
     </path>
     <path>
-      <move select="Quarter Right" beats="3.5" hands="right" offsetX="-1" offsetY="-2" />
+      <move select="Counter Rotate Right 0 -2" beats="3.5" hands="right" offsetX="-1"/>
     </path>
     <path>
       <move select="Forward 2" />
-      <move select="Hinge Right" offsetY="1" />
+      <move select="Quarter Right" hands="right" offsetX="1" />
     </path>
   </tam>
 
@@ -89,14 +89,15 @@
       <move select="Hinge Right" />
     </path>
     <path>
-      <move select="Quarter Left" beats="3.5" hands="left" offsetX="-1" offsetY="2" />
+      <move select="Counter Rotate Left 0 2" beats="3.5" hands="left" offsetX="-1"/>
     </path>
     <path>
-      <move select="Quarter Left" beats="3.5" hands="left" offsetX="3" />
+      <move select="Counter Rotate Left 2 0" beats="3.5" hands="left" offsetX="1"/>
     </path>
     <path>
       <move select="Forward 2" />
-      <move select="Hinge Right" offsetY="1" />
+      <move select="Quarter Right" hands="right" offsetX="1" />
     </path>
   </tam>
+
 </tamination>

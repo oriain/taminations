@@ -22,4 +22,44 @@
 -->
 <tamination>
 
+  <tam title="Cross Lockit" from="Right-Hand Wave"
+       formation="Wave RH">
+    <path>
+      <move select="Lead Right" beats="4" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Lead Left" beats="4" scaleX="3"/>
+    </path>
+  </tam>
+
+  <tam title="Cross Lockit" from="Left-Hand Wave"
+       formation="Wave LH">
+    <path>
+      <move select="Lead Left" beats="4" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Lead Right" beats="4" scaleX="3"/>
+    </path>
+  </tam>
+
+  <tam title="Cross Lockit" from="Right-Hand Two-Faced Line"
+       formation="Two-Faced Line RH">
+    <path>
+      <move select="Lead Right" beats="4" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Lead Right" beats="4" scaleX="3"/>
+    </path>
+  </tam>
+
+  <tam title="Cross Lockit" from="Left-Hand Two-Faced Line"
+       formation="Two-Faced Line LH">
+    <path>
+      <move select="Lead Left" beats="4" scaleX="3"/>
+    </path>
+    <path>
+      <move select="Lead Left" beats="4" scaleY="3"/>
+    </path>
+  </tam>
+
 </tamination>
