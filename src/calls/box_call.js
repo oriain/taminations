@@ -18,7 +18,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-define(["four_dancer_call"],function(FourDancerCall){
+define(["calls/four_dancer_call"],function(FourDancerCall){
   var BoxCall = Env.extend(FourDancerCall);
   BoxCall.prototype.preferFilter = function(ctx) {
     return ctx.isBox();

@@ -25,6 +25,7 @@ define(['calls/quarter_turns'],function(QuarterTurns) {
   FaceLeft.prototype.select = function() {
     return "Quarter Left";
   };
+  return FaceLeft;
 });
 
 //# sourceURL=face_left.js

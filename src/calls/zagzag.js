@@ -27,6 +27,7 @@ define(['calls/quarter_turns'],function(QuarterTurns) {
       return 'Quarter Left';
     return 'Stand';
   };
+  return ZagZag;
 });
 
 //# sourceURL=zagzag.js

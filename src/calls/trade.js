@@ -87,6 +87,7 @@ Trade.prototype.performOne = function(d,ctx)
                                       scaleY: dist/2, scaleX: scaleX });
   return new Path(moves);
 };
+return Trade;
 });
 
 //# sourceURL=trade.js

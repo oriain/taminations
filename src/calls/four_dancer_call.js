@@ -20,7 +20,7 @@
  */
 
 define(function() {
-  var FourDancerCall = Env.extend();
+  var FourDancerCall = Env.extend(Call);
 
   FourDancerCall.prototype.preferFilter = function(ctx)
   {

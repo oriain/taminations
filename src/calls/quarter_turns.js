@@ -19,8 +19,8 @@
 
  */
 
-define(function() {
-  var QuarterTurns = Env.extend(Call.classes.__boxcall);
+define(['calls/box_call'],function(BoxCall) {
+  var QuarterTurns = Env.extend(BoxCall);
   QuarterTurns.prototype.performOne = function(d,ctx)
   {
     var offsetX = 0;
@@ -42,6 +42,7 @@ define(function() {
     }
     return new Path({select: move, offsetX: offsetX, offsetY: offsetY });
   };
+  return QuarterTurns;
 });
 
 //# sourceURL=quarter_turns.js

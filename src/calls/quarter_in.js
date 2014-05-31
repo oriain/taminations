@@ -25,6 +25,7 @@ define(['calls/quarter_turns'],function(QuarterTurns) {
   QuarterIn.prototype.select = function(ctx,d) {
     return d.beau ? 'Quarter Right' : 'Quarter Left';
   };
+  return QuarterIn;
 });
 
 //# sourceURL=quarter_in.js

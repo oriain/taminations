@@ -35,6 +35,7 @@ define(function(){
     }
     throw new Error('Cannot find dancer to Turn Thru with '+d);
   };
+  return TurnThru;
 });
 
 //# sourceURL=turn_thru.js

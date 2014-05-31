@@ -27,6 +27,7 @@ define(['calls/quarter_turns'],function(QuarterTurns) {
       return 'Quarter Right';
     return 'Stand';
   };
+  return Zig;
 });
 
 //# sourceURL=zig.js

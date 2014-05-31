@@ -25,6 +25,7 @@ define(['calls/quarter_turns'],function(QuarterTurns) {
   FaceIn.prototype.select = function(ctx,d) {
     return ctx.angle(d) < 0 ? 'Quarter Right' : 'Quarter Left';
   };
+  return FaceIn;
 });
 
 //# sourceURL=face_in.js
