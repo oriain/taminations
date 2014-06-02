@@ -130,6 +130,10 @@
       <move select="Stand" beats="3"/>
       <move select="Cast Left"/>
     </path>
+    <taminator>
+      This is not a proper application of Spin Chain the Gears.
+      However you might encounter it during a workshop.
+    </taminator>
   </tam>
 
   <tam title="Spin Chain the Gears"
@@ -174,6 +178,11 @@
       <move select="Hinge Left" scaleY=".5"/>
       <move select="Flip Right"/>
     </path>
+    <taminator>
+      This is likely not a proper application as well, because the first part
+      does not match the definition.  But it is a good example of how to turn
+      a facing star 3/4.
+    </taminator>
   </tam>
 
 
