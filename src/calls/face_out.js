@@ -21,6 +21,7 @@
 
 define(['calls/quarter_turns'],function(QuarterTurns) {
   var FaceOut = Env.extend(QuarterTurns);
+  FaceOut.prototype.name = "Face Out";
   Call.classes.faceout = FaceOut;
   FaceOut.prototype.select = function(ctx,d) {
     return ctx.angle(d) < 0 ? 'Quarter Right' : 'Quarter Left';

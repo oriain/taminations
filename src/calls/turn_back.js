@@ -20,6 +20,7 @@
  */
 define(function(){
   var TurnBack = Env.extend(Call);
+  TurnBack.prototype.name = "Turn Back";
   Call.classes.turnback = TurnBack;
   TurnBack.prototype.performOne = function(d)
   {

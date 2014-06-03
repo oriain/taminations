@@ -20,6 +20,7 @@
  */
 define(["calls/filter_actives"],function(FilterActives) {
   var Belles = Env.extend(FilterActives);
+  Belles.prototype.name = "Belles";
   Call.classes.belles = Belles;
   Belles.prototype.test = function(d) {
     return d.belle;

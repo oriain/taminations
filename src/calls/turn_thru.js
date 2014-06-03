@@ -20,6 +20,7 @@
  */
 define(function(){
   var TurnThru = Env.extend(Call);
+  TurnThru.prototype.name = "Turn Thru";
   Call.classes.turnthru = TurnThru;
   TurnThru.prototype.performOne = function(d,ctx)
   {

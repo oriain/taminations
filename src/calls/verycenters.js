@@ -21,6 +21,7 @@
 
 define(["calls/filter_actives"],function(FilterActives) {
   var VeryCenters = Env.extend(FilterActives);
+  VeryCenters.prototype.name = "Very Centers";
   Call.classes.verycenters = VeryCenters;
   VeryCenters.prototype.test = function(d) {
     return d.verycenter;

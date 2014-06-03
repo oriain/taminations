@@ -22,6 +22,7 @@
 define(['calls/quarter_turns'],function(QuarterTurns) {
   var ZigZag = Env.extend(QuarterTurns);
   Call.classes.zigzag = ZigZag;
+  ZigZag.prototype.name = 'Zig Zag';
   ZigZag.prototype.select = function(ctx,d) {
     if (d.leader)
       return 'Quarter Right';

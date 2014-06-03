@@ -21,6 +21,7 @@
 
 define(["calls/filter_actives"],function(FilterActives) {
   var Girls = Env.extend(FilterActives);
+  Girls.prototype.name = "Girls";
   Call.classes.girls = Girls;
   Girls.prototype.test = function(d) {
     return d.gender == Dancer.GIRL;

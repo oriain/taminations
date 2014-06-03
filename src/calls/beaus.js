@@ -20,6 +20,7 @@
  */
 define(["calls/filter_actives"],function(FilterActives) {
   var Beaus = Env.extend(FilterActives);
+  Beaus.prototype.name = "Beaus";
   Call.classes.beaus = Beaus;
   Beaus.prototype.test = function(d) {
     return d.beau;

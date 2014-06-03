@@ -21,6 +21,7 @@
 
 define(['calls/quarter_turns'],function(QuarterTurns) {
   var FaceIn = Env.extend(QuarterTurns);
+  FaceIn.prototype.name = "Face In";
   Call.classes.facein = FaceIn;
   FaceIn.prototype.select = function(ctx,d) {
     return ctx.angle(d) < 0 ? 'Quarter Right' : 'Quarter Left';

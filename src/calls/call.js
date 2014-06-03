@@ -23,6 +23,7 @@
 
 var Call = Env.extend();
 Call.classes = {};
+Call.prototype.name = '';
 
 var CallError = Env.extend(Error,function(msg)
 {
@@ -50,7 +51,7 @@ Call.prototype.performCall = function(ctx)
 Call.prototype.perform = function(ctx) {
   //  Get all the paths with performOne calls
   ctx.actives.forEach(function(d) {
-    d.path = this.performOne(d,ctx);
+    d.path.add(this.performOne(d,ctx));
   },this);
 };
 
@@ -80,6 +81,7 @@ Call.prototype.canModifyCall = function()
 //  * XML formation (?)
 var CallContext = function(source)
 {
+  this.callname = '';
   if (source instanceof CallContext) {
     this.dancers = source.dancers.map(function(d) {
       return new Dancer({dancer:d,computeOnly:true,active:d.active});
@@ -114,6 +116,10 @@ CallContext.prototype.interpretCall = function(calltext)
   var err = new CallNotFoundError();
   //  Try every combination of synonyms for each word
   if (!calltext.syns().some(function(callwords) {
+    //  Clear out any previous paths from incomplete parsing
+    this.dancers.forEach(function(d) {
+      d.path = new Path();
+    });
     //  If a partial interpretation is found (like 'boys' of 'boys run')
     //  it gets popped off the front and this loop interprets the rest
     while (callwords.length > 0) {
@@ -123,18 +129,17 @@ CallContext.prototype.interpretCall = function(calltext)
         var callname = callchopped.collapse().replace(/\W/g,'');
         var success = false;
         //  First try to find an exact match in Taminations
+        //  Then look for a code match
         try {
           success = this.matchXMLcall(callname);
-        //  That could fail either from not existing, or existing but
-        //  the formation doesn't match.  Handle both cases by looking
-        //  for a Javascript programmed animation.
         } catch (err2) {
-          if (err2 instanceof FormationNotFoundError)
-            success = this.matchJScall(callname);
-          if (!success)
-            err = err2;
+          err = err2;
         }
-        success = success || this.matchJScall(callname);
+        try {
+          success = success || this.matchJScall(callname);
+        } catch (err2) {
+          err = err2;
+        }
         if (success) {
           //  Remove the words we matched, break out of and
           //  the chopped loop, and continue if any words left
@@ -187,11 +192,13 @@ CallContext.prototype.matchXMLcall = function(calltext)
               var allp = tam.getPath(xelem);
               for (var i3 in allp) {
                 var p = new Path(allp[i3]);
-                ctx.dancers[mm[i3*2]].path = p;
-                ctx.dancers[mm[i3*2+1]].path = p;
+                ctx.dancers[mm[i3*2]].path.add(p);
+                ctx.dancers[mm[i3*2+1]].path.add(p);
               }
               ctx.levelBeats();
+              ctx.callname = $(xelem).attr('title');
               match = true;
+              return false;  // break out of callindex loop
             }
           }
         }
@@ -212,6 +219,7 @@ CallContext.prototype.matchJScall = function(calltext)
   if (c in Call.classes) {
     var call = new Call.classes[c];
     call.performCall(this);
+    this.callname += call.name + ' ';
     return true;
   }
   return false;

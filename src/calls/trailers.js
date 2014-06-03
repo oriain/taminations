@@ -21,6 +21,7 @@
 
 define(["calls/filter_actives"],function(FilterActives) {
   var Trailers = Env.extend(FilterActives);
+  Trailers.prototype.name = "Trailers";
   Call.classes.trailers = Trailers;
   Trailers.prototype.test = function(d) {
     return d.trailer;

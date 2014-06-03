@@ -20,6 +20,7 @@
  */
 define(function() {
   var AllemandeLeft = Env.extend(Call);
+  AllemandeLeft.prototype.name = "Allemande Left";
   Call.classes.allemandeleft = AllemandeLeft;
   Call.classes.leftturnthru = AllemandeLeft;
   AllemandeLeft.prototype.performOne = function(d,ctx)

@@ -22,10 +22,29 @@
 -->
 <tamination>
 
+  <tam title="Peel and Trail" from="Right-Hand Box" formation="Box RH">
+    <path>
+      <move select="Forward 2"/>
+      <move select="Swing Right"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="5" offsetX="-2"/>
+    </path>
+  </tam>
+
+  <tam title="Peel and Trail" from="Left-Hand Box" formation="Box LH">
+    <path>
+      <move select="Run Right" beats="5" offsetX="-2"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="Swing Left"/>
+    </path>
+  </tam>
+
   <tam title="Peel and Trail"
        from="Right-Hand Columns"
-       formation="Column RH GBGB"
-       parts="" >
+       formation="Column RH GBGB">
     <path numbers="6 3">
       <move select="Run Left" offsetX="-1" />
     </path>
@@ -44,8 +63,7 @@
 
   <tam title="Peel and Trail"
        from="Left-Hand Columns"
-       formation="Column LH GBGB"
-       parts="" >
+       formation="Column LH GBGB">
     <path>
       <move select="Forward" />
       <move select="Swing Left" />
@@ -64,8 +82,7 @@
 
   <tam title="Peel and Trail"
        from="Completed Double Pass Thru"
-       formation="Completed Double Pass Thru"
-       parts="" >
+       formation="Completed Double Pass Thru">
     <path numbers="5 4">
       <move select="Run Right" offsetX="-1" />
     </path>

@@ -19,14 +19,17 @@
 
  */
 
-define(["calls/filter_actives"],function(FilterActives) {
-  var Leaders = Env.extend(FilterActives);
-  Leaders.prototype.name = "Leaders";
-  Call.classes.leaders = Leaders;
-  Leaders.prototype.test = function(d) {
-    return d.leader;
+define(['calls/quarter_turns'],function(QuarterTurns) {
+  var Roll = Env.extend(QuarterTurns);
+  Roll.prototype.name = "and Roll";
+  Call.classes.androll = Roll;
+  Call.classes.androll = Roll;
+  Roll.prototype.select = function(ctx,d) {
+    //  Look at the last curve of the past
+    var angle = d.path.movelist.last().brotate.turn(1);
+    return angle < 0 ? 'Quarter Right' : 'Quarter Left';
   };
-  return Leaders;
+  return Roll;
 });
 
-//# sourceURL=leaders.js
+//# sourceURL=roll.js

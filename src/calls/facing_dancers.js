@@ -21,6 +21,7 @@
 
 define(["calls/filter_actives"],function(FilterActives) {
   var FacingDancers = Env.extend(FilterActives);
+  FacingDancers.prototype.name = "Facing Dancers";
   Call.classesfacingdancers = FacingDancers;
   FacingDancers.prototype.test = function(d,ctx) {
     var d2 = ctx.dancerInFront(d);

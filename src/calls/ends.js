@@ -21,6 +21,7 @@
 
 define(["calls/filter_actives"],function(FilterActives) {
   var Ends = Env.extend(FilterActives);
+  Ends.prototype.name = "Ends";
   Call.classes.ends = Ends;
   Ends.prototype.test = function(d) {
     return d.end;

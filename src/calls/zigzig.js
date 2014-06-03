@@ -21,6 +21,7 @@
 
 define(['calls/quarter_turns'],function(QuarterTurns) {
   var ZigZig = Env.extend(QuarterTurns);
+  ZigZig.prototype.name = 'Zig Zig';
   Call.classes.zigzig = ZigZig;
   ZigZig.prototype.select = function(ctx,d) {
     if (d.leader || d.trailer)

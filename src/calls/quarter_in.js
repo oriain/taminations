@@ -21,6 +21,7 @@
 
 define(['calls/quarter_turns'],function(QuarterTurns) {
   var QuarterIn = Env.extend(QuarterTurns);
+  QuarterIn.prototype.name = "Quarter In";
   Call.classes.quarterin = QuarterIn;
   QuarterIn.prototype.select = function(ctx,d) {
     return d.beau ? 'Quarter Right' : 'Quarter Left';

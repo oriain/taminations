@@ -21,6 +21,7 @@
 
 define(['calls/quarter_turns'],function(QuarterTurns) {
   var FaceLeft = Env.extend(QuarterTurns);
+  FaceLeft.prototype.name = "Face Left";
   Call.classes.faceleft = FaceLeft;
   FaceLeft.prototype.select = function() {
     return "Quarter Left";

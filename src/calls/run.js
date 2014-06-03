@@ -20,6 +20,7 @@
  */
 define(function(){
   var Run = Env.extend(Call);
+  Run.prototype.name = "Run";
   Call.classes.run = Run;
   Run.prototype.perform = function(ctx)
   {

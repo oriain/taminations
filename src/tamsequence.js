@@ -31,6 +31,7 @@ var animwidth='50';
 var compattern = /[*#].*/;
 var prevhtml = '';
 var editor = null;
+var callnames = [];
 
 var CallNotFoundError = Env.extend(CallError);
 var FormationNotFoundError = Env.extend(CallError);
@@ -263,6 +264,7 @@ function setCurrentCall(n)
 {
   $(editor.getDoc()).find('span').removeClass('callhighlight')
      .filter('.Part'+n).addClass('callhighlight');
+  tamsvg.setTitle(n > 0 ? callnames[n-1] : '');
 }
 //  Highlight a line that has an error
 function showError(n)
@@ -401,6 +403,7 @@ function buildSequence()
     d.animate(0);
   });
   tamsvg.parts = [];
+  callnames = [];
   $('#errormsg').remove();
   var n2 = 0;
   var callname = '';
@@ -425,7 +428,7 @@ function buildSequence()
       });
       //  Each call shown as one "part" on the slider
       tamsvg.parts.push(ctx.dancers[0].path.beats());
-
+      callnames.push(ctx.callname);
     } //  repeat for every call
 
   }  // end of try block
@@ -467,14 +470,6 @@ function buildSequence()
         .replace(/<br\/?>/g,'&')
         .replace(/<.*?>/g,'');
 
-}
-
-function gotoCall(n)
-{
-  var b = 0.01;  // so yellow highlight is on call selected
-  for (var i=0; i<n; i++)
-    b += tamsvg.parts[i];
-  tamsvg.setBeat(b);
 }
 
 /**

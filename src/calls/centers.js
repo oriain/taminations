@@ -21,6 +21,7 @@
 
 define(["calls/filter_actives"],function(FilterActives) {
   var Centers = Env.extend(FilterActives);
+  Centers.prototype.name = "Centers";
   Call.classes.centers = Centers;
   Centers.prototype.test = function(d) {
     return d.center;

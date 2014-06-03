@@ -22,10 +22,29 @@
 -->
 <tamination>
 
+  <tam title="Cross" from="Right-Hand Box" formation="Box RH">
+    <path>
+      <move select="Extend Right" hands="left" beats="2" scaleX="3" scaleY="2" />
+      <move select="Forward" />
+    </path>
+    <path>
+      <move select="Stand" beats="3" hands="none"/>
+    </path>
+  </tam>
+
+  <tam title="Cross" from="Left-Hand Box" formation="Box LH">
+    <path>
+      <move select="Stand" beats="3" hands="none"/>
+    </path>
+    <path>
+      <move select="Extend Left" hands="right" beats="2" scaleX="3" scaleY="2" />
+      <move select="Forward" />
+    </path>
+  </tam>
+
   <tam title="Cross"
        from="Right-Hand Columns"
-       formation="Column RH GBGB"
-       parts="" >
+       formation="Column RH GBGB" >
     <path>
       <move select="Stand" beats="2" hands="none"/>
     </path>
@@ -42,8 +61,7 @@
 
   <tam title="Cross"
        from="Right-Hand Waves"
-       formation="Ocean Waves RH BGBG"
-       parts="" >
+       formation="Ocean Waves RH BGBG">
     <path>
       <move select="Extend Right" hands="left" beats="2" scaleX="3" scaleY="2" />
       <move select="Forward" />
@@ -62,8 +80,7 @@
 
   <tam title="Cross"
        from="Left-Hand Waves"
-       formation="Ocean Waves LH BGBG"
-       parts="" >
+       formation="Ocean Waves LH BGBG" >
     <path>
       <move select="Stand" beats="3" hands="none"/>
     </path>
@@ -79,4 +96,5 @@
       <move select="Forward" />
     </path>
   </tam>
+
 </tamination>

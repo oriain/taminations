@@ -20,6 +20,7 @@
  */
 define(function() {
   var PassThru = Env.extend(Call);
+  PassThru.prototype.name = "Pass Thru";
   Call.classes.passthru = PassThru;
   PassThru.prototype.performOne = function(d,ctx)
   {

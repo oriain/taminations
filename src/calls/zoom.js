@@ -20,8 +20,8 @@
  */
 
 define(function() {
-
   var Zoom = Env.extend(Call);
+  Zoom.prototype.name = 'Zoom';
   Call.classes.zoom = Zoom;
   Zoom.prototype.performOne = function(d,ctx)
   {
@@ -47,7 +47,6 @@ define(function() {
     return new Path(m);
   };
   return Zoom;
-
 });
 
 //# sourceURL=zoom.js

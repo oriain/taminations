@@ -20,6 +20,7 @@
  */
 define(function() {
   var CrossRun = Env.extend(Call);
+  CrossRun.prototype.name = "Cross Run";
   Call.classes.crossrun = CrossRun;
   CrossRun.prototype.perform = function(ctx)
   {

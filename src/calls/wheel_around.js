@@ -20,6 +20,7 @@
  */
 define(function(){
   var WheelAround = Env.extend(Call);
+  WheelAround.prototype.name = "Wheel Around";
   Call.classes.wheelaround = WheelAround;
   WheelAround.prototype.performOne = function(d,ctx)
   {
