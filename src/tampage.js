@@ -209,10 +209,11 @@ function clearMenus()
 //  Generate the title above the menus
 function getTitle()
 {
+  var titlelink = prefix + 'info/index.html';
   return '<div class="title">' +
          '<a href="http://www.tamtwirlers.org/">'+
          '<img height="72" border="0" align="right" src="'+prefix+'info/badge.gif"></a>'+
-         '<span id="title">Taminations</span></div>';
+         '<span id="title"><a href="'+titlelink+'">Taminations</a></span></div>';
 }
 
 //Set height of page sections to fit the window
