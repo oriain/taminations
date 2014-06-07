@@ -52,8 +52,8 @@ var calldata;
 preload('calls.xml',function(a) { calldata = a; });
 
 var levelselectors = {
-      info: 'call[sublevel="Info"]',
-      how: 'call[sublevel="HowItWorks"]',
+      info: 'call[level="Info"]',
+      //how: 'call[sublevel="HowItWorks"]',
       basicandmainstream: 'call[level="Basic and Mainstream"]',
       basic1: 'call[sublevel="Basic 1"]',
       basic2: 'call[sublevel="Basic 2"]',
@@ -97,7 +97,7 @@ $(document).ready(
     //  Build the menus
     $("#menudiv").append('<table cellpadding="0" cellspacing="0" width="100%" summary="">'+
                          '<tr>'+
-                         '<td id="info" class="menutitle">Info</td>'+
+                         '<td id="info" class="menutitle" rowspan="2">Main Menu</td>'+
                          '<td id="basicandmainstream" class="menutitle" colspan="3">Basic and Mainstream</td>'+
                          '<td id="plus" class="menutitle" rowspan="2">Plus</td>'+
                          '<td id="advanced" class="menutitle" colspan="2">Advanced</td>'+
@@ -105,8 +105,7 @@ $(document).ready(
                          '<td id="c2" class="menutitle" rowspan="2">C-2</td>'+
                          '<td id="c3a" class="menutitle" rowspan="2">C-3A</td>'+
                          '<td id="c3b" class="menutitle" rowspan="2">C-3B</td></tr>'+
-                     '<tr><td id="how" class="menutitle">How It Works</td>'+
-                         '<td id="basic1" class="menutitle">Basic 1</td>'+
+                     '<tr><td id="basic1" class="menutitle">Basic 1</td>'+
                          '<td id="basic2" class="menutitle">Basic 2</td>'+
                          '<td id="mainstream" class="menutitle">Mainstream</td>'+
                          '<td id="a1" class="menutitle">A-1</td>'+
@@ -130,10 +129,14 @@ $(document).ready(
             if (mi < menu.size()) {
               var menuitem = $(menu.eq(mi));
               var onelink = menuitem.attr('link');
-              if (menuitem.attr('anim') != undefined)
-                onelink += '?' + menuitem.attr('anim');
-              menuhtml += '<td onclick="document.location=\''+prefix+onelink+'\'">'+
-                           menuitem.attr('text')+'</td>';
+              if (onelink) {
+                if (menuitem.attr('anim') != undefined)
+                  onelink += '?' + menuitem.attr('anim');
+                menuhtml += '<td onclick="document.location=\''+prefix+onelink+'\'">'+
+                             menuitem.attr('text')+'</td>';
+              } else {
+                menuhtml += '<td><br/><strong>--'+menuitem.attr('text')+'--</strong></td>';
+              }
             }
           }
           menuhtml += '</tr>';
@@ -141,7 +144,7 @@ $(document).ready(
         menuhtml += '</table>';
         $('.menu').empty();
         $('.menu').append(menuhtml);
-        $(".menu td").addClass("menuitem");
+        $(".menu td[onclick]").addClass("menuitem");
         $(".menuitem").hover(
             function() { $(this).addClass("menuitem-highlight"); },
             function() { $(this).removeClass("menuitem-highlight"); })

@@ -25,11 +25,13 @@
 
     <call text="Introduction" level="Info" sublevel="Info" link="info/index.html"/>
     <call text="How to Use" level="Info" sublevel="Info" link="info/howtouse.html"/>
+    <call text="Search Calls" level="Info" sublevel="Info" link="info/search.html"/>
     <call text="Troubleshooting" level="Info" sublevel="Info" link="info/trouble.html"/>
     <call text="Download" level="Info" sublevel="Info" link="info/download.html"/>
     <call text="Linking" level="Info" sublevel="Info" link="info/howtolink.html"/>
     <call text="Embed" level="Info" sublevel="Info" link="info/embed.html"/>
 
+    <call text="How It Works" level="Info" />
     <call text="Overview" level="Info" sublevel="HowItWorks" link="info/overview.html"/>
     <call text="Moves" level="Info" sublevel="HowItWorks" link="info/moves1.html"/>
     <call text="Move Attributes" level="Info" sublevel="HowItWorks" link="info/moves2.html"/>

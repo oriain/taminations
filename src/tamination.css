@@ -234,10 +234,8 @@ form a { color: black; text-decoration: none; }
   font-weight: bold;
   font-size: 14px;
   cursor: pointer;
-}
-
-#optionpanel .appButton {
-  width: 14%;
+  margin: 0;
+  padding: 0;
 }
 
 .appButton:hover {
@@ -250,6 +248,11 @@ form a { color: black; text-decoration: none; }
   border-style: inset;
   width: 14.28%;
   font-weight: bold;
+}
+.appButton.disabled {
+  color: gray;
+  background-color: #404040;
+  cursor: default;
 }
 
 /*  SVG popup  */

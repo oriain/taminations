@@ -56,9 +56,9 @@ function buildAnimation(a,args,call)
   animations = a;
   TAMination(animations,call);
   var d = dims();
-  var svgdim = d.h-100 < d.w ? d.h-100 : d.w;
   var svgstr='<div id="svgcontainer"><div id="svgdiv" '+
-                'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div></div>';
+                'style="width:'+d.w+'px; height:'+(d.h-120)+
+                'px; background-color:#ffffc0"></div></div>';
   $("body").prepend(svgstr);
   $('#svgdiv').svg({onLoad:TamSVG});
   generateButtonPanel();

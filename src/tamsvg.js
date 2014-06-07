@@ -31,33 +31,6 @@ function clone(obj)
   return jQuery.extend(true,{},obj);
 }
 
-var popupMenuHTML =
-  '<div id="popup">'+
-  '<input id="HexagonPopupItem" type="checkbox"/> Hexagon<br/>'+
-  '<input id="BigonPopupItem" type="checkbox"/> Bi-gon<br/>'+
-  '<hr/>'+
-  '<input id="BarstoolPopupItem" type="checkbox"/> Barstool<br/>'+
-  '<input id="CompassPopupItem" type="checkbox"/> Compass<br/>'+
-  '</div>';
-
-var popupMenuTitleHTML =
-  '<div id="titlepopup">'+
-  '<a href="javascript:showDefinition()">Definition</a><br/>'+
-  '<hr/>'+
-  '<input id="HexagonTitlePopupItem" type="checkbox"/> '+
-  '<a href="javascript:tamsvg.toggleHexagon()">'+
-  'Hexagon</a><br/>'+
-  '<input id="BigonTitlePopupItem" type="checkbox"/> '+
-  '<a href="javascript:tamsvg.toggleBigon()">'+
-  'Bi-gon<br/>'+
-  '</div>';
-
-function showDefinition()
-{
-  $('#titlepopup').hide();
-  $('#definition').slideDown();
-}
-
 //  Setup - called when page is loaded
 function TamSVG(svg_in)
 {
@@ -108,8 +81,6 @@ TamSVG.prototype = {
     this.barstool = 0;
     this.compass = 0;
     this.animationStopped = function() { };
-    this.goHexagon = function() { };
-    this.goBigon = function() { };
     //  Set up the dance floor
     this.svg = svg_in;
     this.svg.configure({width: '100%', height:'100%', viewBox: '0 0 100 100'});
@@ -269,18 +240,12 @@ TamSVG.prototype = {
 
   toggleHexagon: function()
   {
-    $('#titlepopup').hide();
     this.setHexagon(!this.hexagon);
-    if (this.hexagon)
-      this.goHexagon();
   },
 
   toggleBigon: function()
   {
-    $('#titlepopup').hide();
     this.setBigon(!this.bigon);
-    if (this.bigon)
-      this.goBigon();
   },
 
   setAnimationListener: function(l)
@@ -1226,51 +1191,8 @@ Dancer = function(args)   // (tamsvg,sex,x,y,angle,color,p,number,couplesnumber)
   //  Create SVG representation
   this.svg = this.tamsvg.svg.group(this.tamsvg.dancegroup);
   var dancer = this;
-  //  Show popup on shift-click or right-click
-  $(document).bind("contextmenu",function() { return false; });
   $(this.svg).mousedown(function(ev) {
-    $('#popup').hide();
-    if (ev.shiftKey || ev.ctrlKey || ev.which==3) {
-
-      $('#HexagonPopupItem').attr("checked",dancer.tamsvg.hexagon);
-      $('#HexagonPopupItem').unbind();
-      $('#HexagonPopupItem').change(function() {
-        dancer.tamsvg.toggleHexagon();
-        $('#popup').hide();
-      });
-
-      $('#BigonPopupItem').attr("checked",dancer.tamsvg.bigon);
-      $('#BigonPopupItem').unbind();
-      $('#BigonPopupItem').change(function() {
-        dancer.tamsvg.toggleBigon();
-        $('#popup').hide();
-      });
-
-      $('#BarstoolPopupItem').attr("checked",dancer==dancer.tamsvg.barstool);
-      $('#BarstoolPopupItem').unbind();
-      $('#BarstoolPopupItem').change(function() {
-        if ($(this).attr("checked"))
-          dancer.tamsvg.barstool = dancer;
-        else
-          dancer.tamsvg.barstool = 0;
-        $('#popup').hide();
-        dancer.tamsvg.animate();
-      });
-
-      $('#CompassPopupItem').attr("checked",dancer==dancer.tamsvg.compass);
-      $('#CompassPopupItem').unbind();
-      $('#CompassPopupItem').change(function() {
-        if ($(this).attr("checked"))
-          dancer.tamsvg.compass = dancer;
-        else
-          dancer.tamsvg.compass = 0;
-        $('#popup').hide();
-        dancer.tamsvg.animate();
-      });
-      $('#popup').css("top",ev.pageY).css("left",ev.pageX).show();
-      return false;  // prevent interception by dance floor
-    }
-    else if (ev.altKey) {
+    if (ev.altKey) {
       if (dancer.pathVisible)
         dancer.hidePath();
       else
@@ -2226,66 +2148,60 @@ function generateButtonPanel()
   $('#svgcontainer').append('<div id="buttonpanel" style="background-color: #c0c0c0"></div>');
 
   $('#buttonpanel').append('<div id="optionpanel"></div>');
-  $('#optionpanel').append('<input type="button" class="appButton" id="slowButton" value="Slow"/>');
-  $('#optionpanel').append('<input type="button" class="appButton" id="normalButton" value="Normal"/>');
-  $('#optionpanel').append('<input type="button" class="appButton" id="fastButton" value="Fast"/>');
+  $('#optionpanel').append('<input type="button" class="appButton" id="slowButton" value="Slow" style="width:20%"/>');
+  $('#optionpanel').append('<input type="button" class="appButton" id="fastButton" value="Fast" style="width:20%"/>');
   if (tamsvg.isSlow())
     $('#slowButton').addClass('selected');
   else if (tamsvg.isFast())
     $('#fastButton').addClass('selected');
-  else
-    $('#normalButton').addClass('selected');
-  $('#optionpanel').append('<input type="button" class="appButton" id="loopButton" value="Loop"/>');
+  $('#optionpanel').append('<input type="button" class="appButton" id="loopButton" value="Loop" style="width:20%"/>');
   if (tamsvg.loop)
     $('#loopButton').addClass('selected');
-  $('#optionpanel').append('<input type="button" class="appButton" id="gridButton" value="Grid"/>');
+  $('#optionpanel').append('<input type="button" class="appButton" id="gridButton" value="Grid" style="width:20%"/>');
   if (tamsvg.grid)
     $('#gridButton').addClass('selected');
-  if (tamsvg.dancers.length > 8) {
-    $('#optionpanel').append('<input type="button" class="appButton" id="phantomButton" value="Phantoms"/>');
-    if (tamsvg.showPhantoms)
-      $('#phantomButton').addClass('selected');
-  } else {
-    $('#optionpanel').append('<input type="button" class="appButton" id="pathsButton" value="Paths"/>');
-    if (tamsvg.showPaths)
-      $('#pathsButton').addClass('selected');
-  }
-  $('#optionpanel').append('<input type="button" class="appButton" id="couplesButton" value="#4" style="width:8%"/>');
+  $('#optionpanel').append('<input type="button" class="appButton" id="couplesButton" value="#4" style="width:10%"/>');
   if (tamsvg.couples)
     $('#couplesButton').addClass('selected');
-  $('#optionpanel').append('<input type="button" class="appButton" id="numbersButton" value="#8" style="width:8%"/>');
+  $('#optionpanel').append('<input type="button" class="appButton" id="numbersButton" value="#8" style="width:10%"/>');
   if (tamsvg.numbers)
     $('#numbersButton').addClass('selected');
-
-  tamsvg.goHexagon = tamsvg.goBigon = function() {
-    $('#numbersButton').removeClass('selected');
-  };
-  // Add popup to display for extra options
-  $('#popup').remove();
-  $('#svgcontainer').append(popupMenuHTML);
-  $('#popup').hide();
-  $('#svgcontainer').append(popupMenuTitleHTML);
-  $('#titlepopup').hide();
-  $(tamsvg.floor).mousedown(function(ev) {
-    $('#popup').hide();
-    $('#titlepopup').hide();
-  });
+  $('#optionpanel').append('<br/>');
+  $('#optionpanel').append('<input type="button" class="appButton" id="hexagonButton" value="Hexagon" style="width:25%"/>');
+  if (tamsvg.hexagon)
+    $('#hexagonButton').addClass('selected');
+  $('#optionpanel').append('<input type="button" class="appButton" id="bigonButton" value="Bi-gon" style="width:25%"/>');
+  if (tamsvg.bigon)
+    $('#bigonButton').addClass('selected');
+  $('#optionpanel').append('<input type="button" class="appButton" id="phantomsButton" value="Phantoms" style="width:25%"/>');
+  if (tamsvg.dancers.length <= 8)
+    $('#phantomsButton').addClass('disabled');
+  else if (tamsvg.showPhantoms)
+    $('#phantomsButton').addClass('selected');
+  $('#optionpanel').append('<input type="button" class="appButton" id="pathsButton" value="Paths" style="width:25%"/>');
+  if (tamsvg.showPaths)
+    $('#pathsButton').addClass('selected');
 
   // Speed button actions
   $('#slowButton').click(function() {
-    tamsvg.slow(true);
-    $('#slowButton').addClass('selected');
-    $('#normalButton,#fastButton').removeClass('selected');
-  });
-  $('#normalButton').click(function() {
-    tamsvg.normal(true);
-    $('#normalButton').addClass('selected');
-    $('#slowButton,#fastButton').removeClass('selected');
+    if (tamsvg.isSlow()) {
+      tamsvg.normal(true);
+      $('#slowButton').removeClass('selected');
+    } else {
+      tamsvg.slow(true);
+      $('#slowButton').addClass('selected');
+      $('#fastButton').removeClass('selected');
+    }
   });
   $('#fastButton').click(function() {
-    tamsvg.fast(true);
-    $('#fastButton').addClass('selected');
-    $('#slowButton,#normalButton').removeClass('selected');
+    if (tamsvg.isFast()) {
+      tamsvg.normal();
+      $('#fastButton').removeClass('selected');
+    } else {
+      tamsvg.fast(true);
+      $('#fastButton').addClass('selected');
+      $('#slowButton').removeClass('selected');
+    }
   });
 
   // Actions for other options
@@ -2335,13 +2251,13 @@ function generateButtonPanel()
     cookie.grid = tamsvg.grid;
     cookie.store(365,'/tamination');
   });
-  $('#phantomButton').click(function() {
+  $('#phantomsButton').click(function() {
     if (tamsvg.setPhantoms()) {
       tamsvg.setPhantoms(false);
-      $('#phantomButton').removeClass('selected');
+      $('#phantomsButton').removeClass('selected');
     } else {
       tamsvg.setPhantoms(true);
-      $('#phantomButton').addClass('selected');
+      $('#phantomsButton').addClass('selected');
     }
     tamsvg.animate();
   });
@@ -2367,6 +2283,16 @@ function generateButtonPanel()
     cookie.couples = tamsvg.couples;
     cookie.store(365,'/tamination');
   });
+  $('#hexagonButton').click(function() {
+    tamsvg.toggleHexagon();
+    $('#hexagonButton').toggleClass('selected',tamsvg.hexagon);
+    $('#bigonButton').removeClass('selected');
+  });
+  $('#bigonButton').click(function() {
+    tamsvg.toggleBigon();
+    $('#bigonButton').toggleClass('selected',tamsvg.bigon);
+    $('#hexagonButton').removeClass('selected');
+  });
 
   // Slider
   $('#buttonpanel').append('<div id="playslider" style="margin:10px 10px 0 10px"></div>');
@@ -2376,7 +2302,7 @@ function generateButtonPanel()
     }});
   // Slider tick marks
   $('#buttonpanel').append('<div id="playslidertics" style="position: relative; height:10px; width:100%"></div>');
-  $('#buttonpanel').append('<div id="playsliderlegend" style="color: black; position: relative; top:0; left:0; width:100%; height:16px"></div>');
+  $('#buttonpanel').append('<div id="playsliderlegend" style="color: black; position: relative; top:0; left:0; width:100%; height:20px"></div>');
   updateSliderMarks();
 
   // Bottom row of buttons
