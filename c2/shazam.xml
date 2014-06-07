@@ -21,8 +21,8 @@
 
 -->
 <tamination>
-  
-  
+
+
 
   <tam title="Shazam"
        from="Right-Hand Box"
@@ -125,7 +125,7 @@
   </tam>
 
   <tam title="Shazam"
-       from="Inverterd Lines"
+       from="Inverted Lines"
        formation="Inverted Lines Ends Facing Out"
        parts="" >
     <path>
