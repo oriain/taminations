@@ -30,6 +30,7 @@
     <call text="Download" level="Info" sublevel="Info" link="info/download.html"/>
     <call text="Linking" level="Info" sublevel="Info" link="info/howtolink.html"/>
     <call text="Embed" level="Info" sublevel="Info" link="info/embed.html"/>
+    <call text="Sequencer" level="Info" sublevel="Info" link="sequence.html"/>
 
     <call text="How It Works" level="Info" />
     <call text="Overview" level="Info" sublevel="HowItWorks" link="info/overview.html"/>
