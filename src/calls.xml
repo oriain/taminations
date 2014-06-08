@@ -486,7 +486,6 @@
     <call text="Single Checkmate" level="Challenge" sublevel="C-3A" link="c3a/single_checkmate.html"/>
     <call text="Single Circle to a Wave" level="Plus" sublevel="Plus" link="plus/single_circle_to_a_wave.html"/>
     <call text="Single Concept" level="Challenge" sublevel="C-3A" link="c3a/single_concept.html"/>
-    <call text="Single Concept" level="Challenge" sublevel="C-3B" link="c3b/single_concept.html"/>
     <call text="Single Cross and Wheel" level="Challenge" sublevel="C-2" link="c2/single_cross_and_wheel.html"/>
     <call text="Single Cross Trade and Wheel" level="Challenge" sublevel="C-2" link="c2/single_cross_trade_and_wheel.html"/>
     <call text="Single File Recoil" level="Challenge" sublevel="C-3A" link="c3a/single_file_recoil.html"/>
