@@ -364,7 +364,7 @@ function generateAnimations()
       $(".selectRadio").get(callnumber).checked = true;
     $("#animationlist > a").eq(callnumber).addClass("selectedHighlight");
     $("#animationlist > a").eq(callnumber).prevAll('.callname:first').addClass("selectedHighlight");
-    currentcall = $('tam',animations).eq(callnumber)
+    currentcall = $(tam.animations()).eq(callnumber)
         .attr("title").replace(/ \(DBD.*/,"").replace(/\W/g,"");
   } else {
     //  no animations
@@ -421,7 +421,7 @@ function PickAnimation(n)
     tamsvg.setPart = setPart;
     setPart(0);
   }
-  currentcall = $('tam',animations).eq(n)
+  currentcall = $(tam.animations()).eq(n)
       .attr("title").replace(/ \(DBD.*/,"");
   //  Strip out spaces for synchronizing with parts from animation
   currentcall = currentcall.replace(/\W/g,"");
