@@ -22,4 +22,125 @@
 -->
 <tamination>
 
+  <tam title="Take 0" group=" ">
+    <formation>
+      <dancer gender="girl" y="-2" x="1" angle="270"/>
+      <dancer gender="boy" y="-2" x="3" angle="270"/>
+      <dancer gender="girl" y="-2" x="-3" angle="270"/>
+      <dancer gender="boy" y="-2" x="-1" angle="270"/>
+    </formation>
+    <path>
+      <move select="Quarter Right" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="-1"/>
+    </path>
+  </tam>
+
+  <tam title="Take 1" group=" ">
+    <formation>
+      <dancer gender="girl" y="-2" x="1" angle="270"/>
+      <dancer gender="boy" y="-2" x="3" angle="270"/>
+      <dancer gender="girl" y="-2" x="-3" angle="270"/>
+      <dancer gender="boy" y="-2" x="-1" angle="270"/>
+    </formation>
+    <path>
+      <move select="Quarter Right" offsetX="-1"/>
+      <move select="Forward"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="-1"/>
+      <move select="Forward"/>
+    </path>
+    <path>
+      <move select="U-Turn Right" offsetX="-1" offsetY="-1"/>
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="-1"/>
+      <move select="Forward"/>
+    </path>
+  </tam>
+
+  <tam title="Take 2" group=" ">
+    <formation>
+      <dancer gender="girl" y="-2" x="1" angle="270"/>
+      <dancer gender="boy" y="-2" x="3" angle="270"/>
+      <dancer gender="girl" y="-2" x="-3" angle="270"/>
+      <dancer gender="boy" y="-2" x="-1" angle="270"/>
+    </formation>
+    <path>
+      <move select="Quarter Right" offsetX="-1"/>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="-1"/>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="U-Turn Right" offsetX="-2"/>
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+    <path>
+      <move select="U-Turn Right"  offsetY="-2"/>
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+  </tam>
+
+  <tam title="Take 3" group=" ">
+    <formation>
+      <dancer gender="girl" y="-2" x="1" angle="270"/>
+      <dancer gender="boy" y="-2" x="3" angle="270"/>
+      <dancer gender="girl" y="-2" x="-3" angle="270"/>
+      <dancer gender="boy" y="-2" x="-1" angle="270"/>
+    </formation>
+    <path>
+      <move select="U-Turn Right" offsetY="-2"/>
+      <move select="Quarter Right" beats="2" offsetY="2"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="-1"/>
+      <move select="Forward 3"/>
+    </path>
+    <path>
+      <move select="U-Turn Right" offsetX="-2"/>
+      <move select="Quarter Right" beats="2" offsetX="2"/>
+    </path>
+    <path>
+      <move select="U-Turn Right"  offsetY="-2"/>
+      <move select="Quarter Right" beats="2" offsetX="2"/>
+    </path>
+  </tam>
+
+  <tam title="Take 4" group=" ">
+    <formation>
+      <dancer gender="girl" y="-2" x="1" angle="270"/>
+      <dancer gender="boy" y="-2" x="3" angle="270"/>
+      <dancer gender="girl" y="-2" x="-3" angle="270"/>
+      <dancer gender="boy" y="-2" x="-1" angle="270"/>
+    </formation>
+    <path>
+      <move select="U-Turn Right" offsetY="-2"/>
+      <move select="Quarter Right" beats="2" offsetX="1" offsetY="1"/>
+    </path>
+    <path>
+      <move select="U-Turn Right" offsetX="1" offsetY="-2"/>
+      <move select="Quarter Right" beats="2" offsetY="3"/>
+    </path>
+    <path>
+      <move select="U-Turn Right" offsetX="-2"/>
+      <move select="Lead Right" beats="2" offsetX="2"/>
+    </path>
+    <path>
+      <move select="U-Turn Right"  offsetY="-2"/>
+      <move select="Lead Right" beats="2" offsetX="2"/>
+    </path>
+  </tam>
+
 </tamination>
