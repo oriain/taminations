@@ -22,66 +22,118 @@
 -->
 <tamination>
 
-  <tam title="Single Cast Off Three Quarters" from="Couples Facing Out"
-       formation="Couples Facing Out" group="Single">
+  <tamxref title="Single Checkmate" group="Single"
+           xref-link="c3a/single_checkmate"
+           xref-from="Right-Hand Box"/>
+
+  <tam title="Single Ferris Wheel" group="Single"
+       formation="Ocean Waves RH BGBG">
     <path>
+      <move select="Forward 2"/>
       <move select="Lead Right"/>
-      <move select="Lead Right"/>
-      <move select="Lead Right"/>
+      <move select="Quarter Right" offsetX="1"/>
     </path>
     <path>
-      <move select="Lead Left"/>
-      <move select="Lead Left"/>
-      <move select="Lead Left"/>
-    </path>
-  </tam>
-
-  <tam title="Single Track Two" from="Couples Facing Out" formation="Couples Facing Out" group="Single">
-    <path>
-      <move select="Flip Left"/>
-      <move select="Forward 2" beats="3"/>
+      <move select="U-Turn Right" offsetX="1"/>
     </path>
     <path>
-      <move select="Run Right"/>
-      <move select="Extend Left" beats="3" scaleX="2" scaleY="2"/>
+      <move select="Forward 2"/>
+      <move select="U-Turn Right" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Run Right" offsetX="1"/>
     </path>
   </tam>
 
-  <tam title="Single Circle to a Line" from="Eight Chain Thru" formation="Eight Chain Thru"
-       group="Single">
+  <tam title="Single Polly Wally" group="Single"
+       formation="Eight Chain Thru">
     <path>
-      <move select="Extend Left" scaleY=".5"/>
-      <move select="Dodge Right" scaleY=".25"/>
+      <move select="U-Turn Right" offsetX="1"/>
     </path>
     <path>
-      <move select="Extend Left" scaleY=".5"/>
-      <move select="Dodge Right" scaleY="1.25"/>
+      <move select="Flip Right" offsetX="1"/>
     </path>
     <path>
-      <move select="Extend Left" scaleY=".5"/>
-      <move select="Run Right" scaleY=".25"/>
+      <move select="Flip Left" offsetX="-1"/>
+      <move select="Forward 2"/>
     </path>
     <path>
-      <move select="Extend Left" scaleY=".5"/>
-      <move select="Run Right" scaleY="1.25"/>
+      <move select="U-Turn Left" offsetX="-1"/>
+      <move select="Forward 2"/>
     </path>
   </tam>
 
-  <tam title="Single Turn and Deal" from="Box RH" formation="Box RH" group="Single">
+  <tam title="Single Rotary Spin" group="Single">
+    <formation name="Single Eight Chain Thru">
+      <dancer gender="boy" x="0" y="3" angle="270"/>
+      <dancer gender="girl" x="0" y="1" angle="90"/>
+    </formation>
     <path>
-      <move select="Flip Right" scaleX=".5" scaleY=".5" offsetX="1"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY="1.5"/>
+      <move select="Cast Left"/>
     </path>
     <path>
-      <move select="Flip Right" scaleX=".5" scaleY=".5" offsetX="1"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleY=".5"/>
+      <move select="U-Turn Left"/>
+      <move select="Quarter Left"/>
     </path>
   </tam>
 
-  <tam title="Single Wheel Thru" formation="Single Eight Chain Thru" group="Single">
+  <tam title="Single Turn to a Line" from="Facing Couples"
+       formation="Facing Couples">
     <path>
-      <move select="Lead Right" beats="3" scaleX="2" scaleY="2"/>
+      <move select="Quarter Left" offsetX="1"/>
+      <move select="Extend Right" beats="2" scaleX="2"/>
+      <move select="Quarter Left"/>
     </path>
     <path>
-      <move select="Quarter Right" beats="3" offsetY="-2"/>
+      <move select="Quarter Left" offsetX="1"/>
+      <move select="Dodge Right" beats="2" scaleY=".5"/>
+      <move select="Quarter Left"/>
+    </path>
+  </tam>
+
+  <tam title="Single Turn to a Line" from="Couples Facing Out"
+       formation="Couples Facing Out">
+    <path>
+      <move select="Quarter Right" offsetX="-1"/>
+      <move select="Extend Right" beats="2" scaleX="2"/>
+      <move select="Quarter Right"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="-1"/>
+      <move select="Dodge Right" beats="2" scaleY=".5"/>
+      <move select="Quarter Right"/>
+    </path>
+  </tam>
+
+  <tam title="Single Turn to a Line" from="Right-Hand Box"
+       formation="Box RH">
+    <path>
+      <move select="Quarter Left" offsetX="1"/>
+      <move select="Extend Right" beats="2" scaleX="2"/>
+      <move select="Quarter Left"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="-1"/>
+      <move select="Dodge Right" beats="2" scaleY=".5"/>
+      <move select="Quarter Right"/>
+    </path>
+  </tam>
+
+  <tam title="Single Turn to a Line" from="Left-Hand Box"
+       formation="Box LH">
+    <path>
+      <move select="Quarter Right" offsetX="-1"/>
+      <move select="Extend Right" beats="2" scaleX="2"/>
+      <move select="Quarter Right"/>
+    </path>
+    <path>
+      <move select="Quarter Left" offsetX="1"/>
+      <move select="Dodge Right" beats="2" scaleY=".5"/>
+      <move select="Quarter Left"/>
     </path>
   </tam>
 
