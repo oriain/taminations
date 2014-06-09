@@ -22,4 +22,104 @@
 -->
 <tamination>
 
+  <tam title="Strut Right" group=" " formation="Double Pass Thru">
+    <path>
+      <move select="Stand" beats="3"/>
+      <move select="Extend Right" beats="3" scaleX="3" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Stand" beats="3"/>
+      <move select="Extend Right" beats="3" scaleX="3" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" scaleX=".5" scaleY=".5"/>
+      <move select="Quarter Right" offsetY="-1"/>
+      <move select="Lead Right" scaleX="1.5" scaleY=".5"/>
+      <move select="Stand" hands="none"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" scaleX=".5" scaleY=".5"/>
+      <move select="Quarter Right" offsetY="-1"/>
+      <move select="Lead Right" scaleX="1.5" scaleY=".5"/>
+      <move select="Stand" hands="none"/>
+    </path>
+  </tam>
+
+  <tam title="Strut Left" group=" " formation="Double Pass Thru">
+    <path>
+      <move select="Stand" beats="3"/>
+      <move select="Extend Left" beats="3" scaleX="3" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Stand" beats="3"/>
+      <move select="Extend Left" beats="3" scaleX="3" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" scaleX=".5" scaleY=".5"/>
+      <move select="Quarter Left" offsetY="1"/>
+      <move select="Lead Left" scaleX="1.5" scaleY=".5"/>
+      <move select="Stand" hands="none"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" scaleX=".5" scaleY=".5"/>
+      <move select="Quarter Left" offsetY="1"/>
+      <move select="Lead Left" scaleX="1.5" scaleY=".5"/>
+      <move select="Stand" hands="none"/>
+    </path>
+  </tam>
+
+  <tam title="Strut Right Left" group=" " formation="Double Pass Thru">
+    <path>
+      <move select="Stand" beats="3"/>
+      <move select="Extend Left" beats="3" scaleX="3" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Stand" beats="3"/>
+      <move select="Extend Left" beats="3" scaleX="3" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" scaleX=".5" scaleY=".5"/>
+      <move select="Quarter Right" offsetY="-1"/>
+      <move select="Lead Right" scaleX="1.5" scaleY=".5"/>
+      <move select="Stand" hands="none"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" scaleX=".5" scaleY=".5"/>
+      <move select="Quarter Right" offsetY="-1"/>
+      <move select="Lead Right" scaleX="1.5" scaleY=".5"/>
+      <move select="Stand" hands="none"/>
+    </path>
+  </tam>
+
+  <tam title="Strut Left Right" group=" " formation="Double Pass Thru">
+    <path>
+      <move select="Stand" beats="3"/>
+      <move select="Extend Right" beats="3" scaleX="3" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Stand" beats="3"/>
+      <move select="Extend Right" beats="3" scaleX="3" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" scaleX=".5" scaleY=".5"/>
+      <move select="Quarter Left" offsetY="1"/>
+      <move select="Lead Left" scaleX="1.5" scaleY=".5"/>
+      <move select="Stand" hands="none"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Extend Right" scaleX=".5" scaleY=".5"/>
+      <move select="Quarter Left" offsetY="1"/>
+      <move select="Lead Left" scaleX="1.5" scaleY=".5"/>
+      <move select="Stand" hands="none"/>
+    </path>
+  </tam>
+
 </tamination>
