@@ -22,4 +22,110 @@
 -->
 <tamination>
 
+  <tam title="Turnstyle" from="Single Double Pass Thru"
+       formation="Single Double Pass Thru">
+    <formation>
+      <dancer gender="boy" y="3" x="0" angle="270"/>
+      <dancer gender="girl" y="1" x="0" angle="270"/>
+    </formation>
+    <path>
+      <move select="Quarter Right"/>
+    </path>
+    <path>
+      <move select="Extend Left"/>
+      <move select="Cast Right"/>
+    </path>
+  </tam>
+
+  <tam title="Turnstyle" from="Right-Hand Waves"
+       formation="Ocean Waves RH BGGB">
+    <path>
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Cast Left"/>
+    </path>
+    <path>
+      <move select="Cast Left"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="-1"/>
+    </path>
+  </tam>
+
+  <tam title="Turnstyle" from="Left-Hand Waves"
+       formation="Ocean Waves LH BGGB">
+    <path>
+      <move select="Quarter Right" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Cast Right"/>
+    </path>
+    <path>
+      <move select="Cast Right"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+  </tam>
+
+  <tam title="Turnstyle" from="Quarter Tag" formation="Quarter Tag">
+    <path>
+      <move select="Quarter Right" offsetY="1"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetY="-1"/>
+    </path>
+    <path>
+      <move select="Cast Right"/>
+    </path>
+    <path>
+      <move select="Cast Right"/>
+    </path>
+  </tam>
+
+  <tam title="Turnstyle" from="Quarter Lines" formation="Quarter Lines RH">
+    <path>
+      <move select="Quarter Right" beats="6" offsetY="1"/>
+    </path>
+    <path>
+      <move select="Quarter Right" beats="6" offsetY="-1"/>
+    </path>
+    <path>
+      <move beats="2" select="Hinge Left" scaleX="2" scaleY="2" offsetX=".33" offsetY="-.33" />
+      <move beats="2" select="Hinge Left" scaleX="2" scaleY="2" offsetX="-.33" offsetY="-.33" />
+      <move beats="2" select="Hinge Left" scaleX="2" scaleY="2" offsetX="-.33" offsetY=".33" />
+    </path>
+    <path>
+      <move beats="2" select="Quarter Left" hands="right" offsetX=".33" offsetY="-.33" />
+      <move beats="2" select="Quarter Left" hands="right" offsetX="-.33" offsetY="-.33" />
+      <move beats="2" select="Quarter Left" hands="right" offsetX="-.33" offsetY=".33" />
+    </path>
+  </tam>
+
+  <tam title="Turnstyle" from="3/4 Lines">
+    <formation>
+      <dancer gender="boy" x="0" y="3" angle="0"/>
+      <dancer gender="girl" x="3" y="1" angle="0"/>
+      <dancer gender="boy" x="0" y="1" angle="0"/>
+      <dancer gender="girl" x="-3" y="1" angle="180"/>
+    </formation>
+    <path>
+      <move beats="2" select="Quarter Left" hands="right" offsetX=".33" offsetY="-.33" />
+      <move beats="2" select="Quarter Left" hands="right" offsetX="-.33" offsetY="-.33" />
+      <move beats="2" select="Quarter Left" hands="right" offsetX="-.33" offsetY=".33" />
+    </path>
+    <path>
+      <move select="Quarter Right" beats="6" offsetY="1"/>
+    </path>
+    <path>
+      <move beats="2" select="Hinge Left" scaleX="2" scaleY="2" offsetX=".33" offsetY="-.33" />
+      <move beats="2" select="Hinge Left" scaleX="2" scaleY="2" offsetX="-.33" offsetY="-.33" />
+      <move beats="2" select="Hinge Left" scaleX="2" scaleY="2" offsetX="-.33" offsetY=".33" />
+    </path>
+    <path>
+      <move select="Quarter Right" beats="6" offsetY="-1"/>
+    </path>
+  </tam>
+
 </tamination>
