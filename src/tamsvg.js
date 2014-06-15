@@ -106,7 +106,7 @@ TamSVG.prototype = {
     this.titlegroup = this.svg.group(this.floorsvg);
     this.titlesvg = this.svg.text(this.titlegroup,0,0,' ',{fontSize: "10", transform:"translate(-6.4,-5.5) scale(0.1)"});
     if (typeof tam.getTitle() != "undefined") {
-      var tt = tam.getTitle().replace(/ \(.*?\)/g,' ');
+      var tt = tam.getTitle().replace(/\(.*?\)/g,' ');
       this.setTitle(tt);
     }
 
@@ -1226,13 +1226,13 @@ Dancer = function(args)   // (tamsvg,sex,x,y,angle,color,p,number,couplesnumber)
                {fill:this.fillcolor.toString(),
                 stroke:this.drawcolor.toString(),'stroke-width':0.1});
   if (this.gender == Dancer.PHANTOM)
-    this.body = this.tamsvg.svg.rect(this.svg,-.5,-.5,1,1,.2,.2,      // with rounded corners
+    this.body = this.tamsvg.svg.rect(this.svg,-.5,-.5,1,1,.3,.3,      // with rounded corners
              {fill:this.fillcolor.toString(),
               stroke:this.drawcolor.toString(),'stroke-width':0.1});
+  else if (this.tamsvg.numbers || this.tamsvg.couples)
+    this.body.setAttribute('fill',this.fillcolor.veryBright().toString());
   this.numbersvg = this.tamsvg.svg.text(this.svg,-4,5,this.number,{fontSize: "14",transform:"scale(0.04 -0.04)"});
   this.couplessvg = this.tamsvg.svg.text(this.svg,-4,5,this.couplesnumber,{fontSize: "14",transform:"scale(0.04 -0.04)"});
-  if (this.tamsvg.numbers || this.tamsvg.couples)
-    this.body.setAttribute('fill',this.fillcolor.veryBright().toString());
   if (!this.tamsvg.numbers)
     this.numbersvg.setAttribute('visibility','hidden');
   if (!this.tamsvg.couples)
@@ -1328,29 +1328,35 @@ Dancer.prototype.beats = function()
 
 Dancer.prototype.showNumber = function()
 {
-  this.body.setAttribute('fill',this.fillcolor.veryBright().toString());
-  if (!this.hidden) {
-    this.couplessvg.setAttribute('visibility','hidden');
-    this.numbersvg.setAttribute('visibility','visible');
-    this.paint();
+  if (this.gender != Dancer.PHANTOM) {
+    this.body.setAttribute('fill',this.fillcolor.veryBright().toString());
+    if (!this.hidden) {
+      this.couplessvg.setAttribute('visibility','hidden');
+      this.numbersvg.setAttribute('visibility','visible');
+      this.paint();
+    }
   }
 };
 
 Dancer.prototype.showCouplesNumber = function()
 {
-  this.body.setAttribute('fill',this.fillcolor.veryBright().toString());
-  if (!this.hidden) {
-    this.numbersvg.setAttribute('visibility','hidden');
-    this.couplessvg.setAttribute('visibility','visible');
-    this.paint();
+  if (this.gender != Dancer.PHANTOM) {
+    this.body.setAttribute('fill',this.fillcolor.veryBright().toString());
+    if (!this.hidden) {
+      this.numbersvg.setAttribute('visibility','hidden');
+      this.couplessvg.setAttribute('visibility','visible');
+      this.paint();
+    }
   }
 };
 
 Dancer.prototype.hideNumbers = function()
 {
-  this.body.setAttribute('fill',this.fillcolor.toString());
-  this.numbersvg.setAttribute('visibility','hidden');
-  this.couplessvg.setAttribute('visibility','hidden');
+  if (this.gender != Dancer.PHANTOM) {
+    this.body.setAttribute('fill',this.fillcolor.toString());
+    this.numbersvg.setAttribute('visibility','hidden');
+    this.couplessvg.setAttribute('visibility','hidden');
+  }
 };
 
 Dancer.prototype.recalculate = function()
