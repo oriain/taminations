@@ -405,7 +405,10 @@ TAMination.prototype = {
   {
     //  First retrieve the requested path
     var movename = $(move).attr('select');
-    var retval = this.translate($('path[name="'+movename+'"]',movedata).get(0));
+    var moveitem = $('path[name="'+movename+'"]',movedata).get(0);
+    if (moveitem == undefined)
+      throw new Error('move "'+movename+'" not defined');
+    var retval = this.translate(moveitem);
     //  Now apply any modifications
     var beats = $(move).attr('beats');
     var scaleX = $(move).attr('scaleX');
