@@ -49,7 +49,7 @@
     <call text="1/4 Wheel the Sea" level="Challenge" sublevel="C-3A" link="c3a/1_4_wheel_the_sea.html"/>
     <call text="3 by 1 Checkmate the Column" level="Challenge" sublevel="C-2" link="c2/3_by_1_checkmate_the_column.html"/>
     <call text="3 by 1 Transfer the Column" level="Challenge" sublevel="C-2" link="c2/3_by_1_transfer_the_column.html"/>
-    <call text="3 by 1 Triangle Circulate" level="Challenge" sublevel="C-2" link="c2/3_by_1_triangle_circulate.html"/>
+    <call text="3 by 1 Triangle Circulate" level="Challenge" sublevel="C-2" link="c2/3_by_1_triangle_formation.html"/>
     <call text="3 by 1 Triangle Formation" level="Challenge" sublevel="C-2" link="c2/3_by_1_triangle_formation.html"/>
     <call text="3/4 Mix" level="Challenge" sublevel="C-3A" link="c3a/3_4_mix.html"/>
     <call text="3/4 the Deucey" level="Challenge" sublevel="C-3A" link="c3a/3_4_the_deucey.html"/>
@@ -286,7 +286,7 @@
     <call text="In-Roll Circulate" level="Advanced" sublevel="A-2" link="a2/in_roll_circulate.html"/>
     <call text="Initially Concept" level="Challenge" sublevel="C-3A" link="c3a/initially_concept.html"/>
     <call text="Inlet" level="Challenge" sublevel="C-2" link="c2/inlet.html"/>
-    <call text="Interlocked 3 by 1 Triangle Circulate" level="Challenge" sublevel="C-2" link="c2/interlocked_3_by_1_triangle_circulate.html"/>
+    <call text="Interlocked 3 by 1 Triangle Circulate" level="Challenge" sublevel="C-2" link="c2/3_by_1_triangle_formation.html" anim="3by1InterlockedTriangleCirculatefromInterlocked3by1Triangles"/>
     <call text="Interlocked Counter" level="Challenge" sublevel="C-3B" link="c3b/interlocked_counter.html"/>
     <call text="Interlocked Diamond Circulate" level="Challenge" sublevel="C-1" link="c1/interlocked_diamond_circulate.html"/>
     <call text="Interlocked Diamond Formation" level="Challenge" sublevel="C-1" link="c1/interlocked_diamond_formation.html"/>
