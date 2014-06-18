@@ -634,7 +634,8 @@ TamSVG.prototype = {
       this.showPaths = v;
     this.pathparent.setAttribute('visibility',this.showPaths ? 'visible' : 'hidden');
     for (var i in this.dancers) {
-      this.dancers[i].pathgroup.setAttribute('visibility',this.showPaths ? 'visible' : 'hidden');
+      var nopath = this.dancers[i].gender == Dancer.PHANTOM && !this.showPhantoms;
+      this.dancers[i].pathgroup.setAttribute('visibility',this.showPaths && !nopath ? 'visible' : 'hidden');
       this.dancers[i].beziergroup.setAttribute('visibility','hidden');
       this.dancers[i].pathVisible = this.showPaths;
     }
