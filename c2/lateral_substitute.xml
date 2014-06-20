@@ -21,6 +21,36 @@
 
 -->
 <tamination>
-  
-  
+
+  <tam title="Centers Lateral Substitute" from="Lines Facing In"
+       formation="Normal Lines">
+    <path>
+      <move select="Dodge Right"/>
+    </path>
+    <path>
+      <move select="BackSashay Left" scaleX="2"/>
+    </path>
+    <path>
+      <move select="BackSashay Right" scaleX="2"/>
+    </path>
+    <path>
+      <move select="Dodge Left"/>
+    </path>
+  </tam>
+
+  <tam title="Centers Lateral Substitute" from="Galaxy"
+       formation="Galaxy RH GP">
+    <path>
+      <move select="Sashay Left" scaleY="1.05"/>
+    </path>
+    <path>
+    </path>
+    <path>
+      <move select="BackSashay Left" scaleY="1.05"/>
+    </path>
+    <path>
+      <move select="Dodge Right" scaleY="1.05"/>
+    </path>
+  </tam>
+
 </tamination>
