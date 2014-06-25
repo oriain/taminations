@@ -27,7 +27,7 @@ PYTHON ?= python
 ZIP ?= zip
 ZIPFILE = ../tamination.zip
 DIRS = b1 b2 ms plus a1 a2 c1 c2 c3a c3b info .
-XMLSRC = calls.xml callindex.xml formations.xml moves.xml tamination.dtd
+XMLSRC = calls.xml callindex.xml formations.xml moves.xml tamination.dtd config.js
 XMLCOPIES = $(foreach dir,$(DIRS),$(addprefix ../$(dir)/,$(XMLSRC)))
 CALLINDEX = callindex.xml
 

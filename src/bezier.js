@@ -2,7 +2,7 @@
 
     Copyright 2014 Brad Christie
 
-    This file is part of TAMinations.
+    This file is part of Taminations.
 
     Taminations is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published
@@ -19,88 +19,68 @@
 
  */
 
-$(document).ready(function() {
-  //  Make sure this is run *after* the document.ready function
-  //  in tampage.js.  This is a bit of a hack.
-  window.setTimeout(bezier_setup,10);
-  //  Fill the list of movements available for loading
-  $('path',movedata).each(function() {
-    if ($('movement',this).length == 1) {
-      var name = $(this).attr('name');
-      $('#movelist').append('<option value="'+name+'">'+name+'</option>');
-    }
-  });
+define(['affinetransform'],function(AffineTransform) {
+
+  //  Bezier class
+  Bezier = function (x1,y1,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2)
+  {
+    this.x1 = x1;
+    this.y1 = y1;
+    this.ctrlx1 = ctrlx1;
+    this.ctrly1 = ctrly1;
+    this.ctrlx2 = ctrlx2;
+    this.ctrly2 = ctrly2;
+    this.x2 = x2;
+    this.y2 = y2;
+    this.calculatecoefficients();
+  };
+
+  Bezier.prototype.calculatecoefficients = function()
+  {
+    this.cx = 3.0*(this.ctrlx1-this.x1);
+    this.bx = 3.0*(this.ctrlx2-this.ctrlx1) - this.cx;
+    this.ax = this.x2 - this.x1 - this.cx - this.bx;
+
+    this.cy = 3.0*(this.ctrly1-this.y1);
+    this.by = 3.0*(this.ctrly2-this.ctrly1) - this.cy;
+    this.ay = this.y2 - this.y1 - this.cy - this.by;
+  };
+
+  //  Return the movement along the curve given "t" between 0 and 1
+  Bezier.prototype.translate = function(t)
+  {
+    var x = this.x1 + t*(this.cx + t*(this.bx + t*this.ax));
+    var y = this.y1 + t*(this.cy + t*(this.by + t*this.ay));
+    return AffineTransform.getTranslateInstance(x,y);
+  };
+
+  //  Return the angle of the derivative given "t" between 0 and 1
+  Bezier.prototype.rotate = function(t)
+  {
+    var x = this.cx + t*(2.0*this.bx + t*3.0*this.ax);
+    var y = this.cy + t*(2.0*this.by + t*3.0*this.ay);
+    var theta = Math.atan2(y,x);
+    return AffineTransform.getRotateInstance(theta);
+  };
+
+  //  Return the angle of the 2nd derivative given "t" between 0 and 1
+  Bezier.prototype.turn = function(t)
+  {
+    var x = 2.0*this.bx + t*6.0*this.ax;
+    var y = 2.0*this.by + t*6.0*this.ay;
+    var theta = Math.atan2(y,x);
+    return theta;
+  };
+
+
+  Bezier.prototype.toString = function()
+  {
+    return '[ '+this.x1.toFixed(1)+' '+this.y1.toFixed(1)+' '+
+    this.ctrlx1.toFixed(1)+' '+this.ctrly1.toFixed(1)+' '+
+    this.ctrlx2.toFixed(1)+' '+this.ctrly2.toFixed(1)+' '+
+    this.x2.toFixed(1)+' '+this.y2.toFixed(1)+' ]';
+  };
+
+  return Bezier;
+
 });
-
-function bezier_setup()
-{
-  tamsvg.dancers[1].hide();
-  $('#taminatorsays').empty();
-  $(".selectRadio").hide();
-  $("#controls").detach().appendTo("#animationlist");
-  $("#load").click(load_movement);
-  $(".BezierSpinner").spinner({step:0.1,numberFormat:"n", stop: read_bezier });
-  $(".BeatsSpinner").spinner({step:0.1,numberFormat:"n", min:0.1, stop: read_bezier });
-  $("#checkRotation").change(function() {
-    if ($('#checkRotation:checked').length > 0)
-      $("#cx3,#cx4,#cy4,#x4,#y4").spinner("disable");
-    else
-      $("#cx3,#cx4,#cy4,#x4,#y4").spinner("enable");
-    read_bezier();
-  });
-  $("#hands").change(read_bezier);
-  read_bezier();
-}
-
-function read_bezier()
-{
-  var movetext = '<movement '+
-      'beats="'+$("#beats").spinner("value")+'" '+
-      'hands="'+$("#hands").val()+'" '+
-      'cx1="'+$("#cx1").spinner("value")+'" '+
-      'cy1="'+$("#cy1").spinner("value")+'" '+
-      'cx2="'+$("#cx2").spinner("value")+'" '+
-      'cy2="'+$("#cy2").spinner("value")+'" '+
-      'x2="'+$("#x2").spinner("value")+'" '+
-      'y2="'+$("#y2").spinner("value")+'" ';
-  if ($('#checkRotation:checked').length == 0)
-    movetext +=
-      'cx3="'+$("#cx3").spinner("value")+'" '+
-      'cx4="'+$("#cx4").spinner("value")+'" '+
-      'cy4="'+$("#cy4").spinner("value")+'" '+
-      'x4="'+$("#x4").spinner("value")+'" '+
-      'y4="'+$("#y4").spinner("value")+'" ';
-  movetext += '/>';
-  $("#movement").text(movetext);
-  $("path",animations).empty().append(movetext);
-  PickAnimation(0);
-  tamsvg.dancers[1].hide();
-  $('#taminatorsays').empty();
-}
-
-function load_movement()
-{
-  var t = $("#movelist option:selected").text();
-  var m = $('path[name="'+t+'"] > movement',movedata);
-  $('#beats').spinner('value',m.attr('beats'));
-  $('#hands').val(m.attr('hands'));
-  $('#cx1').spinner('value',m.attr('cx1'));
-  $('#cy1').spinner('value',m.attr('cy1'));
-  $('#cx2').spinner('value',m.attr('cx2'));
-  $('#cy2').spinner('value',m.attr('cy2'));
-  $('#x2').spinner('value',m.attr('x2'));
-  $('#y2').spinner('value',m.attr('y2'));
-  if (m.attr('cx3') == undefined) {
-    $("#checkRotation").prop('checked',true);
-    $("#cx3,#cx4,#cy4,#x4,#y4").spinner("disable");  }
-  else {
-    $("#checkRotation").prop('checked',false);
-    $("#cx3,#cx4,#cy4,#x4,#y4").spinner("enable");
-    $('#cx3').spinner('value',m.attr('cx3'));
-    $('#cx4').spinner('value',m.attr('cx4'));
-    $('#cy4').spinner('value',m.attr('cy4'));
-    $('#x4').spinner('value',m.attr('x4'));
-    $('#y4').spinner('value',m.attr('y4'));
-  }
-  read_bezier();
-}
