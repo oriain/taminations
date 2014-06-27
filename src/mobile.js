@@ -278,8 +278,7 @@ function loadcall(options,htmlpage)
     }});
     //  Load the xml file of animations
     var xmlpage = htmlpage.replace('html','xml');
-    $.ajax({url:xmlpage, datatype:'xml',success:function(a) {
-      animations = a;
+    new TAMination(xmlpage,function(tam) {
       var prevtitle = "";
       var prevgroup = "";
       var page = $('#animlistpage');
@@ -287,7 +286,8 @@ function loadcall(options,htmlpage)
       content.empty();
       var html = '<ul data-role="listview">';
       var showDiffLegend = false;
-      $("tam",animations).each(function(n) {
+
+      tam.animations().each(function(n) {
         var callname = $(this).attr('title') + 'from' + $(this).attr('from');
         var name = $(this).attr('from');
         if ($(this).attr("group") != undefined) {
@@ -299,7 +299,7 @@ function loadcall(options,htmlpage)
         else if ($(this).attr("title") != prevtitle)
           html += '<li data-role="list-divider">'+$(this).attr("title")+" from</li>";
         var theme = "c";
-        if ($(this).attr("difficulty") != undefined) {
+        if (tam.animation(n).attr("difficulty") != undefined) {
           var j = Number($(this).attr("difficulty"));
           theme = ['c','h','j','k'][j];
           showDiffLegend = true;
@@ -331,7 +331,7 @@ function loadcall(options,htmlpage)
       //  Set the level icon to go back to the specific level for this call
       $('.levelbutton').attr('href','#calllistpage?dir='+dir).empty().text(level);
       $.mobile.changePage($('#animlistpage'),options);
-    }});
+    });
   }
   else
     $.mobile.changePage($('#animlistpage'),options);
@@ -450,7 +450,6 @@ function svgSize()
 
 function generateAnimation(n)
 {
-  TAMination(animations,'');
   SelectAnimation(n);
   $('#animtitle').empty().text(tam.getTitle());
   var dims = svgSize();

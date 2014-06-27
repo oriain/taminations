@@ -197,8 +197,9 @@ $(document).ready(
 
     //  Finally insert the document structure and build the menu of animations
     $("#menudiv").after(htmlstr);
-    if (animations)
-      generateAnimations();
+    var docname = document.URL.match(/(\w+)\.html/)[1];
+    if (docname != 'index' && docname != 'sequence')
+      new TAMination(docname+'.xml',generateAnimations,'');
     //  end of menu load function
 
   });  // end of document ready function
@@ -256,7 +257,6 @@ function generateAnimations()
   var showDiffLegend = false;
   callnumber = 0;
   var callname = '';
-  TAMination(animations,'');
   //  Put the call definition in the document structure
   $("#deftable").nextAll().appendTo("#definition");
   $("#radio1").attr("checked",true);

@@ -193,7 +193,7 @@ $(document).ready(function() {
   });
   $('input[name="formation"]').change(function(ev) {
     startingFormation = $(ev.target).val();
-    generateAnimations();
+    new TAMination('',startAnimations);
   });
   $('#clearbutton').click(function() {
     editor.setContent('');
@@ -228,25 +228,24 @@ $(document).ready(function() {
       $('input[name="formation"]').val([startingFormation]);
       text = ta.join('<br/>');
       editor.setContent(text);
-      generateAnimations();
+      new TAMination('',startAnimations);
     };
     reader.readAsText(i.files[0]);
   });
-
+  new TAMination('',startAnimations);
 });
 //},1000);
 
-function generateAnimations()  // override function in tampage.js
+function startAnimations()
 {
   if ($('#definition #sequencepage').size() == 0)
     $('#definition').empty().append($('#sequencepage'));
 
   //  Build the animation
-  TAMination(animations,'');
   var dims = svgSize();
   var svgdim = dims.width;
   var svgstr='<div id="svgdiv" '+
-            'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div>';
+             'style="width:'+svgdim+'px; height:'+svgdim+'px;"></div>';
   $("#svgcontainer").empty().width(dims.width).append(svgstr);
   $('#svgdiv').svg({onLoad:function(x) {
       var t = new TamSVG(x);

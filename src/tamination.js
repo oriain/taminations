@@ -184,9 +184,6 @@ Object.defineProperties(Math,{
 //  Extra XML data that needs to be loaded to build menus and animations
 function preload(url,f,e)
 {
-  //  No longer working on IE 8 (on XP)
-  if (navigator.userAgent.indexOf('MSIE 8') > 0)
-    return;
   $.holdReady(true);
   $.ajax(url,{
     dataType:"xml",
@@ -194,19 +191,35 @@ function preload(url,f,e)
       alert("Unable to load "+url+" : "+stat+' '+err);
     },
     success: f,
-    complete:function() { $.holdReady(false); }
+    complete:function() {
+      $.holdReady(false);
+    }
   });
 }
 
 var formationdata;
-preload('formations.xml',function(a) { formationdata = a; });
 var movedata;
-preload('moves.xml',function(a) { movedata = a; });
+//preload('formations.xml',function(a) { formationdata = a; });
+//preload('moves.xml',function(a) { movedata = a; });
+
 //  Load the XML doc that defines the animations
-var docname = document.URL.match(/(\w+)\.html/)[1];
-if (docname != 'index')
-preload(docname+'.xml',function(a)
-  {
+//var docname = document.URL.match(/(\w+)\.html/)[1];
+//if (docname != 'index')
+//  loadXML(docname);
+
+var prefix = '';
+//  Make the links work from both taminations directory and its subdirectories
+//  TODO Merge with tampage code
+if (document.URL.search(/(info|b1|b2|ms|plus|adv|a1|a2|c1|c2|c3a|c3b)/) >= 0)
+  prefix = '../';
+if (document.URL.search(/embed/) >= 0)
+  prefix = '';
+function loadXML(docname,errfun) {
+  //  Some pages in the info section do not have xml,
+  //  so by default ignore any errors
+  if (typeof errfun != 'function')
+    errfun = function() { };
+  preload(docname+'.xml',function(a) {
     //  Stuff the animations in a global variable
     //  TODO it would be better for the animations to be a property of
     //  the Taminations object
@@ -214,284 +227,303 @@ preload(docname+'.xml',function(a)
     //  Scan the doc for cross-references and load any found
     $('tamxref',a).each(function() {
       var link = $(this).attr('xref-link');
-      preload('../'+link+'.xml',function(b) {
+      preload(prefix+link+'.xml',function(b) {
         crossrefs[link] = b;
       });
     });
-  //  Some pages in the info section do not have xml, so ignore
-  //  any errors
-  }, function() { });
+  }, errfun);
+}
 
-var TAMination = window.TAMination = function(xmldoc,call)
+var tam;  // for global access TODO remove
+var TAMination = window.TAMination = function(xmlpage,f,errfun,call)
 {
-  return this instanceof TAMination ?
-      this.init(xmldoc,call) :
-      new TAMination(xmldoc,call);
+  this.loadcount = 0;
+  this.loadfinish = f;
+  var me = this;
+  this.loadXML('formations.xml',function(a) { formationdata = a; });
+  this.loadXML('moves.xml',function(a) { movedata = a; });
+  if (xmlpage)
+    this.loadXML(xmlpage,function(a) { me.xmldoc = a; me.scanforXrefs(a); },errfun);
 };
-var tam;
 
-TAMination.prototype = {
-  init: function(xmldoc,call)
-  {
-    tam = this;
-    tam.xmldoc = xmldoc;
-    tam.callnum = 0;
-    tam.call = call;
-    $("tam",tam.xmldoc).each(function(n) {
-      var str = $(this).attr("title") + "from" + $(this).attr("from");
-      if ($(this).attr("group") != undefined)
-        str = $(this).attr("title");
-      //  First replace strips "(DBD)" et al
-      //  Second strips all non-alphanums, not valid in html ids
-      str = str.replace(/ \(DBD.*/,"").replace(/\W/g,"");
-      if (str.toLowerCase() == tam.call.toLowerCase())
-        tam.callnum = n;
+//  Scan the doc for cross-references and load any found
+TAMination.prototype.scanforXrefs = function(xmldoc) {
+  var me = this;
+  $('tamxref',xmldoc).each(function() {
+    var link = $(this).attr('xref-link');
+    me.loadXML(prefix+link+'.xml',function(b) {
+      crossrefs[link] = b;
     });
-  },
+  });
+};
 
-  selectAnimation: function(n)
-  {
-    this.callnum = n;
-  },
-
-  animations: function()
-  {
-    return $('tam[display!="none"],tamxref',this.xmldoc);
-  },
-
-  animation: function(n)
-  {
-    if (arguments.length == 0 || typeof n == 'undefined')
-      n = this.callnum;
-    if (typeof n == 'number')
-      return this.animations().eq(n);
-    return $(n);  // should be a tam element
-  },
-
-  animationXref: function(n)
-  {
-    var a = this.animation(n);
-    if (a.attr('xref-link') != undefined) {
-      var s = '';
-      if (a.attr('xref-title') != undefined)
-        s += "[title|='"+a.attr('xref-title')+"']";
-      if (a.attr('xref-from') != undefined)
-        s += '[from="'+a.attr('xref-from')+'"]';
-      a = $('tam'+s,crossrefs[a.attr('xref-link')]);
+TAMination.prototype.loadXML = function(url,f,e) {
+  var me = this;
+  this.loadcount++;
+  console.log(url);
+  $.ajax(url,{
+    dataType:"xml",
+    error: typeof e == 'function' ? e : function(jq,stat,err) {
+      alert("Unable to load "+url+" : "+stat+' '+err);
+    },
+    success: f,
+    complete:function() {
+      me.loadcount--;
+      if (me.loadcount == 0)
+        me.init('');
     }
-    return a;
-  },
+  });
+};
+
+TAMination.prototype.init = function(call) {
+  tam = this;
+  tam.callnum = 0;
+  if (typeof this.loadfinish == 'function')
+    this.loadfinish(this);
+};
+
+TAMination.prototype.selectAnimation = function(n) {
+  this.callnum = n;
+};
+
+TAMination.prototype.selectByCall = function(call) {
+  tam.call = call;
+  tam.animations().each(function(n) {
+    var str = $(this).attr("title") + "from" + $(this).attr("from");
+    if ($(this).attr("group") != undefined)
+      str = $(this).attr("title");
+    //  First replace strips "(DBD)" et al
+    //  Second strips all non-alphanums, not valid in html ids
+    str = str.replace(/ \(DBD.*/,"").replace(/\W/g,"");
+    if (str.toLowerCase() == tam.call.toLowerCase())
+      tam.callnum = n;
+  });
+};
+
+TAMination.prototype.animations = function() {
+  return $('tam[display!="none"],tamxref',this.xmldoc);
+};
+
+TAMination.prototype.animation = function(n) {
+  if (arguments.length == 0 || typeof n == 'undefined')
+    n = this.callnum;
+  if (typeof n == 'number')
+    return this.animations().eq(n);
+  return $(n);  // should be a tam element
+};
+
+TAMination.prototype.animationXref = function(n) {
+  var a = this.animation(n);
+  if (a.attr('xref-link') != undefined) {
+    var s = '';
+    if (a.attr('xref-title') != undefined)
+      s += "[title|='"+a.attr('xref-title')+"']";
+    if (a.attr('xref-from') != undefined)
+      s += '[from="'+a.attr('xref-from')+'"]';
+    a = $('tam'+s,crossrefs[a.attr('xref-link')]);
+  }
+  return a;
+};
 
   //  Return the formation for the current animation.
   //  If the animation uses a named formation, it is looked up and
   //  the definition returned.
   //  The return value is an XML document element with dancers
-  getFormation: function()
-  {
-    if (typeof startingFormation != 'undefined')  // sequence
-      return getNamedFormation(startingFormation);
-    var a = this.animationXref();
-    var f = $(a).find("formation");
-    var retval = undefined;
-    if (f.length > 0) {
-      //  Formation defined as an element in the animation
-      retval = f;
-    } else {
-      //  Named formation as an attribute
-      retval = getNamedFormation(a.attr('formation'));
+TAMination.prototype.getFormation = function() {
+  if (typeof startingFormation != 'undefined')  // sequence
+    return getNamedFormation(startingFormation);
+  var a = this.animationXref();
+  var f = $(a).find("formation");
+  var retval = undefined;
+  if (f.length > 0) {
+    //  Formation defined as an element in the animation
+    retval = f;
+  } else {
+    //  Named formation as an attribute
+    retval = getNamedFormation(a.attr('formation'));
+  }
+  return retval;
+};
+
+TAMination.prototype.attrs =  [ "select", "hands" ];
+TAMination.prototype.numattrs = [ "reflect", "beats", "scaleX", "scaleY", "offsetX", "offsetY",
+                                  "cx1", "cy1", "cx2", "cy2", "x2", "y2",
+                                  "cx3", "cx4", "cy4", "x4", "y4" ];
+
+TAMination.prototype.getParts = function() {
+  var a = this.animationXref();
+  return a.attr("parts") ? a.attr("parts") : '';
+};
+
+TAMination.prototype.getTitle = function(n) {
+  var a = this.animation(n);
+  return a.attr("title");
+};
+
+TAMination.prototype.getComment = function(n) {
+  return this.animation(n).find('taminator').text();
+};
+
+TAMination.prototype.getPath = function(a)
+{
+  var tam = this;
+  var retval = [];
+  $("path",this.animationXref(a)).each(function(n) {
+    var onepath = tam.translatePath(this);
+    retval.push(onepath);
+  });
+  return retval;
+};
+
+TAMination.prototype.getNumbers = function() {
+  var a = this.animationXref();
+  // np is the number of paths not including phantoms (which raise it > 4)
+  var np =  Math.min($('path',a).length,4);
+  var retval = ['1','2','3','4','5','6','7','8'];
+  var i = 0;
+  $("path",a).each(function(n) {
+    var n = $(this).attr('numbers');
+    if (n) {  //  numbers given in animation XML
+      var nn = n.split(/ /);
+      retval[i*2] = nn[0];
+      retval[i*2+1] = nn[1];
     }
-    return retval;
-  },
+    else if (i > 3) {  // phantoms
+      retval[i*2] = ' ';
+      retval[i*2+1] = ' ';
+    }
+    else {  //  default numbering
+      retval[i*2] = (i+1)+'';
+      retval[i*2+1] = (i+1+np)+'';
+    }
+    i += 1;
+  });
+  return retval;
+};
 
-  attrs: [ "select", "hands" ],
-  numattrs: [ "reflect", "beats", "scaleX", "scaleY", "offsetX", "offsetY",
-              "cx1", "cy1", "cx2", "cy2", "x2", "y2",
-              "cx3", "cx4", "cy4", "x4", "y4" ],
+TAMination.prototype.getCouples = function() {
+  var a = this.animationXref();
+  var retval = ['1','3','1','3','2','4','2','4','5','6','5','6',' ',' ',' ',' '];
+  $("path",a).each(function(n) {
+    var c = $(this).attr('couples');
+    if (c) {
+      var cc = c.split(/ /);
+      retval[n*2] = cc[0];
+      retval[n*2+1] = cc[1];
+    }
+  });
+  return retval;
+};
 
-  getParts: function()
-  {
-    var a = this.animationXref();
-    return a.attr("parts") ? a.attr("parts") : '';
-  },
-
-  getTitle: function(n)
-  {
-    var a = this.animation(n);
-    return a.attr("title");
-  },
-
-  getComment: function(n)
-  {
-    return this.animation(n).find('taminator').text();
-  },
-
-  getPath: function(a)
-  {
-    var tam = this;
-    var retval = [];
-    $("path",this.animationXref(a)).each(function(n) {
-      var onepath = tam.translatePath(this);
-      retval.push(onepath);
-    });
-    return retval;
-  },
-
-  getNumbers : function()
-  {
-    var a = this.animationXref();
-    // np is the number of paths not including phantoms (which raise it > 4)
-    var np =  Math.min($('path',a).length,4);
-    var retval = ['1','2','3','4','5','6','7','8'];
-    var i = 0;
-    $("path",a).each(function(n) {
-      var n = $(this).attr('numbers');
-      if (n) {  //  numbers given in animation XML
-        var nn = n.split(/ /);
-        retval[i*2] = nn[0];
-        retval[i*2+1] = nn[1];
-      }
-      else if (i > 3) {  // phantoms
-        retval[i*2] = ' ';
-        retval[i*2+1] = ' ';
-      }
-      else {  //  default numbering
-        retval[i*2] = (i+1)+'';
-        retval[i*2+1] = (i+1+np)+'';
-      }
-      i += 1;
-    });
-    return retval;
-  },
-
-  getCouples : function()
-  {
-    var a = this.animationXref();
-    var retval = ['1','3','1','3','2','4','2','4','5','6','5','6',' ',' ',' ',' '];
-    $("path",a).each(function(n) {
-      var c = $(this).attr('couples');
-      if (c) {
-        var cc = c.split(/ /);
-        retval[n*2] = cc[0];
-        retval[n*2+1] = cc[1];
-      }
-    });
-    return retval;
-  },
-
-  translate: function(item)
-  {
-    var tag = $(item).prop('tagName');
-    tag = tag.toCapCase();
-    return this['translate'+tag](item);
-  },
+TAMination.prototype.translate = function(item) {
+  var tag = $(item).prop('tagName');
+  tag = tag.toCapCase();
+  return this['translate'+tag](item);
+};
 
   //  Takes a path, which is an XML element with children that
   //  are moves or movements.
   //  Returns an array of JS movements
-  translatePath: function(path)
-  {
-    var retval = [];
-    var me = this;
-    $(path).children().each(function() {
-      retval = retval.concat(me.translate(this));
-    });
-    return retval;
-  },
+TAMination.prototype.translatePath = function(path) {
+  var retval = [];
+  var me = this;
+  $(path).children().each(function() {
+    retval = retval.concat(me.translate(this));
+  });
+  return retval;
+};
 
   //  Takes a move, which is an XML element that references another XML
   //  path with its "select" attribute
   //  Returns an array of JS movements
-  translateMove: function(move)
-  {
-    //  First retrieve the requested path
-    var movename = $(move).attr('select');
-    var moveitem = $('path[name="'+movename+'"]',movedata).get(0);
-    if (moveitem == undefined)
-      throw new Error('move "'+movename+'" not defined');
-    var retval = this.translate(moveitem);
-    //  Now apply any modifications
-    var beats = $(move).attr('beats');
-    var scaleX = $(move).attr('scaleX');
-    var scaleY = $(move).attr('scaleY');
-    var offsetX = $(move).attr('offsetX');
-    var offsetY = $(move).attr('offsetY');
-    var reflect = $(move).attr('reflect');
-    var hands = $(move).attr('hands');
-    var oldbeats = 0;  //  If beats is given, we need to know how to scale
-    for  (var i=0; i<retval.length; i++)  // each movement
-      oldbeats += retval[i].beats;
-    for  (var i=0; i<retval.length; i++) {
-      if (beats != undefined)
-        retval[i].beats *= Number(beats) / oldbeats;
-      if (scaleX != undefined) {
-        retval[i].cx1 *= Number(scaleX);
-        retval[i].cx2 *= Number(scaleX);
-        retval[i].x2 *= Number(scaleX);
-        if (retval[i].cx3 != undefined)
-          retval[i].cx3 *= Number(scaleX);
-        if (retval[i].cx4 != undefined)
-          retval[i].cx4 *= Number(scaleX);
-        if (retval[i].x4 != undefined)
-          retval[i].x4 *= Number(scaleX);
-      }
-      if (scaleY != undefined) {
-        retval[i].cy1 *= Number(scaleY);
-        retval[i].cy2 *= Number(scaleY);
-        retval[i].y2 *= Number(scaleY);
-        if (retval[i].cy4)
-          retval[i].cy4 *= Number(scaleY);
-        if (retval[i].y4)
-          retval[i].y4 *= Number(scaleY);
-      }
-      if (reflect != undefined) {
-        retval[i].cy1 *= -1;
-        retval[i].cy2 *= -1;
-        retval[i].y2 *= -1;
-        if (retval[i].cy4 != undefined)
-          retval[i].cy4 *= -1;
-        if (retval[i].y4 != undefined)
-          retval[i].y4 *= -1;
-      }
-      if (offsetX != undefined) {
-        retval[i].cx2 += Number(offsetX);
-        retval[i].x2 += Number(offsetX);
-      }
-      if (offsetY != undefined) {
-        retval[i].cy2 += Number(offsetY);
-        retval[i].y2 += Number(offsetY);
-      }
-      if (hands != undefined)
-        retval[i].hands = hands;
-      else if (reflect != undefined) {
-        if (retval[i].hands == "right")
-          retval[i].hands = "left";
-        else if (retval[i].hands == "left")
-          retval[i].hands = "right";
-        else if (retval[i].hands == "gripright")
-          retval[i].hands = "gripleft";
-        else if (retval[i].hands == "gripleft")
-          retval[i].hands = "gripright";
-      }
+TAMination.prototype.translateMove = function(move) {
+  //  First retrieve the requested path
+  var movename = $(move).attr('select');
+  var moveitem = $('path[name="'+movename+'"]',movedata).get(0);
+  if (moveitem == undefined)
+    throw new Error('move "'+movename+'" not defined');
+  var retval = this.translate(moveitem);
+  //  Now apply any modifications
+  var beats = $(move).attr('beats');
+  var scaleX = $(move).attr('scaleX');
+  var scaleY = $(move).attr('scaleY');
+  var offsetX = $(move).attr('offsetX');
+  var offsetY = $(move).attr('offsetY');
+  var reflect = $(move).attr('reflect');
+  var hands = $(move).attr('hands');
+  var oldbeats = 0;  //  If beats is given, we need to know how to scale
+  for  (var i=0; i<retval.length; i++)  // each movement
+    oldbeats += retval[i].beats;
+  for  (var i=0; i<retval.length; i++) {
+    if (beats != undefined)
+      retval[i].beats *= Number(beats) / oldbeats;
+    if (scaleX != undefined) {
+      retval[i].cx1 *= Number(scaleX);
+      retval[i].cx2 *= Number(scaleX);
+      retval[i].x2 *= Number(scaleX);
+      if (retval[i].cx3 != undefined)
+        retval[i].cx3 *= Number(scaleX);
+      if (retval[i].cx4 != undefined)
+        retval[i].cx4 *= Number(scaleX);
+      if (retval[i].x4 != undefined)
+        retval[i].x4 *= Number(scaleX);
     }
-    return retval;
-  },
+    if (scaleY != undefined) {
+      retval[i].cy1 *= Number(scaleY);
+      retval[i].cy2 *= Number(scaleY);
+      retval[i].y2 *= Number(scaleY);
+      if (retval[i].cy4)
+        retval[i].cy4 *= Number(scaleY);
+      if (retval[i].y4)
+        retval[i].y4 *= Number(scaleY);
+    }
+    if (reflect != undefined) {
+      retval[i].cy1 *= -1;
+      retval[i].cy2 *= -1;
+      retval[i].y2 *= -1;
+      if (retval[i].cy4 != undefined)
+        retval[i].cy4 *= -1;
+      if (retval[i].y4 != undefined)
+        retval[i].y4 *= -1;
+    }
+    if (offsetX != undefined) {
+      retval[i].cx2 += Number(offsetX);
+      retval[i].x2 += Number(offsetX);
+    }
+    if (offsetY != undefined) {
+      retval[i].cy2 += Number(offsetY);
+      retval[i].y2 += Number(offsetY);
+    }
+    if (hands != undefined)
+      retval[i].hands = hands;
+    else if (reflect != undefined) {
+      if (retval[i].hands == "right")
+        retval[i].hands = "left";
+      else if (retval[i].hands == "left")
+        retval[i].hands = "right";
+      else if (retval[i].hands == "gripright")
+        retval[i].hands = "gripleft";
+      else if (retval[i].hands == "gripleft")
+        retval[i].hands = "gripright";
+    }
+  }
+  return retval;
+};
 
   //  Accepts a movement element from a XML file, either an animation definition
   //  or moves.xml
   //  Returns an array of a single JS movement
-  translateMovement: function(move)
-  {
-    var movement = { };
-    for (var a in this.attrs)
-      movement[this.attrs[a]] = $(move).attr(this.attrs[a]);
-    for (var i in this.numattrs) {
-      if ($(move).attr(this.numattrs[i]) != undefined)
-        movement[this.numattrs[i]] = Number($(move).attr(this.numattrs[i]));
-    }
-    return [movement];
+TAMination.prototype.translateMovement = function(move) {
+  var movement = { };
+  for (var a in this.attrs)
+    movement[this.attrs[a]] = $(move).attr(this.attrs[a]);
+  for (var i in this.numattrs) {
+    if ($(move).attr(this.numattrs[i]) != undefined)
+      movement[this.numattrs[i]] = Number($(move).attr(this.numattrs[i]));
   }
-
-};  // end of TAMination class
+  return [movement];
+};
+// end of TAMination class
 
 function cloneObject(obj)
 {
