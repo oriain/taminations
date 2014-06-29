@@ -77,5 +77,7 @@ else if (document.URL.search('sequence.html') >= 0)
   require(['tamsequence'],function() { });
 else if (document.URL.search('taminations/embed.html') >= 0)
   require(['embed'],function() { });
+else if (document.URL.search('movements.html') >= 0)
+  require(['tampage'],movementsPageInit);
 else
   require(['tampage'],function() { });

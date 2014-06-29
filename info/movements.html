@@ -31,12 +31,14 @@
 <script src="../ext/require.js" data-main="../src/config"></script>
 
 <script type="text/javascript">
+function movementsPageInit() {
 $(document).ready(function() {
   //  Make sure this is run *after* the document.ready function in tampage.js
   window.setTimeout(function() {
     tamsvg.dancers[1].showBezier();
   },100);
 });
+}
 </script>
 <title>Movements</title>
 

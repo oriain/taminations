@@ -198,7 +198,8 @@ $(document).ready(
     //  Finally insert the document structure and build the menu of animations
     $("#menudiv").after(htmlstr);
     var docname = document.URL.match(/(\w+)\.html/)[1];
-    if (docname != 'index' && docname != 'sequence' && docname != 'embed')
+    if (docname != 'index' && docname != 'sequence' && docname != 'embed' &&
+        docname != 'overview')
       new TAMination(docname+'.xml',generateAnimations,'');
     //  end of menu load function
 
