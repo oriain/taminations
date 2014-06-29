@@ -260,7 +260,6 @@ TAMination.prototype.scanforXrefs = function(xmldoc) {
 TAMination.prototype.loadXML = function(url,f,e) {
   var me = this;
   this.loadcount++;
-  console.log(url);
   $.ajax(url,{
     dataType:"xml",
     error: typeof e == 'function' ? e : function(jq,stat,err) {

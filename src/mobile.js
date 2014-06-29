@@ -58,7 +58,7 @@ var leveldata = [
   { name:"C-2", dir:"c2", selector:"sublevel='C-2'", theme:'l' },
   { name:"C-3A", dir:"c3a", selector:"sublevel='C-3A'", theme:'l' },
   { name:"C-3B", dir:"c3b", selector:"sublevel='C-3B'", theme:'l' },
-  { name:"Index of All Calls", dir:"all", selector:"level!='Info' and sublevel!='Styling'" }
+  { name:"Index of All Calls", dir:"all", selector:"level!='Info'" }
 ];
 
 function findLevel(str)
@@ -198,30 +198,18 @@ $(document).bind('mobileinit',function()
     $.mobile.defaultPageTransition = 'slide';
   });
 
-/*
-$('*').on('pagecontainerhide', function() {
-  console.log("Show");
-  $.mobile.loading( "show", {
-    text: "Loading",
-    textVisible: true,
-    theme: "c",
-    html: ""
-    });
-  });
-*/
 
-$(document).delegate('#level','pageinit',
-  function()
-  {
-    // Adjust level display items to fit window
-    var h = window.innerHeight ? window.innerHeight : document.body.offsetHeight;
-    h = h - 50;  // hack
-    $('#content').height(h);
-    //h = $('#content div div').height();
-    h = Math.floor(h/15);
-    $('#content div div').height(h);
-  }
-);
+function sizeFirstMobilePage()
+{
+  // Adjust level display items to fit window
+  var h = window.innerHeight ? window.innerHeight : document.body.offsetHeight;
+  h = h - 50;  // hack
+  $('#content').height(h);
+  //h = $('#content div div').height();
+  h = Math.floor(h/15);
+  $('#content div div').height(h);
+}
+
 
 //  This generates the list of calls for a specific level
 $(document).bind('pagechange', function(ev,data) {

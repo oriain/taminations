@@ -250,12 +250,12 @@ function startAnimations()
   $('#svgdiv').svg({onLoad:function(x) {
       var t = new TamSVG(x);
       t.setPart = setCurrentCall;
+      //  Add all the calls to the animation
+      updateSequence();
+      generateButtonPanel();
     }
   });
 
-  //  Add all the calls to the animation
-  updateSequence();
-  generateButtonPanel();
 
 }
 
