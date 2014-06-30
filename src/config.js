@@ -19,6 +19,16 @@
 
  */
 
+if (navigator.userAgent.indexOf('MSIE 8') > 0) {
+    var noie8 =  '<h3>Taminations does not work on Internet Explorer 8.<br/>'+
+      'Download and install one of these other excellent browsers.</h3>'+
+      '<ul><li><a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a></li>'+
+      '<li><a href="http://www.mozilla.org/firefox/new/">Firefox</a></li>'+
+      '<li><a href="http://www.opera.com/">Opera</a></li></ul></div>';
+    document.getElementById('definition').innerHTML = noie8;
+} else {
+
+
 requirejs.config({
     paths : {
       cookie: '../ext/cookie',
@@ -39,7 +49,7 @@ requirejs.config({
         deps: ['jquery']
       },
       tamination : {
-        deps: ['jquery'],
+        deps: ['jquery','env','string','math','array'],
         exports: 'TAMination'
       },
       tamsvg : {
@@ -56,16 +66,13 @@ requirejs.config({
         deps: ['cookie','jquerymobile','jquerymobilepagedata','tamsvg']
       },
       tamsequence : {
-        deps: ['tampage','call','tinymce']
-      },
-      embed : {
-        deps: ['tamination','tamsvg','jqueryui',]
+        deps: ['tampage','call','tinymce','env']
       },
       tinymce : {
         deps: ['jquery']
       },
       call : {
-        deps : ['tamination']
+        deps : ['tamination','env']
       }
     }
   }
@@ -75,9 +82,10 @@ if (document.URL.search('mobile.html') >= 0)
   require(['mobile'],function() { sizeFirstMobilePage(); });
 else if (document.URL.search('sequence.html') >= 0)
   require(['tamsequence'],function() { });
-else if (document.URL.search('taminations/embed.html') >= 0)
+else if (document.URL.search('tamination/embed.html') >= 0)
   require(['embed'],function() { });
 else if (document.URL.search('movements.html') >= 0)
   require(['tampage'],movementsPageInit);
 else
   require(['tampage'],function() { });
+}
