@@ -20,26 +20,25 @@
  */
 
 if (navigator.userAgent.indexOf('MSIE 8') > 0) {
-    var noie8 =  '<h3>Taminations does not work on Internet Explorer 8.<br/>'+
-      'Download and install one of these other excellent browsers.</h3>'+
-      '<ul><li><a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a></li>'+
-      '<li><a href="http://www.mozilla.org/firefox/new/">Firefox</a></li>'+
-      '<li><a href="http://www.opera.com/">Opera</a></li></ul></div>';
-    document.getElementById('definition').innerHTML = noie8;
+  var noie8 =  '<h3>Taminations does not work on Internet Explorer 8.<br/>'+
+  'Download and install one of these other excellent browsers.</h3>'+
+  '<ul><li><a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a></li>'+
+  '<li><a href="http://www.mozilla.org/firefox/new/">Firefox</a></li>'+
+  '<li><a href="http://www.opera.com/">Opera</a></li></ul></div>';
+  document.getElementById('definition').innerHTML = noie8;
 } else {
 
-
-requirejs.config({
+  requirejs.config({
     paths : {
       cookie: '../ext/cookie',
-      jquery: '../ext/jquery/jquery.2.1.1.min',
-      jquerysvg: '../ext/jquery/jquery.svg/jquery.svg',
-      jqueryui: '../ext/jquery/jquery-ui/jquery-ui',
-      jquerymousewheel: '../ext/jquery/jquery.mousewheel/jquery.mousewheel.min',
-      jquerymobile: '../ext/jquery/jquery.mobile-1.4.2/jquery.mobile-1.4.2',
+      jquery: '../ext/jquery/jquery-2.1.1.min',
+      jquerysvg: '../ext/jquery/jquery-svg/jquery.svg.min',
+      jqueryui: '../ext/jquery/jquery-ui-1.11.0.custom/jquery-ui.min',
+      jquerymousewheel: '../ext/jquery/jquery-mousewheel-3.1.11/jquery.mousewheel.min',
+      jquerymobile: '../ext/jquery/jquery-mobile/jquery.mobile-1.4.2.min',
       jquerymobilepagedata: '../ext/jquery/jqm.page.params',
+      tinymce: '../ext/tinymce/js/tinymce/tinymce.min',
       call: 'calls/call',
-      tinymce: '../ext/tinymce_4.1.0_jquery/tinymce/js/tinymce/tinymce.min'
     },
     shim: {
       cookie : {
@@ -75,17 +74,16 @@ requirejs.config({
         deps : ['tamination','env']
       }
     }
-  }
-);
+  });
 
-if (document.URL.search('mobile.html') >= 0)
-  require(['mobile'],function() { sizeFirstMobilePage(); });
-else if (document.URL.search('sequence.html') >= 0)
-  require(['tamsequence'],function() { });
-else if (document.URL.search('tamination/embed.html') >= 0)
-  require(['embed'],function() { });
-else if (document.URL.search('movements.html') >= 0)
-  require(['tampage'],movementsPageInit);
-else
-  require(['tampage'],function() { });
+  if (document.URL.search('mobile.html') >= 0)
+    require(['mobile'],function() { sizeFirstMobilePage(); });
+  else if (document.URL.search('sequence.html') >= 0)
+    require(['tamsequence'],function() { });
+  else if (document.URL.search('taminations/embed.html') >= 0)
+    require(['embed'],function() { });
+  else if (document.URL.search('movements.html') >= 0)
+    require(['tampage'],movementsPageInit);
+  else
+    require(['tampage'],function() { });
 }

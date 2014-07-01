@@ -17,7 +17,8 @@ tamination.dtd
 !src/menus.xml
 !src/moves.xml
 !src/tamination.dtd
-!jquery.mobile-*.zip
-!jquery-ui-*.zip
-!jquery-*.js
+!jquery*.zip
 !require.js
+!domReady.js
+!jqm.page.params.js
+!/ext/jquery/jquery*.js

@@ -25,9 +25,10 @@ RM ?= rm
 COPY ?= cp
 PYTHON ?= python
 ZIP ?= zip
+UNZIP ?= unzip
 ZIPFILE = ../tamination.zip
 DIRS = b1 b2 ms plus a1 a2 c1 c2 c3a c3b info .
-XMLSRC = calls.xml callindex.xml formations.xml moves.xml tamination.dtd config.js
+XMLSRC = calls.xml callindex.xml formations.xml moves.xml tamination.dtd
 XMLCOPIES = $(foreach dir,$(DIRS),$(addprefix ../$(dir)/,$(XMLSRC)))
 CALLINDEX = callindex.xml
 
@@ -36,10 +37,11 @@ all : $(CALLINDEX) $(XMLCOPIES) $(ZIPFILE)
 	@echo Build complete
 
 unzip :
-	cd ../ext/jquery && $(UNZIP) jquery.mobile-1.4.2.zip
-	cd ../ext/jquery/jquery.mousewheel && $(UNZIP) jquery-mousewheel-3.1.6.zip
-	cd ../ext/jquery/jquery.svg && $(UNZIP) jquery.svg.package-1.4.4.zip
-	cd ../ext/jquery/jquery.ui && $(UNZIP) jquery-ui-1.10.4.custom.zip
+	cd ../ext && $(UNZIP) jquery.mobile-1.4.2.zip -d jquery/jquery-mobile
+	cd ../ext && $(UNZIP) jquery-mousewheel-3.1.11.zip -d jquery
+	cd ../ext && $(UNZIP) jquery.svg.package-1.4.5.zip -d jquery/jquery-svg
+	cd ../ext && $(UNZIP) jquery-ui-1.11.0.custom.zip -d jquery
+	cd ../ext && $(UNZIP) tinymce_4.1.0_jquery.zip
 
 #  Clean target to delete jar and zip
 .phony : clean

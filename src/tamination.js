@@ -24,162 +24,6 @@ var formations = 0;
 var paths = 0;
 var crossrefs = {};
 
-//////////////////////////////////////////////////
-//  Extend Object class with useful stuff
-var Env = function() { };
-var funcprop = {writable: true, enumerable: false};
-/**
- *   This is a simple sub-classing method
- *   Use as
- *     SubClass = Env.extend(ParentClass,constructor);
- *     If ParentClass is not given, then Env is the parent
- *     If no constructor is given, a default empty one is created.
- */
-Env.extend = function(p,c)
-{
-  p = p || Env;
-  c = c || function() { };
-  c.prototype = Object.create(p.prototype);
-  c.prototype.constructor = c;
-  return c;
-};
-/**
- *   This defines a forEach function for objects similar to the Array function
- *   Parameters:
- *   f(p,v)
- *      A function called for every enumerable property of the object
- *      p is the property, and v is its value
- *   o
- *      An optional object to bind 'this' in the function given as the first parameter
- *      If not given then the calling object is bound
- *
- */
-Env.prototype.forEach = function(f,o) {
-  o = o || this;
-  for (var p in this) {
-    f.call(o,p,this[p]);
-  }
-};
-Env.prototype.every = function(f,o) {
-  o = o || this;
-  for (var p in this) {
-    if (!f.call(o,p,this[p]))
-      return false;
-  }
-  return true;
-};
-Env.prototype.some = function(f,o) {
-  o = o || this;
-  for (var p in this) {
-    if (f.call(o,p,this[p]))
-      return true;
-  }
-  return false;
-};
-//  Object comes with a keys method but not a values method
-Env.prototype.values = function(o) {
-  return Object.keys(o).map(function(k) { return this[k]; },o);
-};
-
-Object.defineProperties(Env.prototype, {
-  extend: funcprop,
-  forEach: funcprop,
-  every: funcprop,
-  some: funcprop,
-});
-////////////////////////////////////////
-//  Extend String with some useful stuff
-/**
- *   Return string with first letter of each word capitalized
- */
-String.prototype.toCapCase = function()
-{
-  return this.replace(/\b\w+\b/g, function(word)
-      {
-        return word.substring(0,1).toUpperCase() +
-               word.substring(1).toLowerCase();
-      }
- );
-};
-/** Remove leading and trailing whitespace  */
-String.prototype.trim = function () {
-  return this.replace(/^\s+|\s+$/g, "");
-};
-/**  Remove all spaces  */
-String.prototype.collapse = function() {
-  return this.replace(/\s+/g,'');
-};
-/**  Capitalize every word and remove all spaces  */
-String.prototype.toCamelCase = function() {
-  return this.toCapCase().collapse();
-};
-
-Object.defineProperties(String.prototype, {
-  toCapCase: funcprop,
-  trim: funcprop,
-  collapse: funcprop,
-  toCamelCase: funcprop
-});
-/////////////////////////////////////////////
-//  Array class extensions
-Array.prototype.first = function()
-{
-  return this[0];
-};
-Array.prototype.last = function()
-{
-  return this[this.length-1];
-};
-/**
- *  Takes a nested array and returns a non-nested array
- *  with the elements in depth-first order
- */
-Array.prototype.flatten = function() {
-  return this.reduce(function(a1,a2) {
-    return a1.concat(a2 instanceof Array ? a2.flatten() : a2);
-  },[]);
-};
-Object.defineProperties(Array.prototype, {
-  first: funcprop,
-  last: funcprop,
-  flatten: funcprop,
-});
-/////////////////////////////////////////////
-//  Math class extensions
-Math.toRadians = function(deg)
-{
-  return deg * Math.PI / 180;
-};
-Math.toDegrees = function(rad)
-{
-  return rad * 180 / Math.PI;
-};
-Math.IEEEremainder = function(d1,d2)
-{
-  var n = Math.round(d1/d2);
-  return d1 - n*d2;
-};
-Math.isApprox = function(a,b,delta)
-{
-  delta = delta || 0.1;
-  return Math.abs(a-b) < delta;
-};
-Math.angleDiff = function(a1,a2)
-{
-  return ((((a1-a2) % (Math.PI*2)) + (Math.PI*3)) % (Math.PI*2)) - Math.PI;
-};
-
-Math.anglesEqual = function(a1,a2)
-{
-  return Math.isApprox(Math.angleDiff(a1,a2),0);
-};
-Object.defineProperties(Math,{
-  toRadians: funcprop,
-  IEEEremainder: funcprop,
-  isApprox: funcprop,
-  angleDiff: funcprop
-});
-//  End of monkey patching
 ///////////////////////////////////////////////////////////////
 //  Extra XML data that needs to be loaded to build menus and animations
 function preload(url,f,e)
@@ -199,13 +43,6 @@ function preload(url,f,e)
 
 var formationdata;
 var movedata;
-//preload('formations.xml',function(a) { formationdata = a; });
-//preload('moves.xml',function(a) { movedata = a; });
-
-//  Load the XML doc that defines the animations
-//var docname = document.URL.match(/(\w+)\.html/)[1];
-//if (docname != 'index')
-//  loadXML(docname);
 
 var prefix = '';
 //  Make the links work from both taminations directory and its subdirectories
@@ -214,36 +51,16 @@ if (document.URL.search(/(info|b1|b2|ms|plus|adv|a1|a2|c1|c2|c3a|c3b)/) >= 0)
   prefix = '../';
 if (document.URL.search(/embed/) >= 0)
   prefix = '';
-function loadXML(docname,errfun) {
-  //  Some pages in the info section do not have xml,
-  //  so by default ignore any errors
-  if (typeof errfun != 'function')
-    errfun = function() { };
-  preload(docname+'.xml',function(a) {
-    //  Stuff the animations in a global variable
-    //  TODO it would be better for the animations to be a property of
-    //  the Taminations object
-    animations = a;
-    //  Scan the doc for cross-references and load any found
-    $('tamxref',a).each(function() {
-      var link = $(this).attr('xref-link');
-      preload(prefix+link+'.xml',function(b) {
-        crossrefs[link] = b;
-      });
-    });
-  }, errfun);
-}
 
 var tam;  // for global access TODO remove
 var TAMination = window.TAMination = function(xmlpage,f,errfun,call)
 {
   this.loadcount = 0;
   this.loadfinish = f;
-  var me = this;
   this.loadXML('formations.xml',function(a) { formationdata = a; });
   this.loadXML('moves.xml',function(a) { movedata = a; });
   if (xmlpage)
-    this.loadXML(xmlpage,function(a) { me.xmldoc = a; me.scanforXrefs(a); },errfun);
+    this.loadXMLforAnimation(xmlpage,errfun);
 };
 
 //  Scan the doc for cross-references and load any found
@@ -257,13 +74,20 @@ TAMination.prototype.scanforXrefs = function(xmldoc) {
   });
 };
 
+TAMination.prototype.loadXMLforAnimation = function(xmlpage,errfun) {
+  var me = this;
+  this.loadXML(xmlpage,function(a) { me.xmldoc = a; me.scanforXrefs(a); },errfun);
+};
+
 TAMination.prototype.loadXML = function(url,f,e) {
   var me = this;
   this.loadcount++;
   $.ajax(url,{
     dataType:"xml",
-    error: typeof e == 'function' ? e : function(jq,stat,err) {
-      alert("Unable to load "+url+" : "+stat+' '+err);
+    error: typeof e == 'function'
+      ? function() { e(me); }
+      : function(jq,stat,err) {
+          alert("Unable to load "+url+" : "+stat+' '+err);
     },
     success: f,
     complete:function() {
