@@ -183,23 +183,12 @@ $(document).ready(
       $('#how').text('How');
     sizeBody();
 
-    //  No longer support IE 8 (on XP)
-    if (navigator.userAgent.indexOf('MSIE 8') > 0) {
-      $('#menudiv').html('<div style="margin-left:20px; font-size:24pt">'+
-          '<p>Taminations does not work on Internet Explorer 8.<br/>'+
-          'Download and install one of these other excellent browsers.</p>'+
-          '<ul><li><a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a></li>'+
-          '<li><a href="http://www.mozilla.org/firefox/new/">Firefox</a></li>'+
-          '<li><a href="http://www.opera.com/">Opera</a></li></ul></div>');
-      $('#menudiv').height(300);
-      return;
-    }
-
     //  Finally insert the document structure and build the menu of animations
     $("#menudiv").after(htmlstr);
     var docname = document.URL.match(/(\w+)\.html/)[1];
     if (docname != 'index' && docname != 'sequence' && docname != 'embed' &&
-        docname != 'overview')
+        docname != 'overview' && docname != 'howtouse' && docname != 'search' &&
+        docname != 'trouble' && docname != 'download')
       new TAMination(docname+'.xml',generateAnimations,'');
     //  end of menu load function
 
@@ -221,7 +210,7 @@ function getTitle()
          '<span id="title"><a href="'+titlelink+'">Taminations</a></span></div>';
 }
 
-//Set height of page sections to fit the window
+//  Set height of page sections to fit the window
 function sizeBody()
 {
   var menudivheight = $('#menudiv table').height();

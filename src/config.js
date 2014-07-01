@@ -72,6 +72,9 @@ if (navigator.userAgent.indexOf('MSIE 8') > 0) {
       },
       call : {
         deps : ['tamination','env']
+      },
+      search : {
+        deps : ['tamination','tampage']
       }
     }
   });
@@ -80,10 +83,12 @@ if (navigator.userAgent.indexOf('MSIE 8') > 0) {
     require(['mobile'],function() { sizeFirstMobilePage(); });
   else if (document.URL.search('sequence.html') >= 0)
     require(['tamsequence'],function() { });
-  else if (document.URL.search('taminations/embed.html') >= 0)
+  else if (document.URL.search('taminations?/embed.html') >= 0)
     require(['embed'],function() { });
   else if (document.URL.search('movements.html') >= 0)
     require(['tampage'],movementsPageInit);
+  else if (document.URL.search('search.html') >= 0)
+    require(['search'],function() { });
   else
     require(['tampage'],function() { });
 }
