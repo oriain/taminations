@@ -23,6 +23,7 @@ var prefix = '';
 //  Make the links work from both taminations directory and its subdirectories
 if (document.URL.search(/(info|b1|b2|ms|plus|adv|a1|a2|c1|c2|c3a|c3b)/) >= 0)
   prefix = '../';
+var tam = 0;
 var currentmenu = 0;
 var callnumber = -1;
 var currentcall = "";
@@ -49,7 +50,6 @@ var difficultText = [ ' <font color="blue">&diams;</font>',
                       ' <font color="black">&diams;&diams;&diams;</font>' ];
 
 var calldata;
-preload('calls.xml',function(a) { calldata = a; });
 
 var levelselectors = {
       info: 'call[level="Info"]',
@@ -189,7 +189,10 @@ $(document).ready(
     if (docname != 'index' && docname != 'sequence' && docname != 'embed' &&
         docname != 'overview' && docname != 'howtouse' && docname != 'search' &&
         docname != 'trouble' && docname != 'download')
-      new TAMination(docname+'.xml',generateAnimations,'');
+      tam = new TAMination(docname+'.xml',generateAnimations,'');
+    else
+      tam = new TAMination();
+    tam.loadXML('calls.xml',function(a) { calldata = a; });
     //  end of menu load function
 
   });  // end of document ready function
@@ -378,7 +381,7 @@ function generateAnimations()
 
 function PickAnimation(n)
 {
-  SelectAnimation(n);
+  tam.selectAnimation(n);
   if (tamsvg) {
     tamsvg.stop();
     $('#svgcontainer').empty();
@@ -446,12 +449,3 @@ function getLevel()
          '<span class="appButton selected" id="abbrev">Abbrev</span> '+
          '<span class="appButton" id="full">Full</span></span>';
 }
-
-var tips = [
-  "Right click on a dancer for special features.",
-  "You can move the animation manually by dragging the slider.",
-  "You can move the animation manually with the mouse wheel.",
-  "Control the animation speed with the Slow and Fast buttons.",
-  "Show all dancer paths with the Paths button.",
-  "Use the Loop button to run the animation repeatedly."
-];

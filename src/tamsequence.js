@@ -135,8 +135,6 @@ String.prototype.syns = function()
 };
 
 
-preload('callindex.xml',function(a) { callindex = a; });
-
 var prevtext = '';
 var textChange = function()
 {
@@ -232,7 +230,8 @@ $(document).ready(function() {
     };
     reader.readAsText(i.files[0]);
   });
-  new TAMination('',startAnimations);
+  var tam = new TAMination('',startAnimations);
+  tam.loadXML('callindex.xml',function(a) { callindex = a; });
 });
 //},1000);
 

@@ -69,8 +69,7 @@ function findLevel(str)
   }
 }
 
-
-preload('calls.xml',function(a) { calldata = a; });
+TAMination.loadXML('calls.xml',function(a) { calldata = a; });
 
 //  Given an url or other fragment, parse out "a=b args" into an object
 function parseArgs(str)
@@ -438,7 +437,7 @@ function svgSize()
 
 function generateAnimation(n)
 {
-  SelectAnimation(n);
+  tam.selectAnimation(n);
   $('#animtitle').empty().text(tam.getTitle());
   var dims = svgSize();
   svgstr='<div id="svgdiv" '+

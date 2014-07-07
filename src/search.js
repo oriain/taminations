@@ -21,7 +21,8 @@
 
 //  This is the code to handle searching calls
 
-preload('calls.xml',function(a) { calls = a; });
+var tam = new TAMination();
+tam.loadXML('calls.xml',function(a) { calls = a; });
 
 //  Monitor the text input every 1/10 second
 //  Will do work only if there's a new search

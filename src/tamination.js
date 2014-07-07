@@ -23,24 +23,6 @@ var animations = 0;
 var formations = 0;
 var paths = 0;
 var crossrefs = {};
-
-///////////////////////////////////////////////////////////////
-//  Extra XML data that needs to be loaded to build menus and animations
-function preload(url,f,e)
-{
-  $.holdReady(true);
-  $.ajax(url,{
-    dataType:"xml",
-    error: typeof e == 'function' ? e : function(jq,stat,err) {
-      alert("Unable to load "+url+" : "+stat+' '+err);
-    },
-    success: f,
-    complete:function() {
-      $.holdReady(false);
-    }
-  });
-}
-
 var formationdata;
 var movedata;
 
@@ -53,7 +35,7 @@ if (document.URL.search(/embed/) >= 0)
   prefix = '';
 
 var tam;  // for global access TODO remove
-var TAMination = window.TAMination = function(xmlpage,f,errfun,call)
+var TAMination = function(xmlpage,f,errfun,call)
 {
   this.loadcount = 0;
   this.loadfinish = f;
@@ -61,7 +43,16 @@ var TAMination = window.TAMination = function(xmlpage,f,errfun,call)
   this.loadXML('moves.xml',function(a) { movedata = a; });
   if (xmlpage)
     this.loadXMLforAnimation(xmlpage,errfun);
+  TAMination.tam = this;
 };
+
+//  Code for singleton pattern
+TAMination.tam = 0;
+TAMination.getTam = function() {
+  if (!TAMination.tam)
+    TAMination.tam = new TAMination();
+  return TAMination.tam;
+}
 
 //  Scan the doc for cross-references and load any found
 TAMination.prototype.scanforXrefs = function(xmldoc) {
@@ -79,6 +70,7 @@ TAMination.prototype.loadXMLforAnimation = function(xmlpage,errfun) {
   this.loadXML(xmlpage,function(a) { me.xmldoc = a; me.scanforXrefs(a); },errfun);
 };
 
+TAMination.loadXML =
 TAMination.prototype.loadXML = function(url,f,e) {
   var me = this;
   this.loadcount++;
@@ -91,9 +83,11 @@ TAMination.prototype.loadXML = function(url,f,e) {
     },
     success: f,
     complete:function() {
-      me.loadcount--;
-      if (me.loadcount == 0)
-        me.init('');
+      if (me) {
+        me.loadcount--;
+        if (me.loadcount == 0)
+          me.init('');
+      }
     }
   });
 };
@@ -101,8 +95,10 @@ TAMination.prototype.loadXML = function(url,f,e) {
 TAMination.prototype.init = function(call) {
   tam = this;
   tam.callnum = 0;
-  if (typeof this.loadfinish == 'function')
+  if (typeof this.loadfinish == 'function') {
     this.loadfinish(this);
+    this.loadfinish = 0;
+  }
 };
 
 TAMination.prototype.selectAnimation = function(n) {
@@ -348,55 +344,7 @@ TAMination.prototype.translateMovement = function(move) {
 };
 // end of TAMination class
 
-function cloneObject(obj)
-{
-  var retval = { };
-  for (p in obj)
-    retval[p] = obj[p];
-  return retval;
-}
-
-function objectToString(obj)
-{
-  var retval = '';
-  for (p in obj)
-    retval += p + ': ' + obj[p] + "\n";
-  return retval;
-}
-
-function getParts(n)
-{
-  var a = tam.animationXref(n);
-  return a.attr("parts") ? a.attr("parts") : '';
-}
-
-function SelectAnimation(n)
-{
-  tam.selectAnimation(n);
-}
-
-function formationToString(f)
-{
-  var outstr = "Formation";
-  $('dancer',f).each(function() {
-    outstr += ' ' + $(this).attr('gender') + ' ' +
-              $(this).attr('x') + ' ' +
-              $(this).attr('y') + ' ' +
-              $(this).attr('angle');
-  });
-  return outstr;
-}
-
-function movementToString(m)
-{
-  var retval =  "movement "+m.hands+" " + m.beats + " " +
-                m.cx1 + " " + m.cy1 + " " + m.cx2 + " " + m.cy2 + " " + m.x2 + " " + m.y2;
-  if (m.cx3 != undefined)
-    retval += " " + m.cx3 + " " + m.cx4 + " " + m.cy4 + " " + m.x4 + " " + m.y4;
-  return retval + ";";
-}
-
-//  The applet calls this as the animation reaches each part of the call
+//  The program calls this as the animation reaches each part of the call
 //  If there's an element with id or class "<call><part>" or "Part<part>" it
 //  be highlighted
 function setPart(part)
