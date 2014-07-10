@@ -82,7 +82,7 @@ if (navigator.userAgent.indexOf('MSIE 8') > 0) {
   if (document.URL.search('mobile.html') >= 0)
     require(['mobile'],function() { sizeFirstMobilePage(); });
   else if (document.URL.search('sequence.html') >= 0)
-    require(['tamsequence'],function() { });
+    require(['tamsequence'],function() { sequenceSetup(); });
   else if (document.URL.search('taminations?/embed.html') >= 0)
     require(['embed'],function() { });
   else if (document.URL.search('movements.html') >= 0)

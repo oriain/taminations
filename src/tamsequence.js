@@ -148,12 +148,24 @@ var textChange = function()
 };
 
 var timeoutID = null;
-$(document).ready(function() {
+//  This should not be called until jQuery is ready and all dependent modules
+//  have been loaded.  Thus these nested functions.
+var sequenceSetup = function() {
+  $(document).ready(function() {
   //  Make sure this is run *after* the document.ready function
-  //  in tampage.js.  This is a bit of a hack.
-  //  *** No longer needed ??
-  //window.setTimeout(function() {
-  tinymce.init({
+  //  in tampage.js.  Then initialize the animation display
+    //  before initializing the editor
+    var tam = new TAMination('', function() {
+      startAnimations();
+      editorSetup();
+    });
+    tam.loadXML('callindex.xml',function(a) { callindex = a; });
+  });
+}
+
+var editorSetup = function() {
+
+    tinymce.init({
     selector : "textarea",
     convert_newlines_to_brs : true,
     forced_root_block: false,
@@ -230,10 +242,7 @@ $(document).ready(function() {
     };
     reader.readAsText(i.files[0]);
   });
-  var tam = new TAMination('',startAnimations);
-  tam.loadXML('callindex.xml',function(a) { callindex = a; });
-});
-//},1000);
+}
 
 function startAnimations()
 {
