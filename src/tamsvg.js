@@ -189,7 +189,6 @@ TamSVG.prototype = {
       this.convertToBigon();
     this.beat = -2.0;
     this.prevbeat = -2.0;
-    //this.speed = 500;  now set above checking cookie
     this.running = false;
     for (var i in this.dancers)
       this.dancers[i].recalculate();
@@ -868,6 +867,7 @@ TamSVG.prototype = {
   convertToBigon: function()
   {
     //  Save current dancers
+    this.setBeat(0);
     for (var i in this.dancers)
       this.dancers[i].hide();
     this.saveDancers = this.dancers;
@@ -884,7 +884,7 @@ TamSVG.prototype = {
                                     hidden: isPh && !this.showPhantoms,
                                     color:dancerColor[j]}));
     }
-    //  Generate BIgon dancers
+    //  Generate Bigon dancers
     for (var i=0; i<this.dancers.length; i++) {
       this.bigonify(this.dancers[i]);
     }
