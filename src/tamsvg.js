@@ -820,7 +820,7 @@ TamSVG.prototype = {
   convertToHexagon: function()
   {
     //  Save current dancers
-    this.setBeat(0);
+    this.setBeat(-2);
     for (var i in this.dancers)
       this.dancers[i].hide();
     this.saveDancers = this.dancers;
@@ -867,7 +867,7 @@ TamSVG.prototype = {
   convertToBigon: function()
   {
     //  Save current dancers
-    this.setBeat(0);
+    this.setBeat(-2);
     for (var i in this.dancers)
       this.dancers[i].hide();
     this.saveDancers = this.dancers;
