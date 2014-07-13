@@ -42,6 +42,7 @@ function TamSVG(svg_in)
   else
     //  Called as 'TamSVG(x)'
     window.tamsvg = new TamSVG(svg_in);
+  return window.tamsvg;
 }
 TamSVG.prototype = {
   init: function(svg_in)
