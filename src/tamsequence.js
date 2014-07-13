@@ -468,7 +468,7 @@ function buildSequence()
     tamsvg.beat = lastcallstart;
     tamsvg.start();
   }
-  updateSliderMarks(true);
+  tamsvg.updateSliderMarks(true);
   //  Generate link from calls
   calllink = document.URL.split(/\?/)[0]
   + '?' + escape(startingFormation) + '&' +
