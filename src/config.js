@@ -52,7 +52,7 @@ if (navigator.userAgent.indexOf('MSIE 8') > 0) {
         exports: 'TAMination'
       },
       tamsvg : {
-        deps: ['tamination','jquerysvg','jquerymousewheel','cookie',
+        deps: ['tamination','jquerysvg','jquerymousewheel','cookie','handhold',
                'color','affinetransform','vector','bezier','movement','path','dancer'],
         exports: 'TamSVG'
       },
