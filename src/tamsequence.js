@@ -260,7 +260,7 @@ function startAnimations()
       t.setPart = setCurrentCall;
       //  Add all the calls to the animation
       updateSequence();
-      generateButtonPanel();
+      t.generateButtonPanel();
     }
   });
 

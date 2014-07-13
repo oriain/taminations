@@ -65,8 +65,8 @@ require(['jquery','tamination','tamsvg','jqueryui'],function($) {
     $("body").prepend(svgstr);
     $('#svgdiv').svg({
       onLoad : function(svg_in) {
-        TamSVG(svg_in);
-        generateButtonPanel();
+        var t = TamSVG(svg_in);
+        t.generateButtonPanel();
         if (args.play)
           tamsvg.start();
       }

@@ -365,7 +365,7 @@ function generateAnimations()
   }
   sizeBody();
   if (tamsvg) {
-    generateButtonPanel();
+    tamsvg.generateButtonPanel();
     PickAnimation(0);
     //  If a specific animation is requested in the URL, switch to it
     for (var arg in args) {
@@ -410,7 +410,7 @@ function PickAnimation(n)
   //  Note that :first gets the 'first previous' when used with prevAll
   $("#animationlist > a").eq(n).prevAll('.callname:first').addClass("selectedHighlight");
   if (tamsvg) {
-    generateButtonPanel();
+    tamsvg.generateButtonPanel();
     tamsvg.setPart = setPart;
     setPart(0);
   }

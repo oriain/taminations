@@ -2148,64 +2148,63 @@ Color.prototype.toString = function()
 };
 ////////////////////////////////////////////////////////////////////////////////
 // Build buttons and slider below animation
-// TODO this cheats a bit peeking into tamsvg data - the interface should be better
-function generateButtonPanel()
-{
+TamSVG.prototype.generateButtonPanel = function() {
   $('#buttonpanel').remove();
   $('#svgcontainer').append('<div id="buttonpanel" style="background-color: #c0c0c0"></div>');
 
   $('#buttonpanel').append('<div id="optionpanel"></div>');
   $('#optionpanel').append('<input type="button" class="appButton" id="slowButton" value="Slow" style="width:20%"/>');
   $('#optionpanel').append('<input type="button" class="appButton" id="fastButton" value="Fast" style="width:20%"/>');
-  if (tamsvg.isSlow())
+  if (this.isSlow())
     $('#slowButton').addClass('selected');
-  else if (tamsvg.isFast())
+  else if (this.isFast())
     $('#fastButton').addClass('selected');
   $('#optionpanel').append('<input type="button" class="appButton" id="loopButton" value="Loop" style="width:20%"/>');
-  if (tamsvg.loop)
+  if (this.loop)
     $('#loopButton').addClass('selected');
   $('#optionpanel').append('<input type="button" class="appButton" id="gridButton" value="Grid" style="width:20%"/>');
-  if (tamsvg.grid)
+  if (this.grid)
     $('#gridButton').addClass('selected');
   $('#optionpanel').append('<input type="button" class="appButton" id="couplesButton" value="#4" style="width:10%"/>');
-  if (tamsvg.couples)
+  if (this.couples)
     $('#couplesButton').addClass('selected');
   $('#optionpanel').append('<input type="button" class="appButton" id="numbersButton" value="#8" style="width:10%"/>');
-  if (tamsvg.numbers)
+  if (this.numbers)
     $('#numbersButton').addClass('selected');
   $('#optionpanel').append('<br/>');
   $('#optionpanel').append('<input type="button" class="appButton" id="hexagonButton" value="Hexagon" style="width:25%"/>');
-  if (tamsvg.hexagon)
+  if (this.hexagon)
     $('#hexagonButton').addClass('selected');
   $('#optionpanel').append('<input type="button" class="appButton" id="bigonButton" value="Bi-gon" style="width:25%"/>');
-  if (tamsvg.bigon)
+  if (this.bigon)
     $('#bigonButton').addClass('selected');
   $('#optionpanel').append('<input type="button" class="appButton" id="phantomsButton" value="Phantoms" style="width:25%"/>');
-  if (tamsvg.dancers.length <= 8)
+  if (this.dancers.length <= 8)
     $('#phantomsButton').addClass('disabled');
-  else if (tamsvg.showPhantoms)
+  else if (this.showPhantoms)
     $('#phantomsButton').addClass('selected');
   $('#optionpanel').append('<input type="button" class="appButton" id="pathsButton" value="Paths" style="width:25%"/>');
-  if (tamsvg.showPaths)
+  if (this.showPaths)
     $('#pathsButton').addClass('selected');
 
   // Speed button actions
+  var me = this;
   $('#slowButton').click(function() {
-    if (tamsvg.isSlow()) {
-      tamsvg.normal(true);
+    if (me.isSlow()) {
+      me.normal(true);
       $('#slowButton').removeClass('selected');
     } else {
-      tamsvg.slow(true);
+      me.slow(true);
       $('#slowButton').addClass('selected');
       $('#fastButton').removeClass('selected');
     }
   });
   $('#fastButton').click(function() {
-    if (tamsvg.isFast()) {
-      tamsvg.normal();
+    if (me.isFast()) {
+      me.normal();
       $('#fastButton').removeClass('selected');
     } else {
-      tamsvg.fast(true);
+      me.fast(true);
       $('#fastButton').addClass('selected');
       $('#slowButton').removeClass('selected');
     }
@@ -2213,99 +2212,99 @@ function generateButtonPanel()
 
   // Actions for other options
   $('#loopButton').click(function() {
-    if (tamsvg.loop) {
-      tamsvg.loop = false;
+    if (me.loop) {
+      me.loop = false;
       $('#loopButton').removeClass('selected');
     } else {
-      tamsvg.loop = true;
+      me.loop = true;
       $('#loopButton').addClass('selected');
     }
-    cookie.loop = tamsvg.loop;
+    cookie.loop = me.loop;
     cookie.store(365,'/tamination');
   });
   $('#pathsButton').click(function() {
-    if (tamsvg.showPaths) {
-      tamsvg.showPaths = false;
-      tamsvg.setPaths(false);
+    if (me.showPaths) {
+      me.showPaths = false;
+      me.setPaths(false);
       //tamsvg.pathparent.setAttribute('visibility','hidden');
       $('#pathsButton').removeClass('selected');
     } else {
-      tamsvg.showPaths = true;
-      tamsvg.setPaths(true);
+      me.showPaths = true;
+      me.setPaths(true);
       //tamsvg.pathparent.setAttribute('visibility','visible');
       $('#pathsButton').addClass('selected');
     }
-    cookie.paths = tamsvg.showPaths;
+    cookie.paths = me.showPaths;
     cookie.store(365,'/tamination');
   });
   $('#gridButton').click(function() {
-    if (tamsvg.grid) {
-      tamsvg.grid = false;
-      tamsvg.hexgridgroup.setAttribute('visibility','hidden');
-      tamsvg.bigongridgroup.setAttribute('visibility','hidden');
-      tamsvg.gridgroup.setAttribute('visibility','hidden');
+    if (me.grid) {
+      me.grid = false;
+      me.hexgridgroup.setAttribute('visibility','hidden');
+      me.bigongridgroup.setAttribute('visibility','hidden');
+      me.gridgroup.setAttribute('visibility','hidden');
       $('#gridButton').removeClass('selected');
     } else {
-      tamsvg.grid = true;
-      if (tamsvg.hexagon)
-        tamsvg.hexgridgroup.setAttribute('visibility','visible');
-      else if (tamsvg.bigon)
-        tamsvg.bigongridgroup.setAttribute('visibility','visible');
+      me.grid = true;
+      if (me.hexagon)
+        me.hexgridgroup.setAttribute('visibility','visible');
+      else if (me.bigon)
+        me.bigongridgroup.setAttribute('visibility','visible');
       else
-        tamsvg.gridgroup.setAttribute('visibility','visible');
+        me.gridgroup.setAttribute('visibility','visible');
       $('#gridButton').addClass('selected');
     }
-    cookie.grid = tamsvg.grid;
+    cookie.grid = me.grid;
     cookie.store(365,'/tamination');
   });
   $('#phantomsButton').click(function() {
-    if (tamsvg.setPhantoms()) {
-      tamsvg.setPhantoms(false);
+    if (me.setPhantoms()) {
+      me.setPhantoms(false);
       $('#phantomsButton').removeClass('selected');
     } else {
-      tamsvg.setPhantoms(true);
+      me.setPhantoms(true);
       $('#phantomsButton').addClass('selected');
     }
-    tamsvg.animate();
+    me.animate();
   });
   $('#numbersButton').click(function() {
-    tamsvg.setNumbers(!tamsvg.setNumbers());
-    if (tamsvg.numbers) {
+    me.setNumbers(!me.setNumbers());
+    if (me.numbers) {
       $('#numbersButton').addClass('selected');
       $('#couplesButton').removeClass('selected');
     }
     else
       $('#numbersButton').removeClass('selected');
-    cookie.numbers = tamsvg.numbers;
+    cookie.numbers = me.numbers;
     cookie.store(365,'/tamination');
   });
   $('#couplesButton').click(function() {
-    tamsvg.setCouples(!tamsvg.setCouples());
-    if (tamsvg.couples) {
+    me.setCouples(!me.setCouples());
+    if (me.couples) {
       $('#couplesButton').addClass('selected');
       $('#numbersButton').removeClass('selected');
     }
     else
       $('#couplesButton').removeClass('selected');
-    cookie.couples = tamsvg.couples;
+    cookie.couples = me.couples;
     cookie.store(365,'/tamination');
   });
   $('#hexagonButton').click(function() {
-    tamsvg.toggleHexagon();
-    $('#hexagonButton').toggleClass('selected',tamsvg.hexagon);
+    me.toggleHexagon();
+    $('#hexagonButton').toggleClass('selected',me.hexagon);
     $('#bigonButton').removeClass('selected');
   });
   $('#bigonButton').click(function() {
-    tamsvg.toggleBigon();
-    $('#bigonButton').toggleClass('selected',tamsvg.bigon);
+    me.toggleBigon();
+    $('#bigonButton').toggleClass('selected',me.bigon);
     $('#hexagonButton').removeClass('selected');
   });
 
   // Slider
   $('#buttonpanel').append('<div id="playslider" style="margin:10px 10px 0 10px"></div>');
-  $('#playslider').slider({min: -200, max: tamsvg.beats*100, value: -200,
+  $('#playslider').slider({min: -200, max: this.beats*100, value: -200,
     slide: function(event,ui) {
-      tamsvg.setBeat(ui.value/100);
+      me.setBeat(ui.value/100);
     }});
   // Slider tick marks
   $('#buttonpanel').append('<div id="playslidertics" style="position: relative; height:10px; width:100%"></div>');
@@ -2314,20 +2313,20 @@ function generateButtonPanel()
 
   // Bottom row of buttons
   $('#buttonpanel').append('<input type="button" class="appButton" id="rewindButton" value="&lt;&lt;"/>');
-  $('#rewindButton').click(function() { tamsvg.rewind(); });
+  $('#rewindButton').click(function() { me.rewind(); });
   $('#buttonpanel').append('<input type="button" class="appButton" id="prevButton" value="|&lt;"/>');
-  $('#prevButton').click(function() { tamsvg.prev(); });
+  $('#prevButton').click(function() { me.prev(); });
   $('#buttonpanel').append('<input type="button" class="appButton" id="backButton" value="&lt;"/>');
-  $('#backButton').click(function() { tamsvg.backward(); });
+  $('#backButton').click(function() { me.backward(); });
   $('#buttonpanel').append('<input type="button" class="appButton" id="playButton" value="Play"/>');
-  $('#playButton').click(function() { tamsvg.play(); });
+  $('#playButton').click(function() { me.play(); });
   $('#buttonpanel').append('<input type="button" class="appButton" id="forwardButton" value="&gt;"/>');
-  $('#forwardButton').click(function() { tamsvg.forward(); });
+  $('#forwardButton').click(function() { me.forward(); });
   $('#buttonpanel').append('<input type="button" class="appButton" id="nextButton" value="&gt;|"/>');
-  $('#nextButton').click(function() { tamsvg.next(); });
+  $('#nextButton').click(function() { me.next(); });
   $('#buttonpanel').append('<input type="button" class="appButton" id="endButton" value="&gt;&gt;"/>');
-  $('#endButton').click(function() { tamsvg.end(); });
-  tamsvg.animationStopped = function()
+  $('#endButton').click(function() { me.end(); });
+  this.animationStopped = function()
   {
     $('#playButton').attr('value','Play');
   };
