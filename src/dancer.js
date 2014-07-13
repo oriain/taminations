@@ -163,6 +163,7 @@ define(['path','movement','vector','affinetransform','color'],
   Dancer.prototype.showPath = function()
   {
     this.pathgroup.setAttribute('visibility','visible');
+    this.beziergroup.setAttribute('visibility','hidden');
     this.pathVisible = true;
   };
 
@@ -295,6 +296,8 @@ define(['path','movement','vector','affinetransform','color'],
     };
     this.tamsvg.svg.remove(this.beziergroup);
     this.beziergroup = this.tamsvg.svg.group(this.tamsvg.pathparent);
+    //  Bezier is only visible if user alt-clicks a dancer
+    this.beziergroup.setAttribute('visibility','hidden');
     var points=[];
     var t = this.start;
     for (var i in this.path.movelist) {
