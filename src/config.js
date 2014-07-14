@@ -89,6 +89,8 @@ if (navigator.userAgent.indexOf('MSIE 8') > 0) {
     require(['tampage'],movementsPageInit);
   else if (document.URL.search('search.html') >= 0)
     require(['search'],function() { });
+  else if (document.URL.search('howtouse.html') >= 0)
+    require(['tampage'],function() { setupHighlights(); });
   else
     require(['tampage'],function() { });
 }
