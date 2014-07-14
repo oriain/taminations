@@ -19,7 +19,6 @@
 
  */
 
-var animations = 0;
 var currentcall = '';  // needed for tamination.js
 var callnamedict = {};
 var calldata;
@@ -346,11 +345,7 @@ $(document).bind('pagebeforechange',function(e,data)
     var u = $.mobile.path.parseUrl(data.toPage);
     if (u.hash.indexOf('#animlistpage') == 0) {
       htmlpage = u.hash.substring(14);
-      if (htmlpage.length < 1 && !animations)
-        // "refresh" - go back to main page
-        $.mobile.changePage('#level');
-      else
-        loadcall(data.options,htmlpage);
+      loadcall(data.options,htmlpage);
       e.preventDefault();
     }
     else if (u.hash.indexOf('#animation') == 0) {
@@ -418,7 +413,6 @@ $(document).bind('pagebeforechange',function(e,data)
 
 //  Code to build animation
 var args = {};
-var animations;
 var definitiondoc;
 function svgSize()
 {
