@@ -87,11 +87,18 @@ define(['path','movement','vector','affinetransform','color'],
         else
           dancer.showBezier();
       }
-      else if (ev.ctrlKey) {
+      else if (ev.shiftKey) {
         if (dancer.tamsvg.barstool == dancer)
           dancer.tamsvg.barstool = 0;
         else
           dancer.tamsvg.barstool = dancer;
+        dancer.tamsvg.paint();
+      }
+      else if (ev.ctrlKey) {
+        if (dancer.tamsvg.compass == dancer)
+          dancer.tamsvg.compass = 0;
+        else
+          dancer.tamsvg.compass = dancer;
         dancer.tamsvg.paint();
       }
       else {

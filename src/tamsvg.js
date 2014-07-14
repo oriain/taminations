@@ -163,7 +163,7 @@ define(['tamination','cookie','handhold','color','affinetransform','vector','bez
         this.barstoolmark = this.svg.circle(this.floor,0,0,0.2,{fill:'black'});
         var pth = this.svg.createPath();
         this.compassmark = this.svg.path(this.floor,
-            pth.move(0,-0.5).line(0,0.5).move(-0.5,0).line(0.5,0),
+            pth.move(0,-0.4).line(0,0.4).move(-0.4,0).line(0.4,0),
             {stroke:'black',strokeWidth:0.05});
         this.barstoolmark.setAttribute('visibility','hidden');
         this.compassmark.setAttribute('visibility','hidden');
