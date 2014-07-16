@@ -418,6 +418,7 @@
     <call text="Replace" level="Challenge" sublevel="C-1" link="c1/replace.html"/>
     <call text="Reset" level="Challenge" sublevel="C-3B" link="c3b/reset.html"/>
     <call text="Reshape the Triangle" level="Challenge" sublevel="C-2" link="c2/reshape_the_triangle.html"/>
+    <call text="Reverse" level="Advanced" sublevel="A-1" link="a1/reverse.html"/>
     <call text="Reverse Checkpoint" level="Challenge" sublevel="C-3B" link="c3b/reverse_checkpoint.html"/>
     <call text="Reverse Crazy Concept" level="Challenge" sublevel="C-2" link="c2/reverse_crazy_concept.html"/>
     <call text="Reverse Cross and Turn" level="Challenge" sublevel="C-1" link="c1/reverse_cross_and_turn.html"/>

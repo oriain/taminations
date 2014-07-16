@@ -48,8 +48,7 @@
 
   <tam title="Ladies In, Men Sashay"
        from="Circle Left"
-       formation="Circle" gender-specific="true"
-       parts="" >
+       formation="Circle" gender-specific="true">
     <path>
       <move select="Sxtnth Left" />
       <move select="cl" beats="2" />
@@ -99,8 +98,7 @@
 
   <tam title="Rollaway"
        from="Lines"
-       formation="Normal Lines" gender-specific="true"
-       parts="" >
+       formation="Normal Lines">
     <path>
       <move select="Dodge Right" hands="gripright" />
     </path>
