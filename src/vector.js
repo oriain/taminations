@@ -57,6 +57,15 @@ define(function() {
     return new Vector(this.x-v.x,this.y-v.y,this.z-v.z);
   };
 
+  Vector.prototype.scale = function(sx,sy,sz)
+  {
+    if (sy == undefined)
+      sy = sx;
+    if (sz == undefined)
+      sz = sy;
+    return new Vector(this.x*sx,this.y*sy,this.z*sz);
+  }
+
   //  Compute the cross product
   Vector.prototype.cross = function(v)
   {
