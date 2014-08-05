@@ -18,17 +18,41 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-define(['calls/box_call'],function(BoxCall) {
+define(['calls/box_call','movement'],function(BoxCall,Movement) {
   var BoxCounterRotate = Env.extend(BoxCall);
-  BoxCounterRotate.prototype.name = "BoxCounterRotate";
+  BoxCounterRotate.prototype.name = "Box Counter Rotate";
   Call.classes.boxcounterrotate = BoxCounterRotate;
   BoxCounterRotate.prototype.performOne = function(d,ctx)
   {
-    Vector v = d.location.scale(.5);
-    if (ctx.isLeft(d))
-      v = v.rotate(Math.PI/2)
-    else
-      v = v.rotate(-Math.PI/2)
+    var v = d.location;
+    var v2 = v;
+    var cy4, y4;
+    var a1 = d.angle*Math.PI/180;
+    var a2 = v.angle;
+    //  Determine if this is a rotate left or right
+    var angdif = Math.angleDiff(a2,a1);
+    if (angdif < 0) {
+      //  Left
+      v2 = v.rotate(Math.PI/2)
+      cy4 = 0.45;
+      y4 = 1;
+    }
+    else {
+      //  Right
+      v2 = v.rotate(-Math.PI/2)
+      cy4 = -0.45;
+      y4 = -1;
+    }
+    //  Compute the control points
+    var dv = v2.subtract(v).rotate(-a1);
+    var cv1 = v2.scale(.5).rotate(-a1);
+    var cv2 = v.scale(.5).rotate(-a1).add(dv);
+    var m = new Movement(
+        "none",2.0,
+        cv1.x,cv1.y,cv2.x,cv2.y,dv.x,dv.y,
+        0.55, 0, 1, cy4, 1, y4
+        );
+    return new Path(m);
   };
   return BoxCounterRotate;
 });

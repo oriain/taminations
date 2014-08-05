@@ -49,7 +49,7 @@ define(function() {
   //  Add/subtract two vectors
   Vector.prototype.add = function(v)
   {
-    return new Vector(thix.x+v.x,this.y+v.y,this.z+v.z);
+    return new Vector(this.x+v.x,this.y+v.y,this.z+v.z);
   };
 
   Vector.prototype.subtract = function(v)
