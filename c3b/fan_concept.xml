@@ -278,27 +278,28 @@
            xref-link="plus/fan_the_top"
            xref-from="Right-Hand Wave"/>
 
-  <tam title="Fan the Windmill Right" group=" "
-       formation="Quarter Tag">
+  <tam title="Fan 1/2 Cast and Relay" group=" "
+       from="Right-Hand Waves"
+       formation="Ocean Waves RH BGGB" parts="4.5;3">
     <path>
-      <move select="Quarter Right" />
-      <move select="Forward 2" />
-      <move select="Lead Left" beats="4" scaleX="3" scaleY="3" />
-      <move select="Lead Left" beats="4" scaleX="3" scaleY="2" />
+      <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2"/>
+      <move select="Swing Right"/>
+      <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2"/>
     </path>
     <path>
-      <move select="Quarter Right" />
-      <move select="Lead Left" beats="4" scaleX="3" scaleY="3" />
-      <move select="Lead Left" beats="4" scaleX="3" scaleY="3" />
-      <move select="Forward 3" />
+      <move select="Cast Left"/>
+      <move select="Swing Right"/>
+      <move select="Cast Left"/>
     </path>
     <path>
-      <move select="Stand" beats="3" />
-      <move select="Cast Right" />
+      <move select="Cast Left"/>
+      <move select="Swing Right"/>
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3"/>
     </path>
     <path>
-      <move select="Swing Left" />
-      <move select="Cast Right" />
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3"/>
+      <move select="Swing Right"/>
+      <move select="Cast Left"/>
     </path>
   </tam>
 
