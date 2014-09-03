@@ -345,6 +345,22 @@ CallContext.prototype.dancerInBack = function(d)
   });
 };
 
+//  Return dancer directly to the right of given dancer
+CallContext.prototype.dancerToRight = function(d)
+{
+  return this.dancerClosest(d,function(d2) {
+    return this.isRight(d,d2);
+  });
+};
+
+//  Return dancer directly to the left of given dancer
+CallContext.prototype.dancerToLeft = function(d)
+{
+  return this.dancerClosest(d,function(d2) {
+    return this.isLeft(d,d2);
+  });
+};
+
 //  Return dancers that are in between two other dancers
 CallContext.prototype.inBetween = function(d1,d2)
 {
