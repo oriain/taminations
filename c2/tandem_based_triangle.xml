@@ -52,7 +52,7 @@
       <dancer gender="girl" x="0" y="-3.1" angle="180"/>
     </formation>
     <path>
-      <move select="U-Turn Left" offsetX="1" offsetY=".25"/>
+      <move select="U-Turn Right" offsetX="1" offsetY=".25"/>
     </path>
     <path>
       <move select="Extend Left" beats="4" scaleY="2.5"/>

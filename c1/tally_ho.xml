@@ -220,14 +220,14 @@
   <tam title="Tally Ho" from="Left-Hand Two-Faced Lines" formation="Two-Faced Lines LH" parts="3;3">
     <path>
       <move select="Lead Left" hands="left" scaleX="3" scaleY="3" beats="3"/>
-      <move select="Run Left"/>
+      <move select="Flip Left"/>
       <move select="BackHinge Right"/>
       <move select="BackHinge Right"/>
       <move select="BackHinge Right"/>
     </path>
     <path>
       <move select="Lead Left" hands="right" beats="3"/>
-      <move select="Flip Right"/>
+      <move select="Run Right"/>
       <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3"/>
     </path>
     <path>
