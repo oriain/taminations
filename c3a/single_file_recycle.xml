@@ -25,12 +25,13 @@
 
 
   <tam title="Single File Recycle" from="Single Double Pass Thru"
-       formation="Single Double Pass Thru">
+       formation="Single Double Pass Thru" parts="1.5">
     <path couples="3 1">
       <move select="Extend Left" beats="4" scaleX="3" scaleY="3"/>
     </path>
     <path couples="3 1">
-      <move select="U-Turn Right" beats="4" offsetX="1" offsetY="1"/>
+      <move select="Extend Left" beats="1.5"/>
+      <move select="U-Turn Right" beats="2.5" />
     </path>
   </tam>
 
