@@ -68,7 +68,7 @@
     </path>
   </tam>
 
- <tam title="Choice" from="Right-Hand Tidal Wave" formation="Tidal Wave RH BGGB" parts="2">
+ <tam title="Choice" from="Right-Hand Tidal Wave" formation="Tidal Wave RH BGGB" parts="0;2">
     <path>
       <move select="Swing Right" beats="2" scaleX=".5" scaleY=".5" />
       <move select="Extend Right" beats="2" offsetX=".9" offsetY=".5" />
@@ -87,7 +87,7 @@
     </path>
   </tam>
 
-  <tam title="Choice" from="Concentric diamonds" parts="2">
+  <tam title="Choice" from="Concentric diamonds" parts="0;2">
     <formation>
       <dancer gender="boy" x="-1" y="0" angle="270"/>
       <dancer gender="girl" x="-3" y="0" angle="270"/>
