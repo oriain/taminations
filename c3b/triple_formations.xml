@@ -171,21 +171,22 @@
        group="Triple Boxes Working Left">
     <formation>
       <dancer gender="boy" x="2" y="5" angle="180"/>
-      <dancer gender="girl" x="2" y="3" angle="180"/>
-      <dancer gender="boy" x="2" y="1" angle="0"/>
+      <dancer gender="girl" x="2" y="3" angle="0"/>
+      <dancer gender="boy" x="2" y="1" angle="180"/>
       <dancer gender="girl" x="2" y="-1" angle="0"/>
     </formation>
     <path>
-      <move select="Extend Left" beats="5" hands="left" scaleX="4" scaleY="4"/>
+      <move select="Extend Left" beats="4" scaleX="4" scaleY="2"/>
     </path>
     <path>
-      <move select="Extend Left" beats="5" hands="right" scaleX="4" scaleY="4"/>
+      <move select="Run Right" beats="4" scaleY="2"/>
     </path>
     <path>
-      <move select="Flip Left" beats="5" scaleY="2"/>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2"/>
+      <move select="Forward 2"/>
     </path>
     <path>
-      <move select="Flip Left" beats="5" scaleY="2"/>
+      <move select="Flip Left" beats="4" scaleY="2"/>
     </path>
   </tam>
 
@@ -221,21 +222,22 @@
        group="Triple Boxes Working Right">
     <formation>
       <dancer gender="boy" x="2" y="5" angle="180"/>
-      <dancer gender="girl" x="2" y="3" angle="180"/>
-      <dancer gender="boy" x="2" y="1" angle="0"/>
+      <dancer gender="girl" x="2" y="3" angle="0"/>
+      <dancer gender="boy" x="2" y="1" angle="180"/>
       <dancer gender="girl" x="2" y="-1" angle="0"/>
     </formation>
     <path>
-      <move select="Extend Left" beats="5" hands="left" scaleX="4" scaleY="4"/>
+      <move select="Extend Left" beats="4" scaleX="4" scaleY="2"/>
     </path>
     <path>
-      <move select="Extend Left" beats="5" hands="right" scaleX="4" scaleY="4"/>
+      <move select="Run Right" beats="4" scaleY="2"/>
     </path>
     <path>
-      <move select="Flip Right" beats="5" scaleY="2"/>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2"/>
+      <move select="Forward 2"/>
     </path>
     <path>
-      <move select="Flip Right" beats="5" scaleY="2"/>
+      <move select="Flip Right" beats="4" scaleY="2"/>
     </path>
   </tam>
 
