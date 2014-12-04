@@ -311,7 +311,7 @@ function generateAnimations()
     prevgroup = $(this).attr('group');
     $('<input name="tamradio" type="radio" class="selectRadio"/>').appendTo("#animationlist")
       .click(function() { PickAnimation(n); });
-    $("#animationlist").append('<a class="selectAnimation" href="javascript:PickAnimation('+n+')">'+
+    $("#animationlist").append(' <a class="selectAnimation" href="javascript:PickAnimation('+n+')">'+
           name + '</a>');
     if ($("path",tam.animationXref(n)).length == 2)
       $("#animationlist").append(' <span class="comment">(4 dancers)</span>');

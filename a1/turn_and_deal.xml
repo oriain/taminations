@@ -337,19 +337,18 @@
 
   <tam title="All 8 Turn and Deal"
        from="Thar"
-       formation="Thar RH Boys"
-       parts="" >
+       formation="Thar RH Boys">
     <path>
-      <move select="U-Turn Right" beats="4" offsetX="2" offsetY="-2" />
+      <move select="U-Turn Right" beats="4" offsetX="3" offsetY="-2" />
     </path>
     <path>
-      <move select="U-Turn Left" beats="4" offsetX="-2" offsetY="2" />
+      <move select="U-Turn Left" beats="4" offsetX="-3" offsetY="2" />
     </path>
     <path>
-      <move select="U-Turn Right" beats="4" offsetX="2" offsetY="-2" />
+      <move select="U-Turn Right" beats="4" offsetX="3" offsetY="-2" />
     </path>
     <path>
-      <move select="U-Turn Left" beats="4" offsetX="-2" offsetY="2" />
+      <move select="U-Turn Left" beats="4" offsetX="-3" offsetY="2" />
     </path>
   </tam>
 
@@ -358,16 +357,16 @@
        formation="Thar LH Boys"
        parts="" >
     <path>
-      <move select="U-Turn Left" beats="4" offsetX="-2" offsetY="2" />
+      <move select="U-Turn Left" beats="4" offsetX="-3" offsetY="2" />
     </path>
     <path>
-      <move select="U-Turn Right" beats="4" offsetX="2" offsetY="-2" />
+      <move select="U-Turn Right" beats="4" offsetX="3" offsetY="-2" />
     </path>
     <path>
-      <move select="U-Turn Left" beats="4" offsetX="-2" offsetY="2" />
+      <move select="U-Turn Left" beats="4" offsetX="-3" offsetY="2" />
     </path>
     <path>
-      <move select="U-Turn Right" beats="4" offsetX="2" offsetY="-2" />
+      <move select="U-Turn Right" beats="4" offsetX="3" offsetY="-2" />
     </path>
   </tam>
 </tamination>
