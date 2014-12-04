@@ -21,36 +21,9 @@
 
 -->
 <tamination>
-  
-  
-  
 
-  <tam title="Quarter the Top" 
-       from="Right-Hand Thar"
-       formation="Thar LH Boys"
-       parts="3" >
-    <path>
-      <move select="Swing Right" />
-      <move select="Sxtnth" />
-    </path>
-    <path>
-      <move select="Swing Right" />
-      <move select="Lead Left 1/2" hands="left" />
-      <move select="H16th" />
-    </path>
-    <path>
-      <move select="Swing Right" />
-      <move select="Sxtnth" />
-    </path>
-    <path>
-      <move select="Swing Right" />
-      <move select="Lead Left 1/2" hands="left" />
-      <move select="H16th" />
-    </path>
-  </tam>
-
-  <tam title="Quarter the Top" 
-       from="Left-Hand Thar"
+  <tam title="Quarter the Top"
+       from="Thar"
        formation="Thar RH Boys"
        parts="3" >
     <path>
@@ -73,32 +46,32 @@
     </path>
   </tam>
 
-  <tam title="Half the Top" 
-       from="Right-Hand Thar"
+  <tam title="Quarter the Top"
+       from="Wrong Way Thar"
        formation="Thar LH Boys"
        parts="3" >
     <path>
       <move select="Swing Right" />
-      <move select="Lead Right 1/2" beats="2.25" scaleX="3" scaleY="3" />
+      <move select="Sxtnth" />
     </path>
     <path>
       <move select="Swing Right" />
-      <move select="Hinge Left" />
       <move select="Lead Left 1/2" hands="left" />
+      <move select="H16th" />
     </path>
     <path>
       <move select="Swing Right" />
-      <move select="Lead Right 1/2" beats="2.25" scaleX="3" scaleY="3" />
+      <move select="Sxtnth" />
     </path>
     <path>
       <move select="Swing Right" />
-      <move select="Hinge Left" />
       <move select="Lead Left 1/2" hands="left" />
+      <move select="H16th" />
     </path>
   </tam>
 
-  <tam title="Half the Top" 
-       from="Left-Hand Thar"
+  <tam title="Half the Top"
+       from="Thar"
        formation="Thar RH Boys"
        parts="3" >
     <path>
@@ -121,8 +94,58 @@
     </path>
   </tam>
 
-  <tam title="Three Quarter the Top" 
-       from="Right-Hand Thar"
+  <tam title="Half the Top"
+       from="Wrong Way Thar"
+       formation="Thar LH Boys"
+       parts="3" >
+    <path>
+      <move select="Swing Right" />
+      <move select="Lead Right 1/2" beats="2.25" scaleX="3" scaleY="3" />
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="Hinge Left" />
+      <move select="Lead Left 1/2" hands="left" />
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="Lead Right 1/2" beats="2.25" scaleX="3" scaleY="3" />
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="Hinge Left" />
+      <move select="Lead Left 1/2" hands="left" />
+    </path>
+  </tam>
+
+  <tam title="Three Quarter the Top"
+       from="Thar"
+       formation="Thar RH Boys"
+       parts="3" >
+    <path>
+      <move select="Swing Left" />
+      <move select="Lead Left 1/2" beats="2.25" scaleX="3" scaleY="3" />
+      <move select="Sxtnth" reflect="-1" />
+    </path>
+    <path>
+      <move select="Swing Left" />
+      <move select="Swing Right" />
+      <move select="H16th" reflect="-1" />
+    </path>
+    <path>
+      <move select="Swing Left" />
+      <move select="Lead Left 1/2" beats="2.25" scaleX="3" scaleY="3" />
+      <move select="Sxtnth" reflect="-1" />
+    </path>
+    <path>
+      <move select="Swing Left" />
+      <move select="Swing Right" />
+      <move select="H16th" reflect="-1" />
+    </path>
+  </tam>
+
+  <tam title="Three Quarter the Top"
+       from="Wrong Way Thar"
        formation="Thar LH Boys"
        parts="3" >
     <path>
@@ -147,29 +170,4 @@
     </path>
   </tam>
 
-  <tam title="Three Quarter the Top" 
-       from="Left-Hand Thar"
-       formation="Thar RH Boys"
-       parts="3" >
-    <path>
-      <move select="Swing Left" />
-      <move select="Lead Left 1/2" beats="2.25" scaleX="3" scaleY="3" />
-      <move select="Sxtnth" reflect="-1" />
-    </path>
-    <path>
-      <move select="Swing Left" />
-      <move select="Swing Right" />
-      <move select="H16th" reflect="-1" />
-    </path>
-    <path>
-      <move select="Swing Left" />
-      <move select="Lead Left 1/2" beats="2.25" scaleX="3" scaleY="3" />
-      <move select="Sxtnth" reflect="-1" />
-    </path>
-    <path>
-      <move select="Swing Left" />
-      <move select="Swing Right" />
-      <move select="H16th" reflect="-1" />
-    </path>
-  </tam>
 </tamination>
