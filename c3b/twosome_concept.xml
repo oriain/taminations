@@ -171,7 +171,7 @@
     </path>
   </tam>
 
-  <tamxref title="Couples Twosome (C-3B) Boomerang" group="Couples Twosome (C-3B)"
+  <tamxref title="Couples Twosome Boomerang" group="Couples Twosome"
            xref-link="c3b/boomerang"
            xref-title="Couples Twosome Boomerang"/>
 
@@ -248,9 +248,40 @@
     </path>
   </tam>
 
-  <tamxref title="Tandem Twosome (C-3B) Boomerang" group="Tandem Twosome (C-3B)"
+  <tamxref title="Tandem Twosome Boomerang" group="Tandem Twosome"
            xref-link="c3b/boomerang"
            xref-title="Tandem Twosome Boomerang"/>
+
+  <tam title="Tandem, Tandem Twosome Touch a Quarter"
+       group="Tandem, Tandem Twosome">
+    <formation>
+      <dancer gender="girl" x=".8" y="0" angle="180"/>
+      <dancer gender="boy" x="3.6" y="0" angle="180"/>
+      <dancer gender="girl" x="2.2" y="0" angle="180"/>
+      <dancer gender="boy" x="5.0" y="0" angle="180"/>
+    </formation>
+    <path>
+      <move select="Extend Left" beats="2" scaleY="1.5"/>
+      <move select="Forward" beats="3" scaleX="2.8"/>
+      <move select="Quarter Right" beats="3" offsetY="-3.5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleY="1.5"/>
+      <move select="Forward" beats="3" scaleX="2.8"/>
+      <move select="Quarter Right" beats="3" offsetX=".8" offsetY="-3.5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleY="1.5"/>
+      <move select="Forward" beats="3" scaleX="2.8"/>
+      <move select="Quarter Right" beats="3" offsetX="1.4" offsetY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleY="1.5"/>
+      <move select="Forward" beats="3" scaleX="2.8"/>
+      <move select="Quarter Right" beats="3" offsetX="2.2" offsetY=".5"/>
+    </path>
+  </tam>
+
 
 </tamination>
 
