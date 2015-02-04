@@ -25,19 +25,18 @@ require(['jquery','tamination','tamsvg','jqueryui'],function($) {
 
   //  Pull the call name and any settings out of the URL
   var search = document.URL.split(/\?/)[1];
-  args = search.split(/&/);
-  var page = args[0].split(/\./)[0];
-  var call = args[0].split(/\./)[1];
-  if (call == null) {
-    page = args[0];
-    call = '';
+  var params = [];
+  if (search != null) {
+    params = search.split(/\&/);
+    var page = params[0].split(/\./)[0];
+    var call = params[0].split(/\./)[1];
+    if (call == null) {
+      params = search[0];
+      call = '';
+    }
   }
   page += '.xml';
-  var params = {};
-  for (var i = 1; i < args.length; i++) {
-    params[args[i]] = 1;
-  }
-  args = params;
+  args = search.toArgs();
 
   //  This sizes the animation to fit the frame
   function dims() {

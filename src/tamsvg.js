@@ -50,24 +50,33 @@ define(['tamination','cookie','handhold','color','affinetransform','vector','bez
         this.animationListener = null;
         this.titlegroup = false;
         $(document).bind("contextmenu",function() { return false; });
-        //  Get initial values from cookie
-        //  This is a hook to test hexagon
+        //  Get initial values from cookie and anything in the URL
+        if (typeof args != 'object')
+          args = {};
         this.hexagon = cookie.hexagon == "true";
-        if (typeof args != 'undefined' && args.hexagon)
-          this.hexagon = true;
+        if (typeof args.hexagon != 'undefined')
+          this.hexagon = args.hexagon;
         this.bigon = cookie.bigon == "true";
-        if (typeof args != 'undefined' && args.bigon)
-          this.bigon = true;
+        if (typeof args.bigon != 'undefined')
+          this.bigon = args.bigon;
         if (cookie.speed == 'slow')
           this.slow(true);
         else if (cookie.speed == 'fast')
           this.fast(true);
         else
           this.normal(true);
-        this.loop = cookie.loop == "true" || args.loop;
+        this.loop = cookie.loop == "true";
+        if (typeof args.loop != 'undefined')
+          this.loop = args.loop;
         this.grid = cookie.grid == "true";
-        this.numbers = cookie.numbers == 'true' || args.numbers;
-        this.couples = cookie.couples == 'true' || args.couples;
+        if (typeof args.grid != 'undefined')
+          this.grid = args.grid;
+        this.numbers = cookie.numbers == 'true';
+        if (typeof args.numbers != 'undefined')
+          this.numbers = args.numbers;
+        this.couples = cookie.couples == 'true';
+        if (typeof args.couples != 'undefined')
+          this.couples = args.couples;
         if (this.couples)
           this.numbers = false;
         this.showPhantoms = cookie.phantoms == "true";

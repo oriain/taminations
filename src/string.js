@@ -46,11 +46,30 @@ define(function() {
     return this.toCapCase().collapse();
   };
 
+  /**  Parse parameters out of a search string  */
+  String.prototype.toArgs = function() {
+    var args = {};
+    this.split(/\&/).forEach(function(a) {
+      var v = true;
+      var b = a.split(/=/);
+      if (b.length > 1) {
+        a = b[0];
+        v = b[1];
+        if (v.match(/n|no|false|0/i))
+          v = false;
+      }
+      a = a.toLowerCase().replace(/\W/g,"");
+      args[a] = v;
+    });
+    return args;
+  };
+
   Object.defineProperties(String.prototype, {
     toCapCase: funcprop,
     trim: funcprop,
     collapse: funcprop,
-    toCamelCase: funcprop
+    toCamelCase: funcprop,
+    toArgs: funcprop
   });
   return String;
 });
