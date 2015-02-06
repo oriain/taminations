@@ -1,6 +1,6 @@
 /*
 
-    Copyright 2014 Brad Christie
+    Copyright 2015 Brad Christie
 
     This file is part of Taminations.
 
@@ -54,10 +54,10 @@ define(['tamination','cookie','handhold','color','affinetransform','vector','bez
         if (typeof args != 'object')
           args = {};
         this.hexagon = cookie.hexagon == "true";
-        if (typeof args.hexagon != 'undefined')
+        if (args.hexagon !== undefined)
           this.hexagon = args.hexagon;
         this.bigon = cookie.bigon == "true";
-        if (typeof args.bigon != 'undefined')
+        if (args.bigon !== undefined)
           this.bigon = args.bigon;
         if (cookie.speed == 'slow')
           this.slow(true);
@@ -66,16 +66,16 @@ define(['tamination','cookie','handhold','color','affinetransform','vector','bez
         else
           this.normal(true);
         this.loop = cookie.loop == "true";
-        if (typeof args.loop != 'undefined')
+        if (args.loop != undefined)
           this.loop = args.loop;
         this.grid = cookie.grid == "true";
-        if (typeof args.grid != 'undefined')
+        if (args.grid != undefined)
           this.grid = args.grid;
         this.numbers = cookie.numbers == 'true';
-        if (typeof args.numbers != 'undefined')
+        if (args.numbers != undefined)
           this.numbers = args.numbers;
         this.couples = cookie.couples == 'true';
-        if (typeof args.couples != 'undefined')
+        if (args.couples != undefined)
           this.couples = args.couples;
         if (this.couples)
           this.numbers = false;

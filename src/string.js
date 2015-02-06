@@ -1,6 +1,6 @@
 /*
 
-    Copyright 2014 Brad Christie
+    Copyright 2015 Brad Christie
 
     This file is part of TAMinations.
 
@@ -48,8 +48,7 @@ define(function() {
 
   /**  Parse parameters out of a search string  */
   String.prototype.toArgs = function() {
-    var args = {};
-    this.split(/\&/).forEach(function(a) {
+    return this.split(/\&/).reduce(function(args,a) {
       var v = true;
       var b = a.split(/=/);
       if (b.length > 1) {
@@ -60,8 +59,8 @@ define(function() {
       }
       a = a.toLowerCase().replace(/\W/g,"");
       args[a] = v;
-    });
-    return args;
+      return args;
+    },{});
   };
 
   Object.defineProperties(String.prototype, {

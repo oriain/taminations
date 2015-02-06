@@ -1,6 +1,6 @@
 /*
 
-    Copyright 2014 Brad Christie
+    Copyright 2015 Brad Christie
 
     This file is part of TAMinations.
 
@@ -20,7 +20,7 @@
  */
 "use strict";
 
-//Math class extensions
+//  Math class extensions
 define(function() {
 
   var funcprop = {writable: true, enumerable: false};

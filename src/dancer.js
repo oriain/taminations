@@ -1,6 +1,6 @@
 /*
 
-    Copyright 2014 Brad Christie
+    Copyright 2015 Brad Christie
 
     This file is part of Taminations.
 
@@ -314,8 +314,7 @@ define(['path','movement','vector','affinetransform','color'],
     this.beziergroup.setAttribute('visibility','hidden');
     var points=[];
     var t = this.start;
-    for (var i in this.path.movelist) {
-      var m = this.path.movelist[i];
+    this.path.movelist.forEach(function(m,i) {
       var pt = ff(0,0,t);
       points.push(pt);
       this.tamsvg.svg.circle(this.beziergroup,pt[0],pt[1],0.2,{fill:this.drawcolor.toString()});
@@ -330,7 +329,7 @@ define(['path','movement','vector','affinetransform','color'],
       this.tamsvg.svg.circle(this.beziergroup,pt[0],pt[1],0.2,{fill:this.drawcolor.toString()});
       t = new AffineTransform(this.start);
       t.concatenate(this.path.transformlist[i]);
-    }
+    },this);
     this.tamsvg.svg.polyline(this.beziergroup,points,
         {fill:'none',stroke:'black',strokeWidth:0.1,strokeOpacity:.3});
   };
@@ -348,16 +347,17 @@ define(['path','movement','vector','affinetransform','color'],
     this.tx = new AffineTransform(this.start);
     var m = null;
     if (this.path != null) {
-      for (var i=0; i<this.path.movelist.length; i++) {
-        m = this.path.movelist[i];
-        if (beat >= this.path.movelist[i].beats) {
+      this.path.movelist.every(function(mi,i) {
+        m = mi;
+        if (beat >= m.beats) {
           this.tx = new AffineTransform(this.start);
           this.tx.concatenate(this.path.transformlist[i]);
-          beat -= this.path.movelist[i].beats;
+          beat -= m.beats;
           m = null;
+          return true;
         } else
-          break;
-      }
+          return false;
+      },this);
     }
     //  Apply movement in progress
     if (m != null) {

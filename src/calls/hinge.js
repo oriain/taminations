@@ -1,6 +1,6 @@
 /*
 
-    Copyright 2014 Brad Christie
+    Copyright 2015 Brad Christie
 
     This file is part of Taminations.
 
@@ -44,3 +44,5 @@ define(['calls/box_call'],function(BoxCall) {
   }
   return Hinge;
 });
+
+//# sourceURL=hinge.js

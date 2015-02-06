@@ -1,6 +1,6 @@
 /*
 
-    Copyright 2014 Brad Christie
+    Copyright 2015 Brad Christie
 
     This file is part of Taminations.
 
@@ -101,7 +101,7 @@ define(['vector'],function(Vector) {
     this.y2 *= y;
   };
 
-//Add a rotation to this transform
+  //  Add a rotation to this transform
   AffineTransform.prototype.rotate = function(angle)
   {
     var sin = Math.sin(angle);

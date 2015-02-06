@@ -1,6 +1,6 @@
 /*
 
-    Copyright 2014 Brad Christie
+    Copyright 2015 Brad Christie
 
     This file is part of Taminations.
 
@@ -28,3 +28,5 @@ define(["calls/filter_actives"],function(FilterActives) {
   };
   return Ends;
 });
+
+//# sourceURL=ends.js

@@ -1,6 +1,6 @@
 /*
 
-    Copyright 2014 Brad Christie
+    Copyright 2015 Brad Christie
 
     This file is part of TAMinations.
 
@@ -42,6 +42,7 @@ define(function() {
       return a1.concat(a2 instanceof Array ? a2.flatten() : a2);
     },[]);
   };
+
 
   Object.defineProperties(Array.prototype, {
     first: funcprop,

@@ -1,6 +1,6 @@
 /*
 
-    Copyright 2014 Brad Christie
+    Copyright 2015 Brad Christie
 
     This file is part of Taminations.
 
@@ -62,32 +62,12 @@ var leveldata = [
 
 function findLevel(str)
 {
-  for (var i=0; i<leveldata.length; i++) {
-    if (leveldata[i].dir == str || leveldata[i].name == str)
-      return leveldata[i];
-  }
+  return leveldata.filter(function(j) {
+    return j.dir == str || j.name == str;
+  })[0];
 }
 
 TAMination.loadXML('calls.xml',function(a) { calldata = a; });
-
-//  Given an url or other fragment, parse out "a=b args" into an object
-function parseArgs(str)
-{
-  //  If arg not given, use document URL
-  str = str || document.URL;
-  if (str.match(/[?#]/))
-    str = str.split(/[?#]/)[1];
-  var a = str.split(/\&/);
-  var retval = {};
-  for (var i=0; i<a.length; i++) {
-    var a1 = a[i].split(/=/);
-    if (a1.length > 1)
-      retval[a1[0]] = a1[1];
-    else
-      retval[a1[0]] = true;
-  }
-  return retval;
-}
 
 //  This function is called just once after the html has loaded
 //  Other mobile-specific callbacks are called for each page change
