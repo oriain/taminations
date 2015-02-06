@@ -24,19 +24,19 @@
 
   <tam title="Lift Off" group=" " parts="3;4;2">
     <formation>
-      <dancer gender="boy" x="3" y="1" angle="0"/>
-      <dancer gender="girl" x="3" y="-1" angle="0"/>
+      <dancer gender="boy" x="1" y="1" angle="0"/>
+      <dancer gender="girl" x="1" y="-1" angle="0"/>
       <dancer gender="boy" x="-1" y="-3" angle="90"/>
       <dancer gender="girl" x="1" y="-3" angle="90"/>
     </formation>
     <path>
-      <move select="Quarter Right" beats="3" hands="right" offsetY="-1"/>
+      <move select="Hinge Right" beats="3" offsetX="1"/>
       <move select="Stand" beats="4"/>
       <move select="Forward 2" hands="right"/>
       <move select="Run Right" beats="5" hands="right" scaleX="3" scaleY="3"/>
     </path>
     <path>
-      <move select="BackHinge Left" beats="3" offsetX="-1"/>
+      <move select="Quarter Right" hands="left" beats="3" offsetY="1"/>
       <move select="Forward"/>
       <move select="Run Right" offsetX="2"/>
       <move select="Forward" beats="2" hands="left"/>
@@ -58,20 +58,20 @@
 
   <tam title="Mirror Lift Off" group=" " parts="3;4;2">
     <formation>
-      <dancer gender="boy" x="3" y="1" angle="0"/>
-      <dancer gender="girl" x="3" y="-1" angle="0"/>
+      <dancer gender="boy" x="1" y="1" angle="0"/>
+      <dancer gender="girl" x="1" y="-1" angle="0"/>
       <dancer gender="boy" x="-1" y="-3" angle="90"/>
       <dancer gender="girl" x="1" y="-3" angle="90"/>
     </formation>
     <path>
-      <move select="BackHinge Right" beats="3" offsetX="-1"/>
+      <move select="Quarter Left" hands="right" beats="3" offsetY="-1"/>
       <move select="Forward"/>
       <move select="Run Left" offsetX="2"/>
       <move select="Forward" beats="2" hands="right"/>
       <move select="Forward 4" beats="5" hands="right"/>
     </path>
     <path>
-      <move select="Quarter Left" beats="3" hands="left" offsetY="1"/>
+      <move select="Hinge Left" beats="3" offsetX="1"/>
       <move select="Stand" beats="4"/>
       <move select="Forward 2" hands="left"/>
       <move select="Run Left" beats="5" hands="left" scaleX="3" scaleY="3"/>
