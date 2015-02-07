@@ -26,7 +26,7 @@
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
        parts="3;4.5;3;4.5;4" difficulty="1">
-    <path>
+    <path numbers="2 6">
       <move select="Swing Right" />
       <move select="Cast Left" />
       <move select="Swing Right" />
@@ -38,7 +38,7 @@
       <move select="Forward" beats="2" scaleX="2.2" scaleY="2.2" />
       <move select="Lead Right" scaleX="1.5" scaleY=".5" />
     </path>
-    <path>
+    <path numbers="5 1">
       <move select="Swing Right" />
       <move select="Stand" beats="2" />
       <move select="Flip Right" beats="5.5" />
@@ -51,7 +51,7 @@
       <move select="Hinge Right" hands="nohands" />
       <move select="Swing Right" hands="nohands" offsetX="-.5" />
     </path>
-    <path>
+    <path numbers="7 3">
       <move select="Swing Right" />
       <move select="Stand" beats="2" />
       <move select="Flip Right" beats="5.5" />
@@ -63,7 +63,7 @@
       <move select="Hinge Right" scaleX=".5" offsetY=".3" />
       <move select="Quarter Right" />
     </path>
-    <path>
+    <path numbers="8 4">
       <move select="Swing Right" />
       <move select="Cast Left" />
       <move select="Stand" beats="3" />
