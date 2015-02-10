@@ -34,8 +34,7 @@
       <move select="Quarter Left" beats="2" offsetX="1" offsetY="-1.5" />
     </path>
     <taminator>
-      Slide Thru is just <a href="star_thru.html">Star Thru</a>
-      with no hands.
+      Slide Thru is just Star Thru with no hands.
     </taminator>
   </tam>
 
@@ -136,8 +135,7 @@
       <move select="Quarter Left" beats="2" offsetX="1" offsetY="-1" />
     </path>
     <taminator>
-      This is an example of the
-      <a href="../general/ocean_wave_rule.html">Ocean Wave Rule</a>.
+      This is an example of the Ocean Wave Rule.
     </taminator>
   </tam>
 
@@ -162,10 +160,8 @@
       <move select="Quarter Left" beats="2" offsetX="1" offsetY="-.5" />
     </path>
     <taminator>
-    Unlike <a href="star_thru.html">Star Thru</a>,
-    Slide Thru can be done facing the same sex.
-    For the boys it's a no-hands
-    <a href="touch_a_quarter.html">Touch a Quarter.</a>
+    Unlike Star Thru, Slide Thru can be done facing the same sex.
+    For the boys it's a no-hands Touch a Quarter.
     The girls pass thru and face left.
     </taminator>
   </tam>

@@ -94,13 +94,3 @@
                  x CDATA #REQUIRED
                  y CDATA #REQUIRED
                  angle CDATA #REQUIRED >
-
-<!-- This is for calls.xml, used to generate the menus,
-     and for callindex.xml, used for the sequencer  -->
-<!ELEMENT calls (call+)>
-<!ELEMENT call EMPTY>
-<!ATTLIST call text CDATA #REQUIRED
-               level CDATA #IMPLIED
-               sublevel CDATA #IMPLIED
-               link CDATA #IMPLIED
-               anim CDATA #IMPLIED >

@@ -120,6 +120,7 @@ CallContext.prototype.interpretCall = function(calltext)
     this.dancers.forEach(function(d) {
       d.path = new Path();
     });
+    this.callname = '';
     //  If a partial interpretation is found (like 'boys' of 'boys run')
     //  it gets popped off the front and this loop interprets the rest
     while (callwords.length > 0) {

@@ -1,5 +1,4 @@
-/*
-
+<!--
     Copyright 2015 Brad Christie
 
     This file is part of Taminations.
@@ -16,24 +15,12 @@
 
     You should have received a copy of the GNU Affero General Public License
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
+-->
 
- */
-
-define(['calls/quarter_turns'],function(QuarterTurns) {
-  var Roll = Env.extend(QuarterTurns);
-  Roll.prototype.name = "and Roll";
-  Call.classes.androll = Roll;
-  Call.classes.androll = Roll;
-  Roll.prototype.select = function(ctx,d) {
-    //  Look at the last curve of the past
-    var roll = d.path.movelist.last().brotate.rolling();
-    if (roll < -1)
-      return 'Quarter Right';
-    if (roll > 1)
-      return 'Quarter Left';
-    return 'Stand';
-  };
-  return Roll;
-});
-
-//# sourceURL=roll.js
+<!ELEMENT calls (call+)>
+<!ELEMENT call EMPTY>
+<!ATTLIST call text CDATA #REQUIRED
+               level CDATA #IMPLIED
+               sublevel CDATA #IMPLIED
+               link CDATA #IMPLIED
+               anim CDATA #IMPLIED >

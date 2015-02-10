@@ -28,7 +28,7 @@ ZIP ?= zip
 UNZIP ?= unzip
 ZIPFILE = ../tamination.zip
 DIRS = b1 b2 ms plus a1 a2 c1 c2 c3a c3b info .
-XMLSRC = calls.xml callindex.xml formations.xml moves.xml tamination.dtd
+XMLSRC = calls.xml callindex.xml formations.xml moves.xml calls.dtd tamination.dtd
 XMLCOPIES = $(foreach dir,$(DIRS),$(addprefix ../$(dir)/,$(XMLSRC)))
 CALLINDEX = callindex.xml
 
@@ -55,7 +55,7 @@ clean :
 #  The wildcard * pattern apparently conveniently excludes .* files
 ../tamination.zip : $(filter-out $(ZIPFILE),$(wildcard ../* ../*/*))
 	-$(RM) $(ZIPFILE)
-	cd .. && $(ZIP) -rq tamination.zip info $(DIRS) src ext *.html *.txt *.ico *.xml
+	cd .. && $(ZIP) -rq tamination.zip info $(DIRS) src ext *.html *.txt *.ico *.xml *.dtd
 
 #  Generate index used by sequencer
 $(CALLINDEX) : $(filter-out $(XMLCOPIES),$(wildcard ../*/*.xml) $(wildcard calls/*.js))

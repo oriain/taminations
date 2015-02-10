@@ -63,6 +63,15 @@ define(['affinetransform'],function(AffineTransform) {
     return AffineTransform.getRotateInstance(theta);
   };
 
+  //  Return turn direction at end of curve
+  Bezier.prototype.rolling = function()
+  {
+    var v1 = new Vector(this.x2-this.ctrlx2,this.y2-this.ctrly2);
+    var v2 = new Vector(this.x2-this.ctrlx1,this.y2-this.ctrly1);
+    var vx = v2.cross(v1);
+    return vx.z;
+  }
+
   //  Return the angle of the 2nd derivative given "t" between 0 and 1
   Bezier.prototype.turn = function(t)
   {

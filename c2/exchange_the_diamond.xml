@@ -33,7 +33,7 @@
       <move select="Lead Left" beats="3" scaleY="3" />
     </path>
     <path numbers="2 7">
-      <move select="Lead Right" beats="3" scaleY="3" ></move>
+      <move select="Lead Right" beats="3" scaleY="3" />
       <move select="Lead Left" beats="3" scaleX="3" scaleY="3" />
       <move select="Lead Left" beats="3" scaleY="3" />
       <move select="Lead Left" beats="3" scaleX="3" />
@@ -45,10 +45,10 @@
       <move select="Lead Left" beats="3" scaleY="3" />
     </path>
     <path numbers="8 1">
-    	<move select="Lead Right" beats="3" scaleY="3" />
-    	<move select="Lead Right" beats="3" scaleX="2" />
-    	<move select="Lead Right" beats="3" scaleY="2" />
-    	<move select="Lead Left" beats="3" scaleX="3" scaleY="3" />
+      <move select="Lead Right" beats="3" scaleY="3" />
+      <move select="Lead Right" beats="3" scaleX="2" />
+      <move select="Lead Right" beats="3" scaleY="2" />
+      <move select="Lead Left" beats="3" scaleX="3" scaleY="3" />
     </path>
   </tam>
 </tamination>

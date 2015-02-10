@@ -180,7 +180,7 @@
       <move select="Swing Right" />
     </path>
     <taminator>
-      This is an example of the <a href="facing_couples_rule.html">Facing Couples</a> rule.
+      This is an example of the Facing Couples rule.
     </taminator>
   </tam>
 
@@ -201,7 +201,7 @@
     </path>
     <taminator>
       The center dancers do not extend to the outside dancers.
-      The <a href="facing_couples_rule.html">Facing Couples</a> rule does not apply
+      The Facing Couples rule does not apply
       here because the center dancers are already in a wave.
     </taminator>
   </tam>
@@ -383,8 +383,8 @@
       <move select="Swing Right" />
     </path>
     <taminator>
-      This is an example of the <a href="facing_couples_rule.html">Facing Couples</a> rule.
-      Because this is a <b>Left</b> Swing Thru, dancers first extend to
+      This is an example of the Facing Couples rule.
+      Because this is a Left Swing Thru, dancers first extend to
       a Left-Hand Wave.
     </taminator>
   </tam>

@@ -81,7 +81,7 @@
       <move select="Run Right" beats="4" hands="gripright" scaleX="2" scaleY="2" offsetX="1" />
     </path>
     <taminator>
-      Be careful not to do a <a href="ferris_wheel.html">Ferris Wheel</a>!
+      Be careful not to do a Ferris Wheel!
     </taminator>
   </tam>
 
@@ -102,7 +102,7 @@
       <move select="Run Left" beats="4" hands="gripleft" scaleY="2" offsetX="1" />
     </path>
     <taminator>
-      Be careful not to do a <a href="ferris_wheel.html">Ferris Wheel</a>!
+      Be careful not to do a Ferris Wheel!
     </taminator>
   </tam>
 

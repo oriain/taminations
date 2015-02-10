@@ -25,7 +25,7 @@
   <tam title="Switch the Wave" from="Right-Hand Wave"
        formation="Wave RH Boys Center">
     <path numbers="2 3" couples="3 1">
-      <move select="Run Right" />
+      <move select="Run Right" beats="6"/>
     </path>
     <path numbers="1 4" couples="1 3">
       <move select="Run Right" beats="6" scaleY="2" />
@@ -37,7 +37,7 @@
       <move select="Run Left" beats="6" scaleY="2" />
     </path>
     <path numbers="3 2" couples="3 1">
-      <move select="Run Left" />
+      <move select="Run Left" beats="6"/>
     </path>
   </tam>
 

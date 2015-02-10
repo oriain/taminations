@@ -84,7 +84,7 @@
       <move select="Extend Right" beats="2" scaleX="1.5" scaleY=".5" />
     </path>
     <taminator>
-      This is an example of the <a href="ocean_wave_rule.html">Ocean Wave</a> rule.
+      This is an example of the Ocean Wave rule.
     </taminator>
   </tam>
 </tamination>

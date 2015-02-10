@@ -102,8 +102,7 @@
       <move select="Beau Wheel" scaleX=".67" />
     </path>
     <taminator>
-      This is often called after
-      <a href="spin_the_top.html?SpintheTopfromRightHandWaves">Spin the Top</a>
+      This is often called after Spin the Top
     </taminator>
   </tam>
 
@@ -123,10 +122,6 @@
     <path>
       <move select="Quarter Left" beats="2" offsetX="1" offsetY="-1" />
     </path>
-    <taminator>
-      This is an example of the
-      <a href="../general/ocean_wave_rule.html">Ocean Wave Rule</a>.
-    </taminator>
   </tam>
 
 </tamination>

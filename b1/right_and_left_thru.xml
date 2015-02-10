@@ -126,7 +126,7 @@
     </path>
     <taminator>
       Common after Spin the Top.
-      This is an example of the <a href="ocean_wave_rule.html">Ocean Wave Rule</a>.
+      This is an example of the Ocean Wave Rule.
     </taminator>
   </tam>
 
@@ -151,9 +151,8 @@
       <move select="Beau Wheel" scaleX=".67" />
     </path>
     <taminator>
-      Another example of the <a href="ocean_wave_rule.html">Ocean Wave Rule</a>.
-      This is common after
-      <a href="spin_the_top.html?SpintheTopfromRightHandWaves">Spin the Top</a>
+      Another example of the Ocean Wave Rule.
+      This is common after Spin the Top.
     </taminator>
   </tam>
 
