@@ -37,7 +37,7 @@ define(function(){
     v = v.preConcatenate(tx);
     m.skew(v.x,v.y);
     m.usehands = Movement.NOHANDS;
-    return p;
+    return new Path();
   };
   return AndSpread;
 });

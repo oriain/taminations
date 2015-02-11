@@ -108,6 +108,16 @@ Object.defineProperty(CallContext.prototype,'actives',{
 });
 
 /**
+ *   Append the result of processing this CallContext to it source.
+ *   The CallContext must have been previously cloned from the source.
+ */
+CallContext.prototype.appendToSource = function() {
+  this.dancers.forEach(function(d) {
+    d.clonedFrom.path.add(d.path);
+  });
+};
+
+/**
  * This is the main loop for interpreting a call
  * @param calltext  One complete call, lower case, words separated by single spaces
  */

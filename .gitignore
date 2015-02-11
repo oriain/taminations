@@ -8,11 +8,13 @@ TAMination.jar
 *.blend?
 callindex.xml
 calls.xml
+calls.dtd
 formations.xml
 menus.xml
 moves.xml
 tamination.dtd
 !src/calls.xml
+!src/calls.dtd
 !src/formations.xml
 !src/menus.xml
 !src/moves.xml
