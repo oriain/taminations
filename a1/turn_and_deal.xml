@@ -263,6 +263,20 @@
     </path>
   </tam>
 
+  <tam title="Left Turn and Deal" from="Left-Hand Two-Faced Line"
+       formation="Two-Faced Line LH" >
+    <path>
+      <move select="U-Turn Left" beats="4" offsetX="2" offsetY="2" />
+    </path>
+    <path>
+      <move select="U-Turn Left" beats="4" offsetX="2" offsetY="2" />
+    </path>
+    <taminator>
+      This variation is also called Left Shoulder Turn and Deal, and is
+      almost always called from Left-Hand Two-Faced Lines.
+    </taminator>
+  </tam>
+
   <tam title="As Couples Turn and Deal"
        from="Right-Hand Tidal Line"
        formation="Tidal Line RH"
