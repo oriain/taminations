@@ -27,9 +27,9 @@ define(['calls/quarter_turns'],function(QuarterTurns) {
   Roll.prototype.select = function(ctx,d) {
     //  Look at the last curve of the past
     var roll = d.path.movelist.last().brotate.rolling();
-    if (roll < -1)
+    if (roll < -0.1)
       return 'Quarter Right';
-    if (roll > 1)
+    if (roll > 0.1)
       return 'Quarter Left';
     return 'Stand';
   };
