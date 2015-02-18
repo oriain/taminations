@@ -180,15 +180,85 @@
     </path>
   </tam>
 
-  <tam title="All 8 Circulate"
-       from="3 and 1 Lines"
+  <tam title="All 8 Circulate" formation="3 and 1 lines #1"
+       from="3 and 1 Lines #1"
        difficulty="2" parts="2">
-    <formation>
-      <dancer gender="girl" x="-2"  y="3" angle="0"/>
-      <dancer gender="boy" x="-2" y="1" angle="180"/>
-      <dancer gender="girl" x="-2" y="-1" angle="180"/>
-      <dancer gender="boy" x="-2" y="-3" angle="180"/>
-    </formation>
+    <path>
+      <move select="Run Left" beats="4" scaleX="2" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Forward 4"/>
+    </path>
+  </tam>
+
+  <tam title="All 8 Circulate" formation="3 and 1 lines #2"
+       from="3 and 1 Lines #2"
+       difficulty="2" parts="2">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="4"/>
+    </path>
+    <path>
+      <move select="Forward 4"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="All 8 Circulate" formation="3 and 1 lines #3"
+       from="3 and 1 Lines #3"
+       difficulty="2" parts="2">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Forward 4"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="All 8 Circulate" formation="3 and 1 lines #4"
+       from="3 and 1 Lines #4"
+       difficulty="2" parts="2">
+    <path>
+      <move select="Forward 4"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleX="2" scaleY="3"/>
+    </path>
+  </tam>
+
+  <tam title="All 8 Circulate" formation="3 and 1 lines #5"
+       from="3 and 1 Lines #5"
+       difficulty="2" parts="2">
     <path>
       <move select="Forward 4" />
     </path>
@@ -200,6 +270,57 @@
     </path>
     <path>
       <move select="Run Right" beats="4" scaleX="2" scaleY="3" />
+    </path>
+  </tam>
+
+  <tam title="All 8 Circulate" formation="3 and 1 lines #6"
+       from="3 and 1 Lines #6"
+       difficulty="2" parts="2">
+    <path>
+      <move select="Run Left" beats="4" scaleX="2" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Forward 4"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleX="3" scaleY="3"/>
+    </path>
+  </tam>
+
+  <tam title="All 8 Circulate" formation="3 and 1 lines #7"
+       from="3 and 1 Lines #7"
+       difficulty="2" parts="2">
+    <path>
+      <move select="Run Left" beats="4" scaleX="2" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Run Left" beats="4"/>
+    </path>
+    <path>
+      <move select="Forward 4"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleX="3" scaleY="3"/>
+    </path>
+  </tam>
+
+  <tam title="All 8 Circulate" formation="3 and 1 lines #8"
+       from="3 and 1 Lines #8"
+       difficulty="2" parts="2">
+    <path>
+      <move select="Run Left" beats="4" scaleX="2" scaleY="3" />
+    </path>
+    <path>
+      <move select="Flip Left" beats="4" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" />
+    </path>
+    <path>
+      <move select="Forward 4" />
     </path>
   </tam>
 
@@ -256,6 +377,30 @@
     </path>
     <path>
       <move select="Run Right" beats="4" scaleX="3" scaleY="3"/>
+    </path>
+    <taminator>
+      The result is the same as Couples Trade, but the traffic pattern
+      is different.
+    </taminator>
+  </tam>
+
+  <tam title="All 8 Circulate" from="Lines Facing In"
+       formation="Normal Lines" difficulty="2" parts="2">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
     </path>
   </tam>
 

@@ -24,8 +24,7 @@
 
   <tam title="Star Thru"
        from="Facing Couples"
-       formation="Facing Couples" gender-specific="true"
-       parts="" >
+       formation="Facing Couples" gender-specific="true">
     <path>
       <move select="Extend Left" hands="gripright" beats="2" scaleX="2" scaleY=".5" />
       <move select="Quarter Right" hands="gripright" beats="2" offsetX="1" offsetY=".5" />
@@ -51,10 +50,8 @@
     </path>
   </tam>
 
-  <tam title="Star Thru"
-       from="Lines"
-       formation="Normal Lines" gender-specific="true"
-       parts="" >
+  <tam title="Star Thru" from="Lines"
+       formation="Normal Lines" gender-specific="true">
     <path>
       <move select="Extend Left" hands="gripright" beats="2" scaleX="2" scaleY=".5" />
       <move select="Quarter Right" hands="gripright" beats="2" offsetX="1" offsetY="-.5" />
@@ -96,8 +93,7 @@
 
   <tam title="Star Thru"
        from="Eight Chain Thru"
-       formation="Eight Chain Thru" gender-specific="true"
-       parts="" >
+       formation="Eight Chain Thru" gender-specific="true">
     <path>
       <move select="Extend Left" hands="gripright" scaleY=".5" />
       <move select="Quarter Right" hands="gripright" offsetX="1" offsetY=".5" />
@@ -117,4 +113,18 @@
       <move select="Quarter Left" hands="gripright" offsetX="1" offsetY="-1.5" />
     </path>
   </tam>
+
+  <tam title="Heads Star Thru" group=" "
+       formation="Static Square" gender-specific="true">
+    <path>
+      <move select="Extend Left" hands="gripright" beats="3" scaleX="3" scaleY=".5" />
+      <move select="Quarter Right" hands="gripright" beats="2" offsetX="1" offsetY="-.5" />
+    </path>
+    <path>
+      <move select="Extend Left" hands="gripright" beats="3" scaleX="3" scaleY=".5" />
+      <move select="Quarter Left" hands="gripright" offsetX="1" offsetY="-.5" />
+    </path>
+    <path/><path/>
+  </tam>
+
 </tamination>

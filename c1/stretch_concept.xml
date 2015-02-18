@@ -733,4 +733,8 @@
            xref-link="c3a/mini_chase"
            xref-title="Stretch Mini Chase"/>
 
+  <tamxref title="Stretch (C-3A) Single Checkmate" group="Stretch (C-3A)"
+           xref-link="c3a/single_checkmate"
+           xref-title="Stretch Single Checkmate"/>
+
 </tamination>

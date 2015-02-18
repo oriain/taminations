@@ -514,6 +514,7 @@
     <call text="Spin the Pulley" level="Challenge" sublevel="C-3A" link="c3a/spin_the_pulley.html"/>
     <call text="Spin the Top" level="Basic and Mainstream" sublevel="Mainstream" link="ms/spin_the_top.html"/>
     <call text="Spin the Windmill" level="Advanced" sublevel="A-2" link="a2/spin_the_windmill.html"/>
+    <call text="Split Checkmate" level="Challenge" sublevel="C-3A" link="c3a/single_checkmate.html" anim="SingleCheckmatefromRightHandWaves"/>
     <call text="Split Circulate" level="Basic and Mainstream" sublevel="Basic 1" link="b1/circulate.html" anim="SplitCirculatefromRightHandWaves"/>
     <call text="Split Counter Rotate" level="Advanced" sublevel="A-2" link="a2/split_counter_rotate.html"/>
     <call text="Split Phantom Boxes Concept" level="Challenge" sublevel="C-3B" link="c3b/split_phantom_boxes.html"/>
