@@ -133,7 +133,7 @@ $(document).ready(
                 if (menuitem.attr('anim') != undefined)
                   onelink += '?' + menuitem.attr('anim');
                 menuhtml += '<td onclick="document.location=\''+prefix+onelink+'\'">'+
-                             menuitem.attr('text')+'</td>';
+                             menuitem.attr('title')+'</td>';
               } else {
                 menuhtml += '<td><br/><strong>--'+menuitem.attr('text')+'--</strong></td>';
               }

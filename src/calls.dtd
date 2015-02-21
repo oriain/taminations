@@ -19,8 +19,9 @@
 
 <!ELEMENT calls (call+)>
 <!ELEMENT call EMPTY>
-<!ATTLIST call text CDATA #REQUIRED
+<!ATTLIST call text CDATA #IMPLIED
                level CDATA #IMPLIED
                sublevel CDATA #IMPLIED
                link CDATA #IMPLIED
+               title CDATA #IMPLIED
                anim CDATA #IMPLIED >
