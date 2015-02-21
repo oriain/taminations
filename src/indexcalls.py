@@ -13,37 +13,75 @@ def checkversion():
     sys.exit(1)
 
 def main():
+  leveldict = {'b1':{'level':'Basic and Mainstream','sublevel':'Basic 1'},
+               'b2':{'level':'Basic and Mainstream','sublevel':'Basic 2'},
+               'ms':{'level':'Basic and Mainstream','sublevel':'Mainstream'},
+               'plus':{'level':'Plus','sublevel':'Plus'},
+               'a1':{'level':'Advanced','sublevel':'A-1'},
+               'a2':{'level':'Advanced','sublevel':'A-2'},
+               'c1':{'level':'Challenge','sublevel':'C-1'},
+               'c2':{'level':'Challenge','sublevel':'C-2'},
+               'c3a':{'level':'Challenge','sublevel':'C-3A'},
+               'c3b':{'level':'Challenge','sublevel':'C-3B'}
+               }
   #  Build table of calls in each file
   r = re.compile(r'tam\s+title="(.*?)"')
   r2 = re.compile(r'/(b1|b2|ms|plus|a1|a2|c1|c2|c3a)/')
   r3 = re.compile(r'Call\.classes\.(.+?)\s*=')
   r4 = re.compile(r'\W')
+  r5 = re.compile(r'\(.*?\)\s*')
   #  Start a new xml document for the output
   newtree = ET.ElementTree(ET.Element('calls'))
   newroot = newtree.getroot()
   #  Read animations from xml files
+  calllist = []
   for filename in glob.glob('../*/*.xml'):
-    if not r2.search(filename):
+    m = r2.search(filename)
+    if not m:
       continue
+    sublevel = m.group(1)
     if filename.endswith('.x.xml'):
       continue
-    calls = set()
-    for line in open(filename):
-      m = r.search(line)
-      if m and not m.group(1).lower() in calls:
-        c = ET.SubElement(newroot,'call')
-        c.set('text',re.sub(r4,'',m.group(1).lower()))
-        c.set('link',filename.lstrip('./'))
-        calls.add(m.group(1).lower())
+    tree = ET.parse(filename)
+    root = tree.getroot()
+    for tam in root.findall('tam'):
+      title = re.sub(r5,'',tam.attrib['title']).replace('"','')
+      calllist.append({ 'title':title,
+                    'link':filename.lstrip('./'),
+                    'text':re.sub(r4,'',title.lower()),
+                    'level':leveldict[sublevel]['level'],
+                    'sublevel':leveldict[sublevel]['sublevel']
+                   })
+
+#       c = ET.SubElement(newroot,'call')
+#       c.set('text',re.sub(r4,'',title.lower()))
+#       c.set('link',filename.lstrip('./'))
+#       c.set('title',title)
+#       c.set('level',leveldict[sublevel]['level'])
+#       c.set('sublevel',leveldict[sublevel]['sublevel'])
+#       calls.add(title.lower())
 
   #  Read scripts from javascript and python files
-  for filename in glob.glob('calls/*.js'): # + glob.glob('../squareplay/src/calls/*.py'):
-    for line in open(filename):
-      m = r3.search(line)
-      if m:
-        c = ET.SubElement(newroot,'call')
-        c.set('text',re.sub(r4,'',m.group(1).lower()))
-        c.set('link',filename)
+#   for filename in glob.glob('calls/*.js'): # + glob.glob('../squareplay/src/calls/*.py'):
+#     for line in open(filename):
+#       m = r3.search(line)
+#       if m:
+#         c = ET.SubElement(newroot,'call')
+#         c.set('text',re.sub(r4,'',m.group(1).lower()))
+#         c.set('link',filename)
+
+  #  Sort the results
+  calllist.sort(key=lambda a:a['title']+'@'+a['sublevel'])
+
+  #  Create the output XML
+  prevcall = {}
+  for call in calllist:
+    if call == prevcall:
+      continue
+    c = ET.SubElement(newroot,'call')
+    for att in call:
+      c.set(att,call[att])
+    prevcall = call
 
   #  Pretty-print the results
   print('<?xml version="1.0"?>')
