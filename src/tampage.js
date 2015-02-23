@@ -128,7 +128,7 @@ $(document).ready(
             var mi = c*rows + r;
             if (mi < menu.size()) {
               var menuitem = $(menu.eq(mi));
-              var onelink = menuitem.attr('link');
+              var onelink = menuitem.attr('link') + '.html';
               if (onelink) {
                 if (menuitem.attr('anim') != undefined)
                   onelink += '?' + menuitem.attr('anim');

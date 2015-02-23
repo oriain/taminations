@@ -33,8 +33,22 @@ def main():
   #  Start a new xml document for the output
   newtree = ET.ElementTree(ET.Element('calls'))
   newroot = newtree.getroot()
+  #  First add in all the explicit calls from the
+  #  hand-written calls.xml
+  calldict = {}
+  tree = ET.parse('calls.xml')
+  for call in tree.getroot().findall('call'):
+    if 'link' not in call.attrib:
+      continue
+    title = re.sub(r5,'',call.attrib['title']).replace('"','').strip()
+    link = call.attrib['link'].replace('.html','')
+    calldict[title+link] = {
+                     'title':call.attrib['title'],
+                     'link':link,
+                     'level':call.attrib['level'],
+                     'sublevel':call.attrib['sublevel'] }
+
   #  Read animations from xml files
-  calllist = []
   for filename in glob.glob('../*/*.xml'):
     m = r2.search(filename)
     if not m:
@@ -45,21 +59,16 @@ def main():
     tree = ET.parse(filename)
     root = tree.getroot()
     for tam in root.findall('tam'):
-      title = re.sub(r5,'',tam.attrib['title']).replace('"','')
-      calllist.append({ 'title':title,
-                    'link':filename.lstrip('./'),
-                    'text':re.sub(r4,'',title.lower()),
-                    'level':leveldict[sublevel]['level'],
-                    'sublevel':leveldict[sublevel]['sublevel']
-                   })
+      title = re.sub(r5,'',tam.attrib['title']).replace('"','').strip()
+      link = filename.lstrip('./').replace('.xml','')
+      calldict[title+link] = {
+                       'title':title,
+                       'link':link,
+                       'text':re.sub(r4,'',title.lower()),
+                       'level':leveldict[sublevel]['level'],
+                       'sublevel':leveldict[sublevel]['sublevel']
+                      }
 
-#       c = ET.SubElement(newroot,'call')
-#       c.set('text',re.sub(r4,'',title.lower()))
-#       c.set('link',filename.lstrip('./'))
-#       c.set('title',title)
-#       c.set('level',leveldict[sublevel]['level'])
-#       c.set('sublevel',leveldict[sublevel]['sublevel'])
-#       calls.add(title.lower())
 
   #  Read scripts from javascript and python files
 #   for filename in glob.glob('calls/*.js'): # + glob.glob('../squareplay/src/calls/*.py'):
@@ -71,16 +80,15 @@ def main():
 #         c.set('link',filename)
 
   #  Sort the results
-  calllist.sort(key=lambda a:a['title']+'@'+a['sublevel'])
+  calllist = list(calldict.keys())
+  calllist.sort()
 
   #  Create the output XML
   prevcall = {}
   for call in calllist:
-    if call == prevcall:
-      continue
     c = ET.SubElement(newroot,'call')
-    for att in call:
-      c.set(att,call[att])
+    for att in calldict[call]:
+      c.set(att,calldict[call][att])
     prevcall = call
 
   #  Pretty-print the results
