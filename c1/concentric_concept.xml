@@ -22,7 +22,7 @@
 -->
 <tamination>
 
-  <tam title="From columns, Concentric Box Counter Rotate" group="From columns, Concentric"
+  <tam title="(From columns) Concentric Box Counter Rotate" group="(From columns) Concentric"
        formation="Magic Column RH">
     <path>
       <move select="Counter Rotate Left 4 -2" beats="5" hands="left"/>
@@ -38,7 +38,7 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Box Transfer" group="From columns, Concentric"
+  <tam title="(From columns) Concentric Box Transfer" group="(From columns) Concentric"
        formation="Column RH GBGB">
     <path>
       <move select="Run Right" beats="6" scaleY="2.5"/>
@@ -63,7 +63,7 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Chase Right" group="From columns, Concentric"
+  <tam title="(From columns) Concentric Chase Right" group="(From columns) Concentric"
        formation="Completed Double Pass Thru">
     <path>
       <move select="Run Right" offsetX="-1"/>
@@ -86,8 +86,8 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Dixie Style to a Wave"
-       group="From columns, Concentric"
+  <tam title="(From columns) Concentric Dixie Style to a Wave"
+       group="(From columns) Concentric"
        formation="Double Pass Thru">
     <path>
       <move select="Quarter Right" offsetX="-.5" offsetY="-1" beats="10"/>
@@ -110,7 +110,7 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Do Paso" group="From columns, Concentric"
+  <tam title="(From columns) Concentric Do Paso" group="(From columns) Concentric"
        formation="Double Pass Thru">
     <path>
       <move select="Quarter Right" offsetX="-.5" offsetY="-1"/>
@@ -152,7 +152,7 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Double Star Thru" group="From columns, Concentric"
+  <tam title="(From columns) Concentric Double Star Thru" group="(From columns) Concentric"
        formation="Double Pass Thru">
     <path>
       <move select="Extend Left" beats="4" scaleX="3" scaleY="3"/>
@@ -180,7 +180,7 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Extend" group="From columns, Concentric"
+  <tam title="(From columns) Concentric Extend" group="(From columns) Concentric"
        formation="Double Pass Thru">
     <path>
       <move select="Extend Left" beats="4" scaleX="3" scaleY="2.5"/>
@@ -196,8 +196,8 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Flutterwheel"
-       group="From columns, Concentric"
+  <tam title="(From columns) Concentric Flutterwheel"
+       group="(From columns) Concentric"
        formation="Double Pass Thru">
     <path>
       <move select="Stand" hands="nohands" beats="8" />
@@ -222,8 +222,8 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Follow Your Neighbor"
-       group="From columns, Concentric"
+  <tam title="(From columns) Concentric Follow Your Neighbor"
+       group="(From columns) Concentric"
        formation="Column RH GBGB">
     <path>
       <move select="Lead Right" beats="4" scaleX="1.5" />
@@ -247,7 +247,7 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Lead Right" group="From columns, Concentric"
+  <tam title="(From columns) Concentric Lead Right" group="(From columns) Concentric"
        formation="Double Pass Thru">
     <path>
       <move select="Lead Right" beats="2" hands="gripright" scaleY="2"/>
@@ -266,7 +266,7 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Pair Off" group="From columns, Concentric"
+  <tam title="(From columns) Concentric Pair Off" group="(From columns) Concentric"
        formation="Double Pass Thru">
     <path>
       <move select="Lead Left" beats="3" scaleX="2" scaleY="2"/>
@@ -282,7 +282,7 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Pass In" group="From columns, Concentric"
+  <tam title="(From columns) Concentric Pass In" group="(From columns) Concentric"
        formation="Double Pass Thru">
     <path>
       <move select="Extend Left" beats="4" scaleX="3" scaleY="3"/>
@@ -302,7 +302,7 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Pass Thru" group="From columns, Concentric"
+  <tam title="(From columns) Concentric Pass Thru" group="(From columns) Concentric"
        formation="Double Pass Thru">
     <path>
       <move select="Extend Left" beats="3" scaleX="3" scaleY="2" />
@@ -322,7 +322,7 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Peel and Trail" group="From columns, Concentric"
+  <tam title="(From columns) Concentric Peel and Trail" group="(From columns) Concentric"
        formation="Column RH GBGB">
     <path>
       <move select="Flip Left" beats="4" scaleY="1.25" offsetX="-3"/>
@@ -341,7 +341,7 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Peel Off" group="From columns, Concentric"
+  <tam title="(From columns) Concentric Peel Off" group="(From columns) Concentric"
        formation="Column RH GBGB">
     <path>
       <move select="Flip Left" beats="4" scaleY="1.25" offsetX="-3"/>
@@ -357,7 +357,7 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Peel the Top" group="From columns, Concentric"
+  <tam title="(From columns) Concentric Peel the Top" group="(From columns) Concentric"
        formation="Column RH GBGB">
     <path>
       <move select="Flip Left" beats="4" scaleY="1.5" offsetX="-3"/>
@@ -380,7 +380,7 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Recycle" group="From columns, Concentric"
+  <tam title="(From columns) Concentric Recycle" group="(From columns) Concentric"
        formation="Double Pass Thru">
     <path numbers="1 8">
       <move select="U-Turn Right" beats="5" offsetX="3" offsetY="1.5"/>
@@ -396,7 +396,7 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Right and Left Thru" group="From columns, Concentric"
+  <tam title="(From columns) Concentric Right and Left Thru" group="(From columns) Concentric"
        formation="Double Pass Thru">
     <path>
       <move select="Extend Left" beats="4" scaleX="3" scaleY="2.5"/>
@@ -420,7 +420,7 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Scoot Back" group="From columns, Concentric"
+  <tam title="(From columns) Concentric Scoot Back" group="(From columns) Concentric"
        formation="Column RH GBGB">
     <path>
       <move select="Run Right"/>
@@ -441,7 +441,7 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Slide Thru" group="From columns, Concentric"
+  <tam title="(From columns) Concentric Slide Thru" group="(From columns) Concentric"
        formation="Double Pass Thru">
     <path numbers="1 8">
       <move select="Extend Left" beats="3" scaleX="3" scaleY="2.5" />
@@ -461,7 +461,7 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Star Thru" group="From columns, Concentric"
+  <tam title="(From columns) Concentric Star Thru" group="(From columns) Concentric"
        formation="Double Pass Thru">
     <path numbers="1 8">
       <move select="Extend Left" beats="3" scaleX="3" scaleY="2.5" />
@@ -484,7 +484,7 @@
     </taminator>
   </tam>
 
-  <tam title="From columns, Concentric Square Thru" group="From columns, Concentric"
+  <tam title="(From columns) Concentric Square Thru" group="(From columns) Concentric"
        formation="Double Pass Thru">
     <path>
       <move select="Extend Left" beats="4" scaleX="3" scaleY="2.5"/>
@@ -516,7 +516,7 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Turn Thru" group="From columns, Concentric"
+  <tam title="(From columns) Concentric Turn Thru" group="(From columns) Concentric"
        formation="Double Pass Thru">
     <path>
       <move select="Extend Left" beats="3" scaleX="3" scaleY="2.5" />
@@ -540,7 +540,7 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Walk and Dodge" group="From columns, Concentric"
+  <tam title="(From columns) Concentric Walk and Dodge" group="(From columns) Concentric"
        formation="Column RH GBGB">
     <path>
       <move select="Dodge Right" />
@@ -558,7 +558,7 @@
     </path>
   </tam>
 
-  <tam title="From columns, Concentric Zoom" group="From columns, Concentric"
+  <tam title="(From columns) Concentric Zoom" group="(From columns) Concentric"
        formation="Column RH GBGB">
     <path>
       <move select="Quarter Left" beats="1" offsetY="1" />
@@ -581,8 +581,8 @@
     </path>
   </tam>
 
-  <tam title="From concentric diamonds, Concentric Cut the Diamond"
-       group="From concentric diamonds, Concentric"
+  <tam title="(From concentric diamonds) Concentric Cut the Diamond"
+       group="(From concentric diamonds) Concentric"
        formation="Concentric Diamonds RH">
     <path>
       <move select="Lead Right" beats="4" scaleX="3.5" scaleY="3"/>
@@ -599,8 +599,8 @@
     </path>
   </tam>
 
-  <tam title="From concentric diamonds, Concentric Diamond Circulate"
-       group="From concentric diamonds, Concentric"
+  <tam title="(From concentric diamonds) Concentric Diamond Circulate"
+       group="(From concentric diamonds) Concentric"
        formation="Concentric Diamonds Mixed">
     <path>
       <move select="Lead Right" beats="6" scaleX="4" scaleY="3"/>
@@ -616,8 +616,8 @@
     </path>
   </tam>
 
-  <tam title="From concentric diamonds, Concentric Flip the Diamond"
-       group="From concentric diamonds, Concentric"
+  <tam title="(From concentric diamonds) Concentric Flip the Diamond"
+       group="(From concentric diamonds) Concentric"
        formation="Concentric Diamonds Mixed">
     <path>
       <move select="Lead Right" beats="3" scaleX="3.5" scaleY="3"/>
@@ -633,8 +633,8 @@
     </path>
   </tam>
 
-  <tam title="From concentric diamonds, Concentric Diamond Step and Fold"
-       group="From concentric diamonds, Concentric"
+  <tam title="(From concentric diamonds) Concentric Diamond Step and Fold"
+       group="(From concentric diamonds) Concentric"
        formation="Concentric Diamonds Mixed">
     <path numbers="3 6">
       <move select="Forward"/>
@@ -650,7 +650,7 @@
     </path>
   </tam>
 
-  <tam title="From lines, Concentric Chase Right" group="From lines, Concentric"
+  <tam title="(From lines) Concentric Chase Right" group="(From lines) Concentric"
        formation="Lines Facing Out">
     <path couples="4 2">
       <move select="U-Turn Right" beats="1.5" offsetX="-1" />
@@ -672,7 +672,7 @@
     </path>
   </tam>
 
-  <tam title="From lines, Concentric Pass the Ocean" group="From lines, Concentric"
+  <tam title="(From lines) Concentric Pass the Ocean" group="(From lines) Concentric"
        formation="Normal Lines">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
@@ -692,8 +692,8 @@
     </path>
   </tam>
 
-  <tam title="From lines, Concentric Right and Left Thru"
-       group="From lines, Concentric"
+  <tam title="(From lines) Concentric Right and Left Thru"
+       group="(From lines) Concentric"
        formation="Normal Lines">
     <path>
       <move select="Pull Left" scaleX="2" scaleY=".5" />
@@ -721,7 +721,7 @@
     </path>
   </tam>
 
-  <tam title="From lines, Concentric Slide Thru" group="From lines, Concentric">
+  <tam title="(From lines) Concentric Slide Thru" group="(From lines) Concentric">
      <formation>
       <dancer gender="boy" x="-2" y="3" angle="0"/>
       <dancer gender="girl" x="-2" y="-1" angle="0"/>
@@ -747,7 +747,7 @@
     </path>
   </tam>
 
-  <tam title="From lines, Concentric Star Thru" group="From lines, Concentric">
+  <tam title="(From lines) Concentric Star Thru" group="(From lines) Concentric">
      <formation>
       <dancer gender="boy" x="3" y="2" angle="270"/>
       <dancer gender="girl" x="-1" y="2" angle="270"/>
@@ -773,7 +773,7 @@
     </path>
   </tam>
 
-  <tam title="From lines, Concentric Square Thru" group="From lines, Concentric"
+  <tam title="(From lines) Concentric Square Thru" group="(From lines) Concentric"
        formation="Normal Lines">
     <path>
       <move select="Pull Left" beats="2" scaleX="2" scaleY=".5" />
@@ -807,7 +807,7 @@
     </path>
   </tam>
 
-  <tam title="From lines, Concentric Touch a Quarter" group="From lines, Concentric"
+  <tam title="(From lines) Concentric Touch a Quarter" group="(From lines) Concentric"
        formation="Normal Lines">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
@@ -827,7 +827,7 @@
     </path>
   </tam>
 
-  <tam title="From lines, Concentric Zoom" group="From lines, Concentric"
+  <tam title="(From lines) Concentric Zoom" group="(From lines) Concentric"
        formation="Two-Faced Lines RH">
     <path>
       <move select="Forward 4" beats="6" />
@@ -845,7 +845,7 @@
     </path>
   </tam>
 
-  <tam title="From T-Bones, Concentric Star Thru" group="From T-Bones, Concentric">
+  <tam title="(From T-Bones) Concentric Star Thru" group="(From T-Bones) Concentric">
      <formation>
       <dancer gender="boy" x="3" y="1" angle="270"/>
       <dancer gender="girl" x="-1" y="1" angle="0"/>
@@ -870,7 +870,7 @@
     </path>
   </tam>
 
-  <tam title="From thar, Concentric Cast Off Three Quarters" group="From thar, Concentric"
+  <tam title="(From thar) Concentric Cast Off Three Quarters" group="(From thar) Concentric"
        formation="Thar LH Boys">
     <path>
       <move select="Cast Left" beats="12"/>
@@ -890,7 +890,7 @@
     </path>
   </tam>
 
-  <tam title="From tidal line, Concentric Bend the Line" group="From tidal line, Concentric"
+  <tam title="(From tidal line) Concentric Bend the Line" group="(From tidal line) Concentric"
        formation="Two-Faced Tidal Line RH">
     <path>
       <move select="Lead Right" beats="4" scaleX="3" scaleY="1.5"/>
@@ -906,7 +906,7 @@
     </path>
   </tam>
 
-  <tam title="From tidal line, Concentric Crossfire" from="" group="From tidal line, Concentric"
+  <tam title="(From tidal line) Concentric Crossfire" from="" group="(From tidal line) Concentric"
        formation="Two-Faced Tidal Line RH">
     <path numbers="1 8">
       <move select="Forward 2"/>
@@ -925,8 +925,8 @@
     </path>
   </tam>
 
-  <tam title="From tidal line, Concentric Explode the Wave"
-       group="From tidal line, Concentric"
+  <tam title="(From tidal line) Concentric Explode the Wave"
+       group="(From tidal line) Concentric"
        formation="Tidal Wave RH BGGB">
     <path>
       <move select="Lead Right" beats="4" scaleX="3.5" scaleY="3.5"/>
@@ -946,7 +946,7 @@
     </path>
   </tam>
 
-  <tam title="From tidal line, Concentric Fan the Top" group="From tidal line, Concentric"
+  <tam title="(From tidal line) Concentric Fan the Top" group="(From tidal line) Concentric"
        formation="Tidal Wave RH BGGB">
     <path>
       <move select="Hinge Right" hands="none" beats="6" scaleX="3.5" scaleY="3.5"/>
@@ -962,7 +962,7 @@
     </path>
   </tam>
 
-  <tam title="From tidal line, Concentric Half Tag the Line" group="From tidal line, Concentric"
+  <tam title="(From tidal line) Concentric Half Tag the Line" group="(From tidal line) Concentric"
        formation="Tidal Line RH">
     <path>
       <move select="Lead Right" beats="4" scaleX="3" scaleY="1.5"/>
@@ -978,7 +978,7 @@
     </path>
   </tam>
 
-  <tam title="From tidal line, Concentric Hinge" group="From tidal line, Concentric"
+  <tam title="(From tidal line) Concentric Hinge" group="(From tidal line) Concentric"
        formation="Tidal Wave RH BGGB">
     <path numbers="8 1">
       <move select="Lead Right" beats="3" scaleX="3" scaleY="1.5" />
@@ -994,8 +994,8 @@
     </path>
   </tam>
 
-  <tam title="From tidal line, Concentric Linear Cycle"
-       group="From tidal line, Concentric">
+  <tam title="(From tidal line) Concentric Linear Cycle"
+       group="(From tidal line) Concentric">
     <formation>
       <dancer gender="boy" x="0" y="-3.5" angle="180"/>
       <dancer gender="girl" x="0" y="-2.5" angle="0"/>
@@ -1027,7 +1027,7 @@
     </path>
   </tam>
 
-  <tam title="From tidal line, Concentric Lockit" group="From tidal line, Concentric"
+  <tam title="(From tidal line) Concentric Lockit" group="(From tidal line) Concentric"
        formation="Tidal Wave RH BGGB">
     <path>
       <move select="Lead Right" beats="6" scaleX="3.5" scaleY="3.5"/>
@@ -1043,7 +1043,7 @@
     </path>
   </tam>
 
-  <tam title="From tidal line, Concentric Mix" group="From tidal line, Concentric"
+  <tam title="(From tidal line) Concentric Mix" group="(From tidal line) Concentric"
        formation="Two-Faced Tidal Line LH">
     <path>
       <move select="Dodge Left" beats="1" scaleY=".5"/>
@@ -1062,7 +1062,7 @@
     </path>
   </tam>
 
-  <tam title="From tidal line, Concentric Recycle" group="From tidal line, Concentric"
+  <tam title="(From tidal line) Concentric Recycle" group="(From tidal line) Concentric"
        formation="Tidal Wave RH BGGB">
     <path numbers="8 1">
       <move select="Run Right" beats="6" offsetX="3" offsetY="-2.5" />
@@ -1080,7 +1080,7 @@
     </path>
   </tam>
 
-  <tam title="From tidal line, Concentric Reverse Explode" from="" group="From tidal line, Concentric"
+  <tam title="(From tidal line) Concentric Reverse Explode" from="" group="(From tidal line) Concentric"
        formation="Tidal Wave RH BGGB">
     <path numbers="8 1">
       <move select="Forward 2"/>
@@ -1098,7 +1098,7 @@
     </path>
   </tam>
 
-  <tam title="From tidal line, Concentric Spin the Top" group="From tidal line, Concentric"
+  <tam title="(From tidal line) Concentric Spin the Top" group="(From tidal line) Concentric"
        formation="Tidal Wave RH BGGB">
     <path>
       <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
@@ -1120,7 +1120,7 @@
     </path>
   </tam>
 
-  <tam title="From tidal line, Concentric Swing Thru" group="From tidal line, Concentric"
+  <tam title="(From tidal line) Concentric Swing Thru" group="(From tidal line) Concentric"
        formation="Tidal Wave RH BGGB">
     <path>
       <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
@@ -1140,7 +1140,7 @@
     </path>
   </tam>
 
-  <tam title="From tidal line, Concentric Trade the Wave" group="From tidal line, Concentric"
+  <tam title="(From tidal line) Concentric Trade the Wave" group="(From tidal line) Concentric"
        formation="Tidal Wave RH BGGB">
     <path numbers="8 1">
       <move select="Run Right" beats="8" scaleX="3.5" scaleY="3" />
@@ -1156,7 +1156,7 @@
     </path>
   </tam>
 
-  <tam title="From tidal line, Concentric Veer Right" group="From tidal line, Concentric"
+  <tam title="(From tidal line) Concentric Veer Right" group="(From tidal line) Concentric"
        formation="Tidal Line RH">
     <path>
       <move select="Forward" />
@@ -1176,7 +1176,7 @@
     </path>
   </tam>
 
-  <tam title="From tidal line, Concentric Wheel and Deal" group="From tidal line, Concentric"
+  <tam title="(From tidal line) Concentric Wheel and Deal" group="(From tidal line) Concentric"
        formation="Two-Faced Tidal Line RH">
     <path>
       <move select="Run Right" beats="6" hands="right" offsetX="3" offsetY="-2.5" />
