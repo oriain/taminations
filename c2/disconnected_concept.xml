@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Disconnected Concept">
 
   <tam title="Girls Disconnected Cross Roll to a Wave" from=""
        group="Girls Disconnected"
@@ -41,7 +41,12 @@
 
   <tam title="Girls Disconnected Crossfire" from=""
        group="Girls Disconnected">
-     <formation>      <dancer gender="girl" x="0" y="-2.5" angle="0"/>      <dancer gender="boy" x="0" y="-3.5" angle="0"/>      <dancer gender="girl" x="0" y="-.5" angle="0"/>      <dancer gender="boy" x="0" y="-1.5" angle="0"/>    </formation>
+     <formation>
+      <dancer gender="girl" x="0" y="-2.5" angle="0"/>
+      <dancer gender="boy" x="0" y="-3.5" angle="0"/>
+      <dancer gender="girl" x="0" y="-.5" angle="0"/>
+      <dancer gender="boy" x="0" y="-1.5" angle="0"/>
+    </formation>
   <path numbers="7 2">
     <move select="Run Left" beats="5" offsetX="2" scaleY="1.75"/>
   </path>

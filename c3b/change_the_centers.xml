@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Change the Centers | Wave">
 
   <tam title="Change the Centers" from="Right-Hand Wave" formation="Wave RH" parts="3;3;3">
     <path>

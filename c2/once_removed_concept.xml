@@ -20,10 +20,15 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Once Removed Concept">
 
   <tam title="Once Removed Boys Run" group="Once Removed">
-      <formation>      <dancer gender="girl" x="-2" y="3" angle="0"/>      <dancer gender="boy" x="-2" y="-1" angle="180"/>      <dancer gender="girl" x="-2" y="1" angle="0"/>      <dancer gender="boy" x="-2" y="-3" angle="180"/>    </formation>
+      <formation>
+      <dancer gender="girl" x="-2" y="3" angle="0"/>
+      <dancer gender="boy" x="-2" y="-1" angle="180"/>
+      <dancer gender="girl" x="-2" y="1" angle="0"/>
+      <dancer gender="boy" x="-2" y="-3" angle="180"/>
+    </formation>
     <path>
       <move select="Dodge Right" beats="5" scaleY="2"/>
     </path>
@@ -176,7 +181,12 @@
   </tam>
 
   <tam title="Once Removed Walk and Dodge (from Columns)" group="Once Removed">
-     <formation>      <dancer gender="girl" x="-1" y="3" angle="90"/>      <dancer gender="boy" x="-1" y="1" angle="90"/>      <dancer gender="girl" x="-1" y="-1" angle="90"/>      <dancer gender="boy" x="-1" y="-3" angle="90"/>    </formation>
+     <formation>
+      <dancer gender="girl" x="-1" y="3" angle="90"/>
+      <dancer gender="boy" x="-1" y="1" angle="90"/>
+      <dancer gender="girl" x="-1" y="-1" angle="90"/>
+      <dancer gender="boy" x="-1" y="-3" angle="90"/>
+    </formation>
   <path numbers="1 8">
     <move select="Dodge Right" beats="4"/>
   </path>

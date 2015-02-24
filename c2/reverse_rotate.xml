@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Reverse Rotate 1/4, 1/2, 3/4">
 
   <tam title="Reverse Rotate 3/4" from="Lines" formation="Normal Lines" parts="4.5;3">
   <path>

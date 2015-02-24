@@ -20,12 +20,17 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Ping Pong Circulate">
 
   <tam title="Ping Pong Circulate"
        from="Quarter Tag"
        difficulty="1">
-     <formation>      <dancer gender="boy" x="-1" y="-3" angle="90"/>      <dancer gender="girl" x="1" y="-3" angle="90"/>      <dancer gender="boy" x="3" y="0" angle="270"/>      <dancer gender="girl" x="1" y="0" angle="90"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-1" y="-3" angle="90"/>
+      <dancer gender="girl" x="1" y="-3" angle="90"/>
+      <dancer gender="boy" x="3" y="0" angle="270"/>
+      <dancer gender="girl" x="1" y="0" angle="90"/>
+    </formation>
     <path numbers="2 4">
       <move select="Extend Left" beats="3" scaleX="2" scaleY="2" />
       <move select="Forward" />
@@ -46,7 +51,12 @@
   <tam title="Ping Pong Circulate"
        from="Left-Handed Quarter Tag"
        parts="" difficulty="2">
-     <formation>      <dancer gender="boy" x="-1" y="-3" angle="90"/>      <dancer gender="girl" x="1" y="-3" angle="90"/>      <dancer gender="boy" x="3" y="0" angle="90"/>      <dancer gender="girl" x="1" y="0" angle="270"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-1" y="-3" angle="90"/>
+      <dancer gender="girl" x="1" y="-3" angle="90"/>
+      <dancer gender="boy" x="3" y="0" angle="90"/>
+      <dancer gender="girl" x="1" y="0" angle="270"/>
+    </formation>
     <path numbers="6 8">
       <move select="Forward" beats="3" scaleX="3" scaleY="3" />
     </path>
@@ -67,7 +77,12 @@
   <tam title="Ping Pong Circulate"
        from="I Wave"
        parts="" difficulty="3">
-     <formation>      <dancer gender="boy" x="-3.5" y="1" angle="0"/>      <dancer gender="girl" x="-3.5" y="-1" angle="0"/>      <dancer gender="girl" x="-.5" y="0" angle="270"/>      <dancer gender="boy" x="-1.5" y="0" angle="90"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-3.5" y="1" angle="0"/>
+      <dancer gender="girl" x="-3.5" y="-1" angle="0"/>
+      <dancer gender="girl" x="-.5" y="0" angle="270"/>
+      <dancer gender="boy" x="-1.5" y="0" angle="90"/>
+    </formation>
     <path>
       <move select="Extend Left" beats="6" scaleX="3.5" scaleY=".5" />
     </path>

@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Nuclear Reaction">
 
   <tam title="Nuclear Reaction" from="1/4 Tag" formation="Quarter Tag" parts="3;5">
     <path couples="2 4">

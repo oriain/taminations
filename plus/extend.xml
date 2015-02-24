@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Extend">
 
   <tam title="Extend" from="Right-Hand Wave" formation="Wave RH" difficulty="1">
     <path>

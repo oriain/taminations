@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Chase Right">
 
   <tam title="Chase Right"
        from="Couples Facing Out"
@@ -86,7 +86,12 @@
   </tam>
 
   <tam title="Chase Right" from="Right-Hand T-Bones" difficulty="3">
-     <formation>      <dancer gender="boy" x="-3" y="1" angle="90"/>      <dancer gender="girl" x="-3" y="-1" angle="180"/>      <dancer gender="boy" x="-1" y="-1" angle="270"/>      <dancer gender="girl" x="-1" y="1" angle="0"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-3" y="1" angle="90"/>
+      <dancer gender="girl" x="-3" y="-1" angle="180"/>
+      <dancer gender="boy" x="-1" y="-1" angle="270"/>
+      <dancer gender="girl" x="-1" y="1" angle="0"/>
+    </formation>
     <path>
       <move select="Run Right"/>
       <move select="Forward 2"/>
@@ -106,7 +111,12 @@
   </tam>
 
   <tam title="Chase Right" from="Left-Hand T-Bones" difficulty="3">
-     <formation>      <dancer gender="boy" x="-3" y="1" angle="180"/>      <dancer gender="girl" x="-3" y="-1" angle="270"/>      <dancer gender="boy" x="-1" y="-1" angle="0"/>      <dancer gender="girl" x="-1" y="1" angle="90"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-3" y="1" angle="180"/>
+      <dancer gender="girl" x="-3" y="-1" angle="270"/>
+      <dancer gender="boy" x="-1" y="-1" angle="0"/>
+      <dancer gender="girl" x="-1" y="1" angle="90"/>
+    </formation>
     <path>
       <move select="U-Turn Right" beats="1.5" offsetX="-1"/>
       <move select="Forward" />
@@ -130,7 +140,12 @@
   </tam>
 
   <tam title="Chase Right" from="Mixed T-Bones" difficulty="3">
-     <formation>      <dancer gender="boy" x="-1" y="1" angle="0"/>      <dancer gender="girl" x="-3" y="-1" angle="270"/>      <dancer gender="boy" x="-1" y="-1" angle="0"/>      <dancer gender="girl" x="-3" y="1" angle="90"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-1" y="1" angle="0"/>
+      <dancer gender="girl" x="-3" y="-1" angle="270"/>
+      <dancer gender="boy" x="-1" y="-1" angle="0"/>
+      <dancer gender="girl" x="-3" y="1" angle="90"/>
+    </formation>
     <path>
       <move select="Run Right" scaleX=".5"/>
       <move select="Forward 2"/>
@@ -215,7 +230,12 @@
   </tam>
 
   <tam title="Left Chase" from="Right-Hand T-Bones" difficulty="3">
-     <formation>      <dancer gender="boy" x="-3" y="1" angle="90"/>      <dancer gender="girl" x="-3" y="-1" angle="180"/>      <dancer gender="boy" x="-1" y="-1" angle="270"/>      <dancer gender="girl" x="-1" y="1" angle="0"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-3" y="1" angle="90"/>
+      <dancer gender="girl" x="-3" y="-1" angle="180"/>
+      <dancer gender="boy" x="-1" y="-1" angle="270"/>
+      <dancer gender="girl" x="-1" y="1" angle="0"/>
+    </formation>
     <path>
       <move select="U-Turn Left" beats="1.5" offsetX="-1"/>
       <move select="Forward" />
@@ -239,7 +259,12 @@
   </tam>
 
   <tam title="Left Chase" from="Left-Hand T-Bones" difficulty="3">
-     <formation>      <dancer gender="boy" x="-3" y="1" angle="180"/>      <dancer gender="girl" x="-3" y="-1" angle="270"/>      <dancer gender="boy" x="-1" y="-1" angle="0"/>      <dancer gender="girl" x="-1" y="1" angle="90"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-3" y="1" angle="180"/>
+      <dancer gender="girl" x="-3" y="-1" angle="270"/>
+      <dancer gender="boy" x="-1" y="-1" angle="0"/>
+      <dancer gender="girl" x="-1" y="1" angle="90"/>
+    </formation>
     <path>
       <move select="Run Left"/>
       <move select="Forward 2"/>
@@ -259,7 +284,12 @@
   </tam>
 
   <tam title="Left Chase" from="Mixed T-Bones" difficulty="3">
-     <formation>      <dancer gender="boy" x="-1" y="1" angle="0"/>      <dancer gender="girl" x="-3" y="-1" angle="270"/>      <dancer gender="boy" x="-1" y="-1" angle="0"/>      <dancer gender="girl" x="-3" y="1" angle="90"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-1" y="1" angle="0"/>
+      <dancer gender="girl" x="-3" y="-1" angle="270"/>
+      <dancer gender="boy" x="-1" y="-1" angle="0"/>
+      <dancer gender="girl" x="-3" y="1" angle="90"/>
+    </formation>
     <path>
       <move select="U-Turn Left" beats="1.5" offsetX="-1"/>
       <move select="Forward" />

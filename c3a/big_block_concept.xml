@@ -20,10 +20,15 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Big Block Concept">
 
   <tam title="Big Block Circulate" group="Big Block">
-     <formation>      <dancer gender="boy" x="-3" y="1" angle="180"/>      <dancer gender="girl" x="-3" y="-3" angle="180"/>      <dancer gender="boy" x="-1" y="3" angle="0"/>      <dancer gender="girl" x="-1" y="-1" angle="0"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-3" y="1" angle="180"/>
+      <dancer gender="girl" x="-3" y="-3" angle="180"/>
+      <dancer gender="boy" x="-1" y="3" angle="0"/>
+      <dancer gender="girl" x="-1" y="-1" angle="0"/>
+    </formation>
     <path>
       <move select="Run Left"/>
       <move select="Forward 2"/>
@@ -41,7 +46,12 @@
   </tam>
 
   <tam title="Big Block Split Circulate" group="Big Block">
-     <formation>      <dancer gender="boy" x="-3" y="1" angle="180"/>      <dancer gender="girl" x="-3" y="-3" angle="180"/>      <dancer gender="boy" x="-1" y="3" angle="0"/>      <dancer gender="girl" x="-1" y="-1" angle="0"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-3" y="1" angle="180"/>
+      <dancer gender="girl" x="-3" y="-3" angle="180"/>
+      <dancer gender="boy" x="-1" y="3" angle="0"/>
+      <dancer gender="girl" x="-1" y="-1" angle="0"/>
+    </formation>
     <path>
       <move select="Run Right"/>
       <move select="Forward 2"/>

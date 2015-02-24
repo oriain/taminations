@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Facing Couples Rule">
 
   <tam title="Spin Chain Thru"
        from="Eight Chain Thru"

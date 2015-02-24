@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Split Counter Rotate">
 
   <tam title="Split Counter Rotate"
        from="Right-Hand Waves"
@@ -99,7 +99,12 @@
 
   <tam title="Split Counter Rotate"
        from="T-Bones 1">
-     <formation>      <dancer gender="boy" x="-1" y="3" angle="0"/>      <dancer gender="girl" x="-1" y="1" angle="90"/>      <dancer gender="girl" x="-1" y="-1" angle="90"/>      <dancer gender="boy" x="-1" y="-3" angle="180"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-1" y="3" angle="0"/>
+      <dancer gender="girl" x="-1" y="1" angle="90"/>
+      <dancer gender="girl" x="-1" y="-1" angle="90"/>
+      <dancer gender="boy" x="-1" y="-3" angle="180"/>
+    </formation>
     <path>
       <move select="Counter Rotate Right 2 0" beats="4" />
     </path>
@@ -116,7 +121,12 @@
 
   <!-- poor passing tam title="Split Counter Rotate"
        from="T-Bones 2">
-     <formation>      <dancer gender="boy" x="-1" y="3" angle="180"/>      <dancer gender="girl" x="-1" y="1" angle="90"/>      <dancer gender="girl" x="-1" y="-1" angle="270"/>      <dancer gender="boy" x="-1" y="-3" angle="180"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-1" y="3" angle="180"/>
+      <dancer gender="girl" x="-1" y="1" angle="90"/>
+      <dancer gender="girl" x="-1" y="-1" angle="270"/>
+      <dancer gender="boy" x="-1" y="-3" angle="180"/>
+    </formation>
     <path>
       <move select="Lead Left" beats="2" />
       <move select="Extend Left" beats="2" />

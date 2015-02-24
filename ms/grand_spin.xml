@@ -36,7 +36,7 @@ FIGURE OF GRAND SPIN AS FOLLOWS:
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Grand Spin">
 
   <tam title="Sides Face, Grand Spin" formation="Static Square"
        from="Static Square" group=" " parts="5;7.5;2;4.5;3;6.5;3;5;7.5;2;4.5;3;6.5">

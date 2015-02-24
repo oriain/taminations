@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Trapezoid Formation">
 
   <tam title="Trapezoid Brace Thru" formation="Normal Lines" group="Trapezoid">
     <path>

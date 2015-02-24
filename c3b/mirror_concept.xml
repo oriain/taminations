@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Mirror Concept">
 
   <tam formation="Static Square" group="Mirror"
        title="Mirror All 4 Couples Right and Left Thru">

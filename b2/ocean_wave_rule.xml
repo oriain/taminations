@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Ocean Wave Rule">
 
   <tam title="Pass to the Center"
        from="Right-Hand Waves"

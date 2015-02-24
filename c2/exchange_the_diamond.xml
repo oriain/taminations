@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Exchange the Diamond 1/4, 1/2, 3/4, Full">
 
   <tam title="Exchange the Diamond"
        from="Right-Hand Diamonds"

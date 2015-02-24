@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Cross Invert the Column 1/4, 1/2, 3/4, Full">
 
   <tam title="Cross Invert the Column 1/4"
        from="Right-Hand Columns"

@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="In-Roll Circulate">
 
   <tam title="In-Roll Circulate"
        from="Right-Hand Waves"
@@ -96,7 +96,12 @@
 
   <tam title="In-Roll Circulate" from="3 and 1 Lines"
        parts="2">
-     <formation>      <dancer gender="boy" x="-2" y="3" angle="0"/>      <dancer gender="girl" x="-2" y="1" angle="180"/>      <dancer gender="girl" x="-2" y="-1" angle="180"/>      <dancer gender="boy" x="-2" y="-3" angle="180"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-2" y="3" angle="0"/>
+      <dancer gender="girl" x="-2" y="1" angle="180"/>
+      <dancer gender="girl" x="-2" y="-1" angle="180"/>
+      <dancer gender="boy" x="-2" y="-3" angle="180"/>
+    </formation>
     <path numbers="1 8">
       <move select="Forward 4" />
     </path>

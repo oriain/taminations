@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Moves">
 
   <tam title="Forward" formation="Couples Facing Out" group=" ">
     <path>

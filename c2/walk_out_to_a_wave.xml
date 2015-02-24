@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Walk Out to a Wave">
 
   <tam title="Walk Out to a Wave" from="Right-Hand Columns" formation="Column RH GBGB">
     <path couples="4 2">

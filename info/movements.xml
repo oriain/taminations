@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Movements">
 
   <tam title="Boys Run" from="Right-Hand Box, Boys Lead" group=" "
        formation="Box RH Boys Lead" gender-specific="true">

@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Zip Code 1-6">
 
   <tam title="Zip Code 6" from="Double Pass Thru"
        parts="5;2;4;2;4">

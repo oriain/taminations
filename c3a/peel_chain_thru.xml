@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Peel Chain Thru">
 
   <tam title="Peel Chain Thru" from="Trade By" formation="Trade By" parts="4;4">
     <path>

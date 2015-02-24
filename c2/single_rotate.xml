@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Single Rotate 1/4, 1/2, 3/4">
 
   <tam title="Single Rotate 1/4" from="Lines" formation="Normal Lines">
     <path>

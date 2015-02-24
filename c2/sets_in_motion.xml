@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Sets in Motion">
 
   <tam title="Sets in Motion"
        from="Right-Hand Waves"
@@ -239,7 +239,12 @@
   </tam>
 
   <tam title="Sets in Motion" from="T-Bones">
-     <formation>      <dancer gender="boy" x="-3" y="1" angle="270"/>      <dancer gender="girl" x="-3" y="-1" angle="90"/>      <dancer gender="boy" x="-1" y="-1" angle="180"/>      <dancer gender="girl" x="-1" y="1" angle="180"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-3" y="1" angle="270"/>
+      <dancer gender="girl" x="-3" y="-1" angle="90"/>
+      <dancer gender="boy" x="-1" y="-1" angle="180"/>
+      <dancer gender="girl" x="-1" y="1" angle="180"/>
+    </formation>
     <path>
       <move select="Extend Left" scaleY=".5"/>
       <move select="Lead Left" beats="4" scaleX="3" scaleY="2.5"/>

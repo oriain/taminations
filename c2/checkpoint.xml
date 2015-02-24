@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Checkpoint (Anything) by (Anything)">
 
   <tam title="Checkpoint Ah So by Swing Thru" group="Checkpoint"
        from="" formation="Tidal Wave RH BGGB">
@@ -84,7 +84,12 @@
   </tam>
 
   <tam title="Checkpoint Counter Rotate by Triangle Circulate" group="Checkpoint">
-     <formation>      <dancer gender="boy" x="-1" y="-1" angle="180"/>      <dancer gender="girl" x="0" y="3.1" angle="0"/>      <dancer gender="boy" x="-1" y="1" angle="0"/>      <dancer gender="girl" x="0" y="5.1" angle="180"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-1" y="-1" angle="180"/>
+      <dancer gender="girl" x="0" y="3.1" angle="0"/>
+      <dancer gender="boy" x="-1" y="1" angle="0"/>
+      <dancer gender="girl" x="0" y="5.1" angle="180"/>
+    </formation>
     <path>
       <move select="Stand" beats="3"/>
       <move select="Run Left" offsetX="-1" offsetY=".05"/>

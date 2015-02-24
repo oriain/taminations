@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Slide Thru">
 
   <tam title="Slide Thru"
        from="Facing Couples" gender-specific="true"
@@ -77,7 +77,12 @@
 
   <tam title="Slide Thru" from="Sashayed Lines" gender-specific="true"
        difficulty="2">
-     <formation>      <dancer gender="boy" x="-2" y="1" angle="0"/>      <dancer gender="girl" x="-2" y="3" angle="0"/>      <dancer gender="boy" x="-2" y="-3" angle="0"/>      <dancer gender="girl" x="-2" y="-1" angle="0"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-2" y="1" angle="0"/>
+      <dancer gender="girl" x="-2" y="3" angle="0"/>
+      <dancer gender="boy" x="-2" y="-3" angle="0"/>
+      <dancer gender="girl" x="-2" y="-1" angle="0"/>
+    </formation>
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Quarter Right"  beats="2" offsetX="1" offsetY="-.5" />
@@ -142,7 +147,12 @@
   <tam title="Slide Thru"
        from="Same Sex Facing" gender-specific="true"
        difficulty="2">
-     <formation>      <dancer gender="boy" x="-2" y="3" angle="0"/>      <dancer gender="girl" x="-2" y="1" angle="0"/>      <dancer gender="boy" x="-2" y="-3" angle="0"/>      <dancer gender="girl" x="-2" y="-1" angle="0"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-2" y="3" angle="0"/>
+      <dancer gender="girl" x="-2" y="1" angle="0"/>
+      <dancer gender="boy" x="-2" y="-3" angle="0"/>
+      <dancer gender="girl" x="-2" y="-1" angle="0"/>
+    </formation>
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Quarter Right" beats="2" offsetX="1" offsetY="-.5" />

@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Inlet">
 
   <tam title="Inlet"
        from="Right-Hand Waves"
@@ -62,7 +62,12 @@
 
   <tam title="Inlet"
        from="3 and 1 Lines">
-     <formation>      <dancer gender="boy" x="-2" y="3" angle="0"/>      <dancer gender="girl" x="-2" y="1" angle="0"/>      <dancer gender="girl" x="-2" y="-1" angle="0"/>      <dancer gender="boy" x="-2" y="-3" angle="180"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-2" y="3" angle="0"/>
+      <dancer gender="girl" x="-2" y="1" angle="0"/>
+      <dancer gender="girl" x="-2" y="-1" angle="0"/>
+      <dancer gender="boy" x="-2" y="-3" angle="180"/>
+    </formation>
     <path>
       <move select="U-Turn Right" beats="4" offsetX="2" offsetY="-2" />
     </path>

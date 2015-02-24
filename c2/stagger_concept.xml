@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Stagger Concept">
 
   <tam title="Stagger Double Pass Thru" group="Stagger"
        from="" formation="Facing Blocks">

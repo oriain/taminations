@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Single Concept">
 
   <tamxref title="Single Checkmate" group="Single"
            xref-link="c3a/single_checkmate"

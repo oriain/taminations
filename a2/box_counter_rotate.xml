@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Box Counter Rotate">
 
   <tam title="Box Counter Rotate" from="Right-Hand Box" formation="Box RH">
     <path couples="1 3">

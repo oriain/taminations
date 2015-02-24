@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Scoot and Weave">
 
   <tam title="Scoot and Weave" from="Right-Hand Box" formation="Box RH" parts="5.5">
     <path numbers="1 4">

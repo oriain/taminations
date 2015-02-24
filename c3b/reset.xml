@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Reset">
 
   <tam title="Reset" from="Right-Hand Box" formation="Box RH Boys Lead" parts="3;1.5;3">
     <path couples="3 1">

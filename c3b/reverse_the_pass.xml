@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Reverse The Pass">
 
   <tam title="Reverse the Pass" from="Completed Double Pass Thru"
        formation="Completed Double Pass Thru" parts="3;3">

@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Double Pass Thru">
 
   <tam title="Double Pass Thru"
        from="Single Column" formation="Single Double Pass Thru"

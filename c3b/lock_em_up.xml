@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Lock 'Em Up">
 
   <tam title="Lock 'Em Up" from="Tidal Wave" formation="Tidal Wave RH BGGB" parts="2;2;5">
     <path couples="3 1">

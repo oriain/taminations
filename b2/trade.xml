@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Trade Family">
 
   <tam title="Boys Trade" from="Right-Hand Wave, Boys Center"
        formation="Wave RH Boys Center" difficulty="1" gender-specific="true">

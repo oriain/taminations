@@ -20,11 +20,16 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Checkmate">
 
   <tam title="Checkmate"
        from="Right-Hand Columns">
-     <formation>      <dancer gender="girl" x="-1" y="3" angle="90"/>      <dancer gender="boy" x="-1" y="1" angle="90"/>      <dancer gender="girl" x="-1" y="-1" angle="90"/>      <dancer gender="boy" x="-1" y="-3" angle="90"/>    </formation>
+     <formation>
+      <dancer gender="girl" x="-1" y="3" angle="90"/>
+      <dancer gender="boy" x="-1" y="1" angle="90"/>
+      <dancer gender="girl" x="-1" y="-1" angle="90"/>
+      <dancer gender="boy" x="-1" y="-3" angle="90"/>
+    </formation>
     <path couples="2 4">
       <move select="Flip Right" beats="2" scaleY="1.5" />
       <move select="Forward 5" />
@@ -50,7 +55,12 @@
 
   <tam title="Checkmate"
        from="Left-Hand Columns">
-     <formation>      <dancer gender="boy" x="1" y="-3" angle="90"/>      <dancer gender="girl" x="1" y="-1" angle="90"/>      <dancer gender="boy" x="1" y="1" angle="90"/>      <dancer gender="girl" x="1" y="3" angle="90"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="1" y="-3" angle="90"/>
+      <dancer gender="girl" x="1" y="-1" angle="90"/>
+      <dancer gender="boy" x="1" y="1" angle="90"/>
+      <dancer gender="girl" x="1" y="3" angle="90"/>
+    </formation>
     <path numbers="8 4" couples="4 2">
       <move select="Forward 3" />
       <move select="Lead Left" beats="3" />

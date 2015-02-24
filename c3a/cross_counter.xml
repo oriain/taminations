@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Cross Counter">
 
   <tam title="Cross Counter" from="3/4 Tag" formation="3/4 Tag" parts="4;4.5">
     <path>

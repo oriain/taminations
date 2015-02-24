@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="3 by 1 Transfer The Column">
 
   <tam title="3 By 1 Transfer the Column"
        from="Right-Hand Columns">
@@ -56,7 +56,12 @@
 
   <tam title="3 By 1 Transfer the Column"
        from="Left-Hand Columns">
-     <formation>      <dancer gender="girl" x="3" y="-1" angle="0"/>      <dancer gender="boy" x="-1" y="-1" angle="0"/>      <dancer gender="girl" x="1" y="-1" angle="0"/>      <dancer gender="boy" x="-3" y="-1" angle="0"/>    </formation>
+     <formation>
+      <dancer gender="girl" x="3" y="-1" angle="0"/>
+      <dancer gender="boy" x="-1" y="-1" angle="0"/>
+      <dancer gender="girl" x="1" y="-1" angle="0"/>
+      <dancer gender="boy" x="-3" y="-1" angle="0"/>
+    </formation>
     <path>
       <move select="Run Left" beats="3" scaleY="2" />
       <move select="Forward 4" />

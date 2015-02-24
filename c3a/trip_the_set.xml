@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Trip the Set">
 
   <tam title="Trip the Set" from="Lines Facing Out" formation="Lines Facing Out">
     <path couples="4 2">

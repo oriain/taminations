@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Rally">
 
   <tam title="Rally" from="1/4 Tag" formation="Quarter Tag" parts="3">
     <path>

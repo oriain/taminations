@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Busy anything">
 
   <tam title="Busy Cross Cycle" group="Busy" parts="4" formation="Two-Faced Lines RH">
     <path>

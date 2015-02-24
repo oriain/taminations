@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Release Anything">
 
   <tam title="Release Ah So" group="Release" parts="3"
        formation="Quarter Tag">

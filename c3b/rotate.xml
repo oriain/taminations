@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Rotate">
 
   <tam title="Rotate 1/4" group=" " parts="1.5"
        formation="Completed Double Pass Thru">

@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Hinge the Lock">
 
   <tam title="Hinge the Lock" from="Right-Hand Box" formation="Box RH" parts="1.5">
     <path couples="3 1">

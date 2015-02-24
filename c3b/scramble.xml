@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Scramble">
 
   <tam title="Scramble" from="Lines Facing Out" parts="2">
     <formation name="Inverted Lines Ends Facing Out">

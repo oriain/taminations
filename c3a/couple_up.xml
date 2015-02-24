@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Couple Up">
 
   <tam title="Couple Up" from="Right-Hand Box" formation="Box RH" parts="4">
     <path>

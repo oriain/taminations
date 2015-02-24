@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Switch to a Diamond">
 
   <tam formation="Wave RH" title="Switch to a Diamond" from="Right-Hand Wave">
     <path numbers="1 4">

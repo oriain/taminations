@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Zoom">
 
   <tam title="Zoom"
        from="Right-Hand Box"
@@ -139,7 +139,12 @@
   <tam title="Zoom"
        from="T-Bones"
        parts="2" difficulty="3">
-     <formation>      <dancer gender="girl" x="-3" y="-1" angle="90"/>      <dancer gender="boy" x="-1" y="-1" angle="0"/>      <dancer gender="girl" x="1" y="-1" angle="90"/>      <dancer gender="boy" x="3" y="-1" angle="0"/>    </formation>
+     <formation>
+      <dancer gender="girl" x="-3" y="-1" angle="90"/>
+      <dancer gender="boy" x="-1" y="-1" angle="0"/>
+      <dancer gender="girl" x="1" y="-1" angle="90"/>
+      <dancer gender="boy" x="3" y="-1" angle="0"/>
+    </formation>
     <path>
       <move select="Forward 2" beats="4" />
     </path>

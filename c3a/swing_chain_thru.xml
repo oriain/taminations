@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Swing Chain Thru">
 
   <tam title="Swing Chain Thru" from="Right-Hand Waves" formation="Ocean Waves RH BGGB" parts="3;1.5;3">
     <path couples="2 4">

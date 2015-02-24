@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Swing">
 
   <tam title="Swing and Mix" from="Facing Couples" formation="Facing Couples" parts="5;3">
     <path>

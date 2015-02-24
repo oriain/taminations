@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Stampede">
 
   <tam title="Stampede" from="3/4 Tag" formation="3/4 Tag" parts="4;1.5">
     <path couples="3 1">

@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Wheel the Ocean">
 
   <tam title="Wheel the Ocean" from="Couples Facing Out" formation="Couples Facing Out" parts="3">
     <path couples="3 1">

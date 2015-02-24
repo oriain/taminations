@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Cross-Concentric Concept">
 
   <tam title="Cross Concentric Crossfire" group="Cross Concentric"
        from="" formation="Two-Faced Tidal Line RH">
@@ -156,8 +156,12 @@
   </tam>
 
   <tam title="Cross Concentric Star Thru (example 2)" group="Cross Concentric">
-     <formation>      <dancer gender="boy" x="3" y="2" angle="270"/>      <dancer gender="girl" x="-1" y="2" angle="270"/>      <dancer gender="boy" x="1" y="2" angle="270"/>
-      <dancer gender="girl" x="-3" y="2" angle="270"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="3" y="2" angle="270"/>
+      <dancer gender="girl" x="-1" y="2" angle="270"/>
+      <dancer gender="boy" x="1" y="2" angle="270"/>
+      <dancer gender="girl" x="-3" y="2" angle="270"/>
+    </formation>
   <path numbers="7 2">
     <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
     <move select="Lead Right" beats="3" scaleY="1.5"/>
@@ -177,8 +181,12 @@
   </tam>
 
   <tam title="Cross Concentric Star Thru (example 3)" group="Cross Concentric">
-     <formation>      <dancer gender="boy" x="3" y="1" angle="270"/>      <dancer gender="girl" x="-1" y="1" angle="0"/>      <dancer gender="boy" x="1" y="1" angle="180"/>
-      <dancer gender="girl" x="-3" y="1" angle="270"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="3" y="1" angle="270"/>
+      <dancer gender="girl" x="-1" y="1" angle="0"/>
+      <dancer gender="boy" x="1" y="1" angle="180"/>
+      <dancer gender="girl" x="-3" y="1" angle="270"/>
+    </formation>
   <path numbers="7 2">
     <move select="Extend Left" scaleY=".5"/>
     <move select="Lead Right" beats="3" scaleY="2.5"/>

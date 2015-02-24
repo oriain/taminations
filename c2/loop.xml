@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="(Right/Left) Loop 1, 2, 3">
 
   <tam title="End Girls Right Loop 3" from="Waves" formation="Ocean Waves RH BGBG" group=" ">
     <path>
@@ -35,7 +35,12 @@
   </tam>
 
   <tam title="Boys In Loop 2" from="Blocks" group=" ">
-     <formation>      <dancer gender="girl" x="-3" y="1" angle="180"/>      <dancer gender="boy" x="-3" y="-3" angle="180"/>      <dancer gender="boy" x="-1" y="3" angle="180"/>      <dancer gender="girl" x="-1" y="-1" angle="180"/>    </formation>
+     <formation>
+      <dancer gender="girl" x="-3" y="1" angle="180"/>
+      <dancer gender="boy" x="-3" y="-3" angle="180"/>
+      <dancer gender="boy" x="-1" y="3" angle="180"/>
+      <dancer gender="girl" x="-1" y="-1" angle="180"/>
+    </formation>
     <path numbers="1 8">
     </path>
     <path numbers="2 7">
