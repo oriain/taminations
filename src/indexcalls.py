@@ -42,6 +42,8 @@ def main():
       continue
     title = re.sub(r5,'',call.attrib['title']).replace('"','').strip()
     link = call.attrib['link'].replace('.html','')
+    if not r2.search(link):
+      continue
     calldict[title+link] = {
                      'title':call.attrib['title'],
                      'link':link,
