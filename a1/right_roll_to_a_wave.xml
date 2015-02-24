@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Right Roll to a Wave">
 
   <tam title="Right Roll to a Wave"
        from="Couples Facing Out"
@@ -261,7 +261,12 @@
   <tam title="Right Roll to a Wave Three Times"
        from="Single File Dancers"
        parts="2;3">
-     <formation>      <dancer gender="boy" x="-2.5" y="0" angle="180"/>      <dancer gender="girl" x="-3.5" y="0" angle="180"/>      <dancer gender="boy" x="-1.5" y="0" angle="180"/>      <dancer gender="girl" x="-.5" y="0" angle="180"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-2.5" y="0" angle="180"/>
+      <dancer gender="girl" x="-3.5" y="0" angle="180"/>
+      <dancer gender="boy" x="-1.5" y="0" angle="180"/>
+      <dancer gender="girl" x="-.5" y="0" angle="180"/>
+    </formation>
     <path>
       <move select="Extend Left" beats="2" scaleX=".5" />
       <move select="U-Turn Right" offsetX="-1" />

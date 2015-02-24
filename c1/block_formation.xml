@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Block Formation">
 
   <tam title="In Your Block Box Circulate" group="In Your Block"
        from="" formation="Blocks RH">
@@ -150,7 +150,12 @@
 
   <tam title="In Your Block Square Chain Thru" group="In Your Block"
        parts="3.5;3;3;3" >
-     <formation>      <dancer gender="boy" x="1" y="1" angle="270"/>      <dancer gender="girl" x="-3" y="1" angle="270"/>      <dancer gender="boy" x="3" y="3" angle="270"/>      <dancer gender="girl" x="-1" y="3" angle="270"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="1" y="1" angle="270"/>
+      <dancer gender="girl" x="-3" y="1" angle="270"/>
+      <dancer gender="boy" x="3" y="3" angle="270"/>
+      <dancer gender="girl" x="-1" y="3" angle="270"/>
+    </formation>
     <path numbers="5 4">
       <move select="Forward 2"/>
       <move select="Lead Right" scaleX=".5" scaleY="2" />

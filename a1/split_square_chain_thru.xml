@@ -20,12 +20,17 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Split Square Chain Thru">
 
   <tam title="Split Square Chain Thru"
        from="T-Bones"
        parts="1;2;6" >
-     <formation>      <dancer gender="boy" x="-1" y="3" angle="0"/>      <dancer gender="girl" x="1" y="3" angle="180"/>      <dancer gender="boy" x="-1" y="1" angle="90"/>      <dancer gender="girl" x="1" y="1" angle="90"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-1" y="3" angle="0"/>
+      <dancer gender="girl" x="1" y="3" angle="180"/>
+      <dancer gender="boy" x="-1" y="1" angle="90"/>
+      <dancer gender="girl" x="1" y="1" angle="90"/>
+    </formation>
     <path>
       <move select="Pull Left" scaleY=".5" />
       <move select="Lead Right" beats="2" scaleY="1.5" />

@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Step and Flip">
 
   <tam title="Step and Flip"
        from="Lines Facing Out"

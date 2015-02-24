@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Triangle Formation">
 
   <tam title="Outpoint Triangle Circulate"
        from="Left-Hand Diamonds"
@@ -42,7 +42,12 @@
   <tam title="Inpoint Triangle Circulate"
        from="Right-Hand Diamonds"
        group=" " >
-     <formation>      <dancer gender="boy" x="0" y="-3" angle="270"/>      <dancer gender="girl" x="-3" y="-2" angle="90"/>      <dancer gender="boy" x="0" y="-1" angle="270"/>      <dancer gender="girl" x="3" y="-2" angle="270"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="0" y="-3" angle="270"/>
+      <dancer gender="girl" x="-3" y="-2" angle="90"/>
+      <dancer gender="boy" x="0" y="-1" angle="270"/>
+      <dancer gender="girl" x="3" y="-2" angle="270"/>
+    </formation>
     <path numbers="6 3">
       <move select="Run Right" beats="3" offsetX="-1" scaleY="1.5" />
     </path>
@@ -59,7 +64,12 @@
   <tam title="Tandem-Based Triangle Circulate"
        from="Hourglass with Left-Hand Tandem Triangles"
        group=" " >
-     <formation>      <dancer gender="boy" x="-2" y="-3" angle="0"/>      <dancer gender="girl" x="-3" y="0" angle="90"/>      <dancer gender="boy" x="-2" y="3" angle="180"/>      <dancer gender="girl" x="0" y="1" angle="0"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-2" y="-3" angle="0"/>
+      <dancer gender="girl" x="-3" y="0" angle="90"/>
+      <dancer gender="boy" x="-2" y="3" angle="180"/>
+      <dancer gender="girl" x="0" y="1" angle="0"/>
+    </formation>
     <path numbers="3 6">
       <move select="Forward 4" />
     </path>

@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Magic Column Formation/Concept">
 
   <tam title="Magic Column Coordinate" group="Magic Column" parts="6;3">
     <formation>

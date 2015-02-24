@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Cast a Shadow">
 
   <tam title="Cast a Shadow"
        from="Right-Hand Waves"
@@ -80,7 +80,12 @@
 
   <tam title="Cast a Shadow"
        from="Right-Hand Two-Faced Lines">
-     <formation>      <dancer gender="boy" x="3" y="2" angle="270"/>      <dancer gender="girl" x="1" y="2" angle="270"/>      <dancer gender="girl" x="-1" y="2" angle="90"/>      <dancer gender="boy" x="-3" y="2" angle="90"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="3" y="2" angle="270"/>
+      <dancer gender="girl" x="1" y="2" angle="270"/>
+      <dancer gender="girl" x="-1" y="2" angle="90"/>
+      <dancer gender="boy" x="-3" y="2" angle="90"/>
+    </formation>
     <path numbers="7 2">
       <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".75" />
       <move select="Swing Left" scaleX=".75" scaleY=".75" />
@@ -107,7 +112,12 @@
 
   <tam title="Cast a Shadow"
        from="Left-Hand Two-Faced Lines">
-     <formation>      <dancer gender="girl" x="3" y="2" angle="90"/>      <dancer gender="boy" x="1" y="2" angle="90"/>      <dancer gender="boy" x="-1" y="2" angle="270"/>      <dancer gender="girl" x="-3" y="2" angle="270"/>    </formation>
+     <formation>
+      <dancer gender="girl" x="3" y="2" angle="90"/>
+      <dancer gender="boy" x="1" y="2" angle="90"/>
+      <dancer gender="boy" x="-1" y="2" angle="270"/>
+      <dancer gender="girl" x="-3" y="2" angle="270"/>
+    </formation>
     <path numbers="7 2">
       <move select="U-Turn Right" beats=".5" offsetY="-.75" />
       <move select="Forward 2" beats="1" />
@@ -134,7 +144,12 @@
 
   <tam title="Cast a Shadow"
        from="Three and One Lines">
-     <formation>      <dancer gender="girl" x="-2" y="3" angle="0"/>      <dancer gender="boy" x="-2" y="1" angle="180"/>      <dancer gender="girl" x="-2" y="-1" angle="180"/>      <dancer gender="boy" x="-2" y="-3" angle="180"/>    </formation>
+     <formation>
+      <dancer gender="girl" x="-2" y="3" angle="0"/>
+      <dancer gender="boy" x="-2" y="1" angle="180"/>
+      <dancer gender="girl" x="-2" y="-1" angle="180"/>
+      <dancer gender="boy" x="-2" y="-3" angle="180"/>
+    </formation>
     <path couples="2 4">
       <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".75" />
       <move select="Swing Left" scaleX=".75" scaleY=".75" />

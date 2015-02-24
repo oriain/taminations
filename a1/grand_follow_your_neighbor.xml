@@ -20,10 +20,15 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Grand follow your neighbor">
 
   <tam title="Grand Follow Your Neighbor" from="Right-Hand Columns">
-  <formation>      <dancer gender="girl" x="1" y="-3" angle="270"/>      <dancer gender="boy" x="1" y="-1" angle="270"/>      <dancer gender="girl" x="1" y="1" angle="270"/>      <dancer gender="boy" x="1" y="3" angle="270"/>    </formation>
+  <formation>
+      <dancer gender="girl" x="1" y="-3" angle="270"/>
+      <dancer gender="boy" x="1" y="-1" angle="270"/>
+      <dancer gender="girl" x="1" y="1" angle="270"/>
+      <dancer gender="boy" x="1" y="3" angle="270"/>
+    </formation>
     <path numbers="8 1" couples="2 4">
       <move select="Lead Right" beats="2" scaleX="2" />
       <move select="Run Right" scaleY=".75" />
@@ -99,7 +104,12 @@
   </tam>
 
   <tam title="Grand Follow Your Neighbor and Spread" from="Right-Hand Columns">
-  <formation>      <dancer gender="girl" x="1" y="-3" angle="270"/>      <dancer gender="boy" x="1" y="-1" angle="270"/>      <dancer gender="girl" x="1" y="1" angle="270"/>      <dancer gender="boy" x="1" y="3" angle="270"/>    </formation>
+  <formation>
+      <dancer gender="girl" x="1" y="-3" angle="270"/>
+      <dancer gender="boy" x="1" y="-1" angle="270"/>
+      <dancer gender="girl" x="1" y="1" angle="270"/>
+      <dancer gender="boy" x="1" y="3" angle="270"/>
+    </formation>
     <path numbers="8 1">
       <move select="Lead Right" beats="2" scaleX="2" />
       <move select="Run Right" scaleY="1.25" />

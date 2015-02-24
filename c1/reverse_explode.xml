@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Reverse Explode">
 
   <tam title="Reverse Explode" from="Right-Hand Wave" formation="Wave RH">
     <path numbers="1 4">

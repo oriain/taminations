@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Triangle Circulate">
 
   <tam title="Inside Triangle Circulate"
        from="Right-Hand Diamonds"
@@ -274,7 +274,12 @@
 
   <tam title="Tandem-Based Triangle Circulate"
        from="Hourglass with Right-Hand Tandem Triangles">
-     <formation>      <dancer gender="boy" x="-2" y="-3" angle="180"/>      <dancer gender="girl" x="-3" y="0" angle="90"/>      <dancer gender="boy" x="-2" y="3" angle="0"/>      <dancer gender="girl" x="0" y="1" angle="180"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-2" y="-3" angle="180"/>
+      <dancer gender="girl" x="-3" y="0" angle="90"/>
+      <dancer gender="boy" x="-2" y="3" angle="0"/>
+      <dancer gender="girl" x="0" y="1" angle="180"/>
+    </formation>
     <path>
       <move select="U-Turn Right" beats="4" offsetX="-2" offsetY="-2" />
     </path>
@@ -290,7 +295,12 @@
 
   <tam title="Tandem-Based Triangle Circulate"
        from="Hourglass with Left-Hand Tandem Triangles">
-     <formation>      <dancer gender="boy" x="-2" y="-3" angle="0"/>      <dancer gender="girl" x="-3" y="0" angle="270"/>      <dancer gender="boy" x="-2" y="3" angle="180"/>      <dancer gender="girl" x="0" y="1" angle="0"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-2" y="-3" angle="0"/>
+      <dancer gender="girl" x="-3" y="0" angle="270"/>
+      <dancer gender="boy" x="-2" y="3" angle="180"/>
+      <dancer gender="girl" x="0" y="1" angle="0"/>
+    </formation>
     <path>
       <move select="Forward 4" />
     </path>
@@ -306,7 +316,12 @@
 
   <tam title="Tandem-Based Triangle Circulate"
        from="Galaxy with Right-Hand Tandem Triangles">
-     <formation>      <dancer gender="boy" x="-1" y="-1" angle="0"/>      <dancer gender="girl" x="-3" y="0" angle="90"/>      <dancer gender="boy" x="-1" y="1" angle="180"/>      <dancer gender="girl" x="0" y="3.1" angle="0"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-1" y="-1" angle="0"/>
+      <dancer gender="girl" x="-3" y="0" angle="90"/>
+      <dancer gender="boy" x="-1" y="1" angle="180"/>
+      <dancer gender="girl" x="0" y="3.1" angle="0"/>
+    </formation>
     <path>
       <move select="Forward 2" beats="3" />
     </path>
@@ -322,7 +337,12 @@
 
   <tam title="Tandem-Based Triangle Circulate"
        from="Galaxy with Left-Hand Tandem Triangles">
-     <formation>      <dancer gender="boy" x="-1" y="-1" angle="180"/>      <dancer gender="girl" x="-3" y="0" angle="270"/>      <dancer gender="boy" x="-1" y="1" angle="0"/>      <dancer gender="girl" x="0" y="3.1" angle="180"/>    </formation>    <path>
+     <formation>
+      <dancer gender="boy" x="-1" y="-1" angle="180"/>
+      <dancer gender="girl" x="-3" y="0" angle="270"/>
+      <dancer gender="boy" x="-1" y="1" angle="0"/>
+      <dancer gender="girl" x="0" y="3.1" angle="180"/>
+    </formation>    <path>
       <move select="U-Turn Left" beats="3" offsetX="-1" offsetY="2.1" />
     </path>
     <path>

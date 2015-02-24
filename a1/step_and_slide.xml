@@ -20,10 +20,15 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Step and Slide">
 
   <tam title="Step and Slide" from="Lines Facing Out">
-    <formation>      <dancer gender="girl" x="3" y="2" angle="90"/>      <dancer gender="boy" x="1" y="2" angle="90"/>      <dancer gender="girl" x="-1" y="2" angle="90"/>      <dancer gender="boy" x="-3" y="2" angle="90"/>    </formation>
+    <formation>
+      <dancer gender="girl" x="3" y="2" angle="90"/>
+      <dancer gender="boy" x="1" y="2" angle="90"/>
+      <dancer gender="girl" x="-1" y="2" angle="90"/>
+      <dancer gender="boy" x="-3" y="2" angle="90"/>
+    </formation>
     <path numbers="4 5">
       <move select="Dodge Left" beats="4" offsetX="-1" />
     </path>

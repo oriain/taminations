@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Quarter Thru">
 
   <tam title="Quarter Thru"
        from="Right-Hand Box"
@@ -173,7 +173,12 @@
   <tam title="Left Quarter Thru"
        from="Facing Diamonds"
        parts="1.5" >
-     <formation>      <dancer gender="boy" x="0" y="-3" angle="0"/>      <dancer gender="girl" x="-3" y="-2" angle="90"/>      <dancer gender="boy" x="0" y="-1" angle="180"/>      <dancer gender="girl" x="3" y="-2" angle="270"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="0" y="-3" angle="0"/>
+      <dancer gender="girl" x="-3" y="-2" angle="90"/>
+      <dancer gender="boy" x="0" y="-1" angle="180"/>
+      <dancer gender="girl" x="3" y="-2" angle="270"/>
+    </formation>
     <path>
       <move select="Hinge Left" />
       <move select="Swing Right" />

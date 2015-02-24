@@ -20,10 +20,15 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="T-Bone Formation">
 
   <tam title="(T-Bone) Circulate" from="" parts="" group="(T-Bone)">
-     <formation>      <dancer gender="girl" x="-1" y="3" angle="90"/>      <dancer gender="boy" x="-1" y="1" angle="180"/>      <dancer gender="girl" x="-1" y="-1" angle="90"/>      <dancer gender="boy" x="-1" y="-3" angle="180"/>    </formation>
+     <formation>
+      <dancer gender="girl" x="-1" y="3" angle="90"/>
+      <dancer gender="boy" x="-1" y="1" angle="180"/>
+      <dancer gender="girl" x="-1" y="-1" angle="90"/>
+      <dancer gender="boy" x="-1" y="-3" angle="180"/>
+    </formation>
     <path numbers="5 4" couples="4 2">
       <move select="Run Right" beats="5"/>
     </path>
@@ -39,7 +44,12 @@
   </tam>
 
   <tam title="(T-Bone) Split Circulate" from="" parts="" group="(T-Bone)">
-     <formation>      <dancer gender="girl" x="-1" y="3" angle="90"/>      <dancer gender="boy" x="-1" y="1" angle="180"/>      <dancer gender="girl" x="-1" y="-1" angle="90"/>      <dancer gender="boy" x="-1" y="-3" angle="180"/>    </formation>
+     <formation>
+      <dancer gender="girl" x="-1" y="3" angle="90"/>
+      <dancer gender="boy" x="-1" y="1" angle="180"/>
+      <dancer gender="girl" x="-1" y="-1" angle="90"/>
+      <dancer gender="boy" x="-1" y="-3" angle="180"/>
+    </formation>
     <path numbers="5 4">
       <move select="Run Right"/>
     </path>
@@ -55,7 +65,12 @@
   </tam>
 
   <tam title="(T-Bone) Scoot Back" from="" group="(T-Bone)">
-     <formation>      <dancer gender="girl" x="-1" y="3" angle="0"/>      <dancer gender="boy" x="-1" y="1" angle="270"/>      <dancer gender="girl" x="-1" y="-1" angle="0"/>      <dancer gender="boy" x="-1" y="-3" angle="270"/>    </formation>
+     <formation>
+      <dancer gender="girl" x="-1" y="3" angle="0"/>
+      <dancer gender="boy" x="-1" y="1" angle="270"/>
+      <dancer gender="girl" x="-1" y="-1" angle="0"/>
+      <dancer gender="boy" x="-1" y="-3" angle="270"/>
+    </formation>
     <path numbers="5 4">
       <move select="Extend Right" scaleY=".5"/>
       <move select="Swing Right" scaleX=".5" scaleY=".5"/>
@@ -77,7 +92,12 @@
   <tam title="(T-Bone) Follow Your Neighbor"
        from="Left-Handed T-Bone"
        group="(T-Bone)" >
-     <formation>      <dancer gender="girl" x="1" y="3" angle="0"/>      <dancer gender="boy" x="1" y="1" angle="90"/>      <dancer gender="girl" x="1" y="-1" angle="0"/>      <dancer gender="boy" x="1" y="-3" angle="90"/>    </formation>
+     <formation>
+      <dancer gender="girl" x="1" y="3" angle="0"/>
+      <dancer gender="boy" x="1" y="1" angle="90"/>
+      <dancer gender="girl" x="1" y="-1" angle="0"/>
+      <dancer gender="boy" x="1" y="-3" angle="90"/>
+    </formation>
     <path numbers="1 8">
       <move select="Lead Right" beats="2.5" scaleX="2.5" />
       <move select="Run Right" scaleX=".5" scaleY=".25" />

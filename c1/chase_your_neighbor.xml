@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Chase Your Neighbor">
 
   <tam title="Chase Your Neighbor" from="Couples Facing Out" formation="Couples Facing Out">
     <path couples="3 1">

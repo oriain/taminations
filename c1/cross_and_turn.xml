@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Cross and Turn">
 
   <tam title="Cross and Turn" from="Facing Couples" formation="Facing Couples">
     <path numbers="1 4">

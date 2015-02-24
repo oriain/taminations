@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Circle By (m and n)">
 
   <tam title="Circle By Nothing and Nothing" group="Circle By"
        from=""

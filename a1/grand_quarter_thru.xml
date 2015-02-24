@@ -20,12 +20,17 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Grand Quarter Thru">
 
   <tam title="Grand Quarter Thru"
        from="Right-Hand Columns"
        parts="2" >
-     <formation>      <dancer gender="girl" x="1" y="-3" angle="270"/>      <dancer gender="boy" x="1" y="-1" angle="270"/>      <dancer gender="girl" x="1" y="1" angle="270"/>      <dancer gender="boy" x="1" y="3" angle="270"/>    </formation>
+     <formation>
+      <dancer gender="girl" x="1" y="-3" angle="270"/>
+      <dancer gender="boy" x="1" y="-1" angle="270"/>
+      <dancer gender="girl" x="1" y="1" angle="270"/>
+      <dancer gender="boy" x="1" y="3" angle="270"/>
+    </formation>
     <path numbers="8 1" couples="2 4">
       <move select="Hinge Right" beats="2" scaleX=".5" hands="gripright"/>
       <move select="Stand" beats="4" hands="none"/>

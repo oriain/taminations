@@ -20,11 +20,16 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Cross Chain And Roll">
 
   <tam title="Cross Chain And Roll"
        from="Eight Chain Thru">
-     <formation>      <dancer gender="boy" x="1" y="3" angle="270"/>      <dancer gender="girl" x="-1" y="3" angle="270"/>      <dancer gender="boy" x="-1" y="1" angle="90"/>      <dancer gender="girl" x="1" y="1" angle="90"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="1" y="3" angle="270"/>
+      <dancer gender="girl" x="-1" y="3" angle="270"/>
+      <dancer gender="boy" x="-1" y="1" angle="90"/>
+      <dancer gender="girl" x="1" y="1" angle="90"/>
+    </formation>
     <path numbers="5 4">
       <move select="Pull Left" scaleY=".5" />
       <move select="Lead Right" beats="2" scaleY="1.5" />

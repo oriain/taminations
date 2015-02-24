@@ -20,11 +20,16 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Belles and Beaus (naming convention)">
 
   <tam title="Belles Walk, Beaus Dodge"
        from="Lines boy-boy-girl-girl">
-     <formation>      <dancer gender="boy" x="-2" y="3" angle="0"/>      <dancer gender="girl" x="-2" y="-1" angle="0"/>      <dancer gender="boy" x="-2" y="1" angle="0"/>      <dancer gender="girl" x="-2" y="-3" angle="0"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-2" y="3" angle="0"/>
+      <dancer gender="girl" x="-2" y="-1" angle="0"/>
+      <dancer gender="boy" x="-2" y="1" angle="0"/>
+      <dancer gender="girl" x="-2" y="-3" angle="0"/>
+    </formation>
     <path>
       <move select="Dodge Right" />
     </path>

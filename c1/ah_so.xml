@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Ah So">
 
   <tam title="Ah So" from="Right-Hand Wave" formation="Wave RH">
     <path numbers="1 4">
@@ -94,7 +94,12 @@
   </tam>
 
   <tam title="Ah So" from="3 and 1 Lines">
-     <formation>      <dancer gender="girl" x="-2" y="3" angle="180"/>      <dancer gender="boy" x="-2" y="1" angle="0"/>      <dancer gender="girl" x="-2" y="-1" angle="180"/>      <dancer gender="boy" x="-2" y="-3" angle="180"/>    </formation>
+     <formation>
+      <dancer gender="girl" x="-2" y="3" angle="180"/>
+      <dancer gender="boy" x="-2" y="1" angle="0"/>
+      <dancer gender="girl" x="-2" y="-1" angle="180"/>
+      <dancer gender="boy" x="-2" y="-3" angle="180"/>
+    </formation>
     <path numbers="5 4">
       <move select="Run Left" beats="4" hands="left" scaleY="2" offsetX="-1" />
     </path>

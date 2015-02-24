@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Shakedown">
 
   <tam title="Shakedown" from="Couples Facing Out" formation="Couples Facing Out">
     <path numbers="1 4" couples="3 1">

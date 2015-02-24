@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Box/Split Recycle">
 
   <tam title="Box Recycle"
        from="Right-Hand Box"
@@ -120,7 +120,12 @@
 
   <tam title="Split Recycle"
        from="3 and 1 Lines">
-     <formation>      <dancer gender="boy" x="-2" y="3" angle="0"/>      <dancer gender="girl" x="-2" y="1" angle="180"/>      <dancer gender="boy" x="-2" y="-1" angle="0"/>      <dancer gender="girl" x="-2" y="-3" angle="0"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-2" y="3" angle="0"/>
+      <dancer gender="girl" x="-2" y="1" angle="180"/>
+      <dancer gender="boy" x="-2" y="-1" angle="0"/>
+      <dancer gender="girl" x="-2" y="-3" angle="0"/>
+    </formation>
     <path numbers="5 4">
       <move select="U-Turn Right" beats="4" hands="gripright" offsetX="2" offsetY="-.5" />
     </path>

@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Tagging Calls Back to a Wave">
 
   <tam title="Flip Back"
        from="Right-Hand Wave"

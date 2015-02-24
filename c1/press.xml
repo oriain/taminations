@@ -20,11 +20,16 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Press Ahead">
 
   <tam title="Ends Press Ahead"
        from="Lines Facing Out">
-     <formation>      <dancer gender="girl" x="-1" y="3" angle="180"/>      <dancer gender="boy" x="-1" y="1" angle="180"/>      <dancer gender="girl" x="-1" y="-1" angle="180"/>      <dancer gender="boy" x="-1" y="-3" angle="180"/>    </formation>
+     <formation>
+      <dancer gender="girl" x="-1" y="3" angle="180"/>
+      <dancer gender="boy" x="-1" y="1" angle="180"/>
+      <dancer gender="girl" x="-1" y="-1" angle="180"/>
+      <dancer gender="boy" x="-1" y="-3" angle="180"/>
+    </formation>
     <path>
       <move select="Forward 2"/>
     </path>
@@ -39,7 +44,12 @@
 
   <tam title="Girls Press Ahead"
        from="Right-Hand Waves">
-     <formation>      <dancer gender="boy" x="-1" y="3" angle="0"/>      <dancer gender="girl" x="-1" y="1" angle="180"/>      <dancer gender="boy" x="-1" y="-1" angle="0"/>      <dancer gender="girl" x="-1" y="-3" angle="180"/>    </formation>
+     <formation>
+      <dancer gender="boy" x="-1" y="3" angle="0"/>
+      <dancer gender="girl" x="-1" y="1" angle="180"/>
+      <dancer gender="boy" x="-1" y="-1" angle="0"/>
+      <dancer gender="girl" x="-1" y="-3" angle="180"/>
+    </formation>
   <path>
   </path>
   <path>

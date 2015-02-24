@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination>
+<tamination title="Percolate">
 
   <tam title="Percolate"
        from="Eight Chain Thru"
@@ -88,7 +88,12 @@
   <tam title="Percolate"
        from="Left-Hand Waves"
        parts="4;2;1.5" >
-     <formation>      <dancer gender="girl" x="-2" y="-3" angle="0"/>      <dancer gender="boy" x="-2" y="-1" angle="180"/>      <dancer gender="girl" x="-2" y="1" angle="0"/>      <dancer gender="boy" x="-2" y="3" angle="180"/>    </formation>
+     <formation>
+      <dancer gender="girl" x="-2" y="-3" angle="0"/>
+      <dancer gender="boy" x="-2" y="-1" angle="180"/>
+      <dancer gender="girl" x="-2" y="1" angle="0"/>
+      <dancer gender="boy" x="-2" y="3" angle="180"/>
+    </formation>
     <path>
       <move select="Forward 4" />
       <move select="Lead Left" beats="2" scaleX="2" scaleY="3" />
