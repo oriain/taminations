@@ -25,7 +25,7 @@
   <tam title="Scoot Back"
        from="Right-Hand Box"
        formation="Box RH"
-       parts="2.5">
+       parts="2.5" difficulty="1">
     <path>
       <move select="Extend Right" scaleX="2" scaleY=".25" beats="1.5"/>
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
@@ -39,7 +39,7 @@
   <tam title="Scoot Back"
        from="Left-Hand Box"
        formation="Box LH"
-       parts="2.5">
+       parts="2.5" difficulty="2">
     <path>
       <move select="Flip Left" beats="6" />
     </path>
