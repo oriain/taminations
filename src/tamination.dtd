@@ -28,7 +28,7 @@
 
 <!--  Below are all the elements and attributes for animation xml files  -->
 <!ELEMENT tamination (tam | tamxref)*>
-<!ATTLIST tamination title CDATA #IMPLIED >
+<!ATTLIST tamination title CDATA #REQUIRED >
 
 <!ELEMENT tam (formation?,path*,taminator?)>
 <!ATTLIST tam title CDATA #REQUIRED

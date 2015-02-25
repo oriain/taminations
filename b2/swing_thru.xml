@@ -272,6 +272,24 @@
     </path>
   </tam>
 
+  <tam title="Left Swing Thru" from="Facing Couples" parts="3.5;1.5;1.5"
+       formation="Facing Couples" difficulty="2">
+    <path>
+      <move select="Forward 2" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY="2" />
+      <move select="Swing Left" />
+      <move select="Swing Right" />
+    </path>
+    <taminator>
+      This is an example of the Facing Couples rule.
+      Because this is a Left Swing Thru, dancers first extend to
+      a Left-Hand Wave.
+    </taminator>
+  </tam>
+
   <tam title="Left Swing Thru"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"

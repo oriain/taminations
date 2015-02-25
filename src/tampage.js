@@ -299,7 +299,7 @@ function generateAnimations()
     }
     else if ($(this).attr("title") != prevtitle)
       $("#animationlist").append('<span class="callname">'+$(this).attr("title")+" from</span><br />");
-    if (tam.animation(n).attr("difficulty") != undefined) {
+    if (tam.animationXref(n).attr("difficulty") != undefined) {
       name = name + difficultText[Number(tam.animationXref(n).attr("difficulty"))-1];
       showDiffLegend = true;
     }
