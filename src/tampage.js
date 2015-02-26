@@ -189,7 +189,7 @@ $(document).ready(
     if (docname != 'index' && docname != 'sequence' && docname != 'embedinfo' &&
         docname != 'overview' && docname != 'howtouse' && docname != 'search' &&
         docname != 'trouble' && docname != 'download')
-      tam = new TAMination(docname+'.xml',generateAnimations,'');
+      tam = new TAMination(docname.extension('xml'),generateAnimations,'');
     else
       tam = new TAMination();
     tam.loadXML('calls.xml',function(a) { calldata = a; });

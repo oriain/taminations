@@ -198,12 +198,12 @@ $(document).bind('pagechange', function(ev,data) {
       $('call['+leveldata.selector+']',calldata).each(function() {
         if ($(this).attr('level') == 'Info')
           return;
-        var text = $(this).attr('text');
+        var text = $(this).attr('title');
         var link = $(this).attr('link');
         var level = $(this).attr('sublevel');
         var theme = findLevel(level).theme;
-        var htmlpage = encodeURIComponent(link);
-        var xmlpage = link.replace('html','xml');
+        var htmlpage = encodeURIComponent(link.extension('html'));
+        var xmlpage = link.extension('xml');
         if ($(this).attr('anim') == undefined)
           callnamedict[xmlpage] = text;
         var html = '<li data-theme="'+theme+'" data-icon="false">' +
@@ -243,7 +243,7 @@ function loadcall(options,htmlpage)
       }
     }});
     //  Load the xml file of animations
-    var xmlpage = htmlpage.replace('html','xml');
+    var xmlpage = htmlpage.extension('xml');
     new TAMination(xmlpage,function(tam) {
       var prevtitle = "";
       var prevgroup = "";

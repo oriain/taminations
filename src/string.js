@@ -63,6 +63,14 @@ define(function() {
     },{});
   };
 
+  /**  Apply an extension to a filename, replacing any previous extension */
+  String.prototype.extension = function(ext) {
+    // remove any existing extension
+    var f = this.replace(/\.[^\/.]*$/,'');
+    // add the extension, make sure with just one dot
+    return f + '.' + ext.replace(/^\./,'');
+  };
+
   Object.defineProperties(String.prototype, {
     toCapCase: funcprop,
     trim: funcprop,

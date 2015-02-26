@@ -23,7 +23,6 @@ define(['calls/quarter_turns'],function(QuarterTurns) {
   var Roll = Env.extend(QuarterTurns);
   Roll.prototype.name = "and Roll";
   Call.classes.androll = Roll;
-  Call.classes.androll = Roll;
   Roll.prototype.select = function(ctx,d) {
     //  Look at the last curve of the past
     var roll = d.path.movelist.last().brotate.rolling();

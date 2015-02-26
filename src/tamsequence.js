@@ -36,6 +36,48 @@ var callnames = [];
 var CallNotFoundError = Env.extend(CallError);
 var FormationNotFoundError = Env.extend(CallError);
 
+var scripts = {
+    allemandeleft: 'allemande_left',
+    leftturnthru: 'allemande_left',
+    beaus: 'beaus',
+    belles: 'belles',
+    boxcounterrotate: 'box_counter_rotate',
+    boys: 'boys',
+    centers: 'centers',
+    crossrun: 'crossrun',
+    ends: 'ends',
+    facein: 'face_in',
+    faceleft: 'face_left',
+    factout: 'face_out',
+    faceright: 'face_right',
+    girls: 'girls',
+    hinge: 'hinge',
+    leaders: 'leaders',
+    passthru: 'pass_thru',
+    quarterin: 'quarter_in',
+    quarterout: 'quater_out',
+    androll: 'roll',
+    run: 'run',
+    slidethru: 'slide_thru',
+    slip: 'slip',
+    andspread: 'spread',
+    starthru: 'star_thru',
+    touchaquarter: 'touch_a_quarter',
+    trade: 'trade',
+    trailers: 'trailers',
+    turnback: 'turn_back',
+    turnthru: 'turn_thru',
+    verycenters: 'verycenters',
+    wheelaround: 'wheel_around',
+    zag: 'zag',
+    zagzag: 'zagzag',
+    zagzig: 'zagzig',
+    zig: 'zig',
+    zigzag: 'zigzag',
+    zigzig: 'zigzig',
+    zoom: 'zoom'
+};
+
 
 //  String extension to help with parsing
 //  Returns an array of strings, starting with the entire string,
@@ -332,32 +374,27 @@ function processCallText()
 var filecount = 0;
 function fetchCall(callname)
 {
-  $('call[text="'+callname.collapse().replace(/\W/g,'')+'"]',callindex).each( function () {
-    var f = $(this).attr('link');
-    if (!xmldata[f]) {
-      if (f.indexOf('.js') > 0) {
-        //  Call is interpreted by a script
-        filecount++;
-        //  Read and interpret the script
-        require([f.replace('.js','')],function(){
-          xmldata[f] = true;
-          if (--filecount == 0)
-            buildSequence();
-        });
-        /*
-        $.getScript('src/'+f,function(data,status,jqxhr) {
-          xmldata[f] = true;
-          if (--filecount == 0)
-            buildSequence();
-        }).fail(function(jqxhr,settings,exception) {
-          alert('script failed '+settings);
-        }); */
-      }
-      else if (f.indexOf('.xml') > 0) {
+  if (callname in scripts) {
+    //  Call is interpreted by a script
+    if (!xmldata[callname]) {
+      filecount++;
+      //  Read and interpret the script
+      require(['calls/'+scripts[callname]],function(){
+        xmldata[callname] = true;
+        if (--filecount == 0)
+          buildSequence();
+      });
+    }
+  }
+
+  else {  //  Not a script, look for an animation
+    $('call[text="'+callname.collapse().replace(/\W/g,'')+'"]',callindex).each( function () {
+      var f = $(this).attr('link');
+      if (!xmldata[f]) {
         //  Call is interpreted by animations
         filecount++;
         //  Read and store the animation
-        $.get(f,function(data,status,jqxhr) {
+        $.get(f.extension('xml'),function(data,status,jqxhr) {
           xmldata[f] = data;
           if (--filecount == 0) {
             //  All xml has been read, now we can interpret the calls
@@ -365,8 +402,8 @@ function fetchCall(callname)
           }
         },"xml").filename = f;
       }
-    }
-  });
+    });
+  }
 }
 
 function updateSequence()
