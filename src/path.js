@@ -28,7 +28,7 @@ define(['movement','affinetransform'],function(Movement,AffineTransform) {
     this.transformlist = [];
     if (p instanceof Path) {
       p.movelist.forEach(function(m) {
-        this.add(m.clone);
+        this.add(m.clone());
       },this);
     }
     else if (p && (p.select != undefined)) {
