@@ -56,13 +56,26 @@ def main():
     if not m:
       continue
     sublevel = m.group(1)
-    if filename.endswith('.x.xml'):
-      continue
     tree = ET.parse(filename)
     root = tree.getroot()
+    if root.tag != 'tamination':
+      continue
+    link = filename.lstrip('./').replace('.xml','')
+    #  Add the main title, which could be different from the animations
+    #  esp for concepts
+    title = re.sub(r5,'',root.attrib['title']).replace('"','').strip()
+    calldict[title+link] = {
+                       'title':title,
+                       'link':link,
+                       'text':re.sub(r4,'',title.lower()),
+                       'level':leveldict[sublevel]['level'],
+                       'sublevel':leveldict[sublevel]['sublevel']
+                      }
+    #  Loop through all the animations adding one entry for each
+    #  For a lot of calls, these will be the same
+    #  But for some they will be different
     for tam in root.findall('tam'):
       title = re.sub(r5,'',tam.attrib['title']).replace('"','').strip()
-      link = filename.lstrip('./').replace('.xml','')
       calldict[title+link] = {
                        'title':title,
                        'link':link,
