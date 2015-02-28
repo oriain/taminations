@@ -23,7 +23,7 @@
 <tamination title="Promenade Family">
 
   <tam title="Heads Promenade 1/2"
-       from="Static Square" group=""
+       from="Static Square" group=" "
        formation="Static Square">
     <path>
       <move select="Extend Right" hands="gripright" beats="3" scaleX="2" scaleY="4" />
@@ -48,7 +48,7 @@
   </tam>
 
   <tam title="Four Boys Promenade"
-       from="Static Square" gender-specific="true" group=""
+       from="Static Square" gender-specific="true" group=" "
        formation="Static Square">
     <path>
       <move select="Lead Right" scaleX="1.5" />
@@ -73,7 +73,7 @@
   </tam>
 
   <tam title="Four Girls Promenade"
-       from="Static Square" gender-specific="true" group=""
+       from="Static Square" gender-specific="true" group=" "
        formation="Static Square">
     <path>
     </path>
@@ -96,7 +96,7 @@
   </tam>
 
   <tam title="Single File Promenade" from="Static Square"
-       formation="Static Square" group="">
+       formation="Static Square" group=" ">
     <path>
       <move select="Quarter Right" offsetX="0.1716" offsetY="-1" beats="1"/>
       <move select="Lead Left" beats="3" scaleX="2.828" scaleY="2.828"/>
@@ -133,7 +133,7 @@
     </path>
   </tam>
 
-  <tam title="Star Promenade" group="" from="">
+  <tam title="Star Promenade" group=" ">
      <formation>
       <dancer gender="boy" x="0" y="1" angle="180"/>
       <dancer gender="girl" x="-3" y="-1" angle="0"/>

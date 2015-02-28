@@ -93,22 +93,9 @@
     </taminator>
   </tam>
 
-  <tam title="Explode and Roll" group="Explode and"
-       formation="Ocean Waves RH BGGB"
-       difficulty="2">
-    <path>
-       <move select="Run Right" offsetX="1"/>
-    </path>
-    <path>
-      <move select="U-Turn Left" offsetX="1"/>
-    </path>
-    <path>
-      <move select="U-Turn Left" offsetX="1"/>
-    </path>
-    <path>
-       <move select="Run Right" offsetX="1"/>
-    </path>
-  </tam>
+  <tamxref title="Explode and Roll" group="Explode and"
+           xref-link="plus/anything_and_roll"
+           xref-title="Explode and Roll"/>
 
   <tam title="Explode and Touch a Quarter" group="Explode and"
        formation="Ocean Waves RH BGGB"

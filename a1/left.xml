@@ -22,27 +22,10 @@
 -->
 <tamination title="Left">
 
-  <tam title="Left Square Chain Thru" group=" "
-       from="Facing Couples"
-       formation="Facing Couples"
-       parts="3;3;3" >
-    <path>
-      <move select="Pull Right" scaleX="1.5" scaleY=".5" />
-      <move select="Lead Right" beats="2" scaleX="3" scaleY=".5" />
-      <move select="Swing Right" />
-      <move select="Swing Left" scaleX=".75" scaleY=".75" />
-      <move select="Swing Right" scaleX=".75" scaleY=".75" />
-      <move select="Extend Right" beats="2" scaleX="2" scaleY="1.5" />
-    </path>
-    <path>
-      <move select="Pull Right" scaleX="1.5" scaleY=".5" />
-      <move select="Lead Left" beats="2" scaleY="1.5" />
-      <move select="Swing Right" />
-      <move select="Stand" beats="3" />
-      <move select="Swing Right" scaleX=".75" scaleY=".75" />
-      <move select="Forward" beats="2" scaleX="2" />
-    </path>
-  </tam>
+  <tamxref title="Left Square Chain Thru" group=" "
+           xref-link="a1/left_square_chain_thru"
+           xref-title="Left Square Chain Thru"
+           xref-from="Facing Couples"/>
 
   <tam title="Left Split Square Thru" group=" "
        formation="T-Bone ULRU">
@@ -134,20 +117,9 @@
     </path>
   </tam>
 
-  <tam title="Left Turn and Deal" formation="Two-Faced Lines LH" group=" ">
-    <path>
-      <move select="Run Left" beats="4" scaleX=".5" offsetX="1"/>
-    </path>
-    <path>
-      <move select="Run Left" beats="4" scaleX=".5" offsetX="1"/>
-    </path>
-    <path>
-      <move select="Run Left" beats="4" scaleX=".5" offsetX="1"/>
-    </path>
-    <path>
-      <move select="Run Left" beats="4" scaleX=".5" offsetX="1"/>
-    </path>
-  </tam>
+  <tamxref title="Left Turn and Deal" group=" "
+           xref-link="a1/turn_and_deal"
+           xref-title="Left Turn and Deal"/>
 
   <tamxref title="Left Swing Thru" group=" "
            xref-link="b2/swing_thru"

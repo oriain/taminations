@@ -118,35 +118,8 @@
     </path>
   </tam>
 
-  <tam title="Allemande Left to an Alamo Ring"
-       from="Static Square"
-       formation="Static Square"
-       parts="" difficulty="1">
-    <path>
-      <move select="Lead Left" beats="3" offsetX=".5" />
-      <move select="Swing Left" scaleX=".5" scaleY=".5" />
-      <move select="HalfHinge Left" scaleX=".5" scaleY=".5" offsetX=".646" offsetY="-.061" />
-      <move select="Sxtnth Left" hands="gripboth" />
-    </path>
-    <path>
-      <move select="Lead Right" offsetX="-.5" />
-      <move select="Hinge Left" scaleX=".5" scaleY=".5" />
-      <move select="Swing Left" scaleX=".5" scaleY=".5" />
-      <move select="HalfHinge Left" scaleX=".5" scaleY=".5" offsetX=".061" offsetY="-.646" />
-      <move select="Sxtnth Right" hands="gripboth" />
-    </path>
-    <path>
-      <move select="Lead Left" beats="3" offsetX=".5" />
-      <move select="Swing Left" scaleX=".5" scaleY=".5" />
-      <move select="HalfHinge Left" scaleX=".5" scaleY=".5" offsetX=".646" offsetY="-.061" />
-      <move select="Sxtnth Left" hands="gripboth" />
-    </path>
-    <path>
-      <move select="Lead Right" offsetX="-.5" />
-      <move select="Hinge Left" scaleX=".5" scaleY=".5" />
-      <move select="Swing Left" scaleX=".5" scaleY=".5" />
-      <move select="HalfHinge Left" scaleX=".5" scaleY=".5" offsetX=".061" offsetY="-.646" />
-      <move select="Sxtnth Right" hands="gripboth" />
-    </path>
-  </tam>
+  <tamxref title="Allemande Left to an Alamo Ring" group=" "
+           xref-link="b2/alamo_style"
+           xref-title="Allemande Left to an Alamo Ring"/>
+
 </tamination>
