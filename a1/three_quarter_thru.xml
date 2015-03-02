@@ -20,9 +20,9 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination title="Three-Quarter Thru">
+<tamination title="3/4 Thru">
 
-  <tam title="Three Quarter Thru"
+  <tam title="3/4 Thru"
        from="Right-Hand Box"
        formation="Box RH"
        parts="4.5" >
@@ -35,7 +35,7 @@
     </path>
   </tam>
 
-  <tam title="Three Quarter Thru"
+  <tam title="3/4 Thru"
        from="Ocean Waves"
        formation="Ocean Waves RH BGGB"
        parts="4.5" >
@@ -55,7 +55,7 @@
     </path>
   </tam>
 
-  <tam title="Three Quarter Thru"
+  <tam title="3/4 Thru"
        from="Columns"
        formation="Column RH GBGB"
        parts="4.5" >
@@ -75,7 +75,7 @@
     </path>
   </tam>
 
-  <tam title="Three Quarter Thru"
+  <tam title="3/4 Thru"
        from="Facing Diamonds"
        formation="Diamonds Facing Girl Points"
        parts="4.5" >
@@ -97,7 +97,7 @@
     </path>
   </tam>
 
-  <tam title="Centers Three Quarter Thru"
+  <tam title="Centers 3/4 Thru"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
        parts="4.5" >
@@ -114,7 +114,7 @@
     </path>
   </tam>
 
-  <tam title="Left Three Quarter Thru"
+  <tam title="Left 3/4 Thru"
        from="Left-Hand Box"
        formation="Box LH"
        parts="4.5" >
@@ -127,7 +127,7 @@
     </path>
   </tam>
 
-  <tam title="Left Three Quarter Thru"
+  <tam title="Left 3/4 Thru"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
        parts="4.5" >
@@ -147,7 +147,7 @@
     </path>
   </tam>
 
-  <tam title="Left Three Quarter Thru"
+  <tam title="Left 3/4 Thru"
        from="Left-Hand Columns"
        formation="Column LH GBGB"
        parts="1.5" >
@@ -167,7 +167,7 @@
     </path>
   </tam>
 
-  <tam title="Left Three Quarter Thru"
+  <tam title="Left 3/4 Thru"
        from="Facing Diamonds"
        parts="4.5" >
      <formation>
@@ -194,7 +194,7 @@
     </path>
   </tam>
 
-  <tam title="As Couples Three Quarter Thru"
+  <tam title="As Couples 3/4 Thru"
        from="Two-Faced Lines"
        formation="Two-Faced Lines RH"
        parts="9" group=" ">
@@ -214,7 +214,7 @@
     </path>
   </tam>
 
-  <tam title="All 8 Three Quarter Thru"
+  <tam title="All 8 3/4 Thru"
        from="Static Mini-Waves"
        formation="Static MiniWaves RH"
        parts="4.5" group=" ">

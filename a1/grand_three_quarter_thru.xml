@@ -20,9 +20,9 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination title="Grand Three Quarter Thru">
+<tamination title="Grand 3/4 Thru">
 
-  <tam title="Grand Three Quarter Thru"
+  <tam title="Grand 3/4 Thru"
        from="Right-Hand Columns"
        formation="Column RH GBGB"
        parts="4.5" >
@@ -48,7 +48,7 @@
     </path>
   </tam>
 
-  <tam title="Left Grand Three Quarter Thru"
+  <tam title="Left Grand 3/4 Thru"
        from="Left-Hand Columns"
        formation="Column LH GBGB"
        parts="4.5" >
