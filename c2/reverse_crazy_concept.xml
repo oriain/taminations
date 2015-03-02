@@ -119,7 +119,7 @@
     </path>
   </tam>
 
-  <tam title="1/2 Reverse Crazy Two-Thirds Recycle" group="1/2 Reverse Crazy"
+  <tam title="1/2 Reverse Crazy 2/3 Recycle" group="1/2 Reverse Crazy"
        parts="4.5" formation="Diamonds Facing LH Girl Points">
     <path>
       <move select="Lead Left" beats="4.5" scaleY="5" />
