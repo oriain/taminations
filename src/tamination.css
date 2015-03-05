@@ -93,6 +93,10 @@ div.teaching-tip
   margin: 10px;
 }
 
+div.definition
+{
+  margin: 0 10px 0 10px;
+}
 
 div.command-examples > p
 {
