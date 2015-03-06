@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination title="Strut Right | Left (And Right | Left)">
+<tamination title="Strut">
 
   <tam title="Strut Right" group=" " formation="Double Pass Thru">
     <path>

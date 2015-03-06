@@ -20,9 +20,9 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination title="Lines (Anything) Thru">
-  
-  
+<tamination title="Lines Anything Thru">
+
+
 
   <tam title="Lines Pass the Ocean Thru" from="Lines" formation="Normal Lines">
     <path>

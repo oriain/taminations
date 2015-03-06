@@ -20,26 +20,26 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination title="Hubs Trade (Anything)">
-  
-  
+<tamination title="Hubs Trade">
+
+
 
   <tam title="Hubs Trade Zoom" from="Waves" formation="Ocean Waves RH BGGB" parts="3">
-	<path>
-	  <move select="Swing Right"/>
-	</path>
-	<path>
-	  <move select="Swing Right"/>
-	  <move select="Forward 4" beats="6"/>
-	</path>
-	<path>
-	  <move select="Swing Right"/>
+  <path>
+    <move select="Swing Right"/>
+  </path>
+  <path>
+    <move select="Swing Right"/>
+    <move select="Forward 4" beats="6"/>
+  </path>
+  <path>
+    <move select="Swing Right"/>
       <move select="Run Left" offsetX="-2" />
       <move select="Run Left" offsetX="2" />
-	</path>
-	<path>
-	  <move select="Swing Right"/>
-	</path>
+  </path>
+  <path>
+    <move select="Swing Right"/>
+  </path>
   </tam>
 
 </tamination>
