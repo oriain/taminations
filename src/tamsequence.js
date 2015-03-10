@@ -38,6 +38,7 @@ var FormationNotFoundError = Env.extend(CallError);
 
 var scripts = {
     allemandeleft: 'allemande_left',
+    boxthegnat: 'box_the_gnat',
     leftturnthru: 'allemande_left',
     beaus: 'beaus',
     belles: 'belles',
@@ -374,36 +375,38 @@ function processCallText()
 var filecount = 0;
 function fetchCall(callname)
 {
+  callname = callname.collapse();
+
+  //  Load any animations for this call
+  $('call[text="'+callname.replace(/\W/g,'')+'"]',callindex).each( function () {
+    var f = $(this).attr('link');
+    if (!xmldata[f]) {
+      //  Call is interpreted by animations
+      filecount++;
+      //  Read and store the animation
+      $.get(f.extension('xml'),function(data,status,jqxhr) {
+        xmldata[f] = data;
+        if (--filecount == 0) {
+          //  All xml has been read, now we can interpret the calls
+          buildSequence();
+        }
+      },"xml").filename = f;
+    }
+  });
+
+  //  Also load any scripts that perform this call
   if (callname in scripts) {
     //  Call is interpreted by a script
-    if (!xmldata[callname]) {
+    if (!Call.classes[callname]) {
       filecount++;
       //  Read and interpret the script
       require(['calls/'+scripts[callname]],function(){
-        xmldata[callname] = true;
         if (--filecount == 0)
           buildSequence();
       });
     }
   }
 
-  else {  //  Not a script, look for an animation
-    $('call[text="'+callname.collapse().replace(/\W/g,'')+'"]',callindex).each( function () {
-      var f = $(this).attr('link');
-      if (!xmldata[f]) {
-        //  Call is interpreted by animations
-        filecount++;
-        //  Read and store the animation
-        $.get(f.extension('xml'),function(data,status,jqxhr) {
-          xmldata[f] = data;
-          if (--filecount == 0) {
-            //  All xml has been read, now we can interpret the calls
-            buildSequence();
-          }
-        },"xml").filename = f;
-      }
-    });
-  }
 }
 
 function updateSequence()
