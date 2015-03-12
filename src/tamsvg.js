@@ -297,7 +297,7 @@ define(['tamination','cookie','handhold','color','affinetransform','vector','bez
         if (this.beat < 0 || this.beat > this.beats-2)
           thispart = 0;
         if (thispart != this.currentpart) {
-          if (this.parts.length > 0 && this.setPart)
+          if (this.setPart)
             this.setPart(thispart);
           this.currentpart = thispart;
         }
