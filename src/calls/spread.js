@@ -20,7 +20,7 @@
  */
 define(function(){
   var AndSpread = Env.extend(Call);
-  AndSpread.prototype.name = "and Spread";
+  AndSpread.prototype.name = " and Spread";
   Call.classes.andspread = AndSpread;
   AndSpread.prototype.canModifyCall = function() { return true; };
   AndSpread.prototype.performOne = function(d,ctx)
