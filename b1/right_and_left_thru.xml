@@ -156,4 +156,52 @@
     </taminator>
   </tam>
 
+  <tam title="Right and Left Thru, Turn a Quarter More" group=" "
+       formation="Normal Lines" parts="3" difficulty="2">
+    <path>
+      <move select="Pull Left" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" scaleX="2" scaleY=".5" />
+      <move select="Beau Wheel" scaleX=".67" />
+      <move select="BackHinge Right" />
+    </path>
+    <path>
+      <move select="Pull Left" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" scaleX="2" scaleY=".5" />
+      <move select="Belle Wheel" scaleX=".67" />
+      <move select="Hinge Left"/>
+    </path>
+    <path>
+      <move select="Pull Left" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" scaleX="2" scaleY=".5" />
+      <move select="Beau Wheel" scaleX=".67" />
+      <move select="BackHinge Right" />
+    </path>
+    <path>
+      <move select="Pull Left" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" scaleX="2" scaleY=".5" />
+      <move select="Belle Wheel" scaleX=".67" />
+      <move select="Hinge Left"/>
+    </path>
+  </tam>
+
+  <tam title="Centers Right and Left Thru, Turn a Full Turn" group=" "
+       formation="Double Pass Thru" parts="3" difficulty="2">
+    <path/>
+    <path/>
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="BackHinge Right" scaleX=".5"/>
+      <move select="Beau Wheel" scaleX=".5" scaleY=".5"/>
+      <move select="BackHinge Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Hinge Left" scaleX=".5"/>
+      <move select="Belle Wheel" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Left" scaleY=".5"/>
+    </path>
+  </tam>
+
 </tamination>
