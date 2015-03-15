@@ -418,16 +418,16 @@
   <tam title="Stretch Split Counter Rotate" group="Stretch"
        formation="Ocean Waves RH BGBG">
     <path>
-      <move select="Quarter Right" hands="gripright" beats="4" offsetX="3" />
+      <move select="Counter Rotate Right 2 0" hands="right" beats="4" offsetX="1"/>
     </path>
     <path>
-      <move select="Quarter Right" hands="gripright" beats="4" offsetX="-1" offsetY="-2" />
+      <move select="Counter Rotate Right 0 -2" hands="right" beats="4" offsetX="-1"/>
     </path>
     <path>
-      <move select="Quarter Right" hands="gripright" beats="4" offsetX="3" offsetY="2" />
+      <move select="Counter Rotate Right 3 1" hands="right" beats="4" offsetY="1"/>
     </path>
     <path>
-      <move select="Quarter Right" hands="gripright" beats="4" offsetX="-1" offsetY="-4" />
+      <move select="Counter Rotate Right -1 -3" hands="right" beats="4" offsetY="-1"/>
     </path>
   </tam>
 
