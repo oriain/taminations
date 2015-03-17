@@ -314,8 +314,13 @@ function processCallText()
   //  Clear any previous error message
   $('#errortext').html('');
   //  Before we do anything else, remember the current location
-  $('#calls').find('#cursor').contents().unwrap();
-  getSelection().getRangeAt(0).insertNode($('<span id="cursor"/>')[0]);
+  //  A little tricky as we need to carefully remove the old marker
+  //  First mark the current location with a new name
+  getSelection().getRangeAt(0).insertNode($('<span id="cursor2"/>')[0]);
+  //  Then remove the old location marker
+  $('#cursor').contents().unwrap();
+  //  Now we can rename the current marker
+  $('#cursor2').attr('id','cursor');
   //  Strip out existing elements that will be re-added
   //  and any other extraneous html
   //  As a courtesy, if html with <pre> was pasted, replace newlines with <br>
