@@ -65,7 +65,7 @@ if (navigator.userAgent.indexOf('MSIE 8') > 0) {
         deps: ['cookie','jquerymobile','jquerymobilepagedata','tamsvg']
       },
       tamsequence : {
-        deps: ['tampage','call','tinymce','env']
+        deps: ['tampage','call','env']
       },
       tinymce : {
         deps: ['jquery']

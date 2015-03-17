@@ -181,13 +181,11 @@ String.prototype.syns = function()
 var prevtext = '';
 var textChange = function()
 {
-  if (editor != null) {
-    var text = editor.getContent({format:'raw'});
-    if (text != prevtext)
-      prevtext = text;
-    else
-      updateSequence();
-  }
+  var text = $('#calls').text();
+  if (text != prevtext)
+    prevtext = text;
+  else
+    updateSequence();
 };
 
 var timeoutID = null;
@@ -206,36 +204,18 @@ var sequenceSetup = function() {
   });
 }
 
-var editorSetup = function() {
-
-    tinymce.init({
-    selector : "textarea",
-    convert_newlines_to_brs : true,
-    forced_root_block: false,
-    toolbar: false,
-    menubar: false,
-    statusbar: false,
-    content_css: "sequence.css",
-
-    setup: function(ed) {
-      ed.on('init',function() {
-        editor = tinymce.editors['calls'];
-        editor.dom.loadCSS('sequence.css');
-        editor.focus();
-        tamsvg.setPart = setCurrentCall;
-        calllink = document.URL.split(/\?/)[0];
-        var calls = document.URL.split(/\?/)[1];
-        if (calls) {
-          calls = unescape(calls).split(/\&/);
-          startingFormation = calls.shift().trim();
-          editor.setContent(calls.join('<br/>'));
-        }
-        updateSequence();
-        window.setInterval(textChange,1000);
-      });
-    },
-
-  });  // end of tinymce.init
+var editorSetup = function()
+{
+  tamsvg.setPart = setCurrentCall;
+  calllink = document.URL.split(/\?/)[0];
+  var calls = document.URL.split(/\?/)[1];
+  if (calls) {
+    calls = unescape(calls).split(/\&/);
+    startingFormation = calls.shift().trim();
+    editor.setContent(calls.join('<br/>'));
+  }
+  updateSequence();
+  window.setInterval(textChange,1000);
 
   startingFormation = $('input[name="formation"]:checked').val();
   $('#instructions-link').click(function() {
@@ -312,36 +292,39 @@ function startAnimations()
 
 function setCurrentCall(n)
 {
-  $(editor.getDoc()).find('span').removeClass('callhighlight')
+  $('#calls span').removeClass('callhighlight')
      .filter('.Part'+n).addClass('callhighlight');
   tamsvg.setTitle(n > 0 ? callnames[n-1] : '');
 }
 //  Highlight a line that has an error
 function showError(n)
 {
-  $(editor.getDoc()).find('span.Part'+n).addClass('callerror');
+  $('#calls').find('span.Part'+n).addClass('callerror');
 }
 
 //  This function is called every time the text is changed by the user
 function processCallText()
 {
+  //  retval is the text of all the calls, each line is one item of the array
   var retval = [];
+  //  html is the marked-up calls to stuff back into the text box
+  //  so calls are highlighted, errors marked, comments colored, etc.
   var html = [];
   var callnum = 1;
   //  Clear any previous error message
   $('#errortext').html('');
   //  Before we do anything else, remember the current location
-  //  The editor inserts a special <span> to mark it
-  var bm = editor.selection.getBookmark();
+  $('#calls').find('#cursor').remove();
+  getSelection().getRangeAt(0).insertNode($('<span id="cursor"/>')[0]);
   //  Strip out existing elements that will be re-added
   //  and any other extraneous html
   //  As a courtesy, if html with <pre> was pasted, replace newlines with <br>
   if ($('#calls').html().search('<pre') >= 0)
     $('#calls').html($('#calls').html().replace(/\n/g,'<br/>'));
   //  Remove existing spans, they will be re-generated
-  //  Except of course the bookmark that we just added
-  $(editor.getDoc()).find('span').not('span[data-mce-type]').contents().unwrap();
-  var lines = editor.getContent({format:'raw'}).split(/<(?:br|div)\s*\/?>/);
+  //  Except of course the span for the current location that we just added
+  $('#calls').find('span').not('span #cursor').contents().unwrap();
+  var lines = $('#calls').html().split(/<(?:br|div)\s*\/?>/);
   lines.forEach(function(line) {
     var calltext = line;
     var comchar = line.search(/[*#]/);
@@ -352,10 +335,8 @@ function processCallText()
       //  and remove them from the text of calls returned
       calltext = line.substr(0,comchar);
     }
-    //  Remove bookmark from string to return for parsing calls
+    //  Remove any remaining html tags in preparation for parsing calls
     calltext = $.trim(calltext.replace(/<.*?>/g,'').replace(/\&nbsp;/g,' '));
-    //  Also remove special character used for bookmarks
-    calltext = calltext.replace(/\uFEFF/,'');
     //  If we have something left to parse as a call
     if (calltext.search(/\w/) >= 0) {
       //  .. add class to highlight it when animated
@@ -365,10 +346,10 @@ function processCallText()
     }
     html.push(line);
   });
-  //  Replace the text with our marked-up version
-  tinymce.activeEditor.setContent(html.join('<br/>'));
+  //  TODO Replace the text with our marked-up version
   //  And restore the user's current editing location
-  tinymce.activeEditor.selection.moveToBookmark(bm);
+  $('#calls').html(html.join('<br/>'));
+  getSelection().selectAllChildren($('#cursor')[0]);
   return retval;
 }
 
@@ -412,9 +393,7 @@ function fetchCall(callname)
 function updateSequence()
 {
   //  Don't do anything if there's no change
-  if (!editor)
-    return;
-  var newhtml = editor.getContent();
+  var newhtml = $('#calls').text();
   if (newhtml.replace(/<.*?>/g) == prevhtml.replace(/<.*?>/g))
     return;
   prevhtml = newhtml;
@@ -512,7 +491,7 @@ function buildSequence()
   //  Generate link from calls
   calllink = document.URL.split(/\?/)[0]
   + '?' + escape(startingFormation) + '&' +
-  editor.getContent({format:'raw'})
+  $('#calls').html()
         .replace(/&nbsp;/g,' ')
         .replace(/<br\/?>/g,'&')
         .replace(/<.*?>/g,'');
