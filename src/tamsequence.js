@@ -314,7 +314,7 @@ function processCallText()
   //  Clear any previous error message
   $('#errortext').html('');
   //  Before we do anything else, remember the current location
-  $('#calls').find('#cursor').remove();
+  $('#calls').find('#cursor').contents().unwrap();
   getSelection().getRangeAt(0).insertNode($('<span id="cursor"/>')[0]);
   //  Strip out existing elements that will be re-added
   //  and any other extraneous html
@@ -323,8 +323,9 @@ function processCallText()
     $('#calls').html($('#calls').html().replace(/\n/g,'<br/>'));
   //  Remove existing spans, they will be re-generated
   //  Except of course the span for the current location that we just added
-  $('#calls').find('span').not('span #cursor').contents().unwrap();
-  var lines = $('#calls').html().split(/<(?:br|div)\s*\/?>/);
+  $('#calls').find('p').after('<br/>').contents().unwrap();
+  $('#calls').find('span').not('#cursor').contents().unwrap();
+  var lines = $('#calls').html().split(/<(?:br|div|p)\s*\/?>/);
   lines.forEach(function(line) {
     var calltext = line;
     var comchar = line.search(/[*#]/);

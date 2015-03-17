@@ -1,6 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <title>Taminations Sequencer</title>
 <meta name="viewport" content="width=device-width" />
@@ -26,6 +25,7 @@
     height: 30em;
     font: 16px Helvetica,sans-serif;
     overflow: auto;
+    white-space: pre;
   }
   .callfocus {
     border: 1px solid black;
@@ -87,21 +87,22 @@
     you would like to see implemented, or other features that would be useful.<br/><br/>
     <span class="dbd">Click to close.</span>
 
-  </div><form id="sequenceform">
+  </div>
   <p>
     Start from:
     <input type="radio" name="formation" value="Squared Set" checked/>Squared Set
     <input type="radio" name="formation" value="Facing Couples"/>Facing Couples
-    <br/>
+    <br/>  </p>
+    
     <!--  textarea id="calls" cols="40" rows="40"></textarea -->
-    <div id="calls" contentEditable="true" tabindex="0"></div>
+    <div id="calls" contentEditable="true" spellcheck="false" tabindex="0"></div>
     <h3 id="errortext"></h3>
+    <form id="sequenceform">
     <input type="file" id="inputfile" name="inputfile"/>
     <input type="button" name="Load" id="loadbutton" value="Load"/><br/>
     <input type="button" name="Save" id="savebutton" value="Save"/>
     <input type="button" name="Link" id="linkbutton" value="Link"/>
     <input type="button" name="Clear" id="clearbutton" value="Clear"/>
-  </p>
   </form>
 </div></div></body>
 </html>
