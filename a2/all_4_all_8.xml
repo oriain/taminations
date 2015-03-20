@@ -724,6 +724,10 @@
            xref-link="a2/box_transfer"
            xref-title="All 8 Box Transfer"/>
 
+  <tamxref title="All 8 (A-2) Pass and Roll" group="All 8 (A-2)"
+           xref-link="a2/pass_and_roll"
+           xref-title="All 8 Pass and Roll"/>
+
   <tamxref title="All 8 (A-2) Pass and Roll Your Neighbor and Spread" group="All 8 (A-2)"
            xref-link="a2/pass_and_roll_your_neighbor"
            xref-title="All 8 Pass and Roll Your Neighbor and Spread"/>

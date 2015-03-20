@@ -114,6 +114,42 @@
     </path>
   </tam>
 
+  <tam title="All 8 Pass and Roll"
+       formation="Static Facing"
+       group=" " >
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Extend Left" beats="3" scaleX="3" scaleY=".5" />
+      <move select="Swing Right" />
+      <move select="Forward 3" />
+      <move select="Lead Right" beats="2" />
+      <move select="Lead Right" beats="2" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Flip Right" scaleY=".5" />
+      <move select="Forward 4" beats="6" />
+      <move select="Forward 3" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Extend Left" beats="3" scaleX="3" scaleY=".5" />
+      <move select="Swing Right" />
+      <move select="Forward 3" />
+      <move select="Lead Right" beats="2" />
+      <move select="Lead Right" beats="2" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Flip Right" scaleY=".5" />
+      <move select="Forward 4" beats="6" />
+      <move select="Forward 3"/>
+    </path>
+  </tam>
+
+
   <tam title="As Couples Pass and Roll" group=" "
        formation="Eight Chain Thru" >
     <path>
