@@ -33,9 +33,9 @@
     </path>
     <path couples="2 4">
       <move select="Lead Right" />
-      <move select="Lead Right" beats="3" offsetX="1" />
-      <move select="Quarter Right" offsetX="1" />
-      <move select="Forward 2" />
+      <move select="Lead Right" beats="3" scaleX="3" scaleY="1.25"/>
+      <move select="Lead Right" scaleX="1.5"/>
+      <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".75" />
     </path>
     <path couples="3 1">
       <move select="Forward 2" />
@@ -67,15 +67,19 @@
     </path>
     <path>
       <move select="Lead Left" />
-      <move select="Lead Left" beats="3" offsetX="1" />
-      <move select="Quarter Left" offsetX="1" />
-      <move select="Forward 2" />
+      <move select="Lead Left" beats="3" scaleX="3" scaleY="1.25"/>
+      <move select="Lead Left" scaleX="1.5"/>
+      <move select="Extend Left" beats="1.5" scaleX="2" scaleY=".75" />
     </path>
     <path>
       <move select="Extend Left" beats="1.5" scaleX="2" scaleY=".75" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
       <move select="Lead Right" beats="3" offsetX="2" offsetY="-.75" />
     </path>
+    <taminator>
+      The center facing out need to cloverleaf far enough to go around
+      the ends as they do their arm turn.
+    </taminator>
   </tam>
 
   <tam title="Cast a Shadow"
@@ -157,15 +161,15 @@
     </path>
     <path couples="2 4">
       <move select="Lead Right" />
-      <move select="Lead Right" beats="3" offsetX="1" />
-      <move select="Quarter Right" offsetX="1" />
-      <move select="Forward 2" />
+      <move select="Lead Right" beats="3" scaleX="3" scaleY="1.25"/>
+      <move select="Lead Right" scaleX="1.25"/>
+      <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".5" />
     </path>
     <path couples="3 1">
       <move select="Lead Left" />
-      <move select="Lead Left" beats="3" offsetX="1" />
-      <move select="Quarter Left" offsetX="1" />
-      <move select="Forward 2" />
+      <move select="Lead Left" beats="3" scaleX="3" scaleY="1.25"/>
+      <move select="Lead Left" scaleX="1.25"/>
+      <move select="Extend Left" beats="1.5" scaleX="2" scaleY=".5" />
     </path>
     <path couples="3 1">
       <move select="U-Turn Left" beats=".5" offsetY=".75" />
