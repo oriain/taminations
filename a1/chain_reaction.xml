@@ -84,6 +84,11 @@
       <move select="Swing Left" beats="2" />
       <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3" />
     </path>
+    <taminator>
+      The outside beau (#1) must wait for the very center to pass through,
+      and then hinge to form the left-hand star.  If the outside beau just
+      moves forward and tries to make a right-hand star the call will fail.
+    </taminator>
   </tam>
 
   <tam title="Chain Reaction, Turn the Star 1/2" group=" "
