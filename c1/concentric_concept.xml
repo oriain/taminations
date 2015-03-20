@@ -558,6 +558,22 @@
     </path>
   </tam>
 
+  <tam title="(From columns) Concentric Zig Zag" group="(From columns) Concentric"
+       formation="Column RH GBGB">
+    <path>
+      <move select="Quarter Right" beats="4" offsetX="-2" offsetY="2"/>
+    </path>
+    <path>
+      <move select="Quarter Right" beats="4"/>
+    </path>
+    <path>
+      <move select="Quarter Left" beats="4"/>
+    </path>
+    <path>
+      <move select="Quarter Left" beats="4" offsetX="2" offsetY="2"/>
+    </path>
+  </tam>
+
   <tam title="(From columns) Concentric Zoom" group="(From columns) Concentric"
        formation="Column RH GBGB">
     <path>
