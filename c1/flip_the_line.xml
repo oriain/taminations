@@ -20,9 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination title="Flip the Line &frac14;, &frac12;, &frac34;, Full">
-  
-  
+<tamination title="Flip the Line">
 
   <tam title="Flip the Line"
        from="Right-Hand Waves"
@@ -75,4 +73,5 @@
       <move select="Forward 4" />
     </path>
   </tam>
+
 </tamination>
