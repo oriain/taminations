@@ -25,7 +25,6 @@
 
     <call title="Introduction" level="Info" sublevel="Info" link="info/index"/>
     <call title="How to Use" level="Info" sublevel="Info" link="info/howtouse"/>
-    <call title="Search Calls" level="Info" sublevel="Info" link="info/search"/>
     <call title="Troubleshooting" level="Info" sublevel="Info" link="info/trouble"/>
     <call title="Download" level="Info" sublevel="Info" link="info/download"/>
     <call title="Linking" level="Info" sublevel="Info" link="info/howtolink"/>

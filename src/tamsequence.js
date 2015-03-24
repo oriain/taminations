@@ -47,6 +47,7 @@ var scripts = {
     centers: 'centers',
     crossrun: 'crossrun',
     ends: 'ends',
+    explodeand: 'explode_and',
     facein: 'face_in',
     faceleft: 'face_left',
     factout: 'face_out',
@@ -352,9 +353,9 @@ function processCallText()
     }
     html.push(line);
   });
-  //  TODO Replace the text with our marked-up version
-  //  And restore the user's current editing location
+  //  Replace the text with our marked-up version
   $('#calls').html(html.join('<br/>'));
+  //  And restore the user's current editing location
   getSelection().selectAllChildren($('#cursor')[0]);
   return retval;
 }
@@ -393,8 +394,9 @@ function fetchCall(callname)
       });
     }
   }
-
 }
+
+
 
 function updateSequence()
 {
@@ -442,14 +444,13 @@ function buildSequence()
   try {
     for (n2 in calls) {
       callname = calls[n2];
-      var ctx = null;
       //  Break up the call as above to find and perform modifications
       var callline = calls[n2].toLowerCase()
                               .replace(/\s+/g,' ')  // coalesce spaces
                               .replace(compattern,'');     // remove comments
       //  Various user errors in applying calls are detected and thrown here
       //  and also by lower-level code
-      ctx = new CallContext(tamsvg);
+      var ctx = new CallContext(tamsvg);
       ctx.interpretCall(callline);
       //  If no error thrown, then we found the call
       //  and created the animation successfully

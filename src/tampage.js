@@ -207,7 +207,8 @@ function clearMenus()
 function getTitle()
 {
   var titlelink = prefix + 'info/index.html';
-  return '<div class="title">' +
+  return '<div id="searchbox" contentEditable="true">Search Calls</div>' +
+         '<div class="title">' +
          '<a href="http://www.tamtwirlers.org/">'+
          '<img height="72" border="0" align="right" src="'+prefix+'info/badge.gif"></a>'+
          '<span id="title"><a href="'+titlelink+'">Taminations</a></span></div>';
@@ -233,12 +234,12 @@ function svgSize()
   var h = window.innerHeight ? window.innerHeight : document.body.offsetHeight;
   var w = window.innerWidth ? window.innerWidth : document.body.offsetWidth;
   if (typeof h == "number" && typeof w == "number") {
-    ah = h - 150;
+    ah = h - 120;
     aw = (w * animwidth) / 100;
-    if (ah * 350 > aw * 420)
-      ah = (aw * 420) / 350;
+    if (ah - 120 > aw)
+      ah = aw + 120;
     else
-      aw = (ah * 350) / 420;
+      aw = ah - 120;
   }
   aw = Math.floor(aw);
   ah = Math.floor(ah);
