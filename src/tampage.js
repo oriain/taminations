@@ -79,6 +79,15 @@ $(document).ready(
     $("#menuload").addClass("menutitle");
     //  Insert title
     $("body").prepend(getTitle());
+    //  Setup some search stuff here that can only be done after the title
+    //  has been inserted
+    $('#searchbox').focusin(function() {
+      if (!$('#searchbox').hasClass('active')) {
+        $('#searchbox').addClass('active').text('');
+      }
+      else
+        $('#searchresultsdiv').show('slow');
+    });
     //  Build the document structure
     var htmlstr = '<table id="deftable" cellspacing="0" cellpadding="4" width="100%">'+
                     '<tr valign="top">'+
@@ -231,15 +240,16 @@ function svgSize()
 {
   var aw = 100;
   var ah = 100;
-  var h = window.innerHeight ? window.innerHeight : document.body.offsetHeight;
-  var w = window.innerWidth ? window.innerWidth : document.body.offsetWidth;
+  var menudivheight = $('#menudiv table').height();
+  var h = $(window).height() - menudivheight - $('.title').height();
+  var w = $(window).width();
   if (typeof h == "number" && typeof w == "number") {
-    ah = h - 120;
+    ah = h; // - 120;
     aw = (w * animwidth) / 100;
-    if (ah - 120 > aw)
-      ah = aw + 120;
+    if (ah - 130 > aw)
+      ah = aw + 130;
     else
-      aw = ah - 120;
+      aw = ah - 130;
   }
   aw = Math.floor(aw);
   ah = Math.floor(ah);

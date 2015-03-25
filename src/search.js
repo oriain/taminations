@@ -22,7 +22,7 @@
 //  This is the code to handle searching calls
 var calllistdata = [];
 var prevsearch = '';
-tam.loadXML('callindex.xml',function (calls) {
+TAMination.loadXML('callindex.xml',function (calls) {
   //  Pre-process the XML index for faster searching
   $('call[level!="Info"]',calls).filter(function() {
     calllistdata.push({
@@ -40,13 +40,6 @@ tam.loadXML('callindex.xml',function (calls) {
       prevsearch = text;
     }
   },100);
-  $('#searchbox').focusin(function() {
-    if (!$('#searchbox').hasClass('active')) {
-      $('#searchbox').addClass('active').text('');
-    }
-    else
-      $('#searchresultsdiv').show('slow');
-  });
 });
 
 //  Update the table of search results
@@ -56,13 +49,15 @@ function dosearch(text) {
     $('#definition').append('<div id="searchresultsdiv"><div><div>X</div></div>'+
         '<table><tbody id="searchresults"></tbody></table></div>')
     $('#searchresultsdiv').width($('#definition').width()*0.9);
-    $('#searchresultsdiv').height($('#definition').height()*0.9);
+    var h = $('#definition').height();
+    if (h == 0)
+      h = $(window).height() - $('#menudiv table').height() - $('.title').height();
+    $('#searchresultsdiv').height(h*0.9);
     var p = $('#definition').position();
     $('#searchresultsdiv').offset({top:p.top+10, left:p.left+10});
   }
   //  Clear out previous results
   $('#searchresults').empty();
-  //$('#searchresults').append('<tr style="background-color: grey"><td/><td/><td id="searchclosebox">X</td></tr>');
   $('#searchresultsdiv').show('slow');
   $('#searchresultsdiv div div').click(function() {
     $('#searchresultsdiv').hide('slow');
