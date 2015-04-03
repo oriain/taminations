@@ -21,21 +21,34 @@
 
 -->
 <tamination title="Recycle">
-  
-  
 
   <tam title="Recycle in 3 parts"
        formation="Wave RH"
        from="Right-Hand Wave" parts="2;2">
     <path>
       <move select="Extend Right" scaleX="1.5" scaleY="1.5" beats="2"/>
-      <move select="Quarter Right" offsetY="-3" beats="2"/>
+      <move select="Counter Rotate Right 0 -2" scaleX="1.5" scaleY="1.5"/>
       <move select="Quarter Right" offsetX="-.5" beats="2"/>
     </path>
     <path>
       <move select="Fold Right" scaleX=".75" scaleY=".25"/>
-      <move select="Quarter Right" offsetX="3" beats="2"/>
+      <move select="Counter Rotate Right 2 0" scaleX="1.5" scaleY="1.5"/>
       <move select="Quarter Right" offsetX=".5" beats="2"/>
+    </path>
+  </tam>
+
+  <tam title="Recycle in 3 parts"
+       formation="Wave LH"
+       from="Left-Hand Wave" parts="2;2">
+    <path>
+      <move select="Extend Left" scaleX="1.5" scaleY="1.5" beats="2"/>
+      <move select="Counter Rotate Left 0 2" scaleX="1.5" scaleY="1.5"/>
+      <move select="Quarter Left" offsetX="-.5" beats="2"/>
+    </path>
+    <path>
+      <move select="Fold Left" scaleX=".75" scaleY=".25"/>
+      <move select="Counter Rotate Left 2 0" scaleX="1.5" scaleY="1.5"/>
+      <move select="Quarter Left" offsetX=".5" beats="2"/>
     </path>
   </tam>
 
