@@ -22,31 +22,66 @@
 -->
 <tamination title="Triple Box Concept">
 
-  <tam title="Triple Box Circulate" group="Triple Box"
-       from=""
-       formation="Phantom Waves RH">
-  <path>
-    <move select="Forward 4" />
-  </path>
-  <path>
-    <move select="Run Right" beats="4" />
-  </path>
-  <path>
-    <move select="Forward 4" />
-  </path>
-  <path>
-    <move select="Run Right" beats="4"/>
-  </path>
-  <path>
-    <move select="Run Right" beats="4"/>
+  <tam title="Triple Box Circulate" group="Triple Box">
+    <formation>
+      <dancer gender="boy" x="2" y="3" angle="0"/>
+      <dancer gender="girl" x="2" y="1" angle="0"/>
+      <dancer gender="girl" x="-2" y="1" angle="0"/>
+      <dancer gender="boy" x="-2" y="3" angle="0"/>
+      <dancer gender="phantom" x="2" y="5" angle="180"/>
+      <dancer gender="phantom" x="2" y="-5" angle="0"/>
+    </formation>
+    <path>
+      <move select="Run Left" beats="4" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" />
     </path>
     <path>
       <move select="Forward 4" />
     </path>
+    <path>
+      <move select="Forward 4" />
+    </path>
+    <path>
+      <move select="Forward 4" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4"/>
+    </path>
+  </tam>
+
+  <tam title="Triple Box Counter Rotate" group="Triple Box">
+    <formation>
+      <dancer gender="boy" x="2" y="5" angle="0"/>
+      <dancer gender="girl" x="2" y="3" angle="180"/>
+      <dancer gender="girl" x="2" y="1" angle="180"/>
+      <dancer gender="boy" x="-2" y="5" angle="0"/>
+      <dancer gender="phantom" x="-2" y="3" angle="180"/>
+      <dancer gender="phantom" x="-2" y="1" angle="180"/>
+    </formation>
+    <path>
+      <move select="Counter Rotate Right 0 -2" hands="right" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Counter Rotate Right 2 0" hands="right" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Counter Rotate Left 2 0" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Counter Rotate Right 2 0" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Counter Rotate Right 0 -2" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Counter Rotate Left 0 2" offsetX="-1"/>
+    </path>
   </tam>
 
   <tam title="Triple Box Dixie Style to a Wave" group="Triple Box"
-       from="" formation="Phantom Lines In">
+       formation="Phantom Lines In">
     <path>
       <move select="Quarter Right" beats="3" offsetY="-1" />
       <move select="Swing Left" scaleX=".5" scaleY=".5" />
@@ -76,7 +111,7 @@
     </path>
   </tam>
 
-  <tam title="Triple Box Flutterwheel" group="Triple Box" from="" formation="Phantom Lines In">
+  <tam title="Triple Box Flutterwheel" group="Triple Box" formation="Phantom Lines In">
     <path>
       <move select="Forward" hands="nohands" beats="3.5" />
       <move select="Extend Left" hands="right" beats="1.5" scaleX="1.5" scaleY="1.5" />
@@ -110,7 +145,7 @@
   </tam>
 
   <tam title="Triple Box Follow Your Neighbor and Spread" group="Triple Box"
-       from="" formation="Phantom Waves RH">
+       formation="Phantom Waves RH">
     <path>
       <move select="Forward 2" beats="1.5" offsetY="-.125" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
@@ -140,38 +175,76 @@
     </path>
   </tam>
 
-  <tam title="Triple Box Pass the Ocean" group="Triple Box" from="" formation="Phantom Lines In">
+  <tam title="Triple Box Pass the Ocean" group="Triple Box">
+    <formation>
+      <dancer gender="boy" x="1" y="5" angle="270"/>
+      <dancer gender="girl" x="-1" y="5" angle="270"/>
+      <dancer gender="boy" x="1" y="1" angle="270"/>
+      <dancer gender="girl" x="-1" y="1" angle="270"/>
+      <dancer gender="phantom" x="1" y="3" angle="90"/>
+      <dancer gender="phantom" x="-1" y="3" angle="90"/>
+    </formation>
     <path>
-      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
-      <move select="Forward" beats=".5" />
-      <move select="Lead Right" scaleX="2" scaleY="1.5" />
+      <move select="Forward" />
+      <move select="Lead Right" scaleX="1.5" />
     </path>
     <path>
-      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
-      <move select="Lead Left" hands="left" beats="2" scaleY=".5" />
+      <move select="Forward"/>
+      <move select="Lead Left" scaleX=".5" />
     </path>
     <path>
-      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
-      <move select="Forward" beats=".5" />
-      <move select="Lead Right" scaleX="2" scaleY="1.5" />
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Lead Right" beats="2" scaleX="1.5" scaleY="1.5" />
     </path>
     <path>
-      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
-      <move select="Lead Left" hands="left" beats="2" scaleY=".5" />
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Hinge Left" beats="2" scaleX=".5" scaleY=".5" />
     </path>
     <path>
-      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
-      <move select="Lead Left" hands="left" beats="2" scaleY=".5" />
+      <move select="Forward"/>
+      <move select="Lead Left" scaleX=".5" />
     </path>
     <path>
-      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
-      <move select="Forward" beats=".5" />
-      <move select="Lead Right" scaleX="2" scaleY="1.5" />
+      <move select="Forward" />
+      <move select="Lead Right" scaleX="1.5" />
     </path>
   </tam>
+
+  <tam title="Triple Box Peel and Trail" group="Triple Box">
+    <formation>
+      <dancer gender="boy" x="-1" y="5" angle="90"/>
+      <dancer gender="girl" x="-1" y="3" angle="90"/>
+      <dancer gender="boy" x="-1" y="1" angle="90"/>
+      <dancer gender="girl" x="-1" y="-1" angle="90"/>
+      <dancer gender="phantom" x="1" y="5" angle="270"/>
+      <dancer gender="phantom" x="1" y="3" angle="270"/>
+    </formation>
+    <path>
+      <move select="Run Left" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Forward"/>
+      <move select="Swing Right"/>
+    </path>
+    <path>
+      <move select="Run Left" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Forward"/>
+      <move select="Swing Right"/>
+    </path>
+    <path>
+      <move select="Forward"/>
+      <move select="Swing Right"/>
+    </path>
+    <path>
+      <move select="Run Left" offsetX="-1"/>
+    </path>
+  </tam>
+
 
   <tam title="Triple Box Quarter In" group="Triple Box"
-       from="" formation="Phantom Lines In">
+       formation="Phantom Lines In">
     <path><move select="Quarter Right" offsetX="1"/></path>
     <path><move select="Quarter Left" offsetX="1"/></path>
     <path><move select="Quarter Right" offsetX="1"/></path>
@@ -215,7 +288,7 @@
   </tam>
 
   <tam title="Triple Box Boys Run" group="Triple Box"
-       from="" formation="Phantom Waves RH">
+       formation="Phantom Waves RH">
     <path>
       <move select="Run Right"/>
     </path>
@@ -237,7 +310,7 @@
   </tam>
 
   <tam title="Triple Box Scoot Back" group="Triple Box"
-       from="" formation="Phantom Waves RH">
+       formation="Phantom Waves RH">
     <path>
       <move select="Extend Right" scaleX="2" scaleY=".25" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
@@ -316,7 +389,7 @@
   </tam>
 
   <tam title="Triple Box Wheel Thru" group="Triple Box"
-       from="" formation="Phantom Lines In">
+       formation="Phantom Lines In">
     <path>
       <move select="Lead Right" beats="4" scaleX="3" scaleY="2" />
     </path>
@@ -331,6 +404,155 @@
     </path>
     <path><move select="Quarter Right" beats="3" offsetX="1" /></path>
     <path><move select="Lead Right" beats="4" scaleX="3" scaleY="2" /></path>
+  </tam>
+
+
+  <tam title="Triple Column Pass and Roll" group="Triple Column">
+    <formation>
+      <dancer gender="boy" x="3" y="2" angle="180"/>
+      <dancer gender="girl" x="3" y="0" angle="180"/>
+      <dancer gender="girl" x="1" y="0" angle="0"/>
+      <dancer gender="boy" x="1" y="2" angle="0"/>
+      <dancer gender="phantom" x="1" y="-2" angle="0"/>
+      <dancer gender="phantom" x="3" y="-2" angle="180"/>
+    </formation>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Forward 2" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Forward 2" />
+      <move select="U-Turn Right" offsetY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Forward 2" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Forward" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Flip Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Forward" />
+      <move select="Flip Right" scaleY=".5" />
+      <move select="Forward 3" />
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Forward" />
+      <move select="Flip Right" scaleY=".5" />
+      <move select="Forward 3" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Forward" />
+      <move select="Flip Right" scaleY=".5" />
+      <move select="Forward 3" />
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2.5" />
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5" />
+      <move select="Forward 2" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Forward 2" />
+      <move select="Run Right" scaleY="1.75" />
+    </path>
+  </tam>
+
+  <tam title="Triple Line Turn and Deal" group="Triple Line">
+    <formation>
+      <dancer gender="boy" x="4" y="3" angle="0"/>
+      <dancer gender="girl" x="4" y="1" angle="0"/>
+      <dancer gender="girl" x="0" y="1" angle="0"/>
+      <dancer gender="boy" x="0" y="3" angle="0"/>
+      <dancer gender="phantom" x="4" y="-1" angle="180"/>
+      <dancer gender="phantom" x="4" y="-3" angle="180"/>
+    </formation>
+    <path>
+      <move select="U-Turn Right" beats="4" offsetX="1" offsetY="-2" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" offsetX="1" offsetY="-2" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" offsetX="1" offsetY="-2" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" offsetX="1" offsetY="-2" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" offsetX="1" offsetY="-2" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" offsetX="1" offsetY="-2" />
+    </path>
+  </tam>
+
+  <tam title="Triple Wave Recycle" group="Triple Wave">
+    <formation>
+      <dancer gender="boy" x="0" y="3.5" angle="0"/>
+      <dancer gender="girl" x="0" y="2.5" angle="180"/>
+      <dancer gender="girl" x="0" y="1.5" angle="0"/>
+      <dancer gender="boy" x="0" y=".5" angle="180"/>
+      <dancer gender="phantom" x="0" y="5.5" angle="0"/>
+      <dancer gender="phantom" x="0" y="4.5" angle="180"/>
+    </formation>
+    <path>
+      <move select="Run Right" beats="2" scaleX=".5" scaleY=".5" offsetX="-.5" />
+      <move select="U-Turn Right" beats="2" offsetX="1.5" offsetY="-.5" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" offsetX="2" offsetY="-.5" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" offsetX="2" offsetY="-.5" />
+    </path>
+    <path>
+      <move select="Run Right" beats="2" scaleX=".5" scaleY=".5" offsetX="-.5" />
+      <move select="U-Turn Right" beats="2" offsetX="1.5" offsetY="-.5" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" offsetX="2" offsetY="-.5" />
+    </path>
+    <path>
+      <move select="Run Right" beats="2" scaleX=".5" scaleY=".5" offsetX="-.5" />
+      <move select="U-Turn Right" beats="2" offsetX="1.5" offsetY="-.5" />
+    </path>
+  </tam>
+
+  <tam title="Triple Wave Swing Thru" group="Triple Wave">
+    <formation>
+      <dancer gender="boy" x="0" y="3" angle="180"/>
+      <dancer gender="girl" x="0" y="1" angle="0"/>
+      <dancer gender="girl" x="4" y="1" angle="180"/>
+      <dancer gender="boy" x="4" y="3" angle="0"/>
+      <dancer gender="phantom" x="4" y="-1" angle="0"/>
+      <dancer gender="phantom" x="4" y="-3" angle="180"/>
+    </formation>
+    <path>
+      <move select="Stand" beats="3"/>
+      <move select="Swing Left"/>
+    </path>
+    <path>
+      <move select="Swing Right"/>
+      <move select="Swing Left"/>
+    </path>
+    <path>
+      <move select="Swing Right"/>
+    </path>
+    <path>
+      <move select="Swing Right"/>
+      <move select="Swing Left"/>
+    </path>
+    <path>
+      <move select="Swing Right"/>
+    </path>
+    <path>
+      <move select="Swing Right"/>
+      <move select="Swing Left"/>
+    </path>
   </tam>
 
 </tamination>
