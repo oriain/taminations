@@ -46,6 +46,7 @@
     <call title="1/4 the Deucey" level="Challenge" sublevel="C-3A" link="c3a/1_4_the_deucey"/>
     <call title="1/4 Wheel the Ocean" level="Challenge" sublevel="C-3A" link="c3a/1_4_wheel_the_ocean"/>
     <call title="1/4 Wheel the Sea" level="Challenge" sublevel="C-3A" link="c3a/1_4_wheel_the_sea"/>
+    <call title="2/3 Recycle" level="Challenge" sublevel="C-1" link="c1/2_3_recycle"/>
     <call title="3 by 1 Checkmate the Column" level="Challenge" sublevel="C-2" link="c2/3_by_1_checkmate_the_column"/>
     <call title="3 by 1 Transfer the Column" level="Challenge" sublevel="C-2" link="c2/3_by_1_transfer_the_column"/>
     <call title="3 by 1 Triangle Circulate" level="Challenge" sublevel="C-2" link="c2/3_by_1_triangle_formation"/>
@@ -403,7 +404,7 @@
     <call title="Reactivate" level="Challenge" sublevel="C-3B" link="c3b/reactivate"/>
     <call title="Recoil" level="Challenge" sublevel="C-3A" link="c3a/recoil"/>
     <call title="Recycle" level="Advanced" sublevel="A-2" link="a2/recycle"/>
-    <call title="Recycle" level="Challenge" sublevel="C-1" link="c1/recycle"/>
+    <call title="Recycle" level="Challenge" sublevel="C-1" link="c1/2_3_recycle"/>
     <call title="Recycle" level="Basic and Mainstream" sublevel="Mainstream" link="ms/recycle"/>
     <call title="Reflected Concept" level="Challenge" sublevel="C-3B" link="c3b/reflected_concept"/>
     <call title="Regroup" level="Challenge" sublevel="C-1" link="c1/regroup"/>

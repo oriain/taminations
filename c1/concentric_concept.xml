@@ -906,7 +906,7 @@
     </path>
   </tam>
 
-  <tam title="(From tidal line) Concentric Bend the Line" group="(From tidal line) Concentric"
+  <tam title="(From tidal formation) Concentric Bend the Line" group="(From tidal formation) Concentric"
        formation="Two-Faced Tidal Line RH">
     <path>
       <move select="Lead Right" beats="4" scaleX="3" scaleY="1.5"/>
@@ -922,7 +922,7 @@
     </path>
   </tam>
 
-  <tam title="(From tidal line) Concentric Crossfire" from="" group="(From tidal line) Concentric"
+  <tam title="(From tidal formation) Concentric Crossfire" from="" group="(From tidal formation) Concentric"
        formation="Two-Faced Tidal Line RH">
     <path numbers="1 8">
       <move select="Forward 2"/>
@@ -941,8 +941,8 @@
     </path>
   </tam>
 
-  <tam title="(From tidal line) Concentric Explode the Wave"
-       group="(From tidal line) Concentric"
+  <tam title="(From tidal formation) Concentric Explode the Wave"
+       group="(From tidal formation) Concentric"
        formation="Tidal Wave RH BGGB">
     <path>
       <move select="Lead Right" beats="4" scaleX="3.5" scaleY="3.5"/>
@@ -962,7 +962,7 @@
     </path>
   </tam>
 
-  <tam title="(From tidal line) Concentric Fan the Top" group="(From tidal line) Concentric"
+  <tam title="(From tidal formation) Concentric Fan the Top" group="(From tidal formation) Concentric"
        formation="Tidal Wave RH BGGB">
     <path>
       <move select="Hinge Right" hands="none" beats="6" scaleX="3.5" scaleY="3.5"/>
@@ -978,7 +978,7 @@
     </path>
   </tam>
 
-  <tam title="(From tidal line) Concentric Half Tag the Line" group="(From tidal line) Concentric"
+  <tam title="(From tidal formation) Concentric Half Tag the Line" group="(From tidal formation) Concentric"
        formation="Tidal Line RH">
     <path>
       <move select="Lead Right" beats="4" scaleX="3" scaleY="1.5"/>
@@ -994,7 +994,7 @@
     </path>
   </tam>
 
-  <tam title="(From tidal line) Concentric Hinge" group="(From tidal line) Concentric"
+  <tam title="(From tidal formation) Concentric Hinge" group="(From tidal formation) Concentric"
        formation="Tidal Wave RH BGGB">
     <path numbers="8 1">
       <move select="Lead Right" beats="3" scaleX="3" scaleY="1.5" />
@@ -1010,8 +1010,8 @@
     </path>
   </tam>
 
-  <tam title="(From tidal line) Concentric Linear Cycle"
-       group="(From tidal line) Concentric">
+  <tam title="(From tidal formation) Concentric Linear Cycle"
+       group="(From tidal formation) Concentric">
     <formation>
       <dancer gender="boy" x="0" y="-3.5" angle="180"/>
       <dancer gender="girl" x="0" y="-2.5" angle="0"/>
@@ -1043,7 +1043,7 @@
     </path>
   </tam>
 
-  <tam title="(From tidal line) Concentric Lockit" group="(From tidal line) Concentric"
+  <tam title="(From tidal formation) Concentric Lockit" group="(From tidal formation) Concentric"
        formation="Tidal Wave RH BGGB">
     <path>
       <move select="Lead Right" beats="6" scaleX="3.5" scaleY="3.5"/>
@@ -1059,7 +1059,7 @@
     </path>
   </tam>
 
-  <tam title="(From tidal line) Concentric Mix" group="(From tidal line) Concentric"
+  <tam title="(From tidal formation) Concentric Mix" group="(From tidal formation) Concentric"
        formation="Two-Faced Tidal Line LH">
     <path>
       <move select="Dodge Left" beats="1" scaleY=".5"/>
@@ -1078,7 +1078,7 @@
     </path>
   </tam>
 
-  <tam title="(From tidal line) Concentric Recycle" group="(From tidal line) Concentric"
+  <tam title="(From tidal formation) Concentric Recycle" group="(From tidal formation) Concentric"
        formation="Tidal Wave RH BGGB">
     <path numbers="8 1">
       <move select="Run Right" beats="6" offsetX="3" offsetY="-2.5" />
@@ -1096,7 +1096,7 @@
     </path>
   </tam>
 
-  <tam title="(From tidal line) Concentric Reverse Explode" from="" group="(From tidal line) Concentric"
+  <tam title="(From tidal formation) Concentric Reverse Explode" from="" group="(From tidal formation) Concentric"
        formation="Tidal Wave RH BGGB">
     <path numbers="8 1">
       <move select="Forward 2"/>
@@ -1114,7 +1114,7 @@
     </path>
   </tam>
 
-  <tam title="(From tidal line) Concentric Spin the Top" group="(From tidal line) Concentric"
+  <tam title="(From tidal formation) Concentric Spin the Top" group="(From tidal formation) Concentric"
        formation="Tidal Wave RH BGGB">
     <path>
       <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
@@ -1136,7 +1136,7 @@
     </path>
   </tam>
 
-  <tam title="(From tidal line) Concentric Swing Thru" group="(From tidal line) Concentric"
+  <tam title="(From tidal formation) Concentric Swing Thru" group="(From tidal formation) Concentric"
        formation="Tidal Wave RH BGGB">
     <path>
       <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
@@ -1156,7 +1156,7 @@
     </path>
   </tam>
 
-  <tam title="(From tidal line) Concentric Trade the Wave" group="(From tidal line) Concentric"
+  <tam title="(From tidal formation) Concentric Trade the Wave" group="(From tidal formation) Concentric"
        formation="Tidal Wave RH BGGB">
     <path numbers="8 1">
       <move select="Run Right" beats="8" scaleX="3.5" scaleY="3" />
@@ -1172,7 +1172,7 @@
     </path>
   </tam>
 
-  <tam title="(From tidal line) Concentric Veer Right" group="(From tidal line) Concentric"
+  <tam title="(From tidal formation) Concentric Veer Right" group="(From tidal formation) Concentric"
        formation="Tidal Line RH">
     <path>
       <move select="Forward" />
@@ -1192,7 +1192,7 @@
     </path>
   </tam>
 
-  <tam title="(From tidal line) Concentric Wheel and Deal" group="(From tidal line) Concentric"
+  <tam title="(From tidal formation) Concentric Wheel and Deal" group="(From tidal formation) Concentric"
        formation="Two-Faced Tidal Line RH">
     <path>
       <move select="Run Right" beats="6" hands="right" offsetX="3" offsetY="-2.5" />
@@ -1207,6 +1207,10 @@
       <move select="U-Turn Left" beats="4" hands="right" offsetX="1" offsetY="-0.5" />
     </path>
   </tam>
+
+  <tamxref title="Concentric (C-1) 2/3 Recycle" group="Concentric (C-1)"
+           xref-link="c1/2_3_recycle"
+           xref-title="Concentric 2/3 Recycle"/>
 
   <tamxref title="Concentric (C-1) Box Recycle" group="Concentric (C-1)"
            xref-link="c1/box_split_recycle"

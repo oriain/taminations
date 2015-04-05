@@ -412,6 +412,10 @@
     </path>
   </tam>
 
+  <tamxref title="Tandem (C-1) 2/3 Recycle" group="Tandem (C-1)"
+           xref-link="c1/2_3_recycle"
+           xref-title="Tandem 2/3 Recycle"/>
+
   <tamxref title="Tandem (C-1) Ah So" group="Tandem (C-1)"
            xref-link="c1/ah_so"
            xref-title="Tandem Ah So"/>

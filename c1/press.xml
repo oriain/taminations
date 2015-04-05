@@ -22,7 +22,7 @@
 -->
 <tamination title="Press Ahead">
 
-  <tam title="Ends Press Ahead"
+  <tam title="Ends Press Ahead" group=" "
        from="Lines Facing Out">
      <formation>
       <dancer gender="girl" x="-1" y="3" angle="180"/>
@@ -42,7 +42,7 @@
     </path>
   </tam>
 
-  <tam title="Girls Press Ahead"
+  <tam title="Girls Press Ahead" group=" "
        from="Right-Hand Waves">
      <formation>
       <dancer gender="boy" x="-1" y="3" angle="0"/>
@@ -60,6 +60,38 @@
   <path>
       <move select="Forward 2"/>
   </path>
+  </tam>
+
+  <tam title="1/2 Press Ahead" from="Right-Hand Waves"
+       formation="Ocean Waves RH BGBG">
+    <path>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+    </path>
+  </tam>
+
+  <tam title="1/2 Press Ahead" from="Two-Faced Lines"
+       formation="Two-Faced Lines RH">
+    <path>
+      <move select="Forward 2" hands="right"/>
+    </path>
+    <path>
+      <move select="Forward 2" hands="left"/>
+    </path>
+    <path>
+      <move select="Forward" beats="2" hands="left"/>
+    </path>
+    <path>
+      <move select="Forward" beats="2" hands="right"/>
+    </path>
   </tam>
 
 </tamination>

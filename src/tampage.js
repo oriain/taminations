@@ -303,13 +303,19 @@ function generateAnimations()
     callname = $(this).attr('title') + 'from' + $(this).attr('from');
     var name = $(this).attr('from');
     if ($(this).attr("group") != undefined) {
-      if ($(this).attr("group") != prevgroup)
+      if ($(this).attr("group") != prevgroup) {
+        if (prevgroup)
+          $("#animationlist").append('<div style="height:0.4em"/>');
         $("#animationlist").append('<span class="callname">'+$(this).attr("group")+'</span><br />');
+      }
       name = $(this).attr('title').replace($(this).attr('group'),' ');
       callname = $(this).attr('title');
     }
-    else if ($(this).attr("title") != prevtitle)
+    else if ($(this).attr("title") != prevtitle) {
+      if (prevtitle)
+        $("#animationlist").append('<div style="height:0.4em"/>');
       $("#animationlist").append('<span class="callname">'+$(this).attr("title")+" from</span><br />");
+    }
     if (tam.animationXref(n).attr("difficulty") != undefined) {
       name = name + difficultText[Number(tam.animationXref(n).attr("difficulty"))-1];
       showDiffLegend = true;
@@ -344,13 +350,7 @@ function generateAnimations()
         difficultText[1]+' More difficult - For more experienced dancers.<br/>'+
         difficultText[2]+' Most difficult - For expert dancers.<br/><br/>'
         );
-  var cansvg = true; //!$.browser.msie || $.browser.version > 8;
-  //  Temporary hack for IE on XP
-  if (navigator.userAgent.indexOf('MSIE 8') > 0)
-    cansvg = false;
-  if (cansvg && cookie.svg == 'false')
-    $('#animationlist').append('Problems with Java? Try the <a href="'+
-                               here+'?svg=true">SVG animation</a>.');
+
   //  Insert the SVG container
   if (tam.animations().size() > 0) {
     $('#svgcontainer').height($('#svgcontainer').width()+100).width(svgSize().width);
