@@ -304,7 +304,7 @@ function generateAnimations()
     var name = $(this).attr('from');
     if ($(this).attr("group") != undefined) {
       if ($(this).attr("group") != prevgroup) {
-        if (prevgroup)
+        if (prevtitle)
           $("#animationlist").append('<div style="height:0.4em"/>');
         $("#animationlist").append('<span class="callname">'+$(this).attr("group")+'</span><br />');
       }

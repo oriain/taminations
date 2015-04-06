@@ -333,8 +333,7 @@
     <call title="Locker's Choice" level="Challenge" sublevel="C-3A" link="c3a/lockers_choice"/>
     <call title="Loop" level="Challenge" sublevel="C-2" link="c2/loop"/>
     <call title="Loop and Tag" level="Challenge" sublevel="C-3B" link="c3b/loop_and_tag"/>
-    <call title="Magic Column Circulate" level="Challenge" sublevel="C-1" link="c1/magic_column_circulate"/>
-    <call title="Magic Column Formation" level="Challenge" sublevel="C-1" link="c1/magic_column_formation"/>
+    <call title="Magic Column Formation / Concept" level="Challenge" sublevel="C-1" link="c1/magic_column_formation"/>
     <call title="Magic Diamond Concept" level="Challenge" sublevel="C-3B" link="c3b/magic_diamond_concept"/>
     <call title="Magic Line / Wave Concept" level="Challenge" sublevel="C-3B" link="c3b/magic_line"/>
     <call title="Make Magic" level="Challenge" sublevel="C-1" link="c1/make_magic"/>
