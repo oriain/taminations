@@ -18,16 +18,18 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-define(['calls/centers','calls/trade'],function() {
-  var Slip = Env.extend(Call);
-  Slip.prototype.name = "Slip";
-  Call.classes.slip = Slip;
-  Slip.prototype.perform = function(ctx) {
-    var ctx2 = new CallContext(ctx);
-    ctx2.interpretCall('centers trade');
-    ctx2.appendToSource();
+define(['calls/line_call'],function(LineCall) {
+  fetchCall('extend');
+  fetchCall('quarter in');
+  var ExplodeAnd = Env.extend(LineCall);
+  ExplodeAnd.prototype.name = 'Explode and';
+  Call.classes.explodeand = ExplodeAnd;
+  //  For now this just does Explode from waves
+  //  And it would be better if the dancer's paths would be smoothed out
+  ExplodeAnd.prototype.perform = function(ctx) {
+    ctx.applyCalls('extend','quarter in');
   };
-  return Slip;
+  return ExplodeAnd;
 });
 
-//# sourceURL=slip.js
+//# sourceURL=explode_and.js

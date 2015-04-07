@@ -62,13 +62,6 @@ Call.prototype.performOne = function()
   return new Path();
 };
 
-//  If a call can modify another call by reading its output
-//  and performing its modification it should override this method
-Call.prototype.canModifyCall = function()
-{
-  return false;
-};
-
 ///////   CallContext class    //////////////
 //  An instance of the CallContext class is passed around calls
 //  to hold the working data - dancers, paths, and
@@ -114,7 +107,17 @@ Object.defineProperty(CallContext.prototype,'actives',{
 CallContext.prototype.appendToSource = function() {
   this.dancers.forEach(function(d) {
     d.clonedFrom.path.add(d.path);
+    d.clonedFrom.animateToEnd();
   });
+};
+
+CallContext.prototype.applyCalls = function()
+{
+  for (var i=0; i<arguments.length; i++) {
+    var ctx = new CallContext(this);
+    ctx.interpretCall(arguments[i]);
+    ctx.appendToSource();
+  }
 };
 
 /**
@@ -207,7 +210,7 @@ CallContext.prototype.matchXMLcall = function(calltext)
                 ctx.dancers[mm[i3*2+1]].path.add(p);
               }
               ctx.levelBeats();
-              ctx.callname = $(xelem).attr('title');
+              ctx.callname += $(xelem).attr('title') + ' ';
               match = true;
               return false;  // break out of callindex loop
             }
@@ -396,6 +399,12 @@ CallContext.prototype.dancersToLeft = function(d)
   return this.dancersInOrder(d,function(d2) {
     return this.isLeft(d,d2);
   });
+};
+
+//  Return true if this dancer is in a wave or mini-wave
+CallContext.prototype.isInWave = function(d) {
+  return d.partner &&
+         Math.anglesEqual(this.angle(d,d.partner),this.angle(d.partner,d));
 };
 
 //  Return true if this is 4 dancers in a box
