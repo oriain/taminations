@@ -223,7 +223,7 @@
     <call title="Explode the Wave" level="Plus" sublevel="Plus" link="plus/explode_the_wave"/>
     <call title="Extend" level="Basic and Mainstream" sublevel="Basic 2" link="b2/extend"/>
     <call title="Extend" level="Plus" sublevel="Plus" link="plus/extend"/>
-    <call title="Facing Couples Rule" level="Basic and Mainstream" sublevel="Mainstream" link="ms/facing_couples_rule"/>
+    <call title="Facing Couples Rule" level="Basic and Mainstream" sublevel="Basic 2" link="b2/facing_couples_rule"/>
     <call title="Fan Concept" level="Challenge" sublevel="C-3B" link="c3b/fan_concept"/>
     <call title="Fan the Top" level="Plus" sublevel="Plus" link="plus/fan_the_top"/>
     <call title="Fancy" level="Challenge" sublevel="C-3A" link="c3a/fancy"/>
@@ -346,8 +346,8 @@
     <call title="Named Dancers Cross" sublevel="A-1" level="Advanced" link="a1/named_dancers_cross"/>
     <call title="Nuclear Reaction" level="Challenge" sublevel="C-3B" link="c3b/nuclear_reaction"/>
     <call title="O Formation / Concept" level="Challenge" sublevel="C-1" link="c1/o_formation"/>
-    <call title="Ocean Wave Rule" level="Basic and Mainstream" sublevel="Mainstream" link="ms/ocean_wave_rule"/>
     <call title="Ocean Wave" level="Basic and Mainstream" sublevel="Basic 2" link="b2/ocean_wave"/>
+    <call title="Ocean Wave Rule" level="Basic and Mainstream" sublevel="Basic 2" link="b2/ocean_wave_rule"/>
     <call title="Oddly / Evenly Concept" level="Challenge" sublevel="C-3B" link="c3b/oddly_evenly_concept"/>
     <call title="Offset Concept" level="Challenge" sublevel="C-2" link="c2/offset_concept"/>
     <call title="Once Removed Concept" level="Challenge" sublevel="C-2" link="c2/once_removed_concept"/>
@@ -541,6 +541,7 @@
     <call title="Step and Flip" level="Challenge" sublevel="C-1" link="c1/step_and_flip"/>
     <call title="Step and Fold" level="Challenge" sublevel="C-1" link="c1/step_and_fold"/>
     <call title="Step and Slide" level="Advanced" sublevel="A-1" link="a1/step_and_slide"/>
+    <call title="Step Thru" level="Basic and Mainstream" sublevel="Basic 1" link="b1/step_thru"/>
     <call title="n Steps at a Time" level="Challenge" sublevel="C-3B" link="c3b/n_steps_at_a_time"/>
     <call title="Stimulate" level="Challenge" sublevel="C-3B" link="c3b/stimulate"/>
     <call title="Stingy" level="Challenge" sublevel="C-3B" link="c3b/stingy_generous"/>
