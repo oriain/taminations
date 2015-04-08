@@ -87,4 +87,54 @@
       This is an example of the Ocean Wave rule.
     </taminator>
   </tam>
+
+  <tam title="Left Double Pass Thru" from="Double Pass Thru"
+       formation="Double Pass Thru" difficulty="2">
+    <path>
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Forward 2" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Forward 2" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Forward 2" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Forward 2" />
+      <move select="Extend Left" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Left Double Pass Thru"
+       from="Left-Hand Quarter Tag"
+       formation="Quarter Tag LH"
+       difficulty="3">
+    <path>
+      <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".5" />
+      <move select="Forward" />
+      <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2.5" scaleX="2.5" scaleY=".5" />
+      <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="4" scaleX="3" scaleY="2" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleX="1.5" scaleY=".5" />
+      <move select="Extend Left" beats="2" scaleX="1.5" scaleY=".5" />
+    </path>
+    <taminator>
+      This is an example of the Ocean Wave rule as applied to a Left-Hand Wave.
+    </taminator>
+  </tam>
+
 </tamination>

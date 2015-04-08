@@ -42,21 +42,5 @@
            xref-title="Left Swing Thru"
            xref-from="Eight Chain Thru" />
 
-  <tamxref title="Spin Chain Thru" from="Eight Chain Thru"
-           xref-link="ms/spin_chain_thru"
-           xref-from="Eight Chain Thru" />
-
-  <tamxref title="Spin the Top" from="Eight Chain Thru"
-           xref-link="ms/spin_the_top"
-           xref-from="Eight Chain Thru" />
-
-  <tamxref title="Spin the Top" from="Lines"
-           xref-link="ms/spin_the_top"
-           xref-from="Lines" />
-
-  <tamxref title="Heads Spin the Top" group=" "
-           xref-link="ms/spin_the_top"
-           xref-title="Heads Spin the Top" />
-
 </tamination>
 

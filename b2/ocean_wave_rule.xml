@@ -22,11 +22,6 @@
 -->
 <tamination title="Ocean Wave Rule">
 
-  <tamxref title="Pass to the Center"
-           from="Right-Hand Waves"
-           xref-link="ms/pass_to_the_center"
-           xref-from="Right-Hand Waves"/>
-
   <tamxref title="Right and Left Thru"
            from="Right-Hand Wave"
            xref-link="b1/right_and_left_thru"
@@ -41,10 +36,5 @@
            from="Tidal Wave"
            xref-link="b1/right_and_left_thru"
            xref-from="Tidal Wave"/>
-
-  <tamxref title="Slide Thru"
-           from="Ocean Waves"
-           xref-link="ms/slide_thru"
-           xref-from="Ocean Waves"/>
 
 </tamination>
