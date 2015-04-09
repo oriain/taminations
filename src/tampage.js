@@ -194,17 +194,43 @@ $(document).ready(
 
     //  Finally insert the document structure and build the menu of animations
     $("#menudiv").after(htmlstr);
-    var docname = document.URL.match(/(\w+)\.html/)[1];
+    //  Parse out base file name, allowing for country codes
+    var docname = document.URL.match(/(\w+)(\...)?\.html/)[1];
     if (docname != 'index' && docname != 'sequence' && docname != 'embedinfo' &&
         docname != 'overview' && docname != 'howtouse' && docname != 'search' &&
         docname != 'trouble' && docname != 'download')
       tam = new TAMination(docname.extension('xml'),generateAnimations,'');
     else
       tam = new TAMination();
-    tam.loadXML('calls.xml',function(a) { calldata = a; });
+    tam.loadXML('calls.xml',function(a) {
+      calldata = a;
+      selectLanguage();
+    });
     //  end of menu load function
 
   });  // end of document ready function
+
+function selectLanguage()
+{
+  //  Find the entry in calls.xml for this call
+  var link = document.URL.match(/(\w+\/\w+)(\...)?\.html/)[1];
+  var thiscall = $('call[link="'+link+'"]',calldata);
+  //  Get the additional languages available for this call
+  var langs = $(thiscall).attr('languages');
+  //  See if there's a match to the users' language
+  var userlang = navigator.language.substr(0,2);
+  if (langs.indexOf(userlang) >= 0) {
+    //  Fetch the page
+    $.get(document.URL.replace('html',userlang+'.html'),function(html) {
+      //  Strip out what we don't need
+      var j = html.indexOf('<body>');
+      var k = html.indexOf('</body>');
+      html = html.substr(j+7,k-j-7);
+      //  And stuff it in our definition
+      $('.definition').html(html);
+    },'html');
+  }
+}
 
 function clearMenus()
 {

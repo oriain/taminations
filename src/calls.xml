@@ -131,7 +131,7 @@
     <call title="Chisel Thru" level="Challenge" sublevel="C-2" link="c2/chisel_thru"/>
     <call title="Chuck-A-Luck" level="Challenge" sublevel="C-3B" link="c3b/chuck_a_luck"/>
     <call title="Circle By" level="Challenge" sublevel="C-1" link="c1/circle_by"/>
-    <call title="Circle Left and Circle Right" level="Basic and Mainstream" sublevel="Basic 1" link="b1/circle"/>
+    <call title="Circle Left and Circle Right" level="Basic and Mainstream" sublevel="Basic 1" link="b1/circle" languages="ja"/>
     <call title="Circle to a Line" level="Basic and Mainstream" sublevel="Basic 1" link="b1/circle_to_a_line"/>
     <call title="Circle to a Wave" level="Challenge" sublevel="C-2" link="c2/circle_to_a_wave"/>
     <call title="Circulate" level="Challenge" sublevel="C-1" link="c1/circulate"/>
