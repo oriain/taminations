@@ -20,17 +20,8 @@
  */
 
 //  This is the code to handle searching calls
-var calllistdata = [];
 var prevsearch = '';
-TAMination.loadXML('callindex.xml',function (calls) {
-  //  Pre-process the XML index for faster searching
-  $('call[level!="Info"]',calls).filter(function() {
-    calllistdata.push({
-      title:$(this).attr('title'),
-      link:$(this).attr('link'),
-      sublevel:$(this).attr('sublevel')
-    });
-  });
+$(document).ready(function() {
   window.setInterval(function() {
     //  Monitor the text input every 1/10 second
     //  Will do work only if there's a new search

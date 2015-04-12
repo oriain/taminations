@@ -30,6 +30,7 @@ def main():
   r3 = re.compile(r'Call\.classes\.(.+?)\s*=')
   r4 = re.compile(r'\W')
   r5 = re.compile(r'\(.*?\)\s*')
+  r6 = re.compile(r'\.(\w\w)\.html')
   #  Start a new xml document for the output
   newtree = ET.ElementTree(ET.Element('calls'))
   newroot = newtree.getroot()
@@ -61,6 +62,13 @@ def main():
     if root.tag != 'tamination':
       continue
     link = filename.lstrip('./').replace('.xml','')
+    #  Find the languages the definition is translated
+    lang = []
+    for translation in glob.glob(filename.replace('.xml','')+'*.html'):
+      m6 = r6.search(translation)
+      if (m6):
+        lang += [m6.group(1)]
+    lang = ' '.join(lang)
     #  Add the main title, which could be different from the animations
     #  esp for concepts
     title = re.sub(r5,'',root.attrib['title']).replace('"','').strip()
@@ -71,28 +79,21 @@ def main():
                        'level':leveldict[sublevel]['level'],
                        'sublevel':leveldict[sublevel]['sublevel']
                       }
+    if (lang):
+      calldict[title+link]['languages'] = lang
     #  Loop through all the animations adding one entry for each
     #  For a lot of calls, these will be the same
     #  But for some they will be different
     for tam in root.findall('tam'):
       title = re.sub(r5,'',tam.attrib['title']).replace('"','').strip()
-      calldict[title+link] = {
-                       'title':title,
-                       'link':link,
-                       'text':re.sub(r4,'',title.lower()),
-                       'level':leveldict[sublevel]['level'],
-                       'sublevel':leveldict[sublevel]['sublevel']
-                      }
-
-
-  #  Read scripts from javascript and python files
-#   for filename in glob.glob('calls/*.js'): # + glob.glob('../squareplay/src/calls/*.py'):
-#     for line in open(filename):
-#       m = r3.search(line)
-#       if m:
-#         c = ET.SubElement(newroot,'call')
-#         c.set('text',re.sub(r4,'',m.group(1).lower()))
-#         c.set('link',filename)
+      if title+link not in calldict:
+        calldict[title+link] = {
+                         'title':title,
+                         'link':link,
+                         'text':re.sub(r4,'',title.lower()),
+                         'level':leveldict[sublevel]['level'],
+                         'sublevel':leveldict[sublevel]['sublevel']
+                        }
 
   #  Sort the results
   calllist = list(calldict.keys())

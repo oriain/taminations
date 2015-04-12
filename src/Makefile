@@ -58,7 +58,7 @@ clean :
 	cd .. && $(ZIP) -rq tamination.zip info $(DIRS) src ext *.html *.txt *.ico *.xml *.dtd
 
 #  Generate index used by sequencer
-$(CALLINDEX) : $(filter-out $(XMLCOPIES),$(wildcard ../*/*.xml) $(wildcard calls/*.js))
+$(CALLINDEX) : $(filter-out $(XMLCOPIES),$(wildcard ../*/*.xml) $(wildcard ..*/*/*.*.html) $(wildcard calls/*.js))
 	$(PYTHON) indexcalls.py >$@
 
 #  Copy XML files that define menus, moves, and formations to each directory
