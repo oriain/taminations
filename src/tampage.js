@@ -212,12 +212,11 @@ $(document).ready(
     if (docname != 'index' && docname != 'sequence' && docname != 'embedinfo' &&
         docname != 'overview' && docname != 'howtouse' && docname != 'search' &&
         docname != 'trouble' && docname != 'download')
-      tam = new TAMination(docname.extension('xml'),generateAnimations,'');
+      tam = new TAMination(docname.extension('xml'),selectLanguage,'');
     else
       tam = new TAMination();
     tam.loadXML('calls.xml',function(a) {
       calldata = a;
-      selectLanguage();
     });
     //  end of menu load function
 
@@ -225,6 +224,7 @@ $(document).ready(
 
 function selectLanguage()
 {
+  var translated = false;
   //  Skip if already viewing a foreign language page
   if (document.URL.match(/(\w+\/\w+)\.html/)) {
     //  Find the entry in callindex for this call
@@ -232,7 +232,7 @@ function selectLanguage()
     var userlang = navigator.language.substr(0,2);
     //  callindex is loaded by search.js and stuffed in calllistdata
     calllistdata.forEach(function(d) {
-      if (!d.link || document.URL.indexOf(d.link) < 0)
+      if (translated || !d.link || document.URL.indexOf(d.link) < 0)
         return;
       //  Get the additional languages available for this call
       //  See if there's a match to the users' language
@@ -245,10 +245,14 @@ function selectLanguage()
           html = html.substr(j+7,k-j-7);
           //  And stuff it in our definition
           $('.definition').html(html);
+          generateAnimations();
+          translated = true;
         },'html');
       }
     });
   }
+  if (!translated)
+    generateAnimations();
 }
 
 function clearMenus()
