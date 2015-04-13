@@ -1,6 +1,0 @@
-Squared Set
-heads  lead right
-veer left
-* comment
-bend the line
-
