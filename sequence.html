@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Taminations Sequencer</title>
+<meta name="viewport" content="width=device-width" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="image/x-icon" href="favicon.ico" rel="icon" />
+<link href="src/tamination.css" type="text/css" rel="stylesheet" />
+<link href="src/jquery-ui.css" rel="stylesheet" />
+
+<script src="ext/require.js" data-main="src/config"></script>
+
+<style type="text/css">
+  #instructions {
+    background-color: white;
+    border: 1px solid black;
+    margin: 4px;
+    padding: 6px;
+    display: none;
+  }
+  #calls {
+    margin: 16px;
+    background-color: white;
+    width: 20em;
+    height: 30em;
+    font: 16px Helvetica,sans-serif;
+    overflow: auto;
+    white-space: pre;
+  }
+  .callfocus {
+    border: 1px solid black;
+  }
+  .calltext {
+    color: blue;
+  }
+  .commenttext {
+    color: red;
+  }
+  .callerror {
+    color: white;
+    background-color: red;
+  }
+  .callhighlight {
+    background-color: yellow;
+  }
+</style>
+</head>
+<body><div class="definition"><div id="sequencepage">
+  <h2>Taminations Sequencer</h2>
+  <p>
+  Be sure to read the
+  <a href="#info" id="instructions-link" style="text-decoration: underline">Important Instructions</a>!<br/></p>
+  <div id="instructions" >
+
+    <h3>Creating a Sequence</h3>
+    Enter your calls in the white text box, one per line.
+    Capitalization and punctuation are not important.<br/><br/>
+    You can use any call that has an animation for the current formation.
+    In addition, some simple
+    calls, such as trade, run, and turn back, are programmed.  It also
+    understands identifiers such as boys/girls, leaders/trailers, centers/ends.
+    So you can enter "boys trade" and "leaders turn back".<br/><br/>
+    However, there are still many valid calls you will not be able to do because
+    the sequencer does not have an animation or program to perform them.
+    If in doubt, go ahead and try a call. If the sequencer is unable to find or
+    perform the call you will get an appropriate message.<br/><br/>
+    You can add comments starting with a
+    an asterisk(*) or hash(#).  Anything from that point to the end of the line
+    is ignored.
+
+    <h3>Save and Load</h3>
+    Click <b>Save</b> and your sequence will appear in a separate window.
+    From here you have to use the browser's menu to &quot;Save As&quot; a text file.<br/>
+    An alternative is to save your sequence as a bookmark.
+    Click <b>Link</b> and a link with your sequence will be generated, and then
+    loaded into your browser.  Then you can save it as a bookmark, or copy it
+    as a text string for emailing or other uses.
+    To load a sequence previously saved as a text file, type the filename in
+    the text box, or click <b>Browse</b> to select it from your computer.
+    Then click <b>Load</b> to read it in.<br/>
+    NOTE: <b>Load</b> is not available in Internet Explorer as it does not
+    support the required features.  Reportedly it will work in the next version.
+
+    <h3>Feedback</h3>
+    Feel free to <a href="mailto:brad@bradchristie.com">send me</a> any feedback,
+    including strange behavior, or calls
+    you would like to see implemented, or other features that would be useful.<br/><br/>
+    <span class="dbd">Click to close.</span>
+
+  </div>
+  <p>
+    Start from:
+    <input type="radio" name="formation" value="Squared Set" checked/>Squared Set
+    <input type="radio" name="formation" value="Facing Couples"/>Facing Couples
+    <br/>  </p>
+    
+    <!--  textarea id="calls" cols="40" rows="40"></textarea -->
+    <div id="calls" contentEditable="true" spellcheck="false" tabindex="0"></div>
+    <h3 id="errortext"></h3>
+    <form id="sequenceform">
+    <input type="file" id="inputfile" name="inputfile"/>
+    <input type="button" name="Load" id="loadbutton" value="Load"/><br/>
+    <input type="button" name="Save" id="savebutton" value="Save"/>
+    <input type="button" name="Link" id="linkbutton" value="Link"/>
+    <input type="button" name="Clear" id="clearbutton" value="Clear"/>
+  </form>
+</div></div></body>
+</html>
