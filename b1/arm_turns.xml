@@ -20,7 +20,36 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination title="Allemande Family">
-  
-  
+<tamination title="Arm Turns">
+
+  <tam title="Left Arm Turn 3/4" group=" "
+       formation="Ocean Waves LH BGBG">
+    <path>
+      <move select="Cast Left"/>
+    </path>
+    <path>
+      <move select="Cast Left"/>
+    </path>
+    <path>
+      <move select="Cast Left"/>
+    </path>
+    <path>
+      <move select="Cast Left"/>
+    </path>
+  </tam>
+
+  <tam title="Centers Arm Turn 3/4" group=" "
+       formation="Ocean Waves LH BGGB">
+    <path>
+    </path>
+    <path>
+      <move select="Cast Right"/>
+    </path>
+    <path>
+      <move select="Cast Right"/>
+    </path>
+    <path>
+    </path>
+  </tam>
+
 </tamination>
