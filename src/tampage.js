@@ -506,6 +506,8 @@ function getLevel()
   if (document.URL.match(/\/c3b\//))
     levelstring = "C-3B";
   return '<span class="level">'+levelstring+'<br/><br/>' +
-         '<span class="appButton selected" id="abbrev">Abbrev</span> '+
-         '<span class="appButton" id="full">Full</span></span>';
+         '<span class="appButton selected" id="abbrev">'+
+         TAMination.localize('Abbrev') +'</span> '+
+         '<span class="appButton" id="full">'+
+         TAMination.localize('Full')+'</span></span>';
 }

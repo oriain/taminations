@@ -92,6 +92,28 @@ TAMination.prototype.loadXML = function(url,f,e) {
   });
 };
 
+var locals = {
+  'Abbrev' : {
+    'ja' : '省略された'
+  },
+  'Full' : {
+    'ja' : '遺漏なく'
+  }
+};
+TAMination.localize = function(str)
+{
+  var retval = str;
+  var k = locals[str];
+  if (k) {
+    var tr = k[navigator.language.substr(0,2)];
+    if (tr)
+      retval = tr;
+  }
+  return retval;
+};
+
+
+
 TAMination.prototype.init = function(call) {
   tam = this;
   tam.callnum = 0;
