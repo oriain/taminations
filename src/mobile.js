@@ -228,20 +228,6 @@ function loadcall(options,htmlpage)
 {
   if (htmlpage.length > 0) {
     htmlpage = decodeURIComponent(htmlpage);
-    //  Some browsers do better loading the definition as xml, others as html
-    //  So we will try both
-    $.ajax({url:htmlpage, datatype:'xml', success:function(a) {
-      if ($('body',a).size() > 0) {
-        $('#definitioncontent').empty().append($('body',a).children());
-        repairDefinition(htmlpage);
-      }
-      else {
-        $.ajax({url:htmlpage, datatype:'html', success:function(a) {
-          $('#definitioncontent').empty().append(a.match(/<body>((.|\s)*)<\/body>/)[1]);
-          repairDefinition(htmlpage);
-        }});
-      }
-    }});
     //  Load the xml file of animations
     var xmlpage = htmlpage.extension('xml');
     new TAMination(xmlpage,function(tam) {
@@ -252,6 +238,22 @@ function loadcall(options,htmlpage)
       content.empty();
       var html = '<ul data-role="listview">';
       var showDiffLegend = false;
+
+      var tpage = TAMination.selectLanguage(htmlpage) || htmlpage;
+      //  Some browsers do better loading the definition as xml, others as html
+      //  So we will try both
+      $.ajax({url:tpage, datatype:'xml', success:function(a) {
+        if ($('body',a).size() > 0) {
+          $('#definitioncontent').empty().append($('body',a).children());
+          repairDefinition(tpage);
+        }
+        else {
+          $.ajax({url:tpage, datatype:'html', success:function(a) {
+            $('#definitioncontent').empty().append(a.match(/<body>((.|\s)*)<\/body>/)[1]);
+            repairDefinition(tpage);
+          }});
+        }
+      }});
 
       tam.animations().each(function(n) {
         var callname = $(this).attr('title') + 'from' + $(this).attr('from');

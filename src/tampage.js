@@ -67,19 +67,6 @@ var levelselectors = {
       c3a: 'call[sublevel="C-3A"]',
       c3b: 'call[sublevel="C-3B"]' };
 
-var calllistdata = [];
-TAMination.loadXML('callindex.xml',function (calls) {
-  //  Pre-process the XML index for faster searching
-  $('call[level!="Info"]',calls).filter(function() {
-    calllistdata.push({
-      title:$(this).attr('title'),
-      link:$(this).attr('link'),
-      sublevel:$(this).attr('sublevel'),
-      languages:$(this).attr('languages')
-    });
-  });
-});
-
 // Body onload function
 var defwidth = 40;
 var animwidth = 30;
@@ -224,34 +211,20 @@ $(document).ready(
 
 function selectLanguage()
 {
-  var translated = false;
-  //  Skip if already viewing a foreign language page
-  if (document.URL.match(/(\w+\/\w+)\.html/)) {
-    //  Find the entry in callindex for this call
-    var link = document.URL.match(/(\w+\/\w+)\.html/)[1];
-    var userlang = navigator.language.substr(0,2);
-    //  callindex is loaded by search.js and stuffed in calllistdata
-    calllistdata.forEach(function(d) {
-      if (translated || !d.link || document.URL.indexOf(d.link) < 0)
-        return;
-      //  Get the additional languages available for this call
-      //  See if there's a match to the users' language
-      if (d.languages && d.languages.indexOf(userlang) >= 0) {
-        //  Fetch the page
-        $.get(document.URL.replace('html',userlang+'.html'),function(html) {
-          //  Strip out what we don't need
-          var j = html.indexOf('<body>');
-          var k = html.indexOf('</body>');
-          html = html.substr(j+7,k-j-7);
-          //  And stuff it in our definition
-          $('.definition').html(html);
-          generateAnimations();
-          translated = true;
-        },'html');
-      }
-    });
+  var t = TAMination.selectLanguage(document.URL);
+  if (t) {
+    //  Fetch the page
+    $.get(t,function(html) {
+      //  Strip out what we don't need
+      var j = html.indexOf('<body>');
+      var k = html.indexOf('</body>');
+      html = html.substr(j+7,k-j-7);
+      //  And apply it
+      $('.definition').html(html);
+      generateAnimations();
+    },'html');
   }
-  if (!translated)
+  else
     generateAnimations();
 }
 

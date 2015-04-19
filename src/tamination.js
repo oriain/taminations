@@ -26,6 +26,9 @@ var crossrefs = {};
 var formationdata;
 var movedata;
 
+//  global (TODO make property of TAMination)
+var calllistdata = [];
+
 var prefix = '';
 //  Make the links work from both taminations directory and its subdirectories
 //  TODO Merge with tampage code
@@ -43,6 +46,18 @@ var TAMination = function(xmlpage,f,errfun,call)
   this.loadXML('moves.xml',function(a) { movedata = a; });
   if (xmlpage)
     this.loadXMLforAnimation(xmlpage,errfun);
+  this.loadXML('callindex.xml',function (calls) {
+    //  Pre-process the XML index for faster searching
+    $('call[level!="Info"]',calls).filter(function() {
+      calllistdata.push({
+        title:$(this).attr('title'),
+        link:$(this).attr('link'),
+        sublevel:$(this).attr('sublevel'),
+        languages:$(this).attr('languages')
+      });
+    });
+  });
+
   TAMination.tam = this;
 };
 
@@ -53,6 +68,29 @@ TAMination.getTam = function() {
     TAMination.tam = new TAMination();
   return TAMination.tam;
 }
+
+TAMination.selectLanguage = function(url)
+{
+  var translated = false;
+  //  Skip if we already have a foreign language
+  if (url.match(/(\w+\/\w+)\.html/)) {
+    //  Find the entry in callindex for this call
+    var link = url.match(/(\w+\/\w+)\.html/)[1];
+    var userlang = navigator.language.substr(0,2);
+    calllistdata.forEach(function(d) {
+      if (translated || !d.link || url.indexOf(d.link) < 0)
+        return;  //  to the next forEach iteration
+      //  Get the additional languages available for this call
+      //  See if there's a match to the users' language
+      if (d.languages && d.languages.indexOf(userlang) >= 0) {
+        //  Remember the page
+        translated = url.replace('html',userlang+'.html');
+      }
+    });
+  }
+  return translated;
+}
+
 
 //  Scan the doc for cross-references and load any found
 TAMination.prototype.scanforXrefs = function(xmldoc) {
