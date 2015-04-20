@@ -205,6 +205,7 @@ $(document).ready(
     tam.loadXML('calls.xml',function(a) {
       calldata = a;
     });
+    showTranslations();
     //  end of menu load function
 
   });  // end of document ready function
@@ -227,6 +228,14 @@ function selectLanguage()
   else
     generateAnimations();
 }
+
+//  Un-hide translations for the user's language
+function showTranslations()
+{
+  var userlang = navigator.language.substr(0,2);
+  $('.lang-'+userlang).removeClass('lang-'+userlang);
+}
+
 
 function clearMenus()
 {
@@ -251,9 +260,9 @@ function sizeBody()
   var menudivheight = $('#menudiv table').height();
   $('#menudiv').height(menudivheight);
   var h = $(window).height() - menudivheight - $('.title').height();
-  $('#definition').height(h);
+  $('#definition').height(h-10);
   $('#calllist').height(h);
-  $('#animationlist').height(h);
+  $('#animationlist').height(h-10);
   $('#iframeleft').height(h);
   $('#iframeright').height(h);
 }

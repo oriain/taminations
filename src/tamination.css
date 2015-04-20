@@ -379,3 +379,7 @@ form a { color: black; text-decoration: none; }
   visibility: hidden;
  }
 
+
+.lang-ja {
+  display: none;
+}
