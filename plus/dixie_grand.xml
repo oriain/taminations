@@ -22,6 +22,41 @@
 -->
 <tamination title="Dixie Grand">
 
+
+  <tam title="Dixie Grand" from="Dixie Grand Circle"
+       parts="2;2" difficulty="1">
+    <formation>
+      <dancer gender="boy" x="-3" y="-1" angle="90"/>
+      <dancer gender="girl" x="3" y="-1" angle="90"/>
+      <dancer gender="boy" x="1" y="-3" angle="180"/>
+      <dancer gender="girl" x="1" y="3" angle="180"/>
+    </formation>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Lead Right 1/2" beats="2" offsetX="1.5" offsetY="-1"/>
+      <move select="Lead Right 1/2" beats="2" offsetX="2.1" offsetY="0"/>
+      <move select="Lead Right 1/2" beats="2" offsetX=".5" offsetY="-.5"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Lead Left 1/2" beats="2" offsetX="2.2" offsetY="-0.8"/>
+      <move select="Lead Left 1/2" beats="2" offsetX="1.5" offsetY="1.8"/>
+      <move select="Lead Left 1/2" beats="2" offsetX=".5" offsetY="-.5"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Lead Right 1/2" beats="2" offsetX="1.5" offsetY="-1"/>
+      <move select="Lead Right 1/2" beats="2" offsetX="2.1" offsetY="0"/>
+      <move select="Lead Right 1/2" beats="2" offsetX=".5" offsetY="-.5"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Lead Left 1/2" beats="2" offsetX="2.2" offsetY="-0.8"/>
+      <move select="Lead Left 1/2" beats="2" offsetX="1.5" offsetY="1.8"/>
+      <move select="Lead Left 1/2" beats="2" offsetX=".5" offsetY="-.5"/>
+    </path>
+  </tam>
+
   <tam title="Dixie Grand"
        from="Double Pass Thru"
        formation="Double Pass Thru"
