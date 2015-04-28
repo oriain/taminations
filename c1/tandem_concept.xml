@@ -283,6 +283,25 @@
     </path>
   </tam>
 
+  <tam title="Tandem Single Wheel" group="Tandem"
+       formation="Completed Double Pass Thru">
+    <path>
+      <move select="Flip Left" offsetX="-1" scaleY=".5"/>
+      <move select="Forward 2" scaleX="0.6"  />
+    </path>
+    <path>
+      <move select="Flip Right" beats="5" scaleY=".5" offsetX=".4"/>
+    </path>
+    <path>
+      <move select="Forward" beats="2" />
+      <move select="Flip Left"  scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Forward 3"/>
+      <move select="Flip Right" scaleY=".5" offsetX=".7"/>
+    </path>
+  </tam>
+
   <tam title="Tandem Square Chain Thru" group="Tandem"
        formation="Double Pass Thru" parts="5;4;4">
     <path>

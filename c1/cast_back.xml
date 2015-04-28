@@ -32,44 +32,37 @@
 
   <tam title="Cast Back"
        from="Double Pass Thru"
-       formation="Double Pass Thru"
-       parts="" >
+       formation="Double Pass Thru">
     <path>
-      <move select="Forward" beats="3" hands="right" />
     </path>
     <path>
-      <move select="Forward" beats="3" hands="left" />
     </path>
     <path>
-      <move select="U-Turn Left" offsetX="-1" offsetY="2" />
+      <move select="Run Left" offsetX="-2"  />
     </path>
     <path>
-      <move select="U-Turn Right" offsetX="-1" offsetY="-2" />
+      <move select="Run Right" offsetX="-2" />
     </path>
   </tam>
 
   <tam title="Cast Back"
        from="Completed Double Pass Thru"
-       formation="Completed Double Pass Thru"
-       parts="" >
+       formation="Completed Double Pass Thru" >
     <path>
-      <move select="U-Turn Right" offsetX="-1" offsetY="-2" />
+      <move select="Run Right" offsetX="-2" />
     </path>
     <path>
-      <move select="U-Turn Left" offsetX="-1" offsetY="2" />
+      <move select="Run Left" offsetX="-2" />
     </path>
     <path>
-      <move select="Forward" beats="3" hands="right" />
     </path>
     <path>
-      <move select="Forward" beats="3" hands="left" />
     </path>
   </tam>
 
   <tam title="Cast Back"
        from="Right-Hand Columns"
-       formation="Column RH GBGB"
-       parts="" >
+       formation="Column RH GBGB">
     <path>
       <move select="U-Turn Left" offsetX="-2" offsetY="2" />
     </path>
@@ -81,4 +74,5 @@
     <path>
     </path>
   </tam>
+
 </tamination>

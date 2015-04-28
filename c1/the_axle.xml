@@ -55,4 +55,26 @@
     </path>
   </tam>
 
+  <tam title="The Axle" from="Completed Double Pass Thru"
+       formation="Completed Double Pass Thru" parts="4;3">
+    <path>
+      <move select="Run Left" beats="4" scaleX="2" scaleY="2" offsetX="-1" />
+      <move select="Swing Left" />
+      <move select="Run Right" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleY="2" offsetX="-1" />
+      <move select="Swing Right" />
+      <move select="Flip Left" />
+    </path>
+    <path>
+      <move select="Forward" beats="4"/>
+      <move select="Swing Right" />
+    </path>
+    <path>
+      <move select="Forward" beats="4"/>
+      <move select="Swing Left" />
+    </path>
+  </tam>
+
 </tamination>
