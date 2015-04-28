@@ -137,14 +137,15 @@ $(document).ready(
             var mi = c*rows + r;
             if (mi < menu.size()) {
               var menuitem = $(menu.eq(mi));
-              var onelink = menuitem.attr('link') + '.html';
+              var onelink = menuitem.attr('link');
               if (onelink) {
+                onelink += '.html';
                 if (menuitem.attr('anim') != undefined)
                   onelink += '?' + menuitem.attr('anim');
                 menuhtml += '<td onclick="document.location=\''+prefix+onelink+'\'">'+
                              menuitem.attr('title')+'</td>';
               } else {
-                menuhtml += '<td><br/><strong>--'+menuitem.attr('text')+'--</strong></td>';
+                menuhtml += '<td><br/><strong>--'+menuitem.attr('title')+'--</strong></td>';
               }
             }
           }
