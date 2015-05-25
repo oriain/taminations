@@ -45,7 +45,7 @@ def main():
     link = call.attrib['link'].replace('.html','')
     if not r2.search(link):
       continue
-    calldict[title+link] = {
+    calldict[title+'  '+link] = {
                      'title':call.attrib['title'],
                      'link':link,
                      'level':call.attrib['level'],
@@ -72,7 +72,7 @@ def main():
     #  Add the main title, which could be different from the animations
     #  esp for concepts
     title = re.sub(r5,'',root.attrib['title']).replace('"','').strip()
-    calldict[title+link] = {
+    calldict[title+'  '+link] = {
                        'title':title,
                        'link':link,
                        'text':re.sub(r4,'',title.lower()),
@@ -80,14 +80,14 @@ def main():
                        'sublevel':leveldict[sublevel]['sublevel']
                       }
     if (lang):
-      calldict[title+link]['languages'] = lang
+      calldict[title+'  '+link]['languages'] = lang
     #  Loop through all the animations adding one entry for each
     #  For a lot of calls, these will be the same
     #  But for some they will be different
     for tam in root.findall('tam'):
       title = re.sub(r5,'',tam.attrib['title']).replace('"','').strip()
-      if title+link not in calldict:
-        calldict[title+link] = {
+      if title+'  '+link not in calldict:
+        calldict[title+'  '+link] = {
                          'title':title,
                          'link':link,
                          'text':re.sub(r4,'',title.lower()),
