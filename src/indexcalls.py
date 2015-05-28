@@ -97,7 +97,7 @@ def main():
 
   #  Sort the results
   calllist = list(calldict.keys())
-  calllist.sort()
+  calllist.sort(key=str.lower)
 
   #  Create the output XML
   prevcall = {}
