@@ -76,6 +76,24 @@
     </path>
   </tam>
 
+  <tam title="Acey Deucey" from="Lines Facing In"
+       formation="Normal Lines" parts="2" difficulty="2">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleX="1.2"/>
+    </path>
+    <path>
+      <move select="Flip Left" beats="4"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+  </tam>
+
   <tam title="Acey Deucey"
        from="Lines Facing Out"
        formation="Lines Facing Out"
