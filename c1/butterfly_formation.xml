@@ -49,21 +49,25 @@
       <dancer gender="boy" y="1" x="-1" angle="90"/>
     </formation>
     <path couples="1 3">
-      <move select="Forward 2" beats="4"/>
-      <move select="Lead Right" beats="4" scaleX="2" scaleY="4"/>
+      <move select="Extend Right" scaleX="2" scaleY="2" beats="7"/>
+      <move select="Forward"/>
+      <move select="Quarter Right" beats="2" offsetX="1"/>
+      <move select="Forward 2"/>
     </path>
     <path couples="4 2">
-      <move select="Run Right" beats="6" scaleY="3"/>
-      <move select="Forward 5"/>
-      <move select="Quarter Right" offsetX="1"/>
+      <move select="Run Right" beats="6" scaleY="2.5"/>
+      <move select="Forward 4"/>
+      <move select="Quarter Right" beats="3" offsetX="2" offsetY="1"/>
     </path>
     <path couples="1 3">
-      <move select="Forward 2" beats="4"/>
-      <move select="Lead Right" beats="4" scaleX="2" scaleY="4"/>
+      <move select="Forward 2" beats="7"/>
+      <move select="Lead Right" beats="3" scaleY="2"/>
+      <move select="Extend Left" beats="2" scaleX="2"/>
     </path>
     <path couples="4 2">
-      <move select="Run Right" beats="6"/>
-      <move select="Quarter Right" beats="3" offsetX="2"/>
+      <move select="Stand" beats="2"/>
+      <move select="Run Right" beats="7.5" scaleX="1.5" scaleY="1.5"/>
+      <move select="Lead Right" beats="2.5" scaleX="2"/>
     </path>
   </tam>
 
