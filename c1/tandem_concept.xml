@@ -156,6 +156,33 @@
     </taminator>
   </tam>
 
+  <tam title="Tandem Dixie Style to a Wave" group="Tandem" formation="Double Pass Thru">
+    <path>
+      <move select="Back" beats="2"/>
+      <move select="Dodge Right"/>
+      <move select="Forward" beats="2"/>
+      <move select="Counter Rotate Left 2 0" hands="left" offsetY="-1"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="1.5" scaleY="1.5"/>
+      <move select="Forward 2" beats="3"/>
+      <move select="Extend Right" beats="2" scaleX=".5"/>
+      <move select="Counter Rotate Left 2 0" hands="left" offsetY="-1.5"/>
+    </path>
+    <path>
+      <move select="Back 2"/>
+      <move select="Dodge Right"/>
+      <move select="Forward 2"/>
+      <move select="Counter Rotate Left 0 2" hands="left" offsetY="1"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleY="1.5"/>
+      <move select="Forward 2" beats="3"/>
+      <move select="Extend Right" beats="2"/>
+      <move select="Counter Rotate Left 0 2" hands="left" offsetY=".5"/>
+    </path>
+  </tam>
+
   <tam title="Tandem Fan the Top" group="Tandem" formation="Ocean Waves RH BGGB">
     <path>
       <move select="Counter Rotate Right 5 -1" beats="9"/>

@@ -21,13 +21,26 @@
 
 -->
 <tamination title="Dixie Diamond">
-  
-  
+
+  <tam title="Dixie Diamond" from="Facing Couples"
+       formation="Facing Couples" parts="6">
+    <path>
+      <move select="Quarter Right" beats="3" offsetY="-1" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Hinge Right" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" hands="right" offsetX="1" offsetY=".5" />
+      <move select="Lead Right" beats="1" scaleY=".5" />
+      <move select="Swing Left" />
+      <move select="U-Turn Left" />
+    </path>
+  </tam>
 
   <tam title="Dixie Diamond"
        from="Lines"
        formation="Normal Lines"
-       parts="" >
+       parts="6" >
     <path>
       <move select="Quarter Right" beats="3" offsetY="-1" />
       <move select="Swing Left" scaleX=".5" scaleY=".5" />
@@ -51,4 +64,89 @@
       <move select="U-Turn Left" />
     </path>
   </tam>
+
+  <tam title="Dixie Diamond"
+       from="Eight Chain Thru"
+       formation="Eight Chain Thru"
+       parts="6">
+    <path>
+      <move select="Quarter Right" beats="3" offsetX="-.5" offsetY="-1" />
+      <move select="Swing Left" hands="gripleft" scaleX=".5" scaleY=".5" />
+      <move select="Hinge Right" scaleX=".75" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" hands="right" offsetY=".5" />
+      <move select="Lead Right" beats="1" scaleX=".5" scaleY=".5" />
+      <move select="Swing Left" hands="gripleft" scaleX=".5" scaleY=".5" />
+      <move select="U-Turn Left" />
+    </path>
+    <path>
+      <move select="Quarter Right" beats="3" offsetX="-.5" offsetY="-1" />
+      <move select="Swing Left" hands="gripleft" scaleX=".5" scaleY=".5" />
+      <move select="Hinge Right" scaleX=".75" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" hands="right" offsetY=".5" />
+      <move select="Lead Right" beats="1" scaleX=".5" scaleY=".5" />
+      <move select="Swing Left" hands="gripleft" scaleX=".5" scaleY=".5" />
+      <move select="U-Turn Left" />
+    </path>
+  </tam>
+
+
+  <tam title="All 8 Dixie Diamond" group=" "
+       formation="Static Square" parts="8">
+    <path>
+      <move select="Quarter Right" beats="5" offsetY="-1" />
+      <move select="Swing Left" />
+      <move select="Hinge Right"/>
+    </path>
+    <path>
+      <move select="Extend Left" hands="right" beats="3" scaleX="3" scaleY="2" />
+      <move select="Lead Right" hands="right" beats="2" scaleX="1.5" />
+      <move select="Swing Left" scaleY=".75" />
+      <move select="U-Turn Left" />
+    </path>
+    <path>
+      <move select="Quarter Right" beats="5" offsetY="-1" />
+      <move select="Swing Left" />
+      <move select="Hinge Right"/>
+    </path>
+    <path>
+      <move select="Extend Left" hands="right" beats="3" scaleX="3" scaleY="2" />
+      <move select="Lead Right" hands="right" beats="2" scaleX="1.5" />
+      <move select="Swing Left" scaleY=".75" />
+      <move select="U-Turn Left" />
+    </path>
+  </tam>
+
+  <tam title="As Couples Dixie Diamond" group=" "
+       formation="Normal Lines"
+       parts="8" >
+    <path>
+      <move select="Dodge Right" hands="right" beats="3" offsetX="-1" />
+      <move select="Extend Right" hands="right" beats="3" scaleY="2" />
+      <move select="Hinge Left" hands="both" beats="2" scaleX=".5" />
+      <move select="Hinge Right" beats="3" scaleX="3" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Dodge Right" hands="left" beats="3" offsetX="-1" />
+      <move select="Extend Right" hands="left" beats="3" scaleY="2" />
+      <move select="Hinge Left" beats="2" scaleX="1.5" scaleY="3" />
+      <move select="Hinge Right" beats="3" hands="both" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" hands="gripright" beats="3" scaleX="2" scaleY="2.5" />
+      <move select="Extend Right" hands="gripright" beats="3" scaleX="2" scaleY="2.5" />
+      <move select="Hinge Left" hands="both" beats="2" scaleX=".5" />
+      <move select="Beau Wheel" scaleX=".75" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Extend Left" hands="gripleft" beats="3" scaleX="2" scaleY="3.5" />
+      <move select="Extend Right" hands="gripleft" beats="3" scaleX="2" scaleY="3.5" />
+      <move select="Hinge Left" beats="2" scaleX="1.5" scaleY="3" />
+      <move select="Belle Wheel" scaleX=".75" scaleY=".75"/>
+    </path>
+  </tam>
+
 </tamination>

@@ -83,31 +83,31 @@
   <tam title="Triple Box Dixie Style to a Wave" group="Triple Box"
        formation="Phantom Lines In">
     <path>
-      <move select="Quarter Right" beats="3" offsetY="-1" />
-      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Dodge Right" beats="4" scaleY="0.875"/>
+      <move select="Hinge Left" scaleY=".75"/>
     </path>
     <path>
       <move select="Extend Left" beats="2" hands="right" offsetX="1" offsetY=".5" />
-      <move select="Lead Right" beats="1" scaleY=".5" />
-      <move select="Swing Left" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY="1.25" />
+      <move select="Hinge Left" scaleY=".75"/>
     </path>
     <path>
-      <move select="Quarter Right" beats="3" offsetY="-1" />
-      <move select="Swing Left" scaleX=".5" scaleY=".5" />
-    </path>
-    <path>
-      <move select="Extend Left" beats="2" hands="right" offsetX="1" offsetY=".5" />
-      <move select="Lead Right" beats="1" scaleY=".5" />
-      <move select="Swing Left" />
+      <move select="Dodge Right" beats="4" scaleY="0.875"/>
+      <move select="Hinge Left" scaleY=".75"/>
     </path>
     <path>
       <move select="Extend Left" beats="2" hands="right" offsetX="1" offsetY=".5" />
-      <move select="Lead Right" beats="1" scaleY=".5" />
-      <move select="Swing Left" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY="1.25" />
+      <move select="Hinge Left" scaleY=".75"/>
     </path>
     <path>
-      <move select="Quarter Right" beats="3" offsetY="-1" />
-      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Extend Left" beats="2" hands="right" offsetX="1" offsetY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY="1.25" />
+      <move select="Hinge Left" scaleY=".75"/>
+    </path>
+    <path>
+      <move select="Dodge Right" beats="4" scaleY="0.875"/>
+      <move select="Hinge Left" scaleY=".75"/>
     </path>
   </tam>
 

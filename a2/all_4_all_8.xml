@@ -401,22 +401,22 @@
   <tam title="All 8 Dixie Style to a Wave" group="All 8"
        formation="Static Square">
     <path numbers="1 8">
-      <move select="Quarter Right" beats="5" offsetY="-1" />
-      <move select="Swing Left" />
+      <move select="Extend Right" beats="5" scaleY="1.75"/>
+      <move select="Hinge Left" scaleY=".75"/>
     </path>
     <path numbers="2 7">
       <move select="Extend Left" hands="right" beats="3" scaleX="3" scaleY="2" />
-      <move select="Lead Right" hands="right" beats="2" scaleX="1.5" />
-      <move select="Swing Left" scaleY=".75" />
+      <move select="Extend Right" hands="right" beats="2" scaleX="2" scaleY="1.75"/>
+      <move select="Hinge Left" scaleY=".75" />
     </path>
     <path numbers="4 5">
-      <move select="Quarter Right" beats="5" offsetY="-1" />
-      <move select="Swing Left" />
+      <move select="Extend Right" beats="5" scaleY="1.75"/>
+      <move select="Hinge Left" scaleY=".75"/>
     </path>
     <path numbers="6 3">
       <move select="Extend Left" hands="right" beats="3" scaleX="3" scaleY="2" />
-      <move select="Lead Right" hands="right" beats="2" scaleX="1.5" />
-      <move select="Swing Left" scaleY=".75" />
+      <move select="Extend Right" hands="right" beats="2" scaleX="2" scaleY="1.75"/>
+      <move select="Hinge Left" scaleY=".75" />
     </path>
   </tam>
 
@@ -800,6 +800,10 @@
   <tamxref title="All 8 (C-1) Cross Your Neighbor" group="All 8 (C-1)"
            xref-link="c1/cross_your_neighbor"
            xref-title="All 8 Cross Your Neighbor"/>
+
+  <tamxref title="All 8 (C-1) Dixie Diamond" group="All 8 (C-1)"
+           xref-link="c1/dixie_diamond"
+           xref-title="All 8 Dixie Diamond"/>
 
   <tamxref title="All 8 (C-1) Follow Thru" group="All 8 (C-1)"
            xref-link="c1/follow_thru"

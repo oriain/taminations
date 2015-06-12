@@ -27,13 +27,13 @@
        formation="Facing Couples"
        difficulty="1" >
     <path>
-      <move select="Quarter Right" beats="3" offsetY="-1" />
-      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Dodge Right" beats="4" scaleY="0.875"/>
+      <move select="Hinge Left" scaleY=".75"/>
     </path>
     <path>
       <move select="Extend Left" beats="2" hands="right" offsetX="1" offsetY=".5" />
-      <move select="Lead Right" beats="1" scaleY=".5" />
-      <move select="Swing Left" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY="1.25" />
+      <move select="Hinge Left" scaleY=".75"/>
     </path>
   </tam>
 
@@ -56,22 +56,22 @@
        formation="Normal Lines"
        difficulty="1" >
     <path>
-      <move select="Quarter Right" beats="3" offsetY="-1" />
-      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Dodge Right" beats="4" scaleY="0.875"/>
+      <move select="Hinge Left" scaleY=".75"/>
     </path>
     <path>
       <move select="Extend Left" beats="2" hands="right" offsetX="1" offsetY=".5" />
-      <move select="Lead Right" beats="1" scaleY=".5" />
-      <move select="Swing Left" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY="1.25" />
+      <move select="Hinge Left" scaleY=".75"/>
     </path>
     <path>
-      <move select="Quarter Right" beats="3" offsetY="-1" />
-      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Dodge Right" beats="4" scaleY="0.875"/>
+      <move select="Hinge Left" scaleY=".75"/>
     </path>
     <path>
       <move select="Extend Left" beats="2" hands="right" offsetX="1" offsetY=".5" />
-      <move select="Lead Right" beats="1" scaleY=".5" />
-      <move select="Swing Left" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY="1.25" />
+      <move select="Hinge Left" scaleY=".75"/>
     </path>
   </tam>
 
@@ -80,22 +80,24 @@
        formation="Eight Chain Thru"
        difficulty="2" >
     <path>
-      <move select="Quarter Right" beats="3" offsetX="-.5" offsetY="-1" />
-      <move select="Swing Left" hands="gripleft" scaleX=".5" scaleY=".5" />
+      <move select="Dodge Right" scaleY=".875" offsetX="-.3"/>
+      <move select="Stand" />
+      <move select="Hinge Left" scaleX=".8" scaleY=".75" />
     </path>
     <path>
-      <move select="Extend Left" beats="2" hands="right" offsetY=".5" />
-      <move select="Lead Right" beats="1" scaleX=".5" scaleY=".5" />
-      <move select="Swing Left" hands="gripleft" scaleX=".5" scaleY=".5" />
+      <move select="Extend Left" beats="2" hands="right" scaleX="1.15" scaleY="1.5" />
+      <move select="Extend Right" beats="2" scaleX="1.15" scaleY="1.25" />
+      <move select="Quarter Left" hands="left" offsetX=".2" offsetY=".75" />
     </path>
     <path>
-      <move select="Quarter Right" beats="3" offsetX="-.5" offsetY="-1" />
-      <move select="Swing Left" hands="gripleft" scaleX=".5" scaleY=".5" />
+      <move select="Dodge Right" scaleY=".875" offsetX="-.3"/>
+      <move select="Stand" />
+      <move select="Hinge Left" scaleX=".8" scaleY=".75" />
     </path>
     <path>
-      <move select="Extend Left" beats="2" hands="right" offsetY=".5" />
-      <move select="Lead Right" beats="1" scaleX=".5" scaleY=".5" />
-      <move select="Swing Left" hands="gripleft" scaleX=".5" scaleY=".5" />
+      <move select="Extend Left" beats="2" hands="right" scaleX="1.15" scaleY="1.5" />
+      <move select="Extend Right" beats="2" scaleX="1.15" scaleY="1.25" />
+      <move select="Quarter Left" hands="left" offsetX=".2" offsetY=".75" />
     </path>
   </tam>
 
@@ -135,13 +137,13 @@
        formation="Facing Couples"
        difficulty="2" >
     <path>
-      <move select="Extend Right" beats="2" hands="left" offsetX="1" offsetY="-.5" />
-      <move select="Lead Left" beats="1" scaleY=".5" />
-      <move select="Swing Right" />
+      <move select="Extend Right" beats="2" hands="right" offsetX="1" offsetY="-.5" />
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="1.25" />
+      <move select="Hinge Right" scaleY=".75"/>
     </path>
     <path>
-      <move select="Quarter Left" beats="3" offsetY="1" />
-      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Dodge Left" beats="4" scaleY="0.875"/>
+      <move select="Hinge Right" scaleY=".75"/>
     </path>
   </tam>
 </tamination>
