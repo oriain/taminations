@@ -23,9 +23,7 @@
 <tamination title="As Couples Concept">
 
   <tam title="As Couples Chase Right" group="As Couples"
-       from=""
-       formation="Lines Facing Out"
-       parts="" >
+       formation="Lines Facing Out">
     <path>
       <move select="Beau Wheel" reflect="-1" offsetX="-2" />
       <move select="Forward 2" hands="left" />
@@ -47,9 +45,7 @@
   </tam>
 
   <tam title="As Couples Centers Cross Run" group="As Couples"
-       from=""
-       formation="Tidal Line RH"
-       parts="" >
+       formation="Tidal Line RH">
     <path>
       <move select="Dodge Right" />
     </path>
@@ -65,9 +61,7 @@
   </tam>
 
   <tam title="As Couples Crossfire" group="As Couples"
-       from=""
-       formation="Tidal Line RH"
-       parts="" >
+       formation="Tidal Line RH">
     <path>
       <move select="Run Right" hands="right" beats="4" scaleX="3.25" scaleY="3.25" offsetX="2" />
     </path>
@@ -85,17 +79,13 @@
   </tam>
 
   <tam title="As Couples Dixie Style to a Wave" group="As Couples"
-       from=""
-       formation="Normal Lines"
-       parts="" >
+       formation="Normal Lines">
     <path>
-      <move select="Dodge Right" hands="right" beats="3" offsetX="-1" />
-      <move select="Extend Right" hands="right" beats="3" scaleY="2" />
+      <move select="BackSashay Right" beats="6" hands="right" scaleY="2"/>
       <move select="Hinge Left" hands="both" beats="2" scaleX=".5" />
     </path>
     <path>
-      <move select="Dodge Right" hands="left" beats="3" offsetX="-1" />
-      <move select="Extend Right" hands="left" beats="3" scaleY="2" />
+      <move select="BackSashay Right" beats="6" hands="left" scaleY="2"/>
       <move select="Hinge Left" beats="2" scaleX="1.5" scaleY="3" />
     </path>
     <path>
@@ -111,9 +101,7 @@
   </tam>
 
   <tam title="As Couples Explode the Wave" group="As Couples"
-       from=""
-       formation="Two-Faced Tidal Line RH"
-       parts="" >
+       formation="Two-Faced Tidal Line RH">
     <path>
       <move select="Lead Right" beats="3" scaleX="3.5" scaleY="3.5" />
       <move select="Extend Right" hands="right" beats="2" scaleX="2" scaleY=".5" />
@@ -133,9 +121,7 @@
   </tam>
 
   <tam title="As Couples Fan the Top" group="As Couples"
-       from=""
-       formation="Two-Faced Tidal Line RH"
-       parts="" >
+       formation="Two-Faced Tidal Line RH">
     <path>
       <move select="Lead Right" beats="4.5" scaleX="3.5" scaleY="3.5" />
     </path>
@@ -153,9 +139,7 @@
   </tam>
 
   <tam title="As Couples Ends Fold" group="As Couples"
-       from=""
-       formation="Two-Faced Tidal Line RH"
-       parts="" >
+       formation="Two-Faced Tidal Line RH">
     <path>
       <move select="Run Right" hands="right" offsetX="2" offsetY="-.5" />
     </path>
@@ -171,9 +155,7 @@
   </tam>
 
   <tam title="As Couples Ends Cross Fold" group="As Couples"
-       from=""
-       formation="Two-Faced Tidal Line RH"
-       parts="" >
+       formation="Two-Faced Tidal Line RH">
     <path>
       <move select="Run Right" beats="5" hands="right" offsetX="2" offsetY="-4.5" />
     </path>
@@ -189,9 +171,7 @@
   </tam>
 
   <tam title="As Couples Flutterwheel" group="As Couples"
-       from=""
-       formation="Normal Lines"
-       parts="" >
+       formation="Normal Lines">
     <path>
       <move select="Stand" beats="2" hands="right" />
       <move select="Extend Right" hands="right" beats="3" />
@@ -219,9 +199,7 @@
   </tam>
 
   <tam title="As Couples Follow Your Neighbor" group="As Couples"
-       from=""
-       formation="Two-Faced Lines RH"
-       parts="" >
+       formation="Two-Faced Lines RH">
     <path>
       <move select="Extend Right" hands="right" beats="2" scaleX="2" scaleY="1.5" />
       <move select="Swing Right" scaleX="1.5" scaleY="1.5" />
@@ -243,24 +221,18 @@
   </tam>
 
   <tam title="As Couples Half Sashay" group="As Couples"
-       from=""
-       formation="Normal Lines"
-       parts="" >
+       formation="Normal Lines" >
     <path>
-      <move select="Dodge Right" hands="right" offsetX="-.5" />
-      <move select="Dodge Right" hands="right" offsetX=".5" />
+      <move select="BackSashay Right" beats="6" hands="right" scaleX="1.5" scaleY="2"/>
     </path>
     <path>
-      <move select="Dodge Right" hands="left" offsetX="-.5" />
-      <move select="Dodge Right" hands="left" offsetX=".5" />
+      <move select="BackSashay Right" beats="6" hands="left" scaleX="1.5" scaleY="2"/>
     </path>
     <path>
-      <move select="Extend Left" hands="right" beats="3" scaleY="2" />
-      <move select="Dodge Left" hands="right" offsetX="-1" />
+      <move select="Sashay Left" beats="6" hands="right" scaleX="1.5" scaleY="2"/>
     </path>
     <path>
-      <move select="Extend Left" hands="left" beats="3" scaleY="2" />
-      <move select="Dodge Left" hands="left" offsetX="-1" />
+      <move select="Sashay Left" beats="6" hands="left" scaleX="1.5" scaleY="2"/>
     </path>
   </tam>
 
@@ -300,9 +272,7 @@
   </tam>
 
   <tam title="As Couples Linear Cycle" group="As Couples"
-       from=""
-       formation="Two-Faced Tidal Line RH"
-       parts="" >
+       formation="Two-Faced Tidal Line RH">
     <path>
       <move select="Hinge Right" scaleX="1.5" scaleY="1.5" />
       <move select="Forward 4" />
@@ -328,9 +298,7 @@
   </tam>
 
   <tam title="As Couples Pass the Ocean" group="As Couples"
-       from=""
-       formation="Normal Lines"
-       parts="" >
+       formation="Normal Lines">
     <path>
       <move select="Extend Left" hands="right" beats="2" scaleX="2" scaleY=".5" />
       <move select="Lead Right" hands="right" beats="4" scaleX="3.5" scaleY="3.5" />
@@ -350,9 +318,7 @@
   </tam>
 
   <tam title="As Couples Peel Off" group="As Couples"
-       from=""
-       formation="Two-Faced Lines RH"
-       parts="" >
+       formation="Two-Faced Lines RH">
     <path>
       <move select="Beau Wheel" hands="gripright" beats="5" offsetX="2" offsetY="-.5" />
     </path>
@@ -368,9 +334,7 @@
   </tam>
 
   <tam title="As Couples Peel the Top" group="As Couples"
-       from=""
-       formation="Two-Faced Lines RH"
-       parts="" >
+       formation="Two-Faced Lines RH">
     <path>
       <move select="Extend Right" hands="right" beats="2" scaleX="2" scaleY="1.5" />
       <move select="Swing Right" scaleX="1.5" scaleY="1.5" />
@@ -392,9 +356,7 @@
   </tam>
 
   <tam title="As Couples Recycle" group="As Couples"
-       from=""
-       formation="Two-Faced Tidal Line RH"
-       parts="" >
+       formation="Two-Faced Tidal Line RH">
     <path>
       <move select="Lead Right" beats="4" scaleX="3" scaleY="3.5" />
       <move select="Quarter Right" hands="right" beats="4" offsetX="3" offsetY="-1" />
@@ -414,9 +376,7 @@
   </tam>
 
   <tam title="As Couples Right and Left Thru" group="As Couples"
-       from=""
-       formation="Normal Lines"
-       parts="" >
+       formation="Normal Lines">
     <path>
       <move select="Extend Left" hands="right" beats="2" scaleX="2" scaleY=".5" />
       <move select="Extend Right" hands="right" beats="2" scaleX="2" scaleY="2" />
@@ -440,9 +400,7 @@
   </tam>
 
   <tam title="As Couples Centers Run" group="As Couples"
-       from=""
-       formation="Tidal Line RH"
-       parts="" >
+       formation="Tidal Line RH">
     <path>
       <move select="Dodge Right" />
     </path>
@@ -458,9 +416,7 @@
   </tam>
 
   <tam title="As Couples Scoot Back" group="As Couples"
-       from=""
-       formation="Two-Faced Lines RH"
-       parts="" >
+       formation="Two-Faced Lines RH">
     <path>
       <move select="Extend Right" hands="right" beats="2" scaleX="2" scaleY="1.5" />
       <move select="Swing Right" scaleX="1.5" scaleY="1.5" />
@@ -505,9 +461,7 @@
   </tam>
 
   <tam title="As Couples Spin the Top" group="As Couples"
-       from=""
-       formation="Two-Faced Tidal Line RH"
-       parts="" >
+       formation="Two-Faced Tidal Line RH">
     <path>
       <move select="Swing Right" scaleX="1.5" scaleY="1.5" />
       <move select="Swing Left" scaleX=".5" scaleY=".5" />
@@ -529,9 +483,7 @@
   </tam>
 
   <tam title="As Couples Square Thru" group="As Couples"
-       from=""
-       formation="Normal Lines"
-       parts="" >
+       formation="Normal Lines">
     <path>
       <move select="Extend Left" hands="right" beats="2" scaleX="2" scaleY=".5" />
       <move select="Lead Right" beats="3" scaleX="1.5" scaleY="3.5" />
@@ -563,9 +515,7 @@
   </tam>
 
   <tam title="As Couples Swing Thru" group="As Couples"
-       from=""
-       formation="Two-Faced Tidal Line RH"
-       parts="" >
+       formation="Two-Faced Tidal Line RH">
     <path>
       <move select="Swing Right" scaleX="1.5" scaleY="1.5" />
       <move select="Swing Left" scaleX=".5" scaleY=".5" />
@@ -583,9 +533,7 @@
   </tam>
 
   <tam title="As Couples Touch a Quarter" group="As Couples"
-       from=""
-       formation="Normal Lines"
-       parts="" >
+       formation="Normal Lines">
     <path>
       <move select="Extend Left" hands="right" beats="2" scaleX="2" scaleY=".5" />
       <move select="Lead Right" hands="right" beats="2" scaleX="3" scaleY="1.5" />
@@ -605,9 +553,7 @@
   </tam>
 
   <tam title="As Couples Trade the Wave" group="As Couples"
-       from=""
-       formation="Two-Faced Tidal Line RH"
-       parts="" >
+       formation="Two-Faced Tidal Line RH">
     <path>
       <move select="Run Right" beats="4" hands="right" scaleX="3.5" scaleY="2.5" />
     </path>
@@ -623,9 +569,7 @@
   </tam>
 
   <tam title="As Couples U-Turn Back" group="As Couples"
-       from=""
-       formation="Lines Facing Out"
-       parts="" >
+       formation="Lines Facing Out">
     <path>
       <move select="Belle Wheel" />
     </path>
@@ -641,9 +585,7 @@
   </tam>
 
   <tam title="As Couples Walk and Dodge" group="As Couples"
-       from=""
-       formation="Two-Faced Lines RH"
-       parts="" >
+       formation="Two-Faced Lines RH">
     <path numbers="1 8">
       <move select="Forward 4" hands="right" />
     </path>
@@ -659,9 +601,7 @@
   </tam>
 
   <tam title="As Couples Zoom" group="As Couples"
-       from=""
-       formation="Two-Faced Lines RH"
-       parts="" >
+       formation="Two-Faced Lines RH">
     <path>
       <move select="Forward 4" hands="right" />
     </path>
