@@ -27,14 +27,14 @@
        formation="Quarter Lines RH"
        parts="2.5;2" >
     <path numbers="1 8" couples="2 4">
-      <move select="Forward" />
-      <move select="Hinge Right" />
+      <move select="Stand" beats="2" />
+      <move select="Hinge Right" scaleX="2"/>
       <move select="Hinge Left" beats="2" />
       <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2" />
     </path>
     <path numbers="2 7" couples="2 4">
-      <move select="Extend Left"  scaleX="1.5" scaleY=".5" />
-      <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".5" />
+      <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="1.5" scaleY=".5" />
       <move select="Hinge Left" beats="2" />
       <move select="Hinge Right" hands="right" scaleX="2" scaleY="2" offsetY=".33" />
       <move select="Hinge Right" hands="right" scaleX="2" scaleY="2" offsetX="-.67" offsetY=".67" />
@@ -42,13 +42,14 @@
     </path>
     <path numbers="4 5" couples="1 3">
       <move select="Extend Left" scaleX="1.5" scaleY=".5" />
-      <move select="Hinge Right" offsetX=".5" offsetY="-.5" />
+      <move select="Extend Right" scaleX="1.5" scaleY=".5" />
+      <move select="Quarter Right" hands="right" offsetY="-1"  />
       <move select="Flip Left" beats="2" />
       <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3" />
     </path>
     <path numbers="3 6" couples="1 3">
-      <move select="Lead Right" beats="2.5" scaleX="5" scaleY="3" />
-      <move select="Run Right" beats="2" />
+      <move select="Lead Right" beats="3" scaleX="5" scaleY="3" />
+      <move select="Run Right" beats="2.5" />
       <move select="Quarter Right" hands="left" offsetX=".33" offsetY=".33" />
       <move select="Quarter Right" hands="left" offsetX="-.33" offsetY=".33" />
       <move select="Quarter Right" hands="left" offsetX="-.33" offsetY="-.33" />
@@ -60,28 +61,29 @@
        formation="Quarter Lines LH"
        parts="2.5;2" >
     <path couples="2 4">
-      <move select="Extend Left" scaleX="1.5" scaleY=".5" />
-      <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".5" />
+      <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5" />
+      <move select="Extend Right" beats="2" scaleX="1.5" scaleY=".5" />
       <move select="Hinge Right" beats="2" />
       <move select="Hinge Left" hands="left" scaleX="2" scaleY="2" offsetY="-.33" />
       <move select="Hinge Left" hands="left" scaleX="2" scaleY="2" offsetX="-.67" offsetY="-.67" />
       <move select="Hinge Left" hands="left" scaleX="2" scaleY="2" offsetX="-.33" />
     </path>
     <path couples="2 4">
-      <move select="Forward" />
-      <move select="Hinge Left" />
+      <move select="Stand" beats="2" />
+      <move select="Hinge Left" scaleX="2" />
       <move select="Hinge Right" beats="2" />
       <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2" />
     </path>
     <path couples="3 1">
       <move select="Extend Left" scaleX="1.5" scaleY=".5" />
-      <move select="Hinge Left" offsetX=".5" offsetY="-.5" />
+      <move select="Extend Right" scaleX="1.5" scaleY=".5" />
+      <move select="Quarter Left" hands="left" offsetY="1" />
       <move select="Run Right" beats="2" />
       <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3" />
     </path>
     <path couples="3 1">
-      <move select="Lead Left" beats="2.5" scaleX="5" scaleY="3" />
-      <move select="Flip Left" beats="2" />
+      <move select="Lead Left" beats="3" scaleX="5" scaleY="3" />
+      <move select="Flip Left" beats="2.5" />
       <move select="Quarter Left" hands="right" offsetX=".33" offsetY="-.33" />
       <move select="Quarter Left" hands="right" offsetX="-.33" offsetY="-.33" />
       <move select="Quarter Left" hands="right" offsetX="-.33" offsetY=".33" />
