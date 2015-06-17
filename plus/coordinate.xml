@@ -108,6 +108,9 @@
       <move select="Lead Left" beats="2" scaleX="2" scaleY="3" />
       <move select="Run Left" hands="left" scaleY="1.5" />
     </path>
+    <taminator>
+      Not officially in the Plus program, but often workshopped.
+    </taminator>
   </tam>
 
 </tamination>
