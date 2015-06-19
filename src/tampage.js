@@ -67,6 +67,34 @@ var levelselectors = {
       c3a: 'call[sublevel="C-3A"]',
       c3b: 'call[sublevel="C-3B"]' };
 
+
+var isMobile = {
+    Android: function() {
+        return /Android/i.test(navigator.userAgent);
+    },
+    BlackBerry: function() {
+        return /BlackBerry/i.test(navigator.userAgent);
+    },
+    iOS: function() {
+        return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    },
+    Windows: function() {
+        return /IEMobile/i.test(navigator.userAgent);
+    },
+    any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
+    }
+};
+
+if (document.URL.search(/(b1|b2|ms|plus|a1|a2|c1|c2|c3a|c3b)/) >= 0) {
+  if (isMobile.Android())
+    document.location = document.URL.replace(/.*tamination/,'intent://view') +
+         '#Intent;package=com.bradchristie.taminationsapp;scheme=Taminations;end">';
+  else if (isMobile.iOS())
+    document.location = document.URL.replace(/.*tamtwirlers/,'Taminations://www.tamtwirlers');
+}
+
+
 // Body onload function
 var defwidth = 40;
 var animwidth = 30;
