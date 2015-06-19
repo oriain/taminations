@@ -79,15 +79,11 @@
     <path>
       <move select="Forward 2" beats="1" hands="left"/>
       <move select="Extend Right" beats="2" hands="left" scaleY="2"/>
-      <movement beats="4" hands="none"
-         cx1="0" cy1="1.4" cx2="2" cy2="1.4" x2="2" y2="0"
-         cx3="1" cx4="1" cy4="-1" x4="0" y4="-1" />
+      <move select="Pivot forward left" beats="4"/>
     </path>
     <path>
       <move select="Extend Right" beats="3" hands="left" scaleY="2"/>
-      <movement beats="4" hands="none"
-         cx1="0" cy1="-1.4" cx2="-2" cy2="-1.4" x2="-2" y2="0"
-         cx3="1" cx4="1" cy4="-1" x4="0" y4="-1" />
+      <move select="Pivot backward right" beats="4"/>
     </path>
     <path>
       <move select="Extend Right" beats="3" hands="right" scaleY="2"/>

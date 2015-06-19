@@ -351,9 +351,17 @@
     <move select="Counter Rotate Left 0 2" reflect="-1" />
   </path>
 
+  <path name="Counter Rotate Right 0 -4">
+    <move select="Counter Rotate Right 0 -2" scaleX="2" scaleY="2"/>
+  </path>
+
   <path name="Counter Rotate Left 1 2">
-    <movement hands="none" beats="2" cx1="0" cy1="0.5" cx2="1" cy2="2" x2="1" y2="2"
+    <movement hands="none" beats="2" cx1=".75" cy1="0.25" cx2="1.25" cy2="1.25" x2="1" y2="2"
                                    cx3="0.55" cx4="1" cy4="0.45" x4="1" y4="1" />
+  </path>
+
+  <path name="Counter Rotate Left 2 4">
+    <move select="Counter Rotate Left 1 2" scaleX="2" scaleY="2"/>
   </path>
 
   <path name="Counter Rotate Right 1 -2">
@@ -461,6 +469,10 @@
                                    cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
   </path>
 
+  <path name="Counter Rotate Left 4 2">
+    <move select="Counter Rotate Right 4 -2" reflect="-1"/>
+  </path>
+
   <path name="Counter Rotate Right 2 -4">
     <movement hands="none" beats="2" cx1="1.5" cy1="-0.5" cx2="2.5" cy2="-2.5" x2="2" y2="-4"
                                    cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
@@ -470,6 +482,10 @@
   <path name="Counter Rotate Left 1 1">
     <movement hands="none" beats="2" cx1="0" cy1="0.5" cx2="0.5" cy2="1" x2="1" y2="1"
                                    cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
+  </path>
+
+  <path name="Counter Rotate Left 2 2">
+    <move select="Counter Rotate Left 1 1" scaleX="2" scaleY="2" />
   </path>
 
   <path name="Counter Rotate Left 1.414 1.414">
