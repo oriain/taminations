@@ -318,7 +318,7 @@
 
   <!-- Advanced "Cross" movement 2 units forward and left -->
   <path name="Cross Left">
-    <movement hands="left" beats="2" cx1="1" cy1="0" cx2="0" cy2="2" x2="2" y2="2"
+    <movement hands="right" beats="2" cx1="1" cy1="0" cx2="0" cy2="2" x2="2" y2="2"
                                      cx3="1" cx4="1" cy4="0.4" x4="2" y4="0.4" />
   </path>
 
@@ -561,6 +561,10 @@
 
   <path name="Forward .5">
     <move select="Foward" beats="0.5" scaleX="0.5" />
+  </path>
+
+  <path name="Forward 1.5">
+    <move select="Forward" beats="1.5" scaleX="1.5" />
   </path>
 
   <path name="Forward 2">
