@@ -35,7 +35,7 @@ define(['path','movement','vector','affinetransform','color'],
         var loc = args.dancer.location;
         this.startx = loc.x;
         this.starty = loc.y;
-        this.startangle = args.dancer.angle;
+        this.startangle = Math.toDegrees(args.dancer.tx.angle);
         this.clonedFrom = args.dancer;
       }
       //  Get additional optional args

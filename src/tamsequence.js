@@ -36,49 +36,50 @@ var callnames = [];
 var CallNotFoundError = Env.extend(CallError);
 var FormationNotFoundError = Env.extend(CallError);
 
-var scripts = {
-    allemandeleft: 'allemande_left',
-    boxthegnat: 'box_the_gnat',
-    leftturnthru: 'allemande_left',
-    beaus: 'beaus',
-    belles: 'belles',
-    boxcounterrotate: 'box_counter_rotate',
-    boys: 'boys',
-    centers: 'centers',
-    crossrun: 'crossrun',
-    ends: 'ends',
-    explodeand: 'explode_and',
-    facein: 'face_in',
-    faceleft: 'face_left',
-    factout: 'face_out',
-    faceright: 'face_right',
-    girls: 'girls',
-    hinge: 'hinge',
-    leaders: 'leaders',
-    passthru: 'pass_thru',
-    quarterin: 'quarter_in',
-    quarterout: 'quater_out',
-    androll: 'roll',
-    run: 'run',
-    slidethru: 'slide_thru',
-    slip: 'slip',
-    andspread: 'spread',
-    starthru: 'star_thru',
-    touchaquarter: 'touch_a_quarter',
-    trade: 'trade',
-    trailers: 'trailers',
-    turnback: 'turn_back',
-    turnthru: 'turn_thru',
-    verycenters: 'verycenters',
-    wheelaround: 'wheel_around',
-    zag: 'zag',
-    zagzag: 'zagzag',
-    zagzig: 'zagzig',
-    zig: 'zig',
-    zigzag: 'zigzag',
-    zigzig: 'zigzig',
-    zoom: 'zoom'
-};
+var scripts = [
+    { name:'Allemande Left', link:'allemande_left' },
+    { name:'Box the Gnat', link:'box_the_gnat' },
+    { name:'Left Turn Thru', link:'allemande_left' },
+    { name:'Beaus', link:'beaus' },
+    { name:'Belles', link:'belles' },
+    { name:'Box Counter Rotate', link:'box_counter_rotate' },
+    { name:'Boys', link:'boys' },
+    { name:'Centers', link:'centers' },
+    { name:'Cross Run', link:'cross_run' },
+    { name:'Ends', link:'ends' },
+    { name:'Explode and', link:'explode_and' },
+    { name:'Face In', link:'face_in' },
+    { name:'Face Left', link:'face_left' },
+    { name:'Face Out', link:'face_out'},
+    { name:'Face Right', link:'face_right' },
+    { name:'Girls', link:'girls' },
+    { name:'Hinge', link:'hinge' },
+    { name:'Leaders', link:'leaders' },
+    { name:'Make Tight Wave', link:'make_tight_wave' }, // TEMP for testing
+    { name:'Pass Thru', link:'pass_thru' },
+    { name:'Quarter In', link:'quarter_in' },
+    { name:'Quarter Out', link:'quarter_out' },
+    { name:'and Roll', link:'roll' },
+    { name:'Run', link:'run' },
+    { name:'Slide Thru', link:'slide_thru' },
+    { name:'Slip', link:'slip' },
+    { name:'and Spread', link:'spread' },
+    { name:'Star Thru', link:'star_thru' },
+    { name:'Touch a Quarter', link:'touch_a_quarter' },
+    { name:'Trade', link:'trade' },
+    { name:'Trailers', link:'trailers' },
+    { name:'Turn Back', link:'turn_back' },
+    { name:'Turn Thru', link:'turn_thru' },
+    { name:'Very Centers', link:'verycenters' },
+    { name:'Wheel Around', link:'wheel_around' },
+    { name:'Zag', link:'zag' },
+    { name:'Zag Zag', link:'zagzag' },
+    { name:'Zag Zig', link:'zagzig' },
+    { name:'Zig', link:'zig' },
+    { name:'Zig Zag', link:'zigzag' },
+    { name:'Zig Zig', link:'zigzig' },
+    { name:'Zoom', link:'zoom' }
+];
 
 
 //  String extension to help with parsing
@@ -109,73 +110,6 @@ String.prototype.minced = function()
   return this.chopped().map(function(s) {
     return s.diced();
   }).flatten();
-};
-
-var SynonymReplacer = Env.extend(Env,function(str) {
-  var synonyms;
-  synonyms = [
-    ['&' , '&amp;', 'and'],
-    ['through' , 'thru'],
-    ['1/4' , 'quarter', 'a quarter'],
-    ['1/2' , 'half', 'a half'],
-    ['3/4' , 'three quarters'],
-    ['center', 'centers'],
-    ['end', 'ends'],
-    ['facing dancers', 'facing'],
-    ['swap around', 'swap'],
-    ['head', 'heads'],
-    ['side', 'sides'],
-  ];
-  //  Combine all the synonyms into one regex
-  var synregex = synonyms.map(function(a){return a.join('|');}).join('|');
-  //  Find the first match in the string
-  var m = str.match('(^|.*?\\s)('+synregex+')(?!\\w)(.*)$');
-  if (m) {
-    this.prefix = m[1];
-    this.syn = m[2];
-    //  Make more replacers out of the suffix???
-    this.suffix = m[3];
-    this.replacer = new SynonymReplacer(this.suffix);
-    //  Get the list of synonyms to use for this match
-    this.synlist = synonyms.filter(function(a) {
-      return a.indexOf(this.syn) >= 0;
-    },this)[0];
-  }
-  else {
-    this.prefix = '';
-    this.synlist = [str];
-    this.suffix = '';
-    this.replacer = null;
-  }
-  this.count = 0;
-});
-
-SynonymReplacer.prototype.next = function()
-{
-  var retval = null;
-  if (this.replacer) {
-    var rstr = this.replacer.next();
-    if (rstr != null)
-      retval = this.prefix + this.synlist[this.count] + rstr;
-    else if (++this.count < this.synlist.length) {
-      this.replacer = new SynonymReplacer(this.suffix);
-      rstr = this.replacer.next();
-      retval = this.prefix + this.synlist[this.count] + rstr;
-    }
-  }
-  else if (this.count++ == 0)
-    retval = this.synlist[0];
-  return retval;
-};
-
-String.prototype.syns = function()
-{
-  var retval = [];
-  var replacer = new SynonymReplacer(this);
-  var s;
-  while ((s=replacer.next()) != null)
-    retval.push(s);
-  return retval;
 };
 
 
@@ -213,7 +147,7 @@ var editorSetup = function()
   if (calls) {
     calls = unescape(calls).split(/\&/);
     startingFormation = calls.shift().trim();
-    editor.setContent(calls.join('<br/>'));
+    $('#calls').html(calls.join('<br/>'));
   }
   updateSequence();
   window.setInterval(textChange,1000);
@@ -230,7 +164,7 @@ var editorSetup = function()
     new TAMination('',startAnimations);
   });
   $('#clearbutton').click(function() {
-    editor.setContent('');
+    $('#calls').html('');
     updateSequence();
   });
   $('#linkbutton').click(function() { document.location = calllink; });
@@ -238,7 +172,7 @@ var editorSetup = function()
     {
       var w = window.open('','calllistwindow','width=800,height=800,menubar=yes');
       var t = startingFormation + '<br/>\n' +
-              editor.getContent({format:'raw'})
+              $('#calls').html()
                     .replace(/&nbsp;/g,' ')
                     .replace(/<br\/?>/g,'\n')
                     .replace(/<.*?>/g,'')
@@ -261,7 +195,7 @@ var editorSetup = function()
       startingFormation = ta.shift().trim();
       $('input[name="formation"]').val([startingFormation]);
       text = ta.join('<br/>');
-      editor.setContent(text);
+      $('#calls').html(text);
       new TAMination('',startAnimations);
     };
     reader.readAsText(i.files[0]);
@@ -325,7 +259,7 @@ function processCallText()
   //  Strip out existing elements that will be re-added
   //  and any other extraneous html
   //  As a courtesy, if html with <pre> was pasted, replace newlines with <br>
-  if ($('#calls').html().search('<pre') >= 0)
+  //if ($('#calls').html().search('<pre') >= 0)
     $('#calls').html($('#calls').html().replace(/\n/g,'<br/>'));
   //  Remove existing spans, they will be re-generated
   //  Except of course the span for the current location that we just added
@@ -363,11 +297,9 @@ function processCallText()
 var filecount = 0;
 function fetchCall(callname)
 {
-  callname = callname.collapse();
-
   //  Load any animations for this call
-  $('call[text="'+callname.replace(/\W/g,'')+'"]',callindex).each( function () {
-    var f = $(this).attr('link');
+  TAMination.searchCalls(callname).forEach(function(d) {
+    var f = d.link;
     if (!xmldata[f]) {
       //  Call is interpreted by animations
       filecount++;
@@ -383,17 +315,19 @@ function fetchCall(callname)
   });
 
   //  Also load any scripts that perform this call
-  if (callname in scripts) {
+  TAMination.searchCalls(callname,scripts,
+      function(d) { return d.name; }
+                         ).forEach(function(d) {
     //  Call is interpreted by a script
-    if (!Call.classes[callname]) {
+    if (!Call.classes[d.name]) {
       filecount++;
       //  Read and interpret the script
-      require(['calls/'+scripts[callname]],function(){
+      require(['calls/'+d.link],function() {
         if (--filecount == 0)
           buildSequence();
       });
     }
-  }
+  });
 }
 
 
@@ -416,11 +350,7 @@ function updateSequence()
                            .replace(compattern,'');     // remove comments
     //  Fetch calls that are any part of the callname,
     //  to get concepts and modifications
-    callline.syns().forEach(function(s1) {
-      s1.minced().forEach(function(s2) {
-        fetchCall(s2);
-      });
-    });
+    callline.minced().forEach(fetchCall);
   }
   //  All calls sent to be fetched, we can remove the safety
   filecount -= 100;
@@ -553,6 +483,117 @@ function rotateFormation(d)
   });
 }
 
+
+/*
+ * New algorithm to match formations
+ * Match dancers relative to each other, rather than compare absolute positions
+ * 2 cases
+ *   1.  Dancers facing same or opposite directions
+ *       - If dancers are lined up 0, 90, 180, 270 angles must match
+ *       - Other angles match by quadrant
+ *   2.  Dancers facing other relative directions (commonly 90 degrees)
+ *       - Dancers must match quadrant or adj boundary
+ *
+ *
+ *
+ */
+function angleBin(a)
+{
+  var retval = -1;
+  if (Math.anglesEqual(a,0))
+    retval = 0;
+  else if (Math.anglesEqual(a,Math.PI/2))
+    retval = 2;
+  else if (Math.anglesEqual(a,Math.PI))
+    retval = 4;
+  else if (Math.anglesEqual(a,-Math.PI/2))
+    retval = 6;
+  else if (a > 0 && a < Math.PI/2)
+    retval = 1;
+  else if (a > Math.PI/2 && a < Math.PI)
+    retval = 3;
+  else if (a < 0 && a > -Math.PI/2)
+    retval = 7;
+  else if (a < -Math.PI/2 && a > -Math.PI)
+    retval = 5;
+  return retval;
+}
+
+function angleMask(b,fuzz)
+{
+  var mask = 1<<b;
+  if (fuzz) {
+    mask |= 1<<((b+1)%8);
+    mask |= 1<<((b+7)%8);
+  }
+  return mask;
+}
+
+function dancerRelation(ctx,d1,d2)
+{
+  if (Math.anglesEqual(d1.start.angle,d2.start.angle) ||
+      Math.anglesEqual(d1.start.angle,d2.start.angle+180)) {
+    //  Case 1
+    return angleBin(ctx.angle(d1,d2));
+  } else {
+    //  Case 2  TODO make fuzzy
+    return angleBin(ctx.angle(d1,d2));
+  }
+}
+
+function matchFormations(ctx1,ctx2,sexy)
+{
+  if (ctx1.dancers.length != ctx2.dancers.length)
+    return false;
+  //  Find mapping using DFS
+  var mapping = [];
+  ctx1.dancers.forEach(function(d,i) { mapping[i] = -1; });
+  var mapindex = 0;
+  while (mapindex >= 0 && mapindex < ctx1.dancers.length) {
+    var nextmapping = mapping[mapindex] + 1;
+    while (nextmapping < ctx2.dancers.length) {
+      mapping[mapindex] = nextmapping;
+      mapping[mapindex+1] = nextmapping ^ 1;
+      if (testMapping(ctx1,ctx2,mapping,mapindex,sexy))
+        break;
+      nextmapping++;
+    }
+    if (nextmapping >= ctx2.dancers.length) {
+      //  No more mappings for this dancer
+      mapping[mapindex] = mapping[mapindex+1] = -1;
+      mapindex -= 2;
+    } else {
+      //  Mapping found
+      mapindex += 2;
+    }
+  }
+  return mapindex < 0 ? false : mapping;
+}
+
+function testMapping(ctx1,ctx2,mapping,i,sexy)
+{
+  if (sexy && (ctx1.dancers[i].gender != ctx2.dancers[mapping[i]].gender))
+    return false;
+  return ctx1.dancers.every(function(d1,j) {
+    if (mapping[j] < 0 || i == j)
+      return true;
+    var relq1 = dancerRelation(ctx1,ctx1.dancers[i],ctx1.dancers[j]);
+    var relt1 = dancerRelation(ctx2,ctx2.dancers[mapping[i]],ctx2.dancers[mapping[j]]);
+    var relq2 = dancerRelation(ctx1,ctx1.dancers[j],ctx1.dancers[i]);
+    var relt2 = dancerRelation(ctx2,ctx2.dancers[mapping[j]],ctx2.dancers[mapping[i]]);
+    //  If dancers are side-by-side, make sure handholding matches by checking distance
+    if (relq1 == 2 || relq1 == 6) {
+      var d1 = ctx1.distance(i,j);
+      var d2 = ctx2.distance(mapping[i],mapping[j]);
+      if ((d1 < 2.1) != (d2 < 2.1))
+        return false;
+    }
+    //  TEMP does not allow for fuzzy matching
+    return relq1 == relt1 && relq2 == relt2;
+  });
+}
+
+
 /**
  *   Match two formations
  * @param d1  Array of dancers from the first formation
@@ -560,7 +601,7 @@ function rotateFormation(d)
  * @param sexy  True if genders must match
  * @returns   False if no match, otherwise array mapping d2 to d1
  */
-function matchFormations(d1,d2,sexy)
+function matchFormationsOld(d1,d2,sexy)
 {
   if (d1.length != d2.length)
     return false;

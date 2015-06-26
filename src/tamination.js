@@ -69,6 +69,54 @@ TAMination.getTam = function() {
   return TAMination.tam;
 }
 
+TAMination.searchCalls = function(query,domain,keyfun)
+{
+  var results = [];
+  if (domain == undefined)
+    domain = calllistdata;
+  if (keyfun == undefined)
+    keyfun = function(d) { return d.title; };
+  query = query.toLowerCase();
+  //  Use upper case and dup numbers while building regex so expressions don't get compounded
+  //  Through => Thru
+  query = query.replace(/\bthrou?g?h?\b/g,"THRU");
+  //  Process fractions 1/2 3/4 1/4 2/3
+  query = query.replace(/\b1\/2|(one.)?half\b/g,"(HALF|1122)");
+  query = query.replace(/\b(three.quarters?|3\/4)\b/g,"(THREEQUARTERS|3344)");
+  query = query.replace(/\b((one.)?quarter|1\/4)\b/g,"((ONE)?QUARTER|1144)");
+  query = query.replace(/\btwo.thirds?\b/g,"(TWOTHIRDS|2233)");
+  //  Process any other numbers
+  query = query.replace(/\b(1|one)\b/g,"(11|ONE)");
+  query = query.replace(/\b(2|two)\b/g,"(22|TWO)");
+  query = query.replace(/\b(3|three)\b/g,"(33|THREE)");
+  query = query.replace(/\b(4|four)\b/g,"(44|FOUR)");
+  query = query.replace(/\b(5|five)\b/g,"(55|FIVE)");
+  query = query.replace(/\b(6|six)\b/g,"(66|SIX)");
+  query = query.replace(/\b(7|seven)\b/g,"(77|SEVEN)");
+  query = query.replace(/\b(8|eight)\b/g,"(88|EIGHT)");
+  query = query.replace(/\b(9|nine)\b/g,"(99|NINE)");
+  //  Accept single and plural forms of some words
+  query = query.replace(/\bboys?\b/,"BOYS?");
+  query = query.replace(/\bgirls?\b/,"GIRLS?");
+  query = query.replace(/\bends?\b/,"ENDS?");
+  query = query.replace(/\bcenters?\b/,"CENTERS?");
+  query = query.replace(/\bheads?\b/,"HEADS?");
+  query = query.replace(/\bsides?\b/,"SIDES");
+  //  Accept optional "dancers" e.g. "head dancers" == "heads"
+  query = query.replace(/\bdancers?\b/,"(DANCERS?)?");
+  //  Misc other variations
+  query = query.replace(/bswap(\s+around)?\b/,"SWAP (AROUND)?");
+
+  //  Finally repair the upper case and dup numbers
+  query = "^" + query.toLowerCase().replace(/([0-9])\1/g, "$1").collapse() + "$";
+
+  domain.forEach(function(d) {
+    if (keyfun(d).toLowerCase().alphanums().match(query))
+      results.push(d);
+  });
+  return results;
+}
+
 TAMination.selectLanguage = function(url)
 {
   var translated = false;

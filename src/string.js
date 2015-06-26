@@ -41,6 +41,10 @@ define(function() {
   String.prototype.collapse = function() {
     return this.replace(/\s+/g,'');
   };
+  /**  Remove all non-alphanumerics   */
+  String.prototype.alphanums = function() {
+    return this.replace(/\W/g,'');
+  };
   /**  Capitalize every word and remove all spaces  */
   String.prototype.toCamelCase = function() {
     return this.toCapCase().collapse();
@@ -75,6 +79,7 @@ define(function() {
     toCapCase: funcprop,
     trim: funcprop,
     collapse: funcprop,
+    alphanums: funcprop,
     toCamelCase: funcprop,
     toArgs: funcprop
   });

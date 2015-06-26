@@ -127,49 +127,40 @@ CallContext.prototype.applyCalls = function()
 CallContext.prototype.interpretCall = function(calltext)
 {
   var err = new CallNotFoundError();
-  //  Try every combination of synonyms for each word
-  if (!calltext.syns().some(function(callwords) {
-    //  Clear out any previous paths from incomplete parsing
-    this.dancers.forEach(function(d) {
-      d.path = new Path();
-    });
-    this.callname = '';
-    //  If a partial interpretation is found (like 'boys' of 'boys run')
-    //  it gets popped off the front and this loop interprets the rest
-    while (callwords.length > 0) {
-      //  Try chopping off each word from the end of the call until
-      //  we find something we know
-      if (!callwords.chopped().some(function(callchopped) {
-        var callname = callchopped.collapse().replace(/\W/g,'');
-        var success = false;
-        //  First try to find an exact match in Taminations
-        //  Then look for a code match
-        try {
-          success = this.matchXMLcall(callname);
-        } catch (err2) {
-          err = err2;
-        }
-        try {
-          success = success || this.matchJScall(callname);
-        } catch (err2) {
-          err = err2;
-        }
-        if (success) {
-          //  Remove the words we matched, break out of and
-          //  the chopped loop, and continue if any words left
-          callwords = callwords.replace(callchopped,'').trim();
-          return true;
-        }
-      },this))
-        //  Every combination from callwords.chopped failed
-        //  Continue with any other synonyms
-        return false;
-    }
-    //  We were able to find a call for all the words
-    return true;
-  },this))
-    // All synonyms tried and nothing worked
-    throw err;
+  //  Clear out any previous paths from incomplete parsing
+  this.dancers.forEach(function(d) {
+    d.path = new Path();
+  });
+  this.callname = '';
+  //  If a partial interpretation is found (like 'boys' of 'boys run')
+  //  it gets popped off the front and this loop interprets the rest
+  while (calltext.length > 0) {
+    //  Try chopping off each word from the end of the call until
+    //  we find something we know
+    if (!calltext.chopped().some(function(callname) {
+      var success = false;
+      //  First try to find an exact match in Taminations
+      //  Then look for a code match
+      try {
+        success = this.matchXMLcall(callname);
+      } catch (err2) {
+        err = err2;
+      }
+      try {
+        success = success || this.matchJScall(callname);
+      } catch (err2) {
+        err = err2;
+      }
+      if (success) {
+        //  Remove the words we matched, break out of and
+        //  the chopped loop, and continue if any words left
+        calltext = calltext.replace(callname,'').trim();
+        return true;
+      }
+    },this))
+      //  Every combination from callwords.chopped failed
+      throw err;
+  }
 };
 
 //  Given a context and string, try to find an XML animation
@@ -178,45 +169,44 @@ CallContext.prototype.matchXMLcall = function(calltext)
 {
   var found = false;
   var match = false;
-  var call = calltext.collapse();
   var ctx = this;
   // Check that actives == dancers
   if (ctx.dancers.length == ctx.actives.length) {
     //  Try to find a match in the xml animations
-    $('call[text="'+call+'"]',callindex).each(function () {
-      var tamxml = xmldata[$(this).attr('link')];
-      if (typeof tamxml == 'object') {
-        for (var x=0; x<$('tam',tamxml).length; x++) {
-          var xelem = $('tam',tamxml)[x];
-          if (call == $(xelem).attr('title').toLowerCase().collapse().replace(/\W/g,'')) {
-            found = true;
-            var f = $(xelem).find('formation');
-            if (f.size() <= 0) {
-              var fs = $(xelem).attr('formation');
-              f = getNamedFormation(fs);
-            }
-            var d = getDancers(f);
-            var sexy = $(xelem).attr('gender-specific');
-            var mm = matchFormations(ctx.dancers,d,sexy);
-            if (!mm) {
-              rotateFormation(d);
-              mm = matchFormations(ctx.dancers,d,sexy);
-            }
-            if (mm) {
-              var allp = tam.getPath(xelem);
-              for (var i3 in allp) {
-                var p = new Path(allp[i3]);
-                ctx.dancers[mm[i3*2]].path.add(p);
-                ctx.dancers[mm[i3*2+1]].path.add(p);
-              }
-              ctx.levelBeats();
-              ctx.callname += $(xelem).attr('title') + ' ';
-              match = true;
-              return false;  // break out of callindex loop
-            }
-          }
+    TAMination.searchCalls(calltext).some(function(d) {
+      //  Found xml file with call, now look through each animation
+      return TAMination.searchCalls(calltext, $('tam',xmldata[d.link]).toArray(),
+          function(d) { return $(d).attr('title'); }).some(function(xelem) {
+        found = true;
+        //  Get the formation
+        var f = $(xelem).find('formation');
+        if (f.size() <= 0) {
+          var fs = $(xelem).attr('formation');
+          f = getNamedFormation(fs);
         }
-      }
+        var d = getDancers(f);
+        var sexy = $(xelem).attr('gender-specific');
+        //  Try to match the formation to the current dancer positions
+        var mm = matchFormations(ctx,new CallContext(d),sexy);
+        if (!mm) {
+          rotateFormation(d);
+          mm = matchFormations(ctx,new CallContext(d),sexy);
+        }
+        if (mm) {
+          //  Match found
+          var allp = tam.getPath(xelem);
+          for (var i3 in allp) {
+            var p = new Path(allp[i3]);
+            ctx.dancers[mm[i3*2]].path.add(p);
+            ctx.dancers[mm[i3*2+1]].path.add(p);
+          }
+          ctx.levelBeats();
+          ctx.callname += $(xelem).attr('title') + ' ';
+          match = true;
+          return true;  // break out of callindex loop
+        }
+        return false;  // match not found, continue
+      });
     });
   }
   if (found && !match)
@@ -373,6 +363,14 @@ CallContext.prototype.dancerToLeft = function(d)
   return this.dancerClosest(d,function(d2) {
     return this.isLeft(d,d2);
   });
+};
+
+//  Return dancer that is facing this dancer
+CallContext.prototype.dancerFacing = function(d) {
+  var d2 = this.dancerInFront(d);
+  if (d2 != undefined && this.dancerInFront(d2) != d)
+    d2 = undefined;
+  return d2;
 };
 
 //  Return dancers that are in between two other dancers
