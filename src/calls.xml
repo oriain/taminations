@@ -271,7 +271,7 @@
     <call title="Grand Square" level="Basic and Mainstream" sublevel="Basic 1" link="b1/grand_square"/>
     <call title="Grand Swing Thru" level="Plus" sublevel="Plus" link="plus/grand_swing_thru"/>
     <call title="Grand Three-Quarter Thru" sublevel="A-1" level="Advanced" link="a1/grand_three_quarter_thru"/>
-    <call title="Half Breed Thru" level="Advanced" sublevel="A-1" link="a1/half_breed_thru"/>
+    <call title="Half Breed Thru" level="Advanced" sublevel="A-1" link="a1/brace_thru"/>
     <call title="Half Sashay" level="Basic and Mainstream" sublevel="Basic 1" link="b1/sashay"/>
     <call title="Half Tag" level="Basic and Mainstream" sublevel="Mainstream" link="ms/half_tag"/>
     <call title="Here Comes the Judge" level="Challenge" sublevel="C-2" link="c2/here_comes_the_judge"/>
@@ -515,11 +515,13 @@
     <call title="Split Checkmate" level="Challenge" sublevel="C-3A" link="c3a/single_checkmate" anim="SingleCheckmatefromRightHandWaves"/>
     <call title="Split Circulate" level="Basic and Mainstream" sublevel="Basic 1" link="b1/circulate" anim="SplitCirculatefromRightHandWaves"/>
     <call title="Split Counter Rotate" level="Advanced" sublevel="A-2" link="a2/split_counter_rotate"/>
+    <call title="Split Dixie Diamond" level="Challenge" sublevel="C-1" link="c1/split_square_thru_variations" anim="SplitDixieDiamondfromEndsFacing"/>
+    <call title="Split Dixie Style to a Wave" level="Challenge" sublevel="C-1" link="c1/split_square_thru_variations" anim="SplitDixieStyletoaWavefromEndsFacing"/>
     <call title="Split Phantom Boxes Concept" level="Challenge" sublevel="C-3B" link="c3b/split_phantom_boxes"/>
     <call title="Split Phantom Columns/Lines/Waves" level="Challenge" sublevel="C-3A" link="c3a/split_phantom_columns_lines_waves_concept"/>
     <call title="Split Recycle" level="Challenge" sublevel="C-1" link="c1/box_split_recycle"/>
+    <call title="Split Square Chain the Top" level="Challenge" sublevel="C-1" link="c1/split_square_thru_variations"/>
     <call title="Split Square Chain Thru" level="Advanced" sublevel="A-1" link="a1/split_square_chain_thru"/>
-    <call title="Split Square Thru Variations" level="Challenge" sublevel="C-1" link="c1/split_square_thru_variations"/>
     <call title="Split Square Thru" level="Advanced" sublevel="A-1" link="a1/split_square_thru"/>
     <call title="Split Swap Around" level="Challenge" sublevel="C-2" link="c2/split_swap_around"/>
     <call title="Split Trade Circulate" level="Challenge" sublevel="C-2" link="c2/split_trade_circulate"/>
