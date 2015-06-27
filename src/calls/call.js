@@ -195,10 +195,8 @@ CallContext.prototype.matchXMLcall = function(calltext)
         if (mm) {
           //  Match found
           var allp = tam.getPath(xelem);
-          for (var i3 in allp) {
-            var p = new Path(allp[i3]);
-            ctx.dancers[mm[i3*2]].path.add(p);
-            ctx.dancers[mm[i3*2+1]].path.add(p);
+          for (var i3 in mm) {
+            ctx.dancers[i3].path.add(new Path(allp[mm[i3]>>1]));
           }
           ctx.levelBeats();
           ctx.callname += $(xelem).attr('title') + ' ';

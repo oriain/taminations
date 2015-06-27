@@ -547,7 +547,8 @@ function matchFormations(ctx1,ctx2,sexy)
     return false;
   //  Find mapping using DFS
   var mapping = [];
-  ctx1.dancers.forEach(function(d,i) { mapping[i] = -1; });
+  var gnippam = [];
+  ctx1.dancers.forEach(function(d,i) { mapping[i] = gnippam[i] = -1; });
   var mapindex = 0;
   while (mapindex >= 0 && mapindex < ctx1.dancers.length) {
     var nextmapping = mapping[mapindex] + 1;
