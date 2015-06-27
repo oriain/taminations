@@ -23,12 +23,14 @@ define(['movement'],function(Movement) {
   BoxTheGnat.prototype.name = "Box the Gnat";
   Call.classes.boxthegnat = BoxTheGnat;
   BoxTheGnat.prototype.performOne = function(d,ctx) {
+    var d2 = ctx.dancerInFront(d);
+    var dist = ctx.distance(d,d2);
     var cy1 = d.gender == Dancer.BOY ? 1 : .1;
     var y4 = d.gender == Dancer.BOY ? -2 : 2;
     var hands = d.gender == Dancer.BOY ? "gripleft" : "gripright";
     var m = new Movement(
         hands, 4.0,
-        1, cy1, 2, cy1, 4, 0,     1.3, 0, 1.3, y4, 0, y4
+        1, cy1, dist/2, cy1, dist/2+1, 0,     1.3, 0, 1.3, y4, 0, y4
         );
     return new Path(m);
   }
