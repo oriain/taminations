@@ -18,11 +18,11 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
+"use strict";
 
-define(['calls/quarter_turns'],function(QuarterTurns) {
+define(['env','calls/quarter_turns'],function(Env,QuarterTurns) {
   var Zig = Env.extend(QuarterTurns);
   Zig.prototype.name = 'Zig';
-  Call.classes.zig = Zig;
   Zig.prototype.select = function(ctx,d) {
     if (d.leader)
       return 'Quarter Right';

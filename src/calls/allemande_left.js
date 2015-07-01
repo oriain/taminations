@@ -18,11 +18,11 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-define(function() {
+"use strict";
+
+define(['env','calls/call','path','callerror'],function(Env,Call,Path,CallError) {
   var AllemandeLeft = Env.extend(Call);
   AllemandeLeft.prototype.name = "Allemande Left";
-  Call.classes.allemandeleft = AllemandeLeft;
-  Call.classes.leftturnthru = AllemandeLeft;
   AllemandeLeft.prototype.performOne = function(d,ctx)
   {
     //  Can only turn thru with another dancer

@@ -18,11 +18,11 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
+"use strict";
 
-define(['calls/quarter_turns'],function(QuarterTurns) {
+define(['env','calls/quarter_turns'],function(Env,QuarterTurns) {
   var QuarterOut = Env.extend(QuarterTurns);
   QuarterOut.prototype.name = "Quarter Out";
-  Call.classes.quarterout = QuarterOut;
   QuarterOut.prototype.select = function(ctx,d) {
     return d.beau ? 'Quarter Left' : 'Quarter Right';
   };

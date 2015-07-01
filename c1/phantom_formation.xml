@@ -238,6 +238,29 @@
     </path>
   </tam>
 
+  <!--   tam title="Phantom Tally Ho" group="Phantom" parts="2">
+    <formation>
+      <dancer gender="boy" x="-2" y="-3" angle="180"/>
+      <dancer gender="girl" x="-2" y="1" angle="180"/>
+      <dancer gender="boy" x="-3" y="2" angle="90"/>
+      <dancer gender="girl" x="1" y="2" angle="90"/>
+      <dancer gender="phantom" x="-2" y="-1" angle="0"/>
+      <dancer gender="phantom" x="-2" y="3" angle="0"/>
+    </formation>
+    <path>
+    </path>
+    <path>
+    </path>
+    <path>
+    </path>
+    <path>
+    </path>
+    <path>
+    </path>
+    <path>
+    </path>
+  </tam   -->
+
   <tam title="Phantom Wheel and Deal" group="Phantom"
        formation="Phantom Formation Two-Faced">
     <path>

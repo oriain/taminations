@@ -18,15 +18,17 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-define(['calls/centers','calls/trade'],function() {
+"use strict";
+
+define(['env','calls/call','callcontext'],function(Env,Call,CallContext) {
   var Slip = Env.extend(Call);
   Slip.prototype.name = "Slip";
-  Call.classes.slip = Slip;
   Slip.prototype.perform = function(ctx) {
     var ctx2 = new CallContext(ctx);
     ctx2.interpretCall('centers trade');
     ctx2.appendToSource();
   };
+  Slip.requires = ['centers','trade'];
   return Slip;
 });
 

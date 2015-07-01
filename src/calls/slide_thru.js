@@ -18,10 +18,11 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-define(function() {
+"use strict";
+
+define(['env','calls/call','path'],function(Env,Call,Path) {
   var SlideThru = Env.extend(Call);
   SlideThru.prototype.name = "Slide Thru";
-  Call.classes.slidethru = SlideThru;
   SlideThru.prototype.performOne = function(d,ctx)
   {
     //  Can only pass thru with another dancer

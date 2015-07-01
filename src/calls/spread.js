@@ -18,10 +18,12 @@
     along with TAMinations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-define(function(){
+"use strict";
+
+define(['env','calls/call','movement','path','vector'],
+    function(Env,Call,Movement,Path,Vector) {
   var AndSpread = Env.extend(Call);
   AndSpread.prototype.name = " and Spread";
-  Call.classes.andspread = AndSpread;
   AndSpread.prototype.performOne = function(d,ctx)
   {
     var p = d.path;

@@ -18,10 +18,11 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-define(function(){
+"use strict";
+
+define(['env','calls/call','path','callerror'],function(Env,Call,Path,CallError) {
   var WheelAround = Env.extend(Call);
   WheelAround.prototype.name = "Wheel Around";
-  Call.classes.wheelaround = WheelAround;
   WheelAround.prototype.performOne = function(d,ctx)
   {
     var d2 = d.partner;

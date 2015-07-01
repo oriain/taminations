@@ -18,8 +18,9 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
+"use strict";
 
-define(['calls/box_call'],function(BoxCall) {
+define(['env','calls/box_call','path'],function(Env,BoxCall,Path) {
   var QuarterTurns = Env.extend(BoxCall);
   QuarterTurns.prototype.performOne = function(d,ctx)
   {

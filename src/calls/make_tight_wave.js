@@ -20,14 +20,26 @@
  */
 "use strict";
 
-define(['env',"calls/filter_actives"],function(Env,FilterActives) {
-  var FacingDancers = Env.extend(FilterActives);
-  FacingDancers.prototype.name = "Facing Dancers";
-  FacingDancers.prototype.test = function(d,ctx) {
-    var d2 = ctx.dancerInFront(d);
-    return d2 != undefined && ctx.dancerInFront(d2) == d;
+define(['env','calls/call','path'],function(Env,Call,Path) {
+  var MakeTightWave = Env.extend(Call);
+  MakeTightWave.prototype.name = "Make Tight Wave";
+
+  MakeTightWave.prototype.performOne = function(d,ctx) {
+    //  Ok if already in a wave
+    if (ctx.isInWave(d))
+      return new Path();
+    //  Can only make a wave with another dancer
+    //  in front of this dancer
+    //  who is also facing this dancer
+    var d2 = ctx.dancerFacing(d);
+    if (d2 != undefined) {
+      var dist = ctx.distance(d,d2);
+      return new Path({ select: 'Extend Left', scaleX: dist/2, scaleY:0.5 });
+    }
+    throw new Error();
   };
-  return FacingDancers;
+
+  return MakeTightWave;
 });
 
-//# sourceURL=facing_dancers.js
+//# sourceURL=make_tight_wave.js

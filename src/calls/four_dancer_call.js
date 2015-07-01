@@ -18,8 +18,10 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
+"use strict";
 
-define(function() {
+define(['env','calls/call','callcontext','vector','affinetransform'],
+    function(Env,Call,CallContext,Vector,AffineTransform) {
   var FourDancerCall = Env.extend(Call);
 
   FourDancerCall.prototype.preferFilter = function(ctx)

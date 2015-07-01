@@ -18,17 +18,20 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-define(['calls/line_call'],function(LineCall) {
-  fetchCall('extend');
-  fetchCall('quarter in');
+"use strict";
+
+define(['env','calls/line_call'],function(Env,LineCall) {
   var ExplodeAnd = Env.extend(LineCall);
   ExplodeAnd.prototype.name = 'Explode and';
-  Call.classes.explodeand = ExplodeAnd;
+
   //  For now this just does Explode from waves
   //  And it would be better if the dancer's paths would be smoothed out
   ExplodeAnd.prototype.perform = function(ctx) {
     ctx.applyCalls('extend','quarter in');
   };
+
+  ExplodeAnd.requires = ['Extend','Quarter In'];
+
   return ExplodeAnd;
 });
 

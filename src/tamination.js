@@ -256,9 +256,11 @@ TAMination.prototype.animationXref = function(n) {
   //  If the animation uses a named formation, it is looked up and
   //  the definition returned.
   //  The return value is an XML document element with dancers
+TAMination.prototype.startingFormation = false;
+TAMination.prototype.setFormation = function(f) { this.startingFormation = f; };
 TAMination.prototype.getFormation = function() {
-  if (typeof startingFormation != 'undefined')  // sequence
-    return getNamedFormation(startingFormation);
+  if (this.startingFormation)  // sequence
+    return getNamedFormation(this.startingFormation);
   var a = this.animationXref();
   var f = $(a).find("formation");
   var retval = undefined;

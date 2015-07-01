@@ -18,11 +18,11 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
+"use strict";
 
-define(["calls/filter_actives"],function(FilterActives) {
+define(['env',"calls/filter_actives"],function(Env,FilterActives) {
   var Leaders = Env.extend(FilterActives);
   Leaders.prototype.name = "Leaders";
-  Call.classes.leaders = Leaders;
   Leaders.prototype.test = function(d) {
     return d.leader;
   };

@@ -18,10 +18,11 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-define(['calls/box_call'],function(BoxCall) {
+"use strict";
+
+define(['env','calls/box_call','path'],function(Env,BoxCall,Path) {
   var Hinge = Env.extend(BoxCall);
   Hinge.prototype.name = "Hinge";
-  Call.classes.hinge = Hinge;
   Hinge.prototype.performOne = function(d,ctx)
   {
     //  Find the dancer to hinge with

@@ -18,8 +18,9 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
+"use strict";
 
-define(function() {
+define(['env','calls/call'],function(Env,Call) {
   var FilterActives = Env.extend(Call);
   FilterActives.prototype.perform = function(ctx)
   {

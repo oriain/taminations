@@ -18,10 +18,11 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-define(function() {
+"use strict";
+
+define(['env','calls/call','path'],function(Env,Call,Path) {
   var TouchAQuarter = Env.extend(Call);
   TouchAQuarter.prototype.name = "Touch a Quarter";
-  Call.classes.touchaquarter = TouchAQuarter;
   TouchAQuarter.prototype.performOne = function(d,ctx)
   {
     //  Can only touch with another dancer

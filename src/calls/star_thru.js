@@ -18,16 +18,18 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-define(['calls/slide_thru'],function() {
+"use strict";
+
+define(['env','calls/call','callcontext'],function(Env,Call,CallContext) {
   var StarThru = Env.extend(Call);
   StarThru.prototype.name = "Star Thru";
-  Call.classes.starthru = StarThru;
   //  TODO check that facing dancers are opposite genders
   StarThru.prototype.perform = function(ctx) {
-    ctx2 = new CallContext(ctx);
+    var ctx2 = new CallContext(ctx);
     ctx2.interpretCall('slide thru');
     ctx2.appendToSource();
   };
+  StarThru.requires = ['slide thru'];
   return StarThru;
 });
 

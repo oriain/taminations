@@ -36,9 +36,7 @@ if (navigator.userAgent.indexOf('MSIE 8') > 0) {
       jqueryui: '../ext/jquery/jquery-ui-1.11.0.custom/jquery-ui.min',
       jquerymousewheel: '../ext/jquery/jquery-mousewheel-3.1.11/jquery.mousewheel.min',
       jquerymobile: '../ext/jquery/jquery-mobile/jquery.mobile-1.4.2.min',
-      jquerymobilepagedata: '../ext/jquery/jqm.page.params',
-      tinymce: '../ext/tinymce/js/tinymce/tinymce.min',
-      call: 'calls/call',
+      jquerymobilepagedata: '../ext/jquery/jqm.page.params'
     },
     shim: {
       cookie : {
@@ -65,10 +63,7 @@ if (navigator.userAgent.indexOf('MSIE 8') > 0) {
         deps: ['cookie','jquerymobile','jquerymobilepagedata','tamsvg']
       },
       tamsequence : {
-        deps: ['tampage','call','env']
-      },
-      tinymce : {
-        deps: ['jquery']
+        deps: ['tampage','env']
       },
       call : {
         deps : ['tamination','env']
@@ -82,7 +77,7 @@ if (navigator.userAgent.indexOf('MSIE 8') > 0) {
   if (document.URL.search('mobile.html') >= 0)
     require(['mobile'],function() { sizeFirstMobilePage(); });
   else if (document.URL.search('sequence.html') >= 0)
-    require(['tamsequence'],function() { sequenceSetup(); });
+    require(['tamsequence'],function(TamSequence) { new TamSequence(); });
   else if (document.URL.search('embed.html') >= 0)
     require(['embed'],function() { });
   else if (document.URL.search('movements.html') >= 0)

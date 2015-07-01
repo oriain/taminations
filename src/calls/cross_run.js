@@ -18,10 +18,11 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-define(function() {
+"use strict";
+
+define(['env','calls/call','path'],function(Env,Call,Path) {
   var CrossRun = Env.extend(Call);
   CrossRun.prototype.name = "Cross Run";
-  Call.classes.crossrun = CrossRun;
   CrossRun.prototype.perform = function(ctx)
   {
     //  We need to look at all the dancers, not just actives

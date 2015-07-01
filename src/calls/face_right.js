@@ -18,11 +18,11 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
+"use strict";
 
-define(['calls/quarter_turns'],function(QuarterTurns) {
+define(['env','calls/quarter_turns'],function(Env,QuarterTurns) {
   var FaceRight = Env.extend(QuarterTurns);
   FaceRight.prototype.name = "Face Right";
-  Call.classes.faceright = FaceRight;
   FaceRight.prototype.select = function() {
     return "Quarter Right";
   };

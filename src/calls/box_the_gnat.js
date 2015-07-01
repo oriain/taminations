@@ -18,10 +18,11 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-define(['movement'],function(Movement) {
+"use strict";
+
+define(['env','calls/call','movement','path'],function(Env,Call,Movement,Path) {
   var BoxTheGnat = Env.extend(Call);
   BoxTheGnat.prototype.name = "Box the Gnat";
-  Call.classes.boxthegnat = BoxTheGnat;
   BoxTheGnat.prototype.performOne = function(d,ctx) {
     var d2 = ctx.dancerInFront(d);
     var dist = ctx.distance(d,d2);

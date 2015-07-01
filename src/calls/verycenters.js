@@ -18,11 +18,11 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
+"use strict";
 
-define(["calls/filter_actives"],function(FilterActives) {
+define(['env',"calls/filter_actives"],function(Env,FilterActives) {
   var VeryCenters = Env.extend(FilterActives);
   VeryCenters.prototype.name = "Very Centers";
-  Call.classes.verycenters = VeryCenters;
   VeryCenters.prototype.test = function(d) {
     return d.verycenter;
   };

@@ -50,6 +50,35 @@ define(function() {
     return this.toCapCase().collapse();
   };
 
+  //String extension to help with parsing
+  //Returns an array of strings, starting with the entire string,
+  //and each subsequent string chopping one word off the end
+  String.prototype.chopped = function() {
+    var ss = [];
+    return this.split(/\s+/).map(function(s) {
+      ss.push(s);
+      return ss.join(' ');
+    }).reverse();
+  };
+
+  //Return an array of strings, each removing one word from the start
+  String.prototype.diced = function() {
+    var ss = [];
+    return this.split(/\s+/).reverse().map(function(s) {
+      ss.unshift(s);
+      return ss.join(' ');
+    }).reverse();
+  };
+
+  /**
+  *   Return all combinations of words from a string
+  */
+  String.prototype.minced = function() {
+    return this.chopped().map(function(s) {
+      return s.diced();
+    }).flatten();
+  };
+
   /**  Parse parameters out of a search string  */
   String.prototype.toArgs = function() {
     return this.split(/\&/).reduce(function(args,a) {

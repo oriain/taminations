@@ -18,10 +18,11 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-define(['calls/box_call','movement'],function(BoxCall,Movement) {
+"use strict";
+
+define(['env','calls/box_call','movement','path'],function(Env,BoxCall,Movement,Path) {
   var BoxCounterRotate = Env.extend(BoxCall);
   BoxCounterRotate.prototype.name = "Box Counter Rotate";
-  Call.classes.boxcounterrotate = BoxCounterRotate;
   BoxCounterRotate.prototype.performOne = function(d,ctx)
   {
     var v = d.location;

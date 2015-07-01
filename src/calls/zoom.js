@@ -18,11 +18,11 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
+"use strict";
 
-define(function() {
+define(['env','calls/call','path','callerror'],function(Env,Call,Path,CallError) {
   var Zoom = Env.extend(Call);
   Zoom.prototype.name = 'Zoom';
-  Call.classes.zoom = Zoom;
   Zoom.prototype.performOne = function(d,ctx)
   {
     var m = [];

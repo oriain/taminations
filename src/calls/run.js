@@ -18,10 +18,11 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-define(function(){
+"use strict";
+
+define(['env','calls/call','path'],function(Env,Call,Path) {
   var Run = Env.extend(Call);
   Run.prototype.name = "Run";
-  Call.classes.run = Run;
   Run.prototype.perform = function(ctx)
   {
     //  We need to look at all the dancers, not just actives

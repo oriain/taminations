@@ -18,10 +18,11 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-define(function(){
+"use strict";
+
+define(['env','calls/call','path'],function(Env,Call,Path) {
   var Trade = Env.extend(Call);
   Trade.prototype.name = "Trade";
-  Call.classes.trade = Trade;
   Trade.prototype.performOne = function(d,ctx)
   {
     //  Figure out what dancer we're trading with
@@ -84,9 +85,7 @@ define(function(){
           hands = 'right';
       }
     }
-    var moves = tam.translateMovement({ select: call, hands: hands,
-      scaleY: dist/2, scaleX: scaleX });
-    return new Path(moves);
+    return new Path({ select: call, hands: hands, scaleY: dist/2, scaleX: scaleX });
   };
   return Trade;
 });

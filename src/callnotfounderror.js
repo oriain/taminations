@@ -18,16 +18,11 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
+
 "use strict";
 
-define(['env',"calls/filter_actives"],function(Env,FilterActives) {
-  var FacingDancers = Env.extend(FilterActives);
-  FacingDancers.prototype.name = "Facing Dancers";
-  FacingDancers.prototype.test = function(d,ctx) {
-    var d2 = ctx.dancerInFront(d);
-    return d2 != undefined && ctx.dancerInFront(d2) == d;
-  };
-  return FacingDancers;
+define(['env','callerror'],function(Env,CallError) {
+  var CallNotFoundError = Env.extend(CallError);
+  CallNotFoundError.prototype.message = 'Call %s not found.';
+  return CallNotFoundError;
 });
-
-//# sourceURL=facing_dancers.js

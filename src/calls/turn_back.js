@@ -18,10 +18,11 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-define(function(){
+"use strict";
+
+define(['env','calls/call','path'],function(Env,Call,Path) {
   var TurnBack = Env.extend(Call);
   TurnBack.prototype.name = "Turn Back";
-  Call.classes.turnback = TurnBack;
   TurnBack.prototype.performOne = function(d)
   {
     var m = d.beau ? 'U-Turn Right' : 'U-Turn Left';

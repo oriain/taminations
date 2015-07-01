@@ -39,6 +39,9 @@ define(function() {
     c = c || function() { };
     c.prototype = Object.create(p.prototype);
     c.prototype.constructor = c;
+    //  Copy any statics as they are not inherited
+    for (var prop in p)
+      c[prop] = p[prop];
     return c;
   };
 
