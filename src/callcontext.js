@@ -137,38 +137,46 @@ define(['calls/call','callnotfounderror','formationnotfounderror'],
     // Check that actives == dancers
     if (ctx.dancers.length == ctx.actives.length) {
       //  Try to find a match in the xml animations
-      TAMination.searchCalls(calltext).some(function(d) {
+      TAMination.searchCalls(calltext,{exact:true}).some(function(d) {
         //  Found xml file with call, now look through each animation
-        return TAMination.searchCalls(calltext, $('tam',Call.xmldata[d.link]).toArray(),
-            function(d) { return $(d).attr('title'); }).some(function(xelem) {
-              found = true;
-              //  Get the formation
-              var f = $(xelem).find('formation');
-              if (f.size() <= 0) {
-                var fs = $(xelem).attr('formation');
-                f = getNamedFormation(fs);
-              }
-              var d = getDancers(f);
-              var sexy = $(xelem).attr('gender-specific');
-              //  Try to match the formation to the current dancer positions
-              var mm = matchFormations(ctx,new CallContext(d),sexy);
-              if (!mm) {
-                rotateFormation(d);
-                mm = matchFormations(ctx,new CallContext(d),sexy);
-              }
-              if (mm) {
-                //  Match found
-                var allp = tam.getPath(xelem);
-                for (var i3 in mm) {
-                  ctx.dancers[i3].path.add(new Path(allp[mm[i3]>>1]));
-                }
-                ctx.levelBeats();
-                ctx.callname += $(xelem).attr('title') + ' ';
-                match = true;
-                return true;  // break out of callindex loop
-              }
-              return false;  // match not found, continue
+        return TAMination.searchCalls(calltext, {
+          domain: $('tam',Call.xmldata[d.link]).toArray(),
+          exact:true,
+          keyfun: function(d) { return $(d).attr('title'); }}
+        ).some(function(xelem) {
+          found = true;
+          //  Get the formation
+          var f = $(xelem).find('formation');
+          if (f.size() <= 0) {
+            var fs = $(xelem).attr('formation');
+            f = getNamedFormation(fs);
+          }
+          var d = getDancers(f);
+          var sexy = $(xelem).attr('gender-specific');
+          //  Try to match the formation to the current dancer positions
+          var ctx2 = new CallContext(d);
+          var mm = matchFormations(ctx,ctx2,sexy);
+          if (mm) {
+            //  Match found
+            var allp = tam.getPath(xelem);
+            //  Compute difference between current formation and XML formation
+            var vdif = computeFormationOffsets(ctx,ctx2,mm);
+            mm.forEach(function(m,i3) {
+              //  Apply formation difference to first movement of XML path
+              var vd = vdif[i3].rotate(-ctx.dancers[i3].tx.angle);
+              var p = new Path(allp[m>>1]);
+              if (vd.distance > 0.1)
+                p.movelist[0].skew(-vd.x,-vd.y);
+              //  Add XML path to dancer
+              ctx.dancers[i3].path.add(p);
             });
+            ctx.levelBeats();
+            ctx.callname += $(xelem).attr('title') + ' ';
+            match = true;
+            return true;  // break out of callindex loop
+          }
+          return false;  // match not found, continue
+        });
       });
     }
     if (found && !match)
@@ -209,23 +217,6 @@ define(['calls/call','callnotfounderror','formationnotfounderror'],
     });
     return dancers;
   }
-  /**
-   *   Rotates a formation 90 degrees by changing the position and
-   *   angle of each dancer
-   * @param d   Array of dancers to move.  Changed in place.
-   */
-  function rotateFormation(d)
-  {
-    d.forEach(function(di) {
-      var x = di.starty;
-      var y = -di.startx;
-      di.startx = x;
-      di.starty = y;
-      di.startangle = (di.startangle + 270) % 360;
-      di.computeStart();
-    });
-  }
-
 
   /*
    * New algorithm to match formations
@@ -337,14 +328,39 @@ define(['calls/call','callnotfounderror','formationnotfounderror'],
     });
   }
 
-
+  //  Once a mapping of the current formation to an XML call is found,
+  //  we need to compute the difference between the two,
+  //  and that difference will be added as an offset to the first movement
+  function computeFormationOffsets(ctx1,ctx2,mapping)
+  {
+    var dvbest;
+    var dtotbest = -1;
+    [0,Math.PI/2,Math.PI,Math.PI*3/2].forEach(function(angle) {
+      var dv = [];
+      var dtot = 0;
+      ctx1.dancers.forEach(function(d1,i) {
+        var v1 = d1.location;
+        var v2 = ctx2.dancers[mapping[i]].location.rotate(angle);
+        dv[i] = v1.subtract(v2);
+        dtot += dv[i].distance;
+      });
+      if (dtotbest < 0 || dtotbest > dtot) {
+        dvbest = dv;
+        dtotbest = dtot;
+      }
+    });
+    return dvbest;
+  }
 
   //  Given a context and string, try to find an animation generated by code
   //  If found, the call is added to the context
   CallContext.prototype.matchJScall = function(calltext)
   {
-    return TAMination.searchCalls(calltext,Call.scripts,
-        function(d) { return d.name; }).some(function(c) {
+    return TAMination.searchCalls(calltext, {
+        domain: Call.scripts,
+        keyfun: function(d) { return d.name; },
+        exact:true }
+    ).some(function(c) {
       var call = new Call.classes[c.name];
       call.performCall(this);
       this.callname += call.name + ' ';

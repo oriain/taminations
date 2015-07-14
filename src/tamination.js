@@ -69,13 +69,12 @@ TAMination.getTam = function() {
   return TAMination.tam;
 }
 
-TAMination.searchCalls = function(query,domain,keyfun)
+TAMination.searchCalls = function(query,options)
 {
+  options = options || {};
+  var domain = options.domain || calllistdata;
+  var keyfun = options.keyfun || function(d) { return d.title; };
   var results = [];
-  if (domain == undefined)
-    domain = calllistdata;
-  if (keyfun == undefined)
-    keyfun = function(d) { return d.title; };
   query = query.toLowerCase();
   //  Use upper case and dup numbers while building regex so expressions don't get compounded
   //  Through => Thru
@@ -108,7 +107,9 @@ TAMination.searchCalls = function(query,domain,keyfun)
   query = query.replace(/bswap(\s+around)?\b/,"SWAP (AROUND)?");
 
   //  Finally repair the upper case and dup numbers
-  query = "^" + query.toLowerCase().replace(/([0-9])\1/g, "$1").collapse() + "$";
+  query = query.toLowerCase().replace(/([0-9])\1/g, "$1").collapse();
+  if (options.exact)
+    query = "^" + query + "$";
 
   domain.forEach(function(d) {
     if (keyfun(d).toLowerCase().alphanums().match(query))

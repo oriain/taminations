@@ -231,7 +231,7 @@ define(['calls/call','callcontext','callerror'],function(Call,CallContext,CallEr
   TamSequence.prototype.fetchCall = function(callname) {
     //  Load any animations for this call
     var me = this;
-    TAMination.searchCalls(callname).forEach(function(d) {
+    TAMination.searchCalls(callname,{exact:true}).forEach(function(d) {
       var f = d.link;
       if (!Call.xmldata[f]) {
         //  Call is interpreted by animations
@@ -248,9 +248,11 @@ define(['calls/call','callcontext','callerror'],function(Call,CallContext,CallEr
     });
 
     //  Also load any scripts that perform this call
-    TAMination.searchCalls(callname,Call.scripts,
-        function(d) { return d.name; }
-                           ).forEach(function(d) {
+    TAMination.searchCalls(callname, {
+        domain:Call.scripts,
+        keyfun: function(d) { return d.name; },
+        exact:true }
+    ).forEach(function(d) {
       //  Call is interpreted by a script
       if (!(d.name in Call.classes)) {
         me.filecount++;
