@@ -80,6 +80,38 @@
     </path>
   </tam>
 
+
+  <tam title="Colums of 3 Invert the Column" parts="4;3" group=" ">
+    <formation>
+      <dancer gender="boy" x="-2" y="1" angle="0"/>
+      <dancer gender="girl" x="0" y="1" angle="0"/>
+      <dancer gender="boy" x="2" y="1" angle="0"/>
+      <dancer gender="girl" x="-4" y="0" angle="90"/>
+    </formation>
+    <path>
+      <move select="Forward" beats="4"/>
+      <move select="Forward" beats="3"/>
+      <move select="U-Turn Left" beats="3" offsetX="2"/>
+    </path>
+    <path>
+      <move select="Forward" beats="4"/>
+      <move select="Run Left"/>
+      <move select="Extend Left" beats="3" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Run Left" offsetX="-1"/>
+      <move select="Forward"/>
+      <move select="Forward" beats="3"/>
+      <move select="Extend Left" beats="3" scaleY="2"/>
+    </path>
+    <path>
+    </path>
+    <taminator>
+      From this formation Invert the Column 1/3 forms a Galaxy,
+      Invert the Column 2/3 forms an Hourglass.
+    </taminator>
+  </tam>
+
   <tam title="Magic Column Invert the Column" from="Right-Hand Columns"
        parts="5;3;4" group=" ">
     <formation>
