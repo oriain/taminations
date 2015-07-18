@@ -148,6 +148,73 @@
     </path>
   </tam>
 
+  <tam title="Left Swing and Mix" from="Facing Couples" formation="Facing Couples" parts="5;3">
+    <path>
+      <move select="Forward 2"/>
+      <move select="Swing Left"/>
+      <move select="Dodge Left" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY="2"/>
+      <move select="Swing Left"/>
+      <move select="Run Right" scaleY="2" />
+    </path>
+  </tam>
+
+  <tam title="Left Swing and Mix" from="Lines" formation="Normal Lines" parts="5;3">
+    <path>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Dodge Left" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Run Right" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Dodge Left" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Run Right"/>
+    </path>
+  </tam>
+
+  <tam title="Left Swing and Mix"
+       from="Eight Chain Thru" formation="Eight Chain Thru"
+       parts="5;3">
+    <path>
+      <move select="Forward" beats="2"/>
+      <move select="Swing Left"/>
+      <move select="Dodge Left" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2"/>
+      <move select="Swing Left"/>
+      <move select="Run Right" scaleY="2" />
+    </path>
+    <path>
+      <move select="Forward" beats="2"/>
+      <move select="Swing Left"/>
+      <move select="Dodge Left" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2"  scaleY="2"/>
+      <move select="Swing Left"/>
+      <move select="Run Right" scaleY="2" />
+    </path>
+  </tam>
+
+
   <tam title="All 8 Swing and Mix"
        from="Thar"
        formation="Thar LH Girls"
