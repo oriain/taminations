@@ -21,7 +21,8 @@
 
 "use strict";
 
-define(['calls/call','callcontext','callerror'],function(Call,CallContext,CallError) {
+define(['calls/call','calls/codedcall','callcontext','callerror'],
+        function(Call,CodedCall,CallContext,CallError) {
 
   var TamSequence = function() {
     this.startingFormation="Static Square";
@@ -249,7 +250,7 @@ define(['calls/call','callcontext','callerror'],function(Call,CallContext,CallEr
 
     //  Also load any scripts that perform this call
     TAMination.searchCalls(callname, {
-        domain:Call.scripts,
+        domain:CodedCall.scripts,
         keyfun: function(d) { return d.name; },
         exact:true }
     ).forEach(function(d) {
@@ -260,9 +261,10 @@ define(['calls/call','callcontext','callerror'],function(Call,CallContext,CallEr
         require(['calls/'+d.link],function(c) {
           Call.classes[d.name] = c;
           //  Load any other calls that this script uses
-          c.requires.forEach(function(d2) {
-            me.fetchCall(d2);
-          });
+          if (c.requires)
+            c.requires.forEach(function(d2) {
+              me.fetchCall(d2);
+            });
           if (--me.filecount == 0)
             me.buildSequence();
         });
@@ -321,6 +323,7 @@ define(['calls/call','callcontext','callerror'],function(Call,CallContext,CallEr
         //  and also by lower-level code
         var ctx = new CallContext(tamsvg);
         ctx.interpretCall(callline);
+        ctx.performCall();
         //  If no error thrown, then we found the call
         //  and created the animation successfully
         //  Copy the call from the working context to each dancer

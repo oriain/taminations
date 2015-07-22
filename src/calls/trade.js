@@ -20,8 +20,8 @@
  */
 "use strict";
 
-define(['env','calls/call','path'],function(Env,Call,Path) {
-  var Trade = Env.extend(Call);
+define(['env','calls/codedcall','path'],function(Env,CodedCall,Path) {
+  var Trade = Env.extend(CodedCall);
   Trade.prototype.name = "Trade";
   Trade.prototype.performOne = function(d,ctx)
   {

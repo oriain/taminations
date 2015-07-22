@@ -20,8 +20,8 @@
  */
 "use strict";
 
-define(['env','calls/call','path'],function(Env,Call,Path) {
-  var MakeTightWave = Env.extend(Call);
+define(['env','calls/codedcall','path'],function(Env,CodedCall,Path) {
+  var MakeTightWave = Env.extend(CodedCall);
   MakeTightWave.prototype.name = "Make Tight Wave";
 
   MakeTightWave.prototype.performOne = function(d,ctx) {

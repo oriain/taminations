@@ -20,8 +20,9 @@
  */
 "use strict";
 
-define(['env','calls/call','path','callerror'],function(Env,Call,Path,CallError) {
-  var Zoom = Env.extend(Call);
+define(['env','calls/codedcall','path','callerror'],
+       function(Env,CodedCall,Path,CallError) {
+  var Zoom = Env.extend(CodedCall);
   Zoom.prototype.name = 'Zoom';
   Zoom.prototype.performOne = function(d,ctx)
   {

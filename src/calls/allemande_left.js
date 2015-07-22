@@ -20,8 +20,8 @@
  */
 "use strict";
 
-define(['env','calls/call','path','callerror'],function(Env,Call,Path,CallError) {
-  var AllemandeLeft = Env.extend(Call);
+define(['env','calls/codedcall','path','callerror'],function(Env,CodedCall,Path,CallError) {
+  var AllemandeLeft = Env.extend(CodedCall);
   AllemandeLeft.prototype.name = "Allemande Left";
   AllemandeLeft.prototype.performOne = function(d,ctx)
   {

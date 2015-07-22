@@ -20,8 +20,9 @@
  */
 "use strict";
 
-define(['env','calls/call','path','callerror'],function(Env,Call,Path,CallError) {
-  var WheelAround = Env.extend(Call);
+define(['env','calls/codedcall','path','callerror'],
+       function(Env,CodedCall,Path,CallError) {
+  var WheelAround = Env.extend(CodedCall);
   WheelAround.prototype.name = "Wheel Around";
   WheelAround.prototype.performOne = function(d,ctx)
   {

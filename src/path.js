@@ -57,10 +57,8 @@ define(['movement','affinetransform'],function(Movement,AffineTransform) {
     this.transformlist = [];
   };
 
-  var recalc_count = 0;
   Path.prototype.recalculate = function()
   {
-    recalc_count++;
     this.transformlist = [];
     var tx = new AffineTransform();
     this.movelist.forEach(function(m) {
@@ -128,6 +126,13 @@ define(['movement','affinetransform'],function(Movement,AffineTransform) {
     this.recalculate();
     return this;
   };
+
+  //  Remove and return the last movement of the path
+  Path.prototype.pop = function() {
+    var m = this.movelist.pop();
+    this.recalculate();
+    return m;
+  }
 
   //  Reflect the path about the x-axis
   Path.prototype.reflect = function()

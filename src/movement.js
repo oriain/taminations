@@ -50,7 +50,7 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
       this.brotate = new Bezier(0,0,ctrlx3,ctrly3,ctrlx4,ctrly4,x4,y4);
     else
       this.brotate = new Bezier(0,0,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2);
-    this.beats = b;
+    this.beats = this.fullbeats = b;
     if (typeof h == "string")
       this.usehands = Movement.setHands[h];
     else
@@ -83,7 +83,7 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
   Movement.prototype.clone = function()
   {
     var m = new Movement(this.usehands,
-        this.beats,
+        this.fullbeats,
         this.btranslate.ctrlx1,this.btranslate.ctrly1,
         this.btranslate.ctrlx2,this.btranslate.ctrly2,
         this.btranslate.x2,this.btranslate.y2,
@@ -97,16 +97,16 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
   {
     if (typeof t != 'number')
       t = this.beats;
-    var tt = Math.min(Math.max(0,t),this.beats);
-    return this.btranslate.translate(tt/this.beats);
+    var tt = Math.min(Math.max(0,t),this.fullbeats);
+    return this.btranslate.translate(tt/this.fullbeats);
   };
 
   Movement.prototype.rotate = function(t)
   {
     if (typeof t != 'number')
       t = this.beats;
-    var tt = Math.min(Math.max(0,t),this.beats);
-    return this.brotate.rotate(tt/this.beats);
+    var tt = Math.min(Math.max(0,t),this.fullbeats);
+    return this.brotate.rotate(tt/this.fullbeats);
   };
 
   Movement.prototype.transform = function(t)
@@ -155,6 +155,11 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
         this.btranslate.y2+y);
     return this;
   };
+
+  Movement.prototype.clip = function(b) {
+    if (b > 0 && b < this.fullbeats)
+      this.beats = b;
+  }
 
   Movement.prototype.toString = function()
   {

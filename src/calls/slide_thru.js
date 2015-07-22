@@ -20,8 +20,8 @@
  */
 "use strict";
 
-define(['env','calls/call','path'],function(Env,Call,Path) {
-  var SlideThru = Env.extend(Call);
+define(['env','calls/codedcall','path'],function(Env,CodedCall,Path) {
+  var SlideThru = Env.extend(CodedCall);
   SlideThru.prototype.name = "Slide Thru";
   SlideThru.prototype.performOne = function(d,ctx)
   {
@@ -42,4 +42,4 @@ define(['env','calls/call','path'],function(Env,Call,Path) {
   return SlideThru;
 });
 
-//# sourceURL=passthru.js
+//# sourceURL=slidethru.js

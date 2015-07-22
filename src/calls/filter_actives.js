@@ -20,8 +20,8 @@
  */
 "use strict";
 
-define(['env','calls/call'],function(Env,Call) {
-  var FilterActives = Env.extend(Call);
+define(['env','calls/codedcall'],function(Env,CodedCall) {
+  var FilterActives = Env.extend(CodedCall);
   FilterActives.prototype.perform = function(ctx)
   {
     ctx.actives.filter(function(d) {

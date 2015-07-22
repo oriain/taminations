@@ -20,9 +20,9 @@
  */
 "use strict";
 
-define(['env','calls/call','callcontext','vector','affinetransform'],
-    function(Env,Call,CallContext,Vector,AffineTransform) {
-  var FourDancerCall = Env.extend(Call);
+define(['env','calls/codedcall','callcontext','vector','affinetransform'],
+    function(Env,CodedCall,CallContext,Vector,AffineTransform) {
+  var FourDancerCall = Env.extend(CodedCall);
 
   FourDancerCall.prototype.preferFilter = function(ctx)
   {
@@ -34,7 +34,7 @@ define(['env','calls/call','callcontext','vector','affinetransform'],
     //  If there are just 4 dancers, run the call with no modifications
     if (ctx.dancers.length <= 4)
       //  This sure seems an awkward way to call a superclass method
-      Call.prototype.perform.call(this,ctx);
+      CodedCall.prototype.perform.call(this,ctx);
     else {
       //  8 dancers
       //  Divide into 2 alternatives of 2 4-dancer contexts,
@@ -48,7 +48,7 @@ define(['env','calls/call','callcontext','vector','affinetransform'],
       //  error if still 4 contexts???
       splitctx.forEach(function(ctx2) {
         //  Perform the requested call on this 4-dancer unit
-        Call.prototype.performCall.call(this,ctx2);
+        CodedCall.prototype.performCall.call(this,ctx2);
         //  Adjust to fit 8-dancer positions
         this.postProcess(ctx2);
         //  Now apply the result to the 8-dancer context

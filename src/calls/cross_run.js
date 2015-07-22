@@ -20,8 +20,8 @@
  */
 "use strict";
 
-define(['env','calls/call','path'],function(Env,Call,Path) {
-  var CrossRun = Env.extend(Call);
+define(['env','calls/codedcall','path'],function(Env,CodedCall,Path) {
+  var CrossRun = Env.extend(CodedCall);
   CrossRun.prototype.name = "Cross Run";
   CrossRun.prototype.perform = function(ctx)
   {

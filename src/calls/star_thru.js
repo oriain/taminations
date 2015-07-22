@@ -20,8 +20,8 @@
  */
 "use strict";
 
-define(['env','calls/call','callcontext'],function(Env,Call,CallContext) {
-  var StarThru = Env.extend(Call);
+define(['env','calls/codedcall','callcontext'],function(Env,CodedCall,CallContext) {
+  var StarThru = Env.extend(CodedCall);
   StarThru.prototype.name = "Star Thru";
   //  TODO check that facing dancers are opposite genders
   StarThru.prototype.perform = function(ctx) {

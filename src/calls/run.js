@@ -20,8 +20,8 @@
  */
 "use strict";
 
-define(['env','calls/call','path'],function(Env,Call,Path) {
-  var Run = Env.extend(Call);
+define(['env','calls/codedcall','path'],function(Env,CodedCall,Path) {
+  var Run = Env.extend(CodedCall);
   Run.prototype.name = "Run";
   Run.prototype.perform = function(ctx)
   {

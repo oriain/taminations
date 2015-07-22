@@ -20,8 +20,8 @@
  */
 "use strict";
 
-define(['env','calls/call','callcontext'],function(Env,Call,CallContext) {
-  var Slip = Env.extend(Call);
+define(['env','calls/codedcall','callcontext'],function(Env,CodedCall,CallContext) {
+  var Slip = Env.extend(CodedCall);
   Slip.prototype.name = "Slip";
   Slip.prototype.perform = function(ctx) {
     var ctx2 = new CallContext(ctx);
