@@ -25,13 +25,13 @@
   <tam title="Scoot and Ramble"
        from="Quarter Tag"
        formation="Quarter Tag"
-       parts="6" >
+       parts="6;3" >
     <path couples="2 4">
       <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY="1.5" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
       <move select="Forward" beats="1.5" scaleX="1.5" />
       <move select="Quarter Right" offsetY="-1" />
-      <move select="Lead Right" beats="3" scaleX="1.5" scaleY="3" />
+      <move select="Lead Right" beats="2.5" scaleX="1.5" scaleY="3" />
       <move select="Quarter Right" offsetX="1" offsetY="-.5" />
     </path>
     <path couples="2 4">
@@ -39,7 +39,7 @@
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
       <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY="1.5" />
       <move select="U-Turn Left" offsetX="-1" offsetY="1.5" />
-      <move select="Forward 2" />
+      <move select="Forward 2" beats="1.5"/>
       <move select="Quarter Left" beats="1" offsetX="1" offsetY="-.5" />
     </path>
     <path couples="3 1">
@@ -61,7 +61,7 @@
   </tam>
 
   <tam title="Scoot and Ramble"
-       from="Quarter Tag, Boys in center" parts="6">
+       from="Quarter Tag, Boys in center" parts="6;3">
     <formation name="Quarter Tag">
       <dancer gender="girl" x="-3" y="1" angle="0"/>
       <dancer gender="boy" x="0" y="-3" angle="180"/>
@@ -73,7 +73,7 @@
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
       <move select="Forward" beats="1.5" scaleX="1.5" />
       <move select="Quarter Right" offsetY="-1" />
-      <move select="Lead Right" beats="3" scaleX="1.5" scaleY="3" />
+      <move select="Lead Right" beats="2.5" scaleX="1.5" scaleY="3" />
       <move select="Quarter Left" offsetX="1" offsetY="-.5" />
     </path>
     <path>
@@ -89,7 +89,7 @@
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
       <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY="1.5" />
       <move select="U-Turn Left" offsetX="-1" offsetY="1.5" />
-      <move select="Forward 2" />
+      <move select="Forward 2" beats="1.5"/>
       <move select="Quarter Left" beats="1" offsetX="1" offsetY="-.5" />
     </path>
     <path>
@@ -103,7 +103,7 @@
   </tam>
 
   <tam title="Scoot and Ramble"
-       from="Quarter Tag, Girls in center" parts="6">
+       from="Quarter Tag, Girls in center" parts="6;3">
     <formation name="Quarter Tag">
       <dancer gender="boy" x="-3" y="1" angle="0"/>
       <dancer gender="girl" x="0" y="-3" angle="180"/>
@@ -115,7 +115,7 @@
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
       <move select="Forward" beats="1.5" scaleX="1.5" />
       <move select="Quarter Right" offsetY="-1" />
-      <move select="Lead Right" beats="3" scaleX="1.5" scaleY="3" />
+      <move select="Lead Right" beats="2.5" scaleX="1.5" scaleY="3" />
       <move select="Quarter Right" offsetX="1" offsetY="-.5" />
     </path>
     <path>
@@ -131,7 +131,7 @@
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
       <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY="1.5" />
       <move select="U-Turn Left" offsetX="-1" offsetY="1.5" />
-      <move select="Forward 2" />
+      <move select="Forward 2" beats="1.5"/>
       <move select="Quarter Right" beats="1" offsetX="1" offsetY="-.5" />
     </path>
     <path>
