@@ -258,7 +258,7 @@
       <move select="Counter Rotate Left 5 1" />
     </path>
     <path>
-      <move select="Counter Rotate Right 3 -7"/>
+      <move select="Counter Rotate Right 2 -4" scaleX="1.5" scaleY="1.75"/>
     </path>
   </tam>
 
