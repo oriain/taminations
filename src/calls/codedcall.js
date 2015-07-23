@@ -45,6 +45,7 @@ define(['env','path'],function(Env,Path) {
        { name:'Hinge', link:'hinge' },
        { name:'Leaders', link:'leaders' },
        { name:'Make Tight Wave', link:'make_tight_wave' }, // TEMP for testing
+       { name:'One and a Half', link:'one_and_a_half' },
        { name:'Pass Thru', link:'pass_thru' },
        { name:'Quarter In', link:'quarter_in' },
        { name:'Quarter Out', link:'quarter_out' },
@@ -99,5 +100,12 @@ define(['env','path'],function(Env,Path) {
     return new Path();
   };
 
+  //  Hook to manipulate context after call is added
+  //  Default is to do nothing
+  CodedCall.prototype.preProcess = function(ctx) { };
+
+
   return CodedCall;
 });
+
+//# sourceURL=codedcall.js

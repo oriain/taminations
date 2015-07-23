@@ -84,8 +84,10 @@ TAMination.searchCalls = function(query,options)
   query = query.replace(/\b(three.quarters?|3\/4)\b/g,"(THREEQUARTERS|3344)");
   query = query.replace(/\b((one.)?quarter|1\/4)\b/g,"((ONE)?QUARTER|1144)");
   query = query.replace(/\btwo.thirds?\b/g,"(TWOTHIRDS|2233)");
+  //  One and a half
+  query = query.replace(/\b1.5\b/g,"ONEANDAHALF");
   //  Process any other numbers
-  query = query.replace(/\b(1|one)\b/g,"(11|ONE)");
+  query = query.replace(/\b(1|onc?e)\b/g,"(11|ONE)");
   query = query.replace(/\b(2|two)\b/g,"(22|TWO)");
   query = query.replace(/\b(3|three)\b/g,"(33|THREE)");
   query = query.replace(/\b(4|four)\b/g,"(44|FOUR)");

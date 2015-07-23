@@ -41,29 +41,30 @@ define(['env','calls/codedcall','calls/xmlcall'],
     }
 
     //  Perform the call
-    var ctxbeats = ctx.maxBeats();
+    var prevbeats = ctx.maxBeats();
     call.performCall(ctx);
 
     //  Coded calls so far do not have explicit parts
     //  so just divide them in two
     if (call instanceof CodedCall)
-      halfbeats = (ctx.maxBeats() - ctxbeats) / 2;
+      halfbeats = (ctx.maxBeats() - prevbeats) / 2;
 
     //  Chop off the excess half
     ctx.dancers.forEach(function(d) {
       var m = 0;
-      while (d.path.beats() > ctxbeats + halfbeats) {
+      while (d.path.beats() > prevbeats + halfbeats) {
         //  Maybe should add a pop method to Path
-        m = d.path.movelist.pop();
+        m = d.path.pop();
       }
-      if (m && d.path.beats() < ctxbeats + halfbeats) {
-        m.clip(ctxbeats + halfbeats - d.path.beats());
+      if (m && d.path.beats() < prevbeats + halfbeats) {
+        m.clip(prevbeats + halfbeats - d.path.beats());
         d.path.add(m);
       }
-      d.path.recalculate();
     });
 
   };
 
   return Half;
 });
+
+//# sourceURL=half.js

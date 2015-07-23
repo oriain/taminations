@@ -43,11 +43,18 @@ define(function() {
     },[]);
   };
 
+  /**
+   *   Return a shallow copy
+   */
+  Array.prototype.copy = function() {
+    return this.filter(function() { return true; });
+  };
 
   Object.defineProperties(Array.prototype, {
     first: funcprop,
     last: funcprop,
     flatten: funcprop,
+    copy: funcprop
   });
 
   return Array;

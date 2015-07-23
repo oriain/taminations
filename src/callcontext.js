@@ -67,6 +67,10 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     }
   });
 
+  CallContext.prototype.clone = function() {
+    return new CallContext(this);
+  }
+
   /**
    *   Append the result of processing this CallContext to it source.
    *   The CallContext must have been previously cloned from the source.
@@ -78,7 +82,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     });
   };
 
-  CallContext.prototype.applyCalls = function()
+  CallContext.prototype.applyCalls = function(/* call names ...  */)
   {
     for (var i=0; i<arguments.length; i++) {
       var ctx = new CallContext(this);
@@ -163,6 +167,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
           if (mm) {
             //  Match found
             var call = new XMLCall();
+            call.name = $(xelem).attr('title');
             call.xelem = xelem;
             call.xmlmap = mm;
             call.ctx2 = ctx2;
@@ -328,22 +333,26 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
   //  If found, the call is added to the context
   CallContext.prototype.matchCodedCall = function(calltext)
   {
-    var ctx = this;
     return TAMination.searchCalls(calltext, {
         domain: CodedCall.scripts,
         keyfun: function(d) { return d.name; },
         exact:true }
     ).some(function(c) {
-      var call = new Call.classes[c.name];
-      ctx.callstack.push(call);
-      ctx.callname += call.name + ' ';
+      var call = new Call.classes[c.name]();
+      this.callstack.push(call);
+      call.preProcess(this);
+      this.callname += call.name + ' ';
       return true;
     },this);
   };
 
 
-  //  Perform calls by popping them off the stack until the stack is empty
+  //  Perform calls by popping them off the stack until the stack is empty.
+  //  This doesn't run an animation, rather it takes the stack of calls
+  //  and builds the dancer movements.
   CallContext.prototype.performCall = function() {
+    //  Work on a copy of the stack as it gets destroyed
+    var stack = this.callstack.filter(function() { return true; });
     //  Other calls could modify the stack so allow for that
     while (this.callstack.length > 0) {
       var call = this.callstack.shift();
