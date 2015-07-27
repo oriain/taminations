@@ -95,7 +95,10 @@
     </path>
   </tam>
 
-  <tam title="Finally As Couples Scoot and Ramble"
+  <!--  There's disagreement over whether this should be
+        Finally or Finally Finally.
+
+  tam title="Finally As Couples Scoot and Ramble"
        group="Finally As Couples"
        parts="6;3.5" >
     <formation>
@@ -137,7 +140,7 @@
       <move select="Extend Left" hands="right" scaleY=".5" />
       <move select="Quarter Right" hands="right" offsetX="3" offsetY="-1.5" />
     </path>
-  </tam>
+  </tam -->
 
   <tam title="Finally As Couples Wheel the Sea"
        formation="Lines Facing Out"
