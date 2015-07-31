@@ -25,31 +25,32 @@
   <tam title="Chain Reaction"
        from="Right-Hand Quarter Lines"
        formation="Quarter Lines RH"
-       parts="2.5;2" >
+       parts="3;1.5;2" >
     <path numbers="1 8" couples="2 4">
-      <move select="Stand" beats="2" />
+      <move select="Stand" beats="3" />
       <move select="Hinge Right" scaleX="2"/>
       <move select="Hinge Left" beats="2" />
       <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2" />
     </path>
     <path numbers="2 7" couples="2 4">
       <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5" />
-      <move select="Extend Right" beats="2" scaleX="1.5" scaleY=".5" />
+      <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".5" />
+      <move select="Stand" beats="1.5"/>
       <move select="Hinge Left" beats="2" />
       <move select="Hinge Right" hands="right" scaleX="2" scaleY="2" offsetY=".33" />
       <move select="Hinge Right" hands="right" scaleX="2" scaleY="2" offsetX="-.67" offsetY=".67" />
       <move select="Hinge Right" hands="right" scaleX="2" scaleY="2" offsetX="-.33" />
     </path>
     <path numbers="4 5" couples="1 3">
-      <move select="Extend Left" scaleX="1.5" scaleY=".5" />
-      <move select="Extend Right" scaleX="1.5" scaleY=".5" />
+      <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5" />
+      <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".5" />
       <move select="Quarter Right" hands="right" offsetY="-1"  />
       <move select="Flip Left" beats="2" />
       <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3" />
     </path>
     <path numbers="3 6" couples="1 3">
-      <move select="Lead Right" beats="3" scaleX="5" scaleY="3" />
-      <move select="Run Right" beats="2.5" />
+      <move select="Lead Right" beats="4.5" scaleX="5" scaleY="3" />
+      <move select="Run Right" beats="2" />
       <move select="Quarter Right" hands="left" offsetX=".33" offsetY=".33" />
       <move select="Quarter Right" hands="left" offsetX="-.33" offsetY=".33" />
       <move select="Quarter Right" hands="left" offsetX="-.33" offsetY="-.33" />
@@ -59,31 +60,32 @@
   <tam title="Chain Reaction"
        from="Left-Hand Quarter Lines"
        formation="Quarter Lines LH"
-       parts="2.5;2" >
+       parts="3;1.5;2" >
     <path couples="2 4">
       <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5" />
-      <move select="Extend Right" beats="2" scaleX="1.5" scaleY=".5" />
+      <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".5" />
+      <move select="Stand" beats="1.5"/>
       <move select="Hinge Right" beats="2" />
       <move select="Hinge Left" hands="left" scaleX="2" scaleY="2" offsetY="-.33" />
       <move select="Hinge Left" hands="left" scaleX="2" scaleY="2" offsetX="-.67" offsetY="-.67" />
       <move select="Hinge Left" hands="left" scaleX="2" scaleY="2" offsetX="-.33" />
     </path>
     <path couples="2 4">
-      <move select="Stand" beats="2" />
+      <move select="Stand" beats="3" />
       <move select="Hinge Left" scaleX="2" />
       <move select="Hinge Right" beats="2" />
       <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2" />
     </path>
     <path couples="3 1">
-      <move select="Extend Left" scaleX="1.5" scaleY=".5" />
-      <move select="Extend Right" scaleX="1.5" scaleY=".5" />
+      <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5" />
+      <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".5" />
       <move select="Quarter Left" hands="left" offsetY="1" />
       <move select="Run Right" beats="2" />
       <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3" />
     </path>
     <path couples="3 1">
-      <move select="Lead Left" beats="3" scaleX="5" scaleY="3" />
-      <move select="Flip Left" beats="2.5" />
+      <move select="Lead Left" beats="4.5" scaleX="5" scaleY="3" />
+      <move select="Flip Left" beats="2" />
       <move select="Quarter Left" hands="right" offsetX=".33" offsetY="-.33" />
       <move select="Quarter Left" hands="right" offsetX="-.33" offsetY="-.33" />
       <move select="Quarter Left" hands="right" offsetX="-.33" offsetY=".33" />
@@ -93,7 +95,7 @@
   <tam title="Chain Reaction"
        from="Right-Hand Quarter Waves"
        formation="Quarter Wave RH"
-       parts="5;3">
+       parts="3;2;3">
     <path couples="2 4">
       <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5" />
       <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".5" />
@@ -126,7 +128,7 @@
   <tam title="Chain Reaction"
        from="Left-Hand Quarter Waves"
        formation="Quarter Wave LH"
-       parts="4.5;2" >
+       parts="3;2;2" >
     <path couples="2 4">
       <move select="Stand" beats="3"/>
       <move select="Quarter Left" beats="2" offsetX="-2" offsetY="1" />
@@ -141,21 +143,21 @@
       <move select="Cast Right" />
     </path>
     <path couples="3 1">
-      <move select="Lead Left" beats="4.5" scaleX="5" scaleY="3" />
-      <move select="Swing Left" beats="2.5" />
+      <move select="Lead Left" beats="5" scaleX="5" scaleY="3" />
+      <move select="Swing Left" beats="2" />
       <move select="Cast Right" />
     </path>
     <path couples="3 1">
       <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5" />
       <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".5" />
-      <move select="Quarter Right" beats="1.5" offsetY="-1"/>
-      <move select="Swing Left" beats="2.5" />
+      <move select="Quarter Right" beats="2" offsetY="-1"/>
+      <move select="Swing Left" beats="2" />
       <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3" />
     </path>
   </tam>
 
   <tam title="Chain Reaction" from="Right-Hand Two-Faced Line between Mini-Waves"
-       parts="5;3">
+       parts="3;2;3">
      <formation>
       <dancer gender="boy" x="-3" y="1" angle="180"/>
       <dancer gender="girl" x="-3" y="-1" angle="0"/>
@@ -194,7 +196,7 @@
   </tam>
 
   <tam title="Chain Reaction" from="Left-Hand Two-Faced Line between Mini-Waves"
-       parts="5;3">
+       parts="3;2;3">
      <formation>
       <dancer gender="boy" x="-3" y="1" angle="0"/>
       <dancer gender="girl" x="-3" y="-1" angle="180"/>
