@@ -186,9 +186,9 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
     //  Before we do anything else, remember the current location
     //  A little tricky as we need to carefully remove the old marker
     //  First mark the current location with a new name
-    getSelection().getRangeAt(0).insertNode($('<span id="cursor2"/>')[0]);
+    getSelection().getRangeAt(0).insertNode($('<span id="cursor2"></span>')[0]);
     //  Then remove the old location marker
-    $('#cursor').contents().unwrap();
+    $('#cursor').remove();
     //  Now we can rename the current marker
     $('#cursor2').attr('id','cursor');
     //  Strip out existing elements that will be re-added

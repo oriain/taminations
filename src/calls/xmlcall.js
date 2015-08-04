@@ -34,17 +34,52 @@ define(['env','calls/call','path'],
       f = getNamedFormation(fs);
     }
     var allp = tam.getPath(this.xelem);
-    //  Compute difference between current formation and XML formation
+    var xfactor = false;
+    var yfactor = false;
+
+    //  If moving just some of the dancers,
+    //  see if we can keep them in the same shape
+    if (ctx.actives.length < ctx.dancers.length) {
+      //  No animations have been done on ctx2, so dancers are still at the start points
+      var ctx3 = this.ctx2.clone();
+      //  So ctx3 is a copy of the start point
+      var bounds1 = ctx3.bounds();
+      //  Now add the paths
+      ctx3.dancers.forEach(function(d,i) {
+        d.path.add(new Path(allp[i>>1]));
+      });
+      //  And move it to the end point
+      ctx3.analyze();
+      var bounds2 = ctx3.bounds();
+      //  And see if the shape has changed
+      var shapemap = this.ctx2.matchShapes(ctx3);
+      if (shapemap) {
+        //  TODO see if mapping is 90 degrees off
+        var bounds0 = ctx.clone(ctx.actives).bounds();
+        xfactor = (2*bounds0.x)/(bounds1.x + bounds2.x);
+        yfactor = (2*bounds0.y)/(bounds1.y + bounds2.y);
+      }
+    }
+
     var vdif = this.computeFormationOffsets(ctx,this.ctx2);
     this.xmlmap.forEach(function(m,i3) {
-      //  Apply formation difference to first movement of XML path
-      var vd = vdif[i3].rotate(-ctx.dancers[i3].tx.angle);
       var p = new Path(allp[m>>1]);
-      if (vd.distance > 0.1)
-        p.movelist[0].skew(-vd.x,-vd.y);
+      //  Scale active dancers to fit the space they are in
+      if (xfactor && yfactor) {
+        var vs = new Vector(xfactor,yfactor).rotate(this.ctx2.dancers[m].tx.angle);
+        p.scale(Math.abs(vs.x),Math.abs(vs.y));
+      } else {
+      //  Compute difference between current formation and XML formation
+        var vd = vdif[i3].rotate(-ctx.actives[i3].tx.angle);
+        //  Apply formation difference to first movement of XML path
+        if (vd.distance > 0.1)
+          p.movelist[0].skew(-vd.x,-vd.y);
+      }
       //  Add XML path to dancer
-      ctx.dancers[i3].path.add(p);
-    });
+      ctx.actives[i3].path.add(p);
+    },this);
+
+
     ctx.levelBeats();
 
   };
@@ -57,10 +92,12 @@ define(['env','calls/call','path'],
     var dvbest;
     var dtotbest = -1;
     var mapping = this.xmlmap;
+    //  We don't know how the XML formation needs to be turned to overlap
+    //  the current formation.  So try all 4 angles and use the best.
     [0,Math.PI/2,Math.PI,Math.PI*3/2].forEach(function(angle) {
       var dv = [];
       var dtot = 0;
-      ctx1.dancers.forEach(function(d1,i) {
+      ctx1.actives.forEach(function(d1,i) {
         var v1 = d1.location;
         var v2 = ctx2.dancers[mapping[i]].location.rotate(angle);
         dv[i] = v1.subtract(v2);

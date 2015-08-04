@@ -25,10 +25,12 @@ define(['path','movement','vector','affinetransform','color'],
   //  Dancer class
   Dancer = function(args)   // (tamsvg,sex,x,y,angle,color,p,number,couplesnumber)
   {
-    this.startangle = 0;
+    this.startangle = 0;      //  startangle is in degrees, not radians
     this.path = new Path();
     for (var arg in args) {
       if (arg == 'dancer') {  //  Copying another dancer
+        //  Initialize this new dancer at the other dancer's current location
+        //  but with an empty path
         ['tamsvg','fillcolor','drawcolor','gender','number'].forEach(function(p) {
           this[p] = args.dancer[p];
         },this);

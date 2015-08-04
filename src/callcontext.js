@@ -42,6 +42,10 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
   {
     this.callname = '';
     this.callstack = [];
+    //  For cases where creating a new context from a source,
+    //  get the dancers from the source and clone them.
+    //  The new context contains the dancers in their current location
+    //  and no paths.
     if (source instanceof CallContext) {
       this.dancers = source.dancers.map(function(d) {
         return new Dancer({dancer:d,computeOnly:true,active:d.active});
@@ -52,6 +56,10 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
       this.dancers = source.dancers.map(function(d) {
         return new Dancer({dancer:d,computeOnly:true,active:true});
       });
+    }
+
+    else if (source instanceof jQuery) {
+      this.dancers = getDancers(source);
     }
 
     else if (source instanceof Array) {
@@ -67,8 +75,8 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     }
   });
 
-  CallContext.prototype.clone = function() {
-    return new CallContext(this);
+  CallContext.prototype.clone = function(arg) {
+    return new CallContext(arg ? arg : this);
   }
 
   /**
@@ -142,6 +150,16 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     var found = false;
     var match = false;
     var ctx = this;
+    var ctx0 = this;
+    if (ctx.callstack.length > 0) {
+      ctx = new CallContext(this);
+      ctx.callstack = this.callstack.copy();
+      ctx.performCall();
+      //  If actives != dancers, create another call context with just the actives
+      if (ctx.dancers.length != ctx.actives.length) {
+        ctx = new CallContext(ctx.actives);
+      }
+    }
     // Check that actives == dancers
     if (ctx.dancers.length == ctx.actives.length) {
       //  Try to find a match in the xml animations
@@ -159,10 +177,9 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
             var fs = $(xelem).attr('formation');
             f = getNamedFormation(fs);
           }
-          var d = CallContext.getDancers(f);
           var sexy = $(xelem).attr('gender-specific');
           //  Try to match the formation to the current dancer positions
-          var ctx2 = new CallContext(d);
+          var ctx2 = new CallContext(f);
           var mm = matchFormations(ctx,ctx2,sexy);
           if (mm) {
             //  Match found
@@ -171,8 +188,8 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
             call.xelem = xelem;
             call.xmlmap = mm;
             call.ctx2 = ctx2;
-            ctx.callstack.push(call);
-            ctx.callname += $(xelem).attr('title') + ' ';
+            ctx0.callstack.push(call);
+            ctx0.callname += $(xelem).attr('title') + ' ';
             match = true;
             return true;  // break out of callindex loop
           }
@@ -192,8 +209,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
    * @param formation   XML formation element
    * @returns Array of dancers
    */
-  CallContext.getDancers = function(formation)
-  {
+  function getDancers(formation) {
     var dancers = [];
     var i = 1;
     $('dancer',formation).each(function() {
@@ -232,8 +248,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
    *
    *
    */
-  function angleBin(a)
-  {
+  function angleBin(a) {
     var retval = -1;
     if (Math.anglesEqual(a,0))
       retval = 0;
@@ -360,6 +375,38 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     }
   };
 
+  CallContext.prototype.matchShapes = function(ctx2) {
+    var ctx1 = this;
+    if (ctx1.dancers.length != ctx2.dancers.length)
+      return false;
+    var mapping = [];
+    var reversemap = [];
+    var found = 0;
+    ctx1.dancers.forEach(function(d1,i) {
+      var bestd2 = -1
+      var bestdistance = 100;
+      var v1 = d1.location;
+      ctx2.dancers.forEach(function(d2,j) {
+        var d = v1.subtract(d2.location).distance;
+        if (Math.isApprox(d,bestdistance)) {
+          bestd2 = -1
+        } else if (d < bestdistance) {
+          bestdistance = d;
+          bestd2 = j;
+        }
+      });
+      if (bestd2 >= 0) {
+        mapping[i] = bestd2;
+        reversemap[bestd2] = i;
+      }
+    });
+    var count = 0;
+    mapping.concat(reversemap).forEach(function(){ count++; });
+    if (count != ctx1.dancers.length*2)
+      return false;
+    return mapping;
+  };
+
   //  Return max number of beats among all the dancers
   CallContext.prototype.maxBeats = function() {
     return this.dancers.reduce(function(v,d) {
@@ -380,6 +427,16 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
         m[0].beats = b;
         d.path.add(new Path(m));
       }
+    });
+  };
+
+  //  Find the range of the dancers current position
+  //  For now we assume the dancers are centered
+  //  and return a vector to the 1st quadrant rectangle point
+  CallContext.prototype.bounds = function() {
+    return this.dancers.map(function(d) { return d.location; })
+                       .reduce(function(v1,v2) {
+           return new Vector(Math.max(v1.x,v2.x),Math.max(v1.y,v2.y))
     });
   };
 
@@ -572,10 +629,13 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     }));
   };
 
-  CallContext.prototype.analyze = function()
+  CallContext.prototype.analyze = function(beat)
   {
     this.dancers.forEach(function(d) {
-      d.animateToEnd();
+      if (beat != undefined)
+        d.animate(beat);
+      else
+        d.animateToEnd();
       d.beau = false;
       d.belle = false;
       d.leader = false;
