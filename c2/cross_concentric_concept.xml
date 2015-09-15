@@ -23,7 +23,7 @@
 <tamination title="Cross-Concentric Concept">
 
   <tam title="Cross Concentric Crossfire" group="Cross Concentric"
-       from="" formation="Two-Faced Tidal Line RH">
+       formation="Two-Faced Tidal Line RH">
     <path numbers="1 8">
       <move select="Stand" beats="3"/>
       <move select="Run Right" offsetX="1" scaleY="2.25" beats="4"/>
@@ -42,7 +42,7 @@
     </path>
   </tam>
 
-  <tam title="Cross Concentric Flip the Diamond" group="Cross Concentric" from=""
+  <tam title="Cross Concentric Flip the Diamond" group="Cross Concentric"
        formation="Concentric Diamonds RH">
     <path numbers="3 6">
       <move select="Lead Right" beats="3" scaleX="1.5" scaleY="3"/>
@@ -59,7 +59,7 @@
   </tam>
 
   <tam title="Cross Concentric Hinge" group="Cross Concentric"
-       from="" formation="Tidal Wave RH BGGB">
+       formation="Tidal Wave RH BGGB">
     <path numbers="8 1">
       <move select="Quarter Right" hands="right" beats="3" offsetX="1" offsetY="-1.5"/>
     </path>
@@ -74,7 +74,7 @@
     </path>
   </tam>
 
-  <tam title="Cross Concentric Recycle" group="Cross Concentric" from=""
+  <tam title="Cross Concentric Recycle" group="Cross Concentric"
        formation="Tidal Wave RH BGGB">
     <path numbers="8 1">
       <move select="Stand" beats="1"/>
@@ -95,7 +95,7 @@
     </path>
   </tam>
 
-  <tam title="Cross Concentric Reverse Explode" group="Cross Concentric" from=""
+  <tam title="Cross Concentric Reverse Explode" group="Cross Concentric"
        formation="Tidal Wave RH BGGB">
     <path numbers="8 1">
       <move select="Stand"/>
@@ -205,7 +205,7 @@
   </path>
   </tam>
 
-  <tam title="Cross Concentric Step and Fold" group="Cross Concentric" from=""
+  <tam title="Cross Concentric Step and Fold" group="Cross Concentric"
        formation="Tidal Wave RH BGGB">
     <path numbers="8 1">
       <move select="Flip Right" offsetX="1" scaleY="1.25"/>
@@ -220,6 +220,10 @@
       <move select="Extend Right" beats="3" scaleX="3" scaleY=".5"/>
     </path>
   </tam>
+
+  <tamxref title="Cross Concentric Turn to a Line" group="Cross Concentric"
+           xref-link="c2/turn_to_a_line"
+           xref-title="Cross Concentric Turn to a Line (from waves)" />
 
   <!-- TODO add example from thar -->
   <tam title="Cross Concentric Wheel and Deal" group="Cross Concentric"
