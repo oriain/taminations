@@ -22,7 +22,7 @@
 "use strict";
 
 define(['env'],function(Env) {
-  var CallError = Env.extend(Error);
+  var CallError = Env.extend(Error,function(m) { this.message = m; });
   CallError.prototype.message = 'No animation for %s.';
   return CallError;
 });

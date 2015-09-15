@@ -23,42 +23,38 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
 
   //  Movement class
   //  Constructor for independent heading and movement
-  Movement = function(fullb,h,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2,
-      ctrlx3,ctrly3,ctrlx4,ctrly4,x4,y4,b) {
-    if (arguments.length == 1) {
-      //  Copying another Movement
-      h = fullb.hands;
-      ctrlx1 = fullb.cx1;
-      ctrly1 = fullb.cy1;
-      ctrlx2 = fullb.cx2;
-      ctrly2 = fullb.cy2;
-      x2 = fullb.x2;
-      y2 = fullb.y2;
-      ctrlx3 = fullb.cx3;
-      ctrly3 = 0;
-      ctrlx4 = fullb.cx4;
-      ctrly4 = fullb.cy4;
-      x4 = fullb.x4;
-      y4 = fullb.y4;
-      b = fullb.beats;
-      fullb = fullb.fullbeats;
+  Movement = function(fullbeats,hands,cx1,cy1,cx2,cy2,x2,y2,
+                      cx3,cx4,cy4,x4,y4,beats) {
+    this.cx1 = cx1;
+    this.cy1 = cy1;
+    this.cx2 = cx2;
+    this.cy2 = cy2;
+    this.x2 = x2;
+    this.y2 = y2;
+    this.btranslate = new Bezier(0,0,cx1,cy1,cx2,cy2,x2,y2);
+    if (cx3 != undefined) {
+      this.brotate = new Bezier(0,0,cx3,0,cx4,cy4,x4,y4);
+      this.cx3 = cx3;
+      this.cx4 = cx4;
+      this.cy4 = cy4;
+      this.x4 = x4;
+      this.y4 = y4;
     }
-    this.btranslate = new Bezier(0,0,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2);
-    this.numargs = arguments.length;
-    this.myargs = [];
-    for (var i in arguments)
-      this.myargs[i] = arguments[i];
-    if (ctrlx3 != undefined)
-      this.brotate = new Bezier(0,0,ctrlx3,ctrly3,ctrlx4,ctrly4,x4,y4);
-    else
-      this.brotate = new Bezier(0,0,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2);
-    this.beats = this.fullbeats = b;
-    if (typeof fullb == "number")
-      this.fullbeats = b;
-    if (typeof h == "string")
-      this.hands = Movement.setHands[h];
+    else {
+      this.brotate = new Bezier(0,0,cx1,0,cx2,cy2,x2,y2);
+      this.cx3 = cx1;
+      this.cx4 = cx2;
+      this.cy4 = cy2;
+      this.x4 = x2;
+      this.y4 = y2;
+    }
+    this.beats = this.fullbeats = fullbeats;
+    if (typeof beats == "number")
+      this.beats = beats;
+    if (typeof hands == "string")
+      this.hands = Movement.getHands(h);
     else  //  should be one of the ints below
-      this.hands = h;
+      this.hands = hands;
   };
 
   Movement.NOHANDS = 0;
@@ -78,6 +74,58 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
       "gripboth": Movement.GRIPBOTH,
       "anygrip": Movement.ANYGRIP };
 
+  Movement.getHands = function(h) {
+    return Movement.setHands[h];
+  }
+
+  /**
+   * Construct a Movement from the attributes of an XML movement
+   * @param elem from xml
+   */
+  Movement.fromElement = function(elem) {
+    if ($(elem).attr("cx3") != undefined) {
+      return new Movement(Number($(elem).attr("beats")),
+          Movement.getHands[$(elem).attr("hands")],
+          Number($(elem).attr("cx1")),
+          Number($(elem).attr("cy1")),
+          Number($(elem).attr("cx2")),
+          Number($(elem).attr("cy2")),
+          Number($(elem).attr("x2")),
+          Number($(elem).attr("y2")),
+          Number($(elem).attr("cx3")),
+          Number($(elem).attr("cx4")),
+          Number($(elem).attr("cy4")),
+          Number($(elem).attr("x4")),
+          Number($(elem).attr("y4")),
+          Number($(elem).attr("beats")))
+    }
+    else {
+      return new Movement(Number($(elem).attr("beats")),
+          Movement.getHands($(elem).attr("hands")),
+          Number($(elem).attr("cx1")),
+          Number($(elem).attr("cy1")),
+          Number($(elem).attr("cx2")),
+          Number($(elem).attr("cy2")),
+          Number($(elem).attr("x2")),
+          Number($(elem).attr("y2")),
+          Number($(elem).attr("cx1")),
+          Number($(elem).attr("cx2")),
+          Number($(elem).attr("cy2")),
+          Number($(elem).attr("x2")),
+          Number($(elem).attr("y2")),
+          Number($(elem).attr("beats")))
+    }
+  }
+
+  /**
+   * Return a new movement by changing the beats
+   */
+  Movement.prototype.time = function(b) {
+    return new Movement(b,this.hands,
+        this.cx1,this.cy1,this.cx2,this.cy2,this.x2,this.y2,
+        this.cx3,this.cx4,this.cy4,this.x4,this.y4,b);
+  }
+
   /**
    * Return a new movement by changing the hands
    */
@@ -86,7 +134,6 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
     return new Movement(this.fullbeats,h,
         this.cx1,this.cy1,this.cx2,this.cy2,this.x2,this.y2,
         this.cx3,this.cx4,this.cy4,this.x4,this.y4,this.beats)
-
   };
 
   Movement.prototype.clone = function()
@@ -99,7 +146,7 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
         this.btranslate.x2,this.btranslate.y2,
         this.brotate.ctrlx1,this.brotate.ctrly1,
         this.brotate.ctrlx2,this.brotate.ctrly2,
-        this.brotate.x2,this.brotate.y2);
+        this.brotate.x2,this.brotate.y2,this.beats);
   };
 
   /**
@@ -147,7 +194,7 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
    */
   Movement.prototype.scale = function(x,y)
   {
-    return new Movement(beats,
+    return new Movement(this.beats,
         (y < 0 && this.hands == Movement.RIGHTHAND) ? Movement.LEFTHAND
           : (y < 0 && this.hands == Movement.LEFTHAND) ? Movement.RIGHTHAND
           : this.hands,  // what about GRIPLEFT, GRIPRIGHT?

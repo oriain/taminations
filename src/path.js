@@ -106,7 +106,7 @@ define(['movement','affinetransform'],function(Movement,AffineTransform) {
     if (this.movelist != null) {
       this.movelist.forEach(function(m,i) {
         this.movelist[i] = m.scale(x,y);
-      });
+      },this);
     }
     return this;
   };

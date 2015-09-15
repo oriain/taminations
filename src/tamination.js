@@ -344,10 +344,6 @@ TAMination.prototype.getCouples = function() {
 };
 
 var TamUtils = new Object();
-TamUtils.attrs =  [ "select", "hands" ];
-TamUtils.numattrs = [ "reflect", "beats", "scaleX", "scaleY", "offsetX", "offsetY",
-                                  "cx1", "cy1", "cx2", "cy2", "x2", "y2",
-                                  "cx3", "cx4", "cy4", "x4", "y4" ];
 TamUtils.translate = function(item) {
   var tag = $(item).prop('tagName');
   tag = tag.toCapCase();
@@ -374,86 +370,41 @@ TamUtils.translateMove = function(move) {
   var moveitem = $('path[name="'+movename+'"]',movedata).get(0);
   if (moveitem == undefined)
     throw new Error('move "'+movename+'" not defined');
-  var retval = TamUtils.translate(moveitem);
+  //  Get the list of movements
+  var movements = TamUtils.translate(moveitem);
   //  Now apply any modifications
-  var beats = $(move).attr('beats');
-  var scaleX = $(move).attr('scaleX');
-  var scaleY = $(move).attr('scaleY');
-  var offsetX = $(move).attr('offsetX');
-  var offsetY = $(move).attr('offsetY');
-  var reflect = $(move).attr('reflect');
-  var hands = $(move).attr('hands');
-  var oldbeats = 0;  //  If beats is given, we need to know how to scale
-  for  (var i=0; i<retval.length; i++)  // each movement
-    oldbeats += retval[i].beats;
-  for  (var i=0; i<retval.length; i++) {
-    if (beats != undefined)
-      retval[i].beats *= Number(beats) / oldbeats;
-    if (scaleX != undefined) {
-      retval[i].cx1 *= Number(scaleX);
-      retval[i].cx2 *= Number(scaleX);
-      retval[i].x2 *= Number(scaleX);
-      if (retval[i].cx3 != undefined)
-        retval[i].cx3 *= Number(scaleX);
-      if (retval[i].cx4 != undefined)
-        retval[i].cx4 *= Number(scaleX);
-      if (retval[i].x4 != undefined)
-        retval[i].x4 *= Number(scaleX);
-    }
-    if (scaleY != undefined) {
-      retval[i].cy1 *= Number(scaleY);
-      retval[i].cy2 *= Number(scaleY);
-      retval[i].y2 *= Number(scaleY);
-      if (retval[i].cy4)
-        retval[i].cy4 *= Number(scaleY);
-      if (retval[i].y4)
-        retval[i].y4 *= Number(scaleY);
-    }
-    if (reflect != undefined) {
-      retval[i].cy1 *= -1;
-      retval[i].cy2 *= -1;
-      retval[i].y2 *= -1;
-      if (retval[i].cy4 != undefined)
-        retval[i].cy4 *= -1;
-      if (retval[i].y4 != undefined)
-        retval[i].y4 *= -1;
-    }
-    if (offsetX != undefined) {
-      retval[i].cx2 += Number(offsetX);
-      retval[i].x2 += Number(offsetX);
-    }
-    if (offsetY != undefined) {
-      retval[i].cy2 += Number(offsetY);
-      retval[i].y2 += Number(offsetY);
-    }
-    if (hands != undefined)
-      retval[i].hands = hands;
-    else if (reflect != undefined) {
-      if (retval[i].hands == "right")
-        retval[i].hands = "left";
-      else if (retval[i].hands == "left")
-        retval[i].hands = "right";
-      else if (retval[i].hands == "gripright")
-        retval[i].hands = "gripleft";
-      else if (retval[i].hands == "gripleft")
-        retval[i].hands = "gripright";
-    }
-  }
-  return retval;
+  //  Get any modifications
+  var scaleX = $(move).attr("scaleX") != undefined
+    ? Number($(move).attr("scaleX")) : 1;
+  var scaleY = ($(move).attr("scaleY") != undefined
+    ? Number($(move).attr("scaleY")) : 1) *
+      ($(move).attr("reflect") ? -1 : 1);
+  var offsetX = $(move).attr("offsetX") != undefined
+    ? Number($(move).attr("offsetX")) : 0;
+  var offsetY =  $(move).attr("offsetY") != undefined
+    ? Number($(move).attr("offsetY")) : 0;
+  var hands = $(move).attr("hands");
+  //  Sum up the total beats so if beats is given as a modification
+  //  we know how much to change each movement
+  var oldbeats = movements.reduce(function(s,m) { return s+m.beats; },0);
+  var beatfactor = $(move).attr("beats") != undefined
+    ? Number($(move).attr("beats"))/oldbeats : 1.0;
+  //  Now go through the movements applying the modifications
+  //  The resulting list is the return value
+  //  Note : skew probably works ok only if just one movement
+  return movements.map(function(m) {
+      return m.useHands(hands != undefined ? Movement.getHands(hands) : m.hands)
+       .scale(scaleX,scaleY)
+       .skew(offsetX,offsetY)
+       .time(m.beats*beatfactor)
+    });
 };
 
   //  Accepts a movement element from a XML file, either an animation definition
   //  or moves.xml
   //  Returns an array of a single JS movement
 TamUtils.translateMovement = function(move) {
-  var movement = { };
-  for (var a in TamUtils.attrs)
-    movement[TamUtils.attrs[a]] = $(move).attr(TamUtils.attrs[a]);
-  for (var i in TamUtils.numattrs) {
-    if ($(move).attr(TamUtils.numattrs[i]) != undefined)
-      movement[TamUtils.numattrs[i]] = Number($(move).attr(TamUtils.numattrs[i]));
-  }
-  return [movement];
+  return [Movement.fromElement(move)];
 };
 
 TamUtils.getMove = function(movename) {

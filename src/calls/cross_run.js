@@ -20,30 +20,35 @@
  */
 "use strict";
 
-define(['env','calls/codedcall','path'],function(Env,CodedCall,Path) {
+define(['env','calls/codedcall','path','callerror'],
+    function(Env,CodedCall,Path,CallError) {
   var CrossRun = Env.extend(CodedCall);
   CrossRun.prototype.name = "Cross Run";
   CrossRun.prototype.perform = function(ctx)
   {
+    //  Centers and ends cannot both cross run
+    if (ctx.dancers.some(function(d) { return d.active && d.center }) &&
+        ctx.dancers.some(function(d) { return d.active && d.end }))
+      throw new CallError("Centers and ends cannot both Cross Run");
     //  We need to look at all the dancers, not just actives
     //  because partners of the runners need to dodge
     ctx.dancers.forEach(function(d) {
       if (d.active) {
         //  Must be in a 4-dancer wave or line
         if (!d.center && !d.end)
-          throw new CallError('General line required for Cross Run');
+          throw new CallError("General line required for Cross Run");
         //  Partner must be inactive
         var d2 = d.partner;
         if (!d2 || d2.active)
-          throw new CallError('Dancer and partner cannot both Cross Run');
+          throw new CallError("Dancer and partner cannot both Cross Run");
         //  Center beaus and end belles run left
         var isright = d.beau ^ d.center;
-        var m = isright ? 'Run Right' : 'Run Left';
+        var m = isright ? "Run Right" : "Run Left";
         //  TODO check for runners crossing paths
-        d.path = new Path({ select: m, scaleY: 2 });
+        d.path = TamUtils.getMove(m).scale(1,2);
       }
       else if (d.partner && d.partner.active) {
-        var m = d.beau ? 'Dodge Right' : 'Dodge Left';
+        var m = d.beau ? "Dodge Right" : "Dodge Left";
         d.path = TamUtils.getMove(m);
       }
     });
