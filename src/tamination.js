@@ -106,7 +106,7 @@ TAMination.searchCalls = function(query,options)
   //  Accept optional "dancers" e.g. "head dancers" == "heads"
   query = query.replace(/\bdancers?\b/,"(DANCERS?)?");
   //  Misc other variations
-  query = query.replace(/bswap(\s+around)?\b/,"SWAP (AROUND)?");
+  query = query.replace(/\bswap(\s+around)?\b/,"SWAP (AROUND)?");
 
   //  Finally repair the upper case and dup numbers
   query = query.toLowerCase().replace(/([0-9])\1/g, "$1").collapse();
@@ -277,10 +277,6 @@ TAMination.prototype.getFormation = function() {
   return retval;
 };
 
-TAMination.prototype.attrs =  [ "select", "hands" ];
-TAMination.prototype.numattrs = [ "reflect", "beats", "scaleX", "scaleY", "offsetX", "offsetY",
-                                  "cx1", "cy1", "cx2", "cy2", "x2", "y2",
-                                  "cx3", "cx4", "cy4", "x4", "y4" ];
 
 TAMination.prototype.getParts = function() {
   var a = this.animationXref();
@@ -301,7 +297,7 @@ TAMination.prototype.getPath = function(a)
   var tam = this;
   var retval = [];
   $("path",this.animationXref(a)).each(function(n) {
-    var onepath = tam.translatePath(this);
+    var onepath = TamUtils.translatePath(this);
     retval.push(onepath);
   });
   return retval;
@@ -347,20 +343,24 @@ TAMination.prototype.getCouples = function() {
   return retval;
 };
 
-TAMination.prototype.translate = function(item) {
+var TamUtils = new Object();
+TamUtils.attrs =  [ "select", "hands" ];
+TamUtils.numattrs = [ "reflect", "beats", "scaleX", "scaleY", "offsetX", "offsetY",
+                                  "cx1", "cy1", "cx2", "cy2", "x2", "y2",
+                                  "cx3", "cx4", "cy4", "x4", "y4" ];
+TamUtils.translate = function(item) {
   var tag = $(item).prop('tagName');
   tag = tag.toCapCase();
-  return this['translate'+tag](item);
+  return TamUtils['translate'+tag](item);
 };
 
   //  Takes a path, which is an XML element with children that
   //  are moves or movements.
   //  Returns an array of JS movements
-TAMination.prototype.translatePath = function(path) {
+TamUtils.translatePath = function(path) {
   var retval = [];
-  var me = this;
   $(path).children().each(function() {
-    retval = retval.concat(me.translate(this));
+    retval = retval.concat(TamUtils.translate(this));
   });
   return retval;
 };
@@ -368,13 +368,13 @@ TAMination.prototype.translatePath = function(path) {
   //  Takes a move, which is an XML element that references another XML
   //  path with its "select" attribute
   //  Returns an array of JS movements
-TAMination.prototype.translateMove = function(move) {
+TamUtils.translateMove = function(move) {
   //  First retrieve the requested path
   var movename = $(move).attr('select');
   var moveitem = $('path[name="'+movename+'"]',movedata).get(0);
   if (moveitem == undefined)
     throw new Error('move "'+movename+'" not defined');
-  var retval = this.translate(moveitem);
+  var retval = TamUtils.translate(moveitem);
   //  Now apply any modifications
   var beats = $(move).attr('beats');
   var scaleX = $(move).attr('scaleX');
@@ -445,17 +445,21 @@ TAMination.prototype.translateMove = function(move) {
   //  Accepts a movement element from a XML file, either an animation definition
   //  or moves.xml
   //  Returns an array of a single JS movement
-TAMination.prototype.translateMovement = function(move) {
+TamUtils.translateMovement = function(move) {
   var movement = { };
-  for (var a in this.attrs)
-    movement[this.attrs[a]] = $(move).attr(this.attrs[a]);
-  for (var i in this.numattrs) {
-    if ($(move).attr(this.numattrs[i]) != undefined)
-      movement[this.numattrs[i]] = Number($(move).attr(this.numattrs[i]));
+  for (var a in TamUtils.attrs)
+    movement[TamUtils.attrs[a]] = $(move).attr(TamUtils.attrs[a]);
+  for (var i in TamUtils.numattrs) {
+    if ($(move).attr(TamUtils.numattrs[i]) != undefined)
+      movement[TamUtils.numattrs[i]] = Number($(move).attr(TamUtils.numattrs[i]));
   }
   return [movement];
 };
-// end of TAMination class
+
+TamUtils.getMove = function(movename) {
+  return new Path(TamUtils.translatePath($('path[name="'+movename+'"]',movedata).get(0)));
+}
+
 
 //  The program calls this as the animation reaches each part of the call
 //  If there's an element with id or class "<call><part>" or "Part<part>" it

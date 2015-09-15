@@ -73,7 +73,7 @@ define(['env','calls/call','path'],
         var vd = vdif[i3].rotate(-ctx.actives[i3].tx.angle);
         //  Apply formation difference to first movement of XML path
         if (vd.distance > 0.1)
-          p.movelist[0].skew(-vd.x,-vd.y);
+          p.movelist.unshift(p.movelist.shift().skew(-vd.x,-vd.y));
       }
       //  Add XML path to dancer
       ctx.actives[i3].path.add(p);

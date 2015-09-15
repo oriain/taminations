@@ -34,11 +34,11 @@ define(['env','calls/codedcall','path'],function(Env,CodedCall,Path) {
         if (!d2 || d2.active)
           throw new CallError('Dancer '+d+' has nobody to Run around.');
         var m = d.beau ? 'Run Right' : 'Run Left';
-        d.path = new Path({ select: m });
+        d.path = TamUtils.getMove(m);
       }
       else if (d.partner && d.partner.active) {
         var m = d.beau ? 'Dodge Right' : 'Dodge Left';
-        d.path = new Path({ select: m });
+        d.path = TamUtils.getMove(m);
       }
     });
 

@@ -366,8 +366,8 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
   //  This doesn't run an animation, rather it takes the stack of calls
   //  and builds the dancer movements.
   CallContext.prototype.performCall = function() {
-    //  Work on a copy of the stack as it gets destroyed
-    var stack = this.callstack.filter(function() { return true; });
+    //  Note that the stack is consumed here
+    //  So this can only be performed once
     //  Other calls could modify the stack so allow for that
     while (this.callstack.length > 0) {
       var call = this.callstack.shift();
@@ -381,7 +381,6 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
       return false;
     var mapping = [];
     var reversemap = [];
-    var found = 0;
     ctx1.dancers.forEach(function(d1,i) {
       var bestd2 = -1
       var bestdistance = 100;
@@ -423,7 +422,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     this.dancers.forEach(function(d) {
       var b = maxbeats - d.path.beats();
       if (b > 0) {
-        var m = tam.translate($('path[name="Stand"]',movedata));
+        var m = TamUtils.translate($('path[name="Stand"]',movedata));
         m[0].beats = b;
         d.path.add(new Path(m));
       }
@@ -476,7 +475,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     var v = new Vector(0,0);
     if (d2 != undefined)
       v = this.dancer(d2).location;
-    var v2 = v.preConcatenate(this.dancer(d1).tx.getInverse());
+    var v2 = v.concatenate(this.dancer(d1).tx.getInverse());
     return v2.angle;
   };
   CallContext.prototype.isFacingIn = function(d)

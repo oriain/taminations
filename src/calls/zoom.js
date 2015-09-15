@@ -26,7 +26,7 @@ define(['env','calls/codedcall','path','callerror'],
   Zoom.prototype.name = 'Zoom';
   Zoom.prototype.performOne = function(d,ctx)
   {
-    var m = [];
+    var retval = new Path();
     if (d.leader) {
       var d2 = ctx.dancerInBack(d);
       var a = ctx.angle(d);
@@ -34,18 +34,18 @@ define(['env','calls/codedcall','path','callerror'],
       if (!d2.active)
         throw new CallError('Trailer of dancer '+d+' is not active.');
       var dist = ctx.distance(d,d2);
-      m.push({select:c,beats:2,offsetX:-dist/2});
-      m.push({select:c,beats:2,offsetX:dist/2});
+      retval.add(TamUtils.getMove(c).changebeats(2).skew(-dist/2,0));
+      retval.add(TamUtils.getMove(c).changebeats(2).skew(dist/2,0));
     } else if (d.trailer) {
       var d2 = ctx.dancerInFront(d);
       if (!d2.active)
         throw new CallError('Leader of dancer '+d+' is not active.');
       var dist = ctx.distance(d,d2);
-      m.push({ select:'Forward', beats:4, scaleX:dist });
+      retval.add(TamUtils.getMove("Forward").changebeats(4).scale(dist,1));
     } else {
       throw new CallError('Dancer '+d+' cannot Zoom.');
     }
-    return new Path(m);
+    return retval;
   };
   return Zoom;
 });

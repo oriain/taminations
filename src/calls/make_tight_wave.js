@@ -34,7 +34,7 @@ define(['env','calls/codedcall','path'],function(Env,CodedCall,Path) {
     var d2 = ctx.dancerFacing(d);
     if (d2 != undefined) {
       var dist = ctx.distance(d,d2);
-      return new Path({ select: 'Extend Left', scaleX: dist/2, scaleY:0.5 });
+      return TamUtils.getMove("Extend Left").scale(dist/2,0.5);
     }
     throw new Error();
   };

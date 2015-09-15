@@ -282,7 +282,7 @@ define(['path','movement','vector','affinetransform','color'],
 
   Dancer.prototype.concatenate = function(tx2)
   {
-    this.tx.preConcatenate(tx2);
+    this.tx = this.tx.concatenate(tx2);
     this.svg.setAttribute('transform',tx2.toString());
   };
 
@@ -307,7 +307,7 @@ define(['path','movement','vector','affinetransform','color'],
   Dancer.prototype.paintBezier = function()
   {
     var ff = function(x,y,t) {
-      var v = (new Vector(x,y)).preConcatenate(t);
+      var v = (new Vector(x,y)).concatenate(t);
       return [v.x,v.y];
     };
     this.tamsvg.svg.remove(this.beziergroup);
@@ -330,7 +330,7 @@ define(['path','movement','vector','affinetransform','color'],
       points.push(pt);
       this.tamsvg.svg.circle(this.beziergroup,pt[0],pt[1],0.2,{fill:this.drawcolor.toString()});
       t = new AffineTransform(this.start);
-      t.concatenate(this.path.transformlist[i]);
+      t = t.preConcatenate(this.path.transformlist[i]);
     },this);
     this.tamsvg.svg.polyline(this.beziergroup,points,
         {fill:'none',stroke:'black',strokeWidth:0.1,strokeOpacity:.3});
@@ -353,7 +353,7 @@ define(['path','movement','vector','affinetransform','color'],
         m = mi;
         if (beat >= m.beats) {
           this.tx = new AffineTransform(this.start);
-          this.tx.concatenate(this.path.transformlist[i]);
+          this.tx = this.tx.preConcatenate(this.path.transformlist[i]);
           beat -= m.beats;
           m = null;
           return true;
@@ -363,15 +363,15 @@ define(['path','movement','vector','affinetransform','color'],
     }
     //  Apply movement in progress
     if (m != null) {
-      this.tx.concatenate(m.translate(beat));
-      this.tx.concatenate(m.rotate(beat));
+      this.tx = this.tx.preConcatenate(m.translate(beat));
+      this.tx = this.tx.preConcatenate(m.rotate(beat));
       if (beat < 0)
         this.hands = Movement.BOTHHANDS;
       else
-        this.hands = m.usehands;
-      if ((m.usehands & Movement.GRIPLEFT) == 0)
+        this.hands = m.hands;
+      if ((m.hands & Movement.GRIPLEFT) == 0)
         this.leftgrip = null;
-      if ((m.usehands & Movement.GRIPRIGHT) == 0)
+      if ((m.hands & Movement.GRIPRIGHT) == 0)
         this.rightgrip = null;
     }
     else  // End of movement
@@ -417,17 +417,17 @@ define(['path','movement','vector','affinetransform','color'],
     if (this.gender == Dancer.PHANTOM)
       this.svg.setAttribute('opacity',0.6);
     this.righthand.setAttribute('transform',
-        new AffineTransform(this.tx).concatenate(this.rightHandTransform).toString());
+        new AffineTransform(this.tx).preConcatenate(this.rightHandTransform).toString());
     this.lefthand.setAttribute('transform',
-        new AffineTransform(this.tx).concatenate(this.leftHandTransform).toString());
+        new AffineTransform(this.tx).preConcatenate(this.leftHandTransform).toString());
     if (this.tamsvg.numbers || this.tamsvg.couples) {
       var a = this.tx.angle;
       var t1 = AffineTransform.getScaleInstance(0.04,-0.04);
       var t2 = AffineTransform.getRotateInstance(a);
       if (this.tamsvg.numbers)
-        this.numbersvg.setAttribute('transform',t1.concatenate(t2).toString());
+        this.numbersvg.setAttribute('transform',t1.preConcatenate(t2).toString());
       else
-        this.couplessvg.setAttribute('transform',t1.concatenate(t2).toString());
+        this.couplessvg.setAttribute('transform',t1.preConcatenate(t2).toString());
     }
   };
 

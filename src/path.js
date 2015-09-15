@@ -32,7 +32,7 @@ define(['movement','affinetransform'],function(Movement,AffineTransform) {
       },this);
     }
     else if (p && (p.select != undefined)) {
-      tam.translateMove(p).forEach(function(m) {
+      TamUtils.translateMove(p).forEach(function(m) {
         this.add(new Movement(m));
       },this);
     }
@@ -62,8 +62,8 @@ define(['movement','affinetransform'],function(Movement,AffineTransform) {
     this.transformlist = [];
     var tx = new AffineTransform();
     this.movelist.forEach(function(m) {
-      tx.concatenate(m.translate());
-      tx.concatenate(m.rotate());
+      tx = tx.preConcatenate(m.translate());
+      tx = tx.preConcatenate(m.rotate());
       this.transformlist.push(new AffineTransform(tx));
     },this);
   };
@@ -97,26 +97,32 @@ define(['movement','affinetransform'],function(Movement,AffineTransform) {
         m.useHands(hands);
       });
     }
+    return this;
   };
 
   //  Change the path by scale factors
   Path.prototype.scale = function(x,y)
   {
     if (this.movelist != null) {
-      this.movelist.forEach(function(m) {
-        m.scale(x,y);
+      this.movelist.forEach(function(m,i) {
+        this.movelist[i] = m.scale(x,y);
       });
     }
+    return this;
   };
 
   //  Skew the path by translating the destination point
   Path.prototype.skew = function(x,y)
   {
-    if (this.movelist != null)
-      this.movelist.last().skew(x,y);
+    if (this.movelist != null) {
+      this.movelist.push(this.movelist.pop().skew(x,y));
+      this.recalculate();
+    }
+    return this;
   };
 
-  //  Append one movement to the end of the Path
+  //  Append one movement or all the movements of another path
+  //  to the end of the Path
   Path.prototype.add = function(m)
   {
     if (m instanceof Movement)

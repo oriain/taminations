@@ -49,7 +49,7 @@ define(['env','calls/box_call','movement','path'],function(Env,BoxCall,Movement,
     var cv1 = v2.scale(.5).rotate(-a1);
     var cv2 = v.scale(.5).rotate(-a1).add(dv);
     var m = new Movement(
-        "none",2.0,
+        2.0,Movement.NOHHANDS,
         cv1.x,cv1.y,cv2.x,cv2.y,dv.x,dv.y,
         0.55, 0, 1, cy4, 1, y4
         );

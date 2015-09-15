@@ -39,9 +39,9 @@ define(['env','calls/box_call','path'],function(Env,BoxCall,Path) {
       return undefined;
     //  TODO handle partner hinge
     if (ctx.isRight(d,d2))
-      return new Path({select:'Hinge Right'});
+      return TamUtils.getMove("Hinge Right");
     else
-      return new Path({select:'Hinge Left'});
+      return TamUtils.getMove("Hinge Left");
   }
   return Hinge;
 });

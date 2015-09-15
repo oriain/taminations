@@ -78,9 +78,9 @@ define(['env','calls/codedcall','callcontext','vector','affinetransform'],
       d.animate(d.beats()-m.beats);
       var tx = AffineTransform.getRotateInstance(d.tx.angle);
       //  Apply that angle to the direction we need to shift
-      v = v.preConcatenate(tx);
+      v = v.concatenate(tx);
       //  Finally apply it to the last movement
-      m.skew(v.x,v.y);
+      d.path.skew(v.x,v.y);
     });
   };
 

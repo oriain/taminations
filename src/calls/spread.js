@@ -33,11 +33,10 @@ define(['env','calls/codedcall','movement','path','vector'],
       v = new Vector(0,1);
     else if (d.beau)
       v = new Vector(0,-1);
-    var m = p.movelist[p.movelist.length-1];
+    var m = p.movelist.pop();
     var tx = m.rotate();
-    v = v.preConcatenate(tx);
-    m.skew(v.x,v.y);
-    m.usehands = Movement.NOHANDS;
+    v = v.concatenate(tx);
+    p.movelist.push(m.skew(v.x,v.y).hands(Movement.NOHANDS));
     return new Path();
   };
   return AndSpread;

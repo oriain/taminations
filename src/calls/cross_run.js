@@ -44,7 +44,7 @@ define(['env','calls/codedcall','path'],function(Env,CodedCall,Path) {
       }
       else if (d.partner && d.partner.active) {
         var m = d.beau ? 'Dodge Right' : 'Dodge Left';
-        d.path = new Path({ select: m });
+        d.path = TamUtils.getMove(m);
       }
     });
   };

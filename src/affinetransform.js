@@ -115,31 +115,30 @@ define(['vector'],function(Vector) {
     return this;
   };
 
-  AffineTransform.prototype.concatenate = function(tx)
-  {
-    // [this] = [this] x [Tx]
-    var copy = new AffineTransform(this);
-    this.x1 = copy.x1 * tx.x1 + copy.x2 * tx.y1;
-    this.x2 = copy.x1 * tx.x2 + copy.x2 * tx.y2;
-    this.x3 = copy.x1 * tx.x3 + copy.x2 * tx.y3 + copy.x3;
-    this.y1 = copy.y1 * tx.x1 + copy.y2 * tx.y1;
-    this.y2 = copy.y1 * tx.x2 + copy.y2 * tx.y2;
-    this.y3 = copy.y1 * tx.x3 + copy.y2 * tx.y3 + copy.y3;
-    return this;
-  };
-
   AffineTransform.prototype.preConcatenate = function(tx)
   {
-    // [this] = [Tx] x [this]
-    var copy = { x1: this.x1, x2: this.x2, x3: this.x3,
-        y1: this.y1, y2: this.y2, y3: this.y3 };
-    this.x1 = tx.x1 * copy.x1 + tx.x2 * copy.y1;
-    this.x2 = tx.x1 * copy.x2 + tx.x2 * copy.y2;
-    this.x3 = tx.x1 * copy.x3 + tx.x2 * copy.y3 + tx.x3;
-    this.y1 = tx.y1 * copy.x1 + tx.y2 * copy.y1;
-    this.y2 = tx.y1 * copy.x2 + tx.y2 * copy.y2;
-    this.y3 = tx.y1 * copy.x3 + tx.y2 * copy.y3 + tx.y3;
-    return this;
+    // [result] = [this] x [Tx]
+    var result = new AffineTransform();
+    result.x1 = this.x1 * tx.x1 + this.x2 * tx.y1;
+    result.x2 = this.x1 * tx.x2 + this.x2 * tx.y2;
+    result.x3 = this.x1 * tx.x3 + this.x2 * tx.y3 + this.x3;
+    result.y1 = this.y1 * tx.x1 + this.y2 * tx.y1;
+    result.y2 = this.y1 * tx.x2 + this.y2 * tx.y2;
+    result.y3 = this.y1 * tx.x3 + this.y2 * tx.y3 + this.y3;
+    return result;
+  };
+
+  AffineTransform.prototype.concatenate = function(tx)
+  {
+    // [result] = [Tx] x [this]
+    var result = new AffineTransform();
+    result.x1 = tx.x1 * this.x1 + tx.x2 * this.y1;
+    result.x2 = tx.x1 * this.x2 + tx.x2 * this.y2;
+    result.x3 = tx.x1 * this.x3 + tx.x2 * this.y3 + tx.x3;
+    result.y1 = tx.y1 * this.x1 + tx.y2 * this.y1;
+    result.y2 = tx.y1 * this.x2 + tx.y2 * this.y2;
+    result.y3 = tx.y1 * this.x3 + tx.y2 * this.y3 + tx.y3;
+    return result;
   };
 
   //  Compute and return the inverse matrix - only for affine transform matrix

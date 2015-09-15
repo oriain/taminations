@@ -173,7 +173,7 @@ define(['movement','affinetransform'],function(Movement,AffineTransform) {
       }
       this.d1.rightHandNewVisibility = true;
       this.d1.rightHandTransform = AffineTransform.getRotateInstance(-this.ah1)
-      .concatenate(AffineTransform.getScaleInstance(scale,scale));
+      .preConcatenate(AffineTransform.getScaleInstance(scale,scale));
     }
     if (this.h1 == Movement.LEFTHAND || this.h1 == Movement.GRIPLEFT) {
       if (!this.d1.leftHandVisibility) {
@@ -182,7 +182,7 @@ define(['movement','affinetransform'],function(Movement,AffineTransform) {
       }
       this.d1.leftHandNewVisibility = true;
       this.d1.leftHandTransform = AffineTransform.getRotateInstance(-this.ah1)
-      .concatenate(AffineTransform.getScaleInstance(scale,scale));
+      .preConcatenate(AffineTransform.getScaleInstance(scale,scale));
     }
     if (this.h2 == Movement.RIGHTHAND || this.h2 == Movement.GRIPRIGHT) {
       if (!this.d2.rightHandVisibility) {
@@ -191,7 +191,7 @@ define(['movement','affinetransform'],function(Movement,AffineTransform) {
       }
       this.d2.rightHandNewVisibility = true;
       this.d2.rightHandTransform = AffineTransform.getRotateInstance(-this.ah2)
-      .concatenate(AffineTransform.getScaleInstance(scale,scale));
+      .preConcatenate(AffineTransform.getScaleInstance(scale,scale));
     }
     if (this.h2 == Movement.LEFTHAND || this.h2 == Movement.GRIPLEFT) {
       if (!this.d2.leftHandVisibility) {
@@ -200,7 +200,7 @@ define(['movement','affinetransform'],function(Movement,AffineTransform) {
       }
       this.d2.leftHandNewVisibility = true;
       this.d2.leftHandTransform = AffineTransform.getRotateInstance(-this.ah2)
-      .concatenate(AffineTransform.getScaleInstance(scale,scale));
+      .preConcatenate(AffineTransform.getScaleInstance(scale,scale));
     }
   };
 

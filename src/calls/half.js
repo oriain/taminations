@@ -52,12 +52,10 @@ define(['env','calls/codedcall','calls/xmlcall'],
     //  Chop off the excess half
     ctx.dancers.forEach(function(d) {
       var m = 0;
-      while (d.path.beats() > prevbeats + halfbeats) {
-        //  Maybe should add a pop method to Path
+      while (d.path.beats() > prevbeats + halfbeats)
         m = d.path.pop();
-      }
       if (m && d.path.beats() < prevbeats + halfbeats) {
-        m.clip(prevbeats + halfbeats - d.path.beats());
+        m = m.clip(prevbeats + halfbeats - d.path.beats());
         d.path.add(m);
       }
     });

@@ -31,9 +31,9 @@ define(['env','calls/codedcall','path'],function(Env,CodedCall,Path) {
     var d2 = ctx.dancerInFront(d);
     if (d2 != undefined && ctx.dancerInFront(d2) == d) {
       var dist = ctx.distance(d,d2);
-      return new Path([{ select: 'Extend Left', scaleX: dist/2, scaleY: 0.5 },
-                       { select: 'Swing Right', scaleX: 0.5, scaleY: 0.5 },
-                       { select: 'Extend Right', scaleX: dist/2, scaleY: 0.5 }]);
+      return TamUtils.getMove("Extend Left").scale(dist/2,0.5)
+        .add(TamUtils.getMove("Swing Right").scale(0.5,0.5))
+        .add(TamUtils.getMove("Extend Right").scale(dist/2,0.5));
     }
     throw new Error('Cannot find dancer to Turn Thru with '+d);
   };

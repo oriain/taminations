@@ -25,8 +25,7 @@ define(['env','calls/codedcall','path'],function(Env,CodedCall,Path) {
   TurnBack.prototype.name = "Turn Back";
   TurnBack.prototype.performOne = function(d)
   {
-    var m = d.beau ? 'U-Turn Right' : 'U-Turn Left';
-    return new Path({select: m});
+    return TamUtils.getMove(d.beau ? 'U-Turn Right' : 'U-Turn Left');
   };
   return TurnBack;
 });

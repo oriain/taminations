@@ -23,23 +23,25 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
 
   //  Movement class
   //  Constructor for independent heading and movement
-  Movement = function(h,b,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2,
-      ctrlx3,ctrly3,ctrlx4,ctrly4,x4,y4) {
+  Movement = function(fullb,h,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2,
+      ctrlx3,ctrly3,ctrlx4,ctrly4,x4,y4,b) {
     if (arguments.length == 1) {
-      b = h.beats;
-      ctrlx1 = h.cx1;
-      ctrly1 = h.cy1;
-      ctrlx2 = h.cx2;
-      ctrly2 = h.cy2;
-      x2 = h.x2;
-      y2 = h.y2;
-      ctrlx3 = h.cx3;
+      //  Copying another Movement
+      h = fullb.hands;
+      ctrlx1 = fullb.cx1;
+      ctrly1 = fullb.cy1;
+      ctrlx2 = fullb.cx2;
+      ctrly2 = fullb.cy2;
+      x2 = fullb.x2;
+      y2 = fullb.y2;
+      ctrlx3 = fullb.cx3;
       ctrly3 = 0;
-      ctrlx4 = h.cx4;
-      ctrly4 = h.cy4;
-      x4 = h.x4;
-      y4 = h.y4;
-      h = h.hands;
+      ctrlx4 = fullb.cx4;
+      ctrly4 = fullb.cy4;
+      x4 = fullb.x4;
+      y4 = fullb.y4;
+      b = fullb.beats;
+      fullb = fullb.fullbeats;
     }
     this.btranslate = new Bezier(0,0,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2);
     this.numargs = arguments.length;
@@ -51,10 +53,12 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
     else
       this.brotate = new Bezier(0,0,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2);
     this.beats = this.fullbeats = b;
+    if (typeof fullb == "number")
+      this.fullbeats = b;
     if (typeof h == "string")
-      this.usehands = Movement.setHands[h];
-    else
-      this.usehands = h;
+      this.hands = Movement.setHands[h];
+    else  //  should be one of the ints below
+      this.hands = h;
   };
 
   Movement.NOHANDS = 0;
@@ -74,25 +78,35 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
       "gripboth": Movement.GRIPBOTH,
       "anygrip": Movement.ANYGRIP };
 
+  /**
+   * Return a new movement by changing the hands
+   */
   Movement.prototype.useHands = function(h)
   {
-    this.usehands = h;
-    return this;
+    return new Movement(this.fullbeats,h,
+        this.cx1,this.cy1,this.cx2,this.cy2,this.x2,this.y2,
+        this.cx3,this.cx4,this.cy4,this.x4,this.y4,this.beats)
+
   };
 
   Movement.prototype.clone = function()
   {
-    var m = new Movement(this.usehands,
+    return new Movement(
         this.fullbeats,
+        this.hands,
         this.btranslate.ctrlx1,this.btranslate.ctrly1,
         this.btranslate.ctrlx2,this.btranslate.ctrly2,
         this.btranslate.x2,this.btranslate.y2,
         this.brotate.ctrlx1,this.brotate.ctrly1,
         this.brotate.ctrlx2,this.brotate.ctrly2,
         this.brotate.x2,this.brotate.y2);
-    return m;
   };
 
+  /**
+   * Return a matrix for the translation part of this movement at time t
+   * @param t  Time in beats
+   * @return   Matrix for using with canvas
+   */
   Movement.prototype.translate = function(t)
   {
     if (typeof t != 'number')
@@ -101,6 +115,11 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
     return this.btranslate.translate(tt/this.fullbeats);
   };
 
+  /**
+   * Return a matrix for the rotation part of this movement at time t
+   * @param t  Time in beats
+   * @return   Matrix for using with canvas
+   */
   Movement.prototype.rotate = function(t)
   {
     if (typeof t != 'number')
@@ -112,8 +131,8 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
   Movement.prototype.transform = function(t)
   {
     var tx = new AffineTransform();
-    tx.concatenate(this.translate(t));
-    tx.concatenate(this.rotate(t));
+    tx = tx.preConcatenate(this.translate(t));
+    tx = tx.preConcatenate(this.rotate(t));
     return tx;
   };
 
@@ -122,43 +141,37 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
     return this.scale(1,-1);
   };
 
+  /**
+   * Return a new Movement scaled by x and y factors.
+   * If y is negative hands are also switched.
+   */
   Movement.prototype.scale = function(x,y)
   {
-    this.btranslate = new Bezier(0,0,this.btranslate.ctrlx1*x,
-        this.btranslate.ctrly1*y,
-        this.btranslate.ctrlx2*x,
-        this.btranslate.ctrly2*y,
-        this.btranslate.x2*x,
-        this.btranslate.y2*y);
-    this.brotate = new Bezier(0,0,this.brotate.ctrlx1*x,
-        this.brotate.ctrly1*y,
-        this.brotate.ctrlx2*x,
-        this.brotate.ctrly2*y,
-        this.brotate.x2*x,
-        this.brotate.y2*y);
-    if (y < 0) {
-      if (this.usehands == Movement.LEFTHAND)
-        this.usehands = Movement.RIGHTHAND;
-      else if (this.usehands == Movement.RIGHTHAND)
-        this.usehands = Movement.LEFTHAND;
-    }
-    return this;
+    return new Movement(beats,
+        (y < 0 && this.hands == Movement.RIGHTHAND) ? Movement.LEFTHAND
+          : (y < 0 && this.hands == Movement.LEFTHAND) ? Movement.RIGHTHAND
+          : this.hands,  // what about GRIPLEFT, GRIPRIGHT?
+        this.cx1*x,this.cy1*y,this.cx2*x,this.cy2*y,this.x2*x,this.y2*y,
+        this.cx3*x,this.cx4*x,this.cy4*y,this.x4*x,this.y4*y,this.fullbeats)
   };
 
+  /**
+   * Return a new Movement with the end point shifted by x and y
+   */
   Movement.prototype.skew = function(x,y)
   {
-    this.btranslate = new Bezier(0,0,this.btranslate.ctrlx1,
-        this.btranslate.ctrly1,
-        this.btranslate.ctrlx2+x,
-        this.btranslate.ctrly2+y,
-        this.btranslate.x2+x,
-        this.btranslate.y2+y);
-    return this;
+    return new Movement(this.beats,this.hands,this.cx1,this.cy1,
+        this.cx2+x,this.cy2+y,this.x2+x,this.y2+y,
+        this.cx3,this.cx4,this.cy4,this.x4,this.y4,this.fullbeats)
   };
 
   Movement.prototype.clip = function(b) {
     if (b > 0 && b < this.fullbeats)
-      this.beats = b;
+      return new Movement(b,this.hands,this.cx1,this.cy1,
+          this.cx2,this.cy2,this.x2,this.y2,
+          this.cx3,this.cx4,this.cy4,this.x4,this.y4,this.fullbeats)
+    else
+      return this;
   }
 
   Movement.prototype.toString = function()

@@ -29,18 +29,18 @@ define(['env','calls/codedcall','path','callerror'],
     var d2 = d.partner;
     if (!d2 || !d2.active)
       throw new CallError('Dancer '+d+' must Wheel Around with partner.');
-    var m = {};
+    var m = "";
     if (d.belle) {
       if (!d2.beau)
         throw new CallError('Dancer '+d+' is not part of a Facing Couple.');
-      m = { select: 'Belle Wheel' };
+      m = 'Belle Wheel';
     }
     else {
       if (!d2.belle)
         throw new CallError('Dancer '+d+' is not part of a Facing Couple.');
-      m = { select: 'Beau Wheel' };
+      m = 'Beau Wheel';
     }
-    return new Path(m);
+    return TamUtils.getMove(m)
   };
   return WheelAround;
 });

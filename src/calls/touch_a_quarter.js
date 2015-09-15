@@ -31,12 +31,11 @@ define(['env','calls/codedcall','path'],function(Env,CodedCall,Path) {
     var d2 = ctx.dancerInFront(d);
     if (d2 != undefined && ctx.dancerInFront(d2) == d) {
       var dist = ctx.distance(d,d2);
-      return new Path([
-          { select: 'Extend Left', hands:"right", scaleX: dist/2 },
-          { select: 'Hinge Right' }
-      ]);
+      return TamUtils.getMove("Extend Left")
+                          .changehands(Movement.RIGHTHAND).scale(dist/2,1)
+        .add(TamUtils.getMove("Hinge Right"));
     }
-    throw new Error();
+    throw new CallError("Dancer "+d+" cannot Touch a Quarter");
   };
   return TouchAQuarter;
 });

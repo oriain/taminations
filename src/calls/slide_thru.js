@@ -31,11 +31,10 @@ define(['env','calls/codedcall','path'],function(Env,CodedCall,Path) {
     var d2 = ctx.dancerInFront(d);
     if (d2 != undefined && ctx.dancerInFront(d2) == d) {
       var dist = ctx.distance(d,d2);
-      var move1 = { select: 'Extend Left', scaleX: dist/2, scaleY:0.5 };
-      var move2 = d.gender == Dancer.BOY
-           ? { select: 'Lead Right', scaleX: dist/2, scaleY:0.5 }
-           : { select: 'Quarter Left', offsetX: dist/2, offsetY:-0.5 };
-      return new Path([move1,move2]);
+      return TamUtils.getMove("Extend Left").scale(dist/2,0.5)
+        .add(d.gender == Dancer.BOY
+           ? TamUtils.getMove("Lead Right").scale(dist/2,0.5)
+           : TamUtils.getMove("Quarter Left").skew(dist/2,-0.5));
     }
     throw new Error();
   };

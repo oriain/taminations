@@ -62,7 +62,7 @@ define(['env','calls/codedcall','path'],function(Env,CodedCall,Path) {
 
     //  Found the dancer to trade with.
     //  Now make room for any dancers in between
-    var hands = 'none';
+    var hands = Movement.NOHANDS;
     var dist = ctx.distance(d,dtrade);
     var scaleX = 1;
     if (ctx.inBetween(d,dtrade).length > 0) {
@@ -80,12 +80,12 @@ define(['env','calls/codedcall','path'],function(Env,CodedCall,Path) {
       //  Hold hands for trades that are swing/slip
       if (!samedir && dist < 2.1) {
         if (call == 'Run Left')
-          hands = 'left';
+          hands = Movement.LEFTHAND;
         else
-          hands = 'right';
+          hands = Movemeht.RIGHTHAND;
       }
     }
-    return new Path({ select: call, hands: hands, scaleY: dist/2, scaleX: scaleX });
+    return TamUtils.getMove(call).useHands(hands).scale(scaleX,dist/2);
   };
   return Trade;
 });
