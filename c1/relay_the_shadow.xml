@@ -37,15 +37,13 @@
     <path numbers="7 2">
       <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
       <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3.5" />
-      <move select="Hinge Right" />
-      <move select="Dodge Left" />
+      <move select="Hinge Right" beats="4" scaleX="3" />
     </path>
     <path numbers="6 3">
       <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
       <move select="Swing Left" hands="gripleft" scaleX=".5" scaleY=".5" />
       <move select="Hinge Left" scaleY=".5" />
-      <move select="Hinge Right" />
-      <move select="Dodge Left" />
+      <move select="Hinge Right" beats="4" scaleX="3" />
     </path>
     <path numbers="5 4">
       <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
@@ -72,15 +70,13 @@
     <path>
       <move select="Swing Left" hands="gripleft" scaleX=".5" scaleY=".5" />
       <move select="Lead Left" beats="4.5" scaleX="3" scaleY="3.5" />
-      <move select="Hinge Left" />
-      <move select="Dodge Right" />
+      <move select="Hinge Left" beats="4" scaleX="3" />
     </path>
     <path>
       <move select="Swing Left" hands="gripleft" scaleX=".5" scaleY=".5" />
       <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
       <move select="Hinge Right" scaleY=".5" />
-      <move select="Hinge Left" />
-      <move select="Dodge Right" />
+      <move select="Hinge Left" beats="4" scaleX="3" />
     </path>
     <path>
       <move select="Swing Left" hands="gripleft" scaleX=".5" scaleY=".5" />
