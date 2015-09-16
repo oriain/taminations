@@ -82,7 +82,7 @@
     </path>
   </tam>
 
-  <tam title="Heads Pass Out" formation="Squared Set" group=" ">
+  <tam title="Heads Pass Out" formation="Squared Set" group="  ">
     <path>
       <move select="Extend Left" beats="2" scaleX="3" scaleY=".5" />
       <move select="Quarter Left" beats="2" offsetX="1" offsetY="-.5" />
@@ -94,6 +94,21 @@
     <path>
     </path>
     <path>
+    </path>
+  </tam>
+
+  <tam title="Sides Pass Out" formation="Squared Set" group="  ">
+    <path>
+    </path>
+    <path>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="3" scaleY=".5" />
+      <move select="Quarter Left" beats="2" offsetX="1" offsetY="-.5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="3" scaleY=".5" />
+      <move select="Quarter Right" beats="2" offsetX="1" offsetY="-.5" />
     </path>
   </tam>
 

@@ -67,7 +67,7 @@
     </path>
   </tam>
 
-  <tam title="Wheel Thru" from="Static Square (Heads)"
+  <tam title="Heads Wheel Thru" group="  "
        formation="Static Square">
     <path>
       <move select="Forward"/>
@@ -81,6 +81,19 @@
     <path/>
   </tam>
 
+  <tam title="Sides Wheel Thru" group="  "
+       formation="Static Square">
+    <path/>
+    <path/>
+    <path>
+      <move select="Forward"/>
+      <movement hands="none" beats="3" cx1="2.4" cy1="0" cx2="3" cy2="-.6" x2="3" y2="-2"/>
+    </path>
+    <path>
+      <move select="Forward"/>
+      <move select="Quarter Right" beats="3" offsetX="1"  />
+    </path>
+  </tam>
 
   <tam title="As Couples Wheel Thru"
        from="Lines"

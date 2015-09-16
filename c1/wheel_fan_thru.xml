@@ -170,6 +170,40 @@
     </path>
   </tam>
 
+  <tam title="Heads Left Wheel Fan Thru"
+       formation="Static Square" group="  ">
+    <path>
+      <move select="Quarter Left" offsetX="2" beats="3"/>
+      <move select="Stand" hands="none" beats="4"/>
+    </path>
+    <path>
+      <move select="HalfHinge Left" beats="2" offsetX="2.6" offsetY=".4" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="HalfHinge Left" beats="2" offsetX=".7" offsetY=".3" />
+    </path>
+    <path>
+    </path>
+    <path>
+    </path>
+  </tam>
+
+  <tam title="Sides Left Wheel Fan Thru"
+       formation="Static Square" group="  ">
+    <path>
+    </path>
+    <path>
+    </path>
+    <path>
+      <move select="Quarter Left" offsetX="2" beats="3"/>
+      <move select="Stand" hands="none" beats="4"/>
+    </path>
+    <path>
+      <move select="HalfHinge Left" beats="2" offsetX="2.6" offsetY=".4" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="HalfHinge Left" beats="2" offsetX=".7" offsetY=".3" />
+    </path>
+  </tam>
+
   <tam title="As Couples Wheel Fan Thru"
        formation="Normal Lines"
        group=" ">

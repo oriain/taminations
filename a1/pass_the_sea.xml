@@ -40,8 +40,7 @@
 
   <tam title="Pass the Sea"
        from="Lines"
-       formation="Normal Lines"
-       parts="" >
+       formation="Normal Lines">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Lead Right" beats="2" scaleY="1.5" />
@@ -62,8 +61,7 @@
 
   <tam title="Pass the Sea"
        from="Eight Chain Thru"
-       formation="Eight Chain Thru"
-       parts="" >
+       formation="Eight Chain Thru" >
     <path>
       <move select="Extend Left" beats="2" scaleY=".5" />
       <move select="Lead Right" beats="2" scaleX=".5" scaleY="1.5" />
@@ -79,6 +77,36 @@
     <path>
       <move select="Extend Left" beats="2" scaleY=".5" />
       <move select="Lead Left" beats="2" scaleX="1.5" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Heads Pass the Sea" formation="Static Square" group="  ">
+    <path>
+      <move select="Extend Left" beats="3" scaleX="3" scaleY=".5" />
+      <move select="Lead Right" beats="2" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="3" scaleY=".5" />
+      <move select="Lead Left" beats="3" scaleX="3" scaleY=".5" />
+    </path>
+    <path>
+    </path>
+    <path>
+    </path>
+  </tam>
+
+  <tam title="Sides Pass the Sea" formation="Static Square" group="  ">
+    <path>
+    </path>
+    <path>
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="3" scaleY=".5" />
+      <move select="Lead Right" beats="2" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="3" scaleX="3" scaleY=".5" />
+      <move select="Lead Left" beats="3" scaleX="3" scaleY=".5" />
     </path>
   </tam>
 
