@@ -25,7 +25,7 @@
   <tam title="Coordinate"
        from="Right-Hand Columns"
        formation="Column RH GBGB"
-       parts="3" difficulty="1">
+       parts="2;1" difficulty="1">
     <path>
       <move select="Flip Right" beats="2" />
       <move select="Forward" />
@@ -52,7 +52,7 @@
   <tam title="Coordinate"
        from="Left-Hand Columns"
        formation="Column LH GBGB"
-       parts="3;4.5" difficulty="2">
+       parts="2;1" difficulty="2">
     <path>
       <move select="Forward 3" />
       <move select="Hinge Left" scaleX=".5" />
@@ -78,7 +78,7 @@
 
   <tam title="Coordinate"
        from="3 and 1 Lines"
-       parts="6" difficulty="3">
+       parts="4;2" difficulty="3">
      <formation>
       <dancer gender="boy" x="-2" y="3" angle="0"/>
       <dancer gender="girl" x="-2" y="1" angle="0"/>
