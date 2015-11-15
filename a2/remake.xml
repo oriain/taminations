@@ -164,7 +164,7 @@
        parts="1.5;3" >
     <path>
       <move select="Hinge Right" />
-      <move select="Run Left" />
+      <move select="Flip Left" />
       <move select="Hinge Right" scaleX="2" scaleY="2" offsetX=".33" offsetY=".33" />
       <move select="Hinge Right" scaleX="2" scaleY="2" offsetX="-.33" offsetY=".33" />
       <move select="Hinge Right" scaleX="2" scaleY="2" offsetX="-.33" offsetY="-.33" />
@@ -185,7 +185,7 @@
     </path>
     <path>
       <move select="Hinge Left" />
-      <move select="Flip Right" />
+      <move select="Run Right" />
       <move select="Hinge Left" scaleX="2" scaleY="2" offsetX=".33" offsetY="-.33" />
       <move select="Hinge Left" scaleX="2" scaleY="2" offsetX="-.33" offsetY="-.33" />
       <move select="Hinge Left" scaleX="2" scaleY="2" offsetX="-.33" offsetY=".33" />
