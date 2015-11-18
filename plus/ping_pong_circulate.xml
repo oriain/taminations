@@ -50,7 +50,7 @@
 
   <tam title="Ping Pong Circulate"
        from="Left-Handed Quarter Tag"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
      <formation>
       <dancer gender="boy" x="-1" y="-3" angle="90"/>
       <dancer gender="girl" x="1" y="-3" angle="90"/>
@@ -76,7 +76,7 @@
 
   <tam title="Ping Pong Circulate"
        from="I Wave"
-       parts="" difficulty="3">
+       fractions="" difficulty="3">
      <formation>
       <dancer gender="boy" x="-3.5" y="1" angle="0"/>
       <dancer gender="girl" x="-3.5" y="-1" angle="0"/>
@@ -102,7 +102,7 @@
   <tam title="Boys Only Ping Pong Circulate"
        from="Quarter Tag"
        formation="Quarter Tag"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Extend Left" beats="3" scaleX="2" scaleY="2" />
       <move select="Forward" />
@@ -120,7 +120,7 @@
   <tam title="Girls Only Ping Pong Circulate"
        from="Quarter Tag"
        formation="Quarter Tag"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
     </path>
     <path>

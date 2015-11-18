@@ -24,7 +24,7 @@
   
   
 
-  <tam title="Explode the Top" from="Lines Facing Out" formation="Lines Facing Out" parts="2;5;4.5;1.5">
+  <tam title="Explode the Top" from="Lines Facing Out" formation="Lines Facing Out" fractions="2;5;4.5;1.5">
     <path>
       <move select="Quarter Left" beats="2" offsetX="-1" offsetY="1"/>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>

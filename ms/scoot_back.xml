@@ -25,7 +25,7 @@
   <tam title="Scoot Back"
        from="Right-Hand Box"
        formation="Box RH"
-       parts="3" difficulty="1">
+       fractions="3" difficulty="1">
     <path>
       <move select="Extend Right" scaleX="2" scaleY=".25" beats="1.5"/>
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
@@ -39,7 +39,7 @@
   <tam title="Scoot Back"
        from="Left-Hand Box"
        formation="Box LH"
-       parts="3" difficulty="2">
+       fractions="3" difficulty="2">
     <path>
       <move select="Flip Left" beats="6" />
     </path>
@@ -53,7 +53,7 @@
   <tam title="Scoot Back"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGBG"
-       parts="3" difficulty="1">
+       fractions="3" difficulty="1">
     <path>
       <move select="Extend Right" scaleX="2" scaleY=".25" beats="1.5"/>
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
@@ -75,7 +75,7 @@
   <tam title="Scoot Back"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGBG"
-       parts="3" difficulty="2">
+       fractions="3" difficulty="2">
     <path>
       <move select="Flip Left" beats="6" />
     </path>
@@ -97,7 +97,7 @@
   <tam title="Scoot Back"
        from="Right-Hand Columns"
        formation="Column RH GBGB"
-       parts="3" difficulty="2">
+       fractions="3" difficulty="2">
     <path>
       <move select="Run Right" beats="6" scaleX=".5" />
     </path>
@@ -119,7 +119,7 @@
   <tam title="Scoot Back"
        from="Left-Hand Columns"
        formation="Column LH GBGB"
-       parts="3" difficulty="2">
+       fractions="3" difficulty="2">
     <path>
       <move select="Extend Left" beats="1.5" scaleY=".5" />
       <move select="Swing Left" scaleX=".5" scaleY=".5" />
@@ -141,7 +141,7 @@
   <tam title="Scoot Back"
        from="Quarter Tag"
        formation="Quarter Tag"
-       parts="3" difficulty="2">
+       fractions="3" difficulty="2">
     <path>
       <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY="1.5" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
@@ -167,7 +167,7 @@
   <tam title="Scoot Back"
        from="Left-Hand Quarter Tag"
        formation="Quarter Tag LH"
-       parts="3" difficulty="3">
+       fractions="3" difficulty="3">
     <path>
       <move select="Forward" beats="1.5" scaleX="1.5" />
       <move select="Swing Left" scaleX=".75" scaleY=".75" />

@@ -42,7 +42,7 @@
   <tam title="Swing Your Corner"
        from="Facing Couples"
        formation="Facing Couples"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" scaleX="1.5" scaleY=".25" />
       <move select="Quarter Right" offsetX=".75" offsetY=".25" />

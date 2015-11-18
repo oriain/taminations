@@ -60,7 +60,7 @@
   <tam title="Ah So"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Run Left" hands="gripleft" scaleY="2" offsetX="1" />
     </path>
@@ -78,7 +78,7 @@
   <tam title="Ah So"
        from="Inverted Lines"
        formation="Inverted Lines Ends Facing Out"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Run Left" hands="gripleft" scaleY="2" offsetX="-1" />
     </path>
@@ -118,7 +118,7 @@
   <tam title="As Couples Ah So"
        from="Two-Faced Tidal Line"
        formation="Two-Faced Tidal Line RH"
-       parts="" group=" ">
+       fractions="" group=" ">
     <path>
       <move select="Run Right" beats="5" hands="gripright" scaleX="2" scaleY="3" offsetX="2" offsetY="-.5" />
     </path>

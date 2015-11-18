@@ -25,7 +25,7 @@
   <tam title="Peel to a Diamond"
        from="Right-Hand Box"
        formation="Box RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward 2" />
       <move select="Hinge Right" />
@@ -38,7 +38,7 @@
   <tam title="Peel to a Diamond"
        from="Left-Hand Box"
        formation="Box LH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Run Right" beats="4" offsetX="-2" />
     </path>
@@ -51,7 +51,7 @@
   <tam title="Peel to a Diamond"
        from="Right-Hand Columns"
        formation="Column RH GBGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Run Left" offsetX="-1" />
     </path>
@@ -71,7 +71,7 @@
   <tam title="Peel to a Diamond"
        from="Left-Hand Columns"
        formation="Column LH GBGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward" />
       <move select="Hinge Left" />
@@ -91,7 +91,7 @@
   <tam title="Peel to a Diamond"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGBG"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
       <move select="Hinge Right" hands="gripright" scaleY=".5" />
@@ -111,7 +111,7 @@
   <tam title="Peel to a Diamond"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGBG"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Flip Right" beats="3" offsetX="-2" offsetY="1.5" />
     </path>
@@ -148,7 +148,7 @@
 
   <tam title="As Couples Peel to a Diamond" group=" "
        formation="Two-Faced Lines RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Right" beats="2" scaleX="2" scaleY="1.5" />
       <move select="Hinge Right" scaleX="3" scaleY="1.5" />

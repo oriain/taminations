@@ -24,7 +24,7 @@
 
   <tam title="Crazy Circulate" group="Crazy"
        formation="Ocean Waves RH BGBG"
-       parts="3;3;3" >
+       fractions="3;3;3" >
     <path>
       <move select="Forward 4" beats="3" />
       <move select="Stand" beats="3" />
@@ -53,7 +53,7 @@
 
   <tam title="Crazy Circulate 3" group="Crazy"
        formation="Ocean Waves RH BGBG"
-       parts="9;9;9" >
+       fractions="9;9;9" >
     <path>
       <move select="Forward 4" beats="3" />
       <move select="Run Right"/>
@@ -106,7 +106,7 @@
 
   <tam title="Crazy Circulate 1-2-2-3" group="Crazy"
        formation="Ocean Waves RH BGBG"
-       parts="3;6;6" >
+       fractions="3;6;6" >
     <path>
       <move select="Forward 4" beats="3" />
       <move select="Stand" hands="none" beats="6" />
@@ -144,7 +144,7 @@
   </tam>
 
   <tam title="Crazy Counter Rotate 1/4" group="Crazy"
-       formation="Two-Faced Tidal Line RH" parts="2;2;2">
+       formation="Two-Faced Tidal Line RH" fractions="2;2;2">
     <path>
       <move select="Lead Right" hands="right" beats="2" scaleX="3" scaleY="1.5" offsetY="-1"/>
       <move select="Stand" beats="2"/>
@@ -174,7 +174,7 @@
 
   <tam title="Crazy Flutterwheel" group="Crazy"
        formation="Normal Lines"
-       parts="8;8;8" >
+       fractions="8;8;8" >
     <path>
       <move select="Forward" hands="nohands" beats="3.5" />
       <move select="Extend Left" hands="right" beats="1.5" scaleX="1.5" scaleY="1.5" />
@@ -228,7 +228,7 @@
 
   <tam title="Crazy Mix" group="Crazy"
        formation="Tidal Wave RH BGGB"
-       parts="3;3;3" >
+       fractions="3;3;3" >
     <path>
       <move select="Dodge Right" beats="1" scaleX=".5" scaleY=".5" />
       <move select="Swing Right" beats="2" scaleX=".5" scaleY=".5" />
@@ -263,7 +263,7 @@
 
   <tam title="Crazy Trade" group="Crazy"
        formation="Lines Facing Out"
-       parts="3;3;3" >
+       fractions="3;3;3" >
     <path>
       <move select="Flip Left" />
       <move select="Run Right" />
@@ -290,7 +290,7 @@
     </path>
   </tam>
 
-  <tam title="Crazy Triangle Circulate" group="Crazy" parts="3;3;3">
+  <tam title="Crazy Triangle Circulate" group="Crazy" fractions="3;3;3">
     <formation>
       <dancer gender="boy" x="-1" y="-3" angle="0"/>
       <dancer gender="girl" x="0" y="-1" angle="180"/>
@@ -323,7 +323,7 @@
     </path>
   </tam>
 
-  <tam title="1/2 Crazy Quarter Thru" group=" " parts="1.5;3;1.5">
+  <tam title="1/2 Crazy Quarter Thru" group=" " fractions="1.5;3;1.5">
     <formation>
       <dancer gender="girl" x="3" y="3" angle="270"/>
       <dancer gender="boy" x="1" y="3" angle="90"/>
@@ -352,7 +352,7 @@
   </tam>
 
   <tam title="1/2 Crazy Right and Left Thru" group=" "
-       formation="Normal Lines" parts="5" >
+       formation="Normal Lines" fractions="5" >
     <path>
       <move select="Pull Left" scaleX="2" scaleY=".5" />
       <move select="Extend Right" scaleX="2" scaleY=".5" />
@@ -386,7 +386,7 @@
 
   <tam title="3/4 Crazy Circulate" group=" "
        formation="Ocean Waves RH BGBG"
-       parts="3;3" >
+       fractions="3;3" >
     <path>
       <move select="Forward 4" beats="3" />
       <move select="Stand" beats="3" />

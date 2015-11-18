@@ -25,7 +25,7 @@
   <tam title="Step to a Wave"
        from="Facing Couples"
        formation="Facing Couples"
-       parts="" difficulty="1">
+       fractions="" difficulty="1">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
     </path>
@@ -37,7 +37,7 @@
   <tam title="Step to a Wave"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="" difficulty="1">
+       fractions="" difficulty="1">
     <path>
       <move select="Extend Left" beats="2" scaleY="2" />
     </path>
@@ -55,7 +55,7 @@
   <tam title="Step to a Wave"
        from="Facing Lines"
        formation="Normal Lines"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
     </path>
@@ -73,7 +73,7 @@
   <tam title="Step to a Left-Hand Wave"
        from="Facing Couples"
        formation="Facing Couples"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Forward 2" />
     </path>
@@ -85,7 +85,7 @@
   <tam title="Step to a Left-Hand Wave"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Forward" beats="2" />
     </path>
@@ -103,7 +103,7 @@
   <tam title="Step to a Left-Hand Wave"
        from="Facing Lines"
        formation="Normal Lines"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
     </path>

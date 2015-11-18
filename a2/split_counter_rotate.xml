@@ -42,7 +42,7 @@
   <tam title="Split Counter Rotate"
        from="Left-Hand Waves"
        formation="Ocean Waves LH GBBG"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Counter Rotate Left 0 2" hands="left" beats="4" offsetX="-1" />
     </path>
@@ -82,7 +82,7 @@
   <tam title="Split Counter Rotate"
        from="Left-Hand Columns"
        formation="Column LH GBGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Counter Rotate Left 2 0" hands="left" beats="4" offsetY="-1" />
     </path>

@@ -25,7 +25,7 @@
   <tam title="Pass Thru"
        from="Facing Couples"
        formation="Facing Couples"
-       parts="" difficulty="1">
+       fractions="" difficulty="1">
     <path>
       <move select="Extend Left" scaleX="2" scaleY=".5" />
       <move select="Extend Right" scaleX="2" scaleY=".5" />
@@ -39,7 +39,7 @@
   <tam title="Pass Thru"
        from="Lines"
        formation="Normal Lines"
-       parts="" difficulty="1">
+       fractions="" difficulty="1">
     <path>
       <move select="Extend Left" scaleX="2" scaleY=".5" />
       <move select="Extend Right" scaleX="2" scaleY=".5" />
@@ -61,7 +61,7 @@
   <tam title="Pass Thru"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="" difficulty="1">
+       fractions="" difficulty="1">
     <path>
       <move select="Extend Left" scaleY=".5" />
       <move select="Extend Right" scaleY=".5" />
@@ -83,7 +83,7 @@
   <tam title="Pass Thru"
        from="Ocean Waves"
        formation="Ocean Waves RH BGGB"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Extend Right" beats="2" scaleY="2" />
     </path>

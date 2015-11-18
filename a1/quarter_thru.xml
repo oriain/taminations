@@ -24,7 +24,7 @@
 
   <tam title="Quarter Thru"
        from="Right-Hand Box"
-       parts="1.5" >
+       fractions="1.5" >
     <formation>
       <dancer gender="boy" y="2" x="1" angle="270"/>
       <dancer gender="girl" y="2" x="-1" angle="90"/>
@@ -41,7 +41,7 @@
   <tam title="Quarter Thru"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="1.5" >
+       fractions="1.5" >
     <path numbers="1 8">
       <move select="Hinge Right" />
       <move select="Swing Left" />
@@ -61,7 +61,7 @@
   <tam title="Quarter Thru"
        from="Columns"
        formation="Column RH GBGB"
-       parts="1.5" >
+       fractions="1.5" >
     <path numbers="2 7">
       <move select="Hinge Right" scaleX=".5" />
     </path>
@@ -81,7 +81,7 @@
   <tam title="Quarter Thru"
        from="Facing Diamonds"
        formation="Diamonds Facing Girl Points"
-       parts="1.5" >
+       fractions="1.5" >
     <path>
       <move select="Hinge Right" />
       <move select="Swing Left" />
@@ -103,7 +103,7 @@
   <tam title="Centers Quarter Thru"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       parts="1.5" >
+       fractions="1.5" >
     <path>
     </path>
     <path>
@@ -120,7 +120,7 @@
   <tam title="Left Quarter Thru"
        from="Left-Hand Box"
        formation="Box LH"
-       parts="1.5" >
+       fractions="1.5" >
     <path>
       <move select="Hinge Left" />
     </path>
@@ -133,7 +133,7 @@
   <tam title="Left Quarter Thru"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       parts="1.5" >
+       fractions="1.5" >
     <path>
       <move select="Hinge Left" />
     </path>
@@ -153,7 +153,7 @@
   <tam title="Left Quarter Thru"
        from="Left-Hand Columns"
        formation="Column LH GBGB"
-       parts="1.5" >
+       fractions="1.5" >
     <path>
       <move select="Hinge Left" scaleX=".5" />
       <move select="Swing Right" scaleX=".5" scaleY=".5" />
@@ -172,7 +172,7 @@
 
   <tam title="Left Quarter Thru"
        from="Facing Diamonds"
-       parts="1.5" >
+       fractions="1.5" >
      <formation>
       <dancer gender="boy" x="0" y="-3" angle="0"/>
       <dancer gender="girl" x="-3" y="-2" angle="90"/>
@@ -197,7 +197,7 @@
     </path>
   </tam>
 
-  <tam title="Any Hand Quarter Thru" parts="1.5" group=" ">
+  <tam title="Any Hand Quarter Thru" fractions="1.5" group=" ">
     <formation>
       <dancer gender="boy" x="3" y="2" angle="90"/>
       <dancer gender="girl" x="1" y="2" angle="270"/>
@@ -222,7 +222,7 @@
 
   <tam title="As Couples Quarter Thru" group=" "
        formation="Two-Faced Lines RH"
-       parts="3" >
+       fractions="3" >
     <path>
       <move select="Hinge Right" beats="3" scaleX="1.5" scaleY="3" />
       <move select="Swing Left" beats="4" scaleX=".5" scaleY=".5" />
@@ -241,7 +241,7 @@
 
   <tam title="All 8 Quarter Thru" group=" "
        formation="Static MiniWaves RH"
-       parts="1.5" >
+       fractions="1.5" >
     <path>
       <move select="Hinge Right" offsetX="1" />
       <move select="Swing Left" />

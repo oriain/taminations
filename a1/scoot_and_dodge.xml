@@ -25,7 +25,7 @@
   <tam title="Scoot and Dodge"
        from="Right-Hand Box"
        formation="Box RH"
-       parts="" >
+       fractions="" >
     <path couples="1 3">
       <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".25" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
@@ -39,7 +39,7 @@
   <tam title="Scoot and Dodge"
        from="Left-Hand Box"
        formation="Box LH"
-       parts="" >
+       fractions="" >
     <path couples="3 1">
       <move select="Dodge Left" />
     </path>
@@ -53,7 +53,7 @@
   <tam title="Scoot and Dodge"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGBG"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".25" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
@@ -75,7 +75,7 @@
   <tam title="Scoot and Dodge"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGBG"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Dodge Left" />
     </path>
@@ -97,7 +97,7 @@
   <tam title="Scoot and Dodge"
        from="Right-Hand Columns"
        formation="Column RH GBGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Dodge Right" />
     </path>
@@ -119,7 +119,7 @@
   <tam title="Scoot and Dodge"
        from="Left-Hand Columns"
        formation="Column LH GBGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" beats="1.5" scaleY=".5" />
       <move select="Swing Left" scaleX=".5" scaleY=".5" />

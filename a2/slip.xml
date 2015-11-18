@@ -28,7 +28,7 @@
   <tam title="Slip"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGBG"
-       parts="1.5" >
+       fractions="1.5" >
     <path>
     </path>
     <path>
@@ -44,7 +44,7 @@
   <tam title="Slip"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGBG"
-       parts="1.5" >
+       fractions="1.5" >
     <path>
     </path>
     <path>
@@ -60,7 +60,7 @@
   <tam title="Slip"
        from="Right-Hand Two-Faced Line"
        formation="Two-Faced Lines RH"
-       parts="1.5" >
+       fractions="1.5" >
     <path>
     </path>
     <path>
@@ -76,7 +76,7 @@
   <tam title="Slip"
        from="Left-Hand Two-Faced Line"
        formation="Two-Faced Lines LH"
-       parts="1.5" >
+       fractions="1.5" >
     <path>
     </path>
     <path>
@@ -92,7 +92,7 @@
   <tam title="Slip"
        from="Right-Hand Tidal Wave"
        formation="Tidal Wave RH BGGB"
-       parts="1.5" >
+       fractions="1.5" >
     <path>
     </path>
     <path>
@@ -108,7 +108,7 @@
   <tam title="Slip"
        from="Left-Hand Tidal Wave"
        formation="Tidal Wave LH BGGB"
-       parts="1.5" >
+       fractions="1.5" >
     <path>
     </path>
     <path>
@@ -124,7 +124,7 @@
   <tam title="As Couples Slip"
        from="Two-Faced Tidal Line"
        formation="Two-Faced Tidal Line RH"
-       parts="2" group=" ">
+       fractions="2" group=" ">
     <path>
     </path>
     <path>
@@ -140,7 +140,7 @@
   <tam title="All 8 Slip"
        from="Thar"
        formation="Thar LH Boys"
-       parts="1.5" group=" ">
+       fractions="1.5" group=" ">
     <path>
       <move select="Swing Left" />
     </path>

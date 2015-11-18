@@ -36,7 +36,7 @@
   </tam>
 
   <tam title="Lockit" from="Left-Hand Wave" formation="Wave LH"
-    parts="">
+    fractions="">
     <path>
       <move select="Lead Left" beats="4" scaleX="3" scaleY="3" />
     </path>
@@ -46,7 +46,7 @@
   </tam>
 
   <tam title="Lockit" from="Two-Faced Line"
-    formation="Two-Faced Line RH" parts="">
+    formation="Two-Faced Line RH" fractions="">
     <path>
       <move select="Lead Right" beats="4" hands="right" scaleX="3"
         scaleY="3" />
@@ -70,7 +70,7 @@
   </tam>
 
   <tam title="Lockit" from="Facing Diamond" formation="Diamond Facing"
-    parts="">
+    fractions="">
     <path>
       <move select="Lead Right" beats="4" scaleX="3" scaleY="3" />
     </path>
@@ -80,7 +80,7 @@
   </tam>
 
   <tam title="Lockit" from="Right-Hand Waves"
-    formation="Ocean Waves RH BGGB" parts="">
+    formation="Ocean Waves RH BGGB" fractions="">
     <path>
       <move select="Lead Right" beats="4" scaleX="1.5" scaleY="3" />
     </path>
@@ -96,7 +96,7 @@
   </tam>
 
   <tam title="Lockit" from="Left-Hand Waves"
-    formation="Ocean Waves LH BGGB" parts="">
+    formation="Ocean Waves LH BGGB" fractions="">
     <path>
       <move select="Lead Left" beats="4" scaleX="1.5" scaleY="3" />
     </path>
@@ -112,7 +112,7 @@
   </tam>
 
   <tam title="Lockit" from="Right-Hand Tidal Wave"
-    formation="Tidal Wave RH BGGB" parts="">
+    formation="Tidal Wave RH BGGB" fractions="">
     <path>
       <move select="Lead Right" beats="4" scaleX="3" scaleY="1.5" />
     </path>
@@ -128,7 +128,7 @@
   </tam>
 
   <tam title="Lockit" from="Left-Hand Tidal Wave"
-    formation="Tidal Wave LH BGGB" parts="">
+    formation="Tidal Wave LH BGGB" fractions="">
     <path>
       <move select="Lead Left" beats="4" scaleX="3" scaleY="1.5" />
     </path>
@@ -144,7 +144,7 @@
   </tam>
 
   <tam title="Lockit" from="Diamonds"
-    formation="Diamonds RH Girl Points" parts="">
+    formation="Diamonds RH Girl Points" fractions="">
     <path numbers="6 3">
       <move select="Quarter Right" hands="right" beats="4" offsetX="1" />
     </path>

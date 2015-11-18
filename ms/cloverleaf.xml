@@ -29,7 +29,7 @@
   <tam title="Cloverleaf"
        from="Completed Double Pass Thru"
        formation="Completed Double Pass Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Right" />
       <move select="Lead Right" beats="2" scaleX="1.5" scaleY="1.5" />
@@ -59,7 +59,7 @@
   <tam title="Cloverleaf"
        from="Trade By"
        formation="Trade By"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Right" />
       <move select="Lead Right" scaleX="2" scaleY="1.5" />

@@ -22,7 +22,7 @@
 -->
 <tamination title="Cross Chain Reaction">
 
-  <tam title="Cross Chain Reaction" from="Quarter Tag" formation="Quarter Tag" parts="5;3">
+  <tam title="Cross Chain Reaction" from="Quarter Tag" formation="Quarter Tag" fractions="5;3">
     <path couples="2 4">
       <move select="Stand" beats="3"/>
       <move select="Hinge Right" beats="2" scaleX="2"/>
@@ -53,7 +53,7 @@
   </tam>
 
   <tam title="Cross Chain Reaction" from="Left-Hand Quarter Tag"
-       formation="Quarter Tag LH" parts="5;3">
+       formation="Quarter Tag LH" fractions="5;3">
     <path>
       <move select="Forward"/>
       <move select="Extend Right" beats="2" scaleX="2" scaleY="2"/>
@@ -86,7 +86,7 @@
   <tam title="Cross Chain Reaction"
        from="Right-Hand Quarter Lines"
        formation="Quarter Lines RH"
-       parts="5;3" >
+       fractions="5;3" >
     <path>
       <move select="Forward"/>
       <move select="Extend Right" beats="2" scaleX="2" scaleY="2"/>
@@ -121,7 +121,7 @@
   <tam title="Cross Chain Reaction"
        from="Left-Hand Quarter Lines"
        formation="Quarter Lines LH"
-       parts="5;3" >
+       fractions="5;3" >
     <path>
       <move select="Stand" beats="3"/>
       <move select="Hinge Right" beats="2" scaleX="2"/>
@@ -155,7 +155,7 @@
 
   <tam title="Cross Chain Reaction"
        from="Mixed Quarter Waves, Centers Right-Handed"
-       parts="5;3" >
+       fractions="5;3" >
     <formation>
       <dancer gender="boy" x="-3" y="1" angle="180"/>
       <dancer gender="girl" x="-3" y="-1" angle="0"/>
@@ -193,7 +193,7 @@
 
   <tam title="Cross Chain Reaction"
        from="Mixed Quarter Waves, Centers Left-Handed"
-       parts="5;3">
+       fractions="5;3">
     <formation>
       <dancer gender="boy" x="-3" y="1" angle="0"/>
       <dancer gender="girl" x="-3" y="-1" angle="180"/>
@@ -228,7 +228,7 @@
   </tam>
 
   <tam title="Cross Chain Reaction" from="Right-Hand Two-Faced Line between Mini-Waves"
-       parts="5;3">
+       fractions="5;3">
      <formation>
       <dancer gender="boy" x="-3" y="1" angle="0"/>
       <dancer gender="girl" x="-3" y="-1" angle="180"/>
@@ -265,7 +265,7 @@
   </tam>
 
   <tam title="Cross Chain Reaction" from="Left-Hand Two-Faced Line between Mini-Waves"
-       parts="5;3">
+       fractions="5;3">
      <formation>
       <dancer gender="boy" x="-3" y="1" angle="180"/>
       <dancer gender="girl" x="-3" y="-1" angle="0"/>

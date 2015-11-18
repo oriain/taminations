@@ -25,7 +25,7 @@
   <tam title="Chain Reaction, But 2/3 Recycle"
        group=" "
        formation="Quarter Tag"
-       parts="3.5;2" >
+       fractions="3.5;2" >
     <path numbers="1 8">
       <move select="Extend Left" beats="2" scaleX="1.5" scaleY=".5" />
       <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".5" />
@@ -52,7 +52,7 @@
   </tam>
 
   <tam title="Chain Reaction, Replace the final Cast Off 3/4 with a Single Wheel"
-       formation="Quarter Tag" group=" " parts="3.5;2">
+       formation="Quarter Tag" group=" " fractions="3.5;2">
     <path numbers="1 8">
       <move select="Extend Left" beats="2" scaleX="1.5" scaleY=".5" />
       <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".5" />
@@ -119,7 +119,7 @@
 
   <tam title="Delete All Arm Turn 1/2's, Spin Chain the Gears"
        formation="Ocean Waves RH BGGB"
-       group=" " parts="4.5;4.5">
+       group=" " fractions="4.5;4.5">
     <path>
       <move select="Stand" beats="2" />
       <move select="Flip Right" beats="2.5" />
@@ -145,7 +145,7 @@
   </tam>
 
   <tam title="Motivate, Replace Turning the Star with a U-Turn Back"
-       formation="Two-Faced Lines RH" group=" " parts="4;4.5;3">
+       formation="Two-Faced Lines RH" group=" " fractions="4;4.5;3">
     <path>
       <move select="Forward 4" hands="right" />
       <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3" />
@@ -174,7 +174,7 @@
 
   <tam title="Pass the Axle, But Skip the Third Part"
        group=" "
-       parts="2;4" >
+       fractions="2;4" >
     <formation>
       <dancer gender="boy" y="3" x="1" angle="270"/>
       <dancer gender="girl" y="3" x="-1" angle="270"/>
@@ -204,7 +204,7 @@
   </tam>
 
   <tam title="Scoot and Plenty, Replace the Box Circulates with a Motivate"
-       formation="Quarter Tag"  group=" " parts="6;6;4;4.5;3;4.5">
+       formation="Quarter Tag"  group=" " fractions="6;6;4;4.5;3;4.5">
     <path>
       <!--  Scoot Back  -->
       <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY="1.5" />
@@ -276,7 +276,7 @@
   <tam title="Swing the Fractions, Replace the Third Part with a Split Circulate"
        group=" "
        formation="Ocean Waves RH BGGB"
-       parts="1.5;3;3;3" >
+       fractions="1.5;3;3;3" >
     <path numbers="1 8" couples="2 4">
       <move select="Hinge Right" />
       <move select="Swing Left" />
@@ -309,7 +309,7 @@
 
   <tam title="Tally Ho, But Explode the Wave"
        formation="Ocean Waves RH BGGB"
-       parts="2;3" group=" ">
+       fractions="2;3" group=" ">
     <path numbers="1 8">
       <move select="Forward 2" />
       <move select="Hinge Right" />

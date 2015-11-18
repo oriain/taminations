@@ -27,7 +27,7 @@
   <tam title="Delight"
        from="3/4 Tag"
        formation="3/4 Tag"
-       parts="3;3;3" >
+       fractions="3;3;3" >
     <path>
       <move select="Quarter Right" offsetY="-1" />
       <move select="Lead Right" beats="4" scaleX="2" scaleY="3" />
@@ -56,7 +56,7 @@
   <tam title="Dilemma"
        from="3/4 Tag"
        formation="3/4 Tag"
-       parts="3;3;3" >
+       fractions="3;3;3" >
     <path>
       <move select="Quarter Left" offsetY="1" />
       <move select="Forward 2" beats="4" />

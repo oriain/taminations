@@ -54,8 +54,7 @@
 
   <tam title="Shakedown"
        from="Lines Facing Out"
-       formation="Lines Facing Out"
-       parts="" >
+       formation="Lines Facing Out">
     <path>
       <move select="U-Turn Right" offsetX="-1.5" offsetY="-1" />
       <move select="Lead Right" scaleX="1.5" />
@@ -76,8 +75,7 @@
 
   <tam title="Left Shakedown"
        from="Trade By"
-       formation="Trade By"
-       parts="" >
+       formation="Trade By">
     <path>
       <move select="Flip Left" />
       <move select="Quarter Left" offsetY="-1" />
@@ -98,8 +96,7 @@
 
   <tam title="Left Shakedown"
        from="Lines Facing Out"
-       formation="Lines Facing Out"
-       parts="" >
+       formation="Lines Facing Out">
     <path>
       <move select="Flip Left" />
       <move select="Quarter Left" offsetX="1" />
@@ -269,7 +266,7 @@
   <tam title="As Couples Left Shakedown"
        from="Lines Facing Out"
        formation="Lines Facing Out"
-       parts="" group=" ">
+       group=" ">
     <path>
       <move select="Run Left" hands="left" scaleX="3" scaleY="3" offsetX="1" />
       <move select="Hinge Left" scaleX="2" scaleY="2" offsetY="-1" />
@@ -291,7 +288,7 @@
   <tam title="Concentric Left Shakedown"
        from="Completed Double Pass Thru"
        formation="Completed Double Pass Thru"
-       parts="" group=" ">
+       group=" ">
     <path>
       <move select="Flip Left" offsetX="-1" offsetY="1" />
       <move select="Quarter Left" offsetX="1" offsetY="-1" />
@@ -313,7 +310,7 @@
   <tam title="Stretch Left Shakedown (from columns)"
        from="Trade By"
        formation="Trade By"
-       parts="" group=" ">
+       group=" ">
     <path>
       <move select="Flip Left" />
       <move select="Quarter Left" offsetY="-1" />
@@ -335,7 +332,7 @@
   <tam title="Stretch Left Shakedown (from lines)"
        from="Lines Facing Out"
        formation="Lines Facing Out"
-       parts="" group=" ">
+       group=" ">
     <path>
       <move select="Flip Left" scaleY="2" />
       <move select="Quarter Left" offsetX="1" />

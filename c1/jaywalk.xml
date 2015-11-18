@@ -24,8 +24,7 @@
 
   <tam title="Boys Jaywalk"
        from="Waves"
-       formation="Ocean Waves RH BGBG"
-       parts="" >
+       formation="Ocean Waves RH BGBG" >
     <path>
       <move select="Forward" />
       <move select="Extend Right" beats="3" scaleX="3" scaleY="2" />
@@ -42,8 +41,7 @@
 
   <tam title="Jaywalk"
        from="Quarter Tag"
-       formation="Quarter Tag"
-       parts="" >
+       formation="Quarter Tag" >
     <path numbers="1 8">
       <move select="Pass Thru" beats="3" scaleX="1.5" />
     </path>
@@ -62,8 +60,7 @@
 
   <tam title="Jaywalk"
        from="Facing Diamonds"
-       formation="Diamonds Facing Girl Points"
-       parts="" >
+       formation="Diamonds Facing Girl Points" >
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Lead Right" scaleY="1.5" />

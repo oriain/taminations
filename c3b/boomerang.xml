@@ -22,7 +22,7 @@
 -->
 <tamination title="Boomerang">
 
-  <tam title="Boomerang" from="Right-Hand Box" parts="3">
+  <tam title="Boomerang" from="Right-Hand Box" fractions="3">
     <formation>
       <dancer gender="boy" y="2" x="1" angle="270"/>
       <dancer gender="girl" y="-2" x="1" angle="270"/>
@@ -39,7 +39,7 @@
   </tam>
 
   <tam title="Boomerang" from="Left-Hand Box"
-       formation="Box LH" parts="3">
+       formation="Box LH" fractions="3">
     <path>
       <move select="Run Right" offsetX="-2" />
       <move select="Run Right" offsetX="2" />
@@ -51,7 +51,7 @@
     </path>
   </tam>
 
-  <tam title="Boomerang" from="T-Bone Box" parts="3">
+  <tam title="Boomerang" from="T-Bone Box" fractions="3">
     <formation>
       <dancer gender="boy" y="1" x="1" angle="0"/>
       <dancer gender="girl" y="-1" x="1" angle="90"/>
@@ -110,7 +110,7 @@
   </tam>
 
   <tam title="Tandem Twosome Boomerang" group=" "
-       formation="Column RH GBGB" parts="3">
+       formation="Column RH GBGB" fractions="3">
     <path>
       <move select="Run Left" offsetX="-2" />
       <move select="Run Left" offsetX="2" />

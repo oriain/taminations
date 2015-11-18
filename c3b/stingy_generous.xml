@@ -23,7 +23,7 @@
 <tamination title="Stingy | Generous anything">
 
   <tam title="Generous Dixie Style to a Wave" group="Generous"
-       formation="Double Pass Thru" parts="2">
+       formation="Double Pass Thru" fractions="2">
     <path>
       <move select="Stand" beats="2"/>
       <move select="Forward" beats="2"/>
@@ -69,7 +69,7 @@
   <tam title="Generous Mix" group="Generous"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="3" >
+       fractions="3" >
     <path>
       <move select="Dodge Right" />
       <move select="Cast Right" />
@@ -86,7 +86,7 @@
     </path>
   </tam>
 
-  <tam title="Generous Reset" group="Generous" parts="3;3;3"
+  <tam title="Generous Reset" group="Generous" fractions="3;3;3"
        formation="Column RH GBGB">
     <path>
       <move select="Run Left" offsetX="-1"/>
@@ -253,7 +253,7 @@
   </tam>
 
   <tam title="Stingy Spin the Top" group="Stingy"
-       formation="Box RH" parts="2">
+       formation="Box RH" fractions="2">
     <path>
       <move select="Hinge Right" beats="2"/>
       <move select="Cast Left" beats="4"/>
@@ -265,7 +265,7 @@
   </tam>
 
   <tam title="Stingy Split Square Chain Thru" group="Stingy"
-       parts="1;2;6" >
+       fractions="1;2;6" >
      <formation>
       <dancer gender="boy" x="-1" y="3" angle="0"/>
       <dancer gender="girl" x="1" y="3" angle="180"/>
@@ -312,7 +312,7 @@
            xref-from="Right-Hand Waves"/>
 
   <tam title="Finally Stingy Spin the Top" group=" "
-       formation="Facing Couples" parts="3;3">
+       formation="Facing Couples" fractions="3;3">
     <path>
       <move select="Extend Left" beats="3" scaleX="2" scaleY="2"/>
       <move select="Swing Right"/>

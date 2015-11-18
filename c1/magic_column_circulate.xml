@@ -24,7 +24,7 @@
 
   <tam title="Magic Column Circulate"
        from="Magic Column Right-Hand Centers"
-       parts="2" >
+       fractions="2" >
     <formation>
       <dancer gender="boy" x="-3" y="-1" angle="0"/>
       <dancer gender="boy" x="-1" y="-1" angle="180"/>
@@ -50,7 +50,7 @@
   <tam title="Magic Column Circulate"
        from="Magic Column Left-Hand Centers"
        formation="Magic Column LH"
-       parts="2" >
+       fractions="2" >
     <path numbers="2 7">
       <move select="Flip Right" beats="4" />
     </path>

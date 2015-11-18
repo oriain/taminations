@@ -34,7 +34,7 @@
   <tam title="Switch to a Diamond"
        from="Right-Hand Waves"
        formation="Ocean Waves RH GBBG"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Right" scaleY="3" beats="3" />
     </path>
@@ -52,7 +52,7 @@
   <tam title="Switch to a Diamond"
        from="Left-Hand Waves"
        formation="Ocean Waves LH GBBG"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Left" scaleY="3" beats="3" />
     </path>
@@ -70,7 +70,7 @@
   <tam title="Switch to a Diamond"
        from="Right-Hand Tidal Wave"
        formation="Tidal Wave RH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Right" beats="3" scaleY="1.5" />
     </path>
@@ -88,7 +88,7 @@
   <tam title="Switch to a Diamond"
        from="Left-Hand Tidal Wave"
        formation="Tidal Wave LH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Left" beats="3" scaleY="1.5" />
     </path>

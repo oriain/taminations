@@ -23,7 +23,7 @@
 <tamination title="Cross Flip The Line">
 
   <tam title="Cross Flip the Line" from="Right-Hand Two-Faced Line"
-       formation="Two-Faced Line RH" parts="4.5;1;1">
+       formation="Two-Faced Line RH" fractions="4.5;1;1">
     <path>
       <move select="Lead Right"/>
       <move select="Forward 2" beats="3"/>
@@ -41,7 +41,7 @@
   </tam>
 
   <tam title="Cross Flip the Line" from="Left-Hand Two-Faced Line"
-       formation="Two-Faced Line LH" parts="4.5;1;1">
+       formation="Two-Faced Line LH" fractions="4.5;1;1">
     <path>
       <move select="Lead Left"/>
       <move select="Run Left" scaleY=".5" offsetX="2"/>

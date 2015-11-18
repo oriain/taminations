@@ -37,7 +37,7 @@
   <tam title="Wheel and Deal"
        from="Left-Hand Two-Faced Line"
        formation="Two-Faced Line LH"
-       parts="" difficulty="1">
+       fractions="" difficulty="1">
     <path>
       <move select="U-Turn Left" beats="4" hands="right" offsetX="2" />
     </path>

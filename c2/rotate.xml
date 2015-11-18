@@ -41,7 +41,7 @@
   </path>
   </tam>
 
-  <tam title="Rotate 1/2" formation="Normal Lines" group=" " parts="4.5">
+  <tam title="Rotate 1/2" formation="Normal Lines" group=" " fractions="4.5">
   <path>
     <move select="Hinge Right"/>
     <move select="Hinge Left" beats="3" hands="both" scaleX=".5"/>
@@ -64,7 +64,7 @@
   </path>
   </tam>
 
-  <tam title="Rotate 3/4" formation="Normal Lines" group=" " parts="4.5;3">
+  <tam title="Rotate 3/4" formation="Normal Lines" group=" " fractions="4.5;3">
   <path>
     <move select="Hinge Right"/>
     <move select="Hinge Left" beats="3" hands="both" scaleX=".5"/>
@@ -91,7 +91,7 @@
   </path>
   </tam>
 
-  <tam title="Rotate 1/2 and Spread" formation="Normal Lines" group="  " parts="4.5;3">
+  <tam title="Rotate 1/2 and Spread" formation="Normal Lines" group="  " fractions="4.5;3">
   <path>
     <move select="Hinge Right"/>
     <move select="Hinge Left" beats="3" hands="both" scaleX=".5"/>
@@ -114,7 +114,7 @@
   </path>
   </tam>
 
-  <tam title="Rotate 1/2 and Roll" formation="Normal Lines" group="  " parts="4.5;3">
+  <tam title="Rotate 1/2 and Roll" formation="Normal Lines" group="  " fractions="4.5;3">
   <path>
     <move select="Hinge Right"/>
     <move select="Hinge Left" beats="3" hands="both" scaleX=".5"/>

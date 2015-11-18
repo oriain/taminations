@@ -25,7 +25,7 @@
   <tam title="File to a Line"
        from="Right-Hand Columns"
        formation="Column RH GBGB"
-       parts="" >
+       fractions="" >
     <path numbers="2 7">
       <move select="Dodge Left" offsetX="-1" />
     </path>
@@ -43,7 +43,7 @@
   <tam title="File to a Line"
        from="Left-Hand Columns"
        formation="Column LH GBGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Dodge Right" offsetX="1" />
     </path>
@@ -61,7 +61,7 @@
   <tam title="File to a Line"
        from="Double Pass Thru"
        formation="Double Pass Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Dodge Left" offsetX="1" />
     </path>
@@ -81,7 +81,7 @@
   <tam title="File to a Line"
        from="Completed Double Pass Thru"
        formation="Completed Double Pass Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Dodge Right" offsetX="-1" />
     </path>
@@ -99,7 +99,7 @@
   <tam title="File to a Line"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Dodge Left" offsetX="1" />
     </path>
@@ -117,7 +117,7 @@
   <tam title="File to a Line"
        from="Trade By"
        formation="Trade By"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Dodge Right" offsetX="-1" />
     </path>

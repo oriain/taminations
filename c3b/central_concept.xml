@@ -43,7 +43,7 @@
   </tam>
 
   <tam title="Central Counter" group="Central"
-       formation="Ocean Waves RH BGBG" parts="4.5">
+       formation="Ocean Waves RH BGBG" fractions="4.5">
     <path>
       <move select="Cast Right"/>
       <move select="Lead Right" beats="3" scaleX="1.5" scaleY="3"/>
@@ -176,7 +176,7 @@
   </tam>
 
   <tam title="Each Wave Central Counter" group=" "
-       formation="Ocean Waves RH BGBG" parts="4.5">
+       formation="Ocean Waves RH BGBG" fractions="4.5">
     <path>
       <move select="Cast Right"/>
       <move select="Counter Rotate Right 0 -2" offsetX="-1" hands="right"/>

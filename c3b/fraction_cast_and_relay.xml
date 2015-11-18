@@ -23,7 +23,7 @@
 <tamination title="fraction Cast and Relay">
 
   <tam title="1/4 Cast and Relay" from="Right-Hand Waves"
-       parts="1.5;4.5;3">
+       fractions="1.5;4.5;3">
     <formation>
       <dancer gender="boy" y="2" x="3" angle="270"/>
       <dancer gender="girl" y="2" x="1" angle="90"/>
@@ -85,7 +85,7 @@
   </tam>
 
   <tam title="1/2 Cast and Relay" from="Right-Hand Waves"
-       formation="Ocean Waves RH BGGB" parts="3;4.5;3">
+       formation="Ocean Waves RH BGGB" fractions="3;4.5;3">
     <path>
       <move select="Swing Right"/>
       <move select="Cast Left"/>
@@ -113,7 +113,7 @@
   </tam>
 
   <tam title="1/2 Cast and Relay" from="Left-Hand Waves"
-       formation="Ocean Waves LH BGGB" parts="3;4.5;3">
+       formation="Ocean Waves LH BGGB" fractions="3;4.5;3">
     <path>
       <move select="Swing Left"/>
       <move select="Cast Right"/>
@@ -141,7 +141,7 @@
   </tam>
 
   <tam title="3/4 Cast and Relay" from="Right-Hand Waves"
-       formation="Ocean Waves RH BGGB" parts="3;4.5;4.5">
+       formation="Ocean Waves RH BGGB" fractions="3;4.5;4.5">
     <path>
       <move select="Cast Right"/>
       <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3"/>
@@ -169,7 +169,7 @@
   </tam>
 
   <tam title="3/4 Cast and Relay" from="Left-Hand Waves"
-       formation="Ocean Waves LH BGGB" parts="3;4.5;4.5">
+       formation="Ocean Waves LH BGGB" fractions="3;4.5;4.5">
     <path>
       <move select="Cast Left"/>
       <move select="Cast Right"/>

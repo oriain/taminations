@@ -27,7 +27,7 @@
   <tam title="Right-Hand Galaxy" group=" "
        from="Right-Hand Galaxy"
        formation="Galaxy RH GP"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Stand"/>
     </path>
@@ -42,7 +42,7 @@
   <tam title="Left-Hand Galaxy" group=" "
        from="Left-Hand Galaxy"
        formation="Galaxy LH GP"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Stand"/>
     </path>

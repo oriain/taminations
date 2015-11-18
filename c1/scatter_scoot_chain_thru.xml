@@ -21,13 +21,11 @@
 
 -->
 <tamination title="Scatter Scoot Chain Thru">
-  
-  
-
+ 
   <tam title="Scatter Scoot Chain Thru"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGBG"
-       parts="" >
+       parts="2;3;3;3" >
     <path>
       <move select="Forward 2" />
       <move select="Swing Right" />
@@ -53,7 +51,7 @@
   <tam title="Scatter Scoot Chain Thru"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGBG"
-       parts="" >
+       parts="2;3;3;3" >
     <path>
       <move select="Run Left" beats="6" scaleX="2" scaleY="3" />
     </path>

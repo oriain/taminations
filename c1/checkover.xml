@@ -62,7 +62,7 @@
   <tam title="Checkover"
        from="Left-Hand Columns"
        formation="Column LH GBGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward 2" />
       <move select="Hinge Left" scaleX=".5" />

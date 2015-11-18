@@ -22,7 +22,7 @@
 -->
 <tamination title="Secondly | Thirdly | Fourthly anyConcept anything">
 
-  <tam title="Secondly Generous Crazy Hinge" group="Secondly" parts="2;3;2"
+  <tam title="Secondly Generous Crazy Hinge" group="Secondly" fractions="2;3;2"
        formation="Ocean Waves RH BGGB">
     <path>
       <move select="Hinge Right" beats="2"/>
@@ -48,7 +48,7 @@
     </path>
   </tam>
 
-  <tam title="Secondly Split Turn the Key" group="Secondly" parts="3;2"
+  <tam title="Secondly Split Turn the Key" group="Secondly" fractions="3;2"
        formation="Ocean Waves RH BGGB">
     <path>
       <move select="Swing Right"/>
@@ -72,7 +72,7 @@
     </path>
   </tam>
 
-  <tam title="Secondly Tandem Reset" group="Secondly" parts="3;3;3">
+  <tam title="Secondly Tandem Reset" group="Secondly" fractions="3;3;3">
     <formation>
       <dancer gender="girl" y="1" x="1" angle="270"/>
       <dancer gender="boy" y="3" x="1" angle="270"/>
@@ -106,7 +106,7 @@
   </tam>
 
   <tam title="Thirdly Tandem Reset" group="Thirdly"
-       formation="Ocean Waves RH BGGB" parts="3;1.5;5">
+       formation="Ocean Waves RH BGGB" fractions="3;1.5;5">
     <path couples="2 4">
       <move select="Extend Right" beats="3" scaleX="2" scaleY=".5"/>
       <move select="Hinge Left" scaleY=".5"/>
@@ -135,7 +135,7 @@
     </path>
   </tam>
 
-  <tam title="Fourthly Tandem Swing the Fractions" group="Fourthly" parts="2;3;5;4"
+  <tam title="Fourthly Tandem Swing the Fractions" group="Fourthly" fractions="2;3;5;4"
        formation="Ocean Waves RH BGGB">
     <path couples="2 4">
       <move select="Hinge Right" beats="2"/>

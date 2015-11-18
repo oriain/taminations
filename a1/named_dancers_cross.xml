@@ -25,7 +25,7 @@
   <tam title="Beaus Cross"
        from="Facing Couples"
        formation="Facing Couples"
-       parts="" >
+       fractions="" >
     <path>
       <movement hands="left" beats="2" cx1="1" cy1="0" cx2=".8" cy2="-2" x2="4" y2="-2"
                                        cx3="1" cx4="1" cy4="-.4" x4="2" y4="-.4" />
@@ -38,7 +38,7 @@
   <tam title="Beaus Cross"
        from="Normal Lines"
        formation="Normal Lines"
-       parts="" >
+       fractions="" >
     <path>
       <movement hands="left" beats="2" cx1="1" cy1="0" cx2=".8" cy2="-2" x2="4" y2="-2"
                                        cx3="1" cx4="1" cy4="-.4" x4="2" y4="-.4" />
@@ -58,7 +58,7 @@
   <tam title="Belles Cross"
        from="Facing Couples"
        formation="Facing Couples"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Stand" beats="2" hands="none"/>
     </path>
@@ -71,7 +71,7 @@
   <tam title="Belles Cross"
        from="Normal Lines"
        formation="Normal Lines"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Stand" beats="2" hands="none"/>
     </path>

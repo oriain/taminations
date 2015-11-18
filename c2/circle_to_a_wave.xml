@@ -25,7 +25,7 @@
   <tam title="Circle to a Wave"
        from="Facing Couples"
        formation="Facing Couples"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Eighth Right" offsetX="1" />
       <move select="Counter Rotate Left 1.414 1.414" hands="both" beats="1.5"/>

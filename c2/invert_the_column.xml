@@ -23,7 +23,7 @@
 <tamination title="Invert the Column 1/4, 1/2, 3/4, Full">
 
   <tam title="Invert the Column" from="Right-Hand Columns"
-       formation="Column RH GBGB" parts="5;3;3">
+       formation="Column RH GBGB" fractions="5;3;3">
     <path numbers="2 7" couples="4 2">
       <move select="Run Left" offsetX="-1"/>
       <move select="Forward 2"/>
@@ -52,7 +52,7 @@
   </tam>
 
   <tam title="Invert the Column" from="Left-Hand Columns"
-       formation="Column LH GBGB" parts="5;3;3">
+       formation="Column LH GBGB" fractions="5;3;3">
     <path>
       <move select="Forward" beats="5"/>
       <move select="Forward" beats="3"/>
@@ -81,7 +81,7 @@
   </tam>
 
 
-  <tam title="Colums of 3 Invert the Column" parts="4;3" group=" ">
+  <tam title="Colums of 3 Invert the Column" fractions="4;3" group=" ">
     <formation>
       <dancer gender="boy" x="-2" y="1" angle="0"/>
       <dancer gender="girl" x="0" y="1" angle="0"/>
@@ -113,7 +113,7 @@
   </tam>
 
   <tam title="Magic Column Invert the Column" from="Right-Hand Columns"
-       parts="5;3;4" group=" ">
+       fractions="5;3;4" group=" ">
     <formation>
       <dancer gender="boy" x="-3" y="1" angle="0"/>
       <dancer gender="girl" x="-1" y="-1" angle="0"/>

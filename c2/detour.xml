@@ -63,7 +63,7 @@
   <tam title="Detour"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Run Right" beats="2" offsetX="-2" offsetY="1" />
       <move select="Hinge Right" />
@@ -83,7 +83,7 @@
   <tam title="Detour"
        from="Left-Hand Two-Faced Lines"
        formation="Two-Faced Lines LH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Run Right" beats="2" offsetX="-2" offsetY="1" />
       <move select="Hinge Right" />

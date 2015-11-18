@@ -25,7 +25,7 @@
   <tam title="Box Recycle"
        from="Right-Hand Box"
        formation="Box RH"
-       parts="" >
+       fractions="" >
     <path numbers="1 4">
       <move select="U-Turn Right" beats="4" hands="gripright" offsetX="2" />
     </path>
@@ -37,7 +37,7 @@
   <tam title="Box Recycle"
        from="Left-Hand Box"
        formation="Box LH"
-       parts="" >
+       fractions="" >
     <path numbers="1 4">
       <move select="Run Left" beats="4" hands="gripleft" scaleX="2" scaleY="2" offsetX="-2" />
     </path>
@@ -49,7 +49,7 @@
   <tam title="Split Recycle"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGBG"
-       parts="" >
+       fractions="" >
     <path>
       <move select="U-Turn Right" beats="4" hands="gripright" offsetX="2" offsetY="-.5" />
     </path>
@@ -67,7 +67,7 @@
   <tam title="Split Recycle"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGBG"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Run Left" beats="4" hands="gripleft" scaleX="1.5" scaleY="2" offsetX="-2" offsetY="-1.5" />
     </path>
@@ -85,7 +85,7 @@
   <tam title="Split Recycle"
        from="Right-Hand Columns"
        formation="Column RH GBGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Run Right" beats="4" hands="gripright" scaleX="2" scaleY="2" offsetX="-1" />
     </path>
@@ -103,7 +103,7 @@
   <tam title="Split Recycle"
        from="Left-Hand Columns"
        formation="Column LH GBGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="U-Turn Left" beats="4" hands="gripleft" offsetX="1" />
     </path>

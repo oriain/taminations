@@ -53,7 +53,7 @@
   <tam title="Cross Your Neighbor"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGBG"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Right" beats="2" scaleX="2" scaleY="1.75" />
       <move select="Swing Left" scaleX=".75" scaleY=".75" />
@@ -77,7 +77,7 @@
   <tam title="Cross Your Neighbor"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGBG"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Left" beats="3" scaleX="2" />
       <move select="Run Left" beats="3.5" scaleY=".5" />

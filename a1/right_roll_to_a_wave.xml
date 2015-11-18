@@ -47,7 +47,7 @@
   <tam title="Right Roll to a Wave"
        from="Left-Hand Box"
        formation="Box LH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Run Right" beats="3" offsetX="-2" />
     </path>
@@ -260,7 +260,7 @@
 
   <tam title="Right Roll to a Wave Three Times"
        from="Single File Dancers"
-       parts="2;3">
+       fractions="2;3">
      <formation>
       <dancer gender="boy" x="-2.5" y="0" angle="180"/>
       <dancer gender="girl" x="-3.5" y="0" angle="180"/>
@@ -292,7 +292,7 @@
   <tam title="As Couples Right Roll to a Wave"
        from="Lines Facing Out"
        formation="Lines Facing Out"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Beau Wheel" reflect="-1" hands="gripleft" offsetX="-2" offsetY="-1.5" />
     </path>
@@ -310,7 +310,7 @@
   <tam title="As Couples Right Roll to a Wave"
        from="Two-Faced Lines"
        formation="Two-Faced Lines LH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Beau Wheel" reflect="-1" hands="gripleft" offsetX="-2" offsetY="-1.5" />
     </path>
@@ -328,7 +328,7 @@
   <tam title="All 8 Right Roll to a Wave"
        from="Couples Facing Out"
        formation="Static Facing Out"
-       parts="" >
+       fractions="" >
     <path>
       <move select="U-Turn Right" beats="4" offsetX="-3" />
     </path>

@@ -25,7 +25,7 @@
   <tam title="Cross Trail Thru"
        from="Facing Couples"
        formation="Facing Couples"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" scaleX="2" scaleY=".5" beats="2"/>
       <movement beats="4" hands="none" cx1="1" cy1="0" cx2="0" cy2="-2.5" x2="2" y2="-2.5"
@@ -64,7 +64,7 @@
   <tam title="Cross Trail Thru"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" scaleY=".5" beats="2"/>
       <movement beats="4" hands="none" cx1="1" cy1="0" cx2="0" cy2="-2.5" x2="1" y2="-2.5"
@@ -90,7 +90,7 @@
   <tam title="Cross Trail Thru"
        from="Ocean Waves"
        formation="Ocean Waves RH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <movement beats="4" hands="none" cx1="1" cy1="0" cx2="0" cy2="-4" x2="1" y2="-4"
                 cx3="1" cx4="1" cy4="-.5" x4="2" y4="-.5"/>

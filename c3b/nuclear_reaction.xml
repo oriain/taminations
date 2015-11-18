@@ -22,7 +22,7 @@
 -->
 <tamination title="Nuclear Reaction">
 
-  <tam title="Nuclear Reaction" from="1/4 Tag" formation="Quarter Tag" parts="3;5">
+  <tam title="Nuclear Reaction" from="1/4 Tag" formation="Quarter Tag" fractions="3;5">
     <path couples="2 4">
       <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5"/>
       <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".5"/>
@@ -51,7 +51,7 @@
   </tam>
 
   <tam title="Nuclear Reaction" from="Left-Hand 1/4 Tag"
-       formation="Quarter Tag LH" parts="3;5">
+       formation="Quarter Tag LH" fractions="3;5">
     <path>
       <move select="Stand" beats="3"/>
       <move select="Forward 5"/>
@@ -80,7 +80,7 @@
   </tam>
 
   <tam title="Nuclear Reaction" from="Quarter Lines"
-       formation="Quarter Lines RH" parts="3;5">
+       formation="Quarter Lines RH" fractions="3;5">
     <path>
       <move select="Stand" beats="3"/>
       <move select="Forward 5"/>
@@ -110,7 +110,7 @@
     </path>
   </tam>
 
-  <tam title="Cross Nuclear Reaction" from="1/4 Tag" formation="Quarter Tag" parts="3;5">
+  <tam title="Cross Nuclear Reaction" from="1/4 Tag" formation="Quarter Tag" fractions="3;5">
     <path>
       <move select="Stand" beats="3"/>
       <move select="Forward 5"/>
@@ -138,7 +138,7 @@
     </path>
   </tam>
 
-  <tam title="Cross Nuclear Reaction" from="Two-Faced Line Between Mini-Waves" parts="3;5">
+  <tam title="Cross Nuclear Reaction" from="Two-Faced Line Between Mini-Waves" fractions="3;5">
     <formation>
       <dancer gender="boy" x="0" y="3" angle="0"/>
       <dancer gender="girl" x="0" y="1" angle="0"/>

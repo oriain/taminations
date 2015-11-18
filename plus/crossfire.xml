@@ -25,7 +25,7 @@
   <tam title="Crossfire"
        from="Right-Hand Two-Faced Line"
        formation="Two-Faced Line RH"
-       parts="" difficulty="1">
+       fractions="" difficulty="1">
     <path>
       <move select="Run Right" beats="6" scaleX="2" scaleY="2" offsetX="2" />
     </path>
@@ -38,7 +38,7 @@
   <tam title="Crossfire"
        from="Left-Hand Two-Faced Line"
        formation="Two-Faced Line LH"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Swing Left" beats="3.5"/>
       <move select="Forward 2" beats="2.5"/>
@@ -51,7 +51,7 @@
   <tam title="Crossfire"
        from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       parts="" difficulty="1">
+       fractions="" difficulty="1">
     <path>
       <move select="Run Right" beats="4" scaleY="2" offsetX="1" />
     </path>
@@ -111,7 +111,7 @@
   <tam title="Crossfire"
        from="Lines Facing Out"
        formation="Lines Facing Out"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Run Left" beats="5" scaleY="2" offsetX="1" />
     </path>
@@ -136,7 +136,7 @@
   <tam title="Crossfire"
        from="Inverted Lines, Centers Facing In"
        formation="Inverted Lines Ends Facing Out"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Run Left" beats="4" scaleY="2" offsetX="1"/>
       <move select="Forward" beats="2"/>
@@ -158,7 +158,7 @@
   <tam title="Crossfire"
        from="Inverted Lines, Centers Facing Out"
        formation="Inverted Lines Ends Facing In"
-       parts="" difficulty="3">
+       fractions="" difficulty="3">
     <path>
       <move select="Run Right" beats="4" scaleX="1" scaleY="2" offsetX="1"/>
       <move select="Extend Left" beats="2" scaleY="2"/>
@@ -180,7 +180,7 @@
   <tam title="Crossfire"
        from="Lines Facing In"
        formation="Normal Lines"
-       parts="" difficulty="3">
+       fractions="" difficulty="3">
     <path>
       <move select="Run Right" beats="4" scaleY="2" offsetX="1" />
     </path>
@@ -198,7 +198,7 @@
   <tam title="Crossfire"
        from="Tidal Lines"
        formation="Tidal Line RH"
-       parts="" difficulty="3">
+       fractions="" difficulty="3">
     <path>
       <move select="Run Right" beats="5" scaleX="2" offsetX="2" offsetY="-.5" />
     </path>
@@ -216,7 +216,7 @@
   <tam title="Crossfire"
        from="Tidal Inverted Lines"
        formation="Tidal Inverted Line RH"
-       parts="" difficulty="3">
+       fractions="" difficulty="3">
     <path>
       <move select="Run Right" beats="4"   offsetY="-.5" offsetX="1"/>
       <move select="Extend Left" beats="2" scaleY=".5"/>
@@ -238,7 +238,7 @@
   <tam title="Crossfire"
        from="Facing Diamonds"
        formation="Diamonds Facing Girl Points"
-       parts="" difficulty="3">
+       fractions="" difficulty="3">
     <path>
       <move select="Swing Right" hands="gripright" scaleY=".75" />
       <move select="Extend Left" scaleY=".5" />

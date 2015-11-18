@@ -25,7 +25,7 @@
   <tam title="Acey Deucey"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="2" difficulty="1">
+       fractions="2" difficulty="1">
     <path>
       <move select="Forward 4" />
     </path>
@@ -43,7 +43,7 @@
   <tam title="Acey Deucey"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       parts="2" difficulty="1">
+       fractions="2" difficulty="1">
     <path>
       <move select="Run Left" beats="4" scaleX="2" scaleY="3" />
     </path>
@@ -61,7 +61,7 @@
   <tam title="Acey Deucey"
        from="Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       parts="2" difficulty="1">
+       fractions="2" difficulty="1">
     <path>
       <move select="Forward 4" />
     </path>
@@ -77,7 +77,7 @@
   </tam>
 
   <tam title="Acey Deucey" from="Lines Facing In"
-       formation="Normal Lines" parts="2" difficulty="2">
+       formation="Normal Lines" fractions="2" difficulty="2">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
@@ -97,7 +97,7 @@
   <tam title="Acey Deucey"
        from="Lines Facing Out"
        formation="Lines Facing Out"
-       parts="2" difficulty="2">
+       fractions="2" difficulty="2">
     <path>
       <move select="Run Left" beats="4" scaleX="2" scaleY="3" />
     </path>
@@ -115,7 +115,7 @@
   <tam title="Acey Deucey"
        from="Inverted Lines"
        formation="Inverted Lines Ends Facing In"
-       parts="2" difficulty="2">
+       fractions="2" difficulty="2">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
@@ -134,7 +134,7 @@
 
   <tam title="Acey Deucey"
        from="3 and 1 Lines"
-       parts="2" difficulty="2">
+       fractions="2" difficulty="2">
      <formation>
       <dancer gender="boy" x="-2" y="3" angle="0"/>
       <dancer gender="girl" x="-2" y="1" angle="0"/>
@@ -186,7 +186,7 @@
     </path>
   </tam>
 
-  <tam title="Acey Deucey" from="3/4 Tag" formation="3/4 Tag" parts="1.5" difficulty="3">
+  <tam title="Acey Deucey" from="3/4 Tag" formation="3/4 Tag" fractions="1.5" difficulty="3">
     <path>
       <move select="Flip Left"/>
     </path>
@@ -204,7 +204,7 @@
   <tam title="Acey Deucey"
        from="Diamonds"
        formation="Diamonds RH Girl Points"
-       parts="2" difficulty="3">
+       fractions="2" difficulty="3">
     <path>
       <move select="Swing Right" beats="4" />
     </path>
@@ -223,7 +223,7 @@
   <tam title="Acey Deucey"
        from="Interlocked Diamonds"
        formation="Interlocked Diamonds RH Girl Points"
-       parts="" difficulty="3">
+       fractions="" difficulty="3">
     <path>
       <move select="Run Right" beats="4" />
     </path>
@@ -242,7 +242,7 @@
   <tam title="Acey Deucey Once and a Half"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="4" difficulty="2">
+       fractions="4" difficulty="2">
     <path>
       <move select="Forward 4" />
       <move select="Lead Right" beats="2" scaleX="3" scaleY="3"/>

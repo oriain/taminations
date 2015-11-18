@@ -42,7 +42,7 @@
   <tam title="Three by Two Acey Deucey"
        from="Left-Hand Diamonds"
        formation="Diamonds LH Girl Points"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Left" beats="4" scaleX="3" />
     </path>
@@ -60,7 +60,7 @@
   <tam title="Three by Two Acey Deucey"
        from="Point-to-Point Diamonds"
        formation="Diamonds RH PTP Girl Points"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Flip Right" />
     </path>
@@ -78,7 +78,7 @@
   <tam title="Three by Two Acey Deucey"
        from="Right-Hand Hourglass"
        formation="Hourglass RH BP"
-       parts="" >
+       fractions="" >
     <path numbers="3 6">
       <move select="Lead Right" beats="4" scaleY="3" />
     </path>
@@ -96,7 +96,7 @@
   <tam title="Three by Two Acey Deucey"
        from="Left-Hand Hourglass"
        formation="Hourglass LH BP"
-       parts="" >
+       fractions="" >
     <path>
       <move select="U-Turn Left" beats="5" offsetY="6" />
     </path>

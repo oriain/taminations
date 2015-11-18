@@ -24,7 +24,7 @@
   
   
 
-  <tam title="Cross the K" from="Lines" formation="Normal Lines" parts="5">
+  <tam title="Cross the K" from="Lines" formation="Normal Lines" fractions="5">
     <path>
 	  <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
 	  <move select="Extend Right" beats="2" scaleY="2.5"/>

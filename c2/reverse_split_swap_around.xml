@@ -25,7 +25,7 @@
   <tam title="Reverse Split Swap Around"
        from="Facing Couples"
        formation="Facing Couples"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Quarter Left" beats="3" offsetX="3" offsetY="1" />
     </path>
@@ -37,7 +37,7 @@
   <tam title="Reverse Split Swap Around"
        from="Normal Lines"
        formation="Normal Lines"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Quarter Left" beats="3" offsetX="3" />
     </path>
@@ -55,7 +55,7 @@
   <tam title="Reverse Split Swap Around"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Quarter Left" beats="3" offsetX="2" offsetY="1" />
     </path>

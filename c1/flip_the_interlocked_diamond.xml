@@ -25,7 +25,7 @@
   <tam title="Flip the Interlocked Diamond"
        from="Right-Hand Interlocked Diamonds"
        formation="Interlocked Diamonds RH Girl Points"
-       parts="" >
+       fractions="" >
     <path numbers="6 3">
       <move select="Lead Right" beats="2" scaleX="3" />
     </path>
@@ -43,7 +43,7 @@
   <tam title="Flip the Interlocked Diamond"
        from="Left-Hand Interlocked Diamonds"
        formation="Interlocked Diamonds LH Girl Points"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Left" beats="2" scaleX="3" />
     </path>
@@ -64,7 +64,7 @@
   <tam title="Flip the Interlocked Diamond"
        from="Right-Hand Point-to-Point Interlocked Diamonds"
        formation="Interlocked Diamonds RH PTP Girl Points"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Right" beats="3" scaleX="3.5" />
     </path>
@@ -82,7 +82,7 @@
   <tam title="Flip the Interlocked Diamond"
        from="Left-Hand Point-to-Point Interlocked Diamonds"
        formation="Interlocked Diamonds LH PTP Girl Points"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Left" scaleX=".5" />
     </path>

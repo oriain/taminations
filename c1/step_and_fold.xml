@@ -47,7 +47,7 @@
   <tam title="Step and Fold"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Flip Right" offsetX="1" />
     </path>
@@ -65,7 +65,7 @@
   <tam title="Step and Fold"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Flip Left" offsetX="1" />
     </path>
@@ -100,7 +100,7 @@
   <tam title="Step and Fold"
        from="Right-Hand Diamonds"
        formation="Diamonds RH Girl Points"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward" />
     </path>
@@ -118,7 +118,7 @@
   <tam title="Step and Fold"
        from="Left-Hand Diamonds"
        formation="Diamonds LH Girl Points"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward" />
     </path>
@@ -136,7 +136,7 @@
   <tam title="Step and Fold"
        from="Right-Hand Point-to-Point Diamonds"
        formation="Diamonds RH PTP Girl Points"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward 2" />
     </path>

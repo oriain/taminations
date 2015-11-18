@@ -25,7 +25,7 @@
   <tam title="Split Trade Circulate"
        from="Inverted Lines Ends Facing Out"
        formation="Inverted Lines Ends Facing Out"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Run Left" beats="4" />
     </path>
@@ -45,7 +45,7 @@
   <tam title="Split Trade Circulate"
        from="Inverted Lines Ends Facing In"
        formation="Inverted Lines Ends Facing In"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward" />
       <move select="Extend Right" beats="3" scaleX="3" scaleY="2" />

@@ -22,7 +22,7 @@
 -->
 <tamination title="Release Anything">
 
-  <tam title="Release Ah So" group="Release" parts="3"
+  <tam title="Release Ah So" group="Release" fractions="3"
        formation="Quarter Tag">
     <path>
       <move select="Extend Left" beats="3" scaleX="3" scaleY="2"/>
@@ -42,7 +42,7 @@
     </path>
   </tam>
 
-  <tam title="Release Crossfire" group="Release" parts="3">
+  <tam title="Release Crossfire" group="Release" fractions="3">
     <formation>
       <dancer gender="boy" x="-3" y="1" angle="180"/>
       <dancer gender="girl" x="-3" y="-1" angle="0"/>
@@ -69,7 +69,7 @@
     </path>
   </tam>
 
-  <tam title="Release Cycle and Wheel" group="Release" parts="3">
+  <tam title="Release Cycle and Wheel" group="Release" fractions="3">
     <formation>
       <dancer gender="girl" x="0" y="1" angle="0"/>
       <dancer gender="boy" x="0" y="3" angle="0"/>
@@ -95,7 +95,7 @@
     </path>
   </tam>
 
-  <tam title="Release Left Turn and Deal" group="Release" parts="3">
+  <tam title="Release Left Turn and Deal" group="Release" fractions="3">
     <formation>
       <dancer gender="boy" x="-3" y="1" angle="180"/>
       <dancer gender="girl" x="-3" y="-1" angle="0"/>
@@ -120,7 +120,7 @@
     </path>
   </tam>
 
-  <tam title="Release Linear Cycle" group="Release" parts="3;1.5;3"
+  <tam title="Release Linear Cycle" group="Release" fractions="3;1.5;3"
        formation="Quarter Tag">
     <path>
       <move select="Extend Left" beats="3" scaleX="3" scaleY="2"/>
@@ -150,7 +150,7 @@
     </path>
   </tam>
 
-  <tam title="Release Offset Waves Out Roll Circulate" group="Release" parts="3">
+  <tam title="Release Offset Waves Out Roll Circulate" group="Release" fractions="3">
     <formation>
       <dancer gender="girl" x="0" y="1" angle="180"/>
       <dancer gender="boy" x="0" y="3" angle="0"/>

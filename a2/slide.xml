@@ -28,7 +28,7 @@
   <tam title="Slide"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGBG"
-       parts="1.5" >
+       fractions="1.5" >
     <path>
       <move select="BackSashay Right" scaleX="2" />
     </path>
@@ -46,7 +46,7 @@
   <tam title="Slide"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGBG"
-       parts="1.5" >
+       fractions="1.5" >
     <path>
       <move select="BackSashay Left" scaleX="2" />
     </path>
@@ -64,7 +64,7 @@
   <tam title="Slide"
        from="Inverted Lines"
        formation="Inverted Lines Ends Facing Out"
-       parts="1.5" >
+       fractions="1.5" >
     <path>
       <move select="BackSashay Left" scaleX="2" />
     </path>
@@ -82,7 +82,7 @@
   <tam title="Slide"
        from="Right-Hand Tidal Wave"
        formation="Tidal Wave RH BGGB"
-       parts="1.5" >
+       fractions="1.5" >
     <path>
       <move select="BackSashay Right" scaleX="1.5" scaleY=".5" />
     </path>
@@ -100,7 +100,7 @@
   <tam title="Slide"
        from="Left-Hand Tidal Wave"
        formation="Tidal Wave LH BGGB"
-       parts="1.5" >
+       fractions="1.5" >
     <path>
       <move select="BackSashay Left" scaleX="1.5" scaleY=".5" />
     </path>
@@ -118,7 +118,7 @@
   <tam title="As Couples Slide"
        from="Two-Faced Tidal Line"
        formation="Two-Faced Tidal Line RH"
-       parts="2" group=" ">
+       fractions="2" group=" ">
     <path>
       <move select="BackSashay Right" beats="4" scaleX="2" />
     </path>
@@ -136,7 +136,7 @@
   <tam title="All 8 Slide"
        from="Thar"
        formation="Thar LH Boys"
-       parts="1.5" group=" ">
+       fractions="1.5" group=" ">
     <path>
       <move select="BackSashay Right" scaleX="1.5" />
     </path>

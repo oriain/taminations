@@ -25,7 +25,7 @@
   <tam title="Wheel And Spin the Top"
        from="Trade By"
        formation="Trade By" group="Wheel And"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Left" hands="left" beats="3" scaleY="3" />
       <move select="Lead Left" beats="3" scaleX="2" scaleY="2" />

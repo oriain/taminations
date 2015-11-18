@@ -23,7 +23,7 @@
 <tamination title="Chisel Thru">
 
   <tam title="Chisel Thru"
-       from="Normal Lines" parts="5;2.5">
+       from="Normal Lines" fractions="5;2.5">
      <formation>
       <dancer gender="boy" x="3" y="2" angle="270"/>
       <dancer gender="girl" x="1" y="2" angle="270"/>

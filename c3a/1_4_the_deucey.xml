@@ -23,7 +23,7 @@
 <tamination title="1/4 the Deucey">
 
   <tam title="1/4 the Deucey" from="Right-Hand Waves"
-       formation="Ocean Waves RH GBGB" parts="2;2;2">
+       formation="Ocean Waves RH GBGB" fractions="2;2;2">
     <path couples="4 2">
       <move select="Hinge Right" beats="2"/>
       <move select="Hinge Left" beats="2"/>
@@ -49,7 +49,7 @@
   </tam>
 
   <tam title="1/4 the Deucey" from="Left-Hand Waves"
-       formation="Ocean Waves LH BGGB" parts="2;2;2">
+       formation="Ocean Waves LH BGGB" fractions="2;2;2">
     <path>
       <move select="Hinge Left" beats="2"/>
       <move select="Extend Left" beats="2" scaleX="2" scaleY="2"/>

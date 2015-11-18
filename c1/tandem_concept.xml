@@ -41,7 +41,7 @@
   <tam title="Tandem Box Circulate" group="Tandem"
        from=""
        formation="Column RH GBGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Run Right" />
       <move select="Forward 2" />
@@ -89,7 +89,7 @@
   <tam title="Tandem Cast Off 3/4" group="Tandem"
        from=""
        formation="Column RH GBGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Counter Rotate Right 0 -2" hands="right"/>
       <move select="Counter Rotate Right 0 -2" hands="right"/>
@@ -115,7 +115,7 @@
   <tam title="Tandem Centers Run" group="Tandem"
        from=""
        formation="Ocean Waves RH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Dodge Right" beats="6" />
     </path>
@@ -220,7 +220,7 @@
   <tam title="Tandem Pass the Ocean" group="Tandem"
        from=""
        formation="Double Pass Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" scaleY=".5" />
       <move select="Forward 4" />
@@ -243,7 +243,7 @@
     </path>
   </tam>
 
-  <tam title="Tandem Quarter Thru" group="Tandem" parts="2">
+  <tam title="Tandem Quarter Thru" group="Tandem" fractions="2">
      <formation>
       <dancer gender="girl" x="-1" y="3" angle="90"/>
       <dancer gender="boy" x="-1" y="1" angle="90"/>
@@ -330,7 +330,7 @@
   </tam>
 
   <tam title="Tandem Square Chain Thru" group="Tandem"
-       formation="Double Pass Thru" parts="5;4;4">
+       formation="Double Pass Thru" fractions="5;4;4">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY="1.5"/>
       <move select="Counter Rotate Right 2 0" offsetY="-1.5" beats="3"/>
@@ -377,7 +377,7 @@
 
   <tam title="Tandem Swing Thru" group="Tandem"
        formation="Ocean Waves RH BGGB"
-       parts="4" >
+       fractions="4" >
     <path numbers="2 7">
       <move select="Counter Rotate Right 2 0" hands="right" offsetX="1"/>
       <move select="Counter Rotate Right 2 0" hands="right" offsetY="1"/>
@@ -437,7 +437,7 @@
   <tam title="Tandem Zoom" group="Tandem"
        from=""
        formation="Column RH GBGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Flip Left" beats="2" scaleX=".75" scaleY=".75" />
       <move select="Forward 6" />

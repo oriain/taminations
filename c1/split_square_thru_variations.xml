@@ -24,8 +24,7 @@
 
   <tam title="Split Square Chain the Top"
        from="Ends Facing"
-       formation="T-Bone ULRU"
-       parts="" >
+       formation="T-Bone ULRU">
     <path>
       <move select="Pull Left" scaleY=".5" />
       <move select="Lead Right" scaleX=".5" scaleY="1.5" />
@@ -62,8 +61,7 @@
 
   <tam title="Split Square Chain the Top"
        from="Centers Facing"
-       formation="T-Bone RUUL"
-       parts="" >
+       formation="T-Bone RUUL">
     <path>
       <move select="Stand" />
       <move select="Extend Right" beats="1.5" scaleY=".5" />
@@ -100,8 +98,7 @@
 
   <tam title="Split Square Chain the Top"
        from="Left Side of Line Facing"
-       formation="T-Bone RLUU"
-       parts="" >
+       formation="T-Bone RLUU">
     <path>
       <move select="Pull Left" scaleY=".5" />
       <move select="Lead Left" scaleX="1.5" scaleY=".5" />
@@ -138,8 +135,7 @@
 
   <tam title="Split Dixie Style to a Wave"
        from="Ends Facing"
-       formation="T-Bone ULRU"
-       parts="" >
+       formation="T-Bone ULRU">
     <path>
       <move select="Pull Left" scaleY=".5" />
       <move select="Lead Right"/>
@@ -166,8 +162,7 @@
 
   <tam title="Split Dixie Style to a Wave"
        from="Centers Facing"
-       formation="T-Bone RUUL"
-       parts="" >
+       formation="T-Bone RUUL">
     <path>
       <move select="Stand" beats="2.5"/>
       <move select="Extend Right" scaleX=".75"/>
@@ -194,8 +189,7 @@
 
   <tam title="Split Dixie Style to a Wave"
        from="Left Side of Line Facing"
-       formation="T-Bone RLUU"
-       parts="" >
+       formation="T-Bone RLUU">
     <path>
       <move select="Pull Left" scaleY=".5" />
       <move select="Quarter Left" offsetX="1"/>
@@ -222,8 +216,7 @@
 
   <tam title="Split Dixie Diamond"
        from="Ends Facing"
-       formation="T-Bone ULRU"
-       parts="" >
+       formation="T-Bone ULRU">
     <path>
       <move select="Pull Left" scaleY=".5" />
       <move select="Lead Right"/>
@@ -254,8 +247,7 @@
 
   <tam title="Split Dixie Diamond"
        from="Centers Facing"
-       formation="T-Bone RUUL"
-       parts="" >
+       formation="T-Bone RUUL">
     <path>
       <move select="Stand" beats="2.5"/>
       <move select="Extend Right" scaleX=".75"/>

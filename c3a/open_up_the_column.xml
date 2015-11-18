@@ -22,7 +22,7 @@
 -->
 <tamination title="Open Up the Column">
 
-  <tam title="Open Up the Column" from="Right-Hand Columns" formation="Column RH GBGB" parts="3;4.5">
+  <tam title="Open Up the Column" from="Right-Hand Columns" formation="Column RH GBGB" fractions="3;4.5">
     <formation name="Column RH GBGB">
       <dancer gender="girl" y="3" x="-1" angle="90"/>
       <dancer gender="boy" y="1" x="-1" angle="90"/>

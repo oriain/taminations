@@ -158,7 +158,7 @@
   <tam title="Flip the Diamond"
        from="Point-to-Point Diamonds"
        formation="Diamonds RH PTP Girl Points"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Lead Right" beats="3" scaleX="2.5" />
     </path>

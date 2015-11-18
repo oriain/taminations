@@ -29,7 +29,7 @@
   <tam title="Swing Thru"
        from="Right-Hand Wave"
        formation="Wave RH"
-       parts="1.5;1.5;1.5" >
+       fractions="1.5;1.5;1.5" >
     <path>
       <move select="Swing Right" />
       <move select="Swing Left" />
@@ -42,7 +42,7 @@
   <tam title="Swing Thru"
        from="Left-Hand Wave"
        formation="Wave LH"
-       parts="1.5;1.5;1.5" >
+       fractions="1.5;1.5;1.5" >
     <path>
       <move select="Stand" beats="3" />
       <move select="Swing Left" />
@@ -56,7 +56,7 @@
   <tam title="Swing Thru"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="1.5;1.5;1.5" >
+       fractions="1.5;1.5;1.5" >
     <path>
       <move select="Swing Right" />
       <move select="Swing Left" />
@@ -76,7 +76,7 @@
   <tam title="Swing Thru"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       parts="1.5;1.5;1.5" >
+       fractions="1.5;1.5;1.5" >
     <path>
       <move select="Stand" beats="3" />
       <move select="Swing Left" />
@@ -98,7 +98,7 @@
   <tam title="Swing Thru"
        from="Right-Hand Tidal Wave"
        formation="Tidal Wave RH BGGB"
-       parts="1.5;1.5;1.5" >
+       fractions="1.5;1.5;1.5" >
     <path>
       <move select="Swing Right" scaleX=".75" scaleY=".5" />
       <move select="Swing Left" scaleX=".75" scaleY=".5" />
@@ -118,7 +118,7 @@
   <tam title="Swing Thru"
        from="Left-Hand Tidal Wave"
        formation="Tidal Wave LH BGGB"
-       parts="1.5;1.5;1.5" >
+       fractions="1.5;1.5;1.5" >
     <path>
       <move select="Stand" beats="3" hands="nohands" />
       <move select="Swing Left" scaleX=".75" scaleY=".5" />
@@ -140,7 +140,7 @@
   <tam title="Swing Thru"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" scaleY="2" />
       <move select="Swing Right" />
@@ -164,7 +164,7 @@
     </taminator>
   </tam>
 
-  <tam title="Swing Thru" from="Quarter Tag" formation="Quarter Tag" parts="1.5;1.5;1.5">
+  <tam title="Swing Thru" from="Quarter Tag" formation="Quarter Tag" fractions="1.5;1.5;1.5">
     <path>
     </path>
     <path>
@@ -186,7 +186,7 @@
   <tam title="Alamo Swing Thru"
        from="Alamo Wave"
        formation="Alamo Wave"
-       parts="1.6;1.6;1.6" >
+       fractions="1.6;1.6;1.6" >
     <path>
       <move select="Sxtnth Left" />
       <move select="Swing Right" />
@@ -224,7 +224,7 @@
   <tam title="Left Swing Thru"
        from="Left-Hand Wave"
        formation="Wave LH"
-       parts="1.5;1.5;1.5" >
+       fractions="1.5;1.5;1.5" >
     <path>
       <move select="Swing Left" />
       <move select="Swing Right" />
@@ -237,7 +237,7 @@
   <tam title="Left Swing Thru"
        from="Right-Hand Wave"
        formation="Wave RH"
-       parts="1.5;1.5;1.5" >
+       fractions="1.5;1.5;1.5" >
     <path>
       <move select="Stand" beats="3" />
       <move select="Swing Right" />
@@ -251,7 +251,7 @@
   <tam title="Left Swing Thru"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       parts="1.5;1.5;1.5" >
+       fractions="1.5;1.5;1.5" >
     <path>
       <move select="Swing Left" />
       <move select="Swing Right" />
@@ -273,7 +273,7 @@
   <tam title="Left Swing Thru"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="1.5;1.5;1.5" >
+       fractions="1.5;1.5;1.5" >
     <path>
       <move select="Stand" beats="3" />
       <move select="Swing Right" />
@@ -295,7 +295,7 @@
   <tam title="Left Swing Thru"
        from="Left-Hand Tidal Wave"
        formation="Tidal Wave LH BGGB"
-       parts="1.5;1.5;1.5" >
+       fractions="1.5;1.5;1.5" >
     <path>
       <move select="Swing Left" scaleX=".75" scaleY=".5" />
       <move select="Swing Right" scaleX=".75" scaleY=".5" />
@@ -317,7 +317,7 @@
   <tam title="Left Swing Thru"
        from="Right-Hand Tidal Wave"
        formation="Tidal Wave RH BGGB"
-       parts="1.5;1.5;1.5" >
+       fractions="1.5;1.5;1.5" >
     <path>
       <move select="Stand" beats="3" hands="nohands" />
       <move select="Swing Right" scaleX=".75" scaleY=".5" />
@@ -339,7 +339,7 @@
   <tam title="Left Swing Thru"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward" />
       <move select="Swing Left" />
@@ -368,7 +368,7 @@
   <tam title="Alamo Left Swing Thru"
        from="Alamo Wave"
        formation="Alamo Wave"
-       parts="1.6;1.6;1.6" >
+       fractions="1.6;1.6;1.6" >
     <path>
       <move select="Sxtnth Right" />
       <move select="Swing Left" />

@@ -25,7 +25,7 @@
   <tam title="Chain Reaction"
        from="Right-Hand Quarter Lines"
        formation="Quarter Lines RH"
-       parts="3;1.5;2" >
+       fractions="3;1.5;2" >
     <path numbers="1 8" couples="2 4">
       <move select="Stand" beats="3" />
       <move select="Hinge Right" scaleX="2"/>
@@ -60,7 +60,7 @@
   <tam title="Chain Reaction"
        from="Left-Hand Quarter Lines"
        formation="Quarter Lines LH"
-       parts="3;1.5;2" >
+       fractions="3;1.5;2" >
     <path couples="2 4">
       <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5" />
       <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".5" />
@@ -95,7 +95,7 @@
   <tam title="Chain Reaction"
        from="Right-Hand Quarter Waves"
        formation="Quarter Wave RH"
-       parts="3;2;3">
+       fractions="3;2;3">
     <path couples="2 4">
       <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5" />
       <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".5" />
@@ -128,7 +128,7 @@
   <tam title="Chain Reaction"
        from="Left-Hand Quarter Waves"
        formation="Quarter Wave LH"
-       parts="3;2;2" >
+       fractions="3;2;2" >
     <path couples="2 4">
       <move select="Stand" beats="3"/>
       <move select="Quarter Left" beats="2" offsetX="-2" offsetY="1" />
@@ -157,7 +157,7 @@
   </tam>
 
   <tam title="Chain Reaction" from="Right-Hand Two-Faced Line between Mini-Waves"
-       parts="3;2;3">
+       fractions="3;2;3">
      <formation>
       <dancer gender="boy" x="-3" y="1" angle="180"/>
       <dancer gender="girl" x="-3" y="-1" angle="0"/>
@@ -196,7 +196,7 @@
   </tam>
 
   <tam title="Chain Reaction" from="Left-Hand Two-Faced Line between Mini-Waves"
-       parts="3;2;3">
+       fractions="3;2;3">
      <formation>
       <dancer gender="boy" x="-3" y="1" angle="0"/>
       <dancer gender="girl" x="-3" y="-1" angle="180"/>

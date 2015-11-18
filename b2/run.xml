@@ -234,7 +234,7 @@
   <tam title="Girls Run"
        from="Facing Couples"
        formation="Facing Couples" gender-specific="true"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Dodge Right" beats="4" />
     </path>

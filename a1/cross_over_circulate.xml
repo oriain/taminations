@@ -25,7 +25,7 @@
   <tam title="Cross Over Circulate"
        from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       parts="3" >
+       fractions="3" >
     <path numbers="1 8" couples="2 4">
       <move select="Extend Right" beats="3" scaleX="1.5" />
       <move select="Extend Right" beats="3" scaleX="2.5" />
@@ -49,7 +49,7 @@
   <tam title="Cross Over Circulate"
        from="Left-Hand Two-Faced Lines"
        formation="Two-Faced Lines LH"
-       parts="3" >
+       fractions="3" >
     <path numbers="1 8">
       <move select="Quarter Left" offsetX=".1" offsetY="1" />
       <move select="Forward 2" beats="3" />
@@ -73,7 +73,7 @@
   <tam title="Cross Over Circulate"
        from="Lines Facing Out"
        formation="Lines Facing Out"
-       parts="3" >
+       fractions="3" >
     <path>
       <move select="Quarter Left" offsetX=".1" offsetY="1" />
       <move select="Forward 2" beats="3" />
@@ -99,7 +99,7 @@
   <tam title="Cross Over Circulate"
        from="Facing Lines"
        formation="Normal Lines"
-       parts="3" >
+       fractions="3" >
     <path>
       <move select="Extend Left" scaleX="2" scaleY=".5" beats="2"/>
       <movement beats="4" hands="none" cx1="1" cy1="0" cx2="0" cy2="-2.5" x2="2" y2="-2.5"
@@ -162,7 +162,7 @@
   <tam title="Cross Over Circulate"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="3" >
+       fractions="3" >
     <path numbers="1 8" couples="2 4">
       <move select="Forward" beats="1.5" />
       <move select="Extend Right" beats="4.5" scaleX="3" scaleY="2" />
@@ -182,7 +182,7 @@
   <tam title="Cross Over Circulate"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGBG"
-       parts="3" >
+       fractions="3" >
     <path>
       <move select="Run Left" beats="6" scaleX=".5" scaleY="2" />
     </path>

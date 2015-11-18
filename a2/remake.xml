@@ -22,9 +22,6 @@
 -->
 <tamination title="Remake">
 
-
-
-
   <tam title="Remake" from="Right-Hand Box" formation="Box RH" parts="1.5;3">
     <path>
       <move select="Hinge Right" />

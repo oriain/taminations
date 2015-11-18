@@ -56,7 +56,7 @@
   <tam title="Reverse Cross and Turn"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="U-Turn Right" />
     </path>

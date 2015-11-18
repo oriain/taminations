@@ -45,7 +45,7 @@
   <tam title="Unwrap the Diamond"
        from="Left-Hand Diamonds"
        formation="Diamonds LH Girl Points"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Left" beats="3" />
       <move select="Forward 3" />
@@ -66,7 +66,7 @@
   <tam title="Unwrap the Hourglass"
        from="Right-Hand Hourglass"
        formation="Hourglass RH BP"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Right" beats="3" scaleY="3" />
       <move select="Lead Right" beats="2" />
@@ -88,7 +88,7 @@
   <tam title="Unwrap the Hourglass"
        from="Left-Hand Hourglass"
        formation="Hourglass LH BP"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" beats="6" scaleX="5" scaleY="2" />
     </path>

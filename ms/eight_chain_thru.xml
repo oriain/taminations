@@ -29,7 +29,7 @@
   <tam title="Eight Chain Thru"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="2.5;2.5;2.5;2.5;2.5;2.5;2.5" >
+       fractions="2.5;2.5;2.5;2.5;2.5;2.5;2.5" >
     <path>
       <move select="Pull Left" beats="1.25" scaleY=".5" />
       <move select="Extend Right" beats="1.25" scaleY=".5" />

@@ -24,7 +24,7 @@
 
   <tam title="Flutterwheel and Sweep a Quarter" group=" "
        formation="Facing Couples"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward" hands="nohands" beats="3.5" />
       <move select="Extend Left" hands="right" beats="1.5" scaleX="1.5" scaleY="1.5" />
@@ -43,7 +43,7 @@
   <tam title="Ferris Wheel, Centers Sweep a Quarter" group=" "
        from="Right-Handed Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Run Right" beats="4" hands="gripright" scaleX="2" scaleY="2" offsetX="3" />
       <move select="Counter Rotate Right 2 0" hands="right"/>
@@ -63,7 +63,7 @@
   <tam title="Flutterwheel and Sweep a Quarter" group=" "
        from="Lines"
        formation="Normal Lines"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward" hands="nohands" beats="3.5" />
       <move select="Extend Left" hands="right" beats="1.5" scaleX="1.5" scaleY="1.5" />
@@ -93,7 +93,7 @@
   <tam title="Recycle and Sweep a Quarter" group=" "
        from="Ocean Waves"
        formation="Ocean Waves RH BGGB"
-       parts="4" >
+       fractions="4" >
     <path>
       <move select="Run Right" beats="4" offsetX="1" offsetY="-2" />
       <move select="Counter Rotate Right 2 0" hands="right" offsetY="1"/>
@@ -117,7 +117,7 @@
   <tam title="Reverse Flutterwheel and Sweep a Quarter" group=" "
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Right" beats="2" scaleY="1.5" />
       <move select="Swing Left" hands="both" scaleX=".5" scaleY=".5" />
@@ -147,7 +147,7 @@
   <tam title="Wheel and Deal, Centers Sweep a Quarter" group=" "
        from="Lines Facing Out"
        formation="Lines Facing Out"
-       parts="4" >
+       fractions="4" >
     <path>
       <move select="Run Left" beats="4" hands="left" scaleY="2" offsetX="-1" />
       <move select="Counter Rotate Left 2 0" hands="left"/>

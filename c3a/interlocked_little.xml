@@ -96,7 +96,7 @@
     </path>
   </tam>
 
-  <tam title="Interlocked Scoot and Little" from="Right-Hand Quarter Line" formation="Quarter Lines RH" parts="8">
+  <tam title="Interlocked Scoot and Little" from="Right-Hand Quarter Line" formation="Quarter Lines RH" fractions="8">
     <path>
       <move select="Forward" beats="2" scaleX="1.5" />
       <move select="Swing Right" scaleX=".5" scaleY=".5"/>
@@ -125,7 +125,7 @@
     </path>
   </tam>
 
-  <tam title="Interlocked Scoot and Little" from="Left-Hand Quarter Line" formation="Quarter Lines LH" parts="8">
+  <tam title="Interlocked Scoot and Little" from="Left-Hand Quarter Line" formation="Quarter Lines LH" fractions="8">
     <path>
       <move select="Forward" beats="2" scaleX="1.5" />
       <move select="Swing Left" scaleX=".5" scaleY=".5"/>

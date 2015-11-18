@@ -47,7 +47,7 @@
   <tam title="Pass and Roll"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" scaleY=".5" />
       <move select="Forward 2" />

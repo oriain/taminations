@@ -68,7 +68,7 @@
   <tam title="Finish a Linear Cycle"
        group="Finish a"
        formation="Ocean Waves RH BGGB"
-       parts="4" >
+       fractions="4" >
     <path>
       <move select="Forward 4" />
       <move select="Run Right" />
@@ -90,7 +90,7 @@
   </tam>
 
   <tam title="Finish a Load the Boat" group="Finish a"
-       formation="Lines Facing Out" parts="2;3">
+       formation="Lines Facing Out" fractions="2;3">
     <path>
       <move select="Lead Left" scaleX="1.5" scaleY="3.5" beats="2" />
       <move select="Lead Left" scaleX="2.5" scaleY="3.5" beats="2.5" />
@@ -115,7 +115,7 @@
 
   <tam title="Finish a Motivate" group="Finish a"
        formation="Ocean Waves RH BGGB"
-       parts="4.5;3" >
+       fractions="4.5;3" >
     <path numbers="4 5" couples="3 1">
       <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2" />
       <move select="Swing Right" />

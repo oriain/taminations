@@ -47,7 +47,7 @@
   <tam title="Square Thru 3 to a Wave" group=" "
        from="Facing Couples"
        formation="Facing Couples"
-       parts="2;1.5">
+       fractions="2;1.5">
     <path numbers="1 4">
       <move select="Forward" />
       <move select="Pull Left" scaleY=".5" />
@@ -65,7 +65,7 @@
   <tam title="Flip Back, Centers to a Wave" group=" "
        from="Right-Hand Wave"
        formation="Wave RH"
-       parts="5.5" >
+       fractions="5.5" >
     <path numbers="1 4">
       <move select="Hinge Right" />
       <move select="Forward 4" />
@@ -84,7 +84,7 @@
   <tam title="Load the Boat, Centers to a Wave" group=" "
        from="Normal Lines"
        formation="Normal Lines"
-       parts="2;2;3">
+       fractions="2;2;3">
     <path>
       <move select="Extend Left" scaleX="2" scaleY=".5" />
       <move select="Extend Right" scaleY=".5" />
@@ -118,7 +118,7 @@
   <tam title="Percolate, Outsides to a Wave" group=" "
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="2;1;1.5" >
+       fractions="2;1;1.5" >
     <path>
       <move select="Extend Left" scaleY=".5" />
       <move select="Extend Left" beats="2" scaleX="2" />
@@ -146,7 +146,7 @@
 
 
   <tam title="Scoot Chain Thru to a Wave" from="Quarter Tag" group=" "
-    formation="Quarter Tag" parts="2;3;3">
+    formation="Quarter Tag" fractions="2;3;3">
     <path numbers="1 8" couples="2 4">
       <move select="Extend Left" scaleY="2" beats="2" />
       <move select="Swing Right" />
@@ -176,7 +176,7 @@
   <tam title="Square Chain Thru to a Wave" group=" "
        from="Lines"
        formation="Normal Lines"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Pull Left" scaleX="2" scaleY=".5" />
       <move select="Lead Right" beats="2" scaleY="1.5" />
@@ -210,7 +210,7 @@
   <tam title="Tag Back to a Wave, Centers to a Wave" group=" "
        from="Lines"
        formation="Normal Lines"
-       parts="3" >
+       fractions="3" >
     <path>
       <move select="Lead Right" beats="3" />
       <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".25" />
@@ -236,7 +236,7 @@
   <tam title="Turn Thru to a Wave" group=" "
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" scaleY=".5" />
       <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".25" />

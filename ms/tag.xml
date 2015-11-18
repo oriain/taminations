@@ -131,7 +131,7 @@
   <tam title="Tag the Line"
        from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       parts="" difficulty="1">
+       fractions="" difficulty="1">
     <path>
       <move select="Quarter Right" offsetX=".5" />
       <move select="Forward 3" />

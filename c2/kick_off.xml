@@ -27,7 +27,7 @@
   <tam title="Boys Kick Off"
        from="Facing Couples"
        formation="Facing Couples"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Run Right" beats="2.5" offsetX="1.5" offsetY="-.5" />
       <move select="Quarter Right" offsetX=".5" offsetY=".5" />
@@ -40,7 +40,7 @@
   <tam title="Boys Kick Off"
        from="Couples Facing Out"
        formation="Couples Facing Out"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Quarter Left" beats="4" offsetX="-1" offsetY="3" />
     </path>

@@ -22,7 +22,7 @@
 -->
 <tamination title="Swing Chain Thru">
 
-  <tam title="Swing Chain Thru" from="Right-Hand Waves" formation="Ocean Waves RH BGGB" parts="3;1.5;3">
+  <tam title="Swing Chain Thru" from="Right-Hand Waves" formation="Ocean Waves RH BGGB" fractions="3;1.5;3">
     <path couples="2 4">
       <move select="Swing Right"/>
       <move select="Hinge Left"/>
@@ -43,7 +43,7 @@
     </path>
   </tam>
 
-  <tam title="Swing Chain Thru" from="Left-Hand Waves" formation="Ocean Waves LH BGGB" parts="3;1.5;3">
+  <tam title="Swing Chain Thru" from="Left-Hand Waves" formation="Ocean Waves LH BGGB" fractions="3;1.5;3">
     <path>
       <move select="Swing Left"/>
       <move select="Hinge Right"/>

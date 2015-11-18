@@ -26,7 +26,7 @@
   <tam title="All 4 Couples Chase Right" group="All 4 Couples"
        from=""
        formation="Static Facing Out"
-       parts="" >
+       fractions="" >
     <path numbers="2 7">
       <move select="Run Right" beats="4" scaleY="1.5" offsetX="-1" />
       <move select="Forward 3" />
@@ -56,7 +56,7 @@
   <tam title="All 4 Couples Extend" group="All 4 Couples"
        from=""
        formation="Static Square"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
       <move select="Forward" />
@@ -76,7 +76,7 @@
   <tam title="All 4 Couples Fan the Top" group="All 4 Couples"
        from=""
        formation="Static Square"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
       <move select="Forward" />
@@ -100,7 +100,7 @@
   <tam title="All 4 Couples Pass Thru" group="All 4 Couples"
        from=""
        formation="Static Square"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
       <move select="Forward" />
@@ -128,7 +128,7 @@
   <tam title="All 4 Couples Pass the Ocean" group="All 4 Couples"
        from=""
        formation="Static Square"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
       <move select="Forward" />
@@ -160,7 +160,7 @@
   <tam title="All 4 Couples Right and Left Thru" group="All 4 Couples"
        from=""
        formation="Static Square"
-       parts="" >
+       fractions="" >
     <path numbers="1 8">
       <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
       <move select="Forward" />
@@ -192,7 +192,7 @@
   <tam title="All 4 Couples Single Circle to a Wave" group="All 4 Couples"
        from=""
        formation="Static Square"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" beats="1.5" scaleY="1.5" />
       <move select="Forward" scaleX="1.3" />
@@ -226,7 +226,7 @@
   <tam title="All 4 Couples Slide Thru" group="All 4 Couples"
        from=""
        formation="Static Square"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
       <move select="Forward" />
@@ -250,7 +250,7 @@
   <tam title="All 4 Couples Square Thru" group="All 4 Couples"
        from=""
        formation="Static Square"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
       <move select="Forward" hands="right" />
@@ -296,7 +296,7 @@
   <tam title="All 4 Couples Swing Thru" group="All 4 Couples"
        from="Static Square"
        formation="Static Square"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
       <move select="Forward" />
@@ -322,7 +322,7 @@
   <tam title="All 4 Couples Touch a Quarter" group="All 4 Couples"
        from=""
        formation="Static Square"
-       parts="" >
+       fractions="" >
     <path numbers="1 8">
       <move select="Extend Left" beats="3" scaleX="3" scaleY="2.5" />
       <move select="Hinge Right" offsetY=".5" />
@@ -450,7 +450,7 @@
   <tam title="All 8 Follow Your Neighbor" group="All 8"
        from=""
        formation="Static MiniWaves RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward 3" />
       <move select="Cast Right" />
@@ -474,7 +474,7 @@
   <tam title="All 8 Follow Your Neighbor and Spread" group="All 8"
        from=""
        formation="Static MiniWaves RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward 3" />
       <move select="Swing Right" />
@@ -500,7 +500,7 @@
   <tam title="All 8 Peel Off" group="All 8"
        from=""
        formation="Static MiniWaves RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="U-Turn Left" beats="4" offsetX="3" />
     </path>
@@ -518,7 +518,7 @@
   <tam title="All 8 Peel the Top" group="All 8"
        from=""
        formation="Static MiniWaves RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward 3" beats="4" />
       <move select="Cast Right" />
@@ -540,7 +540,7 @@
   <tam title="All 8 Scoot Back" group="All 8"
        from=""
        formation="Static MiniWaves RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward 3" />
       <move select="Swing Right" />
@@ -595,7 +595,7 @@
   <tam title="All 8 Walk and Dodge" group="All 8"
        from=""
        formation="Static MiniWaves RH"
-       parts="" >
+       fractions="" >
     <path numbers="1 8">
       <move select="Forward 3"/>
       <move select="Forward 3"/>
@@ -615,7 +615,7 @@
   <tam title="All 8 Zoom" group="All 8"
        from=""
        formation="Static MiniWaves RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward 3" beats="4"/>
       <move select="Forward 3" beats="4"/>

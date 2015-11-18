@@ -25,7 +25,7 @@
   <tam title="Inlet"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Run Right" beats="4" hands="gripright" offsetX="2" />
     </path>
@@ -44,7 +44,7 @@
   <tam title="Inlet"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Run Left" beats="4" offsetX="1" offsetY="2" />
     </path>

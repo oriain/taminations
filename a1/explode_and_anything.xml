@@ -25,7 +25,7 @@
   <tam title="Explode and Touch a Quarter"
        from="Lines"
        formation="Lines Facing Out"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Quarter Left" offsetX="-1" offsetY="1" />
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />

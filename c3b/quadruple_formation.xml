@@ -169,7 +169,7 @@
     </path>
   </tam>
 
-  <tam title="Quadruple Wave Swing Thru" group=" " parts="3">
+  <tam title="Quadruple Wave Swing Thru" group=" " fractions="3">
     <formation>
       <dancer gender="boy" x="1" y="3" angle="180"/>
       <dancer gender="girl" x="1" y="1" angle="0"/>
@@ -213,7 +213,7 @@
       <move select="Swing Left" scaleX=".65"/>
     </path>
   </tam>
-  <tam title="Quadruple Waves of 3 Swing Thru" group=" " parts="3">
+  <tam title="Quadruple Waves of 3 Swing Thru" group=" " fractions="3">
     <formation>
       <dancer gender="boy" x="1" y="2" angle="180"/>
       <dancer gender="girl" x="1" y="0" angle="0"/>

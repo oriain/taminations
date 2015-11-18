@@ -25,7 +25,7 @@
   <tam title="Track Two"
        from="Completed Double Pass Thru"
        formation="Completed Double Pass Thru"
-       parts="" difficulty="1">
+       fractions="" difficulty="1">
     <path>
       <move select="Run Left" beats="2" scaleX=".5" scaleY=".5" />
       <move select="Extend Right" beats="4" scaleX="5" />
@@ -48,7 +48,7 @@
   <tam title="Left Track Two"
        from="Completed Double Pass Thru"
        formation="Completed Double Pass Thru"
-       parts="" difficulty="3">
+       fractions="" difficulty="3">
     <path>
       <move select="Run Left" beats="5" scaleX="2" scaleY="2" />
       <move select="Forward 5" beats="3" />

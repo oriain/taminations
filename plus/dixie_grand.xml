@@ -24,7 +24,7 @@
 
 
   <tam title="Dixie Grand" from="Dixie Grand Circle"
-       parts="2;2" difficulty="1">
+       fractions="2;2" difficulty="1">
     <formation>
       <dancer gender="boy" x="-3" y="-1" angle="90"/>
       <dancer gender="girl" x="3" y="-1" angle="90"/>
@@ -60,7 +60,7 @@
   <tam title="Dixie Grand"
        from="Double Pass Thru"
        formation="Double Pass Thru"
-       parts="2;2" difficulty="1">
+       fractions="2;2" difficulty="1">
     <path>
       <move select="Stand" beats="2" />
       <move select="Pull Right" scaleY=".5" />
@@ -94,7 +94,7 @@
   <tam title="Dixie Grand"
        from="Completed Double Pass Thru"
        formation="Completed Double Pass Thru"
-       parts="3;3" difficulty="1">
+       fractions="3;3" difficulty="1">
     <path>
       <move select="Flip Left" hands="right" />
       <move select="Pull Right" scaleY=".5" />

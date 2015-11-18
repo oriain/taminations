@@ -22,7 +22,7 @@
 -->
 <tamination title="Link Up">
 
-  <tam title="Link Up" from="Two-Faced Lines" parts="2">
+  <tam title="Link Up" from="Two-Faced Lines" fractions="2">
     <formation>
       <dancer gender="girl" x="-2" y="3" angle="0"/>
       <dancer gender="boy" x="-2" y="1" angle="0"/>

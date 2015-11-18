@@ -45,7 +45,7 @@
   <tam title="Pass to the Center"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="1" difficulty="3">
+       difficulty="3">
     <path>
       <move select="Extend Right" beats="2" scaleY="2" />
     </path>

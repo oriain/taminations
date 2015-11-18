@@ -23,7 +23,7 @@
 <tamination title="3/4 Wheel the Sea">
   
   <tam title="3/4 Wheel the Sea" from="Right-Hand Two-Faced Line"
-       formation="Two-Faced Line RH" parts="4.5" >
+       formation="Two-Faced Line RH" fractions="4.5" >
     <path>
       <move select="Quarter Left" hands="right" offsetX=".33" offsetY="-.33" />
       <move select="Quarter Left" hands="right" offsetX="-.33" offsetY="-.33" />
@@ -39,7 +39,7 @@
   </tam>  
 
   <tam title="3/4 Wheel the Sea" from="Right-Hand Two-Faced Lines"
-       formation="Two-Faced Lines RH" parts="4.5" >
+       formation="Two-Faced Lines RH" fractions="4.5" >
     <path>
       <move select="Quarter Left" hands="right" offsetX=".33" offsetY="-.33" />
       <move select="Quarter Left" hands="right" offsetX="-.33" offsetY="-.33" />
@@ -67,7 +67,7 @@
   </tam>
 
   <tam title="3/4 Wheel the Sea" from="Right-Hand Two-Faced Tidal Line"
-       formation="Two-Faced Tidal Line RH" parts="6">
+       formation="Two-Faced Tidal Line RH" fractions="6">
     <path>
       <move beats="2" select="Quarter Left" hands="right" offsetX=".33" offsetY="-.17" />
       <move beats="2" select="Quarter Left" hands="right" offsetX="-.17" offsetY="-.33" />

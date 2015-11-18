@@ -25,7 +25,7 @@
   <tam title="Quarter In"
        from="Facing Couples"
        formation="Facing Couples"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Quarter Right" beats="2" offsetX="1" offsetY="1" />
     </path>
@@ -37,7 +37,7 @@
   <tam title="Quarter In"
        from="Two-Faced Line"
        formation="Two-Faced Line RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Quarter Right" beats="2" />
     </path>
@@ -49,7 +49,7 @@
   <tam title="Quarter In"
        from="Diamond"
        formation="Diamond RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Quarter Right" beats="2" />
     </path>
@@ -61,7 +61,7 @@
   <tam title="Quarter In"
        from="Pass Thru"
        formation="Eight Chain Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Quarter Right" beats="2" offsetY="1" />
     </path>
@@ -79,7 +79,7 @@
   <tam title="Quarter In"
        from="Lines"
        formation="Normal Lines"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Quarter Right" beats="2" offsetX="1" />
     </path>
@@ -112,7 +112,7 @@
   <tam title="Quarter In"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Quarter Right" beats="2" offsetX="1" />
     </path>
@@ -130,7 +130,7 @@
   <tam title="Quarter In"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Quarter Left" beats="2" offsetX="-1" />
     </path>

@@ -29,7 +29,7 @@
   <tam title="Dosado"
        from="Facing Couples"
        formation="Facing Couples"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" scaleX="2" scaleY=".5" />
       <move select="Extend Right" scaleY=".5" />
@@ -47,7 +47,7 @@
   <tam title="Dosado"
        from="Normal Lines"
        formation="Normal Lines"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" scaleX="2" scaleY=".5" />
       <move select="Extend Right" scaleY=".5" />
@@ -77,7 +77,7 @@
   <tam title="Dosado"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" scaleY=".5" />
       <move select="Extend Right" scaleY=".5" />

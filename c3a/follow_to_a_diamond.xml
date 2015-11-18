@@ -42,7 +42,7 @@
   <tam title="Follow to a Diamond"
        from="Left-Hand Box"
        formation="Box LH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Run Left" beats="4" />
       <move select="Forward 2" beats="2.5" />
@@ -57,7 +57,7 @@
   <tam title="Follow to a Diamond"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGBG"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward 2" beats="1.5" offsetY="-.125" />
       <move select="Swing Right" scaleX=".875" scaleY=".875" />

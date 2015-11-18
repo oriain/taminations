@@ -22,7 +22,7 @@
 -->
 <tamination title="Stimulate">
 
-  <tam title="Stimulate" from="Right-Hand Columns" parts="3;1.5">
+  <tam title="Stimulate" from="Right-Hand Columns" fractions="3;1.5">
     <formation>
       <dancer gender="boy" x="1" y="-1" angle="180"/>
       <dancer gender="girl" x="3" y="-1" angle="180"/>
@@ -58,7 +58,7 @@
     </path>
   </tam>
 
-  <tam title="Stimulate" from="Left-Hand Columns" formation="Column LH GBGB" parts="3;1.5">
+  <tam title="Stimulate" from="Left-Hand Columns" formation="Column LH GBGB" fractions="3;1.5">
     <path>
       <move select="Forward 2" beats="3"/>
       <move select="Forward" beats="1.5"/>

@@ -25,7 +25,7 @@
   <tam title="Explode the Wave"
        from="Right-Hand Wave"
        formation="Wave RH"
-       parts="" difficulty="1">
+       fractions="" difficulty="1">
     <path>
       <move select="Lead Right" beats="3" scaleX="1.5" scaleY="2" />
       <move select="Extend Right" beats="3" scaleX="3" scaleY=".5" />
@@ -39,7 +39,7 @@
   <tam title="Explode the Wave"
        from="Left-Hand Wave"
        formation="Wave LH Boys Center"
-       parts="" difficulty="1">
+       fractions="" difficulty="1">
     <path>
       <move select="Lead Right" beats="3" scaleX="1.5" scaleY="2" />
       <move select="Extend Right" beats="3" scaleY=".5" />
@@ -53,7 +53,7 @@
   <tam title="Explode the Wave"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="" difficulty="1">
+       fractions="" difficulty="1">
     <path>
       <move select="Lead Right" beats="3" scaleX="1.5" scaleY="2" />
       <move select="Extend Right" beats="3" scaleX="3" scaleY=".5" />
@@ -75,7 +75,7 @@
   <tam title="Explode the Wave"
        from="Left-Hand Waves"
        formation="Ocean Waves LH GBBG"
-       parts="" difficulty="1">
+       fractions="" difficulty="1">
     <path>
       <move select="Lead Left" beats="3" scaleX=".5" scaleY="2" />
       <move select="Extend Right" beats="3" scaleX="3" scaleY=".5" />
@@ -97,7 +97,7 @@
   <tam title="Explode the Wave"
        from="Right-Hand Tidal Wave"
        formation="Tidal Wave RH BGGB"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Lead Right" beats="3" scaleX="1.5" scaleY="1.5" />
       <move select="Extend Right" beats="3" scaleY=".5" />
@@ -119,7 +119,7 @@
   <tam title="Explode the Wave"
        from="Left-Hand Tidal Wave"
        formation="Tidal Wave LH BGGB"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Lead Left" beats="3" scaleX=".5" scaleY="1.5" />
       <move select="Extend Right" beats="3" scaleY=".5" />

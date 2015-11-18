@@ -51,7 +51,7 @@
   </tam>
 
   <tam title="Heads Pass Thru and Courtesy Turn" group=" "
-       formation="Static Square" parts="6">
+       formation="Static Square" fractions="6">
     <path>
       <move select="Extend Left" beats="3" scaleX="3" scaleY=".5"/>
       <move select="Extend Right" beats="3" scaleX="3" scaleY=".5"/>

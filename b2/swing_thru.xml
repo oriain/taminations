@@ -212,36 +212,36 @@
        formation="Alamo Wave"
        parts="3.2" difficulty="1">
     <path>
-      <move select="Sxtnth Left" />
+      <move select="Sxtnth Left" hands="right"/>
       <move select="Swing Right" />
-      <move select="Sxtnth Left" />
-      <move select="Sxtnth Left" />
+      <move select="Sxtnth Left" hands="right"/>
+      <move select="Sxtnth Left" hands="left"/>
       <move select="Swing Left" />
-      <move select="Sxtnth Left" />
+      <move select="Sxtnth Left" hands="left"/>
     </path>
     <path>
-      <move select="Sxtnth Right" />
+      <move select="Sxtnth Right" hands="right"/>
       <move select="Swing Right" />
-      <move select="Sxtnth Right" />
-      <move select="Sxtnth Right" />
+      <move select="Sxtnth Right" hands="right"/>
+      <move select="Sxtnth Right" hands="left"/>
       <move select="Swing Left" />
-      <move select="Sxtnth Right" />
+      <move select="Sxtnth Right" hands="left"/>
     </path>
     <path>
-      <move select="Sxtnth Left" />
+      <move select="Sxtnth Left" hands="right"/>
       <move select="Swing Right" />
-      <move select="Sxtnth Left" />
-      <move select="Sxtnth Left" />
+      <move select="Sxtnth Left" hands="right"/>
+      <move select="Sxtnth Left" hands="left"/>
       <move select="Swing Left" />
-      <move select="Sxtnth Left" />
+      <move select="Sxtnth Left" hands="left"/>
     </path>
     <path>
-      <move select="Sxtnth Right" />
+      <move select="Sxtnth Right" hands="right"/>
       <move select="Swing Right" />
-      <move select="Sxtnth Right" />
-      <move select="Sxtnth Right" />
+      <move select="Sxtnth Right" hands="right"/>
+      <move select="Sxtnth Right" hands="left"/>
       <move select="Swing Left" />
-      <move select="Sxtnth Right" />
+      <move select="Sxtnth Right" hands="left"/>
     </path>
   </tam>
 
@@ -413,36 +413,36 @@
        formation="Alamo Wave"
        parts="3.2" difficulty="2">
     <path>
-      <move select="Sxtnth Right" />
+      <move select="Sxtnth Right" hands="left" />
       <move select="Swing Left" />
-      <move select="Sxtnth Right" />
-      <move select="Sxtnth Right" />
+      <move select="Sxtnth Right" hands="left"/>
+      <move select="Sxtnth Right" hands="right"/>
       <move select="Swing Right" />
-      <move select="Sxtnth Right" />
+      <move select="Sxtnth Right" hands="right"/>
     </path>
     <path>
-      <move select="Sxtnth Left" />
+      <move select="Sxtnth Left" hands="left"/>
       <move select="Swing Left" />
-      <move select="Sxtnth Left" />
-      <move select="Sxtnth Left" />
+      <move select="Sxtnth Left" hands="left"/>
+      <move select="Sxtnth Left" hands="right"/>
       <move select="Swing Right" />
-      <move select="Sxtnth Left" />
+      <move select="Sxtnth Left" hands="right"/>
     </path>
     <path>
-      <move select="Sxtnth Right" />
+      <move select="Sxtnth Right" hands="left" />
       <move select="Swing Left" />
-      <move select="Sxtnth Right" />
-      <move select="Sxtnth Right" />
+      <move select="Sxtnth Right" hands="left"/>
+      <move select="Sxtnth Right" hands="right"/>
       <move select="Swing Right" />
-      <move select="Sxtnth Right" />
+      <move select="Sxtnth Right" hands="right"/>
     </path>
     <path>
-      <move select="Sxtnth Left" />
+      <move select="Sxtnth Left" hands="left"/>
       <move select="Swing Left" />
-      <move select="Sxtnth Left" />
-      <move select="Sxtnth Left" />
+      <move select="Sxtnth Left" hands="left"/>
+      <move select="Sxtnth Left" hands="right"/>
       <move select="Swing Right" />
-      <move select="Sxtnth Left" />
+      <move select="Sxtnth Left" hands="right"/>
     </path>
   </tam>
 

@@ -25,7 +25,7 @@
   <tam title="Ladies Chain"
        from="Facing Couples"
        formation="Facing Couples" gender-specific="true"
-       parts="5" >
+       fractions="5" >
     <path>
       <move select="Stand" />
       <move select="Flip Left" beats="4" offsetY="-4" />
@@ -41,7 +41,7 @@
   <tam title="Ladies Chain"
        from="Normal Lines"
        formation="Normal Lines" gender-specific="true"
-       parts="5" >
+       fractions="5" >
     <path>
       <move select="Stand" hands="nohands" />
       <move select="Flip Left" beats="4" offsetY="-4" />
@@ -67,7 +67,7 @@
   <tam title="Head Ladies Chain"
        from="Static Square"
        formation="Static Square" gender-specific="true"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Flip Left" beats="5" offsetY="-4" />
       <move select="Beau Wheel" />
@@ -86,7 +86,7 @@
   <tam title="Four Ladies Chain"
        from="Static Square"
        formation="Static Square" gender-specific="true"
-       parts="5" >
+       fractions="5" >
     <path>
       <move select="Flip Left" beats="5" offsetY="-4" />
       <move select="Beau Wheel" />
@@ -135,7 +135,7 @@
   <tam title="Four Ladies Chain 3/4"
        from="Static Square"
        formation="Static Square" gender-specific="true"
-       parts="6.5" >
+       fractions="6.5" >
     <path>
       <move select="Flip Left" beats="6.5" offsetY="-4" />
       <move select="Beau Wheel" />
@@ -161,7 +161,7 @@
   <tam title="Chain Down the Line"
        from="Two-Faced Line"
        formation="Two-Faced Line RH"
-       parts="3" >
+       fractions="3" >
     <path>
       <move select="Stand" beats="3" />
       <move select="BackHinge Right" />
@@ -177,7 +177,7 @@
   <tam title="Chain Down the Line"
        from="Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       parts="3" >
+       fractions="3" >
     <path>
       <move select="Stand" beats="3" />
       <move select="BackHinge Right" />
@@ -203,7 +203,7 @@
   <tam title="Chain Down the Line"
        from="Waves"
        formation="Ocean Waves LH BGGB"
-       parts="3" >
+       fractions="3" >
     <path>
       <move select="U-Turn Left" />
       <move select="BackHinge Right" />

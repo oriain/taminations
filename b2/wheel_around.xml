@@ -25,7 +25,7 @@
   <tam title="Wheel Around"
        from="Facing Couples"
        formation="Facing Couples"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Beau Wheel" />
     </path>
@@ -37,7 +37,7 @@
   <tam title="Wheel Around"
        from="Lines"
        formation="Normal Lines"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Beau Wheel" />
     </path>
@@ -74,7 +74,7 @@
   <tam title="Reverse Wheel Around"
        from="Facing Couples"
        formation="Facing Couples"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Belle Wheel" reflect="1" />
     </path>
@@ -86,7 +86,7 @@
   <tam title="Reverse Wheel Around"
        from="Lines"
        formation="Normal Lines"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Belle Wheel" reflect="-1" />
     </path>

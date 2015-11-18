@@ -22,7 +22,7 @@
 -->
 <tamination title="Trade The Diamond">
 
-  <tam title="Trade the Diamond" parts="6;1.5;3"
+  <tam title="Trade the Diamond" fractions="6;1.5;3"
        from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH">
     <path>
@@ -51,7 +51,7 @@
     </path>
   </tam>
 
-  <tam title="Trade the Diamond" parts="6;1.5;3"
+  <tam title="Trade the Diamond" fractions="6;1.5;3"
        from="Left-Hand Two-Faced Lines"
        formation="Two-Faced Lines LH">
     <path>
@@ -80,7 +80,7 @@
     </path>
   </tam>
 
-  <tam title="Trade the Diamond" parts="6;1.5;3.5"
+  <tam title="Trade the Diamond" fractions="6;1.5;3.5"
        from="Right-Hand Waves" formation="Ocean Waves RH BGGB">
     <path couples="2 4">
       <move select="Extend Right" scaleX="4" scaleY="2" beats="6" />
@@ -110,7 +110,7 @@
     </path>
   </tam>
 
-  <tam title="Trade the Diamond" parts="6;1.5;3.5"
+  <tam title="Trade the Diamond" fractions="6;1.5;3.5"
        from="Left-Hand Waves" formation="Ocean Waves LH BGGB">
     <path>
       <move select="Run Left" scaleY="2" beats="6" />

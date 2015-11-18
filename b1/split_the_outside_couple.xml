@@ -44,7 +44,7 @@
   <tam title="Split the Outside Couple, Separate, Go Around One to a Line"
        from="Pass Thru" group=" "
        formation="Eight Chain Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Dodge Left" beats="1" scaleX=".25" scaleY=".25" offsetX=".5" />
       <move select="Dodge Right" beats="1" scaleX=".25" scaleY=".25" offsetX=".5" />

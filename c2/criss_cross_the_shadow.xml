@@ -25,7 +25,7 @@
   <tam title="Criss Cross the Shadow"
        from="Right-Hand Waves"
        formation="Ocean Waves RH GBBG"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Swing Right" scaleX=".5" scaleY=".5" />
@@ -51,7 +51,7 @@
   <tam title="Criss Cross the Shadow"
        from="Left-Hand Waves"
        formation="Ocean Waves LH GBBG"
-       parts="" >
+       fractions="" >
     <path>
       <move select="U-Turn Right" beats="2" offsetX="-2" offsetY=".5" />
       <move select="Swing Left" scaleX=".5" scaleY=".5" />
@@ -102,7 +102,7 @@
   <tam title="Criss Cross the Shadow"
        from="Left-Hand Two-Faced Lines"
        formation="Two-Faced Lines LH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="U-Turn Right" beats="2" offsetX="-2" offsetY=".5" />
       <move select="Swing Left" scaleX=".5" scaleY=".5" />

@@ -27,7 +27,7 @@
   <tam title="Shazam"
        from="Right-Hand Box"
        formation="Box RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Hinge Right" />
       <move select="U-Turn Right" />
@@ -41,7 +41,7 @@
   <tam title="Shazam"
        from="Left-Hand Box"
        formation="Box LH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Hinge Left" />
       <move select="U-Turn Left" />
@@ -55,7 +55,7 @@
   <tam title="Shazam"
        from="Right-Hand Wave"
        formation="Wave RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Hinge Right" />
       <move select="U-Turn Right" />
@@ -69,7 +69,7 @@
   <tam title="Shazam"
        from="Left-Hand Wave"
        formation="Wave LH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Hinge Left" />
       <move select="U-Turn Left" />
@@ -83,7 +83,7 @@
   <tam title="Shazam"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Hinge Right" />
       <move select="U-Turn Right" />
@@ -105,7 +105,7 @@
   <tam title="Shazam"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Hinge Left" />
       <move select="U-Turn Left" />
@@ -127,7 +127,7 @@
   <tam title="Shazam"
        from="Inverted Lines"
        formation="Inverted Lines Ends Facing Out"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Hinge Left" />
       <move select="U-Turn Left" />
@@ -149,7 +149,7 @@
   <tam title="Centers Shazam"
        from="Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       parts="" >
+       fractions="" >
     <path>
     </path>
     <path>

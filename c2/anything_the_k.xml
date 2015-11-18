@@ -23,7 +23,7 @@
 <tamination title="Anything the K">
 
   <tam title="Cross Trail Thru the K"
-       from="Lines" formation="Normal Lines" parts="5">
+       from="Lines" formation="Normal Lines" fractions="5">
     <path numbers="1 8">
     <!-- Cross Trail Thru -->
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />

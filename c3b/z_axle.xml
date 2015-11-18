@@ -22,7 +22,7 @@
 -->
 <tamination title="Z Axle">
 
-  <tam title="&quot;Z&quot; Axle" from="Outfacing Z" parts="4;3">
+  <tam title="&quot;Z&quot; Axle" from="Outfacing Z" fractions="4;3">
   <formation>
     <dancer gender="boy" x="2" y="1" angle="0" />
     <dancer gender="girl" x="0" y="1" angle="180" />
@@ -39,7 +39,7 @@
     </path>
   </tam>
 
-  <tam title="&quot;Z&quot; Axle" from="Tandem Z" parts="4;3">
+  <tam title="&quot;Z&quot; Axle" from="Tandem Z" fractions="4;3">
   <formation>
     <dancer gender="boy" x="2" y="1" angle="0" />
     <dancer gender="girl" x="0" y="1" angle="0" />

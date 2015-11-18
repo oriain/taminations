@@ -25,7 +25,7 @@
   <tam title="Hourglass Circulate"
        from="Right-Hand Hourglass"
        formation="Hourglass RH BP"
-       parts="" >
+       fractions="" >
     <path couples="2 4">
       <move select="Lead Right" beats="4" scaleY="3" />
     </path>
@@ -43,7 +43,7 @@
   <tam title="Hourglass Circulate"
        from="Left-Hand Hourglass"
        formation="Hourglass LH BP"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" scaleX="2" scaleY="2" beats="4" />
     </path>

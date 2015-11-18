@@ -46,7 +46,7 @@
 
   <tam title="&quot;O&quot; Circulate (Right-Hand O)" group="&quot;O&quot;"
        from="Right-Hand O"
-       parts="1.5" >
+       fractions="1.5" >
     <formation>
       <dancer gender="girl" x="-3" y="1" angle="0"/>
       <dancer gender="boy" x="-3" y="-1" angle="180"/>
@@ -70,7 +70,7 @@
   <tam title="&quot;O&quot; Circulate (Left-Hand O)" group="&quot;O&quot;"
        from="Left-Hand O"
        formation="O LH"
-       parts="1.5" >
+       fractions="1.5" >
     <path>
       <move select="Flip Left" />
     </path>
@@ -443,7 +443,7 @@
   <tam title="&quot;O&quot; Veer Left" group="&quot;O&quot;"
        from=""
        formation="O Eight Chain Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" beats="2" scaleY="2" />
       <move select="Forward" />

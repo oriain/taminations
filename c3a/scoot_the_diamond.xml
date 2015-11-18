@@ -27,7 +27,7 @@
     <tam title="Scoot the Diamond"
        from="Quarter Tag"
        formation="Quarter Tag"
-       parts="5.5" >
+       fractions="5.5" >
     <path>
       <move select="Extend Left" scaleX="1.5" scaleY="1.5" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
@@ -57,7 +57,7 @@
     <tam title="Scoot the Diamond"
        from="Left-Hand Quarter Tag"
        formation="Quarter Tag LH"
-       parts="5.5" >
+       fractions="5.5" >
     <path>
       <move select="Forward" scaleX="1.5" />
       <move select="Swing Left" scaleX=".75" scaleY=".75" />

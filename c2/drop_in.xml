@@ -27,7 +27,7 @@
   <tam title="Drop In"
        from="Diamonds"
        formation="Diamonds RH Girl Points"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward 2" />
     </path>
@@ -45,7 +45,7 @@
   <tam title="Drop In"
        from="Left-Hand Diamonds"
        formation="Diamonds LH Girl Points"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward 2" />
     </path>
@@ -63,7 +63,7 @@
   <tam title="Drop In"
        from="Facing Diamonds"
        formation="Diamonds Facing Girl Points"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward 2" />
     </path>
@@ -81,7 +81,7 @@
   <tam title="Drop In"
        from="Point-to-Point Diamonds"
        formation="Diamonds RH PTP Girl Points"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward 2" />
     </path>
@@ -99,7 +99,7 @@
   <tam title="Drop Out"
        from="Diamonds"
        formation="Diamonds RH Girl Points"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward 2" />
     </path>
@@ -117,7 +117,7 @@
   <tam title="Drop Out"
        from="Left-Hand Diamonds"
        formation="Diamonds LH Girl Points"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward 2" />
     </path>
@@ -135,7 +135,7 @@
   <tam title="Drop Out"
        from="Facing Diamonds"
        formation="Diamonds Facing Girl Points"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward 2" />
     </path>
@@ -153,7 +153,7 @@
   <tam title="Drop Out"
        from="Point-to-Point Diamonds"
        formation="Diamonds RH PTP Girl Points"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward 2" />
     </path>

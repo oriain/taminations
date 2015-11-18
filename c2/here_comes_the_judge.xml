@@ -25,7 +25,7 @@
   <tam title="Here Comes the Judge"
        from="Lines Facing Out"
        formation="Lines Facing Out"
-       parts="" >
+       fractions="" >
     <path numbers="5 4">
       <move select="Run Left" beats="6" scaleX="2" scaleY="3" />
     </path>
@@ -43,7 +43,7 @@
   <tam title="Here Comes the Judge"
        from="Inverted Lines"
        formation="Inverted Lines Ends Facing Out"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Run Left" beats="6" scaleX="2" scaleY="3" />
     </path>

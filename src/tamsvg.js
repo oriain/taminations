@@ -95,13 +95,17 @@ define(['tamination','cookie','handhold','color','affinetransform','vector','bez
         this.floorsvg.setAttribute('width','100%');
         this.floorsvg.setAttribute('height','100%');
         this.allp = tam.getPath();
-        if (tam.getParts() == '')
+        //  Save parts or fractions
+        var partstr = tam.getParts();
+        var fracstr = tam.getFractions();
+        if (partstr + fracstr == '')
           this.parts = [];
         else {
-          this.parts = tam.getParts().split(/;/);
+          this.parts = (partstr+fracstr).split(/;/);
           for (var i in this.parts)
             this.parts[i] = Number(this.parts[i]);
         }
+        this.hasParts = partstr != '';
         //  first token is 'Formation', followed by e.g. boy 1 2 180 ...
         var formation = tam.getFormation();
         //  Flip the y direction on the dance floor to match our math
@@ -1158,7 +1162,7 @@ define(['tamination','cookie','handhold','color','affinetransform','vector','bez
       var x = (i+2) * $('#buttonpanel').width() / (this.beats+2);
       $('#playslidertics').append('<div style="position: absolute; background-color: black; top:0; left:'+x+'px; height:100%; width: 1px"></div>');
     }
-    // Add "Start", "End" and part numbers below slider
+    // Add "Start", "End" and part/fraction numbers below slider
     $('#playsliderlegend').empty();
     if (this.beats > 2) {  // skip if no calls (sequencer)
       var startx = 2 * $('#buttonpanel').width() / (this.beats+2) - 50;
@@ -1169,8 +1173,12 @@ define(['tamination','cookie','handhold','color','affinetransform','vector','bez
       for (var i in this.parts) {
         if (this.parts[i] > 0) {
           var t = '<font size=-2><sup>'+(Number(i)+1) + '</sup>/<sub>' + (this.parts.length+1) + '</sub></font>';
-          if (nofractions)
-            t = '<font size=-2>'+(Number(i)+2)+'</font>';
+          if (nofractions || this.hasParts) {
+            if (this.hasParts && i==0)
+              t = '<font size=-2>Part 2</font>';
+            else
+              t = '<font size=-2>'+(Number(i)+2)+'</font>';
+          }
           offset += this.parts[i];
           var x = (offset+2) * $('#buttonpanel').width() / (this.beats+2) - 20;
           $('#playsliderlegend').append('<div style="position:absolute; top:0; left:'+x+

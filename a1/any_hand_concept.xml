@@ -23,7 +23,7 @@
 <tamination title="Any Hand Concept">
 
   <tam title="Any Hand Swing Thru" formation="Inverted Lines Ends Facing Out"
-      parts="3" group="Any Hand">
+      fractions="3" group="Any Hand">
     <path numbers="5 4">
       <move select="Swing Left"/>
       <move select="Run Right"/>
@@ -40,7 +40,7 @@
     </path>
   </tam>
 
-  <tam title="Any Hand Grand Swing Thru" group="Any Hand" parts="3"
+  <tam title="Any Hand Grand Swing Thru" group="Any Hand" fractions="3"
        formation="Tidal Inverted Line RH">
     <path>
       <move select="Swing Right" scaleX=".5" scaleY=".5"/>
@@ -63,7 +63,7 @@
            xref-link="a1/quarter_thru"
            xref-title="Any Hand Quarter Thru"/>
 
-  <tam title="Any Hand (A-1) 3/4 Thru" parts="4.5"
+  <tam title="Any Hand (A-1) 3/4 Thru" fractions="4.5"
        formation="Inverted Lines Ends Facing Out" group="Any Hand (A-1)">
     <path>
       <move select="Cast Left"/>
@@ -82,7 +82,7 @@
   </tam>
 
   <tam title="Any Hand (A-1) 3/4 Thru (from RH diamond)"
-       formation="Diamond RH" group="Any Hand (A-1)" parts="4.5">
+       formation="Diamond RH" group="Any Hand (A-1)" fractions="4.5">
     <path numbers="2 3">
       <move select="Stand" beats="4.5"/>
       <move select="Run Right"/>
@@ -94,7 +94,7 @@
   </tam>
 
   <tam title="Any Hand (A-1) 3/4 Thru (from LH diamond)"
-       formation="Diamond LH Boys Center" group="Any Hand (A-1)" parts="4.5">
+       formation="Diamond LH Boys Center" group="Any Hand (A-1)" fractions="4.5">
     <path>
       <move select="Cast Left"/>
       <move select="Run Right"/>
@@ -106,7 +106,7 @@
   </tam>
 
   <tam title="Any Hand (A-1) 3/4 Thru (from twin diamonds)"
-       formation="Diamonds RH Girl Points" group="Any Hand (A-1)" parts="4.5">
+       formation="Diamonds RH Girl Points" group="Any Hand (A-1)" fractions="4.5">
     <path>
       <move select="Cast Right"/>
       <move select="Flip Left"/>
@@ -126,7 +126,7 @@
   </tam>
 
   <tam title="Any Hand (A-1) Grand Quarter Thru" group="Any Hand (A-1)"
-       formation="Magic Column RH" parts="1.5">
+       formation="Magic Column RH" fractions="1.5">
     <path>
       <move select="Hinge Left" scaleX=".5"/>
       <move select="Run Right" scaleX=".75" scaleY=".5"/>
@@ -145,7 +145,7 @@
   </tam>
 
   <tam title="Any Hand (A-1) Grand 3/4 Thru" group="Any Hand (A-1)"
-       formation="Magic Column RH" parts="4.5">
+       formation="Magic Column RH" fractions="4.5">
     <path>
       <move select="Hinge Left" scaleX=".5"/>
       <move select="Swing Left" scaleX=".5" scaleY=".5"/>
@@ -172,7 +172,7 @@
            xref-title="Any Hand Remake" />
 
 
-  <tam title="Any Hand (C-1) Swing the Fractions" parts="1.5;3;4.5;3" group="Any Hand (C-1)">
+  <tam title="Any Hand (C-1) Swing the Fractions" fractions="1.5;3;4.5;3" group="Any Hand (C-1)">
   <formation>
     <dancer gender="boy" x="3" y="2" angle="270"/>
     <dancer gender="girl" x="1" y="2" angle="90"/>

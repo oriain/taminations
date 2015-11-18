@@ -42,7 +42,7 @@
   <tam title="Outlet"
        from="Quarter Lines"
        formation="Quarter Lines RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="U-Turn Right" beats="4" offsetX="1" />
     </path>
@@ -60,7 +60,7 @@
   <tam title="Outlet"
        from="Quarter Waves"
        formation="Quarter Wave RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="U-Turn Right" beats="4" hands="gripright" offsetX="1" />
     </path>

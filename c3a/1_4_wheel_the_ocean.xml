@@ -23,7 +23,7 @@
 <tamination title="1/4 Wheel the Ocean">
 
   <tam title="1/4 Wheel the Ocean" from="Left-Hand Two-Faced Line"
-       formation="Two-Faced Line LH" parts="1.5">
+       formation="Two-Faced Line LH" fractions="1.5">
     <path couples="3 1">
       <move select="BackHinge Right" />
       <move select="Stand" beats="4" hands="nohands" />
@@ -38,7 +38,7 @@
   <tam title="1/4 Wheel the Ocean"
        from="Left-Hand Two-Faced Lines"
        formation="Two-Faced Lines LH"
-       parts="1.5" >
+       fractions="1.5" >
     <path>
       <move select="Hinge Left" />
       <move select="Extend Left" hands="right" beats="3" scaleX="3" scaleY="2" />
@@ -60,7 +60,7 @@
   </tam>
 
   <tam title="1/4 Wheel the Ocean" from="Left-Hand Two-Faced Tidal Line"
-       formation="Two-Faced Tidal Line LH" parts="1.5">
+       formation="Two-Faced Tidal Line LH" fractions="1.5">
     <path>
       <move select="Hinge Left" scaleY=".5"/>
       <move select="Extend Left" hands="right" beats="2" scaleY="2" />

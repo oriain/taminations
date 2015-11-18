@@ -22,7 +22,7 @@
 -->
 <tamination title="Peel Chain Thru">
 
-  <tam title="Peel Chain Thru" from="Trade By" formation="Trade By" parts="4;4">
+  <tam title="Peel Chain Thru" from="Trade By" formation="Trade By" fractions="4;4">
     <path>
       <move select="Run Right" beats="4" offsetX="-2"/>
       <move select="Extend Left" scaleY=".5"/>
@@ -51,7 +51,7 @@
     </path>
   </tam>
 
-  <tam title="Peel Chain Thru" from="Three Quarter Tag" formation="3/4 Tag" parts="4;4">
+  <tam title="Peel Chain Thru" from="Three Quarter Tag" formation="3/4 Tag" fractions="4;4">
     <formation>
       <dancer gender="boy" x="0" y="3" angle="0"/>
       <dancer gender="girl" x="0" y="1" angle="180"/>
@@ -84,7 +84,7 @@
     </path>
   </tam>
 
-  <tam title="Peel Chain Thru" from="Left-Hand Three Quarter Tag" formation="3/4 Tag LH" parts="4;4">
+  <tam title="Peel Chain Thru" from="Left-Hand Three Quarter Tag" formation="3/4 Tag LH" fractions="4;4">
     <path>
       <move select="Run Right" beats="4" offsetX="-2"/>
       <move select="Extend Left" scaleY=".5"/>

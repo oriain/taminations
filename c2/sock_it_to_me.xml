@@ -27,7 +27,7 @@
   <tam title="Sock It To Me"
        from="Lines Facing Out"
        formation="Lines Facing Out"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Flip Left" beats="6" />
     </path>
@@ -45,7 +45,7 @@
   <tam title="Sock It To Me"
        from="Inverted Lines"
        formation="Inverted Lines Ends Facing Out"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Flip Left" beats="6" />
     </path>

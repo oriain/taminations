@@ -25,7 +25,7 @@
   
 
   <tam title="Flip Reaction" from="Right-Hand Waves"
-       formation="Ocean Waves RH GBBG" parts="9" group=" ">
+       formation="Ocean Waves RH GBBG" fractions="9" group=" ">
     <path>
       <move select="Lead Right" />
       <move select="Forward 4" beats="3" />
@@ -70,7 +70,7 @@
   </tam>
 
   <tam title="Tag Reaction" from="Two-Faced Lines" group=" "
-       formation="Two-Faced Lines RH" parts="6">
+       formation="Two-Faced Lines RH" fractions="6">
     <path>
       <move select="Lead Right" beats="2" scaleY="2"/>
       <move select="Forward"/>

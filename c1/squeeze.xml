@@ -42,7 +42,7 @@
   <tam title="Ends Squeeze"
        from="Butterfly"
        formation="Butterfly RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Right" beats="3" scaleX=".5" scaleY="3" />
       <move select="Hinge Right" scaleY=".5" />
@@ -60,7 +60,7 @@
   <tam title="Squeeze"
        from="Butterfly"
        formation="Butterfly RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Right" beats="3" scaleX=".5" scaleY="3" />
       <move select="Hinge Right" scaleY=".5" />
@@ -79,7 +79,7 @@
     </path>
   </tam>
 
-  <tam title="Squeeze" from="Diamonds" formation="Diamonds RH Girl Points" parts="">
+  <tam title="Squeeze" from="Diamonds" formation="Diamonds RH Girl Points" fractions="">
     <path>
       <move select="Swing Right" />
       <move select="Dodge Left" beats="1" scaleY=".25"/>
@@ -101,7 +101,7 @@
   <tam title="Squeeze"
        from="O"
        formation="O RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Hinge Right" scaleX=".5" />
       <move select="Lead Right" beats="3" scaleX="3" scaleY=".5" />

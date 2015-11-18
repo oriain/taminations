@@ -25,7 +25,7 @@
   <tam title="Fascinating Recycle"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="" group="Fascinating">
+       fractions="" group="Fascinating">
     <path>
       <move select="Forward 4" beats="3" />
       <move select="Lead Right" beats="3" scaleX="3" scaleY="3" />
@@ -51,7 +51,7 @@
   <tam title="Fascinating Turn and Deal"
        from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       parts="" group="Fascinating">
+       fractions="" group="Fascinating">
     <path>
       <move select="Forward 4" beats="3" />
       <move select="Lead Right" beats="3" scaleX="3" scaleY="3" />

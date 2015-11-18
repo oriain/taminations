@@ -23,7 +23,7 @@
 <tamination title="Exchange the Box">
 
   <tam title="Exchange the Box" from="Right-Hand Waves"
-       formation="Ocean Waves RH GBGB" parts="4;4;4">
+       formation="Ocean Waves RH GBGB" fractions="4;4;4">
     <path couples="4 2">
       <move select="Forward 4"/>
       <move select="Run Right" beats="4"/>
@@ -52,7 +52,7 @@
   </tam>
 
   <tam title="Exchange the Box" from="Left-Hand Waves"
-       formation="Ocean Waves LH BGBG" parts="4;4;4">
+       formation="Ocean Waves LH BGBG" fractions="4;4;4">
     <path>
       <move select="Run Left" beats="4"/>
       <move select="Extend Right" beats="4" scaleX="4"/>
@@ -80,7 +80,7 @@
     </path>
   </tam>
 
-  <tam title="Exchange the Box" from="Right-Hand Columns" parts="3;3;3">
+  <tam title="Exchange the Box" from="Right-Hand Columns" fractions="3;3;3">
     <formation>
       <dancer gender="boy" x="-3" y="-1" angle="180"/>
       <dancer gender="girl" x="-1" y="-1" angle="180"/>
@@ -118,7 +118,7 @@
   </tam>
 
   <tam title="Exchange the Box" from="Left-Hand Columns"
-       formation="Column LH GBGB" parts="3;3;3">
+       formation="Column LH GBGB" fractions="3;3;3">
     <path>
       <move select="Forward 2" beats="3"/>
       <move select="Extend Left" beats="2" scaleY="3"/>
@@ -150,7 +150,7 @@
   </tam>
 
   <tam title="Exchange the Box" from="Right-Hand Two-Faced Lines"
-       formation="Two-Faced Lines RH" parts="4;4;4">
+       formation="Two-Faced Lines RH" fractions="4;4;4">
     <path>
       <move select="Extend Left" beats="4" scaleX="4"/>
       <move select="Flip Right" beats="4" scaleY="1.5"/>

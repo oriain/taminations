@@ -40,7 +40,7 @@
   <tam title="All Around the Corner"
        from="Static Square"
        formation="Static Square"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Left" offsetX="-.5" />
       <move select="Hinge Right" scaleX=".5" scaleY=".5" />

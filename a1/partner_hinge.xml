@@ -28,7 +28,7 @@
   <tam title="Partner Hinge"
        from="Lines"
        formation="Normal Lines"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Right" beats="2" />
     </path>
@@ -46,7 +46,7 @@
   <tam title="Partner Hinge"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Right" beats="2" scaleX=".5" />
     </path>
@@ -64,7 +64,7 @@
   <tam title="Partner Hinge"
        from="Tidal Line"
        formation="Tidal Line RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Right" beats="2" scaleY=".5" />
     </path>

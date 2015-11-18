@@ -36,6 +36,7 @@
               from CDATA #IMPLIED
               formation CDATA #IMPLIED
               parts CDATA #IMPLIED
+              fractions CDATA #IMPLIED
               difficulty CDATA #IMPLIED
               gender-specific CDATA #IMPLIED
               display CDATA #IMPLIED >

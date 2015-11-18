@@ -25,7 +25,7 @@
   <tam title="Allemande Thar" group=""
        from="Thar Star"
        formation="Thar RH Boys"
-       parts="" >
+       fractions="" >
     <path>
       <move select="BackHinge Right" beats="3" hands="both" />
     </path>
@@ -43,7 +43,7 @@
   <tam title="Wrong Way Thar" group=""
        from="Left Hand Thar Star"
        formation="Thar LH Boys"
-       parts="" >
+       fractions="" >
     <path>
       <move select="BackHinge Left" beats="3" hands="both" />
     </path>

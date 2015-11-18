@@ -29,7 +29,7 @@
   <tam title="Dive Thru"
        from="Pass Thru"
        formation="Pass Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Right" hands="right" scaleY=".5" />
       <move select="Extend Left" hands="right" scaleY=".5" />

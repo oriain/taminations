@@ -23,7 +23,7 @@
 <tamination title="With Confidence">
 
   <tam title="With Confidence" from="Right-Hand Waves"
-       formation="Ocean Waves RH GBGB" parts="3">
+       formation="Ocean Waves RH GBGB" fractions="3">
     <path couples="4 2">
       <move select="Forward 2" beats="3"/>
       <move select="Forward 2" hands="right"/>

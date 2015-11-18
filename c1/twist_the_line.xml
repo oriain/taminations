@@ -44,8 +44,7 @@ This file is part of Taminations.
 
   <tam title="Twist the Line"
        from="Normal Lines"
-       formation="Normal Lines"
-       parts="" >
+       formation="Normal Lines">
     <path>
       <move select="Quarter Right" beats="3" offsetX="-.5" offsetY="-3" />
       <move select="Lead Right" beats="1" scaleY=".5" />
@@ -64,8 +63,7 @@ This file is part of Taminations.
 
   <tam title="Twist the Line"
        from="Lines Facing Out"
-       formation="Lines Facing Out"
-       parts="" >
+       formation="Lines Facing Out" >
     <path>
       <move select="Quarter Left" beats="3" offsetX="-1.5" offsetY="3" />
       <move select="Quarter Left" beats="1" offsetX="1" offsetY="-.5" />
@@ -84,8 +82,7 @@ This file is part of Taminations.
 
   <tam title="Twist the Line"
        from="Tidal Line"
-       formation="Tidal Line RH"
-       parts="" >
+       formation="Tidal Line RH" >
     <path>
       <move select="Quarter Right" beats="2" offsetX=".5" offsetY="-1.5" />
       <move select="Lead Right" beats="2" scaleY=".5" />

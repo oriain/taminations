@@ -49,7 +49,7 @@
   <tam title="Galaxy Circulate"
        from="Left-Hand Galaxy"
        formation="Galaxy LH GP"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Right" beats="3" scaleY="2.1" />
     </path>

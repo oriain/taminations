@@ -25,7 +25,7 @@
   <tam title="Switch to an Hourglass"
        from="Right-Hand Waves"
        formation="Ocean Waves RH GBBG"
-       parts="" >
+       fractions="" >
     <path numbers="1 8">
       <move select="Extend Right" beats="3" scaleX="2" scaleY="2" />
     </path>
@@ -43,7 +43,7 @@
   <tam title="Switch to an Hourglass"
        from="Left-Hand Waves"
        formation="Ocean Waves LH GBBG"
-       parts="" >
+       fractions="" >
     <path numbers="1 8">
       <move select="Lead Left" beats="3" scaleY="3" />
     </path>

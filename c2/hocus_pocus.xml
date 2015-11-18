@@ -27,7 +27,7 @@
   <tam title="Hocus Pocus"
        from="Lines"
        formation="Normal Lines"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Extend Right" beats="3" scaleX="3" scaleY="2.5" />
@@ -47,7 +47,7 @@
   <tam title="Hocus Pocus"
        from="Lines Facing Out"
        formation="Lines Facing Out"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Left" beats="3" scaleX="1.5" scaleY="3" />
       <move select="Lead Left" scaleY=".5" />
@@ -67,7 +67,7 @@
   <tam title="Hocus Pocus"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward 4" beats="3" />
       <move select="Extend Right" beats="2" scaleY="2" />
@@ -86,7 +86,7 @@
   <tam title="Hocus Pocus"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Run Left" beats="5" offsetX="1" offsetY="2" />
     </path>
@@ -105,7 +105,7 @@
   <tam title="Hocus Pocus"
        from="Right-Hand Columns"
        formation="Column RH GBGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Run Right" beats="5" offsetX="-1" offsetY="-2" />
     </path>
@@ -124,7 +124,7 @@
   <tam title="Hocus Pocus"
        from="Left-Hand Columns"
        formation="Column LH GBGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Right" beats="2.5" scaleX="2" scaleY="2" />
       <move select="Forward 3" beats="2.5" />
@@ -143,7 +143,7 @@
   <tam title="Hocus Pocus"
        from="Completed Double Pass Thru"
        formation="Completed Double Pass Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Flip Left" beats="5" offsetX="-1" offsetY="2" />
     </path>

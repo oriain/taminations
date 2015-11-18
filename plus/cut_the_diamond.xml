@@ -25,7 +25,7 @@
   <tam title="Cut the Diamond"
        from="Right-Hand Diamond"
        formation="Diamond RH"
-       parts="" difficulty="1">
+       fractions="" difficulty="1">
     <path>
       <move select="Dodge Right" />
       <move select="Swing Right" />
@@ -40,7 +40,7 @@
   <tam title="Cut the Diamond"
        from="Left-Hand Diamond"
        formation="Diamond LH"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Dodge Left" />
       <move select="Swing Left" />
@@ -55,7 +55,7 @@
   <tam title="Cut the Diamond"
        from="Facing Diamond"
        formation="Diamond Facing"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Dodge Right" />
       <move select="Swing Right" />
@@ -70,7 +70,7 @@
   <tam title="Cut the Diamond"
        from="Right-Hand Diamonds"
        formation="Diamonds RH Girl Points"
-       parts="" difficulty="1">
+       fractions="" difficulty="1">
     <path>
       <move select="Forward 2" />
       <move select="Lead Right" />
@@ -92,7 +92,7 @@
   <tam title="Cut the Diamond"
        from="Left-Hand Diamonds"
        formation="Diamonds LH Girl Points"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Forward 2" />
       <move select="Lead Left" />
@@ -114,7 +114,7 @@
   <tam title="Cut the Diamond"
        from="Facing Diamonds"
        formation="Diamonds Facing Girl Points"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Forward 2" />
       <move select="Lead Right" />
@@ -136,7 +136,7 @@
   <tam title="Cut the Diamond"
        from="Point-to-Point Diamonds"
        formation="Diamonds RH PTP Girl Points"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Forward" beats="2" scaleX="1.5" />
       <move select="Lead Right"  beats="2"/>
@@ -159,7 +159,7 @@
   <tam title="Cut the Diamond"
        from="3 and 1 Diamonds"
        formation="Diamonds 3 and 1 Girl Points"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Forward 2" />
       <move select="Lead Right" />

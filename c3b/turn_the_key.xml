@@ -23,7 +23,7 @@
 <tamination title="Turn The Key">
 
   <tam title="Turn the Key" from="Right-Hand Waves"
-       formation="Ocean Waves RH BGGB" parts="3;5">
+       formation="Ocean Waves RH BGGB" fractions="3;5">
     <path>
       <move select="Swing Right"/>
       <move select="Counter Rotate Left -1 3" beats="5"/>
@@ -47,7 +47,7 @@
   </tam>
 
   <tam title="Turn the Key" from="Left-Hand Waves"
-       formation="Ocean Waves LH BGGB" parts="3;5">
+       formation="Ocean Waves LH BGGB" fractions="3;5">
     <path>
       <move select="Swing Left"/>
       <move select="Counter Rotate Right 3 1" beats="5"/>
@@ -70,7 +70,7 @@
     </path>
   </tam>
 
-  <tam title="Turn the Key" from="3 and 1 Lines" parts="3;5">
+  <tam title="Turn the Key" from="3 and 1 Lines" fractions="3;5">
     <formation>
       <dancer gender="boy" x="2" y="1" angle="180"/>
       <dancer gender="girl" x="2" y="3" angle="180"/>
@@ -101,7 +101,7 @@
     </path>
   </tam>
 
-  <tam title="Turn the Key" from="Quarter Tag" formation="Quarter Tag" parts="3;5.5">
+  <tam title="Turn the Key" from="Quarter Tag" formation="Quarter Tag" fractions="3;5.5">
     <path couples="2 4">
       <move select="Run Right"/>
       <move select="Lead Right" scaleX="1.5"/>
@@ -128,7 +128,7 @@
   </tam>
 
   <tam title="Turn the Key" from="Tidal Wave"
-       formation="Tidal Wave RH BGBG" parts="3;5">
+       formation="Tidal Wave RH BGBG" fractions="3;5">
     <path>
       <move select="Swing Right" scaleX=".5" scaleY=".5"/>
       <move select="Lead Left" beats="5" scaleX="2.5" scaleY="2.5"/>

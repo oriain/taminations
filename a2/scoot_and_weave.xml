@@ -22,7 +22,8 @@
 -->
 <tamination title="Scoot and Weave">
 
-  <tam title="Scoot and Weave" from="Right-Hand Box" formation="Box RH" parts="5.5">
+  <tam title="Scoot and Weave" from="Right-Hand Box" formation="Box RH" 
+       parts="5.5">
     <path numbers="1 4">
       <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".25" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
@@ -238,7 +239,8 @@
     </path>
   </tam>
 
-  <tam formation="Static MiniWaves RH" title="All 8 Scoot and Weave" from="Squared Mini-Waves" parts="7">
+  <tam formation="Static MiniWaves RH" title="All 8 Scoot and Weave" 
+       from="Squared Mini-Waves" parts="7">
     <path>
       <move select="Forward 3"/>
       <move select="Swing Right"/>

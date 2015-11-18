@@ -37,8 +37,7 @@
     </path>
   </tam>
 
-  <tam title="Linear Cycle" from="Lines Facing Out" formation="Lines Facing Out"
-       parts="">
+  <tam title="Linear Cycle" from="Lines Facing Out" formation="Lines Facing Out">
     <path>
       <move select="Quarter Left" offsetX="-1" offsetY="1"/>
       <move select="Forward 4" />

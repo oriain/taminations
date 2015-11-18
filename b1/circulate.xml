@@ -26,7 +26,7 @@
        from="Right-Hand Box"
        formation="Box RH"
        difficulty="1"
-       parts="2" >
+       fractions="2" >
     <path>
       <move select="Forward 4" />
     </path>
@@ -38,7 +38,7 @@
   <tam title="Box Circulate"
        from="Left-Hand Box"
        formation="Box LH"
-       parts="2" difficulty="2">
+       fractions="2" difficulty="2">
     <path>
       <move select="Run Left" beats="4" />
     </path>
@@ -50,7 +50,7 @@
   <tam title="Centers Circulate"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="2" difficulty="1">
+       fractions="2" difficulty="1">
     <path>
     </path>
     <path>
@@ -66,7 +66,7 @@
   <tam title="Centers Circulate"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       parts="2" difficulty="1">
+       fractions="2" difficulty="1">
     <path>
     </path>
     <path>
@@ -82,7 +82,7 @@
   <tam title="Centers Circulate"
        from="Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       parts="2" difficulty="1">
+       fractions="2" difficulty="1">
     <path>
     </path>
     <path>
@@ -98,7 +98,7 @@
   <tam title="Ends Circulate"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="2" difficulty="1">
+       fractions="2" difficulty="1">
     <path>
       <move select="Forward 4" />
     </path>
@@ -114,7 +114,7 @@
   <tam title="Ends Circulate"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       parts="2" difficulty="1">
+       fractions="2" difficulty="1">
     <path>
       <move select="Run Left" scaleX="2" scaleY="3" beats="4" />
     </path>
@@ -130,7 +130,7 @@
   <tam title="Ends Circulate"
        from="Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       parts="2" difficulty="1">
+       fractions="2" difficulty="1">
     <path>
       <move select="Forward 4" />
     </path>
@@ -147,7 +147,7 @@
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
        difficulty="1"
-       parts="2" >
+       fractions="2" >
     <path>
       <move select="Forward 4" />
     </path>
@@ -165,7 +165,7 @@
   <tam title="All 8 Circulate"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       parts="2" difficulty="1">
+       fractions="2" difficulty="1">
     <path>
       <move select="Run Left" scaleX="2" scaleY="3" beats="4" />
     </path>
@@ -182,7 +182,7 @@
 
   <tam title="All 8 Circulate" formation="3 and 1 lines #1"
        from="3 and 1 Lines #1"
-       difficulty="2" parts="2">
+       difficulty="2" fractions="2">
     <path>
       <move select="Run Left" beats="4" scaleX="2" scaleY="3"/>
     </path>
@@ -201,7 +201,7 @@
 
   <tam title="All 8 Circulate" formation="3 and 1 lines #2"
        from="3 and 1 Lines #2"
-       difficulty="2" parts="2">
+       difficulty="2" fractions="2">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
@@ -220,7 +220,7 @@
 
   <tam title="All 8 Circulate" formation="3 and 1 lines #3"
        from="3 and 1 Lines #3"
-       difficulty="2" parts="2">
+       difficulty="2" fractions="2">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
@@ -239,7 +239,7 @@
 
   <tam title="All 8 Circulate" formation="3 and 1 lines #4"
        from="3 and 1 Lines #4"
-       difficulty="2" parts="2">
+       difficulty="2" fractions="2">
     <path>
       <move select="Forward 4"/>
     </path>
@@ -258,7 +258,7 @@
 
   <tam title="All 8 Circulate" formation="3 and 1 lines #5"
        from="3 and 1 Lines #5"
-       difficulty="2" parts="2">
+       difficulty="2" fractions="2">
     <path>
       <move select="Forward 4" />
     </path>
@@ -275,7 +275,7 @@
 
   <tam title="All 8 Circulate" formation="3 and 1 lines #6"
        from="3 and 1 Lines #6"
-       difficulty="2" parts="2">
+       difficulty="2" fractions="2">
     <path>
       <move select="Run Left" beats="4" scaleX="2" scaleY="3"/>
     </path>
@@ -292,7 +292,7 @@
 
   <tam title="All 8 Circulate" formation="3 and 1 lines #7"
        from="3 and 1 Lines #7"
-       difficulty="2" parts="2">
+       difficulty="2" fractions="2">
     <path>
       <move select="Run Left" beats="4" scaleX="2" scaleY="3"/>
     </path>
@@ -309,7 +309,7 @@
 
   <tam title="All 8 Circulate" formation="3 and 1 lines #8"
        from="3 and 1 Lines #8"
-       difficulty="2" parts="2">
+       difficulty="2" fractions="2">
     <path>
       <move select="Run Left" beats="4" scaleX="2" scaleY="3" />
     </path>
@@ -365,7 +365,7 @@
   </tam>
 
   <tam title="All 8 Circulate" from="Lines Facing Out"
-       formation="Lines Facing Out" difficulty="2" parts="2">
+       formation="Lines Facing Out" difficulty="2" fractions="2">
     <path>
       <move select="Run Left" beats="4" scaleX="2" scaleY="3"/>
     </path>
@@ -385,7 +385,7 @@
   </tam>
 
   <tam title="All 8 Circulate" from="Lines Facing In"
-       formation="Normal Lines" difficulty="2" parts="2">
+       formation="Normal Lines" difficulty="2" fractions="2">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
@@ -427,7 +427,7 @@
   <tam title="All 8 Circulate"
        from="T-Bones"
        formation="T-Bone DLDL"
-       parts="" difficulty="3">
+       fractions="" difficulty="3">
     <path>
       <move select="Lead Left 2" scaleY="1.5" beats="2" />
       <move select="Lead Left 2" scaleX="1.5" beats="2" />
@@ -446,7 +446,7 @@
   <tam title="Split Circulate"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="2" difficulty="1">
+       fractions="2" difficulty="1">
     <path>
       <move select="Forward 4" />
     </path>
@@ -464,7 +464,7 @@
   <tam title="Split Circulate"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       parts="2" difficulty="2">
+       fractions="2" difficulty="2">
     <path>
       <move select="Run Left" beats="4" />
     </path>
@@ -482,7 +482,7 @@
   <tam title="Split Circulate"
        from="Columns"
        formation="Column RH GBGB"
-       parts="1.5" difficulty="2">
+       fractions="1.5" difficulty="2">
     <path>
       <move select="Run Right" />
     </path>
@@ -500,7 +500,7 @@
   <tam title="Split Circulate"
        from="T-Bones"
        formation="T-Bone DLDL"
-       parts="" difficulty="3">
+       fractions="" difficulty="3">
     <path>
       <move select="Run Left" />
     </path>
@@ -534,7 +534,7 @@
   <tam title="Split Circulate 1 1/2"
        from="Waves"
        formation="Ocean Waves RH BGGB"
-       parts="2;2" difficulty="2">
+       fractions="2;2" difficulty="2">
     <path>
       <move select="Forward 4" />
       <move select="Lead Right" />
@@ -556,7 +556,7 @@
   <tam title="Couples Circulate"
        from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       parts="2" difficulty="1">
+       fractions="2" difficulty="1">
     <path>
       <move select="Forward 4" hands="right" />
     </path>
@@ -574,7 +574,7 @@
   <tam title="Couples Circulate"
        from="Left-Hand Two-Faced Lines"
        formation="Two-Faced Lines LH"
-       parts="2" difficulty="1">
+       fractions="2" difficulty="1">
     <path>
       <move select="Run Left" beats="4" scaleX="3" scaleY="3" hands="left" />
     </path>
@@ -592,7 +592,7 @@
   <tam title="Couples Circulate"
        from="T-Bone Couples"
        formation="T-Bone Couples"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Extend Right" beats="2" hands="right" scaleX="2" />
       <move select="Extend Left" beats="2" hands="right" scaleX="2" />
@@ -611,7 +611,7 @@
   <tam title="Column Circulate"
        from="Right-Hand Columns"
        formation="Column RH GBGB"
-       parts="1.5" difficulty="1">
+       fractions="1.5" difficulty="1">
     <path>
       <move select="Run Right" />
     </path>
@@ -629,7 +629,7 @@
   <tam title="Column Circulate"
        from="Left-Hand Columns"
        formation="Column LH GBGB"
-       parts="1.5" difficulty="1">
+       fractions="1.5" difficulty="1">
     <path>
       <move select="Forward 2" beats="3" />
     </path>

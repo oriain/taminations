@@ -68,7 +68,7 @@
   <tam title="Turn and Deal"
        from="Normal Lines"
        formation="Normal Lines"
-       parts="" >
+       fractions="" >
     <path>
       <move select="U-Turn Right" beats="4" offsetX="1" offsetY="-2" />
     </path>
@@ -86,7 +86,7 @@
   <tam title="Turn and Deal"
        from="Lines Facing Out"
        formation="Lines Facing Out"
-       parts="" >
+       fractions="" >
     <path numbers="5 4">
       <move select="U-Turn Left" beats="4" offsetX="-1" offsetY="2" />
     </path>
@@ -104,7 +104,7 @@
   <tam title="Turn and Deal"
        from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="U-Turn Right" beats="4" offsetX="1" offsetY="-2" />
     </path>
@@ -122,7 +122,7 @@
   <tam title="Turn and Deal"
        from="Left-Hand Two-Faced Lines"
        formation="Two-Faced Lines LH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="U-Turn Left" beats="4" offsetX="-1" offsetY="2" />
     </path>
@@ -140,7 +140,7 @@
   <tam title="Turn and Deal"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="U-Turn Right" beats="4" offsetX="1" offsetY="-2" />
     </path>
@@ -158,7 +158,7 @@
   <tam title="Turn and Deal"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="U-Turn Left" beats="4" offsetX="-1" offsetY="2" />
     </path>
@@ -176,7 +176,7 @@
   <tam title="Turn and Deal"
        from="Tidal Line"
        formation="Tidal Line RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="U-Turn Right" beats="4" offsetX="2" offsetY="-.5" />
     </path>
@@ -194,7 +194,7 @@
   <tam title="Turn and Deal"
        from="Right-Hand Two-Faced Tidal Line"
        formation="Two-Faced Tidal Line RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="U-Turn Right" beats="4" offsetX="2" offsetY="-.5" />
     </path>
@@ -212,7 +212,7 @@
   <tam title="Turn and Deal"
        from="Left-Hand Two-Faced Tidal Line"
        formation="Two-Faced Tidal Line LH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="U-Turn Left" beats="4" offsetX="-2" offsetY=".5" />
     </path>
@@ -230,7 +230,7 @@
   <tam title="Turn and Deal"
        from="Right-Hand Tidal Wave"
        formation="Tidal Wave RH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="U-Turn Right" beats="4" offsetX="2" offsetY="-.5" />
     </path>
@@ -248,7 +248,7 @@
   <tam title="Turn and Deal"
        from="Left-Hand Tidal Wave"
        formation="Tidal Wave LH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="U-Turn Left" beats="4" offsetX="-2" offsetY=".5" />
     </path>
@@ -280,7 +280,7 @@
   <tam title="As Couples Turn and Deal"
        from="Right-Hand Tidal Line"
        formation="Tidal Line RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Belle Wheel" reflect="-1" hands="gripright" scaleY=".5" offsetX="2" offsetY="-1.5" />
     </path>
@@ -298,7 +298,7 @@
   <tam title="As Couples Turn and Deal"
        from="Left-Hand Tidal Line"
        formation="Tidal Line LH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Beau Wheel" beats="4" scaleX=".5" scaleY=".5" offsetX="-2" offsetY=".5" />
     </path>
@@ -316,7 +316,7 @@
   <tam title="As Couples Turn and Deal"
        from="Right-Hand Two-Faced Tidal Line"
        formation="Two-Faced Tidal Line RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Belle Wheel" reflect="-1" scaleY=".5" offsetX="2" offsetY="-1.5" />
     </path>
@@ -334,7 +334,7 @@
   <tam title="As Couples Turn and Deal"
        from="Left-Hand Two-Faced Tidal Line"
        formation="Two-Faced Tidal Line LH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Belle Wheel" beats="4" scaleX=".5" scaleY=".5" offsetX="-2" offsetY="1.5" />
     </path>
@@ -369,7 +369,7 @@
   <tam title="All 8 Turn and Deal"
        from="Wrong Way Thar"
        formation="Thar LH Boys"
-       parts="" >
+       fractions="" >
     <path>
       <move select="U-Turn Left" beats="4" offsetX="-3" offsetY="2" />
     </path>

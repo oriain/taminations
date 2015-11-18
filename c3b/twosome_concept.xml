@@ -229,7 +229,7 @@
   </tam>
 
   <tam title="Tandem Twosome Zoom" group="Tandem Twosome"
-       formation="Column RH GBGB" parts="4">
+       formation="Column RH GBGB" fractions="4">
     <path>
       <move select="Run Left" offsetX="-1"/>
       <move select="Forward 2"/>

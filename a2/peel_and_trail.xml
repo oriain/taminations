@@ -126,7 +126,7 @@
   <tam title="Peel and Trail"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGBG"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".25" />
       <move select="Swing Right" scaleX=".75" scaleY=".625" />
@@ -146,7 +146,7 @@
   <tam title="Peel and Trail"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGBG"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Flip Right" beats="5" offsetX="-2" offsetY="1.5" />
     </path>
@@ -193,7 +193,7 @@
   <tam title="As Couples Peel and Trail"
        from="Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Right" beats="2" scaleX="2" scaleY="1.5" />
       <move select="Swing Right" beats="3" scaleX="1.5" scaleY="1.5" />
@@ -213,7 +213,7 @@
   <tam title="All 8 Peel and Trail"
        from="Mini-Waves"
        formation="Static MiniWaves RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward 3" />
       <move select="Swing Right" />

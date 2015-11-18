@@ -25,7 +25,7 @@
   <tam title="Allemande Left to an Alamo Ring"
        from="Static Square"
        formation="Static Square"
-       parts="" difficulty="1">
+       fractions="" difficulty="1">
     <path>
       <move select="Lead Left" beats="3" offsetX=".5" />
       <move select="Swing Left" scaleX=".5" scaleY=".5" />

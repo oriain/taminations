@@ -25,7 +25,7 @@
   <tam title="Zig Zag"
        from="Double Pass Thru"
        formation="Double Pass Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Quarter Left" beats="2" offsetY="1" />
     </path>
@@ -43,7 +43,7 @@
   <tam title="Zig Zag"
        from="Completed Double Pass Thru"
        formation="Completed Double Pass Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Quarter Right" beats="2" offsetY="-1" />
     </path>
@@ -83,7 +83,7 @@
   <tam title="Zig Zag"
        from="Left-Hand Columns"
        formation="Column LH GBGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Quarter Left" beats="2" offsetY="-1" />
     </path>
@@ -101,7 +101,7 @@
   <tam title="Zig Zag"
        from="Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Quarter Left" beats="2" offsetX="1" />
     </path>
@@ -119,7 +119,7 @@
   <tam title="Zig Zag"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Quarter Left" beats="2" offsetX="1" />
     </path>
@@ -137,7 +137,7 @@
   <tam title="Zig Zag"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Quarter Right" beats="2" offsetX="-1" />
     </path>

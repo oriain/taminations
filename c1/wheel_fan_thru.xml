@@ -24,8 +24,7 @@
 
   <tam title="Wheel Fan Thru"
        from="Facing Couples"
-       formation="Facing Couples"
-       parts="" >
+       formation="Facing Couples">
     <path numbers="1 4">
       <move select="HalfHinge Right" beats="2" offsetX="1.75" offsetY="-.25" />
       <move select="Swing Right" scaleX=".707" scaleY=".707" />
@@ -393,7 +392,7 @@
   <tam title="As Couples Left Wheel Fan Thru"
        from="" group=" "
        formation="Normal Lines"
-       parts="" >
+       fractions="" >
     <path>
       <move select="BackHinge Right" />
     </path>

@@ -22,7 +22,7 @@
 -->
 <tamination title="Bingo">
 
-  <tam title="Bingo" from="Right-Hand Box" parts="2.25">
+  <tam title="Bingo" from="Right-Hand Box" fractions="2.25">
     <formation>
       <dancer gender="boy" y="2" x="1" angle="270"/>
       <dancer gender="girl" y="-2" x="1" angle="270"/>
@@ -37,7 +37,7 @@
     </path>
   </tam>
 
-  <tam title="Bingo" from="Left-Hand Box" formation="Box LH" parts="2.25">
+  <tam title="Bingo" from="Left-Hand Box" formation="Box LH" fractions="2.25">
     <path>
       <move select="Quarter Right" offsetX="-.333" offsetY="-.333"/>
       <move select="Quarter Right" offsetX=".333" offsetY="-.333"/>

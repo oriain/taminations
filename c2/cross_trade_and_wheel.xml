@@ -27,7 +27,7 @@
   <tam title="Cross Trade and Wheel"
        from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       parts="3;3" >
+       fractions="3;3" >
     <path>
       <move select="Hinge Right" beats="3" scaleX="1.5" scaleY="3" />
       <move select="Swing Left" scaleX=".5" scaleY=".5" />
@@ -55,7 +55,7 @@
   <tam title="Cross Trade and Wheel"
        from="Left-Hand Two-Faced Lines"
        formation="Two-Faced Lines LH"
-       parts="3;3" >
+       fractions="3;3" >
     <path>
       <move select="Hinge Left" beats="3" scaleX="1.5" scaleY="3" />
       <move select="Stand" beats="3" />
@@ -83,7 +83,7 @@
   <tam title="Cross Trade and Wheel"
        from="Lines Facing Out"
        formation="Lines Facing Out"
-       parts="3;3" >
+       fractions="3;3" >
     <path>
       <move select="Quarter Left" beats="3" hands="left" offsetX="-.5" offsetY="3"/>
       <move select="Stand" beats="3" />

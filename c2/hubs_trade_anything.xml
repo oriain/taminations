@@ -24,7 +24,7 @@
 
 
 
-  <tam title="Hubs Trade Zoom" from="Waves" formation="Ocean Waves RH BGGB" parts="3">
+  <tam title="Hubs Trade Zoom" from="Waves" formation="Ocean Waves RH BGGB" fractions="3">
   <path>
     <move select="Swing Right"/>
   </path>

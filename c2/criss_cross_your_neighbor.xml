@@ -40,7 +40,7 @@
   <tam title="Criss Cross Your Neighbor"
        from="Left-Hand Box"
        formation="Box LH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Run Left" scaleY="1.5" />
       <move select="Forward 2" />

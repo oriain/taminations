@@ -111,7 +111,7 @@
   <tam title="Linear Action"
        from="Left-Hand Quarter Waves"
        formation="Quarter Wave LH"
-       parts="" >
+       parts="1.5;5" >
     <path>
       <move select="Hinge Left" />
       <move select="Swing Left" beats="5" offsetY="-1" />

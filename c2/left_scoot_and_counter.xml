@@ -27,7 +27,7 @@
   <tam title="Left Scoot and Counter"
        from="Left-Hand Quarter Tag"
        formation="Quarter Tag LH"
-       parts="5" >
+       fractions="5" >
     <path>
       <!-- Scoot Back -->
       <move select="Forward" scaleX="1.5" />

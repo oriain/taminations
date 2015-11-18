@@ -29,7 +29,7 @@
   <tam title="Circle Left"
        from="Static Square"
        formation="Static Square"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward" hands="both" scaleX=".59" scaleY=".59" />
       <move select="cl" />
@@ -79,7 +79,7 @@
   <tam title="Circle Right"
        from="Static Square"
        formation="Static Square"
-       parts="" >
+       fractions="" >
     <path>
       <move select="incircle3" />
       <move select="cr" />

@@ -73,7 +73,7 @@
   <tam title="Spin Chain Thru"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="3;4.5;3" difficulty="2">
+       parts="5;4.5;3" difficulty="2">
     <path>
       <move select="Extend Left" beats="2" scaleY="2"/>
       <move select="Swing Right" />

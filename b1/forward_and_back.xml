@@ -38,7 +38,7 @@
   <tam title="Forward and Back"
        from="Lines"
        formation="Normal Lines"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Forward" hands="right" beats="2" />
       <move select="Back" hands="right" beats="2" />

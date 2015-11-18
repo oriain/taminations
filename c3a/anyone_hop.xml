@@ -22,7 +22,7 @@
 -->
 <tamination title="Anyone Hop">
 
-  <tam title="Beaus Hop" parts="4" group=" ">
+  <tam title="Beaus Hop" fractions="4" group=" ">
     <formation>
       <dancer gender="boy" y="2" x="1" angle="270" />
       <dancer gender="girl" y="2" x="-1" angle="270" />
@@ -37,7 +37,7 @@
     </path>
   </tam>
 
-  <tam title="Trailers Hop" parts="4" group=" ">
+  <tam title="Trailers Hop" fractions="4" group=" ">
     <formation>
       <dancer gender="boy" y="2" x="1" angle="90"/>
       <dancer gender="girl" y="2" x="-1" angle="270"/>
@@ -52,7 +52,7 @@
     </path>
   </tam>
 
-  <tam title="Everybody Hop" formation="Facing Couples" parts="4" group=" ">
+  <tam title="Everybody Hop" formation="Facing Couples" fractions="4" group=" ">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
@@ -65,7 +65,7 @@
     </path>
   </tam>
 
-  <tam title="Nobody Hop" formation="Box RH" parts="3" group=" ">
+  <tam title="Nobody Hop" formation="Box RH" fractions="3" group=" ">
     <path>
       <move select="BackSashay Right" scaleX="1.5"/>
       <move select="Hinge Left"/>
@@ -76,7 +76,7 @@
     </path>
   </tam>
 
-  <tam title="Boys Hop" from="Lines" formation="Normal Lines" parts="4" group=" ">
+  <tam title="Boys Hop" from="Lines" formation="Normal Lines" fractions="4" group=" ">
     <path>
       <move select="Forward 4"/>
       <move select="Hinge Right"/>
@@ -95,7 +95,7 @@
     </path>
   </tam>
 
-  <tam title="Magic Column Boys Hop" formation="Magic Column RH" parts="3" group=" ">
+  <tam title="Magic Column Boys Hop" formation="Magic Column RH" fractions="3" group=" ">
     <formation>
       <dancer gender="boy" x="-3" y="-1" angle="0"/>
       <dancer gender="girl" x="1" y="-1" angle="180"/>

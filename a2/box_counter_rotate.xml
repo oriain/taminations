@@ -40,7 +40,7 @@
     </path>
   </tam>
 
-  <tam title="Box Counter Rotate 3/4" from="Right-Hand Box" formation="Box RH" parts="4;4">
+  <tam title="Box Counter Rotate 3/4" from="Right-Hand Box" formation="Box RH" fractions="4;4">
     <path numbers="1 4">
       <move select="Counter Rotate Right 3 1" beats="4" hands="right" />
       <move select="Counter Rotate Right 3 1" beats="4" hands="right" />

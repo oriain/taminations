@@ -27,7 +27,7 @@
   <tam title="Rims Trade Chase Right" group="Rims Trade"
        from=""
        formation="Normal Lines"
-       parts="3" >
+       fractions="3" >
     <path>
       <move select="Run Right" />
       <move select="U-Turn Right" beats="1.5" offsetX="-1" />
@@ -50,7 +50,7 @@
   <tam title="Rims Trade Follow Your Neighbor" group="Rims Trade"
        from=""
        formation="Ocean Waves RH BGGB"
-       parts="3" >
+       fractions="3" >
     <path>
       <move select="Swing Right" />
       <move select="Lead Left" beats="2" scaleX="2" />
@@ -73,7 +73,7 @@
   <tam title="Rims Trade Pass the Ocean" group="Rims Trade"
        from=""
        formation="Lines Facing Out"
-       parts="3" >
+       fractions="3" >
     <path>
       <move select="Flip Left" />
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
@@ -96,7 +96,7 @@
   <tam title="Rims Trade Pass Thru" group="Rims Trade"
        from=""
        formation="Lines Facing Out"
-       parts="3" >
+       fractions="3" >
     <path>
       <move select="Flip Left" />
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />

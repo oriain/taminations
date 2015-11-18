@@ -22,13 +22,9 @@
 -->
 <tamination title="Split Square Thru">
 
-
-
-
   <tam title="Heads Start Split Square Thru 4"
        from="Static Square"
-       formation="Static Square"
-       parts="" >
+       formation="Static Square" >
     <path>
       <move select="Forward 2" />
       <move select="Pull Left" scaleY=".5" />

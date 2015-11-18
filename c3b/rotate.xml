@@ -22,7 +22,7 @@
 -->
 <tamination title="Rotate">
 
-  <tam title="Rotate 1/4" group=" " parts="1.5"
+  <tam title="Rotate 1/4" group=" " fractions="1.5"
        formation="Completed Double Pass Thru">
     <path couples="3 1">
       <move select="Hinge Left" scaleX=".5"/>
@@ -42,7 +42,7 @@
     </path>
   </tam>
 
-  <tam title="Reverse Rotate 1/4" group=" " parts="1.5"
+  <tam title="Reverse Rotate 1/4" group=" " fractions="1.5"
        formation="Completed Double Pass Thru">
     <path couples="3 1">
       <move select="BackHinge Left" scaleX=".5"/>
@@ -62,7 +62,7 @@
     </path>
   </tam>
 
-  <tam title="Single Rotate 1/4" group=" " parts="1.5"
+  <tam title="Single Rotate 1/4" group=" " fractions="1.5"
        formation="Completed Double Pass Thru">
     <path couples="3 1">
       <move select="Quarter Left" offsetY="-1"/>
@@ -82,7 +82,7 @@
     </path>
   </tam>
 
-  <tam title="Reverse Single Rotate 1/4" group=" " parts="1.5"
+  <tam title="Reverse Single Rotate 1/4" group=" " fractions="1.5"
        formation="Completed Double Pass Thru">
     <path couples="3 1">
       <move select="Quarter Right" offsetY="-1"/>
@@ -102,7 +102,7 @@
     </path>
   </tam>
 
-  <tam title="Split Single Rotate 1/4" group=" " parts="1.5"
+  <tam title="Split Single Rotate 1/4" group=" " fractions="1.5"
        formation="Completed Double Pass Thru">
     <path couples="3 1">
       <move select="Quarter Left"/>

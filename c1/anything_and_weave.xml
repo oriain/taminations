@@ -55,7 +55,7 @@
   <tam title="And Weave"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Right" beats="2" scaleX="2" scaleY="1.5" />
       <move select="Hinge Left" scaleY=".5" />
@@ -75,7 +75,7 @@
   <tam title="And Weave"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Left" />
     </path>
@@ -95,7 +95,7 @@
   <tam title="And Weave"
        from="Right-Hand Columns"
        formation="Column RH GBGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Right" scaleX=".5" />
     </path>
@@ -115,7 +115,7 @@
   <tam title="And Weave"
        from="Left-Hand Columns"
        formation="Column LH GBGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" beats="1.5" scaleY="1.5" />
       <move select="Hinge Right" scaleX=".5" scaleY=".5" />
@@ -135,7 +135,7 @@
   <tam title="And Weave"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" />
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />

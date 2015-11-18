@@ -282,6 +282,10 @@ TAMination.prototype.getParts = function() {
   var a = this.animationXref();
   return a.attr("parts") ? a.attr("parts") : '';
 };
+TAMination.prototype.getFractions = function() {
+  var a = this.animationXref();
+  return a.attr("fractions") ? a.attr("fractions") : '';
+};
 
 TAMination.prototype.getTitle = function(n) {
   var a = this.animation(n);

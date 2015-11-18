@@ -26,7 +26,7 @@
   <tam title="Cast Off 3/4"
        from="Right-Hand Two-Faced Line"
        formation="Two-Faced Line RH"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move beats="2" select="Quarter Left" hands="right" offsetX=".33" offsetY="-.33" />
       <move beats="2" select="Quarter Left" hands="right" offsetX="-.33" offsetY="-.33" />
@@ -42,7 +42,7 @@
   <tam title="Cast Off 3/4"
        from="Left-Hand Two-Faced Line"
        formation="Two-Faced Line LH"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Hinge Right" scaleX="2" scaleY="2" offsetX=".33" offsetY=".33" />
       <move select="Hinge Right" scaleX="2" scaleY="2" offsetX="-.33" offsetY=".33" />
@@ -76,7 +76,7 @@
   <tam title="Cast Off 3/4"
        from="Lines Facing Out"
        formation="Lines Facing Out"
-       parts="" difficulty="1">
+       fractions="" difficulty="1">
     <path>
       <move select="Quarter Right" hands="left" offsetX=".33" offsetY=".33" />
       <move select="Quarter Right" hands="left" offsetX="-.33" offsetY=".33" />
@@ -102,7 +102,7 @@
   <tam title="Cast Off 3/4"
        from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Quarter Left" hands="right" offsetX=".33" offsetY="-.33" />
       <move select="Quarter Left" hands="right" offsetX="-.33" offsetY="-.33" />
@@ -132,7 +132,7 @@
   <tam title="Cast Off 3/4"
        from="Left-Hand Two-Faced Lines"
        formation="Two-Faced Lines LH"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Quarter Right" hands="left" offsetX=".33" offsetY=".33" />
       <move select="Quarter Right" hands="left" offsetX="-.33" offsetY=".33" />
@@ -162,7 +162,7 @@
   <tam title="Cast Off 3/4"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       parts="" difficulty="1">
+       fractions="" difficulty="1">
     <path>
       <move select="Cast Right" />
     </path>
@@ -180,7 +180,7 @@
   <tam title="Cast Off 3/4"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       parts="" difficulty="1">
+       fractions="" difficulty="1">
     <path>
       <move select="Cast Left" />
     </path>
@@ -198,7 +198,7 @@
   <tam title="Cast Off 3/4"
        from="Tidal Line"
        formation="Tidal Line RH"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Quarter Left" hands="right" offsetX=".33" offsetY="-.17" />
       <move select="Quarter Left" hands="right" offsetX="-.17" offsetY="-.33" />
@@ -224,7 +224,7 @@
   <tam title="Cast Off 3/4"
        from="Two-Faced Tidal Line"
        formation="Two-Faced Tidal Line RH"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Quarter Left" hands="right" offsetX=".33" offsetY="-.17" />
       <move select="Quarter Left" hands="right" offsetX="-.17" offsetY="-.33" />
@@ -250,7 +250,7 @@
   <tam title="Cast Off 3/4"
        from="Alamo Wave"
        formation="Alamo Wave"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Sxtnth Left" />
       <move select="Swing Right" />
@@ -276,7 +276,7 @@
   <tam title="Cast Off 3/4"
        from="Thar"
        formation="Thar LH Boys"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Swing Right" />
       <move select="Hinge Right" offsetY=".414" />

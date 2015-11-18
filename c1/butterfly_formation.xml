@@ -316,7 +316,7 @@
   <tam title="Butterfly Split Circulate" group="Butterfly"
        from="Butterfly"
        formation="Butterfly RH"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Right" beats="2" scaleX="2" scaleY="2" />
     </path>

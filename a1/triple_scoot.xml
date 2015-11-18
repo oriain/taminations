@@ -28,7 +28,7 @@
   <tam title="Triple Scoot" 
        from="Right-Hand Columns"
        formation="Column RH GBGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Run Right" beats="6" />
     </path>
@@ -52,7 +52,7 @@
   <tam title="Triple Scoot" 
        from="Left-Hand Columns"
        formation="Column LH GBGB"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" beats="1.5" scaleY=".5" />
       <move select="Swing Left" scaleX=".5" scaleY=".5" />

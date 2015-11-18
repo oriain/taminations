@@ -25,7 +25,7 @@
   <tam title="Flip the Hourglass"
        from="Right-Hand Hourglass"
        formation="Hourglass RH BP"
-       parts="" >
+       fractions="" >
     <path numbers="3 6">
       <move select="Flip Right" />
     </path>

@@ -43,7 +43,7 @@
   <tam title="Interlocked Diamond Circulate"
        from="Left-Hand Interlocked Diamonds"
        formation="Interlocked Diamonds LH Girl Points"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Left" beats="3" scaleX="3" />
     </path>
@@ -62,7 +62,7 @@
   <tam title="Interlocked Diamond Circulate"
        from="Right-Hand Point-to-Point Interlocked Diamonds"
        formation="Interlocked Diamonds RH PTP Girl Points"
-       parts="" >
+       fractions="" >
     <path numbers="2 7">
       <move select="Forward 3" />
       <move select="Hinge Right" />
@@ -82,7 +82,7 @@
   <tam title="Interlocked Diamond Circulate"
        from="Left-Hand Point-to-Point Interlocked Diamonds"
        formation="Interlocked Diamonds LH PTP Girl Points"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Left" beats="3" scaleX="2" />
     </path>

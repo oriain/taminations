@@ -27,7 +27,7 @@
   <tam title="Vertical Tag Your Neighbor"
        from="Couples Facing Out"
        formation="Couples Facing Out"
-       parts="4.5" >
+       fractions="4.5" >
     <path>
       <!-- vertical 1/2 tag -->
       <move select="U-Turn Left" offsetX="-1.5"/>

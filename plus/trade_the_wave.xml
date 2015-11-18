@@ -103,7 +103,7 @@
   <tam title="Trade the Wave"
        from="Left-Hand Tidal Wave"
        formation="Tidal Wave LH BGGB"
-       parts="" difficulty="2">
+       fractions="" difficulty="2">
     <path>
       <move select="Run Left" beats="6" scaleX=".5" />
     </path>

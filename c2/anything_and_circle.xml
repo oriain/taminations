@@ -25,7 +25,7 @@
   <tam title="Switch and Circle 1/4"
        from="Quarter Tag"
        formation="Quarter Tag"
-       parts="3" group=" ">
+       fractions="3" group=" ">
     <path numbers="1 8">
       <move select="Stand" beats="3" hands="right"/>
       <move select="Extend Left" beats="4" scaleX="3" scaleY="2"/>
@@ -46,7 +46,7 @@
   <tam title="Swing and Mix and Circle 1/2"
        from="Quarter Tag"
        formation="Quarter Tag"
-       parts="8;4;8" group=" ">
+       fractions="8;4;8" group=" ">
   <path numbers="1 8">
     <!-- Swing and Mix -->
     <move select="Stand" beats="8" hands="right"/>

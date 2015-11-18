@@ -142,7 +142,7 @@
   <tam title="Concentric Motivate" group=" "
        from="T-Bones"
        formation="T-Bone URRD"
-       parts="4;4.5;3">
+       fractions="4;4.5;3">
     <path>
       <move select="Forward 2" beats="4"/>
       <move select="Lead Right"/>

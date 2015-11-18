@@ -52,7 +52,7 @@
   <tam title="Cast a Shadow"
        from="Left-Hand Waves"
        formation="Ocean Waves LH GBBG"
-       parts="" >
+       fractions="" >
     <path>
       <move select="U-Turn Right" beats=".5" offsetY="-.75" />
       <move select="Forward 2" beats="1" />

@@ -87,7 +87,7 @@
   <tam title="Counter Rotate"
        from="Right-Hand Diamonds"
        formation="Diamonds RH Girl Points"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Right" beats="5" scaleX="3" scaleY="3" />
     </path>
@@ -120,7 +120,7 @@
   <tam title="Counter Rotate"
        from="Normal Lines"
        formation="Normal Lines"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Lead Right" beats="3" scaleX="3" scaleY="1.5" />
@@ -147,7 +147,7 @@
   <tam title="Counter Rotate"
        from="Inverted Lines Centers Facing In"
        formation="Inverted Lines Ends Facing Out"
-       parts="" >
+       fractions="" >
     <path>
       <move select="Lead Left" beats="3" scaleX=".5" scaleY="3" />
       <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
@@ -265,7 +265,7 @@
   <tam title="Points Counter Rotate"
        from="Right-Hand Diamonds"
        formation="Diamonds RH Girl Points"
-       parts="" >
+       fractions="" >
     <path numbers="6 3">
     </path>
     <path numbers="2 7">
