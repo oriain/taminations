@@ -21,11 +21,9 @@
 
 -->
 <tamination title="Exchange the Triangle">
-  
-  
 
   <tam title="Exchange the Inside Triangles" from="Point-to-Point Diamonds"
-       formation="Diamonds RH PTP Girl Points" fractions="5;5">
+       formation="Diamonds RH PTP Girl Points" parts="5;5">
     <path>
       <move select="Lead Right" beats="5" scaleX="2"/>
       <move select="Lead Left" beats="5" scaleY="4"/>

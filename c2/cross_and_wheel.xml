@@ -25,7 +25,7 @@
   <tam title="Cross and Wheel"
        from="Normal Lines"
        formation="Normal Lines"
-       fractions="3" >
+       parts="3" >
     <path>
       <move select="Lead Right" beats="3" hands="right" scaleX="1.5" scaleY="3" />
       <move select="Extend Right" beats="3" hands="right" scaleX="2" scaleY=".5" />
@@ -48,7 +48,7 @@
 
   <tam title="Cross and Wheel"
        from="Right-Hand Two-Faced Lines"
-       fractions="3" >
+       parts="3" >
     <formation>
       <dancer gender="boy" y="2" x="3" angle="270"/>
       <dancer gender="girl" y="2" x="1" angle="270"/>
@@ -78,7 +78,7 @@
   <tam title="Cross and Wheel"
        from="Left-Hand Two-Faced Lines"
        formation="Two-Faced Lines LH"
-       fractions="3" >
+       parts="3" >
     <path>
       <move select="Lead Left" beats="3" hands="left" scaleX="1.5" scaleY="3" />
       <move select="Forward"/>
@@ -98,4 +98,5 @@
       <move select="Extend Left" beats="3" hands="left" scaleX="2" scaleY=".5" />
     </path>
   </tam>
+  
 </tamination>

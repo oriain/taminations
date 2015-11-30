@@ -24,7 +24,7 @@
 
   <tam title="Quarter Thru"
        from="Right-Hand Box"
-       fractions="1.5" >
+       parts="1.5" >
     <formation>
       <dancer gender="boy" y="2" x="1" angle="270"/>
       <dancer gender="girl" y="2" x="-1" angle="90"/>
@@ -41,7 +41,7 @@
   <tam title="Quarter Thru"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       fractions="1.5" >
+       parts="1.5" >
     <path numbers="1 8">
       <move select="Hinge Right" />
       <move select="Swing Left" />

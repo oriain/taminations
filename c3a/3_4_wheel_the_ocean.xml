@@ -25,7 +25,7 @@
   <tam title="3/4 Wheel the Ocean"
        from="Right-Hand Two-Faced Line"
        formation="Two-Faced Line RH"
-       fractions="6" >
+       parts="6" >
     <path>
       <move beats="2" select="Quarter Left" hands="right" offsetX=".33" offsetY="-.33" />
       <move beats="2" select="Quarter Left" hands="right" offsetX="-.33" offsetY="-.33" />
@@ -44,7 +44,7 @@
   <tam title="3/4 Wheel the Ocean"
        from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       fractions="6" >
+       parts="6" >
     <path>
       <move beats="2" select="Quarter Left" hands="right" offsetX=".33" offsetY="-.33" />
       <move beats="2" select="Quarter Left" hands="right" offsetX="-.33" offsetY="-.33" />
@@ -74,7 +74,7 @@
   </tam>
 
   <tam title="3/4 Wheel the Ocean" from="Right-Hand Two-Faced Tidal Line"
-       formation="Two-Faced Tidal Line RH" fractions="6">
+       parts="Two-Faced Tidal Line RH" fractions="6">
     <path>
       <move beats="2" select="Quarter Left" hands="right" offsetX=".33" offsetY="-.17" />
       <move beats="2" select="Quarter Left" hands="right" offsetX="-.17" offsetY="-.33" />

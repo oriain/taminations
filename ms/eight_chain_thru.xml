@@ -21,15 +21,11 @@
 
 -->
 <tamination title="Eight Chain Thru">
-  
-  
-  
-  
 
   <tam title="Eight Chain Thru"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       fractions="2.5;2.5;2.5;2.5;2.5;2.5;2.5" >
+       parts="2.5;2.5;2.5;2.5;2.5;2.5;2.5" >
     <path>
       <move select="Pull Left" beats="1.25" scaleY=".5" />
       <move select="Extend Right" beats="1.25" scaleY=".5" />
@@ -95,4 +91,5 @@
       <move select="Extend Left" beats="1.25" scaleY=".5" />
     </path>
   </tam>
+  
 </tamination>

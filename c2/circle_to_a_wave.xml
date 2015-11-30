@@ -25,7 +25,7 @@
   <tam title="Circle to a Wave"
        from="Facing Couples"
        formation="Facing Couples"
-       fractions="" >
+       parts="2.25" >
     <path>
       <move select="Eighth Right" offsetX="1" />
       <move select="Counter Rotate Left 1.414 1.414" hands="both" beats="1.5"/>
@@ -39,7 +39,7 @@
   </tam>
 
   <tam title="Circle to a Wave"
-       from="Normal Lines" formation="Normal Lines">
+       from="Normal Lines" formation="Normal Lines" parts="2.25">
     <path>
       <move select="Eighth Right" offsetX="1" />
       <move select="Counter Rotate Left 1.414 1.414" hands="gripboth" beats="1.5"/>
@@ -63,7 +63,7 @@
   </tam>
 
   <tam title="Circle to a Wave"
-       from="Eight Chain Thru" formation="Eight Chain Thru">
+       from="Eight Chain Thru" formation="Eight Chain Thru" parts="2.25">
     <path>
       <move select="Eighth Right" />
       <move select="Counter Rotate Left 1.414 1.414" hands="gripboth" beats="1.5"/>

@@ -22,7 +22,8 @@
 -->
 <tamination title="Lockers Choice">
 
-  <tam title="Lockers Choice" from="Right-Hand Waves" formation="Ocean Waves RH GBGB" fractions="4;4">
+  <tam title="Lockers Choice" from="Right-Hand Waves" 
+       formation="Ocean Waves RH GBGB" parts="4;4">
     <path couples="4 2">
       <move select="Lead Right" beats="4" scaleX="1.5" scaleY="3"/>
       <move select="Hinge Left" beats="4" scaleY=".5"/>
@@ -45,7 +46,8 @@
     </path>
   </tam>
 
-  <tam title="Lockers Choice" from="Left-Hand Waves" formation="Ocean Waves LH BGGB" fractions="4;4">
+  <tam title="Lockers Choice" from="Left-Hand Waves" 
+       formation="Ocean Waves LH BGGB" parts="4;4">
     <path>
       <move select="Lead Left" beats="4" scaleX="1.5" scaleY="3"/>
       <move select="Swing Left" beats="4" scaleX=".5" scaleY=".5"/>
@@ -68,7 +70,8 @@
     </path>
   </tam>
 
- <tam title="Choice" from="Right-Hand Tidal Wave" formation="Tidal Wave RH BGGB" fractions="0;2">
+ <tam title="Choice" from="Right-Hand Tidal Wave"
+      formation="Tidal Wave RH BGGB" parts="2">
     <path>
       <move select="Swing Right" beats="2" scaleX=".5" scaleY=".5" />
       <move select="Extend Right" beats="2" offsetX=".9" offsetY=".5" />
@@ -87,7 +90,7 @@
     </path>
   </tam>
 
-  <tam title="Choice" from="Concentric diamonds" fractions="0;2">
+  <tam title="Choice" from="Concentric diamonds" parts="2">
     <formation>
       <dancer gender="boy" x="-1" y="0" angle="270"/>
       <dancer gender="girl" x="-3" y="0" angle="270"/>

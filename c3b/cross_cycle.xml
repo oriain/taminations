@@ -23,7 +23,7 @@
 <tamination title="Cross Cycle">
 
   <tam title="Cross Cycle, 3 distinct parts" group=" "
-       formation="Two-Faced Line RH" fractions="3;2">
+       formation="Two-Faced Line RH" parts="3;2">
     <path>
       <move select="Dodge Right" offsetX="1"/>
       <move select="Counter Rotate Right 0 -2" hands="right"/>

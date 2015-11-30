@@ -22,7 +22,8 @@
 -->
 <tamination title="Change the Centers | Wave">
 
-  <tam title="Change the Centers" from="Right-Hand Wave" formation="Wave RH" fractions="3;3;3">
+  <tam title="Change the Centers" from="Right-Hand Wave" 
+       formation="Wave RH" parts="3;3;3">
     <path>
       <move select="Swing Right"/>
       <move select="Swing Left"/>
@@ -37,7 +38,8 @@
     </path>
   </tam>
 
-  <tam title="Change the Centers" from="Left-Hand Wave" formation="Wave LH" fractions="3;3;3">
+  <tam title="Change the Centers" from="Left-Hand Wave" 
+       formation="Wave LH" parts="3;3;3">
     <path>
       <move select="Swing Left"/>
       <move select="Swing Right"/>
@@ -52,7 +54,8 @@
     </path>
   </tam>
 
-  <tam title="Change the Wave" from="Right-Hand Wave" formation="Wave RH" fractions="3;3;3">
+  <tam title="Change the Wave" from="Right-Hand Wave" 
+       formation="Wave RH" parts="3;3;3">
     <path>
       <move select="Swing Right"/>
       <move select="Swing Left"/>
@@ -67,7 +70,8 @@
     </path>
   </tam>
 
-  <tam title="Change the Wave" from="Left-Hand Wave" formation="Wave LH" fractions="3;3;3">
+  <tam title="Change the Wave" from="Left-Hand Wave" 
+       formation="Wave LH" parts="3;3;3">
     <path>
       <move select="Swing Left"/>
       <move select="Swing Right"/>

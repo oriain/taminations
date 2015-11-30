@@ -25,7 +25,7 @@
   <tam title="Catch 1"
        from="Facing Couples"
        formation="Facing Couples" group=" "
-       fractions="2;3" >
+       parts="2;3" >
     <path numbers="1 4">
       <move select="Extend Left" beats="2" scaleX="2" scaleY="1.5" />
       <move select="Stand" beats="3"/>
@@ -41,7 +41,7 @@
   <tam title="Catch 2"
        from="Facing Couples"
        formation="Facing Couples" group=" "
-       fractions="4;3" >
+       parts="4;3" >
     <path numbers="1 4">
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Lead Right" beats="2" scaleX=".5" scaleY="1.5" />
@@ -59,7 +59,7 @@
   <tam title="Catch 3"
        from="Facing Couples"
        formation="Facing Couples" group=" "
-       fractions="6;3" >
+       parts="6;3" >
     <path numbers="1 4">
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Lead Right" beats="2" scaleX=".5" scaleY="1.5" />
@@ -79,7 +79,7 @@
   <tam title="Catch 4"
        from="Facing Couples"
        formation="Facing Couples" group=" "
-       fractions="8;3" >
+       parts="8;3" >
     <path numbers="1 4">
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
       <move select="Lead Right" beats="2" scaleX=".5" scaleY="1.5" />
@@ -97,4 +97,5 @@
       <move select="Flip Left" beats="3" offsetX="2" offsetY="-1.5" />
     </path>
   </tam>
+  
 </tamination>

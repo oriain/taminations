@@ -22,7 +22,7 @@
 -->
 <tamination title="Couple Up">
 
-  <tam title="Couple Up" from="Right-Hand Box" formation="Box RH" fractions="4">
+  <tam title="Couple Up" from="Right-Hand Box" formation="Box RH" parts="4">
     <path>
       <move select="Forward 4"/>
       <move select="U-Turn Right"/>
@@ -32,7 +32,7 @@
     </path>
   </tam>
 
-  <tam title="Couple Up" from="Left-Hand Box" formation="Box LH" fractions="4">
+  <tam title="Couple Up" from="Left-Hand Box" formation="Box LH" parts="4">
     <path>
       <move select="Run Left" beats="4"/>
     </path>
@@ -42,7 +42,8 @@
     </path>
   </tam>
 
-  <tam title="Couple Up" from="Right-Hand Waves" formation="Ocean Waves RH BGGB" fractions="4">
+  <tam title="Couple Up" from="Right-Hand Waves" 
+       formation="Ocean Waves RH BGGB" parts="4">
     <path>
       <move select="Forward 4"/>
       <move select="U-Turn Right"/>
@@ -59,7 +60,8 @@
     </path>
   </tam>
 
-  <tam title="Couple Up" from="Left-Hand Waves" formation="Ocean Waves LH BGGB" fractions="4">
+  <tam title="Couple Up" from="Left-Hand Waves" 
+       formation="Ocean Waves LH BGGB" parts="4">
     <path>
       <move select="Run Left" beats="4"/>
     </path>
@@ -76,7 +78,8 @@
     </path>
   </tam>
 
-  <tam title="Couple Up" from="Right-Hand Columns" formation="Column RH GBGB" fractions="3">
+  <tam title="Couple Up" from="Right-Hand Columns" 
+       formation="Column RH GBGB" parts="3">
     <path>
       <move select="Run Right"/>
     </path>
@@ -93,7 +96,8 @@
     </path>
   </tam>
 
-  <tam title="Couple Up" from="Left-Hand Columns" formation="Column LH GBGB" fractions="3">
+  <tam title="Couple Up" from="Left-Hand Columns" 
+       formation="Column LH GBGB" parts="3">
     <path>
       <move select="Forward 2" beats="3"/>
       <move select="U-Turn Left"/>
@@ -110,7 +114,8 @@
     </path>
   </tam>
 
-  <tam title="Counter Couple Up" formation="Ocean Waves RH BGGB" group="  " fractions="4">
+  <tam title="Counter Couple Up" formation="Ocean Waves RH BGGB" 
+       group="  " parts="4">
     <path>
       <move select="Counter Rotate Right 5 -1" beats="4"/>
     </path>
@@ -130,7 +135,8 @@
     </taminator>
   </tam>
 
-  <tam title="Split Counter Couple Up" formation="Ocean Waves RH BGGB" group="  " fractions="3">
+  <tam title="Split Counter Couple Up" formation="Ocean Waves RH BGGB" 
+       group="  " parts="3">
     <path>
       <move select="Counter Rotate Right 2 0" hands="right" offsetX="1" beats="3"/>
     </path>
@@ -150,7 +156,8 @@
     </taminator>
   </tam>
 
-  <tam title="Trade Couple Up" formation="Ocean Waves RH BGGB" group="  " fractions="4">
+  <tam title="Trade Couple Up" formation="Ocean Waves RH BGGB" group="  " 
+       parts="4">
     <path>
       <move select="Forward" />
       <move select="Extend Right" beats="3" scaleX="3" scaleY="2" />
@@ -172,7 +179,8 @@
     </taminator>
   </tam>
 
-  <tam title="Trade Like a Couple Up" formation="Ocean Waves RH BGGB" group="  " fractions="3">
+  <tam title="Trade Like a Couple Up" 
+       formation="Ocean Waves RH BGGB" group="  " parts="3">
     <path>
       <move select="Swing Right"/>
       <move select="U-Turn Right"/>
@@ -189,7 +197,8 @@
     </path>
   </tam>
 
-  <tam title="As Couples Couple Up" formation="Two-Faced Lines RH" group=" " fractions="4">
+  <tam title="As Couples Couple Up" formation="Two-Faced Lines RH" 
+       group=" " parts="4">
     <path>
       <move select="Forward 4" hands="right" />
       <move select="Beau Reverse Wheel" scaleX=".67" />
@@ -206,7 +215,8 @@
     </path>
   </tam>
 
-  <tam title="Concentric Couple Up" formation="Ocean Waves RH BGGB" group=" ">
+  <tam title="Concentric Couple Up" formation="Ocean Waves RH BGGB" 
+       group=" " parts="4">
     <path>
       <move select="Forward 4" />
       <move select="U-Turn Right"/>
@@ -223,7 +233,8 @@
     </path>
   </tam>
 
-  <tam title="Once Removed Couple Up" formation="Two-Faced Lines RH" group=" ">
+  <tam title="Once Removed Couple Up" formation="Two-Faced Lines RH" 
+       group=" " parts="4">
     <path>
       <move select="Forward 4"/>
       <move select="U-Turn Right"/>

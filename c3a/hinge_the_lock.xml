@@ -22,7 +22,7 @@
 -->
 <tamination title="Hinge the Lock">
 
-  <tam title="Hinge the Lock" from="Right-Hand Box" formation="Box RH" fractions="1.5">
+  <tam title="Hinge the Lock" from="Right-Hand Box" formation="Box RH" parts="1.5">
     <path couples="3 1">
       <move select="Hinge Right"/>
       <move select="Hinge Left" beats="3"/>
@@ -33,7 +33,7 @@
     </path>
   </tam>
 
-  <tam title="Hinge the Lock" from="Left-Hand Box" formation="Box LH" fractions="1.5">
+  <tam title="Hinge the Lock" from="Left-Hand Box" formation="Box LH" parts="1.5">
     <path couples="3 1">
       <move select="Hinge Left"/>
       <move select="Lead Left" beats="3" scaleX="3" scaleY="3"/>
@@ -44,7 +44,7 @@
     </path>
   </tam>
 
-  <tam title="Hinge the Lock" from="Facing Couples" formation="Facing Couples" fractions="1.5">
+  <tam title="Hinge the Lock" from="Facing Couples" formation="Facing Couples" parts="1.5">
     <path couples="3 1">
       <move select="Lead Right" beats="1.5"/>
       <move select="Hinge Left" beats="3"/>
@@ -55,7 +55,7 @@
     </path>
   </tam>
 
-  <tam title="Hinge the Lock" from="Couples Facing Out" formation="Couples Facing Out" fractions="1.5">
+  <tam title="Hinge the Lock" from="Couples Facing Out" formation="Couples Facing Out" parts="1.5">
     <path couples="3 1">
       <move select="Quarter Left" beats="1.5" offsetX="-1" offsetY="1"/>
       <move select="Hinge Left" beats="3"/>
@@ -66,7 +66,7 @@
     </path>
   </tam>
 
-  <tam title="Hinge the Lock" from="Right-Hand Waves" formation="Ocean Waves RH BGGB" fractions="1.5">
+  <tam title="Hinge the Lock" from="Right-Hand Waves" formation="Ocean Waves RH BGGB" parts="1.5">
     <path>
       <move select="Hinge Right"/>
       <move select="Hinge Left" beats="3" scaleX=".5"/>
@@ -85,7 +85,7 @@
     </path>
   </tam>
 
-  <tam title="Hinge the Lock" from="Left-Hand Waves" formation="Ocean Waves LH BGGB" fractions="1.5">
+  <tam title="Hinge the Lock" from="Left-Hand Waves" formation="Ocean Waves LH BGGB" parts="1.5">
     <path>
       <move select="Hinge Left"/>
       <move select="Lead Left" beats="3" scaleX="1.5" scaleY="3"/>
@@ -105,7 +105,7 @@
   </tam>
 
   <tam title="Hinge the Lock" from="Right-Hand Columns"
-       formation="Column RH GBGB" fractions="1.5">
+       formation="Column RH GBGB" parts="1.5">
     <path>
       <move select="Hinge Right" scaleX=".5"/>
       <move select="Lead Right" beats="3" scaleX="3" scaleY="1.5"/>
@@ -125,7 +125,7 @@
   </tam>
 
   <tam title="Hinge the Lock" from="Left-Hand Columns"
-       formation="Column LH GBGB" fractions="1.5">
+       formation="Column LH GBGB" parts="1.5">
     <path>
       <move select="Hinge Left" scaleX=".5"/>
       <move select="Hinge Right" beats="3" scaleY=".5"/>
@@ -145,7 +145,7 @@
   </tam>
 
   <tam title="All 8 Hinge the Lock" formation="Static Square"
-       group=" " fractions="1.5">
+       group=" " parts="1.5">
     <path>
       <move select="Quarter Right" beats="1.5" offsetX="2" offsetY="-1"/>
       <move select="Hinge Left" beats="3"/>
@@ -165,7 +165,7 @@
   </tam>
 
   <tam title="As Couples Hinge the Lock" formation="Two-Faced Lines RH"
-       group=" " fractions="3">
+       group=" " parts="3">
     <path>
       <move select="Lead Right" beats="3" hands="right" scaleX="1.5" scaleY="3"/>
       <move select="Lead Left" beats="3" hands="both" scaleX=".5" scaleY=".5"/>
@@ -185,7 +185,7 @@
   </tam>
 
   <tam title="Tandem Hinge the Lock" formation="Column RH GBGB"
-       group=" " fractions="2">
+       group=" " parts="2">
     <path>
       <move select="Counter Rotate Right 0 -2" hands="right"/>
       <move select="Counter Rotate Right 2 -4" beats="4" offsetY="-1"/>

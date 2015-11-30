@@ -22,7 +22,7 @@
 -->
 <tamination title="n Steps At A Time">
 
-  <tam title="1 Step at a Time" group=" " fractions="3;3">
+  <tam title="1 Step at a Time" group=" " parts="3;3">
     <formation name="Column RH GBGB">
       <dancer gender="girl" y="1" x="1" angle="270"/>
       <dancer gender="boy" y="3" x="1" angle="270"/>
@@ -51,7 +51,7 @@
     </path>
   </tam>
 
-  <tam title="2 Steps at a Time" group=" " fractions="3;3">
+  <tam title="2 Steps at a Time" group=" " parts="3;3">
     <formation name="Column RH GBGB">
       <dancer gender="girl" y="1" x="1" angle="270"/>
       <dancer gender="boy" y="3" x="1" angle="270"/>
@@ -76,11 +76,11 @@
     <path>
       <move select="U-Turn Left" beats="3" offsetX="1" offsetY="1"/>
       <move select="Forward 2" beats="3"/>
-      <move select="BackHinge Right"/>
+      <move select="BackHinge Right" hands="right"/>
     </path>
   </tam>
 
-  <tam title="3 Steps at a Time" group=" " fractions="3;3">
+  <tam title="3 Steps at a Time" group=" " parts="3;3">
     <formation name="Column RH GBGB">
       <dancer gender="girl" y="1" x="1" angle="270"/>
       <dancer gender="boy" y="3" x="1" angle="270"/>
@@ -90,7 +90,7 @@
     <path>
       <move select="U-Turn Left" beats="3" offsetX="2" offsetY="1"/>
       <move select="Forward" beats="3"/>
-      <move select="BackHinge Right" beats="2" scaleX="2"/>
+      <move select="BackHinge Right" hands="right" beats="2" scaleX="2"/>
     </path>
     <path>
       <move select="Forward 3"/>
@@ -109,7 +109,7 @@
     </path>
   </tam>
 
-  <tam title="4 Steps at a Time" group=" " fractions="3;0">
+  <tam title="4 Steps at a Time" group=" " parts="3;0">
     <formation name="Column RH GBGB">
       <dancer gender="girl" y="1" x="1" angle="270"/>
       <dancer gender="boy" y="3" x="1" angle="270"/>
@@ -122,7 +122,7 @@
     </path>
     <path>
       <move select="U-Turn Left" beats="3" offsetX="3"/>
-      <move select="BackHinge Right" beats="3" scaleX="3" scaleY="2" offsetY="1"/>
+      <move select="BackHinge Right" hands="right" beats="3" scaleX="3" scaleY="2" offsetY="1"/>
     </path>
     <path>
       <move select="Run Left" scaleY="1.5" offsetX="-3"/>

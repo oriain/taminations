@@ -37,6 +37,10 @@
       <move select="Forward 2" />
       <move select="U-Turn Right" offsetX="2" />
     </path>
+    <taminator>
+      After the Hinge, be sure to let go of hands.  Do not hold
+      hands again until the end of the call.
+    </taminator>
   </tam>
 
   <tam title="Linear Cycle"

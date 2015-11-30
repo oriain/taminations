@@ -25,7 +25,7 @@
   <tam title="Flip Your Neighbor"
        from="Right-Hand Wave"
        formation="Wave RH"
-       fractions="5.5">
+       parts="5.5">
     <path>
       <move select="Lead Right" />
       <move select="Forward 4" />
@@ -44,7 +44,7 @@
   <tam title="Flip Your Neighbor"
        from="Left-Hand Wave"
        formation="Wave LH"
-       fractions="5.5">
+       parts="5.5">
     <path>
       <move select="Lead Left" />
       <move select="Forward 4" />
@@ -63,7 +63,7 @@
   <tam title="Flip Your Neighbor"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       fractions="5.5" >
+       parts="5.5" >
     <path>
       <move select="Lead Right" />
       <move select="Forward 4" />
@@ -95,7 +95,7 @@
   <tam title="Flip Your Neighbor"
        from="Left-Hand Waves"
        formation="Ocean Waves LH GBBG"
-       fractions="5.5" >
+       parts="5.5" >
     <path>
       <move select="Lead Left" />
       <move select="Forward 4" />
@@ -127,7 +127,7 @@
   <tam title="Flip Your Neighbor"
        from="Right-Hand Tidal Wave"
        formation="Tidal Wave RH BGGB"
-       fractions="5" >
+       parts="5" >
     <path>
       <move select="Lead Right" scaleY=".5" beats="2"/>
       <move select="Forward" beats="2"/>
@@ -159,7 +159,7 @@
   <tam title="Flip Your Neighbor"
        from="Left-Hand Tidal Wave"
        formation="Tidal Wave LH BGGB"
-       fractions="5" >
+       parts="5" >
     <path>
       <move select="Lead Left" scaleY=".5" beats="2"/>
       <move select="Forward" beats="2"/>

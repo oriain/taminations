@@ -22,7 +22,7 @@
 -->
 <tamination title="Cross Counter">
 
-  <tam title="Cross Counter" from="3/4 Tag" formation="3/4 Tag" fractions="4;4.5">
+  <tam title="Cross Counter" from="3/4 Tag" formation="3/4 Tag" parts="4;4.5">
     <path>
       <move select="Run Left" beats="4" scaleX="2" offsetX="-2" scaleY="2"/>
       <move select="Extend Left" beats="1.5" scaleY=".5"/>
@@ -47,7 +47,8 @@
     </path>
   </tam>
 
-  <tam title="Cross Counter" from="Left-Hand 3/4 Tag" formation="3/4 Tag LH" fractions="4;4.5">
+  <tam title="Cross Counter" from="Left-Hand 3/4 Tag" 
+       formation="3/4 Tag LH" parts="4;4.5">
     <path>
       <move select="Run Left" beats="4" scaleX="2" offsetX="-2" scaleY="2"/>
       <move select="Extend Left" beats="1.5" scaleY=".5"/>

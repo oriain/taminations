@@ -22,12 +22,10 @@
 -->
 <tamination title="Ripple the Wave">
 
-
-
   <tam title="Ends Ripple the Wave" group=" "
        from="Right-Hand Wave"
        formation="Wave RH"
-       fractions="3;3" >
+       parts="3;3" >
     <path>
       <move select="Swing Right" />
       <move select="Swing Left" />
@@ -43,7 +41,7 @@
   <tam title="Very Ends Ripple the Wave" group=" "
        from="Tidal Line"
        formation="Tidal Line RH"
-       fractions="3;3" >
+       parts="3;3" >
     <path>
       <move select="Run Right" scaleY=".5" />
       <move select="Swing Left" scaleX=".5" scaleY=".5" />

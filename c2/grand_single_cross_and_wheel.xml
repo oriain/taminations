@@ -23,7 +23,7 @@
 <tamination title="Grand Single Cross and Wheel">
 
   <tam title="Grand Single Cross and Wheel" from="Right-Hand Columns"
-       formation="Column RH GBGB">
+       formation="Column RH GBGB" parts="1.5">
     <path>
       <move select="Hinge Right" scaleX=".5"/>
       <move select="U-Turn Right" beats="2" offsetX="2" offsetY="-.5"/>
@@ -43,7 +43,7 @@
   </tam>
 
   <tam title="Grand Single Cross and Wheel" from="Left-Hand Columns"
-       formation="Column LH GBGB">
+       formation="Column LH GBGB" parts="1.5">
     <path>
       <move select="Hinge Left" scaleX=".5"/>
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
