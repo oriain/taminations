@@ -85,7 +85,7 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
   Movement.fromElement = function(elem) {
     if ($(elem).attr("cx3") != undefined) {
       return new Movement(Number($(elem).attr("beats")),
-          Movement.getHands[$(elem).attr("hands")],
+          Movement.getHands($(elem).attr("hands")),
           Number($(elem).attr("cx1")),
           Number($(elem).attr("cy1")),
           Number($(elem).attr("cx2")),
