@@ -22,7 +22,7 @@
 -->
 <tamination title="Wave The anyone">
 
-  <tam title="Wave the Beaus" group=" ">
+  <tam title="Wave the Beaus" group=" " parts="2">
     <formation>
       <dancer gender="boy" x="1" y="3" angle="270"/>
       <dancer gender="girl" x="-1" y="3" angle="270"/>
@@ -49,7 +49,7 @@
     </path>
   </tam>
 
-  <tam title="Wave the Belles" group=" ">
+  <tam title="Wave the Belles" group=" " parts="2">
     <formation>
       <dancer gender="boy" x="1" y="3" angle="270"/>
       <dancer gender="girl" x="-1" y="3" angle="270"/>
@@ -80,7 +80,7 @@
     </path>
   </tam>
 
-  <tam title="Wave the Boys" group=" ">
+  <tam title="Wave the Boys" group=" " parts="2">
     <formation>
       <dancer gender="boy" x="1" y="3" angle="270"/>
       <dancer gender="girl" x="-1" y="3" angle="270"/>
@@ -107,7 +107,7 @@
     </path>
   </tam>
 
-  <tam title="Wave the Girls" group=" ">
+  <tam title="Wave the Girls" group=" " parts="2">
     <formation>
       <dancer gender="boy" x="1" y="3" angle="270"/>
       <dancer gender="girl" x="-1" y="3" angle="270"/>

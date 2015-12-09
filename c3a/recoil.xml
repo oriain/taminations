@@ -21,10 +21,10 @@
 
 -->
 <tamination title="Recoil">
-  
-  
 
-  <tam title="Recoil" from="Right-Hand Box" formation="Box RH" fractions="4">
+
+
+  <tam title="Recoil" from="Right-Hand Box" formation="Box RH" parts="4">
     <path>
       <move select="U-Turn Right" beats="4" hands="gripright" offsetX="2" />
       <move select="Forward 2" beats="4"/>

@@ -22,7 +22,8 @@
 -->
 <tamination title="Wheel the Ocean">
 
-  <tam title="Wheel the Ocean" from="Couples Facing Out" formation="Couples Facing Out" fractions="3">
+  <tam title="Wheel the Ocean" from="Couples Facing Out"
+       formation="Couples Facing Out" parts="3">
     <path couples="3 1">
       <move select="Belle Wheel" />
       <move select="Extend Left" hands="right" beats="3" scaleX="3" scaleY="2" />
@@ -61,7 +62,7 @@
   <tam title="Wheel the Ocean"
        from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       fractions="3" >
+       parts="3" >
     <path>
       <move select="Stand" beats="7" />
     </path>
@@ -83,7 +84,7 @@
   <tam title="Wheel the Ocean"
        from="Trade By"
        formation="Trade By"
-       fractions="3" >
+       parts="3" >
     <path>
       <move select="Belle Wheel" scaleX=".5" />
       <move select="Extend Left" hands="right" beats="2" scaleY="2" />
@@ -105,7 +106,7 @@
   <tam title="Wheel the Ocean"
        from="Completed Double Pass Thru"
        formation="Completed Double Pass Thru"
-       fractions="3" >
+       parts="3" >
     <path>
       <move select="Belle Wheel" scaleX=".5" />
       <move select="Extend Left" hands="right" beats="2" scaleY="2" />
@@ -126,7 +127,7 @@
   </tam>
 
   <tam title="As Couples Wheel the Ocean" from="Lines Facing Out"
-       formation="Lines Facing Out" fractions="5">
+       parts="Lines Facing Out" fractions="5">
     <path>
       <move select="Belle Wheel" beats="5" scaleX="3" scaleY="3"/>
       <move select="Extend Left" beats="4" hands="gripleft" scaleX="2" scaleY="4"/>
@@ -148,7 +149,7 @@
   </tam>
 
   <tam title="All 8 Wheel the Ocean" from="Squared Couples Facing Out"
-       formation="Static Facing Out" fractions="3">
+       parts="Static Facing Out" fractions="3">
     <path>
       <move select="Beau Wheel"/>
     </path>

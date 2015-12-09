@@ -21,11 +21,11 @@
 
 -->
 <tamination title="Reverse Rotate">
-  
+
   <tam title="Heads Reverse Rotate"
        from="Static Square"
        formation="Static Square"
-       fractions="2" >
+       parts="2" >
     <path>
       <move select="Quarter Left" hands="right" beats="2" />
       <move select="Lead Right" hands="right" beats="3" scaleX="3.5" scaleY="3"/>

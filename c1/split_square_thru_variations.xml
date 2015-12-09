@@ -135,7 +135,7 @@
 
   <tam title="Split Dixie Style to a Wave"
        from="Ends Facing"
-       formation="T-Bone ULRU">
+       formation="T-Bone ULRU" parts="2.5">
     <path>
       <move select="Pull Left" scaleY=".5" />
       <move select="Lead Right"/>
@@ -162,7 +162,7 @@
 
   <tam title="Split Dixie Style to a Wave"
        from="Centers Facing"
-       formation="T-Bone RUUL">
+       formation="T-Bone RUUL" parts="2.5">
     <path>
       <move select="Stand" beats="2.5"/>
       <move select="Extend Right" scaleX=".75"/>
@@ -189,7 +189,7 @@
 
   <tam title="Split Dixie Style to a Wave"
        from="Left Side of Line Facing"
-       formation="T-Bone RLUU">
+       formation="T-Bone RLUU" parts="2.5">
     <path>
       <move select="Pull Left" scaleY=".5" />
       <move select="Quarter Left" offsetX="1"/>
@@ -216,7 +216,7 @@
 
   <tam title="Split Dixie Diamond"
        from="Ends Facing"
-       formation="T-Bone ULRU">
+       formation="T-Bone ULRU" parts="5">
     <path>
       <move select="Pull Left" scaleY=".5" />
       <move select="Lead Right"/>
@@ -247,7 +247,7 @@
 
   <tam title="Split Dixie Diamond"
        from="Centers Facing"
-       formation="T-Bone RUUL">
+       formation="T-Bone RUUL" parts="5">
     <path>
       <move select="Stand" beats="2.5"/>
       <move select="Extend Right" scaleX=".75"/>

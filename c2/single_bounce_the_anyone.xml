@@ -24,7 +24,7 @@
 
 
 
-  <tam title="Single Bounce the Boys" from="Box" formation="Box RH">
+  <tam title="Single Bounce the Boys" from="Box" formation="Box RH" parts="2">
     <path>
       <move select="Extend Right" beats="2"/>
       <move select="U-Turn Right"/>

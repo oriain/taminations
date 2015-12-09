@@ -22,7 +22,8 @@
 -->
 <tamination title="Lock the Hinge">
 
-  <tam title="Lock the Hinge" from="Right-Hand Waves" formation="Ocean Waves RH BGGB" fractions="3">
+  <tam title="Lock the Hinge" from="Right-Hand Waves"
+       formation="Ocean Waves RH BGGB" parts="3">
     <path>
       <move select="Lead Right" beats="3" scaleX="1.5" scaleY="3"/>
       <move select="Hinge Right" scaleY=".5"/>
@@ -41,7 +42,8 @@
     </path>
   </tam>
 
-  <tam title="Lock the Hinge" from="Left-Hand Waves" formation="Ocean Waves LH BGGB" fractions="3">
+  <tam title="Lock the Hinge" from="Left-Hand Waves"
+       formation="Ocean Waves LH BGGB" parts="3">
     <path>
       <move select="Lead Left" beats="3" scaleX="1.5" scaleY="3"/>
       <move select="Hinge Left" scaleY=".5"/>
@@ -61,7 +63,7 @@
   </tam>
 
   <tam title="Lock the Hinge" from="Right-Hand Two-Faced Lines"
-       formation="Two-Faced Lines RH" fractions="3">
+       formation="Two-Faced Lines RH" parts="3">
     <path>
       <move select="Lead Right" beats="3" hands="gripright" scaleX="1.5" scaleY="3"/>
       <move select="Lead Right" scaleY=".5"/>
@@ -81,7 +83,7 @@
   </tam>
 
   <tam title="Lock the Hinge" from="Left-Hand Two-Faced Lines"
-       formation="Two-Faced Lines LH" fractions="3">
+       formation="Two-Faced Lines LH" parts="3">
     <path>
       <move select="Lead Left" beats="3" hands="gripLeft" scaleX="1.5" scaleY="3"/>
       <move select="Quarter Left" offsetX="-1" offsetY=".5"/>
@@ -101,7 +103,7 @@
   </tam>
 
   <tam title="Lock the Hinge" from="Right-Hand Tidal Wave"
-       formation="Tidal Wave RH BGGB" fractions="3">
+       formation="Tidal Wave RH BGGB" parts="3">
     <path>
       <move select="Lead Right" beats="3" scaleX="3" scaleY="1.5"/>
       <move select="Hinge Right"/>
@@ -121,7 +123,7 @@
   </tam>
 
   <tam title="Lock the Hinge" from="Left-Hand Tidal Wave"
-       formation="Tidal Wave LH BGGB" fractions="3">
+       formation="Tidal Wave LH BGGB" parts="3">
     <path>
       <move select="Lead Left" beats="3" scaleX="3" scaleY="1.5"/>
       <move select="Hinge Left"/>
@@ -140,7 +142,7 @@
     </path>
   </tam>
 
-  <tam title="As Couples Lock the Hinge" group=" " fractions="4"
+  <tam title="As Couples Lock the Hinge" group=" " parts="4"
        formation="Two-Faced Tidal Line RH">
     <path>
       <move select="Lead Right" hands="right" beats="4" scaleX="3.5" scaleY="3.5"/>
@@ -160,7 +162,7 @@
     </path>
   </tam>
 
-  <tam title="Tandem Lock the Hinge" group=" " fractions="4"
+  <tam title="Tandem Lock the Hinge" group=" " parts="4"
        formation="Ocean Waves RH BGGB">
     <path>
       <move select="Counter Rotate Right 5 -1" beats="4"/>

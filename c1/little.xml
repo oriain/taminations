@@ -161,6 +161,47 @@
     </path>
   </tam>
 
+  <tam title="Little" from ="&quot;I&quot; formation">
+    <formation>
+      <dancer gender="boy" x="-3" y="1" angle="0"/>
+      <dancer gender="girl" x="-3" y="-1" angle="0"/>
+      <dancer gender="boy" x="1.5" y="0" angle="90"/>
+      <dancer gender="girl" x=".5" y="0" angle="270"/>
+    </formation>
+    <path>
+      <move select="Extend Right" beats="5" scaleX="2" scaleY="4" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="3" scaleX="2" scaleY="2" />
+      <move select="Forward 2"  />
+    </path>
+    <path>
+      <move select="U-Turn Left" beats="5" offsetX="1" offsetY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="5" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Little" from="Hourglass" formation="Hourglass RH BP">
+    <path>
+      <move select="Quarter Right"/>
+      <move select="Extend Left" beats="3" scaleX="3" scaleY="1.5"/>
+      <move select="Lead Right" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="1" />
+    </path>
+    <path>
+      <move select="Quarter Right"/>
+      <move select="Extend Right" beats="3" scaleX="3" scaleY=".5"/>
+      <move select="Quarter Left" offsetX="1" offsetY="-.5"/>
+    </path>
+    <path>
+      <move select="Forward"/>
+    </path>
+  </tam>
+
   <tam title="Little, Points Go As You Are"
        from="Diamonds"
        formation="Diamonds RH Girl Points" >

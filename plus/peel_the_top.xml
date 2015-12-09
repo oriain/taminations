@@ -25,10 +25,10 @@
   <tam title="Peel the Top"
        from="Right-Hand Box"
        formation="Box RH"
-       fractions="" difficulty="1">
+       parts="3" difficulty="1">
     <path>
-      <move select="Forward 2" />
-      <move select="Cast Right" beats="4" />
+      <move select="Forward 2" beats="3"/>
+      <move select="Cast Right" beats="3" />
     </path>
     <path>
       <move select="Run Left" offsetX="-2" />
@@ -39,57 +39,57 @@
   <tam title="Peel the Top"
        from="Left-Hand Box"
        formation="Box LH"
-       fractions="" difficulty="1">
+       parts="3" difficulty="1">
     <path>
       <move select="Run Right" offsetX="-2" />
       <move select="Lead Right" beats="3" scaleX="3" scaleY="3" />
     </path>
     <path>
-      <move select="Forward 2" />
-      <move select="Cast Left" beats="4" />
+      <move select="Forward 2" beats="3"/>
+      <move select="Cast Left" beats="3" />
     </path>
   </tam>
 
   <tam title="Peel the Top"
        from="Z formation"
        formation="Z RH GBBG"
-       fractions="" difficulty="1">
+       parts="2" difficulty="1">
     <path>
-      <move select="Forward" beats="1.5" scaleX="1.5" scaleY="2" />
-      <move select="Swing Right" />
-      <move select="Hinge Right" scaleX=".65" />
+      <move select="Forward" beats="2" scaleX="1.5" scaleY="2" />
+      <move select="Swing Right" beats="2.5"/>
+      <move select="Hinge Right" beats="1.5" scaleX=".65" />
     </path>
     <path>
-      <move select="Run Left" />
-      <move select="Lead Left" beats="3" scaleX="1.8" scaleY="3" />
+      <move select="Run Left" beats="2"/>
+      <move select="Lead Left" beats="4" scaleX="1.8" scaleY="3" />
     </path>
     <path>
-      <move select="Run Left" />
-      <move select="Lead Left" beats="3" scaleX="1.8" scaleY="3" />
+      <move select="Run Left" beats="2"/>
+      <move select="Lead Left" beats="4" scaleX="1.8" scaleY="3" />
     </path>
     <path>
-      <move select="Forward" beats="1.5" scaleX="1.5" scaleY="2" />
-      <move select="Swing Right" />
-      <move select="Hinge Right" scaleX=".65" />
+      <move select="Forward" beats="2" scaleX="1.5" scaleY="2" />
+      <move select="Swing Right" beats="2.5"/>
+      <move select="Hinge Right" beats="1.5" scaleX=".65" />
     </path>
   </tam>
 
   <tam title="Peel the Top"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
-       fractions="" difficulty="3">
+       parts="2" difficulty="3">
     <path>
-      <move select="Forward" beats="1.5" scaleX="2" scaleY="2" />
-      <move select="Cast Right" />
+      <move select="Forward" beats="2" scaleX="2" scaleY="2" />
+      <move select="Cast Right" beats="4"/>
     </path>
     <path>
       <move select="Run Left" beats="1" scaleX=".5" scaleY=".5" />
-      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
-      <move select="Lead Left" beats="3" scaleX="3" scaleY="1.5" />
+      <move select="Extend Left" beats="1" scaleX="2" scaleY=".5" />
+      <move select="Lead Left" beats="4" scaleX="3" scaleY="1.5" />
     </path>
     <path>
-      <move select="Forward" beats="1.5" scaleX="2" scaleY="2" />
-      <move select="Cast Right" />
+      <move select="Forward" beats="2" scaleX="2" scaleY="2" />
+      <move select="Cast Right" beats="4"/>
     </path>
     <path>
       <move select="Run Left" beats="1" scaleX=".5" scaleY=".5" />
@@ -100,95 +100,95 @@
   <tam title="Peel the Top"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
-       fractions="" difficulty="3">
+       parts="2" difficulty="3">
     <path>
       <move select="Run Right" beats="1" scaleX=".5" scaleY=".5" />
       <move select="Lead Right" beats="5" scaleX="5" scaleY="2" />
     </path>
     <path>
-      <move select="Forward" beats="1.5" scaleX="2" scaleY="2" />
-      <move select="Cast Left" />
+      <move select="Forward" beats="2" scaleX="2" scaleY="2" />
+      <move select="Cast Left" beats="4"/>
     </path>
     <path>
       <move select="Run Right" beats="1" scaleX=".5" scaleY=".5" />
-      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
-      <move select="Lead Right" beats="3" scaleX="3" scaleY="1.5" />
+      <move select="Extend Right" beats="1" scaleX="2" scaleY=".5" />
+      <move select="Lead Right" beats="4" scaleX="3" scaleY="1.5" />
     </path>
     <path>
-      <move select="Forward" beats="1.5" scaleX="2" scaleY="2" />
-      <move select="Cast Left" />
+      <move select="Forward" beats="2" scaleX="2" scaleY="2" />
+      <move select="Cast Left" beats="4" />
     </path>
   </tam>
 
   <tam title="Peel the Top"
        from="Right-Hand Columns"
        formation="Column RH GBGB"
-       fractions="" difficulty="2">
+       parts="2" difficulty="2">
     <path>
-      <move select="Run Left" offsetX="-1" />
-      <move select="Lead Left" beats="3" scaleX="1.5" scaleY="3" />
+      <move select="Run Left" beats="2" offsetX="-1" />
+      <move select="Lead Left" beats="4" scaleX="1.5" scaleY="3" />
     </path>
     <path>
-      <move select="Forward" />
-      <move select="Swing Right" />
-      <move select="Hinge Right" scaleX=".5" />
+      <move select="Forward" beats="2"/>
+      <move select="Swing Right" beats="2.5"/>
+      <move select="Hinge Right" beats="1.5" scaleX=".5" />
     </path>
     <path>
-      <move select="Run Left" offsetX="-1" />
-      <move select="Lead Left" beats="3" scaleX="1.5" scaleY="3" />
+      <move select="Run Left" beats="2" offsetX="-1" />
+      <move select="Lead Left" beats="4" scaleX="1.5" scaleY="3" />
     </path>
     <path>
-      <move select="Forward" />
-      <move select="Swing Right" />
-      <move select="Hinge Right" scaleX=".5" />
+      <move select="Forward" beats="2" />
+      <move select="Swing Right" beats="2.5"/>
+      <move select="Hinge Right" beats="1.5" scaleX=".5" />
     </path>
   </tam>
 
   <tam title="Peel the Top"
        from="Left-Hand Columns"
        formation="Column LH GBGB"
-       fractions="" difficulty="2">
+       parts="2" difficulty="2">
     <path>
-      <move select="Forward" />
-      <move select="Swing Left" />
-      <move select="Hinge Left" scaleX=".5" />
+      <move select="Forward" beats="2"/>
+      <move select="Swing Left" beats="2.5"/>
+      <move select="Hinge Left" beats="1.5" scaleX=".5" />
     </path>
     <path>
-      <move select="Run Right" offsetX="-1" />
-      <move select="Lead Right" beats="3" scaleX="1.5" scaleY="3"/>
+      <move select="Run Right" beats="2" offsetX="-1" />
+      <move select="Lead Right" beats="4" scaleX="1.5" scaleY="3"/>
     </path>
     <path>
-      <move select="Forward" />
-      <move select="Swing Left" />
-      <move select="Hinge Left" scaleX=".5" />
+      <move select="Forward" beats="2"/>
+      <move select="Swing Left" beats="2.5"/>
+      <move select="Hinge Left" beats="1.5" scaleX=".5" />
     </path>
     <path>
-      <move select="Run Right" offsetX="-1" />
-      <move select="Lead Right" beats="3" scaleX="1.5" scaleY="3"/>
+      <move select="Run Right" beats="2" offsetX="-1" />
+      <move select="Lead Right" beats="4" scaleX="1.5" scaleY="3"/>
     </path>
   </tam>
 
   <tam title="Peel the Top"
        from="T-Bones"
        formation="T-Bone LULU"
-       fractions="" difficulty="3">
+       parts="2" difficulty="3">
     <path>
-      <move select="Run Left" offsetX="-1" />
-      <move select="Lead Left" beats="3" scaleY="3" />
+      <move select="Run Left" beats="2" offsetX="-1" />
+      <move select="Lead Left" beats="4" scaleY="3" />
     </path>
     <path>
-      <move select="Forward" />
-      <move select="Swing Left" offsetY="1" />
-      <move select="Hinge Left" />
+      <move select="Forward" beats="2" />
+      <move select="Swing Left" beats="2.5" offsetY="1" />
+      <move select="Hinge Left" beats="1.5"/>
     </path>
     <path>
-      <move select="Run Left" offsetX="-1" />
-      <move select="Lead Left" beats="3" scaleX="3" scaleY="3" />
+      <move select="Run Left" beats="2" offsetX="-1" />
+      <move select="Lead Left" beats="4" scaleX="3" scaleY="3" />
     </path>
     <path>
-      <move select="Forward" />
-      <move select="Swing Left" offsetY="-1" />
-      <move select="Hinge Left" />
+      <move select="Forward" beats="2"/>
+      <move select="Swing Left" beats="2.5" offsetY="-1" />
+      <move select="Hinge Left" beats="1.5"/>
     </path>
   </tam>
 </tamination>
