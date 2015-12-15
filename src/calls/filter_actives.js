@@ -22,7 +22,7 @@
 
 define(['env','calls/codedcall'],function(Env,CodedCall) {
   var FilterActives = Env.extend(CodedCall);
-  FilterActives.prototype.perform = function(ctx)
+  FilterActives.prototype.preProcess = function(ctx)
   {
     ctx.actives.filter(function(d) {
       return !this.test(d,ctx);

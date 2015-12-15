@@ -21,8 +21,8 @@
 
 "use strict";
 
-define(['env','path'],function(Env,Path) {
-  var CodedCall = Env.extend();
+define(['env','path','calls/call'],function(Env,Path,Call) {
+  var CodedCall = Env.extend(Call);
   CodedCall.prototype.name = '';
   CodedCall.scripts = [
        { name:'Allemande Left', link:'allemande_left' },
@@ -71,39 +71,7 @@ define(['env','path'],function(Env,Path) {
        { name:'Zoom', link:'zoom' }
    ];
 
-  //  Wrapper method for performing one call
-  CodedCall.prototype.performCall = function(ctx)
-  {
-    ctx.analyze();
-    this.perform(ctx);
-    ctx.dancers.forEach(function(d) {
-      d.recalculate();
-      d.animateToEnd();
-    },this);
-    ctx.levelBeats();
-  };
-
-  //  Default method to perform one call
-  //  Pass the call on to each active dancer
-  //  Then append the returned paths to each dancer
-  CodedCall.prototype.perform = function(ctx) {
-    //  Get all the paths with performOne calls
-    ctx.actives.forEach(function(d) {
-      d.path.add(this.performOne(d,ctx));
-    },this);
-  };
-
-  //  Default method for one dancer to perform one call
-  //  Returns an empty path (the dancer just stands there)
-  CodedCall.prototype.performOne = function()
-  {
-    return new Path();
-  };
-
-  //  Hook to manipulate context after call is added
-  //  Default is to do nothing
-  CodedCall.prototype.preProcess = function(ctx) { };
-
+  //  Ironically, CodedCall has no code
 
   return CodedCall;
 });

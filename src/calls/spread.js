@@ -20,9 +20,9 @@
  */
 "use strict";
 
-define(['env','calls/codedcall','movement','path','vector'],
-    function(Env,CodedCall,Movement,Path,Vector) {
-  var AndSpread = Env.extend(CodedCall);
+define(['env','calls/action','movement','path','vector'],
+    function(Env,Action,Movement,Path,Vector) {
+  var AndSpread = Env.extend(Action);
   AndSpread.prototype.name = " and Spread";
   AndSpread.prototype.performOne = function(d,ctx)
   {

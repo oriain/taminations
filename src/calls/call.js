@@ -26,5 +26,10 @@ define(['env','path'],function(Env,Path) {
   Call.prototype.name = '';
   Call.classes = {};
   Call.xmldata = {};
+  //  As the base class for all calls, these are default methods
+  //  for the methods that real calls override
+  Call.prototype.performCall = function(ctx) { };
+  Call.prototype.preProcess = function(ctx) { };
+  Call.prototype.postProcess = function(ctx) { };
   return Call;
 });

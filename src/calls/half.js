@@ -20,45 +20,46 @@
  */
 "use strict";
 
-define(['env','calls/codedcall','calls/xmlcall'],
-       function(Env,CodedCall,XMLCall) {
-  var Half = Env.extend(CodedCall);
+define(['env','calls/action','calls/xmlcall'],
+       function(Env,Action,XMLCall) {
+  var Half = Env.extend(Action);
   Half.prototype.name = "Half";
 
-  Half.prototype.perform = function(ctx) {
+  Half.prototype.perform = function(ctx,i) {
     //  Steal the next call off the stack
-    var call = ctx.callstack.shift();
+    this.call = ctx.callstack[i+1];
 
     //  For XML calls there should be an explicit number of parts
-    if (call instanceof XMLCall) {
+    if (this.call instanceof XMLCall) {
       //  Figure out how many beats are in half the call
-      var parts = $(call.xelem).attr('parts');
+      var parts = $(this.call.xelem).attr('parts');
       var partnums = parts.split(';');
-      var halfbeats = 0;
+      this.halfbeats = 0;
       partnums.slice(0,(partnums.length+1)/2).forEach(function(b) {
-        halfbeats += Number(b);
-      });
+        this.halfbeats += Number(b);
+      },this);
     }
+    this.prevbeats = ctx.maxBeats();
+  };
 
-    //  Perform the call
-    var prevbeats = ctx.maxBeats();
-    call.performCall(ctx);
+  //  Call is performed between these two methods
 
+  Half.prototype.postProcess = function(ctx,i) {
     //  Coded calls so far do not have explicit parts
     //  so just divide them in two
-    if (call instanceof CodedCall)
-      halfbeats = (ctx.maxBeats() - prevbeats) / 2;
+    if (this.call instanceof Action)
+      this.halfbeats = (ctx.maxBeats() - this.prevbeats) / 2;
 
     //  Chop off the excess half
     ctx.dancers.forEach(function(d) {
       var m = 0;
-      while (d.path.beats() > prevbeats + halfbeats)
+      while (d.path.beats() > this.prevbeats + this.halfbeats)
         m = d.path.pop();
-      if (m && d.path.beats() < prevbeats + halfbeats) {
-        m = m.clip(prevbeats + halfbeats - d.path.beats());
+      if (m && d.path.beats() < this.prevbeats + this.halfbeats) {
+        m = m.clip(this.prevbeats + this.halfbeats - d.path.beats());
         d.path.add(m);
       }
-    });
+    },this);
 
   };
 

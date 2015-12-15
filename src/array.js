@@ -50,11 +50,22 @@ define(function() {
     return this.filter(function() { return true; });
   };
 
+  /**
+   *   Return a reversed copy
+   *   The Array.prototype.reverse method reverses an array in place
+   */
+  Array.prototype.reversed = function() {
+    var a = this.copy();
+    a.reverse();
+    return a;
+  }
+
   Object.defineProperties(Array.prototype, {
     first: funcprop,
     last: funcprop,
     flatten: funcprop,
-    copy: funcprop
+    copy: funcprop,
+    reversed: funcprop
   });
 
   return Array;
