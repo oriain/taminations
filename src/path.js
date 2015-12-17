@@ -33,7 +33,7 @@ define(['movement','affinetransform'],function(Movement,AffineTransform) {
     }
     else if (p && (p.select != undefined)) {
       TamUtils.translateMove(p).forEach(function(m) {
-        this.add(new Movement(m));
+        this.add(m);
       },this);
     }
     else if (p instanceof Movement) {
