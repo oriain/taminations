@@ -21,10 +21,11 @@
 
 -->
 <tamination title="Single Cross and Wheel">
-  
-  
 
-  <tam title="Single Cross and Wheel" from="Right-Hand Box" formation="Box RH" fractions="1.5">
+
+
+  <tam title="Single Cross and Wheel" from="Right-Hand Box"
+       formation="Box RH" parts="1.5">
     <path>
       <move select="Hinge Right"/>
       <move select="Forward 2" beats="3"/>
@@ -35,7 +36,8 @@
     </path>
   </tam>
 
-  <tam title="Single Cross and Wheel" from="Left-Hand Box" formation="Box LH" fractions="1.5">
+  <tam title="Single Cross and Wheel" from="Left-Hand Box"
+       formation="Box LH" parts="1.5">
     <path>
       <move select="Hinge Left"/>
       <move select="Run Left" beats="3" offsetX="2"/>

@@ -27,7 +27,7 @@
   <tam title="Scoot and Plenty"
        from="Quarter Tag"
        formation="Quarter Tag"
-       parts="6;6;3.5;3.5" >
+       parts="6;6;7" >
     <path>
       <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY="1.5" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
@@ -73,7 +73,7 @@
   <tam title="Scoot and Plenty"
        from="Left-Hand Quarter Tag"
        formation="Quarter Tag LH"
-       parts="6;6;3.5;3.5" >
+       parts="6;6;7" >
     <path>
       <move select="Forward" beats="1.5" scaleX="1.5" />
       <move select="Swing Left" scaleX=".75" scaleY=".75" />
@@ -115,5 +115,5 @@
       <move select="Run Left" beats="2.5" offsetX="1" />
     </path>
   </tam>
-  
+
 </tamination>

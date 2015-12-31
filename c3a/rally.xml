@@ -22,7 +22,7 @@
 -->
 <tamination title="Rally">
 
-  <tam title="Rally" from="1/4 Tag" formation="Quarter Tag" fractions="3">
+  <tam title="Rally" from="1/4 Tag" formation="Quarter Tag" parts="3">
     <path>
       <move select="Extend Right" beats="4" scaleX="1" scaleY="4"/>
       <move select="Extend Right" beats="3" scaleX="2" scaleY=".5"/>
@@ -43,7 +43,7 @@
     </path>
   </tam>
 
-  <tam title="Rally" from="3/4 Tag" formation="3/4 Tag" fractions="3">
+  <tam title="Rally" from="3/4 Tag" formation="3/4 Tag" parts="3">
     <path couples="3 1">
       <move select="Quarter Right" offsetX="-.5" offsetY="-1"/>
       <move select="Lead Right" beats="3" scaleX="1.5" scaleY="2.5"/>
@@ -65,7 +65,7 @@
     </path>
   </tam>
 
-  <tam title="Rally" from="Left-Hand 1/4 Tag" formation="Quarter Tag LH" fractions="3">
+  <tam title="Rally" from="Left-Hand 1/4 Tag" formation="Quarter Tag LH" parts="3">
     <path>
       <move select="Extend Right" beats="4" scaleX="1" scaleY="4"/>
       <move select="Extend Right" beats="3" scaleX="2" scaleY=".5"/>
@@ -86,7 +86,7 @@
     </path>
   </tam>
 
-  <tam title="Rally" from="Left-Hand 3/4 Tag" formation="3/4 Tag LH" fractions="3">
+  <tam title="Rally" from="Left-Hand 3/4 Tag" formation="3/4 Tag LH" parts="3">
     <path>
       <move select="Quarter Right" offsetX="-.5" offsetY="-1"/>
       <move select="Lead Right" beats="3" scaleX="1.5" scaleY="2.5"/>
@@ -108,7 +108,7 @@
     </path>
   </tam>
 
-  <tam title="Scoot and Rally" from="1/4 Tag" formation="Quarter Tag" fractions="5;3">
+  <tam title="Scoot and Rally" from="1/4 Tag" formation="Quarter Tag" parts="5;3">
     <path>
       <!-- Scoot Back -->
       <move select="Extend Left" scaleX="1.5" scaleY="1.5" />
@@ -150,7 +150,8 @@
     </path>
   </tam>
 
-  <tam title="Scoot and Rally" from="Left-Hand 1/4 Tag" formation="Quarter Tag LH" fractions="5;3">
+  <tam title="Scoot and Rally" from="Left-Hand 1/4 Tag"
+       formation="Quarter Tag LH" parts="5;3">
     <path>
       <!-- Scoot Back -->
       <move select="Forward" scaleX="1.5" />

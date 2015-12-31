@@ -22,7 +22,7 @@
 -->
 <tamination title="Touch By Fraction By Fraction/Anything">
 
-  <tam title="Touch by 1/2 by 1/4" group=" ">
+  <tam title="Touch by 1/2 by 1/4" group=" " parts="6">
     <formation>
       <dancer gender="boy" x="0" y="3" angle="270"/>
       <dancer gender="girl" x="0" y="1" angle="270"/>
@@ -39,7 +39,7 @@
     </path>
   </tam>
 
-  <tam title="Touch by 1/4 by 1/2" group=" ">
+  <tam title="Touch by 1/4 by 1/2" group=" " parts="5">
     <formation>
       <dancer gender="boy" x="0" y="3" angle="270"/>
       <dancer gender="girl" x="0" y="1" angle="270"/>

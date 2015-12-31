@@ -273,6 +273,34 @@
     </path>
   </tam>
 
+	<tam title="Swing the Fractions, Replace the Second Part with Trade Circulate"
+	     group=" " formation="Ocean Waves RH BGGB" fractions="1.5;4;4.5;3">
+		<path>
+      <move select="Hinge Right" />
+      <move select="Forward" />
+      <move select="Extend Right" beats="3" scaleX="3" scaleY="2" />
+		</path>
+		<path>
+      <move select="Hinge Right" />
+      <move select="Run Right" beats="4" scaleX="1.5" scaleY="2" />
+      <move select="Cast Right"/>
+      <move select="Stand" beats="3"/>
+      <move select="Hinge Right"/>
+		</path>
+		<path>
+      <move select="Hinge Right" />
+      <move select="Run Left" beats="4" scaleX=".5" scaleY="2" />
+		</path>
+		<path>
+      <move select="Hinge Right" />
+      <move select="Forward" />
+      <move select="Extend Right" beats="3" scaleX="3" scaleY="2" />
+      <move select="Cast Right"/>
+      <move select="Swing Left"/>
+      <move select="Hinge Right"/>
+		</path>
+	</tam>
+
   <tam title="Swing the Fractions, Replace the Third Part with a Split Circulate"
        group=" "
        formation="Ocean Waves RH BGGB"

@@ -22,7 +22,7 @@
 -->
 <tamination title="Fancy">
 
-  <tam title="Fancy" from="Right-Hand Columns" fractions="3;1">
+  <tam title="Fancy" from="Right-Hand Columns" parts="3;1">
     <formation>
       <dancer gender="boy" y="3" x="-1" angle="90"/>
       <dancer gender="girl" y="1" x="-1" angle="90"/>
@@ -50,7 +50,7 @@
     </path>
   </tam>
 
-  <tam title="Fancy" from="Left-Hand Columns" formation="Column LH GBGB" fractions="3;1">
+  <tam title="Fancy" from="Left-Hand Columns" formation="Column LH GBGB" parts="3;1">
     <path>
       <move select="Extend Right" beats="3" scaleX="2" scaleY="2"/>
       <move select="Forward" hands="left"/>
@@ -72,7 +72,8 @@
     </path>
   </tam>
 
-  <tam title="Scoot and Fancy" from="Right-Hand Columns" formation="Column RH GBGB" >
+  <tam title="Scoot and Fancy" from="Right-Hand Columns" formation="Column RH GBGB"
+       parts="6;3;1">
     <path>
       <move select="Run Right" beats="6" />
       <move select="Extend Left" beats="3" scaleX="2" scaleY="2"/>

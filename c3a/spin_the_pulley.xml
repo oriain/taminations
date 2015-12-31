@@ -21,10 +21,11 @@
 
 -->
 <tamination title="Spin the Pulley">
-  
-  
 
-  <tam title="Heads Spin the Pulley" from="Static Square" formation="Static Square" fractions="7.5;2">
+
+
+  <tam title="Heads Spin the Pulley" from="Static Square"
+       formation="Static Square" parts="7.5;2">
     <path>
       <move select="Extend Left" beats="3" scaleX="3" scaleY=".5"/>
       <move select="Swing Right" scaleX=".5" scaleY=".5"/>
