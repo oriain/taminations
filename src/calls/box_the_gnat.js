@@ -20,9 +20,9 @@
  */
 "use strict";
 
-define(['env','calls/codedcall','movement','path'],
-       function(Env,CodedCall,Movement,Path) {
-  var BoxTheGnat = Env.extend(CodedCall);
+define(['env','calls/action','movement','path'],
+       function(Env,Action,Movement,Path) {
+  var BoxTheGnat = Env.extend(Action);
   BoxTheGnat.prototype.name = "Box the Gnat";
   BoxTheGnat.prototype.performOne = function(d,ctx) {
     var d2 = ctx.dancerInFront(d);

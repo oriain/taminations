@@ -20,8 +20,8 @@
  */
 "use strict";
 
-define(['env','calls/codedcall','path'],function(Env,CodedCall,Path) {
-  var TouchAQuarter = Env.extend(CodedCall);
+define(['env','calls/action','path'],function(Env,Action,Path) {
+  var TouchAQuarter = Env.extend(Action);
   TouchAQuarter.prototype.name = "Touch a Quarter";
   TouchAQuarter.prototype.performOne = function(d,ctx)
   {

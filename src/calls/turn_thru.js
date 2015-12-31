@@ -20,8 +20,8 @@
  */
 "use strict";
 
-define(['env','calls/codedcall','path'],function(Env,CodedCall,Path) {
-  var TurnThru = Env.extend(CodedCall);
+define(['env','calls/action','path'],function(Env,Action,Path) {
+  var TurnThru = Env.extend(Action);
   TurnThru.prototype.name = "Turn Thru";
   TurnThru.prototype.performOne = function(d,ctx)
   {

@@ -20,8 +20,8 @@
  */
 "use strict";
 
-define(['env','calls/codedcall','path'],function(Env,CodedCall,Path) {
-  var PassThru = Env.extend(CodedCall);
+define(['env','calls/action','path'],function(Env,Action,Path) {
+  var PassThru = Env.extend(Action);
   PassThru.prototype.name = "Pass Thru";
   PassThru.prototype.performOne = function(d,ctx)
   {

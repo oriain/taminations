@@ -20,8 +20,8 @@
  */
 "use strict";
 
-define(['env','calls/codedcall','path'],function(Env,CodedCall,Path) {
-  var TurnBack = Env.extend(CodedCall);
+define(['env','calls/action','path'],function(Env,Action,Path) {
+  var TurnBack = Env.extend(Action);
   TurnBack.prototype.name = "Turn Back";
   TurnBack.prototype.performOne = function(d)
   {

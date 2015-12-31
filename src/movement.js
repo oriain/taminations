@@ -144,7 +144,7 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
         this.btranslate.ctrlx1,this.btranslate.ctrly1,
         this.btranslate.ctrlx2,this.btranslate.ctrly2,
         this.btranslate.x2,this.btranslate.y2,
-        this.brotate.ctrlx1,this.brotate.ctrly1,
+        this.brotate.ctrlx1,
         this.brotate.ctrlx2,this.brotate.ctrly2,
         this.brotate.x2,this.brotate.y2,this.beats);
   };

@@ -42,6 +42,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
   {
     this.callname = '';
     this.callstack = [];
+    this.call = false;
     //  For cases where creating a new context from a source,
     //  get the dancers from the source and clone them.
     //  The new context contains the dancers in their current location
@@ -151,14 +152,12 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     var match = false;
     var ctx = this;
     var ctx0 = this;
-    if (ctx.callstack.length > 0) {
-      ctx = new CallContext(this);
-      ctx.callstack = this.callstack.copy();
-      ctx.performCall();
-      //  If actives != dancers, create another call context with just the actives
-      if (ctx.dancers.length != ctx.actives.length) {
-        ctx = new CallContext(ctx.actives);
-      }
+    ctx.callstack.forEach(function(c,i) {
+      c.preProcess(ctx0,i);
+    });
+    //  If actives != dancers, create another call context with just the actives
+    if (ctx.dancers.length != ctx.actives.length) {
+      ctx = new CallContext(ctx.actives);
     }
     // Check that actives == dancers
     if (ctx.dancers.length == ctx.actives.length) {
@@ -355,7 +354,6 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     ).some(function(c) {
       var call = new Call.classes[c.name]();
       this.callstack.push(call);
-      call.preProcess(this);
       this.callname += call.name + ' ';
       return true;
     },this);
@@ -366,13 +364,19 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
   //  This doesn't run an animation, rather it takes the stack of calls
   //  and builds the dancer movements.
   CallContext.prototype.performCall = function() {
-    //  Note that the stack is consumed here
-    //  So this can only be performed once
-    //  Other calls could modify the stack so allow for that
-    while (this.callstack.length > 0) {
-      var call = this.callstack.shift();
-      call.performCall(this);
-    }
+    this.analyze();
+    //  Concepts and modifications primarily use the preProcess and
+    //  postProcess methods
+    this.callstack.forEach(function(c,i) {
+      c.preProcess(this,i);
+    },this);
+    //  Core calls primarly use the performCall method
+    this.callstack.forEach(function(c,i) {
+      c.performCall(this,i);
+    },this);
+    this.callstack.reversed().forEach(function(c,i) {
+      c.postProcess(this,i);
+    },this);
   };
 
   CallContext.prototype.matchShapes = function(ctx2) {

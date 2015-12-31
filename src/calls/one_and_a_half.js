@@ -23,18 +23,17 @@
 define(['env','calls/codedcall','calls/half','callerror'],
        function(Env,CodedCall,Half,CallError) {
   var OneAndaHalf = Env.extend(CodedCall);
-  OneAndaHalf.prototype.name = "One and a Half";
+  OneAndaHalf.prototype.name = "Once and a Half";
 
   OneAndaHalf.prototype.preProcess = function(ctx) {
     if (ctx.callstack.length < 2)
       throw new CallError('One and a half of what?');
-    this.call = ctx.callstack[ctx.callstack.length-2];
   };
 
-  OneAndaHalf.prototype.performCall = function(ctx) {
-    ctx.analyze();
+  OneAndaHalf.prototype.performCall = function(ctx,i) {
     var ctx2 = ctx.clone();
-    ctx2.interpretCall('half '+this.call.name);
+    ctx2.callstack.push(new Half());
+    ctx2.callstack = ctx2.callstack.concat(ctx.callstack.slice(0,i));
     ctx2.performCall();
     ctx2.appendToSource();
   };
