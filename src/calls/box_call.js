@@ -1,6 +1,6 @@
 /*
 
-    Copyright 2015 Brad Christie
+    Copyright 2016 Brad Christie
 
     This file is part of Taminations.
 
@@ -27,5 +27,3 @@ define(['env',"calls/four_dancer_call"],function(Env,FourDancerCall){
   };
   return BoxCall;
 });
-
-//# sourceURL=box_call.js

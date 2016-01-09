@@ -1,6 +1,6 @@
 /*
 
-    Copyright 2015 Brad Christie
+    Copyright 2016 Brad Christie
 
     This file is part of Taminations.
 
@@ -57,5 +57,3 @@ define(['env','calls/box_call','movement','path'],function(Env,BoxCall,Movement,
   };
   return BoxCounterRotate;
 });
-
-//# sourceURL=box_counter_rotate.js

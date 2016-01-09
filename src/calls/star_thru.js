@@ -1,6 +1,6 @@
 /*
 
-    Copyright 2015 Brad Christie
+    Copyright 2016 Brad Christie
 
     This file is part of Taminations.
 
@@ -30,5 +30,3 @@ define(['env','calls/action','callcontext'],function(Env,Action,CallContext) {
   StarThru.requires = ['Slide Thru'];
   return StarThru;
 });
-
-//# sourceURL=star_thru.js

@@ -1,6 +1,6 @@
 /*
 
-    Copyright 2015 Brad Christie
+    Copyright 2016 Brad Christie
 
     This file is part of Taminations.
 
@@ -31,5 +31,3 @@ define(['env','calls/action','callcontext'],function(Env,Action,CallContext) {
   Slip.requires = ['centers','trade'];
   return Slip;
 });
-
-//# sourceURL=slip.js

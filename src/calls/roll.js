@@ -1,6 +1,6 @@
 /*
 
-    Copyright 2015 Brad Christie
+    Copyright 2016 Brad Christie
 
     This file is part of Taminations.
 
@@ -34,5 +34,3 @@ define(['env','calls/quarter_turns'],function(Env,QuarterTurns) {
   };
   return Roll;
 });
-
-//# sourceURL=roll.js

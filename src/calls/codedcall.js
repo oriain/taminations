@@ -1,6 +1,6 @@
 /*
 
-    Copyright 2015 Brad Christie
+    Copyright 2016 Brad Christie
 
     This file is part of Taminations.
 
@@ -75,5 +75,3 @@ define(['env','path','calls/call'],function(Env,Path,Call) {
 
   return CodedCall;
 });
-
-//# sourceURL=codedcall.js
