@@ -34,5 +34,3 @@ define(['env','calls/line_call'],function(Env,LineCall) {
 
   return ExplodeAnd;
 });
-
-//# sourceURL=explode_and.js

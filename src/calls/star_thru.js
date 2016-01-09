@@ -25,11 +25,9 @@ define(['env','calls/action','callcontext'],function(Env,Action,CallContext) {
   StarThru.prototype.name = "Star Thru";
   //  TODO check that facing dancers are opposite genders
   StarThru.prototype.perform = function(ctx) {
-    var ctx2 = new CallContext(ctx);
-    ctx2.interpretCall('slide thru');
-    ctx2.appendToSource();
+    ctx.applyCalls('slide thru');
   };
-  StarThru.requires = ['slide thru'];
+  StarThru.requires = ['Slide Thru'];
   return StarThru;
 });
 

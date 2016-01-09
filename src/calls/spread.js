@@ -30,13 +30,13 @@ define(['env','calls/action','movement','path','vector'],
     //  This is for waves only TODO tandem couples, single dancers (C-1)
     var v = new Vector();
     if (d.belle)
-      v = new Vector(0,1);
+      v = new Vector(0,2);
     else if (d.beau)
-      v = new Vector(0,-1);
+      v = new Vector(0,-2);
     var m = p.movelist.pop();
     var tx = m.rotate();
     v = v.concatenate(tx);
-    p.movelist.push(m.skew(v.x,v.y).hands(Movement.NOHANDS));
+    p.movelist.push(m.skew(v.x,v.y).useHands(Movement.NOHANDS));
     return new Path();
   };
   return AndSpread;

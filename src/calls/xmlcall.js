@@ -77,10 +77,13 @@ define(['env','calls/call','path'],
       }
       //  Add XML path to dancer
       ctx.actives[i3].path.add(p);
+      //  Move dancer to end so any subsequent modifications (e.g. roll)
+      //  use the new position
+      ctx.actives[i3].animateToEnd();
     },this);
 
-
     ctx.levelBeats();
+    ctx.analyze();
 
   };
 

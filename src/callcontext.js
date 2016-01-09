@@ -150,11 +150,18 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
   {
     var found = false;
     var match = false;
-    var ctx = this;
     var ctx0 = this;
-    ctx.callstack.forEach(function(c,i) {
-      c.preProcess(ctx0,i);
-    });
+    var ctx = this;
+    
+    //  If there are precursors, run them first so the result
+    //  will be used to match formations
+    //  Needed for calls like "Explode And ..."
+    if (this.callstack.length > 0) {
+      ctx = new CallContext(this)
+      ctx.callstack = this.callstack
+      ctx.performCall()
+    }
+
     //  If actives != dancers, create another call context with just the actives
     if (ctx.dancers.length != ctx.actives.length) {
       ctx = new CallContext(ctx.actives);

@@ -66,23 +66,25 @@ define(['env','calls/action','callcontext','vector','affinetransform'],
   };
 
   FourDancerCall.prototype.postProcess = function(ctx) {
+    if (ctx.dancers.length > 4) {
     // And transform the resulting paths back
-    ctx.dancers.forEach(function(d) {
-      //  First figure out the direction this dancer needs to move
-      var v = new Vector(
-          ctx.isVerticalSplit ? 0 : -Math.round(d.location.x/3),
-              ctx.isVerticalSplit ? -Math.round(d.location.y/3) : 0
-      );
-      //  Get the dancer's facing angle for the last movement
-      var m = d.path.movelist.last();
-      d.animate(d.beats()-m.beats);
-      var tx = AffineTransform.getRotateInstance(d.tx.angle);
-      //  Apply that angle to the direction we need to shift
-      v = v.concatenate(tx);
-      //  Finally apply it to the last movement
-      d.path.skew(v.x,v.y);
-    });
-  };
+      ctx.dancers.forEach(function(d) {
+        //  First figure out the direction this dancer needs to move
+        var v = new Vector(
+            ctx.isVerticalSplit ? 0 : -Math.round(d.location.x/3),
+                ctx.isVerticalSplit ? -Math.round(d.location.y/3) : 0
+        );
+        //  Get the dancer's facing angle for the last movement
+        var m = d.path.movelist.last();
+        d.animate(d.beats()-m.beats);
+        var tx = AffineTransform.getRotateInstance(d.tx.angle);
+        //  Apply that angle to the direction we need to shift
+        v = v.concatenate(tx);
+        //  Finally apply it to the last movement
+        d.path.skew(v.x,v.y);
+      });
+    };
+  }
 
   //  This returns an array of 2 contexts, 4 dancers each
   //  divided by an axis

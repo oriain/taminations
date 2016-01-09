@@ -52,7 +52,7 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
     if (typeof beats == "number")
       this.beats = beats;
     if (typeof hands == "string")
-      this.hands = Movement.getHands(h);
+      this.hands = Movement.getHands(hands);
     else  //  should be one of the ints below
       this.hands = hands;
   };

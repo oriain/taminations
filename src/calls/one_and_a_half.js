@@ -31,11 +31,9 @@ define(['env','calls/codedcall','calls/half','callerror'],
   };
 
   OneAndaHalf.prototype.performCall = function(ctx,i) {
-    var ctx2 = ctx.clone();
-    ctx2.callstack.push(new Half());
-    ctx2.callstack = ctx2.callstack.concat(ctx.callstack.slice(0,i));
-    ctx2.performCall();
-    ctx2.appendToSource();
+    //  At this point the call has already been done once
+    //  So just do half of it again
+    ctx.applyCalls('half '+ctx.callstack[0].name)
   };
 
   return OneAndaHalf;

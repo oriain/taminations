@@ -79,13 +79,14 @@ TAMination.searchCalls = function(query,options)
   //  Use upper case and dup numbers while building regex so expressions don't get compounded
   //  Through => Thru
   query = query.replace(/\bthrou?g?h?\b/g,"THRU");
+  //  One and a half
+  query = query.replace(/\b1.5\b/g,"ONEANDAHALF");
+  query = query.replace(/\b1 1\/2\b/g,"ONEANDAHALF");
   //  Process fractions 1/2 3/4 1/4 2/3
   query = query.replace(/\b1\/2|(one.)?half\b/g,"(HALF|1122)");
   query = query.replace(/\b(three.quarters?|3\/4)\b/g,"(THREEQUARTERS|3344)");
   query = query.replace(/\b((one.)?quarter|1\/4)\b/g,"((ONE)?QUARTER|1144)");
   query = query.replace(/\btwo.thirds?\b/g,"(TWOTHIRDS|2233)");
-  //  One and a half
-  query = query.replace(/\b1.5\b/g,"ONEANDAHALF");
   //  Process any other numbers
   query = query.replace(/\b(1|onc?e)\b/g,"(11|ONE)");
   query = query.replace(/\b(2|two)\b/g,"(22|TWO)");
