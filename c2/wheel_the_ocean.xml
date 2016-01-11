@@ -127,7 +127,7 @@
   </tam>
 
   <tam title="As Couples Wheel the Ocean" from="Lines Facing Out"
-       parts="Lines Facing Out" fractions="5">
+       formation="Lines Facing Out" fractions="5">
     <path>
       <move select="Belle Wheel" beats="5" scaleX="3" scaleY="3"/>
       <move select="Extend Left" beats="4" hands="gripleft" scaleX="2" scaleY="4"/>
@@ -149,7 +149,7 @@
   </tam>
 
   <tam title="All 8 Wheel the Ocean" from="Squared Couples Facing Out"
-       parts="Static Facing Out" fractions="3">
+       formation="Static Facing Out" fractions="3">
     <path>
       <move select="Beau Wheel"/>
     </path>
