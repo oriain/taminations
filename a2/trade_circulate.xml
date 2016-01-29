@@ -67,10 +67,10 @@
        formation="Two-Faced Lines RH"
        fractions="" >
     <path numbers="1 8">
-      <movement hands="no" beats="4" cx1="1.5" cy1="0" cx2="3.5" cy2="-4" x2="4" y2="-4" cx3="1" cx4="1" cy4="-0.4" x4="2" y4="-0.4" />
+      <movement hands="none" beats="4" cx1="1.5" cy1="0" cx2="3.5" cy2="-4" x2="4" y2="-4" cx3="1" cx4="1" cy4="-0.4" x4="2" y4="-0.4" />
     </path>
     <path numbers="2 7">
-      <movement hands="no" beats="4" cx1="1.5" cy1="0" cx2="3.5" cy2="-4" x2="4" y2="-4" cx3="1" cx4="1" cy4="-0.4" x4="2" y4="-0.4" />
+      <movement hands="none" beats="4" cx1="1.5" cy1="0" cx2="3.5" cy2="-4" x2="4" y2="-4" cx3="1" cx4="1" cy4="-0.4" x4="2" y4="-0.4" />
     </path>
     <path numbers="3 6">
       <move select="Flip Left" />
@@ -91,10 +91,10 @@
       <move select="Run Right" />
     </path>
     <path>
-      <movement hands="no" beats="4" cx1="1.5" cy1="0" cx2="1.5" cy2="4" x2="4" y2="4" cx3="1" cx4="1" cy4="0.4" x4="2" y4="0.4" />
+      <movement hands="none" beats="4" cx1="1.5" cy1="0" cx2="1.5" cy2="4" x2="4" y2="4" cx3="1" cx4="1" cy4="0.4" x4="2" y4="0.4" />
     </path>
     <path>
-      <movement hands="no" beats="4" cx1="1.5" cy1="0" cx2="1.5" cy2="4" x2="4" y2="4" cx3="1" cx4="1" cy4="0.4" x4="2" y4="0.4" />
+      <movement hands="none" beats="4" cx1="1.5" cy1="0" cx2="1.5" cy2="4" x2="4" y2="4" cx3="1" cx4="1" cy4="0.4" x4="2" y4="0.4" />
     </path>
   </tam>
 </tamination>

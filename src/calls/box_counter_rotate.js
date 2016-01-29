@@ -51,7 +51,7 @@ define(['env','calls/box_call','movement','path'],function(Env,BoxCall,Movement,
     var m = new Movement(
         2.0,Movement.NOHHANDS,
         cv1.x,cv1.y,cv2.x,cv2.y,dv.x,dv.y,
-        0.55, 0, 1, cy4, 1, y4
+        0.55, 1, cy4, 1, y4
         );
     return new Path(m);
   };

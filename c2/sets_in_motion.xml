@@ -203,7 +203,7 @@
     <path numbers="4 5">
       <move select="Extend Left"  beats="1.5" scaleX="2"/>
       <move select="Extend Right" beats="1.5" scaleX="2"/>
-      <move select="Hinge Left"   hands="no" beats="3" scaleX="2.5" scaleY="3" />
+      <move select="Hinge Left"   hands="none" beats="3" scaleX="2.5" scaleY="3" />
       <move select="Quarter Left" beats=".5" />
       <move select="Extend Left" scaleY="1" />
       <move select="Forward" beats="2.3" scaleX="3.65" />

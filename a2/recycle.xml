@@ -30,7 +30,7 @@
       <move select="U-Turn Right" beats="3" offsetX="2" />
     </path>
     <path numbers="2 3">
-      <movement hands="no" beats="3" cx1="-.5" cy1="0" cx2="0" cy2="4" x2="2" y2="4" cx3="1" cx4="2" cy4="2" x4="3" y4="2" />
+      <movement hands="none" beats="3" cx1="-.5" cy1="0" cx2="0" cy2="4" x2="2" y2="4" cx3="1" cx4="2" cy4="2" x4="3" y4="2" />
     </path>
   </tam>
 
@@ -42,13 +42,13 @@
       <move select="U-Turn Right" beats="3" offsetX="1" />
     </path>
     <path>
-      <movement hands="no" beats="3" cx1="-1" cy1="2" cx2="1" cy2="4" x2="1" y2="4" cx3="1" cx4="2" cy4="2" x4="3" y4="2" />
+      <movement hands="none" beats="3" cx1="-1" cy1="2" cx2="1" cy2="4" x2="1" y2="4" cx3="1" cx4="2" cy4="2" x4="3" y4="2" />
     </path>
     <path>
       <move select="U-Turn Right" beats="3" offsetX="1" />
     </path>
     <path>
-      <movement hands="no" beats="3" cx1="-1" cy1="2" cx2="1" cy2="4" x2="1" y2="4" cx3="1" cx4="2" cy4="2" x4="3" y4="2" />
+      <movement hands="none" beats="3" cx1="-1" cy1="2" cx2="1" cy2="4" x2="1" y2="4" cx3="1" cx4="2" cy4="2" x4="3" y4="2" />
     </path>
   </tam>
 
@@ -60,13 +60,13 @@
       <move select="U-Turn Right" beats="3" offsetX="2" offsetY="-.5" />
     </path>
     <path>
-      <movement hands="no" beats="3" cx1="-1" cy1="2" cx2="1" cy2="2.5" x2="2" y2="2.5" cx3="1" cx4="2" cy4="2" x4="3" y4="2" />
+      <movement hands="none" beats="3" cx1="-1" cy1="2" cx2="1" cy2="2.5" x2="2" y2="2.5" cx3="1" cx4="2" cy4="2" x4="3" y4="2" />
     </path>
     <path>
       <move select="U-Turn Right" beats="3" offsetX="2" offsetY="-.5" />
     </path>
     <path>
-      <movement hands="no" beats="3" cx1="-1" cy1="2" cx2="1" cy2="2.5" x2="2" y2="2.5" cx3="1" cx4="2" cy4="2" x4="3" y4="2" />
+      <movement hands="none" beats="3" cx1="-1" cy1="2" cx2="1" cy2="2.5" x2="2" y2="2.5" cx3="1" cx4="2" cy4="2" x4="3" y4="2" />
     </path>
   </tam>
 

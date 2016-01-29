@@ -21,10 +21,10 @@
 
 -->
 <tamination title="See Saw">
-  
-  
-  
-  
+
+
+
+
 
   <tam title="All Around the Corner, See Saw Your Partner"
        from="Static Square"
@@ -62,21 +62,4 @@
     </path>
   </tam>
 
-  <!--tam title="See Saw"
-       from="Facing Couples"
-       formation="Facing Couples"
-       fractions="" >
-    <path>
-      <move select="Extend Right" scaleX="1.5" scaleY=".5" />
-      <move select="Extend Left" scaleY=".5" />
-      <movement hands="no" beats="1" cx1="-.5" cy1="0" cx2="-.5" cy2="1" x2="-1" y2="1" cx3="1" cx4="1" cy4="-.4" x4="2" y4="-.4" />
-      <movement hands="no" beats="1" cx1="-.5" cy1="0" cx2="-.5" cy2="-1" x2="-1" y2="-1" cx3="1" cx4="1" cy4=".4" x4="2" y4=".4" />
-    </path>
-    <path>
-      <move select="Extend Right" scaleX="1.5" scaleY=".5" />
-      <move select="Extend Left" scaleY=".5" />
-      <movement hands="no" beats="1" cx1="-.5" cy1="0" cx2="-.5" cy2="1" x2="-1" y2="1" cx3="1" cx4="1" cy4="-.4" x4="2" y4="-.4" />
-      <movement hands="no" beats="1" cx1="-.5" cy1="0" cx2="-.5" cy2="-1" x2="-1" y2="-1" cx3="1" cx4="1" cy4=".4" x4="2" y4=".4" />
-    </path>
-  </tam-->
 </tamination>
