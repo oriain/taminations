@@ -339,42 +339,4 @@
     </path>
   </tam>
 
-  <tam title="Cross Over Circulate" from="T-Bones 1"
-       formation="T-Bone DLRD" >
-    <path>
-      <move select="Run Left" beats="5" scaleY="2" />
-    </path>
-    <path>
-      <move select="Forward 2"/>
-      <move select="Dodge Left"/>
-    </path>
-    <path>
-      <move select="Dodge Right"/>
-      <move select="Forward 2"/>
-    </path>
-    <path>
-      <move select="Run Right" beats="5" scaleX="2" scaleY="2" />
-    </path>
-  </tam>
-
-  <tam title="Cross Over Circulate" from="T-Bones 2"
-       formation="T-Bone ULRU" >
-    <path>
-      <move select="Dodge Right"/>
-      <move select="Forward 2"/>
-    </path>
-    <path>
-      <move select="Forward 2"/>
-      <move select="Dodge Left"/>
-    </path>
-    <path>
-      <move select="Dodge Right"/>
-      <move select="Forward 2"/>
-    </path>
-    <path>
-      <move select="Forward 2"/>
-      <move select="Dodge Left"/>
-    </path>
-  </tam>
-
 </tamination>
