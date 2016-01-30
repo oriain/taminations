@@ -22,26 +22,25 @@
 -->
 <tamination title="Finally Concept">
 
-  <tam title="Finally As Couples Left Swing Thru"
+  <tam title="Finally As Couples Swing Thru"
        from="Tidal Two-Faced Line"
        formation="Two-Faced Tidal Line RH"
        group="Finally As Couples"
        fractions="3" >
     <path>
-      <move select="Stand" beats="3"/>
-      <move select="Swing Right" hands="both" beats="5" scaleX="1.5" scaleY="1.5"/>
+      <move select="Stand" beats="8"/>
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Left" hands="left" beats="5" scaleX="1.5" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Stand" beats="5"/>
     </path>
     <path>
       <move select="Stand" beats="3"/>
-      <move select="Swing Right" hands="both" beats="5" scaleX=".5" scaleY=".5"/>
-    </path>
-    <path>
-      <move select="Stand" beats="3"/>
-      <move select="Swing Right" hands="both" beats="5" scaleX=".5" scaleY=".5"/>
-    </path>
-    <path>
-      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
-      <move select="Swing Right" hands="both" beats="5" scaleX="1.5" scaleY="1.5"/>
+      <move select="Swing Left" hands="both" beats="5" scaleX=".5" scaleY=".5"/>
     </path>
   </tam>
 

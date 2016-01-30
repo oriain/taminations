@@ -22,6 +22,51 @@
 -->
 <tamination title="Press Ahead">
 
+  <tam title="Press Ahead" from="Right-Hand Waves">
+    <formation>
+      <dancer gender="boy" x="-1" y="3" angle="0"/>
+      <dancer gender="girl" x="-1" y="1" angle="180"/>
+      <dancer gender="girl" x="-1" y="-1" angle="0"/>
+      <dancer gender="boy" x="-1" y="-3" angle="180"/>
+    </formation>
+    <path>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+    </path>
+  </tam>
+
+  <tam title="Press Ahead" from="Two-Faced Lines">
+    <formation>
+      <dancer gender="boy" x="-1" y="3" angle="0"/>
+      <dancer gender="girl" x="-1" y="1" angle="0"/>
+      <dancer gender="girl" x="-1" y="-1" angle="180"/>
+      <dancer gender="boy" x="-1" y="-3" angle="180"/>
+    </formation>
+    <path>
+      <move select="Forward 2" hands="right"/>
+    </path>
+    <path>
+      <move select="Forward 2" hands="left"/>
+    </path>
+    <path>
+      <move select="Forward 2" hands="left"/>
+    </path>
+    <path>
+      <move select="Forward 2" hands="right"/>
+    </path>
+    <taminator>
+    Be sure to go one full position and not stop at 1/2 Press Ahead.
+    </taminator>
+  </tam>
+
   <tam title="Ends Press Ahead" group=" "
        from="Lines Facing Out">
      <formation>
@@ -76,6 +121,9 @@
     <path>
       <move select="Forward" beats="2"/>
     </path>
+    <taminator>
+    Unlike Extend, the girls do not adjust to make a couple.
+    </taminator>
   </tam>
 
   <tam title="1/2 Press Ahead" from="Two-Faced Lines"

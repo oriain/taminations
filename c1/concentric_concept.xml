@@ -36,6 +36,9 @@
     <path>
       <move select="Counter Rotate Left -2 4" beats="5" hands="left"/>
     </path>
+    <taminator>
+    Same as Counter Rotate
+    </taminator>
   </tam>
 
   <tam title="(From columns) Concentric Box Transfer" group="(From columns) Concentric"
@@ -1171,6 +1174,23 @@
     <path numbers="5 4">
       <move select="Run Left" beats="6" scaleX=".5" />
     </path>
+  </tam>
+
+  <tam title="(From tidal formation) Concentric Turn and Deal"
+       group="(From tidal formation) Concentric"
+       formation="Tidal Line RH">
+  <path>
+    <move select="Run Right" beats="4" offsetX="3" scaleY="1.25"/>
+  </path>
+  <path>
+    <move select="Run Right" beats="4" offsetX="3" scaleY="1.75"/>
+  </path>
+  <path>
+    <move select="Flip Right" beats="4" offsetX="1" scaleY="0.25"/>
+  </path>
+  <path>
+    <move select="Flip Right" beats="4" offsetX="1" scaleY="0.75"/>
+  </path>
   </tam>
 
   <tam title="(From tidal formation) Concentric Veer Right" group="(From tidal formation) Concentric"
