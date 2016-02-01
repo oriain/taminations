@@ -47,7 +47,7 @@
       <move select="Run Right"/>
       <move select="Quarter Right" beats="3" offsetX="2"/>
     </path>
-    <path couples="">
+    <path couples="3 1">
       <move select="Forward 2" beats="3"/>
       <move select="Forward 2" beats="3"/>
       <move select="Forward 2" beats="3"/>
