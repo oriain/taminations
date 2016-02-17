@@ -51,6 +51,34 @@
   </tam>
 
   <tam title="Tally Ho"
+       from="Right-Hand Waves to Partner"
+       formation="Ocean Waves RH BGGB"
+       parts="2;3" >
+    <path couples="1 3">
+      <move select="Forward 2" />
+      <move select="Hinge Right" />
+      <move select="Forward 2" beats="1.5" />
+      <move select="Cast Left" />
+    </path>
+    <path couples="2 4">
+      <move select="Lead Left" beats="2" />
+      <move select="Swing Right" />
+      <move select="Lead Right" beats="3" scaleX="3" scaleY="3" />
+    </path>
+    <path couples="3 1">
+      <move select="Forward 2" />
+      <move select="Hinge Right" />
+      <move select="Lead Right" />
+      <move select="Forward 2" />
+    </path>
+    <path couples="2 4">
+      <move select="Lead Right" beats="2" scaleX="3" scaleY="3" />
+      <move select="Swing Right" />
+      <move select="Cast Left" />
+    </path>
+  </tam>
+
+  <tam title="Tally Ho"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
        parts="2;3" >
