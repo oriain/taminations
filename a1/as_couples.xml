@@ -800,10 +800,6 @@
            xref-link="c1/alter_the_wave"
            xref-title="As Couples Alter the Wave" />
 
-  <tamxref title="As Couples (C-1) And Weave" group="As Couples (C-1)"
-           xref-link="c1/anything_and_weave"
-           xref-title="As Couples And Weave" />
-
   <tamxref title="As Couples (C-1) Box Recycle" group="As Couples (C-1)"
            xref-link="c1/box_split_recycle"
            xref-title="As Couples Box Recycle" />
@@ -867,6 +863,10 @@
   <tamxref title="As Couples (C-1) Switch the Line" group="As Couples (C-1)"
            xref-link="c1/switch_the_line"
            xref-title="As Couples Switch the Line" />
+
+  <tamxref title="As Couples (C-1) Weave" group="As Couples (C-1)"
+           xref-link="c1/anything_and_weave"
+           xref-title="As Couples Weave" />
 
   <tamxref title="As Couples (C-1) Wheeel Fan Thru" group="As Couples (C-1)"
            xref-link="c1/wheel_fan_thru"
