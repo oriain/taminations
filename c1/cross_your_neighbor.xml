@@ -52,8 +52,7 @@
 
   <tam title="Cross Your Neighbor"
        from="Right-Hand Waves"
-       formation="Ocean Waves RH BGBG"
-       fractions="" >
+       formation="Ocean Waves RH BGBG">
     <path>
       <move select="Extend Right" beats="2" scaleX="2" scaleY="1.75" />
       <move select="Swing Left" scaleX=".75" scaleY=".75" />
@@ -76,8 +75,7 @@
 
   <tam title="Cross Your Neighbor"
        from="Left-Hand Waves"
-       formation="Ocean Waves LH BGBG"
-       fractions="" >
+       formation="Ocean Waves LH BGBG">
     <path>
       <move select="Lead Left" beats="3" scaleX="2" />
       <move select="Run Left" beats="3.5" scaleY=".5" />
@@ -95,6 +93,46 @@
       <move select="Extend Left" beats="2" scaleX="2" scaleY="1.75" />
       <move select="Swing Right" scaleX=".75" scaleY=".75" />
       <move select="Hinge Right" offsetY=".25" />
+    </path>
+  </tam>
+
+  <tam title="Grand Cross Your Neighbor"
+       from="Right-Hand Columns" formation="Column RH GBGB">
+    <path>
+      <move select="Lead Right" beats="3" scaleX="1.5" />
+      <move select="Run Right" beats="3.5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleY="1.5"/>
+      <move select="Cast Left" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleY="1.5"/>
+      <move select="Cast Left" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleY="1.5"/>
+      <move select="Cast Left" scaleX=".5" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Grand Cross Your Neighbor"
+       from="Left-Hand Columns" formation="Column LH GBGB">
+    <path>
+      <move select="Extend Left" beats="2" scaleY="1.5"/>
+      <move select="Cast Right" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleY="1.5"/>
+      <move select="Cast Right" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleY="1.5"/>
+      <move select="Cast Right" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Lead Left" beats="3" scaleX="1.5" />
+      <move select="Run Left" beats="3.5" scaleY=".5" />
     </path>
   </tam>
 

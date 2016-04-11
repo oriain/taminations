@@ -20,9 +20,9 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination title="Anything and Weave">
+<tamination title="Weave">
 
-  <tam title="And Weave" from="Right-Hand Box">
+  <tam title="Weave" from="Right-Hand Box">
     <formation>
       <dancer gender="boy" x="1" y="2" angle="270"/>
       <dancer gender="girl" x="-1" y="2" angle="90"/>
@@ -36,7 +36,7 @@
     </path>
   </tam>
 
-  <tam title="And Weave" from="Single Eight Chain Thru">
+  <tam title="Weave" from="Single Eight Chain Thru">
     <formation>
       <dancer gender="boy" x="0" y="3" angle="270"/>
       <dancer gender="girl" x="0" y="1" angle="90"/>
@@ -52,7 +52,7 @@
     </path>
   </tam>
 
-  <tam title="And Weave"
+  <tam title="Weave"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
        fractions="" >
@@ -72,7 +72,7 @@
     </path>
   </tam>
 
-  <tam title="And Weave"
+  <tam title="Weave"
        from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
        fractions="" >
@@ -92,7 +92,7 @@
     </path>
   </tam>
 
-  <tam title="And Weave"
+  <tam title="Weave"
        from="Right-Hand Columns"
        formation="Column RH GBGB"
        fractions="" >
@@ -112,7 +112,7 @@
     </path>
   </tam>
 
-  <tam title="And Weave"
+  <tam title="Weave"
        from="Left-Hand Columns"
        formation="Column LH GBGB"
        fractions="" >
@@ -132,7 +132,7 @@
     </path>
   </tam>
 
-  <tam title="And Weave"
+  <tam title="Weave"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
        fractions="" >
@@ -156,7 +156,7 @@
     </path>
   </tam>
 
-  <tam title="As Couples And Weave"
+  <tam title="As Couples Weave"
        from="Two-Faced Lines"
        formation="Two-Faced Lines RH"
        group=" " >
@@ -176,7 +176,7 @@
     </path>
   </tam>
 
-  <tam title="All 8 And Weave"
+  <tam title="All 8 Weave"
        from="Mini Waves"
        formation="Static MiniWaves RH"
        group=" " >

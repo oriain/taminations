@@ -360,8 +360,8 @@ function generateAnimations()
   var prevgroup = "";
   $("#animationlist").empty();  //  disable to restore old animations
   tam.animations().each(function(n) {
-    callname = $(this).attr('title') + 'from' + $(this).attr('from');
-    var name = $(this).attr('from');
+    var name = tam.animationXref(n).attr('from');
+    callname = $(this).attr('title') + 'from' + name;
     if ($(this).attr("group") != undefined) {
       if ($(this).attr("group") != prevgroup) {
         if (prevtitle)

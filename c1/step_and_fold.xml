@@ -81,7 +81,7 @@
   </tam>
 
   <tam title="Step and Fold"
-       from="Invertered Lines"
+       from="Inverted Lines"
        formation="Inverted Lines Ends Facing In">
     <path numbers="5 4">
       <move select="Flip Right" offsetX="1" />

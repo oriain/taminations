@@ -59,12 +59,22 @@ define(['tamination','cookie','handhold','color','affinetransform','vector','bez
         this.bigon = cookie.bigon == "true";
         if (args.bigon !== undefined)
           this.bigon = args.bigon;
-        if (cookie.speed == 'slow')
+
+        if (args.speed != undefined) {
+          if (args.speed == 'slow')
+            this.slow(true);
+          else if (args.speed == 'fast')
+            this.fast(true);
+          else
+            this.normal(true);
+        }
+        else if (cookie.speed == 'slow')
           this.slow(true);
         else if (cookie.speed == 'fast')
           this.fast(true);
         else
           this.normal(true);
+
         this.loop = cookie.loop == "true";
         if (args.loop != undefined)
           this.loop = args.loop;
