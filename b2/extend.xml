@@ -22,10 +22,19 @@
 -->
 <tamination title="Extend">
 
+  <tam title="Extend" from="Right-Hand Wave" formation="Wave RH" difficulty="1">
+    <path>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+    </path>
+  </tam>
+
   <tam title="Extend"
        from="Right-Hand 1/4 Tag"
        formation="Quarter Tag"
-       fractions="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Extend Left" scaleY="2" beats="2" />
     </path>
@@ -43,7 +52,7 @@
   <tam title="Extend"
        from="Left-Hand 1/4 Tag"
        formation="Quarter Tag LH"
-       fractions="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Forward" beats="2" />
     </path>
@@ -55,6 +64,56 @@
     </path>
     <path>
       <move select="Forward 2" />
+    </path>
+  </tam>
+
+  <tam title="Extend"
+       from="Double Pass Thru"
+       formation="Double Pass Thru"
+       difficulty="2">
+    <path>
+    </path>
+    <path>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Forward" beats="2" />
+    </path>
+  </tam>
+
+  <tam title="Extend"
+       from="Right-Hand Waves"
+       formation="Ocean Waves RH BGGB"
+       difficulty="1">
+    <path>
+      <move select="Forward 2" />
+    </path>
+    <path>
+      <move select="Forward" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+    </path>
+    <path>
+      <move select="Extend Right" scaleY="2" beats="2" />
+    </path>
+  </tam>
+
+  <tam title="Extend"
+       from="3/4 Tag"
+       formation="3/4 Tag"
+       difficulty="2">
+    <path>
+    </path>
+    <path>
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Forward" beats="2" />
     </path>
   </tam>
 </tamination>

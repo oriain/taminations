@@ -179,7 +179,7 @@
     <call title="Cross" level="Advanced" sublevel="A-1" link="a1/named_dancers_cross"/>
     <call title="Crossfire" level="Plus" sublevel="Plus" link="plus/crossfire"/>
     <call title="Cut the Diamond" level="Plus" sublevel="Plus" link="plus/cut_the_diamond"/>
-    <call title="Cut the Galaxy" level="Challenge" sublevel="C-2" link="c2/cut_the_galaxy"/>
+    <call title="Cut the Galaxy" level="Challenge" sublevel="C-1" link="c1/cut_the_galaxy"/>
     <call title="Cut the Hourglass" level="Advanced" sublevel="A-2" link="a2/cut_the_hourglass"/>
     <call title="Cut the Interlocked Diamond" level="Challenge" sublevel="C-1" link="c1/cut_the_interlocked_diamond"/>
     <call title="Cycle and Wheel" level="Advanced" sublevel="A-1" link="a1/cycle_and_wheel"/>
@@ -237,7 +237,7 @@
     <call title="Flare Out to a Line" level="Challenge" sublevel="C-3A" link="c3a/flare_out_to_a_line"/>
     <call title="Flip Back" level="Challenge" sublevel="C-1" link="c1/tagging_calls_back_to_a_wave"/>
     <call title="Flip the Diamond" level="Plus" sublevel="Plus" link="plus/flip_the_diamond"/>
-    <call title="Flip the Galaxy" level="Challenge" sublevel="C-2" link="c2/flip_the_galaxy"/>
+    <call title="Flip the Galaxy" level="Challenge" sublevel="C-1" link="c1/flip_the_galaxy"/>
     <call title="Flip the Hourglass" level="Advanced" sublevel="A-2" link="a2/flip_the_hourglass"/>
     <call title="Flip the Interlocked Diamond" level="Challenge" sublevel="C-1" link="c1/flip_the_interlocked_diamond"/>
     <call title="Flip the Line" level="Challenge" sublevel="C-1" link="c1/flip_the_line"/>
@@ -625,7 +625,7 @@
     <call title="Twist the Line" level="Challenge" sublevel="C-1" link="c1/twist_the_line"/>
     <call title="Two-Faced Concept" level="Challenge" sublevel="C-3B" link="c3b/two_faced_concept"/>
     <call title="Two-Thirds Recycle" level="Challenge" sublevel="C-1" link="c1/2_3_recycle"/>
-    <call title="Twosome Concept" level="Challenge" sublevel="C-3B" link="c3b/twosome_concept"/>
+    <call title="Twosome Concept" level="Challenge" sublevel="C-3A" link="c3a/twosome_concept"/>
     <call title="Unwrap" level="Challenge" sublevel="C-2" link="c2/unwrap"/>
     <call title="Veer Left Veer Right" level="Basic and Mainstream" sublevel="Basic 1" link="b1/veer"/>
     <call title="Vertical (Anything)" level="Challenge" sublevel="C-2" link="c2/vertical_anything"/>
