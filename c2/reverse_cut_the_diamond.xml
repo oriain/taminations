@@ -120,7 +120,7 @@
   </path>
   </tam>
 
-  <tam title="Reverse Cut the Diamond" from="Interlocked Diamonds"
+  <tam title="Reverse Cut the Diamond" from="Diamonds with Center Two-Faced Line"
        formation="Interlocked Diamonds RH Girl Points">
     <path>
       <move select="Lead Right"/>

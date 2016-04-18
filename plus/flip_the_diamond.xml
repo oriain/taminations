@@ -138,7 +138,7 @@
 
   <tam title="Flip the Diamond"
        formation="Diamonds 3 and 1 Girl Points"
-       from="3 and 1 Diamonds" difficulty="2">
+       from="Diamonds, Points Facing Out" difficulty="2">
     <path>
       <move select="Forward 2" />
       <move select="Lead Right" />
