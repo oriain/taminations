@@ -74,31 +74,6 @@
     </path>
   </tam>
 
-  <tam title="Ping Pong Circulate"
-       from="I Wave"
-       fractions="" difficulty="3">
-     <formation>
-      <dancer gender="boy" x="-3.5" y="1" angle="0"/>
-      <dancer gender="girl" x="-3.5" y="-1" angle="0"/>
-      <dancer gender="girl" x="-.5" y="0" angle="270"/>
-      <dancer gender="boy" x="-1.5" y="0" angle="90"/>
-    </formation>
-    <path>
-      <move select="Extend Left" beats="6" scaleX="3.5" scaleY=".5" />
-    </path>
-    <path>
-      <move select="Extend Left" beats="6" scaleX="3.5" scaleY=".5" />
-    </path>
-    <path>
-      <move select="Lead Left" beats="4" scaleX="3.5" />
-      <move select="Quarter Left" beats="2" offsetX=".5" />
-    </path>
-    <path>
-      <move select="Lead Right" beats="4" scaleX="4.5" scaleY="1.5" />
-      <move select="Lead Right" beats="2" />
-    </path>
-  </tam>
-
   <tam title="Boys Only Ping Pong Circulate"
        from="Quarter Tag"
        formation="Quarter Tag"
