@@ -171,10 +171,6 @@
     </path>
   </tam>
 
-  <tamxref title="Couples Twosome Boomerang" group="Couples Twosome"
-           xref-link="c3b/boomerang"
-           xref-title="Couples Twosome Boomerang"/>
-
   <tam title="Tandem Twosome Circulate" group="Tandem Twosome"
        formation="Column RH GBGB">
     <path>
@@ -247,10 +243,6 @@
       <move select="Forward 4" beats="8"/>
     </path>
   </tam>
-
-  <tamxref title="Tandem Twosome Boomerang" group="Tandem Twosome"
-           xref-link="c3b/boomerang"
-           xref-title="Tandem Twosome Boomerang"/>
 
   <tam title="Tandem, Tandem Twosome Touch a Quarter"
        group="Tandem, Tandem Twosome">
