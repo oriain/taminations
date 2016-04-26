@@ -376,8 +376,8 @@ function generateAnimations()
         $("#animationlist").append('<div style="height:0.4em"/>');
       $("#animationlist").append('<span class="callname">'+$(this).attr("title")+" from</span><br />");
     }
-    if (tam.animationXref(n).attr("difficulty") != undefined) {
-      name = name + difficultText[Number(tam.animationXref(n).attr("difficulty"))-1];
+    if (tam.animation(n).attr("difficulty") != undefined) {
+      name = name + difficultText[Number(tam.animation(n).attr("difficulty"))-1];
       showDiffLegend = true;
     }
     //  First replace strips "(DBD)" et al

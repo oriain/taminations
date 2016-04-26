@@ -40,6 +40,14 @@
     </path>
   </tam>
 
+  <tamxref title="Box Counter Rotate (C-1)" from="Facing Couples"
+           xref-link="ms/slide_thru"
+           xref-from="Facing Couples" />
+
+  <tamxref title="Box Counter Rotate (C-1)" from="Couples Facing Out"
+           xref-link="a1/partner_tag"
+           xref-from="Couples Facing Out"/>
+
   <tam title="Box Counter Rotate 3/4" from="Right-Hand Box" formation="Box RH" fractions="4;4">
     <path numbers="1 4">
       <move select="Counter Rotate Right 3 1" beats="4" hands="right" />
