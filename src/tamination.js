@@ -128,7 +128,7 @@ TAMination.selectLanguage = function(url)
   if (url.match(/(\w+\/\w+)\.html/)) {
     //  Find the entry in callindex for this call
     var link = url.match(/(\w+\/\w+)\.html/)[1];
-    var userlang = navigator.language.substr(0,2);
+    var userlang = 'lang-'+navigator.language.substr(0,2);
     calllistdata.forEach(function(d) {
       if (translated || !d.link || url.indexOf(d.link) < 0)
         return;  //  to the next forEach iteration

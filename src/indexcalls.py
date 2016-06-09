@@ -30,7 +30,7 @@ def main():
   r3 = re.compile(r'Call\.classes\.(.+?)\s*=')
   r4 = re.compile(r'\W')
   r5 = re.compile(r'\(.*?\)\s*')
-  r6 = re.compile(r'\.(\w\w)\.html')
+  r6 = re.compile(r'\.(lang-\w*)\.html')
   #  Start a new xml document for the output
   newtree = ET.ElementTree(ET.Element('calls'))
   newroot = newtree.getroot()
