@@ -60,9 +60,6 @@
       <move select="Lead Right" beats="2" scaleX="2" scaleY="2" />
       <move select="Lead Right" scaleX="2" />
     </path>
-    <taminator>
-      I've never seen this called.
-    </taminator>
   </tam>
 
 </tamination>
