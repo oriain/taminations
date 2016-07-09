@@ -25,7 +25,7 @@
   <tam title="Square Thru 2"
        from="Facing Couples"
        formation="Facing Couples"
-       parts="2" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Forward" />
       <move select="Pull Left" scaleY=".5" />
@@ -40,10 +40,22 @@
     </path>
   </tam>
 
+  <tam title="Square Thru 2" from="Right-Hand Wave"
+       formation="Wave RH" difficulty="2">
+    <path>
+      <move select="Lead Right" beats="3" scaleX=".5" scaleY="3" />
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="3" offsetX=".5"/>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+  </tam>
+  
   <tam title="Square Thru 2"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="1" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Pull Left" scaleY=".5" />
       <move select="Lead Right" scaleX=".5" scaleY="1.5" />
@@ -69,7 +81,7 @@
   <tam title="Square Thru 2"
        from="Lines"
        formation="Normal Lines"
-       parts="2" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Forward" />
       <move select="Pull Left" scaleY=".5" />
@@ -99,7 +111,7 @@
   <tam title="Square Thru 3"
        from="Facing Couples"
        formation="Facing Couples"
-       parts="2;1.5" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Forward" />
       <move select="Pull Left" scaleY=".5" />
@@ -116,10 +128,25 @@
     </path>
   </tam>
 
+  <tam title="Square Thru 3" from="Right-Hand Wave" 
+       formation="Wave RH"
+       difficulty="2">
+    <path>
+      <move select="Lead Right" beats="3" scaleX=".5" scaleY="3" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="3" offsetX=".5"/>
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+  </tam>
+
   <tam title="Square Thru 3"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="1;1.5" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Pull Left" scaleY=".5" />
       <move select="Lead Right" scaleX=".5" scaleY="1.5" />
@@ -149,7 +176,7 @@
   <tam title="Square Thru 3"
        from="Lines"
        formation="Normal Lines"
-       parts="2;1.5" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Forward" />
       <move select="Pull Left" scaleY=".5" />
@@ -183,7 +210,7 @@
   <tam title="Square Thru 4"
        from="Facing Couples"
        formation="Facing Couples"
-       parts="2;1.5;1.5" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Forward" />
       <move select="Pull Left" scaleY=".5" />
@@ -202,10 +229,26 @@
     </path>
   </tam>
 
+  <tam title="Square Thru 4" from="Right-Hand Wave" 
+      formation="Wave RH" difficulty="2">
+    <path>
+      <move select="Lead Right" beats="3" scaleX=".5" scaleY="3" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="3" offsetX=".5"/>
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+  </tam>
+
   <tam title="Square Thru 4"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="1;1.5;1.5" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Pull Left" scaleY=".5" />
       <move select="Lead Right" scaleX=".5" scaleY="1.5" />
@@ -239,7 +282,7 @@
   <tam title="Square Thru 4"
        from="Lines"
        formation="Normal Lines"
-       parts="2;1.5;1.5" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Forward" />
       <move select="Pull Left" scaleY=".5" />
@@ -296,10 +339,26 @@
     </path>
   </tam>
 
+  <tam title="Left Square Thru 4" from="Left-Hand Wave"
+       formation="Wave LH" difficulty="2">
+    <path>
+      <move select="Lead Left" beats="3" scaleX=".5" scaleY="3" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="3" offsetX=".5"/>
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+  </tam>
+
   <tam title="Left Square Thru 4"
        from="Eight Chain Thru"
        formation="Eight Chain Thru"
-       parts="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Pull Right" scaleY=".5" />
       <move select="Lead Right" offsetX=".5" offsetY=".5" />
@@ -333,7 +392,7 @@
   <tam title="Left Square Thru 4"
        from="Lines"
        formation="Normal Lines"
-       parts="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Forward" />
       <move select="Pull Right" scaleY=".5" />
@@ -371,7 +430,7 @@
   <tam title="Heads Square Thru 2" group=" "
        from="Static Square"
        formation="Static Square"
-       parts="3" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Forward 2" />
       <move select="Pull Left" scaleY=".5" />
@@ -393,7 +452,7 @@
   <tam title="Heads Square Thru 3" group=" "
        from="Static Square"
        formation="Static Square"
-       parts="3;1.5" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Forward 2" />
       <move select="Pull Left" scaleY=".5" />
@@ -417,7 +476,7 @@
   <tam title="Heads Square Thru 4" group=" "
        from="Static Square"
        formation="Static Square"
-       parts="3;1.5;1.5" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Forward 2" />
       <move select="Pull Left" scaleY=".5" />
@@ -443,7 +502,7 @@
   <tam title="Heads Left Square Thru 4" group=" "
        from="Static Square"
        formation="Static Square"
-       parts="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Forward 2" />
       <move select="Pull Right" scaleY=".5" />
@@ -469,7 +528,7 @@
   <tam title="Sides Square Thru 2" group=" "
        from="Static Square"
        formation="Static Square"
-       parts="3" difficulty="1" display="none">
+       difficulty="1" display="none">
     <path>
     </path>
     <path>
@@ -491,7 +550,7 @@
   <tam title="Sides Square Thru 3" group=" "
        from="Static Square"
        formation="Static Square"
-       parts="3;1.5" difficulty="1" display="none">
+       difficulty="1" display="none">
     <path>
     </path>
     <path>
@@ -515,7 +574,7 @@
   <tam title="Sides Square Thru 4" group=" "
        from="Static Square"
        formation="Static Square"
-       parts="3;1.5;1.5" difficulty="1" display="none">
+       difficulty="1" display="none">
     <path>
     </path>
     <path>
@@ -541,7 +600,7 @@
   <tam title="Sides Left Square Thru 4" group=" "
        from="Static Square"
        formation="Static Square"
-       parts="" difficulty="2" display="none">
+       difficulty="2" display="none">
     <path>
     </path>
     <path>
@@ -561,6 +620,314 @@
       <move select="Lead Left" offsetX=".5" offsetY="-.5" />
       <move select="Lead Left" scaleX=".5" scaleY="1.5" />
       <move select="Extend Right" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Square Thru 1 1/2" group="  "
+       formation="Facing Couples" difficulty="2">
+    <path>
+      <move select="Forward" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Forward" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+    </path>
+  </tam>
+
+  <tam title="Square Thru 2 1/2" group="  "
+       formation="Facing Couples" difficulty="2">
+    <path>
+      <move select="Forward" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+    </path>
+    <path>
+      <move select="Forward" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+    </path>
+  </tam>
+
+  <tam title="Square Thru 3 1/2" group="  "
+       formation="Facing Couples" difficulty="2">
+    <path>
+      <move select="Forward" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Forward" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+    </path>
+  </tam>
+
+
+  <tam title="Square Thru, on the Third Hand Spin the Top" group="   "
+       formation="Normal Lines" difficulty="2" parts="5;3">
+    <path>
+      <move select="Forward" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Left" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Forward" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Forward" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Left" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Forward" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="1.5"/>
+    </path>
+  </tam>
+
+  <tam title="Square Thru, on the Third Hand Eight Chain 5" group="   "
+       formation="Eight Chain Thru" difficulty="2">
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Beau Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Belle Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Beau Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Extend Right" scaleY=".5" />
+      <move select="Pull Right" beats="1.25" scaleY=".5" />
+      <move select="Extend Left" beats="1.25" scaleY=".5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+      <move select="Belle Wheel" beats="2.5" />
+      <move select="Pull Left" beats="1.25" scaleY=".5" />
+      <move select="Extend Right" beats="1.25" scaleY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Square Thru, on the Third Hand Box the Gnat and Right and Left Grand"
+       group="   " formation="Eight Chain Thru" difficulty="2" parts="4;3">
+    <path>
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="U-Turn Right" hands="gripright" offsetX="1" offsetY="-.5"/>
+      <move select="Forward" hands="gripright"/>
+      <move select="Forward" beats=".5" scaleX=".5"/>
+      <move select="Extend Right" beats="2.5" hands="left" scaleX="1.5" scaleY="2.75"/>
+      <move select="Lead Left 1/2" beats="3" hands="right" scaleX="2" scaleY="2" offsetX=".16" offsetY="1.58" />
+      <move select="Lead Left 1/2" beats="3" hands="left" scaleX="3" scaleY="3" offsetX=".52" offsetY="-1.2" />
+      <move select="Lead Left 1/2" beats="2"/>
+    </path>
+    <path numbers="8 4" couples="4 2">
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="U-Turn Left" hands="gripright" offsetX="1" offsetY="-.5"/>
+      <move select="Extend Left" hands="gripright"/>
+      <move select="Extend Left" beats="3" hands="left" scaleX="2" scaleY=".25"/>
+      <move select="Lead Right 1/2" beats="3" hands="right" scaleX="3" scaleY="3" offsetX=".52" offsetY="1.3" />
+      <move select="Lead Right 1/2" beats="3" hands="left" scaleX="2" scaleY="2" offsetX=".16" offsetY="-1.67" />
+      <move select="Lead Right 1/2" beats="2" offsetX="1" offsetY=".5"/>
+    </path>
+    <path numbers="7 3" couples="4 2">
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="U-Turn Right" hands="gripright" offsetX="1" offsetY="-.5"/>
+      <move select="Forward" hands="gripright"/>
+      <move select="Lead Left" beats="3" hands="left" scaleX="1.75" scaleY="1"/>
+      <move select="Lead Left 1/2" beats="3" hands="right" scaleX="2" scaleY="2" offsetX=".16" offsetY="1.58" />
+      <move select="Lead Left 1/2" beats="3" hands="left" scaleX="3" scaleY="3" offsetX=".52" offsetY="-1.2" />
+      <move select="Lead Left 1/2" beats="2"/>
+    </path>
+    <path numbers="2 6" couples="1 3">
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="U-Turn Left" hands="gripright" offsetX="1" offsetY="-.5"/>
+      <move select="Extend Left" hands="gripright"/>
+      <move select="Lead Right" beats="3" hands="left" scaleX=".25" scaleY="2"/>
+      <move select="Lead Right 1/2" beats="3" hands="right" scaleX="3" scaleY="3" offsetX=".52" offsetY="1.3" />
+      <move select="Lead Right 1/2" beats="3" hands="left" scaleX="2" scaleY="2" offsetX=".16" offsetY="-1.67" />
+      <move select="Lead Right 1/2" beats="2" offsetX="1" offsetY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Square Thru, on the Fourth Hand Left Swing Thru" group="   "
+       formation="Normal Lines" difficulty="2" parts="">
+    <path>
+      <move select="Forward" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Swing Left" scaleX=".6"/>
+    </path>
+    <path>
+      <move select="Forward" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Swing Left" scaleX=".6" scaleY=".4"/>
+      <move select="Swing Right" scaleX=".7" scaleY=".7"/>
+    </path>
+    <path>
+      <move select="Forward" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Swing Left" scaleX=".6"/>
+    </path>
+    <path>
+      <move select="Forward" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Swing Left" scaleX=".6" scaleY=".4"/>
+      <move select="Swing Right" scaleX=".7" scaleY=".7"/>
+    </path>
+  </tam>
+
+  <tam title="Square Thru, on the Fourth Hand Left Allemande" group="   "
+       formation="Normal Lines" difficulty="2" parts="6.5">
+    <path>
+      <move select="Forward" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Forward" beats="2"/>
+    </path>
+    <path numbers="8 4" couples="4 2">
+      <move select="Forward" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Eighth Right" beats="2" offsetX="1.5" offsetY=".75"/>
+    </path>
+    <path>
+      <move select="Forward" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Eighth Left" beats="2" offsetX="1.5" offsetY=".25"/>
+    </path>
+    <path numbers="2 6" couples="1 3">
+      <move select="Forward" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Extend Left" beats="2" scaleY="1"/>
+    </path>
+  </tam>
+
+  <tam title="Square Thru, on the Third Hand Touch 1/4" group="   "
+       formation="Facing Couples" difficulty="2">
+    <path>
+      <move select="Forward" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="Quarter Right" hands="right" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Forward" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Hinge Right"/>
+    </path>
+  </tam>
+
+  <tam title="Square Thru, on the Fourth Hand Left Touch 1/4" group="   "
+       formation="Facing Couples" difficulty="2">
+    <path>
+      <move select="Forward" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Right" offsetX=".5" offsetY=".5" />
+      <move select="Lead Right" scaleX=".5" scaleY="1.5" />
+      <move select="Hinge Left"/>
+    </path>
+    <path>
+      <move select="Forward" />
+      <move select="Pull Left" scaleY=".5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Lead Left" scaleX=".5" scaleY="1.5" />
+      <move select="Lead Left" offsetX=".5" offsetY="-.5" />
+      <move select="Quarter Left" hands="left" offsetX="1"/>
     </path>
   </tam>
 

@@ -45,9 +45,9 @@ for (var i=0; i<search.length; i++) {
   else
     args[search[i].toLowerCase().replace(/\W/g,"")] = true;
 }
-var difficultText = [ ' <font color="blue">&diams;</font>',
-                      ' <font color="red">&diams;&diams;</font>',
-                      ' <font color="black">&diams;&diams;&diams;</font>' ];
+var difficultText = [ '&nbsp;<font color="blue">&diams;</font>',
+                      '&nbsp;<font color="red">&diams;&diams;</font>',
+                      '&nbsp;<font color="black">&diams;&diams;&diams;</font>' ];
 
 var calldata;
 
