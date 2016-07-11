@@ -224,7 +224,7 @@ $(document).ready(
     //  Finally insert the document structure and build the menu of animations
     $("#menudiv").after(htmlstr);
     //  Parse out base file name, allowing for country codes
-    var docname = document.URL.match(/(\w+)(\...)?\.html/)[1];
+    var docname = document.URL.match(/(\w+)(\.lang-..)?\.html/)[1];
     if (docname != 'index' && docname != 'sequence' && docname != 'embedinfo' &&
         docname != 'overview' && docname != 'howtouse' && docname != 'search' &&
         docname != 'trouble' && docname != 'download')
