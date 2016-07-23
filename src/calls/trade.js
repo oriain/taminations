@@ -82,10 +82,10 @@ define(['env','calls/action','path'],function(Env,Action,Path) {
         if (call == 'Run Left')
           hands = Movement.LEFTHAND;
         else
-          hands = Movemeht.RIGHTHAND;
+          hands = Movement.RIGHTHAND;
       }
     }
-    return TamUtils.getMove(call).useHands(hands).scale(scaleX,dist/2);
+    return TamUtils.getMove(call).changehands(hands).scale(scaleX,dist/2);
   };
   return Trade;
 });

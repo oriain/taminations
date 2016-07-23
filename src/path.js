@@ -83,19 +83,20 @@ define(['movement','affinetransform'],function(Movement,AffineTransform) {
   {
     if (this.movelist != null) {
       var factor = newbeats/this.beats();
-      this.movelist.forEach(function(m) {
-        m.beats *= factor;
-      });
+      this.movelist.forEach(function(m,i) {
+        this.movelist[i] = m.time(m.beats*factor);
+      },this);
     }
+    return this;
   };
 
   //  Change hand usage
   Path.prototype.changehands = function(hands)
   {
     if (this.movelist != null) {
-      this.movelist.forEach(function(m) {
-        m.useHands(hands);
-      });
+      this.movelist.forEach(function(m,i) {
+        this.movelist[i] = m.useHands(hands);
+      },this);
     }
     return this;
   };
@@ -108,6 +109,7 @@ define(['movement','affinetransform'],function(Movement,AffineTransform) {
         this.movelist[i] = m.scale(x,y);
       },this);
     }
+    this.recalculate();
     return this;
   };
 
@@ -143,9 +145,9 @@ define(['movement','affinetransform'],function(Movement,AffineTransform) {
   //  Reflect the path about the x-axis
   Path.prototype.reflect = function()
   {
-    this.movelist.forEach(function(m) {
-      m.reflect();
-    });
+    this.movelist.forEach(function(m,i) {
+      this.movelist[i] = m.reflect();
+    },this);
     this.recalculate();
     return this;
   };
