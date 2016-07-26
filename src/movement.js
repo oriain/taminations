@@ -214,9 +214,9 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
 
   Movement.prototype.clip = function(b) {
     if (b > 0 && b < this.fullbeats)
-      return new Movement(b,this.hands,this.cx1,this.cy1,
+      return new Movement(this.fullbeats,this.hands,this.cx1,this.cy1,
           this.cx2,this.cy2,this.x2,this.y2,
-          this.cx3,this.cx4,this.cy4,this.x4,this.y4,this.fullbeats)
+          this.cx3,this.cx4,this.cy4,this.x4,this.y4,b)
     else
       return this;
   }

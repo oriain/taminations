@@ -31,7 +31,8 @@ define(['path','movement','vector','affinetransform','color'],
       if (arg == 'dancer') {  //  Copying another dancer
         //  Initialize this new dancer at the other dancer's current location
         //  but with an empty path
-        ['tamsvg','fillcolor','drawcolor','gender','number'].forEach(function(p) {
+        ['tamsvg','fillcolor','drawcolor',
+         'gender','number','couplesnumber'].forEach(function(p) {
           this[p] = args.dancer[p];
         },this);
         var loc = args.dancer.location;

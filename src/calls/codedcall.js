@@ -42,6 +42,7 @@ define(['env','path','calls/call'],function(Env,Path,Call) {
        { name:'Face Right', link:'face_right' },
        { name:'Girls', link:'girls' },
        { name:'Half', link:'half' },
+       { name:'Heads', link:'heads' },
        { name:'Hinge', link:'hinge' },
        { name:'Leaders', link:'leaders' },
        { name:'Make Tight Wave', link:'make_tight_wave' }, // TEMP for testing
@@ -51,6 +52,7 @@ define(['env','path','calls/call'],function(Env,Path,Call) {
        { name:'Quarter Out', link:'quarter_out' },
        { name:'and Roll', link:'roll' },
        { name:'Run', link:'run' },
+       { name:'Sides', link:'sides' },
        { name:'Slide Thru', link:'slide_thru' },
        { name:'Slip', link:'slip' },
        { name:'and Spread', link:'spread' },
@@ -63,11 +65,11 @@ define(['env','path','calls/call'],function(Env,Path,Call) {
        { name:'Very Centers', link:'verycenters' },
        { name:'Wheel Around', link:'wheel_around' },
        { name:'Zag', link:'zag' },
-       { name:'Zag Zag', link:'zagzag' },
-       { name:'Zag Zig', link:'zagzig' },
+     //  { name:'Zag Zag', link:'zagzag' },
+     //  { name:'Zag Zig', link:'zagzig' },
        { name:'Zig', link:'zig' },
-       { name:'Zig Zag', link:'zigzag' },
-       { name:'Zig Zig', link:'zigzig' },
+     //  { name:'Zig Zag', link:'zigzag' },
+     //  { name:'Zig Zig', link:'zigzig' },
        { name:'Zoom', link:'zoom' }
    ];
 
