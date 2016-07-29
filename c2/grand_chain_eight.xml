@@ -103,4 +103,61 @@
     </path>
   </tam>
 
+  <tam title="Split Grand Chain Eight" group=" " formation="T-Bone ULRU">
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Lead Right" scaleX=".5" scaleY="1.5"/>
+      <move select="U-Turn Left"/>
+      <move select="BackHinge Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Stand"/>
+      <move select="Extend Right" beats="1.5" scaleY=".5"/>
+      <move select="Stand" beats="3"/>
+      <move select="Hinge Left" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Stand"/>
+      <move select="Extend Right" beats="1.5" scaleY=".5"/>
+      <move select="U-Turn Left"/>
+      <move select="BackHinge Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Lead Left" scaleX="1.5" scaleY=".5"/>
+      <move select="Stand" beats="3"/>
+      <move select="Hinge Left" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Heads Start Split Grand Chain Eight" group=" "
+       formation="Static Square">
+    <path>
+      <move select="Forward 2"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Lead Left" scaleX="1.5" scaleY=".5"/>
+      <move select="Stand" beats="3"/>
+      <move select="Hinge Left" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Lead Right" scaleX=".5" scaleY="1.5"/>
+      <move select="U-Turn Left"/>
+      <move select="BackHinge Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Stand" beats="3"/>
+      <move select="Extend Right" beats="1.5" scaleY=".5"/>
+      <move select="U-Turn Left"/>
+      <move select="BackHinge Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Stand" beats="3"/>
+      <move select="Extend Right" beats="1.5" scaleY=".5"/>
+      <move select="Stand" beats="3"/>
+      <move select="Hinge Left" scaleY=".5"/>
+    </path>
+  </tam>
+
 </tamination>
