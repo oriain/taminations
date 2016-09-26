@@ -448,7 +448,6 @@
   </tam>
 
   <tam title="All 8 Follow Your Neighbor" group="All 8"
-       from=""
        formation="Static MiniWaves RH"
        fractions="" >
     <path>
@@ -472,9 +471,7 @@
   </tam>
 
   <tam title="All 8 Follow Your Neighbor and Spread" group="All 8"
-       from=""
-       formation="Static MiniWaves RH"
-       fractions="" >
+       formation="Static MiniWaves RH">
     <path>
       <move select="Forward 3" />
       <move select="Swing Right" />
@@ -494,6 +491,23 @@
       <move select="Lead Right" beats="3" offsetX="-.33" />
       <move select="Lead Right" beats="3" offsetY="-.33" />
       <move select="Lead Right" beats="3" offsetX=".33" />
+    </path>
+  </tam>
+
+  <tam title="All 8 Left Swing Thru" formation="Thar RH Boys" group="All 8">
+    <path>
+      <move select="Swing Left"/>
+    </path>
+    <path>
+      <move select="Swing Left"/>
+      <move select="Swing Right"/>
+    </path>
+    <path>
+      <move select="Swing Left"/>
+    </path>
+    <path>
+      <move select="Swing Left"/>
+      <move select="Swing Right"/>
     </path>
   </tam>
 

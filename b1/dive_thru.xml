@@ -22,14 +22,8 @@
 -->
 <tamination title="Dive Thru">
   
-  
-  
-  
-
-  <tam title="Dive Thru"
-       from="Pass Thru"
-       formation="Pass Thru"
-       fractions="" >
+  <tam title="Dive Thru" group=" "
+       formation="Pass Thru" difficulty="1">
     <path>
       <move select="Extend Right" hands="right" scaleY=".5" />
       <move select="Extend Left" hands="right" scaleY=".5" />
@@ -49,4 +43,58 @@
       <move select="Flip Left" hands="gripleft" />
     </path>
   </tam>
+  
+  <tam title="Heads Arch, Sides Dive Thru" difficulty="2"
+       formation="Normal Lines" group=" ">
+    <path>
+      <move select="Extend Left" hands="gripright" beats="1.5" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" hands="gripright" beats="1.5" scaleX="2" scaleY=".5" />
+      <move select="Run Right" hands="gripright" />
+    </path>
+    <path>
+      <move select="Extend Right" hands="gripleft" beats="1.5" scaleX="2" scaleY=".5" />
+      <move select="Extend Left" hands="gripleft" beats="1.5" scaleX="2" scaleY=".5" />
+      <move select="Flip Left" hands="gripleft" />
+    </path>
+    <path>
+      <move select="Extend Right" hands="right" beats="1.5" scaleX="2" scaleY=".5" />
+      <move select="Extend Left" hands="right" beats="1.5" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" hands="left" beats="1.5" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" hands="left" beats="1.5" scaleX="2" scaleY=".5" />
+    </path>
+  </tam>
+  
+  <tam title="Heads Wheel Around and make an Arch, Sides Dive Thru" group=" "
+       formation="Promenade 2" difficulty="2">
+    <path>
+      <move select="BackHinge Right" beats="1.25" scaleX=".5" scaleY=".5"/>
+      <move select="HalfBackHinge Right" scaleX=".5" scaleY=".5" offsetX="-.35" offsetY=".35"/>
+      <move select="Extend Left" hands="gripright" beats="1.5" scaleX="1.75" scaleY=".5" />
+      <move select="Extend Right" hands="gripright" beats="1.5" scaleX="1.75" scaleY=".5" />
+      <move select="Run Right" hands="gripright" />
+    </path>
+    <path>
+      <move select="Hinge Left" beats="1.25" scaleX=".5" scaleY=".5"/>
+      <move select="Eighth Left" hands="left" beats=".75" offsetX=".60" offsetY="-.10" />
+      <move select="Extend Right" hands="gripleft" beats="1.5" scaleX="1.75" scaleY=".5" />
+      <move select="Extend Left" hands="gripleft" beats="1.5" scaleX="1.75" scaleY=".5" />
+      <move select="Flip Left" hands="gripleft" />
+    </path>
+    <path>
+      <move select="HalfBackHinge Right" beats="2" scaleX=".5" scaleY=".5" offsetX="-.25" offsetY=".25"/>
+      <move select="Extend Right" hands="right" beats="1.5" scaleX="1.75" scaleY=".5" />
+      <move select="Extend Left" hands="right" beats="1.5" scaleX="1.75" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Eighth Left" hands="left" beats="2" offsetX=".71" offsetY="-.20" />
+      <move select="Extend Left" hands="left" beats="1.5" scaleX="1.75" scaleY=".5" />
+      <move select="Extend Right" hands="left" beats="1.5" scaleX="1.75" scaleY=".5" />
+    </path>
+    <taminator>
+      Wheel Around is in the Basic 2 program.
+    </taminator>
+  </tam>
+  
 </tamination>

@@ -87,11 +87,19 @@ var isMobile = {
 };
 
 if (document.URL.search(/(b1|b2|ms|plus|a1|a2|c1|c2|c3a|c3b)/) >= 0) {
-  if (isMobile.Android())
+  if (isMobile.Android()) {
     document.location = document.URL.replace(/.*tamination/,'intent://view') +
          '#Intent;package=com.bradchristie.taminationsapp;scheme=Taminations;end">';
-  else if (isMobile.iOS())
+    //window.onfocus = function() { window.history.back(); }
+    window.history.back();
+  }
+  else if (isMobile.iOS()) {
     document.location = document.URL.replace(/.*tamtwirlers/,'Taminations://www.tamtwirlers');
+    //  iOS does not replace the browser URL, so..
+    //  but con't do it immediatly or it cancels the previous line
+    //  So instead go back when the window re-gains focus
+    window.onfocus = function() { window.history.back(); }
+  }
 }
 
 

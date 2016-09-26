@@ -22,21 +22,6 @@
 -->
 <tamination title="Anything and Roll">
 
-  <tam title="Touch a Quarter and Roll" group=" "
-       formation="Facing Couples"
-       fractions="" difficulty="1">
-    <path>
-      <move select="Extend Left" scaleX="2" scaleY=".5" />
-      <move select="Hinge Right" scaleY=".5" beats="1" />
-      <move select="Quarter Right" offsetY="1"/>
-    </path>
-    <path>
-      <move select="Extend Left" scaleX="2" scaleY=".5" />
-      <move select="Hinge Right" scaleY=".5" beats="1" />
-      <move select="Quarter Right" offsetY="1"/>
-    </path>
-  </tam>
-
   <tam title="Bend the Line and Roll" group=" "
        from="Normal Lines"
        formation="Normal Lines"
@@ -64,7 +49,7 @@
     </taminator>
   </tam>
 
-  <tam title="Cast Off 3/4 and Roll" from="Lines Facing Out" group=" "
+  <tam title="Cast Off 3/4 and Roll" group=" "
        formation="Lines Facing Out" difficulty="2">
     <path>
       <move select="Quarter Right" hands="left" offsetX=".33" offsetY=".33" />
@@ -92,8 +77,68 @@
     </path>
   </tam>
 
+  <tam title="Chase Right and Roll" group=" "
+       formation="Lines Facing Out" difficulty="3">
+    <path>
+      <move select="U-Turn Right" beats="1.5" offsetX="-1" />
+      <move select="Forward" />
+      <move select="Run Right" beats="2.5" offsetX="1" />
+      <move select="Quarter Right"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="2.5" />
+      <move select="Forward 3" beats="2.5" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="1.5" offsetX="-1" />
+      <move select="Forward" />
+      <move select="Run Right" beats="2.5" offsetX="1" />
+      <move select="Quarter Right"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="2.5" />
+      <move select="Forward 3" beats="2.5" />
+    </path>
+    <taminator>
+      Only the dancers being chased can roll.
+    </taminator>
+  </tam>
+
+  <tam title="Cloverleaf and Roll" group=" "
+       formation="Completed Double Pass Thru" difficulty="3">
+    <path>
+      <move select="Lead Right" />
+      <move select="Lead Right" beats="2" scaleX="1.5" scaleY="1.5" />
+      <move select="Lead Right" beats="2" scaleX="1.5" scaleY="1.5" />
+      <move select="Forward" />
+    </path>
+    <path>
+      <move select="Lead Left" />
+      <move select="Lead Left" beats="2" scaleX="1.5" scaleY="1.5" />
+      <move select="Lead Left" beats="2" scaleX="1.5" scaleY="1.5" />
+      <move select="Forward" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Lead Right" />
+      <move select="Lead Right" scaleX="1.5" scaleY="1.5" />
+      <move select="Lead Right" scaleX="1.5" scaleY=".5" />
+      <move select="Quarter Right"/>
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Lead Left" />
+      <move select="Lead Left" scaleX="1.5" scaleY="1.5" />
+      <move select="Lead Left" scaleX="1.5" scaleY=".5" />
+      <move select="Quarter Left"/>
+    </path>
+    <taminator>
+      CALLERLAB has ruled that only the trailers can roll.
+    </taminator>
+  </tam>
+  
+
   <tam title="Ends Fold and Roll" group=" "
-       from="Lines Facing Out"
        formation="Lines Facing Out"
        fractions="" difficulty="2">
     <path>
@@ -504,6 +549,21 @@
       <move select="Swing Right" />
       <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3" />
       <move select="Quarter Right"/>
+    </path>
+  </tam>
+
+  <tam title="Touch a Quarter and Roll" group=" "
+       formation="Facing Couples"
+       fractions="" difficulty="1">
+    <path>
+      <move select="Extend Left" scaleX="2" scaleY=".5" />
+      <move select="Hinge Right" scaleY=".5" beats="1" />
+      <move select="Quarter Right" offsetY="1"/>
+    </path>
+    <path>
+      <move select="Extend Left" scaleX="2" scaleY=".5" />
+      <move select="Hinge Right" scaleY=".5" beats="1" />
+      <move select="Quarter Right" offsetY="1"/>
     </path>
   </tam>
 

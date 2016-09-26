@@ -22,6 +22,28 @@
 -->
 <tamination title="As Couples Concept">
 
+  <tam title="As Couples Cast Off Three Quarters" group="As Couples"
+       formation="Tidal Line LH">
+    <path>
+      <move select="Quarter Right" beats="2"/>
+      <move select="Quarter Right" beats="2"/>
+      <move select="Quarter Right" beats="3" hands="both" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="BackHinge Left" beats="2"/>
+      <move select="BackHinge Left" beats="2"/>
+      <move select="BackHinge Left" beats="3" scaleX="3"/>
+    </path>
+    <path>
+      <move select="Swing Right" beats="4" scaleX="2" scaleY="2"/>
+      <move select="Hinge Right" beats="3" scaleX="3" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Swing Right" beats="4"/>
+      <move select="Hinge Right" beats="3" hands="both"/>
+    </path>
+  </tam>
+
   <tam title="As Couples Chase Right" group="As Couples"
        formation="Lines Facing Out">
     <path>

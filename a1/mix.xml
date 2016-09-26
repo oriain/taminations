@@ -199,4 +199,25 @@
     </path>
   </tam>
 
+  <tam title="As Couples Mix"
+       from="Two-Faced Tidal Line"
+       formation="Two-Faced Tidal Line LH"
+       parts="3" group=" " display="none">
+    <path>
+      <move select="Dodge Left" />
+      <move select="Swing Left" scaleX="1.5" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Dodge Left" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Run Right" beats="6" hands="gripright" scaleX="3" scaleY="2.5" />
+    </path>
+    <path>
+      <move select="Run Right" beats="6" hands="gripleft" scaleX="2" scaleY="1.5" />
+    </path>
+  </tam>
+
+
 </tamination>

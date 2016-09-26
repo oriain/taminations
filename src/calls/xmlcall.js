@@ -56,8 +56,8 @@ define(['env','calls/call','path'],
       if (shapemap) {
         //  TODO see if mapping is 90 degrees off
         var bounds0 = ctx.clone(ctx.actives).bounds();
-        xfactor = (2*bounds0.x)/(bounds1.x + bounds2.x);
-        yfactor = (2*bounds0.y)/(bounds1.y + bounds2.y);
+       // xfactor = (2*bounds0.x)/(bounds1.x + bounds2.x);
+       // yfactor = (2*bounds0.y)/(bounds1.y + bounds2.y);
       }
     }
 

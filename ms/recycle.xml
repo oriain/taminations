@@ -69,6 +69,9 @@
     <path>
       <move select="Run Right" beats="4" offsetX="1" offsetY="-2" />
     </path>
+    <taminator>
+      Keep your hands to yourself until the end of the call.
+    </taminator>
   </tam>
 
   <tam title="Recycle"
@@ -89,6 +92,9 @@
     <path>
       <move select="Run Left" beats="4" offsetX="1" offsetY="2" />
     </path>
+    <taminator>
+      Do not hold, pull, push, or drag any other dancer.
+    </taminator>
   </tam>
 
   <tam title="Recycle"

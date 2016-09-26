@@ -24,8 +24,7 @@
 
   <tam title="Left Roll to a Wave"
        from="Couples Facing Out"
-       formation="Couples Facing Out"
-       fractions="" >
+       formation="Couples Facing Out">
     <path>
       <move select="U-Turn Left" beats="4" offsetX="-2" />
     </path>
@@ -68,8 +67,7 @@
 
   <tam title="Left Roll to a Wave"
        from="Double Pass Thru"
-       formation="Double Pass Thru"
-       fractions="" >
+       formation="Double Pass Thru">
     <path>
       <move select="Forward" beats="3" />
     </path>
@@ -86,8 +84,7 @@
 
   <tam title="Left Roll to a Wave"
        from="Completed Double Pass Thru"
-       formation="Completed Double Pass Thru"
-       fractions="" >
+       formation="Completed Double Pass Thru">
     <path>
       <move select="U-Turn Left" beats="4" offsetX="-1" />
     </path>
@@ -104,8 +101,7 @@
 
   <tam title="Left Roll to a Wave"
        from="Trade By"
-       formation="Trade By"
-       fractions="" >
+       formation="Trade By">
     <path>
       <move select="U-Turn Left" beats="4" offsetX="-1" />
     </path>
@@ -122,8 +118,7 @@
 
   <tam title="Left Roll to a Wave"
        from="Lines Facing Out"
-       formation="Lines Facing Out"
-       fractions="" >
+       formation="Lines Facing Out">
     <path>
       <move select="U-Turn Left" offsetX="-1" offsetY=".5" />
       <move select="Forward" />
@@ -143,15 +138,27 @@
   </tam>
 
   <tam title="Left Roll to a Wave"
-       from="Two-Faced Lines"
-       formation="Two-Faced Lines RH"
-       fractions="" >
+       from="Right-Hand Two-Faced Lines"
+       formation="Two-Faced Lines RH">
     <path>
-      <move select="Extend Right" beats="3" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" beats="4" scaleX="2" scaleY=".5" />
     </path>
     <path>
-      <move select="Extend Right" beats="3" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" beats="4" scaleX="2" scaleY=".5" />
     </path>
+    <path>
+      <move select="U-Turn Left" offsetX="-1" offsetY=".5" />
+      <move select="Forward" />
+    </path>
+    <path>
+      <move select="U-Turn Left" offsetX="-1" offsetY=".5" />
+      <move select="Forward" />
+    </path>
+  </tam>
+
+  <tam title="Left Roll to a Wave"
+       from="Left-Hand Two-Faced Lines"
+       formation="Two-Faced Lines LH">
     <path>
       <move select="U-Turn Left" offsetX="-1" offsetY=".5" />
       <move select="Forward" />
@@ -159,13 +166,18 @@
     <path>
       <move select="U-Turn Left" offsetX="-1" offsetY=".5" />
       <move select="Forward" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="4" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Right" beats="4" scaleX="2" scaleY=".5" />
     </path>
   </tam>
 
   <tam title="Left Roll to a Wave"
        from="Right-Hand Columns"
-       formation="Column RH GBGB"
-       fractions="" >
+       formation="Column RH GBGB">
     <path>
       <move select="Run Left" offsetX="-1" />
     </path>
@@ -182,8 +194,7 @@
 
   <tam title="Left Roll to a Wave"
        from="Left-Hand Columns"
-       formation="Column LH GBGB"
-       fractions="" >
+       formation="Column LH GBGB">
     <path>
       <move select="Extend Right" beats="3" scaleY="2" />
     </path>
@@ -266,8 +277,7 @@
 
   <tam title="As Couples Left Roll to a Wave"
        from="Lines Facing Out"
-       formation="Lines Facing Out"
-       fractions="" >
+       formation="Lines Facing Out">
     <path>
       <move select="Belle Wheel" hands="gripleft" offsetX="-2" offsetY=".5" />
     </path>
@@ -284,8 +294,7 @@
 
   <tam title="As Couples Left Roll to a Wave"
        from="Two-Faced Lines"
-       formation="Two-Faced Lines RH"
-       fractions="" >
+       formation="Two-Faced Lines RH">
     <path>
       <move select="Extend Right" beats="3" hands="right" scaleX="2" scaleY="1.5" />
     </path>
@@ -302,8 +311,7 @@
 
   <tam title="All 8 Left Roll to a Wave"
        from="Couples Facing Out"
-       formation="Static Facing Out"
-       fractions="" >
+       formation="Static Facing Out">
     <path>
       <move select="Run Left" beats="4" offsetX="-3" />
     </path>

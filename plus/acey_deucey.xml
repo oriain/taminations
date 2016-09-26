@@ -59,7 +59,7 @@
   </tam>
 
   <tam title="Acey Deucey"
-       from="Two-Faced Lines"
+       from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH"
        fractions="2" difficulty="1">
     <path>
@@ -73,6 +73,24 @@
     </path>
     <path>
       <move select="Run Right" beats="4" scaleX="2" scaleY="3" />
+    </path>
+  </tam>
+
+  <tam title="Acey Deucey"
+       from="Left-Hand Two-Faced Lines"
+       formation="Two-Faced Lines LH"
+       fractions="2" difficulty="1">
+    <path>
+      <move select="Run Left" beats="4" scaleX="2" scaleY="3" />
+    </path>
+    <path>
+      <move select="Swing Left" beats="4" />
+    </path>
+    <path>
+      <move select="Swing Left" beats="4" />
+    </path>
+    <path>
+      <move select="Forward 4" />
     </path>
   </tam>
 
