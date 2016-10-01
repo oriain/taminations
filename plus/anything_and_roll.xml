@@ -535,7 +535,6 @@
   </tam>
 
   <tam title="Spin the Top and Roll" group=" "
-       from="Right-Hand Wave"
        formation="Wave RH GBBG"
        difficulty="2">
     <path>
@@ -551,6 +550,29 @@
       <move select="Quarter Right"/>
     </path>
   </tam>
+
+  <tam title="Swing Thru and Roll" group=" "
+       formation="Ocean Waves RH BGGB"
+       difficulty="2">
+    <path>
+      <move select="Swing Right" />
+      <move select="Swing Left" />
+      <move select="Quarter Left" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="Quarter Right" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="Swing Left" />
+      <move select="Quarter Left" offsetX="-1"/>
+    </path>
+  </tam>  
 
   <tam title="Touch a Quarter and Roll" group=" "
        formation="Facing Couples"
