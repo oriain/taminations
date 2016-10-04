@@ -99,6 +99,7 @@
     </path>
   </tam>
 
+  <!--  Maybe move this to some higher level?
   <tam title="Magic Column Right and Left Thru" group="Magic Column"
        formation="Eight Chain Thru" fractions="4.5">
     <path>
@@ -125,7 +126,7 @@
       <move select="Forward" beats="1.5"/>
       <move select="Beau Wheel" scaleX=".5"/>
     </path>
-  </tam>
+  </tam>    -->
 
   <tam title="Magic Column Split Circulate" group="Magic Column" fractions="2"
        formation="Magic Column RH">
