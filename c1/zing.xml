@@ -155,7 +155,7 @@
       <move select="Lead Left" beats="2" scaleX="2" hands="gripleft"/>
     </path>
     <path>
-      <move select="U-Turn Left" hands="Right"/>
+      <move select="U-Turn Left" hands="right"/>
       <move select="Forward 3" hands="right"/>
       <move select="Quarter Left" beats="2" hands="gripright"/>
     </path>
