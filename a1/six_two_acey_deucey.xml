@@ -75,6 +75,23 @@
   </tam>
 
   <tam title="Six-Two Acey Deucey"
+       from="Left-Hand Hourglass"
+       formation="Hourglass LH BP">
+    <path>
+      <move select="Forward 4" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="4" scaleX="3" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="4" scaleY="3" />
+    </path>
+    <path>
+      <move select="Swing Left" />
+    </path>
+  </tam>
+
+  <tam title="Six-Two Acey Deucey"
        from="Wave and Mini-Waves">
      <formation>
       <dancer gender="boy" x="-3" y="-1" angle="180"/>

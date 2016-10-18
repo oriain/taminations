@@ -141,7 +141,7 @@
   <tam title="Hinge"
        from="Right-Hand Columns"
        formation="Column RH GBGB"
-       fractions="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Hinge Right" beats="2" scaleX=".5" />
     </path>
@@ -159,7 +159,7 @@
   <tam title="Hinge"
        from="Left-Hand Columns"
        formation="Column LH GBGB"
-       fractions="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Hinge Left" beats="2" scaleX=".5" />
     </path>
@@ -174,10 +174,42 @@
     </path>
   </tam>
 
+  <tam title="Hinge" from="Magic Columns, Right-Hand Centers"
+       formation="Magic Column RH" difficulty="2">
+    <path>
+      <move select="Hinge Left" beats="2" scaleX=".5" />
+    </path>
+    <path>
+      <move select="Hinge Right" beats="2" scaleX=".5" />
+    </path>
+    <path>
+      <move select="Hinge Right" beats="2" scaleX=".5" />
+    </path>
+    <path>
+      <move select="Hinge Left" beats="2" scaleX=".5" />
+    </path>
+  </tam>
+
+  <tam title="Hinge" from="Magic Columns, Left-Hand Centers"
+       formation="Magic Column LH" difficulty="2">
+    <path>
+      <move select="Hinge Right" beats="2" scaleX=".5" />
+    </path>
+    <path>
+      <move select="Hinge Left" beats="2" scaleX=".5" />
+    </path>
+    <path>
+      <move select="Hinge Left" beats="2" scaleX=".5" />
+    </path>
+    <path>
+      <move select="Hinge Right" beats="2" scaleX=".5" />
+    </path>
+  </tam>
+
   <tam title="Hinge"
        from="Right-Hand Tidal Wave"
        formation="Tidal Wave RH BGGB"
-       fractions="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Hinge Right" beats="2" scaleY=".5" />
     </path>
@@ -195,7 +227,7 @@
   <tam title="Hinge"
        from="Left-Hand Tidal Wave"
        formation="Tidal Wave LH BGGB"
-       fractions="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Hinge Left" beats="2" scaleY=".5" />
     </path>

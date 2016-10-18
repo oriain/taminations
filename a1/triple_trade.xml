@@ -61,6 +61,21 @@
     </path>
   </tam>
 
+  <tam title="Triple Trade" from="Tidal Inverted Line"
+       formation="Tidal Inverted Line RH">
+    <path>
+    </path>
+    <path>
+      <move select="Flip Left" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+    </path>
+  </tam>
+
   <tam title="Triple Trade"
        from="Point-to-Point Diamonds"
        formation="Diamonds RH PTP Girl Points"

@@ -81,6 +81,28 @@
   </tam>
 
   <tam title="Peel and Trail"
+       from="Double Pass Thru"
+       formation="Double Pass Thru">
+    <path>
+      <move select="Flip Right" offsetX="1" />
+    </path>
+    <path>
+      <move select="Run Left" offsetX="1" />
+    </path>
+    <path>
+      <move select="Run Left" offsetX="-1" />
+    </path>
+    <path>
+      <move select="Run Right" offsetX="-1" />
+    </path>
+    <taminator>
+      Some dancers in the trailing position perform a partner trade, with the
+      beau passing in front of the belle.  This animation shows the movement
+      as defined, with the belle passing in front of the beau.
+    </taminator>
+  </tam>
+
+  <tam title="Peel and Trail"
        from="Completed Double Pass Thru"
        formation="Completed Double Pass Thru">
     <path numbers="5 4">

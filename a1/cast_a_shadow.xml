@@ -177,4 +177,41 @@
       <move select="Lead Left" beats="3" offsetX="2" offsetY="-1.25" />
     </path>
   </tam>
+
+  <tam title="Heads Cast a Shadow" group=" ">
+    <formation>
+      <dancer gender="girl" x="0" y="3" angle="180"/>
+      <dancer gender="boy" x="0" y="1.5" angle="180"/>
+      <dancer gender="girl" x="-3" y="0" angle="270"/>
+      <dancer gender="boy" x="-1.5" y="0" angle="270"/>
+    </formation>
+    <path>
+      <move select="Forward" beats="2" hands="left"/>
+      <move select="U-Turn Right" beats=".5" offsetY="-.75" />
+      <move select="Forward" />
+      <move select="Swing Right" scaleX=".75" scaleY=".75" />
+      <move select="Lead Right" beats="3" offsetX="2" offsetY="1.25" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" hands="right" scaleY=".5"/>
+      <move select="Lead Right" beats="2" scaleX="2"/>
+      <move select="Lead Right" beats="2" offsetX="1" />
+      <move select="Quarter Right" offsetX="1" />
+      <move select="Forward 2" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="2" hands="left" scaleX="3" scaleY="2"/>
+      <move select="Extend Left" beats="1.5" scaleY=".75" />
+      <move select="Swing Right" scaleX=".75" scaleY=".75" />
+      <move select="Lead Right" beats="3" offsetX="2" offsetY="-.75" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="2" hands="right" scaleY=".5"/>
+      <move select="Forward" />
+      <move select="Hinge Left" beats="3.5" />
+      <move select="Forward 2" />
+    </path>
+  </tam>
+    
+  
 </tamination>

@@ -168,6 +168,7 @@
     <call title="Cross Kick Off" level="Challenge" sublevel="C-2" link="c2/cross_kick_off"/>
     <call title="Cross Lockit" level="Challenge" sublevel="C-3B" link="c3b/cross_lockit"/>
     <call title="Cross Over Circulate" level="Advanced" sublevel="A-1" link="a1/cross_over_circulate"/>
+    <call title="Cross Over Circulate" level="Challenge" sublevel="C-1" link="c1/cross_over_circulate"/>
     <call title="Cross Ramble" level="Challenge" sublevel="C-2" link="c2/cross_ramble"/>
     <call title="Cross Roll" level="Challenge" sublevel="C-1" link="c1/cross_roll"/>
     <call title="Cross Run" level="Basic and Mainstream" sublevel="Basic 2" link="b2/run" anim="CentersCrossRunfromRightHandWaves"/>

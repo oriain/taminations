@@ -43,6 +43,21 @@
     </path>
   </tam>
 
+  <tam title="Step and Slide" from="Lines Facing In" formation="Normal Lines">
+    <path>
+      <move select="Dodge Right" beats="4" offsetX="-1" />
+    </path>
+    <path>
+      <move select="Forward" hands="right" beats="2" />
+    </path>
+    <path>
+      <move select="Forward" hands="left" beats="2" />
+    </path>
+    <path>
+      <move select="Dodge Left" beats="4" offsetX="-1" />
+    </path>
+  </tam>
+
   <tam title="Step and Slide" from="Right-Hand Two-Faced Line">
     <formation>
       <dancer gender="boy" x="-3" y="0" angle="90"/>
