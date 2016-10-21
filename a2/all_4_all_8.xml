@@ -551,10 +551,26 @@
     </path>
   </tam>
 
+	<tam title="All 8 Recycle" group="All 8" formation="Thar LH Girls">
+    <path>
+      <move select="Run Right" beats="2" scaleX=".5" scaleY=".5" offsetX="-1.5" />
+      <move select="Run Right" beats="2" scaleX=".5" scaleY=".5" offsetX="1.5" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" offsetX="3" offsetY="-2" />
+    </path>
+    <path>
+      <move select="Run Right" beats="2" scaleX=".5" scaleY=".5" offsetX="-1.5" />
+      <move select="Run Right" beats="2" scaleX=".5" scaleY=".5" offsetX="1.5" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" offsetX="3" offsetY="-2" />
+    </path>
+	</tam>
+	     
+
   <tam title="All 8 Scoot Back" group="All 8"
-       from=""
-       formation="Static MiniWaves RH"
-       fractions="" >
+       formation="Static MiniWaves RH">
     <path>
       <move select="Forward 3" />
       <move select="Swing Right" />
