@@ -21,15 +21,10 @@
 
 -->
 <tamination title="Dosado">
-  
-  
-  
-  
 
   <tam title="Dosado"
        from="Facing Couples"
-       formation="Facing Couples"
-       fractions="" >
+       formation="Facing Couples">
     <path>
       <move select="Extend Left" scaleX="2" scaleY=".5" />
       <move select="Extend Right" scaleY=".5" />
@@ -46,8 +41,7 @@
 
   <tam title="Dosado"
        from="Normal Lines"
-       formation="Normal Lines"
-       fractions="" >
+       formation="Normal Lines">
     <path>
       <move select="Extend Left" scaleX="2" scaleY=".5" />
       <move select="Extend Right" scaleY=".5" />
@@ -76,8 +70,7 @@
 
   <tam title="Dosado"
        from="Eight Chain Thru"
-       formation="Eight Chain Thru"
-       fractions="" >
+       formation="Eight Chain Thru">
     <path>
       <move select="Extend Left" scaleY=".5" />
       <move select="Extend Right" scaleY=".5" />
