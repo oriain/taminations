@@ -496,6 +496,42 @@
       <move select="Forward 2" beats="3" />
     </path>
   </tam>
+  
+  <tam title="Split Circulate" from="Lines Facing Out"
+       formation="Lines Facing Out" difficulty="3" fractions="1.5">
+  	<path>
+  		<move select="Flip Left"/>
+  	</path>
+  	<path>
+  		<move select="Run Right"/>
+  	</path>
+  	<path>
+  		<move select="Flip Left"/>
+  	</path>
+  	<path>
+  		<move select="Run Right"/>
+  	</path>       
+  </tam>
+
+  <tam title="Split Circulate" from="Lines Facing In"
+       formation="Normal Lines" difficulty="2" fractions="2">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+  </tam>
 
   <tam title="Split Circulate"
        from="T-Bones"
