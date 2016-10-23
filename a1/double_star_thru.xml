@@ -25,7 +25,7 @@
   <tam title="Double Star Thru"
        from="Facing Couples"
        formation="Facing Couples"
-       parts="3" >
+       parts="3" gender-specific="true">
     <path numbers="1 4">
       <move select="Extend Left" hands="right" beats="1.5" scaleX="2" scaleY=".5" />
       <move select="Quarter Right" beats="1.5" offsetX="1" />
@@ -43,7 +43,7 @@
   <tam title="Double Star Thru"
        from="Lines"
        formation="Normal Lines"
-       parts="3" >
+       parts="3" gender-specific="true">
     <path>
       <move select="Extend Left" hands="right" beats="1.5" scaleX="2" scaleY=".5" />
       <move select="Quarter Right" beats="1.5" offsetX="1" offsetY="-.5" />
@@ -70,7 +70,8 @@
     </path>
   </tam>
 
-  <tam title="All 4 Couples Double Star Thru" formation="Static Square" group=" ">
+  <tam title="All 4 Couples Double Star Thru"
+       formation="Static Square" group=" " gender-specific="true">
     <path>
       <move select="Extend Left" beats="2" scaleX="2" scaleY="2" />
       <move select="Forward" />
