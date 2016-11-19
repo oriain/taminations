@@ -27,7 +27,6 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
   var TamSequence = function() {
     this.startingFormation="Static Square";
     this.seq = 0;
-    this.calllink = '';
     this.prevhtml = '';
     this.editor = null;
     this.callnames = [];
@@ -44,15 +43,6 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
 
   TamSequence.compattern = /[*#].*/;
 
-  TamSequence.prototype.textChange = function()
-  {
-    var text = $('#calls').text();
-    if (text != this.prevtext)
-      this.prevtext = text;
-    else
-      this.updateSequence();
-  };
-
   //  This should not be called until jQuery is ready and all dependent modules
   //  have been loaded.  Thus these nested functions.
   TamSequence.sequenceSetup = function() {
@@ -61,8 +51,8 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
     //  in tampage.js.  Then initialize the animation display
       //  before initializing the editor
       var tam = new TAMination('', function() {
-        startAnimations();
-        editorSetup();
+        //startAnimations();
+        //editorSetup();
       });
     });
   }
@@ -70,19 +60,30 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
   TamSequence.prototype.editorSetup = function()
   {
     var me = this;
-    tamsvg.setPart = function() {
-      me.setCurrentCall();
-    };
-    this.calllink = document.URL.split(/\?/)[0];
-    this.calls = document.URL.split(/\?/)[1];
-    if (this.calls) {
-      this.calls = unescape(calls).split(/\&/);
-      me.startingFormation = this.calls.shift().trim();
-      this.tam.setFormation(me.startingFormation);
-      $('#calls').html(this.calls.join('<br/>'));
-    }
+    tamsvg.setPart = function(n) { me.setCurrentCall(n); }; 
     this.updateSequence();
-    window.setInterval(function() { me.textChange() },1000);
+    $('#call').change(function() {
+      me.calls.push($('#call').val());
+      me.updateSequence();
+      $('#call').val("");
+    })
+    $('#calls').on('click','.deleteCall',function() {
+      var callnum = Number($(this).parent().attr('id').replace(/Part/,''))-1;
+      me.calls.splice(callnum,1);
+      me.updateSequence();
+      return false;
+    });
+    $('#calls').on('click','div',function() {
+      var callnum = Number($(this).attr('id').replace(/Part/,''))-1;
+      tamsvg.setBeat(0);
+      var n = callnum;
+      while (n > 0) {
+        tamsvg.next();
+        n -= 1;
+      }
+      tamsvg.setBeat(tamsvg.beat + 0.01);
+      me.setCurrentCall(callnum+1);
+    });
 
     this.startingFormation = $('input[name="formation"]:checked').val();
     this.tam.setFormation(me.startingFormation);
@@ -99,47 +100,42 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
         me.startAnimations();
       });
     });
-    var me = this;
     $('#clearbutton').click(function() {
-      $('#calls').html('');
+      me.calls = [];
       me.updateSequence();
     });
-    $('#linkbutton').click(function() { document.location = me.calllink; });
-    $('#savebutton').click(function()
-      {
-        var w = window.open('','calllistwindow','width=800,height=800,menubar=yes');
-        var t = me.startingFormation + '<br/>\n' +
-                $('#calls').html()
-                      .replace(/&nbsp;/g,' ')
-                      .replace(/<br\/?>/g,'\n')
-                      .replace(/<.*?>/g,'')
-                      .replace(/\n/g,'<br/>');
-        w.document.write(t);
-        w.alert('Select "Save As.." or "Save Page As.." and save this as a text file.');
-        w.document.close();
-      });
-    //  HTML5 stuff to read a file
-    if (!window.File || !window.FileReader) {
-      $('#loadbutton').hide();
-      $('#inputfile').hide();
-    }
-    $('#loadbutton').click(function(evt) {
-      var i = $('#inputfile').get()[0];
-      var reader = new FileReader();
-      reader.onload = function(e) {
-        var text = e.target.result;
-        var ta = text.split('\n');
-        me.startingFormation = ta.shift().trim();
-        $('input[name="formation"]').val([me.startingFormation]);
-        text = ta.join('<br/>');
-        $('#calls').html(text);
-        this.tam = new TAMination('',function(t) {
-          t.setFormation(me.startingFormation);
-          me.startAnimations();
-        });
-      };
-      reader.readAsText(i.files[0]);
+    $(document).mouseup(function() { me.focusHiddenArea() });
+    $('#hidden').on('keydown',function(e) {
+      var keynum = e.which;
+      var calltext = $('#call').val();
+      if (keynum == 13) {  //  return: process call
+        me.calls.push(calltext);
+        me.updateSequence();
+        $('#call').val("");        
+        e.preventDefault();
+      } else if (keynum == 8) {  // backspace
+        $('#call').val(calltext.substr(0,calltext.length-1));
+        e.preventDefault();
+      } else if (e.key.toString().length == 1 && !e.altKey && !e.ctrlKey) {
+        // character
+        $('#call').val(calltext + e.key);
+        e.preventDefault();
+      }
+      //$('#hidden').val(e.type + ": " + keynum.toString());
+      me.focusHiddenArea();
     });
+    document.addEventListener('paste',function(e) {
+      window.setTimeout(function() {
+        me.calls = $('#hidden').val().split("\n");
+        me.updateSequence();
+      },0);
+    });
+  };
+  
+  TamSequence.prototype.focusHiddenArea = function() {
+    var hiddenInput = $('#hidden');
+    hiddenInput.val(this.callnames.join("\n"));
+    hiddenInput.focus().select();
   };
 
   TamSequence.prototype.startAnimations = function() {
@@ -154,7 +150,7 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
     var me = this;
     $('#svgdiv').svg({onLoad:function(x) {
         var t = new TamSVG(x);
-        t.setPart = function(n) { me.setCurrentCall(n); }
+        t.setPart = function(n) { me.setCurrentCall(n); };
         //  Add all the calls to the animation
         me.updateSequence();
         t.generateButtonPanel();
@@ -163,44 +159,26 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
   };
 
   TamSequence.prototype.setCurrentCall = function(n) {
-    $('#calls span').removeClass('callhighlight')
-       .filter('.Part'+n).addClass('callhighlight');
+    $('#calls div').removeClass('callhighlight')
+       .filter('#Part'+n).addClass('callhighlight');
     tamsvg.setTitle(n > 0 ? this.callnames[n-1] : '');
-  }
+  };
 
   //  Highlight a line that has an error
   TamSequence.prototype.showError = function(n) {
-    $('#calls').find('span.Part'+n).addClass('callerror');
-  }
+    $('#calls').find('#Part'+n).addClass('callerror');
+  };
 
   //  This function is called every time the text is changed by the user
   TamSequence.prototype.processCallText = function() {
-    //  retval is the text of all the calls, each line is one item of the array
-    var retval = [];
+    
     //  html is the marked-up calls to stuff back into the text box
     //  so calls are highlighted, errors marked, comments colored, etc.
     var html = [];
     var callnum = 1;
     //  Clear any previous error message
     $('#errortext').html('');
-    //  Before we do anything else, remember the current location
-    //  A little tricky as we need to carefully remove the old marker
-    //  First mark the current location with a new name
-    getSelection().getRangeAt(0).insertNode($('<span id="cursor2"></span>')[0]);
-    //  Then remove the old location marker
-    $('#cursor').contents().unwrap(); //   .remove();
-    //  Now we can rename the current marker
-    $('#cursor2').attr('id','cursor');
-    //  Strip out existing elements that will be re-added
-    //  and any other extraneous html
-    //  As a courtesy, if html with <pre> was pasted, replace newlines with <br>
-    //if ($('#calls').html().search('<pre') >= 0)
-      $('#calls').html($('#calls').html().replace(/\n/g,'<br/>'));
-    //  Remove existing spans, they will be re-generated
-    //  Except of course the span for the current location that we just added
-    $('#calls').find('p').after('<br/>').contents().unwrap();
-    $('#calls').find('span').not('#cursor').contents().unwrap();
-    var lines = $('#calls').html().split(/<(?:br|div|p)\s*\/?>/);
+    var lines = this.calls;
     lines.forEach(function(line) {
       var calltext = line;
       var comchar = line.search(/[*#]/);
@@ -216,19 +194,14 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
       //  If we have something left to parse as a call
       if (calltext.search(/\w/) >= 0) {
         //  .. add class to highlight it when animated
-        line = '<span class="Part'+callnum+'">' + line + '</span>';
+        line = '<div id="Part'+callnum+'">' + line + '</span>';
         callnum += 1;
-        retval.push(calltext);
       }
       html.push(line);
     });
     //  Replace the text with our marked-up version
     $('#calls').html(html.join('<br/>'));
-    //  And restore the user's current editing location
-    if ($('#cursor').length > 0)
-      getSelection().selectAllChildren($('#cursor')[0]);
-    return retval;
-  }
+  };
 
   TamSequence.prototype.fetchCall = function(callname) {
     //  Load any animations for this call
@@ -271,17 +244,12 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
         });
       }
     });
-  }
+  };
 
 
 
   TamSequence.prototype.updateSequence = function() {
-    //  Don't do anything if there's no change
-    var newhtml = $('#calls').text();
-    if (newhtml.replace(/<.*?>/g) == this.prevhtml.replace(/<.*?>/g))
-      return;
-    this.prevhtml = newhtml;
-    this.calls = this.processCallText();
+    //this.processCallText();
     //  Make sure all calls are sent to be fetched
     this.filecount = 100;
     //  Look up the calls fetch the necessary files
@@ -300,8 +268,13 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
     if (!this.filecount)
       //  We already have all the files
       this.buildSequence();
-  }
+  };
 
+  TamSequence.prototype.callHTML = function(call,n) {
+    return '<div id="Part'+n+'">' + 
+           '<span class="deleteCall">X</span>' + n + " " + call + '</div>';
+  }
+  
   TamSequence.prototype.buildSequence = function() {
     //  First clear out the previous animation
     tamsvg.dancers.forEach(function(d) {
@@ -310,9 +283,14 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
     });
     tamsvg.parts = [];
     this.callnames = [];
-    $('#errormsg').remove();
+    //  Clear any previous error message
+    $('#errortext').html('Use keyboard to copy and paste.');
     var n2 = 0;
     var callname = '';
+    $('#calls').empty();
+    for (var n in this.calls) {
+      $('#calls').append(this.callHTML(this.calls[n],Number(n)+1));
+    }
     try {
       for (n2 in this.calls) {
         callname = this.calls[n2];
@@ -335,6 +313,10 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
         //  Each call shown as one "part" on the slider
         tamsvg.parts.push(ctx.dancers[0].path.beats());
         this.callnames.push(ctx.callname);
+        var partnum = Number(n2)+1
+        $('#Part'+partnum).replaceWith('<div id="Part'+partnum+'"><span class="deleteCall">X</span>' + 
+            partnum + " " + ctx.callname +
+            '</div>');
       } //  repeat for every call
 
     }  // end of try block
@@ -358,15 +340,7 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
       tamsvg.start();
     }
     tamsvg.updateSliderMarks(true);
-    //  Generate link from calls
-    this.calllink = document.URL.split(/\?/)[0] +
-                    '?' + escape(this.startingFormation) + '&' +
-                    $('#calls').html()
-          .replace(/&nbsp;/g,' ')
-          .replace(/<br\/?>/g,'&')
-          .replace(/<.*?>/g,'');
-
-  }
+  };
 
   return TamSequence;
 });

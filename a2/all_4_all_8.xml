@@ -448,8 +448,7 @@
   </tam>
 
   <tam title="All 8 Follow Your Neighbor" group="All 8"
-       formation="Static MiniWaves RH"
-       fractions="" >
+       formation="Static MiniWaves RH">
     <path>
       <move select="Forward 3" />
       <move select="Cast Right" />
@@ -511,10 +510,34 @@
     </path>
   </tam>
 
+  <tam title="All 8 Linear Cycle" group="All 8"
+       formation="Thar LH Boys">
+    <path>
+      <move select="Hinge Right" />
+      <move select="Run Right" />
+      <move select="Forward 3" />
+      <move select="U-Turn Right" offsetX="2" />
+    </path>
+    <path>
+      <move select="Hinge Right" />
+      <move select="Forward 5" />
+      <move select="Run Right" />
+    </path>
+    <path>
+      <move select="Hinge Right" />
+      <move select="Run Right" />
+      <move select="Forward 3" />
+      <move select="U-Turn Right" offsetX="2" />
+    </path>
+    <path>
+      <move select="Hinge Right" />
+      <move select="Forward 5" />
+      <move select="Run Right" />
+    </path>
+  </tam>
+
   <tam title="All 8 Peel Off" group="All 8"
-       from=""
-       formation="Static MiniWaves RH"
-       fractions="" >
+       formation="Static MiniWaves RH">
     <path>
       <move select="U-Turn Left" beats="4" offsetX="3" />
     </path>
@@ -530,9 +553,7 @@
   </tam>
 
   <tam title="All 8 Peel the Top" group="All 8"
-       from=""
-       formation="Static MiniWaves RH"
-       fractions="" >
+       formation="Static MiniWaves RH">
     <path>
       <move select="Forward 3" beats="4" />
       <move select="Cast Right" />

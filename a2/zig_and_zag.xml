@@ -82,8 +82,7 @@
 
   <tam title="Zig Zag"
        from="Left-Hand Columns"
-       formation="Column LH GBGB"
-       fractions="" >
+       formation="Column LH GBGB">
     <path>
       <move select="Quarter Left" beats="2" offsetY="-1" />
     </path>
@@ -100,8 +99,7 @@
 
   <tam title="Zig Zag"
        from="Two-Faced Lines"
-       formation="Two-Faced Lines RH"
-       fractions="" >
+       formation="Two-Faced Lines RH">
     <path>
       <move select="Quarter Left" beats="2" offsetX="1" />
     </path>
@@ -118,8 +116,7 @@
 
   <tam title="Zig Zag"
        from="Right-Hand Waves"
-       formation="Ocean Waves RH BGGB"
-       fractions="" >
+       formation="Ocean Waves RH BGGB">
     <path>
       <move select="Quarter Left" beats="2" offsetX="1" />
     </path>
@@ -136,8 +133,7 @@
 
   <tam title="Zig Zag"
        from="Left-Hand Waves"
-       formation="Ocean Waves LH BGGB"
-       fractions="" >
+       formation="Ocean Waves LH BGGB">
     <path>
       <move select="Quarter Right" beats="2" offsetX="-1" />
     </path>
@@ -165,6 +161,38 @@
     </path>
     <taminator>Here the dancers adjust to form diamonds.
     </taminator>
+  </tam>
+
+  <tam title="As Couples Zig Zag" group="As Couples"
+       formation="Two-Faced Lines RH">
+    <path>
+      <move select="BackHinge Right"/>
+    </path>    
+    <path>
+      <move select="Hinge Left"/>
+    </path>
+    <path>
+      <move select="BackHinge Left"/>
+    </path>
+    <path>
+      <move select="Hinge Right"/>
+    </path>
+  </tam>
+  
+  <tam title="As Couples Zag Zig" group="As Couples"
+       formation="Two-Faced Lines RH">
+    <path>
+      <move select="Hinge Right"/>
+    </path>    
+    <path>
+      <move select="BackHinge Left"/>
+    </path>
+    <path>
+      <move select="Hinge Left"/>
+    </path>
+    <path>
+      <move select="BackHinge Right"/>
+    </path>
   </tam>
 
 </tamination>

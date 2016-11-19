@@ -23,8 +23,13 @@
 define(['env','calls/quarter_turns'],function(Env,QuarterTurns) {
   var Zag = Env.extend(QuarterTurns);
   Zag.prototype.name = 'Zag';
+
   Zag.prototype.select = function(ctx,d) {
-    if (d.leader)
+    var selector = d.leader;
+    if (ctx.callstack.length >= 2 &&
+        ctx.callstack[0].name.toLowerCase().match(/z[ia]g/))
+      selector = d.trailer;
+    if (selector)
       return 'Quarter Left';
     return 'Stand';
   };

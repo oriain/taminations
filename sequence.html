@@ -22,10 +22,29 @@
     margin: 16px;
     background-color: white;
     width: 20em;
-    height: 30em;
+    height: 25em;
     font: 16px Helvetica,sans-serif;
     overflow: auto;
     white-space: pre;
+  }
+  #hidden {
+    position: absolute;
+    bottom:   0;
+    left:   0;
+    width:    10px;
+    height:   10px;
+    display:  block;
+    font-size:  1;
+    z-index:  -1;
+    color:    transparent;
+    background: transparent;
+    overflow: hidden;
+    border:   none;
+    padding:  0;
+    resize:   none;
+    outline:  none;
+    -webkit-user-select: text;
+    user-select: text; /* Because for user-select:none, Safari won't allow input */
   }
   .callfocus {
     border: 1px solid black;
@@ -40,8 +59,19 @@
     color: white;
     background-color: red;
   }
-  .callhighlight {
+  div.callhighlight {
     background-color: yellow;
+  }
+  .callhighlight .deleteCall {
+    float: right;
+    background-color: red;
+    color: white;
+    visibility: visible;
+    cursor: pointer;
+  }
+  .deleteCall {
+    float: right;
+    visibility: hidden;
   }
 </style>
 </head>
@@ -68,18 +98,11 @@
     an asterisk(*) or hash(#).  Anything from that point to the end of the line
     is ignored.
 
-    <h3>Save and Load</h3>
-    Click <b>Save</b> and your sequence will appear in a separate window.
-    From here you have to use the browser's menu to &quot;Save As&quot; a text file.<br/>
-    An alternative is to save your sequence as a bookmark.
-    Click <b>Link</b> and a link with your sequence will be generated, and then
-    loaded into your browser.  Then you can save it as a bookmark, or copy it
-    as a text string for emailing or other uses.
-    To load a sequence previously saved as a text file, type the filename in
-    the text box, or click <b>Browse</b> to select it from your computer.
-    Then click <b>Load</b> to read it in.<br/>
-    NOTE: <b>Load</b> is not available in Internet Explorer as it does not
-    support the required features.  Reportedly it will work in the next version.
+    <h3>Copy and Paste</h3>
+    You can move sequences back and forth to a text editor with copy and paste
+    commands. The current sequence is always &quot;selected&quot;,
+    use the keyboard to copy it.  Likewise, use the keyboard to paste,
+    no need to click anywhere.
 
     <h3>Feedback</h3>
     Feel free to <a href="mailto:brad@bradchristie.com">send me</a> any feedback,
@@ -93,16 +116,10 @@
     <input type="radio" name="formation" value="Squared Set" checked/>Squared Set
     <input type="radio" name="formation" value="Facing Couples"/>Facing Couples
     <br/>  </p>
-    
-    <!--  textarea id="calls" cols="40" rows="40"></textarea -->
-    <div id="calls" contentEditable="true" spellcheck="false" tabindex="0"></div>
+    <input type="text" id="call" size="40"/>
+    <div id="calls"></div>
     <h3 id="errortext"></h3>
-    <form id="sequenceform">
-    <input type="file" id="inputfile" name="inputfile"/>
-    <input type="button" name="Load" id="loadbutton" value="Load"/><br/>
-    <input type="button" name="Save" id="savebutton" value="Save"/>
-    <input type="button" name="Link" id="linkbutton" value="Link"/>
     <input type="button" name="Clear" id="clearbutton" value="Clear"/>
-  </form>
+    <textarea name="hidden" id="hidden"></textarea>
 </div></div></body>
 </html>
