@@ -23,8 +23,9 @@
 <tamination title="Brace Thru">
 
   <tam title="Brace Thru"
-       from="Lines"
-       parts="3" >
+       from="Lines, Boys Ends"
+       parts="3" 
+       gender-specific="true">
      <formation>
       <dancer gender="boy" x="-2" y="3" angle="0"/>
       <dancer gender="girl" x="-2" y="1" angle="0"/>
@@ -54,8 +55,41 @@
   </tam>
 
   <tam title="Brace Thru"
+       from="Lines, Girls Ends"
+       parts="3" 
+       gender-specific="true">
+     <formation>
+      <dancer gender="girl" x="-2" y="3" angle="0"/>
+      <dancer gender="boy" x="-2" y="1" angle="0"/>
+      <dancer gender="girl" x="-2" y="-3" angle="0"/>
+      <dancer gender="boy" x="-2" y="-1" angle="0"/>
+    </formation>
+    <path>
+      <move select="Pull Left" beats="1.5" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".5" />
+      <move select="U-Turn Left" />
+    </path>
+    <path>
+      <move select="Pull Left" beats="1.5" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".5" />
+      <move select="U-Turn Right" />
+    </path>
+    <path>
+      <move select="Pull Left" beats="1.5" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".5" />
+      <move select="Belle Wheel" />
+    </path>
+    <path>
+      <move select="Pull Left" beats="1.5" scaleX="2" scaleY=".5" />
+      <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".5" />
+      <move select="Beau Wheel" />
+    </path>
+  </tam>
+
+  <tam title="Brace Thru"
        from="Eight Chain Thru"
-       parts="3" >
+       parts="3"
+       gender-specific="true" >
      <formation>
       <dancer gender="girl" x="-3" y="1" angle="0"/>
       <dancer gender="boy" x="-3" y="-1" angle="0"/>
@@ -84,4 +118,37 @@
     </path>
   </tam>
   
+  <tam title="Brace Thru"
+       from="Eight Chain Thru"
+       parts="3"
+       gender-specific="true" 
+       display="none">
+     <formation>
+      <dancer gender="boy" x="-3" y="1" angle="0"/>
+      <dancer gender="girl" x="-3" y="-1" angle="0"/>
+      <dancer gender="girl" x="-1" y="-1" angle="180"/>
+      <dancer gender="boy" x="-1" y="1" angle="180"/>
+    </formation>
+    <path>
+      <move select="Pull Left" beats="1.5" scaleY=".5" />
+      <move select="Extend Right" beats="1.5" scaleY=".5" />
+      <move select="Beau Wheel" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Pull Left" beats="1.5" scaleY=".5" />
+      <move select="Extend Right" beats="1.5" scaleY=".5" />
+      <move select="Belle Wheel" scaleX=".5"/>
+    </path>
+    <path>
+      <move select="Pull Left" beats="1.5" scaleY=".5" />
+      <move select="Extend Right" beats="1.5" scaleY=".5" />
+      <move select="U-Turn Right" />
+    </path>
+    <path>
+      <move select="Pull Left" beats="1.5" scaleY=".5" />
+      <move select="Extend Right" beats="1.5" scaleY=".5" />
+      <move select="U-Turn Left" />
+    </path>
+  </tam>
+
 </tamination>
