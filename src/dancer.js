@@ -123,12 +123,12 @@ define(['path','movement','vector','affinetransform','color'],
     this.tamsvg.svg.line(this.righthand,0,0,0,-1,{stroke:Color.orange.toString(),'stroke-width':0.05});
     //  body
     this.tamsvg.svg.circle(this.svg,.5,0,1/3,{fill:this.drawcolor.toString()});
-    if (this.gender == Dancer.BOY)
-      this.body = this.tamsvg.svg.rect(this.svg,-.5,-.5,1,1,
-          {fill:this.fillcolor.toString(),
-        stroke:this.drawcolor.toString(),'stroke-width':0.1});
     if (this.gender == Dancer.GIRL)
-      this.body = this.tamsvg.svg.circle(this.svg,0,0,.5,
+      this.body = this.tamsvg.svg.circle(this.svg,0,0,5,
+          {fill:this.fillcolor.toString(),
+           stroke:this.drawcolor.toString(),'stroke-width':1,transform:"scale(0.1 0.1)"});
+    else if (this.gender == Dancer.BOY)
+      this.body = this.tamsvg.svg.rect(this.svg,-.5,-.5,1,1,
           {fill:this.fillcolor.toString(),
         stroke:this.drawcolor.toString(),'stroke-width':0.1});
     if (this.gender == Dancer.PHANTOM)
@@ -150,6 +150,7 @@ define(['path','movement','vector','affinetransform','color'],
     if (args.hidden != undefined && args.hidden)
       this.hide();
   };
+  
   Dancer.BOY = 1;
   Dancer.GIRL = 2;
   Dancer.PHANTOM = 3;
