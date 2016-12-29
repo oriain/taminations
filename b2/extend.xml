@@ -101,6 +101,23 @@
     </path>
   </tam>
 
+  <tam title="Extend" from="Left-Hand Waves"
+       formation="Ocean Waves LH BGGB"
+       difficulty="2">
+    <path>
+      <move select="Extend Left" scaleY="2" beats="2" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+    </path>
+    <path>
+      <move select="Forward" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+    </path>
+  </tam>
+
   <tam title="Extend"
        from="3/4 Tag"
        formation="3/4 Tag"
