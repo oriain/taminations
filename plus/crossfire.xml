@@ -180,7 +180,7 @@
   <tam title="Crossfire"
        from="Lines Facing In"
        formation="Normal Lines"
-       fractions="" difficulty="3">
+       difficulty="3">
     <path>
       <move select="Run Right" beats="4" scaleY="2" offsetX="1" />
     </path>
@@ -198,7 +198,7 @@
   <tam title="Crossfire"
        from="Tidal Lines"
        formation="Tidal Line RH"
-       fractions="" difficulty="3">
+       difficulty="3">
     <path>
       <move select="Run Right" beats="5" scaleX="2" offsetX="2" offsetY="-.5" />
     </path>
@@ -214,9 +214,27 @@
   </tam>
 
   <tam title="Crossfire"
+       from="Tidal Lines"
+       formation="Tidal Line LH"
+       difficulty="3" display="none">
+    <path>
+      <move select="Run Left" beats="5" offsetX="-2" offsetY="-.5" />
+    </path>
+    <path>
+      <move select="Run Left" beats="5" scaleX="2" offsetX="2" offsetY=".5" />
+    </path>
+    <path>
+      <move select="Run Right" beats="5" offsetX="2" offsetY="-.5" />
+    </path>
+    <path>
+      <move select="Flip Right" beats="5" offsetX="-2" offsetY=".5" />
+    </path>
+  </tam>
+
+  <tam title="Crossfire"
        from="Tidal Inverted Lines"
        formation="Tidal Inverted Line RH"
-       fractions="" difficulty="3">
+       difficulty="3">
     <path>
       <move select="Run Right" beats="4"   offsetY="-.5" offsetX="1"/>
       <move select="Extend Left" beats="2" scaleY=".5"/>
@@ -238,7 +256,7 @@
   <tam title="Crossfire"
        from="Facing Diamonds"
        formation="Diamonds Facing Girl Points"
-       fractions="" difficulty="3">
+       difficulty="3">
     <path>
       <move select="Swing Right" hands="gripright" scaleY=".75" />
       <move select="Extend Left" scaleY=".5" />
