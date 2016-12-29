@@ -122,6 +122,8 @@ define(['path','movement','vector','affinetransform','color'],
     this.tamsvg.svg.circle(this.righthand,0,-1,1/8,{fill:Color.orange.toString()});
     this.tamsvg.svg.line(this.righthand,0,0,0,-1,{stroke:Color.orange.toString(),'stroke-width':0.05});
     //  body
+    //  Workaround for Safari bug that strokes the circle as a square
+    //  - use larger values and scale it down
     this.tamsvg.svg.circle(this.svg,.5,0,1/3,{fill:this.drawcolor.toString()});
     if (this.gender == Dancer.GIRL)
       this.body = this.tamsvg.svg.circle(this.svg,0,0,5,
