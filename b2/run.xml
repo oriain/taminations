@@ -105,7 +105,7 @@
    </tam>
 
   <tam title="Boys Run" from="Left-Hand Wave, Boys End"
-       formation="Wave LH">
+       formation="Wave LH" gender-specific="true>
     <path>
       <move select="Run Left" beats="4" />
     </path>
