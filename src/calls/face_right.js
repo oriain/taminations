@@ -1,6 +1,6 @@
 /*
 
-    Copyright 2016 Brad Christie
+    Copyright 2017 Brad Christie
 
     This file is part of Taminations.
 
