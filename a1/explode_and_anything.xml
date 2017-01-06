@@ -22,10 +22,108 @@
 -->
 <tamination title="Explode and Anything">
 
+  <tam title="Explode and Roll" from="Lines Facing Out"
+       formation="Lines Facing Out">
+    <path>
+      <move select="Quarter Left" offsetX="-1" offsetY="1" />
+      <move select="Quarter Left" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Quarter Left" offsetX="1"/>
+      <move select="Quarter Left"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="1"/>
+      <move select="Quarter Right"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="-1" offsetY="-1" />
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+  </tam>        
+
+  <tam title="Explode and Roll" from="Inverted Lines"
+       formation="Inverted Lines Ends Facing In">
+    <path>
+      <move select="Quarter Right" offsetX="1" offsetY="-1" />
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Quarter Left" offsetX="1"/>
+      <move select="Quarter Left"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="1"/>
+      <move select="Quarter Right"/>
+    </path>
+    <path>
+      <move select="Quarter Left" offsetX="1" offsetY="1" />
+      <move select="Quarter Left" offsetX="1"/>
+    </path>
+  </tam>        
+
+  <tam title="Explode and Roll" from="3 and 1 Lines" formation="3 and 1 lines #5">
+    <path>
+      <move select="Quarter Right" offsetX="1" offsetY="-1" />
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Quarter Left" offsetX="1"/>
+      <move select="Quarter Left"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="1"/>
+      <move select="Quarter Right"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="-1" offsetY="-1" />
+      <move select="Quarter Right" offsetX="1"/>
+    </path>  
+  </tam>
+
+  <tam title="Explode and Roll" from="3 and 1 Lines" 
+       formation="3 and 1 lines #8" display="none">
+    <path>
+      <move select="Quarter Left" offsetX="-1" offsetY="1" />
+      <move select="Quarter Left" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Quarter Left" offsetX="1"/>
+      <move select="Quarter Left"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="1"/>
+      <move select="Quarter Right"/>
+    </path>
+    <path>
+      <move select="Quarter Left" offsetX="1" offsetY="1" />
+      <move select="Quarter Left" offsetX="1"/>
+    </path>  
+  </tam>
+  
+  <tam title="Explode and Roll" from="Tidal Inverted Line"
+       formation="Tidal Inverted Line LH">
+    <path>
+      <move select="Quarter Left" offsetX="1" offsetY=".5" />
+      <move select="Quarter Left"/>
+    </path>
+    <path>
+      <move select="Quarter Left" offsetX="1" offsetY=".5"/>
+      <move select="Quarter Left"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="1" offsetY="-.5"/>
+      <move select="Quarter Right"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="1" offsetY="-.5" />
+      <move select="Quarter Right" />
+    </path>
+  </tam>
+
   <tam title="Explode and Touch a Quarter"
        from="Lines"
-       formation="Lines Facing Out"
-       fractions="" >
+       formation="Lines Facing Out">
     <path>
       <move select="Quarter Left" offsetX="-1" offsetY="1" />
       <move select="Extend Left" beats="2" scaleX="2" scaleY=".5" />
