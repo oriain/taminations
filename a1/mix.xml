@@ -178,6 +178,31 @@
       <move select="Swing Right" />
     </path>
   </tam>
+  
+  <tam title="All 8 Mix"
+       from="Thar"
+       formation="Thar RH Boys"
+       parts="4.5" group=" " display="none">
+    <path>
+      <move select="Hinge Right" />
+      <move select="Lead Right" beats="3" scaleX="3" />
+    </path>
+    <path>
+      <move select="Stand" beats="1.5" />
+      <move select="Dodge Left" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Hinge Right" />
+      <move select="Lead Right" beats="3" scaleX="3" />
+    </path>
+    <path>
+      <move select="Stand" beats="1.5" />
+      <move select="Dodge Left" />
+      <move select="Swing Left" />
+    </path>
+  </tam>
+  
 
   <tam title="As Couples Mix"
        from="Two-Faced Tidal Line"
