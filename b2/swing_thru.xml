@@ -408,6 +408,21 @@
     </taminator>
   </tam>
 
+  <tam title="Left Swing Thru" from="Left-Hand Quarter Tag"
+       formation="Quarter Tag LH" parts="3" difficulty="2">
+    <path>
+    </path>
+    <path>
+    </path>
+    <path>
+      <move select="Swing Left"/>
+      <move select="Swing Right"/>
+    </path>
+    <path>
+      <move select="Swing Left"/>
+    </path>
+  </tam>
+
   <tam title="Alamo Left Swing Thru"
        from="Alamo Wave"
        formation="Alamo Wave"
