@@ -29,6 +29,8 @@ define(['env','calls/action','path','callerror'],
     var retval = new Path();
     if (d.leader) {
       var d2 = ctx.dancerInBack(d);
+      if (!d2.trailer)
+        throw new CallError("Dancer "+d+' is not in a tandem.')
       var a = ctx.angle(d);
       var c = a < 0 ? 'Run Left' : 'Run Right';
       if (!d2.active)
@@ -38,6 +40,8 @@ define(['env','calls/action','path','callerror'],
       retval.add(TamUtils.getMove(c).changebeats(2).skew(dist/2,0));
     } else if (d.trailer) {
       var d2 = ctx.dancerInFront(d);
+      if (!d2.leader)
+        throw new CallError("Dancer "+d+' is not in a tandem.')
       if (!d2.active)
         throw new CallError('Leader of dancer '+d+' is not active.');
       var dist = ctx.distance(d,d2);
