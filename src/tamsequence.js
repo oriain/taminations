@@ -102,6 +102,7 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
     });
     $('#clearbutton').click(function() {
       me.calls = [];
+      $('#call').val("");        
       me.updateSequence();
     });
     $(document).mouseup(function() { me.focusHiddenArea() });
@@ -117,9 +118,13 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
         $('#call').val(calltext.substr(0,calltext.length-1));
         e.preventDefault();
       } else if ((keynum == 32 || (keynum >= 48 && keynum <= 90))
+                 || keynum == 191  // slash
+                 || keynum == 173  // dash
                  && !e.altKey && !e.ctrlKey && !e.metaKey) {
         // character
-        var char = String.fromCharCode(e.keyCode)
+        var char = String.fromCharCode(e.keyCode);
+        if (keynum == 191) char = "/";
+        if (keynum == 173) char = "-";
         if (!e.shiftKey)
           char = char.toLowerCase()
         $('#call').val(calltext + char);
