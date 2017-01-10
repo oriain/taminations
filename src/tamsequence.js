@@ -117,9 +117,9 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
       } else if (keynum == 8) {  // backspace
         $('#call').val(calltext.substr(0,calltext.length-1));
         e.preventDefault();
-      } else if ((keynum == 32 || (keynum >= 48 && keynum <= 90))
+      } else if ((keynum == 32 || (keynum >= 48 && keynum <= 90)
                  || keynum == 191  // slash
-                 || keynum == 173  // dash
+                 || keynum == 173)  // dash
                  && !e.altKey && !e.ctrlKey && !e.metaKey) {
         // character
         var char = String.fromCharCode(e.keyCode);
