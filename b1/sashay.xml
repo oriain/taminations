@@ -45,6 +45,21 @@
       <move select="Sashay Left" beats="4" />
     </path>
   </tam>
+  
+  <tam title="Half Sashay" from="Squared Set" formation="Static Square">
+    <path>
+      <move select="BackSashay Right" beats="4" />
+    </path>
+    <path>
+      <move select="Sashay Left" beats="4" />
+    </path>
+    <path>
+      <move select="BackSashay Right" beats="4" />
+    </path>
+    <path>
+      <move select="Sashay Left" beats="4" />
+    </path>
+  </tam>
 
   <tam title="Ladies In, Men Sashay"
        from="Circle Left"

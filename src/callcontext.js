@@ -608,6 +608,12 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     Math.anglesEqual(this.angle(d,d.partner),this.angle(d.partner,d));
   };
 
+//Return true if this dancer is part of a couple facing same direction
+  CallContext.prototype.isInCouple = function(d) {
+    return d.partner &&
+    Math.anglesEqual(d.tx.angle,d.partner.tx.angle);
+  }
+  
 //Return true if this is 4 dancers in a box
   CallContext.prototype.isBox = function()
   {
