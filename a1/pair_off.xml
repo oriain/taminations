@@ -77,6 +77,32 @@
     </path>
   </tam>
 
+  <tam title="Heads Pair Off" formation="Static Square" group=" ">
+    <path>
+      <move select="Forward" beats="1.5"/>
+      <move select="Quarter Left" beats="2.5" offsetX="1" />
+    </path>
+    <path>
+      <move select="Forward" beats="1.5"/>
+      <move select="Quarter Right" beats="2.5" offsetX="1" />
+    </path>
+    <path/>
+    <path/>
+  </tam>
+
+  <tam title="Sides Pair Off" formation="Static Square" group=" ">
+    <path/>
+    <path/>
+    <path>
+      <move select="Forward" beats="1.5"/>
+      <move select="Quarter Left" beats="2.5" offsetX="1" />
+    </path>
+    <path>
+      <move select="Forward" beats="1.5"/>
+      <move select="Quarter Right" beats="2.5" offsetX="1" />
+    </path>
+  </tam>
+
   <tam title="As Couples Pair Off"
        from="Lines"
        formation="Normal Lines"
