@@ -317,9 +317,12 @@
   </path>
 
   <!-- Advanced "Cross" movement 2 units forward and left -->
-  <path name="Cross Left">
+  <path name="Cross Left Save">
     <movement hands="right" beats="2" cx1="1" cy1="0" cx2="0" cy2="2" x2="2" y2="2"
                                      cx3="1" cx4="1" cy4="0.4" x4="2" y4="0.4" />
+  </path>
+  <path name="Cross Left">
+    <movement hands="right" beats="2" cx1="1" cy1="0" cx2="-.5" cy2="2" x2="2" y2="2" cx3="1" cx4="1" cy4=".4" x4="2" y4=".4" />
   </path>
 
   <!-- Advanced "Cross" movement 2 units forward and right -->

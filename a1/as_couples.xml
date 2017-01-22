@@ -242,6 +242,28 @@
     </path>
   </tam>
 
+  <tam title="As Couples Follow Your Neighbor" group="As Couples" display="none"
+       formation="Two-Faced Lines LH">
+    <path>
+      <move select="Lead Left" hands="left" beats="2" scaleX="2" scaleY="3" />
+      <move select="Run Left" offsetY="-.5" />
+    </path>
+    <path>
+      <move select="Lead Left" hands="right" beats="2" />
+      <move select="U-Turn Left" offsetY="-.5" />
+    </path>
+    <path>
+      <move select="Extend Left" hands="right" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Hinge Left" scaleX=".5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" hands="left" beats="2" scaleX="2" scaleY="1.5" />
+      <move select="Swing Left" scaleX="1.5" scaleY="1.5" />
+      <move select="Hinge Left" scaleX="1.5" scaleY="1.5" />
+    </path>
+  </tam>
+
   <tam title="As Couples Half Sashay" group="As Couples"
        formation="Normal Lines" >
     <path>
@@ -290,6 +312,24 @@
       <move select="Forward" beats="2" hands="left" scaleX="2" offsetY="-.2"/>
       <move select="Stand" beats=".5"/>
       <move select="Back" beats="2" hands="left" scaleX="2" offsetY=".2"/>
+    </path>
+  </tam>
+
+  <tam title="As Couples Left Swing Thru" group="As Couples"
+       formation="Two-Faced Tidal Line LH">
+    <path>
+      <move select="Swing Left" scaleX="1.5" scaleY="1.5" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Swing Right" scaleX="1.5" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Swing Left" scaleX="1.5" scaleY="1.5" />
     </path>
   </tam>
 
@@ -454,6 +494,26 @@
     </path>
     <path>
       <move select="Run Right" hands="right" beats="5" scaleX="2.5" scaleY="3" />
+    </path>
+  </tam>
+
+  <tam title="As Couples Scoot Back" group="As Couples" display="none"
+       formation="Two-Faced Lines LH">
+    <path>
+      <move select="Run Left" hands="left" beats="5" scaleX="2.5" scaleY="3" />
+    </path>
+    <path>
+      <move select="Run Left" hands="right" beats="5" />
+    </path>
+    <path>
+      <move select="Extend Left" hands="right" beats="2" scaleX="2" scaleY=".5" />
+      <move select="Swing Left" scaleX=".5" scaleY=".5" />
+      <move select="Extend Right" hands="right" beats="2" scaleX="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" hands="left" beats="2" scaleX="2" scaleY="1.5" />
+      <move select="Swing Left" scaleX="1.5" scaleY="1.5" />
+      <move select="Extend Right" hands="left" beats="2" scaleX="2" scaleY="1.5" />
     </path>
   </tam>
 

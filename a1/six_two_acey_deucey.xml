@@ -92,7 +92,7 @@
   </tam>
 
   <tam title="Six-Two Acey Deucey"
-       from="Wave and Mini-Waves">
+       from="Wave and Mini-Waves, Right-Handed">
      <formation>
       <dancer gender="boy" x="-3" y="-1" angle="180"/>
       <dancer gender="girl" x="0" y="-3" angle="180"/>
@@ -112,4 +112,27 @@
       <move select="Swing Left" />
     </path>
   </tam>
+
+  <tam title="Six-Two Acey Deucey"
+       from="Wave and Mini-Waves, Left-Handed">
+     <formation>
+      <dancer gender="boy" x="-3" y="-1" angle="0"/>
+      <dancer gender="girl" x="0" y="-3" angle="0"/>
+      <dancer gender="boy" x="3" y="-1" angle="0"/>
+      <dancer gender="girl" x="0" y="-1" angle="180"/>
+    </formation>
+    <path>
+      <move select="Extend Right" beats="4" scaleX="3" scaleY="2" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="4" scaleX="3" scaleY="2" />
+    </path>
+    <path>
+      <move select="Flip Left" />
+    </path>
+    <path>
+      <move select="Swing Right" />
+    </path>
+  </tam>
+
 </tamination>
