@@ -724,6 +724,10 @@
            xref-link="a1/left_wheel_thru"
            xref-title="As Couples Left Wheel Thru" />
 
+  <tamxref title="As Couples (A-1) Linear Cycle" group="As Couples (A-1)"
+           xref-link="a1/linear_cycle"
+           xref-title="As Couples Linear Cycle" />
+
   <tamxref title="As Couples (A-1) Lockit" group="As Couples (A-1)"
            xref-link="a1/lock_it"
            xref-title="As Couples Lockit" />
