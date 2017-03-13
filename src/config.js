@@ -36,11 +36,14 @@ if (navigator.userAgent.indexOf('MSIE 8') > 0) {
       jqueryui: '../ext/jquery/jquery-ui-1.11.0.custom/jquery-ui.min',
       jquerymousewheel: '../ext/jquery/jquery-mousewheel-3.1.11/jquery.mousewheel.min',
       jquerymobile: '../ext/jquery/jQueryMobile-1.4.5/jquery.mobile-1.4.5.min',
-      jquerymobilepagedata: '../ext/jquery/jqm.page.params'
+      jquerymobilepagedata: '../ext/jquery/jqm.page.params',
     },
     shim: {
       cookie : {
         exports: 'Cookie'
+      },
+      numeric : {
+        exports: 'numeric'
       },
       jquerysvg : {
         deps: ['jquery']

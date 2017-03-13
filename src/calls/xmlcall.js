@@ -43,22 +43,12 @@ define(['env','calls/call','path'],
       //  No animations have been done on ctx2, so dancers are still at the start points
       var ctx3 = this.ctx2.clone();
       //  So ctx3 is a copy of the start point
-      var bounds1 = ctx3.bounds();
       //  Now add the paths
       ctx3.dancers.forEach(function(d,i) {
         d.path.add(new Path(allp[i>>1]));
       });
       //  And move it to the end point
       ctx3.analyze();
-      var bounds2 = ctx3.bounds();
-      //  And see if the shape has changed
-      var shapemap = this.ctx2.matchShapes(ctx3);
-      if (shapemap) {
-        //  TODO see if mapping is 90 degrees off
-        var bounds0 = ctx.clone(ctx.actives).bounds();
-       // xfactor = (2*bounds0.x)/(bounds1.x + bounds2.x);
-       // yfactor = (2*bounds0.y)/(bounds1.y + bounds2.y);
-      }
     }
 
     var vdif = this.computeFormationOffsets(ctx,this.ctx2);
@@ -92,25 +82,32 @@ define(['env','calls/call','path'],
   //  and that difference will be added as an offset to the first movement
   XMLCall.prototype.computeFormationOffsets = function(ctx1,ctx2)
   {
-    var dvbest;
-    var dtotbest = -1;
+    var dvbest = [];
+    var dtotbest = 0;
     var mapping = this.xmlmap;
     //  We don't know how the XML formation needs to be turned to overlap
-    //  the current formation.  So try all 4 angles and use the best.
-    [0,Math.PI/2,Math.PI,Math.PI*3/2].forEach(function(angle) {
-      var dv = [];
-      var dtot = 0;
-      ctx1.actives.forEach(function(d1,i) {
-        var v1 = d1.location;
-        var v2 = ctx2.dancers[mapping[i]].location.rotate(angle);
-        dv[i] = v1.subtract(v2);
-        dtot += dv[i].distance;
-      });
-      if (dtotbest < 0 || dtotbest > dtot) {
-        dvbest = dv;
-        dtotbest = dtot;
-      }
+    //  the current formation.  So do an RMS fit to find the best match.
+    var bxa = [[0,0,0],[0,0,0],[0,0,0]];
+    ctx1.actives.forEach(function(d1,i) {
+      var v1 = d1.location;
+      var v2 = ctx2.dancers[mapping[i]].location;
+      bxa[0][0] += v1.x * v2.x;
+      bxa[0][1] += v1.y * v2.x;
+      bxa[1][0] += v1.x * v2.y;
+      bxa[1][1] += v1.y * v2.y;
     });
+    var mysvd = Math.svd(bxa);
+    var v = new AffineTransform(mysvd.V);
+    var ut = new AffineTransform(Math.transposeArray(mysvd.U));
+    var rotmat = v.preConcatenate(ut);
+    //  Now rotate the formation and compute any remaining
+    //  differences in position
+    ctx1.actives.forEach(function(d2,j) {
+      var v1 = d2.location;
+      var v2 = ctx2.dancers[mapping[j]].location.concatenate(rotmat);
+      dvbest[j] = v1.subtract(v2);
+      dtotbest += dvbest[j].distance;
+    });     
     return dvbest;
   }
 

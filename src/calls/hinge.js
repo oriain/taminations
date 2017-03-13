@@ -20,8 +20,8 @@
  */
 "use strict";
 
-define(['env','calls/box_call','path'],function(Env,BoxCall,Path) {
-  var Hinge = Env.extend(BoxCall);
+define(['env','calls/action','path'],function(Env,Action,Path) {
+  var Hinge = Env.extend(Action);
   Hinge.prototype.name = "Hinge";
   Hinge.prototype.performOne = function(d,ctx)
   {

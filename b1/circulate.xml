@@ -480,7 +480,7 @@
   </tam>
 
   <tam title="Split Circulate"
-       from="Columns"
+       from="Right-Hand Columns"
        formation="Column RH GBGB"
        fractions="1.5" difficulty="2">
     <path>
@@ -497,6 +497,24 @@
     </path>
   </tam>
   
+  <tam title="Split Circulate"
+       from="Left-Hand Columns"
+       formation="Column LH GBGB"
+       fractions="1.5" difficulty="2">
+    <path>
+      <move select="Forward 2" beats="3" />
+    </path>
+    <path>
+      <move select="Run Left" scaleX=".5" />
+    </path>
+    <path>
+      <move select="Forward 2" beats="3" />
+    </path>
+    <path>
+      <move select="Run Left" />
+    </path>
+  </tam>
+
   <tam title="Split Circulate" from="Lines Facing Out"
        formation="Lines Facing Out" difficulty="3" fractions="1.5">
   	<path>

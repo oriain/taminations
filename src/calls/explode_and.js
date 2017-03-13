@@ -20,8 +20,8 @@
  */
 "use strict";
 
-define(['env','calls/line_call'],function(Env,LineCall) {
-  var ExplodeAnd = Env.extend(LineCall);
+define(['env','calls/action'],function(Env,Action) {
+  var ExplodeAnd = Env.extend(Action);
   ExplodeAnd.prototype.name = 'Explode and';
 
   //  For now this just does Explode from waves

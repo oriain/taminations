@@ -20,8 +20,8 @@
  */
 "use strict";
 
-define(['env','calls/box_call','movement','path'],function(Env,BoxCall,Movement,Path) {
-  var BoxCounterRotate = Env.extend(BoxCall);
+define(['env','calls/action','movement','path'],function(Env,Action,Movement,Path) {
+  var BoxCounterRotate = Env.extend(Action);
   BoxCounterRotate.prototype.name = "Box Counter Rotate";
   BoxCounterRotate.prototype.performOne = function(d,ctx)
   {

@@ -386,44 +386,13 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     },this);
   };
 
-  CallContext.prototype.matchShapes = function(ctx2) {
-    var ctx1 = this;
-    if (ctx1.dancers.length != ctx2.dancers.length)
-      return false;
-    var mapping = [];
-    var reversemap = [];
-    ctx1.dancers.forEach(function(d1,i) {
-      var bestd2 = -1
-      var bestdistance = 100;
-      var v1 = d1.location;
-      ctx2.dancers.forEach(function(d2,j) {
-        var d = v1.subtract(d2.location).distance;
-        if (Math.isApprox(d,bestdistance)) {
-          bestd2 = -1
-        } else if (d < bestdistance) {
-          bestdistance = d;
-          bestd2 = j;
-        }
-      });
-      if (bestd2 >= 0) {
-        mapping[i] = bestd2;
-        reversemap[bestd2] = i;
-      }
-    });
-    var count = 0;
-    mapping.concat(reversemap).forEach(function(){ count++; });
-    if (count != ctx1.dancers.length*2)
-      return false;
-    return mapping;
-  };
-
   //  Return max number of beats among all the dancers
   CallContext.prototype.maxBeats = function() {
     return this.dancers.reduce(function(v,d) {
       return Math.max(v,d.path.beats());
     },0);
   };
-
+  
   //  Level off the number of beats for each dancer
   CallContext.prototype.levelBeats = function()
   {

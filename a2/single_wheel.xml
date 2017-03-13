@@ -95,8 +95,24 @@
     </path>
   </tam>
 
+  <tam title="Single Wheel" from="Right-Hand Two-Faced Lines"
+       formation="Two-Faced Lines RH">
+    <path>
+      <move select="Flip Right" offsetX="1" />
+    </path>
+    <path>
+      <move select="U-Turn Left" offsetX="-1" />
+    </path>
+    <path>
+      <move select="U-Turn Left" offsetX="-1" />
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="1" />
+    </path>
+  </tam>
+
   <tam title="Single Wheel"
-       from="Waves"
+       from="Right-Hand Waves"
        formation="Ocean Waves RH BGBG">
     <path>
       <move select="Flip Right" offsetX="1" />
@@ -109,6 +125,23 @@
     </path>
     <path>
       <move select="Flip Right" offsetX="1" />
+    </path>
+  </tam>
+
+  <tam title="Single Wheel"
+       from="Left-Hand Waves"
+       formation="Ocean Waves LH BGBG">
+    <path>
+      <move select="Flip Left" offsetX="1" />
+    </path>
+    <path>
+      <move select="U-Turn Left" offsetX="1" />
+    </path>
+    <path>
+      <move select="U-Turn Left" offsetX="1" />
+    </path>
+    <path>
+      <move select="Flip Left" offsetX="1" />
     </path>
   </tam>
 

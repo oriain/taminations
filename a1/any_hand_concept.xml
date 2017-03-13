@@ -22,7 +22,7 @@
 -->
 <tamination title="Any Hand Concept">
 
-  <tam title="Any Hand Swing Thru" formation="Inverted Lines Ends Facing Out"
+  <tam title="Any Hand Swing Thru (Ends Facing Out)" formation="Inverted Lines Ends Facing Out"
       fractions="3" group="Any Hand">
     <path numbers="5 4">
       <move select="Swing Left"/>
@@ -37,6 +37,24 @@
     <path numbers="8 1">
       <move select="Swing Right"/>
       <move select="Flip Left"/>
+    </path>
+  </tam>
+
+  <tam title="Any Hand Swing Thru" formation="Inverted Lines Ends Facing In"
+       fractions="3" group="Any Hand">
+    <path>
+      <move select="Swing Right"/>
+      <move select="Flip Left"/>
+    </path>
+    <path>
+      <move select="Swing Right"/>
+    </path>
+    <path>
+      <move select="Swing Left"/>
+    </path>
+    <path>
+      <move select="Swing Left"/>
+      <move select="Run Right"/>
     </path>
   </tam>
 

@@ -42,6 +42,15 @@ define(['vector'],function(Vector) {
       this.y2 = tx.y2;
       this.y3 = tx.y3;
     }
+    else if (tx instanceof Array) {
+      //  Convert a 2-D array to an AffineTransform object
+      this.x1 = tx[0][0];
+      this.x2 = tx[0][1];
+      this.x3 = tx[0][2] || 0;
+      this.y1= tx[1][0];
+      this.y2 = tx[1][1];
+      this.y3 = tx[1][2] || 0;
+    }
   };
 
   Object.defineProperties(AffineTransform.prototype, {
