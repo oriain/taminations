@@ -27,7 +27,7 @@ define(['env','calls/action','path'],function(Env,Action,Path) {
     if (ctx.isInCouple(d)) {
       return TamUtils.getMove(d.beau ? "BackSashay Right" : "Sashay Left");
     }
-    throw new Error();
+    throw new CallError("Only Couples can Half Sashay");
   }
   return HalfSashay;
 });

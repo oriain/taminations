@@ -27,16 +27,8 @@ define(['env','calls/call','path'],
   XMLCall.prototype.name = '';
 
   XMLCall.prototype.performCall = function(ctx) {
-    //  Get the formation
-    var f = $(this.xelem).find('formation');
-    if (f.size() <= 0) {
-      var fs = $(this.xelem).attr('formation');
-      f = getNamedFormation(fs);
-    }
-    var allp = tam.getPath(this.xelem);
-    var xfactor = false;
-    var yfactor = false;
 
+    var allp = tam.getPath(this.xelem);
     //  If moving just some of the dancers,
     //  see if we can keep them in the same shape
     if (ctx.actives.length < ctx.dancers.length) {
@@ -54,17 +46,11 @@ define(['env','calls/call','path'],
     var vdif = this.computeFormationOffsets(ctx,this.ctx2);
     this.xmlmap.forEach(function(m,i3) {
       var p = new Path(allp[m>>1]);
-      //  Scale active dancers to fit the space they are in
-      if (xfactor && yfactor) {
-        var vs = new Vector(xfactor,yfactor).rotate(this.ctx2.dancers[m].tx.angle);
-        p.scale(Math.abs(vs.x),Math.abs(vs.y));
-      } else {
       //  Compute difference between current formation and XML formation
-        var vd = vdif[i3].rotate(-ctx.actives[i3].tx.angle);
-        //  Apply formation difference to first movement of XML path
-        if (vd.distance > 0.1)
-          p.movelist.unshift(p.movelist.shift().skew(-vd.x,-vd.y));
-      }
+      var vd = vdif[i3].rotate(-ctx.actives[i3].tx.angle);
+      //  Apply formation difference to first movement of XML path
+      if (vd.distance > 0.1)
+        p.movelist.unshift(p.movelist.shift().skew(-vd.x,-vd.y));
       //  Add XML path to dancer
       ctx.actives[i3].path.add(p);
       //  Move dancer to end so any subsequent modifications (e.g. roll)
