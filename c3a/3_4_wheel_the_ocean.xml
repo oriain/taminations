@@ -74,7 +74,7 @@
   </tam>
 
   <tam title="3/4 Wheel the Ocean" from="Right-Hand Two-Faced Tidal Line"
-       parts="Two-Faced Tidal Line RH" fractions="6">
+       formation="Two-Faced Tidal Line RH" parts="6">
     <path>
       <move beats="2" select="Quarter Left" hands="right" offsetX=".33" offsetY="-.17" />
       <move beats="2" select="Quarter Left" hands="right" offsetX="-.17" offsetY="-.33" />
