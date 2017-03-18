@@ -67,12 +67,12 @@
     <path>
       <move select="Pull Left" beats="1.5" scaleX="2" scaleY=".5" />
       <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".5" />
-      <move select="U-Turn Left" />
+      <move select="U-Turn Right" />
     </path>
     <path>
       <move select="Pull Left" beats="1.5" scaleX="2" scaleY=".5" />
       <move select="Extend Right" beats="1.5" scaleX="2" scaleY=".5" />
-      <move select="U-Turn Right" />
+      <move select="U-Turn Left" />
     </path>
     <path>
       <move select="Pull Left" beats="1.5" scaleX="2" scaleY=".5" />
