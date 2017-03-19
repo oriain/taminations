@@ -57,7 +57,7 @@
   </tam>
 
   <tam title="1/4 Cast and Relay" from="Left-Hand Waves"
-       parts="Ocean Waves LH BGBG">
+       formation="Ocean Waves LH BGBG" parts="1.5;4.5;3">
     <path>
       <move select="Hinge Left"/>
       <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2"/>
