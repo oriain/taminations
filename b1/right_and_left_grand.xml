@@ -22,7 +22,7 @@
 -->
 <tamination title="Right and Left Grand Family">
 
-  <tam title="Right and Left Grand" from="Grand Circle">
+  <tam title="Right and Left Grand" from="Grand Circle" gender-specific="true">
      <formation>
       <dancer gender="boy" x="-1" y="-3" angle="0"/>
       <dancer gender="girl" x="1" y="-3" angle="180"/>
@@ -59,7 +59,7 @@
     </path>
   </tam>
 
-  <tam title="Right and Left Grand" from="Eight Chain Thru">
+  <tam title="Right and Left Grand" from="Eight Chain Thru" gender-specific="true">
      <formation>
       <dancer gender="boy" x="3" y="1" angle="180"/>
       <dancer gender="girl" x="1" y="1" angle="0"/>
@@ -97,7 +97,7 @@
     </path>
   </tam>
 
-  <tam title="Right and Left Grand" from="Trade By">
+  <tam title="Right and Left Grand" from="Trade By" gender-specific="true">
      <formation>
       <dancer gender="boy" x="3" y="-1" angle="0"/>
       <dancer gender="girl" x="3" y="1" angle="0"/>
@@ -138,7 +138,7 @@
     </path>
   </tam>
 
-  <tam title="Right and Left Grand" from="1/4 Tag">
+  <tam title="Right and Left Grand" from="1/4 Tag" gender-specific="true">
      <formation>
       <dancer gender="boy" x="3" y="1" angle="180"/>
       <dancer gender="girl" x="0" y="3" angle="0"/>
@@ -177,7 +177,7 @@
     </path>
   </tam>
 
-  <tam title="Right and Left Grand" from="3/4 Tag">
+  <tam title="Right and Left Grand" from="3/4 Tag" gender-specific="true">
      <formation>
       <dancer gender="boy" x="3" y="-1" angle="0"/>
       <dancer gender="girl" x="3" y="1" angle="0"/>
@@ -216,7 +216,7 @@
     </path>
   </tam>
 
-  <tam title="Weave the Ring" group=" ">
+  <tam title="Weave the Ring" group=" " gender-specific="true">
      <formation>
       <dancer gender="boy" x="-1" y="-3" angle="0"/>
       <dancer gender="girl" x="1" y="-3" angle="180"/>
@@ -253,7 +253,7 @@
     </path>
   </tam>
 
-  <tam title="Wrong Way Grand" from="Grand Circle" group=" ">
+  <tam title="Wrong Way Grand" from="Grand Circle" group=" " gender-specific="true">
      <formation>
        <dancer gender="girl" x="-1" y="-3" angle="0"/>
        <dancer gender="boy" x="1" y="-3" angle="180"/>
@@ -290,7 +290,7 @@
     </path>
   </tam>
 
-  <tam title="Right and Left Grand" display="none" from="after Allemande Left">
+  <tam title="Right and Left Grand" display="none" from="after Allemande Left" gender-specific="true">
      <formation>
        <dancer gender="boy" x="3.5" y="-1.5" angle="45"/>
        <dancer gender="girl" x="3.5" y="1.5" angle="315"/>
