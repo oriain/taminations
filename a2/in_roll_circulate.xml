@@ -94,7 +94,43 @@
     </path>
   </tam>
 
-  <tam title="In-Roll Circulate" from="3 and 1 Lines"
+  <tam title="In-Roll Circulate" from="3 and 1 Lines #1"
+       formation="3 and 1 lines #1" fractions="2">
+    <path>
+      <move select="Flip Left" beats="4" />
+    </path>
+    <path>
+      <move select="Flip Right" beats="4" />
+    </path>
+    <path>
+      <move select="Flip Right" beats="4" />
+    </path>
+    <path>
+      <move select="Forward 4" />
+    </path>
+  </tam>
+
+  <tam title="In-Roll Circulate" from="3 and 1 Lines #4"
+       formation="3 and 1 lines #4" fractions="2">
+    <path>
+      <move select="Forward 4" />
+    </path>
+    <path>
+      <move select="Flip Left" beats="4" />
+    </path>
+    <path>
+      <move select="Flip Left" beats="4" />
+    </path>
+    <path>
+      <move select="Flip Right" beats="4" />
+    </path>
+    <taminator>
+      There are 8 different 3 and 1 lines, but only half of them
+      have the ends in tandem required for In-Roll Circulate.
+    </taminator>
+  </tam>
+
+  <tam title="In-Roll Circulate" from="3 and 1 Lines #5"
        fractions="2">
      <formation>
       <dancer gender="boy" x="-2" y="3" angle="0"/>
@@ -114,7 +150,25 @@
     <path numbers="4 5">
       <move select="Flip Right" beats="4" />
     </path>
+    <taminator>
+      This is the third illustrated example in the defintion.
+    </taminator>
   </tam>
 
+  <tam title="In-Roll Circulate" from="3 and 1 Lines #8"
+       formation="3 and 1 lines #8" fractions="2">
+    <path>
+      <move select="Flip Left" beats="4" />
+    </path>
+    <path>
+      <move select="Flip Left" beats="4" />
+    </path>
+    <path>
+      <move select="Flip Left" beats="4" />
+    </path>
+    <path>
+      <move select="Forward 4" />
+    </path>
+  </tam>
 
 </tamination>
