@@ -32,6 +32,16 @@
     </path>
   </tam>
 
+  <tam title="Mix" from="Left-Hand Wave" formation="Wave LH" parts="3">
+    <path>
+      <move select="Dodge Left" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Run Right" scaleY="2" />
+    </path>
+  </tam>
+
   <tam title="Mix"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"

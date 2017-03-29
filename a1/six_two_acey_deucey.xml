@@ -23,7 +23,7 @@
 <tamination title="Six-Two Acey Deucey">
 
   <tam title="Six-Two Acey Deucey"
-       from="Diamonds"
+       from="Right-Hand Diamonds"
        formation="Diamonds RH Girl Points">
     <path couples="3 1">
       <move select="Lead Right" beats="4" scaleX="3" />
@@ -36,6 +36,22 @@
     </path>
     <path couples="4 2">
       <move select="Lead Right" beats="4" scaleY="3" />
+    </path>
+  </tam>
+  
+  <tam title="Six-Two Acey Deucey"
+       from="Left-Hand Diamonds"  formation="Diamonds LH Girl Points">
+    <path>
+      <move select="Lead Left" beats="4" scaleX="3" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="4" scaleY="3" />
+    </path>
+    <path>
+      <move select="Swing Right" />
+    </path>
+    <path>
+      <move select="Forward 4" />
     </path>
   </tam>
 
