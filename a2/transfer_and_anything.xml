@@ -139,6 +139,36 @@
       <move select="Swing Right"/>
     </path>
   </tam>
+  
+  <tam title="Transfer and Peel the Top" group="Transfer and">
+     <formation>
+      <dancer gender="girl" x="-1" y="3" angle="90"/>
+      <dancer gender="boy" x="-1" y="-1" angle="90"/>
+      <dancer gender="girl" x="-1" y="1" angle="90"/>
+      <dancer gender="boy" x="-1" y="-3" angle="90"/>
+    </formation>
+    <path>
+      <move select="Run Right" beats="3" scaleY="2" />
+      <move select="Forward 3" />
+      <move select="Quarter Right" offsetX="1" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Run Left" offsetX="-1" scaleY=".5"/>
+      <move select="Lead Left" beats="3" scaleX="3" scaleY="2"/>      
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Run Right" beats="3" scaleY="2" />
+      <move select="Forward" />
+      <move select="Quarter Right" offsetX="1" />
+    </path>
+    <path>
+      <move select="Forward 3" />
+      <move select="Cast Right"/>
+
+    </path>   
+  </tam>
 
   <tam title="Transfer and Box Circulate Twice" group="Transfer and"
        formation="Column RH GBGB">

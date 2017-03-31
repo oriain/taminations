@@ -25,7 +25,7 @@
   <tam title="Cut the Diamond"
        from="Right-Hand Diamond"
        formation="Diamond RH"
-       fractions="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Dodge Right" />
       <move select="Swing Right" />
@@ -55,7 +55,7 @@
   <tam title="Cut the Diamond"
        from="Facing Diamond"
        formation="Diamond Facing"
-       fractions="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Dodge Right" />
       <move select="Swing Right" />
@@ -70,7 +70,7 @@
   <tam title="Cut the Diamond"
        from="Right-Hand Diamonds"
        formation="Diamonds RH Girl Points"
-       fractions="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Forward 2" />
       <move select="Lead Right" />
@@ -92,7 +92,7 @@
   <tam title="Cut the Diamond"
        from="Left-Hand Diamonds"
        formation="Diamonds LH Girl Points"
-       fractions="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Forward 2" />
       <move select="Lead Left" />
@@ -112,9 +112,9 @@
   </tam>
 
   <tam title="Cut the Diamond"
-       from="Facing Diamonds"
+       from="Facing Diamonds, Right-Hand Wave"
        formation="Diamonds Facing Girl Points"
-       fractions="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Forward 2" />
       <move select="Lead Right" />
@@ -131,12 +131,38 @@
       <move select="Dodge Left" />
       <move select="Swing Left" />
     </path>
+  </tam>
+
+  <tam title="Cut the Diamond"
+       from="Facing Diamonds, Left-Hand Wave"
+       formation="Diamonds Facing LH Girl Points"
+       difficulty="2">
+    <path>
+      <move select="Forward 2" />
+      <move select="Lead Left" />
+    </path>
+    <path>
+      <move select="Dodge Right" />
+      <move select="Swing Right" />
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Lead Left" />
+    </path>
+    <path>
+      <move select="Dodge Right" />
+      <move select="Swing Right" />
+    </path>
+    <taminator>
+      Centers circulate on the outside, points slide togther inside.
+      Right-shoulder rule does not apply.
+    </taminator>
   </tam>
 
   <tam title="Cut the Diamond"
        from="Point-to-Point Diamonds"
        formation="Diamonds RH PTP Girl Points"
-       fractions="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Forward" beats="2" scaleX="1.5" />
       <move select="Lead Right"  beats="2"/>
@@ -159,7 +185,7 @@
   <tam title="Cut the Diamond"
        from="Diamonds, Points Facing Out"
        formation="Diamonds 3 and 1 Girl Points"
-       fractions="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Forward 2" />
       <move select="Lead Right" />

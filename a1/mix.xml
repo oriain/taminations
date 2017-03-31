@@ -164,6 +164,78 @@
       <move select="Swing Right" />
     </path>
   </tam>
+  
+  <tam title="Mix" from="Right-Hand Tidal Wave"
+       formation="Tidal Wave RH BGGB" parts="3">
+    <path>
+      <move select="Dodge Right" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Left"/>
+    </path>
+    <path>
+      <move select="Run Left"/>
+    </path>
+    <path>
+      <move select="Dodge Right" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Mix" from="Left-Hand Tidal Wave"
+       formation="Tidal Wave LH BGGB" parts="3">
+    <path>
+      <move select="Dodge Left" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Right"/>
+    </path>
+    <path>
+      <move select="Run Right"/>
+    </path>
+    <path>
+      <move select="Dodge Left" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+    </path>
+  </tam>
+  
+  <tam title="Mix" from="Right-Hand Tidal Two-Faced Line"
+       formation="Two-Faced Tidal Line RH" parts="3">
+    <path>
+      <move select="Dodge Right" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Right"/>
+    </path>
+    <path>
+      <move select="Run Right"/>
+    </path>
+    <path>
+      <move select="Dodge Right" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Mix" from="Left-Hand Tidal Two-Faced Line"
+       formation="Two-Faced Tidal Line LH" parts="3">
+    <path>
+      <move select="Dodge Left" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Left"/>
+    </path>
+    <path>
+      <move select="Run Left"/>
+    </path>
+    <path>
+      <move select="Dodge Left" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+    </path>
+  </tam>
 
   <tam title="All 8 Mix"
        from="Thar"
