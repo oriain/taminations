@@ -22,7 +22,7 @@
 -->
 <tamination title="Shakedown">
 
-  <tam title="Shakedown" from="Couples Facing Out" formation="Couples Facing Out">
+  <tam title="Shakedown" from="Couples Facing Out" formation="Couples Facing Out Compact">
     <path numbers="1 4" couples="3 1">
       <move select="U-Turn Right" offsetX="-2" offsetY="-1" />
       <move select="Quarter Right" offsetX="1" />
@@ -54,22 +54,22 @@
 
   <tam title="Shakedown"
        from="Lines Facing Out"
-       formation="Lines Facing Out">
+       formation="Lines Facing Out Compact">
     <path>
       <move select="U-Turn Right" offsetX="-1.5" offsetY="-1" />
-      <move select="Lead Right" scaleX="1.5" />
+      <move select="Lead Right" />
     </path>
     <path>
       <move select="Flip Right" />
-      <move select="Quarter Right" offsetX="1" />
+      <move select="Quarter Right" offsetX=".5" />
     </path>
     <path>
       <move select="U-Turn Right" offsetX="-1.5" offsetY="-.5" />
-      <move select="Lead Right" scaleX="1.5" scaleY=".5" />
+      <move select="Lead Right" scaleY=".5" />
     </path>
     <path>
       <move select="Flip Right" />
-      <move select="Quarter Right" offsetX="1" />
+      <move select="Quarter Right" offsetX=".5" />
     </path>
   </tam>
 
@@ -96,22 +96,22 @@
 
   <tam title="Left Shakedown"
        from="Lines Facing Out"
-       formation="Lines Facing Out">
+       formation="Lines Facing Out Compact">
     <path>
       <move select="Flip Left" />
-      <move select="Quarter Left" offsetX="1" />
+      <move select="Quarter Left" offsetX=".5" />
     </path>
     <path>
       <move select="U-Turn Left" offsetX="-1.5" offsetY=".5" />
-      <move select="Lead Left" scaleX="1.5" scaleY=".5" />
+      <move select="Lead Left" scaleY=".5" />
     </path>
     <path>
       <move select="Flip Left" />
-      <move select="Quarter Left" offsetX="1" />
+      <move select="Quarter Left" offsetX=".5" />
     </path>
     <path>
       <move select="U-Turn Left" offsetX="-1.5" offsetY="1" />
-      <move select="Lead Left" scaleX="1.5" />
+      <move select="Lead Left" />
     </path>
   </tam>
 
@@ -136,23 +136,23 @@
 
   <tam title="As Couples Shakedown"
        from="Lines Facing Out"
-       formation="Lines Facing Out"
+       formation="Lines Facing Out Compact"
        group=" " >
     <path>
-      <move select="Beau Wheel" reflect="-1" offsetX="-2" offsetY="-1" />
-      <move select="Quarter Right" hands="left" offsetX="1" />
+      <move select="Beau Wheel" reflect="-1" offsetX="-2" offsetY="-.5" />
+      <move select="Quarter Right" hands="left" offsetX=".5" />
     </path>
     <path>
-      <move select="Belle Wheel" reflect="-1" offsetX="-2" offsetY="-1" />
-      <move select="Hinge Right" scaleX="2" scaleY="2" offsetX="1" />
+      <move select="Belle Wheel" reflect="-1" offsetX="-2" offsetY="-.5" />
+      <move select="Hinge Right" scaleX="2" scaleY="2" offsetX=".5" />
     </path>
     <path>
-      <move select="Run Right" hands="left" offsetX="1" />
-      <move select="Quarter Right" hands="left" offsetY="1" />
+      <move select="Run Right" hands="left" offsetX="1.5" />
+      <move select="Quarter Right" hands="left" offsetY=".5" />
     </path>
     <path>
-      <move select="Run Right" hands="right" scaleX="3" scaleY="3" offsetX="1" />
-      <move select="Hinge Right" scaleX="2" scaleY="2" offsetY="1" />
+      <move select="Run Right" hands="right" scaleX="3" scaleY="3" offsetX="1.5" />
+      <move select="Hinge Right" scaleX="2" scaleY="2" offsetY=".5" />
     </path>
   </tam>
 
@@ -242,46 +242,46 @@
 
   <tam title="Stretch Shakedown (from lines)"
        from="Lines Facing Out"
-       formation="Lines Facing Out"
+       formation="Lines Facing Out Compact"
        group=" " >
     <path>
-      <move select="U-Turn Right" offsetX="-1.5" offsetY="-1" />
+      <move select="U-Turn Right" offsetX="-1" offsetY="-1" />
       <move select="Lead Right" scaleX="1.5" />
     </path>
     <path>
       <move select="Flip Right" />
-      <move select="Quarter Right" offsetX="1" />
+      <move select="Quarter Right" offsetX=".5" />
     </path>
     <path>
-      <move select="U-Turn Right" offsetX="-1.5" offsetY="-2.5" />
+      <move select="U-Turn Right" offsetX="-1" offsetY="-2.5" />
       <move select="Lead Right" scaleX="1.5" scaleY=".5" />
     </path>
     <path>
       <move select="Flip Right" scaleY="2" />
-      <move select="Quarter Right" offsetX="1" />
+      <move select="Quarter Right" offsetX=".5" />
     </path>
   </tam>
 
 
   <tam title="As Couples Left Shakedown"
        from="Lines Facing Out"
-       formation="Lines Facing Out"
+       formation="Lines Facing Out Compact"
        group=" ">
     <path>
-      <move select="Run Left" hands="left" scaleX="3" scaleY="3" offsetX="1" />
-      <move select="Hinge Left" scaleX="2" scaleY="2" offsetY="-1" />
+      <move select="Run Left" hands="left" scaleX="3" scaleY="3" offsetX="1.5" />
+      <move select="Hinge Left" scaleX="2" scaleY="2" offsetY="-.5" />
     </path>
     <path>
-      <move select="Run Left" hands="right" offsetX="1" />
-      <move select="Quarter Left" hands="right" offsetY="-1" />
+      <move select="Run Left" hands="right" offsetX="1.5" />
+      <move select="Quarter Left" hands="right" offsetY="-.5" />
     </path>
     <path>
-      <move select="Belle Wheel" offsetX="-2" offsetY="1" />
-      <move select="Hinge Left" scaleX="2" scaleY="2" offsetX="1" />
+      <move select="Belle Wheel" offsetX="-2" offsetY=".5" />
+      <move select="Hinge Left" scaleX="2" scaleY="2" offsetX=".5" />
     </path>
     <path>
-      <move select="Beau Wheel" offsetX="-2" offsetY="1" />
-      <move select="Quarter Left" hands="right" offsetX="1" />
+      <move select="Beau Wheel" offsetX="-2" offsetY=".5" />
+      <move select="Quarter Left" hands="right" offsetX=".5" />
     </path>
   </tam>
 
@@ -331,22 +331,22 @@
 
   <tam title="Stretch Left Shakedown (from lines)"
        from="Lines Facing Out"
-       formation="Lines Facing Out"
+       formation="Lines Facing Out Compact"
        group=" ">
     <path>
       <move select="Flip Left" scaleY="2" />
-      <move select="Quarter Left" offsetX="1" />
+      <move select="Quarter Left" offsetX=".5" />
     </path>
     <path>
-      <move select="U-Turn Left" offsetX="-1.5" offsetY="2.5" />
+      <move select="U-Turn Left" offsetX="-1" offsetY="2.5" />
       <move select="Lead Left" scaleX="1.5" scaleY=".5" />
     </path>
     <path>
       <move select="Flip Left" />
-      <move select="Quarter Left" offsetX="1" />
+      <move select="Quarter Left" offsetX=".5" />
     </path>
     <path>
-      <move select="U-Turn Left" offsetX="-1.5" offsetY="1" />
+      <move select="U-Turn Left" offsetX="-1" offsetY="1" />
       <move select="Lead Left" scaleX="1.5" />
     </path>
   </tam>
