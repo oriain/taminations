@@ -20,7 +20,7 @@
  */
 "use strict";
 
-define(['env','calls/action','path'],function(Env,Action,Path) {
+define(['env','calls/action','path',"callerror"],function(Env,Action,Path,CallError) {
   var HalfSashay = Env.extend(Action);
   HalfSashay.prototype.name = "Half Sashay";
   HalfSashay.prototype.performOne = function(d,ctx) {

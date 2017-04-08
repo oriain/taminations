@@ -236,6 +236,13 @@
     <dancer gender="girl" x="-2" y="-3" angle="0"/>
   </formation>
 
+  <formation name="Normal Lines Compact">
+    <dancer gender="boy" x="-1.5" y="3" angle="0"/>
+    <dancer gender="girl" x="-1.5" y="1" angle="0"/>
+    <dancer gender="boy" x="-1.5" y="-1" angle="0"/>
+    <dancer gender="girl" x="-1.5" y="-3" angle="0"/>
+  </formation>
+
   <formation name="Sashayed Lines">
     <dancer gender="girl" x="-2" y="3" angle="0"/>
     <dancer gender="boy" x="-2" y="1" angle="0"/>
@@ -248,6 +255,13 @@
     <dancer gender="boy" x="-2" y="1" angle="180"/>
     <dancer gender="girl" x="-2" y="-1" angle="180"/>
     <dancer gender="boy" x="-2" y="-3" angle="180"/>
+  </formation>
+
+  <formation name="Lines Facing Out Compact">
+    <dancer gender="girl" x="-1.5" y="3" angle="180"/>
+    <dancer gender="boy" x="-1.5" y="1" angle="180"/>
+    <dancer gender="girl" x="-1.5" y="-1" angle="180"/>
+    <dancer gender="boy" x="-1.5" y="-3" angle="180"/>
   </formation>
 
   <formation name="Column RH GBGB">
@@ -290,6 +304,13 @@
     <dancer gender="girl" x="-2" y="1" angle="180"/>
     <dancer gender="girl" x="-2" y="-1" angle="0"/>
     <dancer gender="boy" x="-2" y="-3" angle="180"/>
+  </formation>
+
+  <formation name="Ocean Waves RH BGGB Compact">
+    <dancer gender="boy" x="-1.5" y="3" angle="0"/>
+    <dancer gender="girl" x="-1.5" y="1" angle="180"/>
+    <dancer gender="girl" x="-1.5" y="-1" angle="0"/>
+    <dancer gender="boy" x="-1.5" y="-3" angle="180"/>
   </formation>
 
   <formation name="Ocean Waves LH BGGB">
@@ -360,6 +381,13 @@
     <dancer gender="girl" x="-2" y="1" angle="0"/>
     <dancer gender="girl" x="-2" y="-1" angle="180"/>
     <dancer gender="boy" x="-2" y="-3" angle="180"/>
+  </formation>
+
+  <formation name="Two-Faced Lines RH Compact">
+    <dancer gender="boy" x="-1.5" y="3" angle="0"/>
+    <dancer gender="girl" x="-1.5" y="1" angle="0"/>
+    <dancer gender="girl" x="-1.5" y="-1" angle="180"/>
+    <dancer gender="boy" x="-1.5" y="-3" angle="180"/>
   </formation>
 
   <formation name="Two-Faced Lines LH">
@@ -466,6 +494,14 @@
     <dancer gender="boy" x="1" y="-3" angle="90"/>
     <dancer gender="girl" x="0" y="-5" angle="0"/>
   </formation>
+  
+  <formation name="Once Removed Diamonds Tandem Centers">
+    <dancer gender="girl" x="0" y="5" angle="0"/>
+    <dancer gender="boy" x="-1" y="1" angle="90"/>
+    <dancer gender="girl" x="-1" y="-1" angle="90"/>
+    <dancer gender="boy" x="0" y="-3" angle="180"/>
+  </formation>
+
 
   <formation name="Inverted Lines Ends Facing Out">
     <dancer gender="boy" x="-2" y="3" angle="180"/>

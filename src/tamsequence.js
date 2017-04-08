@@ -175,12 +175,17 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
 
   //  Highlight a line that has an error
   TamSequence.prototype.showError = function(n) {
-    $('#calls').find('#Part'+n).addClass('callerror');
+    //  If it's the last line, then just erase it
+    if (n == this.calls.length) {
+      this.calls.pop();
+      this.updateSequence();
+    }
+    else
+      $('#calls').find('#Part'+n).addClass('callerror');
   };
 
   //  This function is called every time the text is changed by the user
   TamSequence.prototype.processCallText = function() {
-    
     //  html is the marked-up calls to stuff back into the text box
     //  so calls are highlighted, errors marked, comments colored, etc.
     var html = [];
