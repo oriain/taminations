@@ -24,19 +24,19 @@
 
   <tam title="Ah So" from="Right-Hand Wave" formation="Wave RH">
     <path numbers="1 4">
-      <move select="Run Right" hands="gripright" scaleY="2" offsetX="2" />
+      <move select="Run Right" hands="gripright" scaleX="1.5" scaleY="2" offsetX="1.5" />
     </path>
     <path numbers="2 3">
-      <move select="U-Turn Right" hands="gripright" offsetX="-2" />
+      <move select="U-Turn Right" hands="gripright" offsetX="-1.5" />
     </path>
   </tam>
 
   <tam title="Ah So" from="Left-Hand Wave" formation="Wave LH">
     <path>
-      <move select="Run Left" hands="gripleft" scaleY="2" offsetX="2" />
+      <move select="Run Left" hands="gripleft" scaleX="1.5" scaleY="2" offsetX="1.5" />
     </path>
     <path>
-      <move select="U-Turn Left" hands="gripleft" offsetX="-2" />
+      <move select="U-Turn Left" hands="gripleft" offsetX="-1.5" />
     </path>
   </tam>
 
@@ -59,8 +59,7 @@
 
   <tam title="Ah So"
        from="Left-Hand Waves"
-       formation="Ocean Waves LH BGGB"
-       fractions="" >
+       formation="Ocean Waves LH BGGB">
     <path>
       <move select="Run Left" hands="gripleft" scaleY="2" offsetX="1" />
     </path>
@@ -77,8 +76,7 @@
 
   <tam title="Ah So"
        from="Inverted Lines"
-       formation="Inverted Lines Ends Facing Out"
-       fractions="" >
+       formation="Inverted Lines Ends Facing Out">
     <path>
       <move select="Run Left" hands="gripleft" scaleY="2" offsetX="-1" />
     </path>
@@ -118,18 +116,18 @@
   <tam title="As Couples Ah So"
        from="Two-Faced Tidal Line"
        formation="Two-Faced Tidal Line RH"
-       fractions="" group=" ">
+       group=" ">
     <path>
-      <move select="Run Right" beats="5" hands="gripright" scaleX="2" scaleY="3" offsetX="2" offsetY="-.5" />
+      <move select="Run Right" beats="5" hands="gripright" scaleX="2" scaleY="3" offsetX="1.5" offsetY="-.5" />
     </path>
     <path>
-      <move select="Run Right" beats="5" hands="gripboth" offsetX="2" offsetY=".5" scaleY="2" />
+      <move select="Run Right" beats="5" hands="gripboth" offsetX="1.5" offsetY=".5" scaleY="2" />
     </path>
     <path>
-      <move select="U-Turn Right" beats="5" hands="gripboth" offsetX="-2" offsetY=".5" />
+      <move select="U-Turn Right" beats="5" hands="gripboth" offsetX="-1.5" offsetY=".5" />
     </path>
     <path>
-      <move select="Run Right" beats="5" hands="gripright" scaleY="3" offsetX="-2" offsetY="3.5" />
+      <move select="Run Right" beats="5" hands="gripright" scaleY="3" offsetX="-1.5" offsetY="3.5" />
     </path>
   </tam>
 
@@ -148,35 +146,37 @@
     </path>
   </tam>
 
-  <tam title="Stretch Ah So" from="Right-Hand Waves" formation="Ocean Waves RH BGGB" group=" ">
+  <tam title="Stretch Ah So" from="Right-Hand Waves" 
+       formation="Ocean Waves RH BGGB Compact" group=" ">
     <path>
-      <move select="Run Right" hands="gripright" scaleY="2" offsetX="3" />
+      <move select="Run Right" hands="gripright" scaleY="2" offsetX="2.5" />
     </path>
     <path>
-      <move select="U-Turn Right" hands="gripright" offsetX="-3" />
+      <move select="U-Turn Right" hands="gripright" offsetX="-2.5" />
     </path>
     <path>
-      <move select="U-Turn Right" hands="gripright" offsetX="-1" />
+      <move select="U-Turn Right" hands="gripright" offsetX="-1.5" />
     </path>
     <path>
-      <move select="Run Right" hands="gripright" scaleY="2" offsetX="1" />
+      <move select="Run Right" hands="gripright" scaleY="2" offsetX="1.5" />
     </path>
   </tam>
 
-  <tam title="Tandem Ah So" from="Right-Hand Waves" formation="Ocean Waves RH BGGB" group=" ">
+  <tam title="Tandem Ah So" from="Right-Hand Waves"
+       formation="Ocean Waves RH BGGB Compact" group=" ">
     <path>
-      <move select="Quarter Right" hands="gripright" beats="4" offsetX="4"/>
-      <move select="Quarter Right" hands="gripright" beats="4" offsetX="4" offsetY="1"/>
+      <move select="Counter Rotate Right 2 0" hands="gripright" beats="4" offsetX="2"/>
+      <move select="Counter Rotate Right 2 0" hands="gripright" beats="4" offsetX="2" offsetY=".5"/>
     </path>
     <path>
-      <move select="Quarter Right" hands="gripright" beats="4" offsetX="-3" offsetY="-2"/>
-      <move select="Quarter Right" hands="gripright" beats="4" offsetX="-2" offsetY="-2"/>
+      <move select="Counter Rotate Right -1 -3" hands="gripright" beats="4" offsetX="-1" offsetY="1"/>
+      <move select="Counter Rotate Right -1 -3" hands="gripright" beats="4" offsetX="-1" offsetY=".5"/>
     </path>
     <path>
-      <move select="U-Turn Right" hands="gripright" beats="8" offsetX="1"/>
+      <move select="U-Turn Right" hands="gripright" beats="8" offsetX=".5"/>
     </path>
     <path>
-      <move select="Run Right" hands="gripright" beats="8" offsetX="-1" scaleY="2"/>
+      <move select="Run Right" hands="gripright" beats="8" offsetX="-.5" scaleX="1.5" scaleY="2"/>
     </path>
   </tam>
 
