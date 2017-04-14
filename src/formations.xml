@@ -26,6 +26,11 @@
     <dancer gender="girl" x="-2" y="-1" angle="0" />
   </formation>
 
+  <formation name="Facing Couples Compact">
+    <dancer gender="boy" x="-1.5" y="1" angle="0" />
+    <dancer gender="girl" x="-1.5" y="-1" angle="0" />
+  </formation>
+
   <formation name="Facing Couples Close">
     <dancer gender="boy" x="-1" y="1" angle="0" />
     <dancer gender="girl" x="-1" y="-1" angle="0" />

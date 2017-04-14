@@ -22,32 +22,32 @@
 -->
 <tamination title="Cross and Turn">
 
-  <tam title="Cross and Turn" from="Facing Couples" formation="Facing Couples">
+  <tam title="Cross and Turn" from="Facing Couples" formation="Facing Couples Compact">
     <path numbers="1 4">
-      <move select="Forward" />
-      <move select="Extend Right" hands="right" beats="3" scaleX="3" scaleY="2" />
+      <move select="Forward"  />
+      <move select="Extend Right" hands="right" beats="2" scaleX="2" scaleY="2" />
     </path>
     <path numbers="2 3">
-      <move select="U-Turn Left" beats="4"/>
+      <move select="U-Turn Left" />
     </path>
   </tam>
 
   <tam title="Cross and Turn"
        from="Lines"
-       formation="Normal Lines">
+       formation="Normal Lines Compact">
     <path>
       <move select="Forward" />
-      <move select="Extend Right" hands="right" beats="3" scaleX="3" scaleY="2" />
+      <move select="Extend Right" hands="right" beats="2" scaleX="2" scaleY="2" />
     </path>
     <path>
-      <move select="U-Turn Left" beats="4"/>
+      <move select="U-Turn Left"/>
     </path>
     <path>
       <move select="Forward" />
-      <move select="Extend Right" hands="right" beats="3" scaleX="3" scaleY="2" />
+      <move select="Extend Right" hands="right" beats="2" scaleX="2" scaleY="2" />
     </path>
     <path>
-      <move select="U-Turn Left" beats="4"/>
+      <move select="U-Turn Left"/>
     </path>
   </tam>
 

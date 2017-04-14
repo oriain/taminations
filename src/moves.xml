@@ -335,6 +335,18 @@
            From the dancer's starting position if the rotation center is
            to the left of the dancer then it's a Counter Rotate Left else Right
            The X and Y numbers are the net change in position     -->
+  <!--   To calculate the control points for a given Counter Rotate
+         Counter Rotate Right X Y
+           cx1 = (x-y)/4
+           cy1 = (x+y)/4
+           cx2 = x2 - (x+y)/4
+           cy2 = y2 + (x-y)/4
+         Counter Rotate Left X Y
+           cx1 = (x+y)/4
+           cy1 = (y-x)/4
+           cx2 = x2 - (x-y)/4
+           cy2 = y2 - (x+y)/4
+   -->
   <!--  Counter rotate turning towards the right with a net forward movement  -->
   <path name="Counter Rotate Right 2 0">
     <movement hands="none" beats="2" cx1="0.5" cy1="0.5" cx2="1.5" cy2="0.5" x2="2" y2="0"
@@ -425,6 +437,25 @@
   <path name="Counter Rotate Right 5 -1">
   <movement hands="none" beats="2" cx1="1.5" cy1="1" cx2="4" cy2="0.5" x2="5" y2="-1"
                                  cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
+  </path>
+
+  <path name="Counter Rotate Right 4.5 -1.5">
+    <movement hands="none" beats="2" cx1="1.5" cy1="0.75" cx2="3.75" cy2="0" x2="4.5" y2="-1.5"
+                                 cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />  
+  </path>
+  <path name="Counter Rotate Right 1.5 -4.5">
+    <movement hands="none" beats="2" cx1="1.5" cy1="-0.75" cx2="2.25" cy2="-3" x2="1.5" y2="-4.5"
+                                 cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />  
+  </path>
+
+  <path name="Counter Rotate Left -0.5 2.5">
+    <movement hands="none" beats="2" cx1=".5" cy1="0.75" cx2="0.25" cy2="1.75" x2="-0.5" y2="2.5"
+                                   cx3="0.55" cx4="1" cy4="0.45" x4="1" y4="1" />
+  </path>
+
+  <path name="Counter Rotate Left 2.5 -0.5">
+    <movement hands="none" beats="2" cx1=".5" cy1="-0.75" cx2="1.75" cy2="-1" x2="2.5" y2="-0.5"
+                                   cx3="0.55" cx4="1" cy4="0.45" x4="1" y4="1" />
   </path>
 
   <path name="Counter Rotate Left 5 1">
