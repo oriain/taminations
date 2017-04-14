@@ -403,8 +403,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
       var b = maxbeats - d.path.beats();
       if (b > 0) {
         var m = TamUtils.translate($('path[name="Stand"]',movedata));
-        m[0].beats = b;
-        d.path.add(new Path(m));
+        d.path.add(new Path(m).changebeats(b));
       }
     });
   };
