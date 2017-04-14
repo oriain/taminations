@@ -53,7 +53,6 @@ var calldata;
 
 var levelselectors = {
       info: 'call[level="Info"]',
-      //how: 'call[sublevel="HowItWorks"]',
       basicandmainstream: 'call[level="Basic and Mainstream"]',
       basic1: 'call[sublevel="Basic 1"]',
       basic2: 'call[sublevel="Basic 2"]',
@@ -232,7 +231,10 @@ $(document).ready(
     //  Finally insert the document structure and build the menu of animations
     $("#menudiv").after(htmlstr);
     //  Parse out base file name, allowing for country codes
-    var docname = document.URL.match(/(\w+)(\.lang-..)?\.html/)[1];
+    var docname = document.URL;
+    if (!docname.match(/\.html/))
+      docname += "index.html";
+    docname = docname.match(/(\w+)(\.lang-..)?\.html/)[1];
     if (docname != 'index' && docname != 'sequence' && docname != 'embedinfo' &&
         docname != 'overview' && docname != 'howtouse' && docname != 'search' &&
         docname != 'trouble' && docname != 'download')
