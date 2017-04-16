@@ -26,23 +26,26 @@ define(['env','calls/action','calls/xmlcall'],
   Half.prototype.name = "Half";
 
   Half.prototype.perform = function(ctx,i) {
-    //  Steal the next call off the stack
-    this.call = ctx.callstack[i+1];
 
-    //  For XML calls there should be an explicit number of parts
-    //  Or assume the call is simple enought that 1/2 is half the beats
-    this.halfbeats = 0;
-    if (this.call instanceof XMLCall) {
-      //  Figure out how many beats are in half the call
-      var parts = $(this.call.xelem).attr('parts');
-      if (parts != undefined) {
-        var partnums = parts.split(';');
-        partnums.slice(0,(partnums.length+1)/2).forEach(function(b) {
-          this.halfbeats += Number(b);
-        },this);
+    if (i+1 < ctx.callstack.length) {
+      //  Steal the next call off the stack
+      this.call = ctx.callstack[i+1];
+  
+      //  For XML calls there should be an explicit number of parts
+      //  Or assume the call is simple enought that 1/2 is half the beats
+      this.halfbeats = 0;
+      if (this.call instanceof XMLCall) {
+        //  Figure out how many beats are in half the call
+        var parts = $(this.call.xelem).attr('parts');
+        if (parts != undefined) {
+          var partnums = parts.split(';');
+          partnums.slice(0,(partnums.length+1)/2).forEach(function(b) {
+            this.halfbeats += Number(b);
+          },this);
+        }
       }
+      this.prevbeats = ctx.maxBeats();
     }
-    this.prevbeats = ctx.maxBeats();
   };
 
   //  Call is performed between these two methods
