@@ -80,6 +80,22 @@
     </path>
   </tam>
 
+  <tam title="The K" from="Right-Hand Waves"
+       formation="Ocean Waves RH BGGB" fractions="1.5">
+    <path>
+      <move select="U-Turn Left"/>
+    </path>
+    <path>
+      <move select="Swing Left"/>
+    </path>
+    <path>
+      <move select="Swing Left"/>
+    </path>
+    <path>
+      <move select="U-Turn Left"/>
+    </path>
+  </tam>
+
   <tam title="The K" from="Lines Facing Out" fractions="1.5"
        formation="Lines Facing Out">
     <path>
@@ -164,6 +180,22 @@
     </path>
   </tam>
 
+  <tam title="The K" from="Tidal Two-Faced Line" fractions="1.5"
+       formation="Two-Faced Tidal Line RH">
+    <path>
+      <move select="U-Turn Left"/>
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="U-Turn Left"/>
+    </path>
+  </tam>
+
   <tam title="The K" from="Galaxy" fractions="1.5">
     <formation>
       <dancer gender="girl" y="1" x="1" angle="270"/>
@@ -182,6 +214,115 @@
     </path>
     <path>
       <move select="U-Turn Left"/>
+    </path>
+  </tam>
+
+  <tam title="As Couples the K" group=" " formation="Two-Faced Tidal Line RH">
+    <path>
+      <move select="Beau Wheel" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Belle Wheel" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Swing Left" scaleX="1.5" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Swing Left" hands="both" scaleX=".5" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Concentric the K" group=" " formation="Two-Faced Tidal Line RH">
+    <path>
+      <move select="U-Turn Left" beats="5"/>      
+    </path>
+    <path>
+      <move select="Run Right" beats="5" scaleX="2" scaleY="2.5"/>
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="5"/>      
+    </path>
+    <path>
+      <move select="Swing Left" beats="5" hands="both" scaleX=".5" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Crazy the K" group=" " parts="3;3;3" formation="Two-Faced Tidal Line RH">
+    <path>
+      <move select="U-Turn Left"/>
+      <move select="Stand" beats="3"/>
+      <move select="U-Turn Right"/>
+      <move select="Stand" beats="3"/>
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="U-Turn Right"/>
+      <move select="Flip Left" scaleY=".5"/>
+      <move select="Stand" beats="3"/>
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Stand" beats="3"/>
+      <move select="Run Right" scaleY=".5"/>
+      <move select="U-Turn Right"/>
+    </path>
+    <path>
+      <move select="U-Turn Left"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="U-Turn Right"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Cross Concentric the K" group=" " formation="Two-Faced Tidal Line RH">
+    <path>
+      <move select="Dodge Right"/>
+      <move select="U-Turn Left"/>
+    </path>
+    <path>
+      <move select="Dodge Right"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Run Right"/>
+    </path>
+    <path>
+      <move select="Run Left" scaleY="1.5"/>
+    </path>
+  </tam>
+
+  <tam title="Offset Lines the K" group=" " fractions="1.5">
+    <formation>
+      <dancer gender="boy" x="0" y="3" angle="0"/>
+      <dancer gender="girl" x="0" y="1" angle="0"/>
+      <dancer gender="girl" x="-2" y="-1" angle="180"/>
+      <dancer gender="boy" x="-2" y="-3" angle="180"/>
+    </formation>
+    <path>
+      <move select="U-Turn Left"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="-.5" offsetY="-1"/>
+      <move select="Lead Right" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="Quarter Right" offsetX="-.5" offsetY="-1"/>
+      <move select="Lead Right" scaleY="1.5"/>
+    </path>
+    <path>
+      <move select="U-Turn Left"/>
+    </path>
+  </tam>
+
+  <tam title="Once Removed the K" group=" " formation="Tidal Wave RH BGBG">
+    <path couples="1 2">
+      <move select="U-Turn Left"/>
+    </path>
+    <path couples="2 1">
+    </path>
+    <path couples="1 2">
+    </path>
+    <path couples="2 1">
     </path>
   </tam>
 
@@ -242,7 +383,9 @@
     <!-- the K -->
     <move select="Flip Left"/>
     </path>
+    <taminator>
+      This is the same as Cross the K
+    </taminator>
   </tam>
-
 
 </tamination>
