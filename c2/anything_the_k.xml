@@ -319,10 +319,13 @@
       <move select="U-Turn Left"/>
     </path>
     <path couples="2 1">
+      <move select="U-Turn Right"/>
     </path>
     <path couples="1 2">
+      <move select="Run Right" scaleX="1.5"/>
     </path>
     <path couples="2 1">
+      <move select="Run Left" scaleX=".5"/>
     </path>
   </tam>
 

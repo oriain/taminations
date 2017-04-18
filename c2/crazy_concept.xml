@@ -261,6 +261,10 @@
     </path>
   </tam>
 
+  <tamxref title="Crazy The K" group="Crazy"
+           xref-link="c2/anything_the_k"
+           xref-title="Crazy the K"/>
+
   <tam title="Crazy Trade" group="Crazy"
        formation="Lines Facing Out"
        parts="3;3;3" >

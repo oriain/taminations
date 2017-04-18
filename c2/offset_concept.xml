@@ -90,4 +90,10 @@
       <move select="Hinge Left" scaleX=".67" scaleY=".5" />
     </path>
   </tam>
+
+  <tamxref title="Offset Lines The K" group="Offset Lines"
+           xref-link="c2/anything_the_k"
+           xref-title="Offset Lines the K"/>
+
+
 </tamination>
