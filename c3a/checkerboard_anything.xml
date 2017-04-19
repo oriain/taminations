@@ -22,6 +22,25 @@
 -->
 <tamination title="Checkerboard Anything">
 
+  <tam title="Checkerboard Bounce the Boys" group="Checkerboard"
+          formation="Two-Faced Lines RH Compact">
+    <path>
+      <move select="Forward"/>
+      <move select="Extend Right" hands="right" beats="3" scaleX="2" scaleY="4"/>
+      <move select="U-Turn Right"/>
+    </path>
+    <path>
+      <move select="Forward"/>
+      <move select="Extend Right" hands="left" beats="3" scaleX="2" scaleY="4"/>
+    </path>
+    <path>
+      <move select="Flip Left"/>
+    </path>
+    <path>
+      <move select="Run Right"/>
+    </path>
+  </tam>
+
   <tam title="Checkerboard Swing Thru" group="Checkerboard" formation="Ocean Waves RH BGGB">
     <path>
       <move select="Forward 2"/>
@@ -43,18 +62,19 @@
     </path>
   </tam>
 
-  <tam title="Checkerboard Tag the Line" group="Checkerboard" formation="Two-Faced Lines RH">
+  <tam title="Checkerboard Tag the Line" group="Checkerboard" 
+       formation="Two-Faced Lines RH Compact">
     <path>
+      <move select="Forward" scaleX="1.5"/>
+      <move select="Lead Right" scaleX=".5" />
       <move select="Forward 2"/>
-      <move select="Lead Right" scaleX=".6" />
-      <move select="Forward 2"/>
-      <move select="Extend Left" scaleY="1.4" />
+      <move select="Extend Left" />
     </path>
     <path>
+      <move select="Forward" scaleX="1.5"/>
+      <move select="Lead Right" scaleX=".5" />
       <move select="Forward 2"/>
-      <move select="Lead Right" scaleX=".6" />
-      <move select="Forward 2"/>
-      <move select="Extend Left" scaleY="1.4" />
+      <move select="Extend Left" />
     </path>
     <path>
       <move select="Flip Left"/>
