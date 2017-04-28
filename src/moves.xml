@@ -458,6 +458,16 @@
                                    cx3="0.55" cx4="1" cy4="0.45" x4="1" y4="1" />
   </path>
 
+  <path name="Counter Rotate Right 1.5 3.5">
+    <movement hands="none" beats="2" cx1="-0.5" cy1="1.25" cx2="0.25" cy2="3.0" x2="1.5" y2="3.5"
+                                   cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
+  </path>
+  
+  <path name="Counter Rotate Right 3.5 1.5">
+    <movement hands="none" beats="2" cx1="0.5" cy1="1.25" cx2="2.25" cy2="2.0" x2="3.5" y2="1.5"
+                                   cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
+  </path>
+
   <path name="Counter Rotate Left 5 1">
     <move select="Counter Rotate Right 5 -1" reflect="-1" />
   </path>
@@ -482,6 +492,11 @@
 
   <path name="Counter Rotate Right 4 2">
     <movement hands="none" beats="2" cx1="0.5" cy1="1.5" cx2="2.5" cy2="2.5" x2="4" y2="2"
+                                   cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
+  </path>
+
+  <path name="Counter Rotate Right 2 4">
+    <movement hands="none" beats="2" cx1="-0.5" cy1="1.5" cx2="0.5" cy2="3.5" x2="2" y2="4"
                                    cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
   </path>
 

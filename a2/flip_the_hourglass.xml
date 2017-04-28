@@ -24,8 +24,7 @@
 
   <tam title="Flip the Hourglass"
        from="Right-Hand Hourglass"
-       formation="Hourglass RH BP"
-       fractions="" >
+       formation="Hourglass RH BP">
     <path numbers="3 6">
       <move select="Flip Right" />
     </path>
@@ -55,6 +54,30 @@
     </path>
     <path numbers="4 5" couples="4 2">
       <move select="Extend Right" beats="4" scaleX="2" scaleY="2" />
+    </path>
+  </tam>
+
+  <tam title="Flip the Hourglass"
+       from="Hourglass, outsides facing out"
+       formation="Hourglass Facing RH Box">
+    <formation>
+      <dancer gender="boy" x="-2" y="-3" angle="180"/>
+      <dancer gender="girl" x="-3" y="0" angle="90"/>
+      <dancer gender="boy" x="-2" y="3" angle="180"/>
+      <dancer gender="girl" x="0" y="1" angle="0"/>
+    </formation>
+    <path>
+      <move select="Flip Right" beats="4" />
+    </path>
+    <path>
+      <move select="Forward 2" />     
+      <move select="Lead Right" beats="2" />
+    </path>
+    <path>
+      <move select="Flip Left" beats="4"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="4" scaleX="2" scaleY="2" />
     </path>
   </tam>
 

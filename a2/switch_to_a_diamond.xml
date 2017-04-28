@@ -31,6 +31,15 @@
     </path>
   </tam>
 
+  <tam formation="Wave LH" title="Switch to a Diamond" from="Left-Hand Wave">
+    <path>
+      <move select="Lead Left" scaleY="3" beats="3" />
+    </path>
+    <path>
+      <move select="Run Left" />
+    </path>
+  </tam>
+
   <tam title="Switch to a Diamond"
        from="Right-Hand Waves"
        formation="Ocean Waves RH GBBG"
