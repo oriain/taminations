@@ -293,7 +293,7 @@ define(['tamination','cookie','handhold','color','affinetransform','vector','bez
         if (this.beat >= this.beats) {
           if (this.loop)
             this.beat = -2;
-          else
+          else if (this.running)
             this.stop();
         }
         if (this.beat > this.beats)

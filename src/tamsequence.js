@@ -33,27 +33,66 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
     this.prevtext = '';
     this.filecount = 0;
     this.calls = [];
+    this.failedTests = "";
     var me = this;
     this.tam = new TAMination('', function(t) {
       t.setFormation(me.startingFormation);
       me.startAnimations();
       me.editorSetup();
+      if (document.URL.match(/\?test/)) {
+        me.runAllTests();
+      }
     });
   };
 
   TamSequence.compattern = /[*#].*/;
 
-  //  This should not be called until jQuery is ready and all dependent modules
-  //  have been loaded.  Thus these nested functions.
-  TamSequence.sequenceSetup = function() {
-    $(document).ready(function() {
-    //  Make sure this is run *after* the document.ready function
-    //  in tampage.js.  Then initialize the animation display
-      //  before initializing the editor
-      var tam = new TAMination('', function() {
-        //startAnimations();
-        //editorSetup();
-      });
+  //  Start the asynchronous method that runs tests
+  TamSequence.prototype.runAllTests = function() {
+    this.more = true;
+    this.testnum = 1;
+    this.runOneTest();
+  }
+  
+  //  Run one test, and when it is done start up the next test
+  TamSequence.prototype.runOneTest = function() {
+    var f = "sequences/test" +
+            (this.testnum > 99 ? "" : "0") +
+            (this.testnum > 9 ? "" : "0") + this.testnum + ".txt";
+    var me = this;
+    $.ajax({
+      url: f,
+      dataType: "text",
+      //  If error reading sequence file
+      //  then we have reached the end of the tests
+      error: function() {
+        if (me.failedTests.length > 0)
+          alert("These tests failed: "+me.failedTests);
+        else
+          alert("All tests successful");
+        more = false; 
+      },
+      success: function(data) {
+        me.hasError = false;
+        try {
+          //  Load the sequence
+          me.calls = data.split("\n");
+          //  Run the sequence
+          me.updateSequence();
+        } catch (err) {
+          me.failedTests += " " + me.testnum;
+        }
+        //  On completion record the result 
+        //  and go to the next test
+        tamsvg.animationStopped = function() {
+          if (me.hasError)
+            me.failedTests += me.testnum + " ";
+          if (me.more) {
+            me.testnum += 1;
+            me.runOneTest();
+          }
+        };
+      }
     });
   }
 
@@ -338,6 +377,7 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
     catch (err) {
       if (err instanceof CallError) {
         this.showError(Number(n2)+1);
+        this.hasError = true;
         var msg = err.message.replace(/%s/,'<span class="calltext">'+callname+'</span>')+'<br/>';
         $('#errortext').html(msg);
       }
@@ -349,7 +389,7 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
     tamsvg.parts.pop();  // last part is implied
     var lastcallstart = tamsvg.beats - 2;
     tamsvg.beats = tamsvg.dancers[0].beats() + 2;
-    if (!tamsvg.running) {
+    if (!tamsvg.running && this.calls.length > 0) {
       tamsvg.beat = lastcallstart;
       tamsvg.start();
     }
