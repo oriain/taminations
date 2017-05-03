@@ -1100,24 +1100,6 @@
     </path>
   </tam>
 
-  <tam title="(From tidal formation) Concentric Reverse Explode" from="" group="(From tidal formation) Concentric"
-       formation="Tidal Wave RH BGGB">
-    <path numbers="8 1">
-      <move select="Forward 2"/>
-      <move select="Quarter Left" beats="2" offsetX="1" offsetY="-1.5" />
-    </path>
-    <path numbers="7 2">
-      <move select="Forward 2"/>
-      <move select="Quarter Right" beats="2" offsetX="1" offsetY=".5"/>
-    </path>
-    <path numbers="6 3">
-      <move select="Lead Left" beats="4" scaleY=".5" />
-    </path>
-    <path numbers="5 4">
-      <move select="Lead Right" beats="4" scaleY="1.5"/>
-    </path>
-  </tam>
-
   <tam title="(From tidal formation) Concentric Spin the Top" group="(From tidal formation) Concentric"
        formation="Tidal Wave RH BGGB">
     <path>

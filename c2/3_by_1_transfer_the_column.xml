@@ -22,7 +22,7 @@
 -->
 <tamination title="3 by 1 Transfer The Column">
 
-  <tam title="3 By 1 Transfer the Column"
+  <tam title="3 by 1 Transfer the Column"
        from="Right-Hand Columns">
     <formation>
       <dancer gender="girl" y="3" x="-1" angle="90"/>
@@ -54,7 +54,7 @@
     </path>
   </tam>
 
-  <tam title="3 By 1 Transfer the Column"
+  <tam title="3 by 1 Transfer the Column"
        from="Left-Hand Columns">
      <formation>
       <dancer gender="girl" x="3" y="-1" angle="0"/>
