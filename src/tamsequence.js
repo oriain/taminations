@@ -143,6 +143,7 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
       me.calls = [];
       $('#call').val("");        
       me.updateSequence();
+      tamsvg.rewind();
     });
     $(document).mouseup(function() { me.focusHiddenArea() });
     $('#hidden').keydown(function(e) {
