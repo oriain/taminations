@@ -141,6 +141,22 @@
       <move select="Extend Right" hands="right" beats="2" scaleX="2" scaleY=".5" />
     </path>
   </tam>
+  
+  <tam title="As Couples Extend" group="As Couples"
+       formation="Quarter Lines RH">
+    <path>
+      <move select="Extend Left" hands="right" beats="2" scaleX="1.5" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" hands="left" beats="2" scaleX="1.5" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Forward" hands="left" beats="2" scaleX="1.5"/>
+    </path>
+    <path>
+      <move select="Forward" hands="right" beats="2" scaleX="1.5"/>
+    </path>
+  </tam>
 
   <tam title="As Couples Fan the Top" group="As Couples"
        formation="Two-Faced Tidal Line RH">
