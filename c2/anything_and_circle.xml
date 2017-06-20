@@ -74,7 +74,6 @@
       <move select="Swing Right" hands="gripright" scaleX=".5" scaleY=".5" />
       <move select="Hinge Left" scaleY=".5" />
       <move select="Swing Left" />
-      <move select="Swing Left" beats="4"/>
     </path>
     <path>
       <move select="Extend Left" beats="3" scaleX="3" scaleY=".5" />

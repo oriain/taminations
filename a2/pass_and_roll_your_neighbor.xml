@@ -129,4 +129,39 @@
       <move select="Lead Right" />
     </path>
   </tam>
+  
+   <tam title="As Couples Pass and Roll Your Neighbor" group=" "
+       formation="Eight Chain Thru" >
+    <path>
+      <move select="Extend Left" hands="right" scaleY=".5" />
+      <move select="Forward 2" />
+      <move select="Swing Right" scaleX="1.5" scaleY="1.5" />
+      <move select="Forward 3" beats="2" />
+      <move select="Run Right" hands="right" scaleX="1.5" scaleY="1.5" offsetX="1" />
+      <move select="Hinge Right" scaleX="1.5" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Extend Left" hands="left" scaleY="1.5" />
+      <move select="Forward 2" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Forward 3" beats="2" />
+      <move select="Run Right" hands="left" scaleX=".5" scaleY=".5" offsetX="1" />
+      <move select="Hinge Right" scaleX=".5" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Extend Left" hands="right" scaleY=".5" />
+      <move select="Run Right" beats="5" scaleX="1.5" scaleY="1.5" />
+      <move select="Forward 2" />
+      <move select="Swing Right" scaleX="1.5" scaleY="1.5" />
+      <move select="Hinge Right" scaleX="1.5" scaleY="1.5" />
+    </path>
+    <path>
+      <move select="Extend Left" hands="left" scaleY="1.5" />
+      <move select="Run Right" beats="5" scaleX=".5" scaleY=".5" />
+      <move select="Forward 2" />
+      <move select="Swing Right" scaleX=".5" scaleY=".5" />
+      <move select="Hinge Right" scaleX=".5" scaleY=".5" />
+    </path>
+  </tam>
+  
 </tamination>
