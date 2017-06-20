@@ -33,13 +33,13 @@ define(['env','calls/action','path'],function(Env,Action,Path) {
       if (d.leader) {
         var d2 = ctx.dancerInBack(d);
         var dist = ctx.distance(d,d2);
-        if (dist > 2)
+        if (dist > 2 && dist < 4.1)
           offsetX = -(dist-2)/2;
       }
       if (d.trailer) {
         var d2 = ctx.dancerInFront(d);
         var dist = ctx.distance(d,d2);
-        if (dist > 2)
+        if (dist > 2 && dist < 4.1)
           offsetX = (dist-2)/2;
       }
     }
