@@ -127,7 +127,7 @@
   </tam>
 
   <tam title="Inpoint Triangle Circulate"
-       from="Right-Hand Diamonds" >
+       from="Tandem Centers" >
      <formation>
       <dancer gender="boy" x="0" y="-3" angle="270"/>
       <dancer gender="girl" x="-3" y="-2" angle="90"/>
