@@ -25,7 +25,6 @@
   <tam title="Peel the Top"
        from="Right-Hand Box"
        formation="Box RH"
-       difficulty="1">
        parts="3" difficulty="1">
     <path>
       <move select="Forward 2" beats="3"/>
