@@ -20,23 +20,23 @@
  */
 "use strict";
 
-define(['env','calls/quarter_turns'],function(Env,QuarterTurns) {
-  var Roll = Env.extend(QuarterTurns);
-  Roll.prototype.name = "and Roll";
-  Roll.prototype.select = function(ctx,d) {
-    //  Look at the last curve of the path
-    var rollm = d.path.movelist.reversed().find(function(m) {
-      return !m.isStand();
-    });
-    if (rollm) {
-      var roll = rollm.brotate.rolling();
-//    var roll = d.path.movelist.last().brotate.rolling();
-      if (roll < -0.1)
-        return 'Quarter Right';
-      if (roll > 0.1)
-        return 'Quarter Left';
-    }
-    return 'Stand';
+define(['env','calls/action','callcontext'],function(Env,Action,CallContext) {
+  var Circulate = Env.extend(Action);
+  Circulate.prototype.name = "Circulate";
+  Circulate.prototype.perform = function(ctx) {
+    //  If just 4 dancers, try Box Circulate
+    if (ctx.actives.length == 4)
+      ctx.applyCalls('box circulate');
+    //  If in waves or lines, then do All 8 Circulate
+    else if (ctx.isLines())
+      ctx.applyCalls('all 8 circulate');
+    //  If in columns, do Column Circulate
+    else if (ctx.isColumns())
+      ctx.applyCalls('column circulate');
+    //  Otherwise ... ???
+    else
+      throw new CallError('Cannot figure out how to Circulate.');
   };
-  return Roll;
+  Circulate.requiresxml = ['All 8 Circulate'];
+  return Circulate;
 });

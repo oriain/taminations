@@ -293,6 +293,10 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
             c.requires.forEach(function(d2) {
               me.fetchCall(d2);
             });
+          if (c.requiresxml)
+            c.requiresxml.forEach(function(x) {
+              me.fetchCall(x);
+            });
           if (--me.filecount == 0)
             me.buildSequence();
         });

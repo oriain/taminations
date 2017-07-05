@@ -225,6 +225,10 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
   {
     return this.btranslate.toString() + ' '+this.brotate.toString();
   };
+  
+  Movement.prototype.isStand = function() {
+    return this.x2 == 0 && this.y2 == 0 && this.x4 == 0 && this.y4 == 0;
+  }
 
   return Movement;
 

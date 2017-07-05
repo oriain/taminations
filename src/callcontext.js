@@ -467,7 +467,8 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     var a = Math.abs(this.angle(d));
     return !Math.isApprox(a,Math.PI/2) && a > Math.PI/2;
   };
-//Test if dancer d2 is directly in front, back. left, right of dancer d1
+  
+  //  Test if dancer d2 is directly in front, back. left, right of dancer d1
   CallContext.prototype.isInFront = function(d1,d2)
   {
     return d1 != d2 && Math.anglesEqual(this.angle(d1,d2),0);
@@ -485,7 +486,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     return d1 != d2 && Math.anglesEqual(this.angle(d1,d2),Math.PI*3/2);
   };
 
-//Return closest dancer that satisfies a given conditional
+  //  Return closest dancer that satisfies a given conditional
   CallContext.prototype.dancerClosest = function(d,f)
   {
     var ctx = this;
@@ -495,7 +496,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     },undefined);
   };
 
-//Return all dancers, ordered by distance, that satisfies a conditional
+  //  Return all dancers, ordered by distance, that satisfies a conditional
   CallContext.prototype.dancersInOrder = function(d,f)
   {
     var ctx = this;
@@ -504,7 +505,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     });
   };
 
-//Return dancer directly in front of given dancer
+  //  Return dancer directly in front of given dancer
   CallContext.prototype.dancerInFront = function(d)
   {
     return this.dancerClosest(d,function(d2) {
@@ -512,7 +513,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     },this);
   };
 
-//Return dancer directly in back of given dancer
+  //  Return dancer directly in back of given dancer
   CallContext.prototype.dancerInBack = function(d)
   {
     return this.dancerClosest(d,function(d2) {
@@ -520,7 +521,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     });
   };
 
-//Return dancer directly to the right of given dancer
+  //  Return dancer directly to the right of given dancer
   CallContext.prototype.dancerToRight = function(d)
   {
     return this.dancerClosest(d,function(d2) {
@@ -528,7 +529,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     });
   };
 
-//Return dancer directly to the left of given dancer
+  //  Return dancer directly to the left of given dancer
   CallContext.prototype.dancerToLeft = function(d)
   {
     return this.dancerClosest(d,function(d2) {
@@ -536,7 +537,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     });
   };
 
-//Return dancer that is facing this dancer
+  //  Return dancer that is facing this dancer
   CallContext.prototype.dancerFacing = function(d) {
     var d2 = this.dancerInFront(d);
     if (d2 != undefined && this.dancerInFront(d2) != d)
@@ -544,7 +545,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     return d2;
   };
 
-//Return dancers that are in between two other dancers
+  //  Return dancers that are in between two other dancers
   CallContext.prototype.inBetween = function(d1,d2)
   {
     return this.dancers.filter(function(d) {
@@ -554,7 +555,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     },this);
   };
 
-//Return all the dancers to the right, in order
+  //  Return all the dancers to the right, in order
   CallContext.prototype.dancersToRight = function(d)
   {
     return this.dancersInOrder(d,function(d2) {
@@ -562,27 +563,41 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     });
   };
 
-//Return all the dancers to the left, in order
+  //  Return all the dancers to the left, in order
   CallContext.prototype.dancersToLeft = function(d)
   {
     return this.dancersInOrder(d,function(d2) {
       return this.isLeft(d,d2);
     });
   };
+  
+  //  Return all the dancers in front, in order
+  CallContext.prototype.dancersInFront = function(d) {
+    return this.dancersInOrder(d,function(d2) {
+      return this.isInFront(d,d2);
+    })
+  }
 
-//Return true if this dancer is in a wave or mini-wave
+  //  Return all the dancers in back, in order
+  CallContext.prototype.dancersInBack = function(d) {
+    return this.dancersInOrder(d,function(d2) {
+      return this.isInBack(d,d2);
+    })
+  }
+
+  //  Return true if this dancer is in a wave or mini-wave
   CallContext.prototype.isInWave = function(d) {
     return d.partner &&
     Math.anglesEqual(this.angle(d,d.partner),this.angle(d.partner,d));
   };
 
-//Return true if this dancer is part of a couple facing same direction
+  //  Return true if this dancer is part of a couple facing same direction
   CallContext.prototype.isInCouple = function(d) {
     return d.partner &&
     Math.anglesEqual(d.tx.angle,d.partner.tx.angle);
   }
   
-//Return true if this is 4 dancers in a box
+  //  Return true if this is 4 dancers in a box
   CallContext.prototype.isBox = function()
   {
     //  Must have 4 dancers
@@ -594,7 +609,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     });
   };
 
-//Return true if this is 4 dancers in any kind of line, including waves
+  //  Return true if this is 4 dancers in any kind of line, including waves
   CallContext.prototype.isLine = function()
   {
     //  Must have 4 dancers
@@ -612,6 +627,21 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
       return Math.isApprox(d.location.y,0);
     }));
   };
+  
+  //  Return true if 8 dancers are in 2 general lines of 4 dancers each
+  CallContext.prototype.isLines = function() {
+    return this.dancers.every(function(d) {
+      return this.dancersToRight(d).length + this.dancersToLeft(d).length == 3;
+    },this);
+  };
+  
+  //  Return true if 8 dancers are in 2 general columns of 4 dancers each
+  CallContext.prototype.isColumns = function() {
+    return this.dancers.every(function(d) {
+      return this.dancersInFront(d).length + this.dancersInBack(d).length == 3;
+    },this);
+  };
+  
 
   CallContext.prototype.analyze = function(beat)
   {

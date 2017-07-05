@@ -33,6 +33,7 @@ define(['env','path','calls/call'],function(Env,Path,Call) {
        { name:'Box Counter Rotate', link:'box_counter_rotate' },
        { name:'Boys', link:'boys' },
        { name:'Centers', link:'centers' },
+       { name:'Circulate', link:'circulate'},
        { name:'Cross Run', link:'cross_run' },
        { name:'Ends', link:'ends' },
        { name:'Explode and', link:'explode_and' },
