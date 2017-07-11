@@ -66,6 +66,11 @@
     <dancer gender="girl" x="-2" y="-1" angle="180"/>
   </formation>
 
+  <formation name="Box RH Compact">
+    <dancer gender="boy" x="-1.5" y="1" angle="0"/>
+    <dancer gender="girl" x="-1.5" y="-1" angle="180"/>
+  </formation>
+
   <formation name="Box RH Boys Lead">
     <dancer gender="boy" x="-2" y="-1" angle="180"/>
     <dancer gender="girl" x="-2" y="1" angle="0"/>
@@ -74,6 +79,11 @@
   <formation name="Box LH">
     <dancer gender="boy" x="-2" y="1" angle="180"/>
     <dancer gender="girl" x="-2" y="-1" angle="0"/>
+  </formation>
+
+  <formation name="Box LH Compact">
+    <dancer gender="boy" x="-1.5" y="1" angle="180"/>
+    <dancer gender="girl" x="-1.5" y="-1" angle="0"/>
   </formation>
 
   <formation name="Box LH Girls Lead">
@@ -504,7 +514,7 @@
     <dancer gender="boy" x="1" y="-3" angle="90"/>
     <dancer gender="girl" x="0" y="-5" angle="0"/>
   </formation>
-  
+
   <formation name="Once Removed Diamonds Tandem Centers">
     <dancer gender="girl" x="0" y="5" angle="0"/>
     <dancer gender="boy" x="-1" y="1" angle="90"/>

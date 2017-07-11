@@ -24,11 +24,11 @@
 
   <tam title="Box Circulate"
        from="Right-Hand Box"
-       formation="Box RH"
+       formation="Box RH Compact"
        difficulty="1"
        fractions="2" >
     <path>
-      <move select="Forward 4" />
+      <move select="Forward 3" beats="4"/>
     </path>
     <path>
       <move select="Run Right" beats="4" />
@@ -37,13 +37,13 @@
 
   <tam title="Box Circulate"
        from="Left-Hand Box"
-       formation="Box LH"
+       formation="Box LH Compact"
        fractions="2" difficulty="2">
     <path>
       <move select="Run Left" beats="4" />
     </path>
     <path>
-      <move select="Forward 4" />
+      <move select="Forward 3" beats="4" />
     </path>
   </tam>
 
@@ -496,7 +496,7 @@
       <move select="Forward 2" beats="3" />
     </path>
   </tam>
-  
+
   <tam title="Split Circulate"
        from="Left-Hand Columns"
        formation="Column LH GBGB"
@@ -517,18 +517,18 @@
 
   <tam title="Split Circulate" from="Lines Facing Out"
        formation="Lines Facing Out" difficulty="3" fractions="1.5">
-  	<path>
-  		<move select="Flip Left"/>
-  	</path>
-  	<path>
-  		<move select="Run Right"/>
-  	</path>
-  	<path>
-  		<move select="Flip Left"/>
-  	</path>
-  	<path>
-  		<move select="Run Right"/>
-  	</path>       
+    <path>
+      <move select="Flip Left"/>
+    </path>
+    <path>
+      <move select="Run Right"/>
+    </path>
+    <path>
+      <move select="Flip Left"/>
+    </path>
+    <path>
+      <move select="Run Right"/>
+    </path>
   </tam>
 
   <tam title="Split Circulate" from="Lines Facing In"

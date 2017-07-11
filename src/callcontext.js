@@ -152,7 +152,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     var match = false;
     var ctx0 = this;
     var ctx = this;
-    
+
     //  If there are precursors, run them first so the result
     //  will be used to match formations
     //  Needed for calls like "Explode And ..."
@@ -392,7 +392,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
       return Math.max(v,d.path.beats());
     },0);
   };
-  
+
   //  Level off the number of beats for each dancer
   CallContext.prototype.levelBeats = function()
   {
@@ -467,7 +467,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     var a = Math.abs(this.angle(d));
     return !Math.isApprox(a,Math.PI/2) && a > Math.PI/2;
   };
-  
+
   //  Test if dancer d2 is directly in front, back. left, right of dancer d1
   CallContext.prototype.isInFront = function(d1,d2)
   {
@@ -570,7 +570,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
       return this.isLeft(d,d2);
     });
   };
-  
+
   //  Return all the dancers in front, in order
   CallContext.prototype.dancersInFront = function(d) {
     return this.dancersInOrder(d,function(d2) {
@@ -596,7 +596,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     return d.partner &&
     Math.anglesEqual(d.tx.angle,d.partner.tx.angle);
   }
-  
+
   //  Return true if this is 4 dancers in a box
   CallContext.prototype.isBox = function()
   {
@@ -627,21 +627,21 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
       return Math.isApprox(d.location.y,0);
     }));
   };
-  
+
   //  Return true if 8 dancers are in 2 general lines of 4 dancers each
   CallContext.prototype.isLines = function() {
     return this.dancers.every(function(d) {
       return this.dancersToRight(d).length + this.dancersToLeft(d).length == 3;
     },this);
   };
-  
+
   //  Return true if 8 dancers are in 2 general columns of 4 dancers each
   CallContext.prototype.isColumns = function() {
     return this.dancers.every(function(d) {
       return this.dancersInFront(d).length + this.dancersInBack(d).length == 3;
     },this);
   };
-  
+
 
   CallContext.prototype.analyze = function(beat)
   {
