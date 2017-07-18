@@ -20,9 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination title="Spin the Pulley">
-
-
+<tamination title="The Pulley">
 
   <tam title="Heads Spin the Pulley" from="Static Square"
        formation="Static Square" parts="7.5;2">
@@ -50,6 +48,5 @@
       <move select="U-Turn Right" beats="3" offsetX="1"/>
     </path>
   </tam>
-
 
 </tamination>

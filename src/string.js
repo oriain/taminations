@@ -96,6 +96,23 @@ define(function() {
     },{});
   };
 
+  var entityMap = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;',
+      '/': '&#x2F;',
+      '`': '&#x60;',
+      '=': '&#x3D;'
+    };
+
+    String.prototype.escapeHtml = function() {
+      return this.replace(/[&<>"'`=\/]/g, function (s) {
+        return entityMap[s];
+      });
+    }  
+  
   /**  Apply an extension to a filename, replacing any previous extension */
   String.prototype.extension = function(ext) {
     // remove any existing extension
@@ -110,7 +127,8 @@ define(function() {
     collapse: funcprop,
     alphanums: funcprop,
     toCamelCase: funcprop,
-    toArgs: funcprop
+    toArgs: funcprop,
+    escapeHTML : funcprop
   });
   return String;
 });

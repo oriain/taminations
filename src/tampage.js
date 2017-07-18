@@ -178,7 +178,7 @@ $(document).ready(
                 if (menuitem.attr('anim') != undefined)
                   onelink += '?' + menuitem.attr('anim');
                 menuhtml += '<td onclick="document.location=\''+prefix+onelink+'\'">'+
-                             menuitem.attr('title')+'</td>';
+                             menuitem.attr('title').escapeHtml()+'</td>';
               } else {
                 menuhtml += '<td><br/><strong>--'+menuitem.attr('title')+'--</strong></td>';
               }

@@ -20,7 +20,7 @@
     along with Taminations.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<tamination title="Strip the Diamond">
+<tamination title="Strip the Diamond / Hourglass">
 
   <tam title="Strip the Diamond" from="Right-Hand Diamonds">
     <formation>
@@ -61,6 +61,41 @@
     <path>
       <move select="Extend Left" beats="2" scaleX="2"/>
       <move select="Swing Right" scaleX=".5" scaleY=".5" offsetY=".5"/>
+    </path>
+  </tam>
+
+
+  <tam title="Strip the Hourglass" from="Right-Hand Hourglass" formation="Hourglass RH BP">
+    <path>
+      <move select="U-Turn Left" beats="2" offsetX="-2" offsetY="-.5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Lead Right" beats="5" scaleX="3.5" scaleY="3"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY="1.5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Cast Right" beats="5"/>
+    </path>
+  </tam>
+
+  <tam title="Strip the Hourglass" from="Left-Hand Hourglass" formation="Hourglass LH BP">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="1.5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Lead Left" beats="5" scaleX="3.5" scaleY="3"/>
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="2" offsetX="-2" offsetY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Cast Left" beats="5"/>
     </path>
   </tam>
 

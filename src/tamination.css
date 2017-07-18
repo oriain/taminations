@@ -108,6 +108,11 @@ div.command-examples > p
   text-indent: -20px;
 }
 
+div.parts {
+	text-align: right;
+  margin: 10px;
+}
+
 div.starting-formations > b,
 div.dance-action > b,
 div.ending-formation > b,
@@ -115,13 +120,18 @@ div.timing > b,
 div.styling > b,
 div.comments > b,
 div.command-examples > b,
-div.teaching-tip > b
+div.teaching-tip > b,
+div.parts > b
 {
   font-family: Helvetica, Arial, Sans Serif;
   font-weight: bold;
   color: blue;
   display: block;
   text-indent: -10px;
+}
+div.parts > b
+{
+	display: inline;
 }
 
 p { margin: 0 0 10px 0 }

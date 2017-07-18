@@ -91,7 +91,82 @@
     </path>
   </tam>
 
-  <tam title="Ah So" from="3 and 1 Lines">
+  <tam title="Ah So" from="3 and 1 Lines #1" formation="3 and 1 lines #1">
+    <path>
+      <move select="Run Left" beats="4" hands="left" scaleY="2" offsetX="1" />
+    </path>
+    <path>
+      <move select="U-Turn Left" beats="4" hands="left" offsetX="-1" />
+    </path>
+    <path>
+      <move select="U-Turn Left" beats="4" hands="gripright" offsetX="1" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" hands="gripleft" scaleY="2" offsetX="1" />
+    </path>
+  </tam>
+
+  <tam title="Ah So" from="3 and 1 Lines #2" formation="3 and 1 lines #2">
+    <path>
+      <move select="Run Right" beats="4" hands="right" scaleY="2" offsetX="1" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" hands="right" offsetX="-1" />
+    </path>
+    <path>
+      <move select="U-Turn Left" beats="4" hands="gripright" offsetX="-1" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" hands="gripleft" scaleY="2" offsetX="-1" />
+    </path>
+  </tam>
+
+  <tam title="Ah So" from="3 and 1 Lines #3" formation="3 and 1 lines #3">
+    <path>
+      <move select="Run Right" beats="4" hands="right" scaleY="2" offsetX="1" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" hands="left" offsetX="1" />
+    </path>
+    <path>
+      <move select="U-Turn Left" beats="4" hands="gripleft" offsetX="1" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" hands="gripleft" scaleY="2" offsetX="-1" />
+    </path>
+  </tam>
+
+  <tam title="Ah So" from="3 and 1 Lines #4" formation="3 and 1 lines #4">
+    <path>
+      <move select="Run Right" beats="4" hands="right" scaleY="2" offsetX="1" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" hands="left" offsetX="1" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" hands="gripright" offsetX="-1" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" hands="gripright" scaleY="2" offsetX="1" />
+    </path>
+  </tam>
+
+  <tam title="Ah So" from="3 and 1 Lines #5" formation="3 and 1 lines #5">
+    <path>
+      <move select="Run Right" beats="4" hands="right" scaleY="2" offsetX="1" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" hands="right" offsetX="-1" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" hands="gripleft" offsetX="1" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" hands="gripright" scaleY="2" offsetX="1" />
+    </path>
+  </tam>
+
+  <tam title="Ah So" from="3 and 1 Lines #6">
      <formation>
       <dancer gender="girl" x="-2" y="3" angle="180"/>
       <dancer gender="boy" x="-2" y="1" angle="0"/>
@@ -112,6 +187,35 @@
     </path>
   </tam>
 
+  <tam title="Ah So" from="3 and 1 Lines #7" formation="3 and 1 lines #7">
+    <path>
+      <move select="Run Left" beats="4" hands="left" scaleY="2" offsetX="-1" />
+    </path>
+    <path>
+      <move select="U-Turn Left" beats="4" hands="right" offsetX="-1" />
+    </path>
+    <path>
+      <move select="U-Turn Right" beats="4" hands="gripright" offsetX="-1" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" hands="gripright" scaleY="2" offsetX="1" />
+    </path>
+  </tam>
+
+  <tam title="Ah So" from="3 and 1 Lines #8" formation="3 and 1 lines #8">
+    <path>
+      <move select="Run Left" beats="4" hands="left" scaleY="2" offsetX="1" />
+    </path>
+    <path>
+      <move select="U-Turn Left" beats="4" hands="right" offsetX="1" />
+    </path>
+    <path>
+      <move select="U-Turn Left" beats="4" hands="gripleft" offsetX="-1" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" hands="gripleft" scaleY="2" offsetX="1" />
+    </path>
+  </tam>
 
   <tam title="As Couples Ah So"
        from="Two-Faced Tidal Line"
@@ -146,7 +250,7 @@
     </path>
   </tam>
 
-  <tam title="Stretch Ah So" from="Right-Hand Waves" 
+  <tam title="Stretch Ah So" from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB Compact" group=" ">
     <path>
       <move select="Run Right" hands="gripright" scaleY="2" offsetX="2.5" />

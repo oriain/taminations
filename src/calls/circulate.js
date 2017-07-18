@@ -32,7 +32,7 @@ define(['env','calls/action','callcontext','callerror'],function(Env,Action,Call
         ctx.applyCalls('box circulate');
       } catch (err) {
         if (err instanceof CallError) {
-          //  Try to find a circulate path for each dancer
+          //  That didn't work, try to find a circulate path for each dancer
           Action.prototype.perform.call(this,ctx);
         } else
           throw err;
