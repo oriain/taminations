@@ -85,6 +85,7 @@ var isMobile = {
     }
 };
 
+//  Transfer to mobile app if on mobile
 if (document.URL.search(/(b1|b2|ms|plus|a1|a2|c1|c2|c3a|c3b)/) >= 0) {
   if (isMobile.Android()) {
     document.location = document.URL.replace(/.*tamination/,'intent://view') +
