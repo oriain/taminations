@@ -24,11 +24,11 @@
 
   <tam title="1/4 Wheel the Ocean" from="Left-Hand Two-Faced Line"
        formation="Two-Faced Line LH" parts="1.5">
-    <path couples="3 1">
+    <path numbers="3 2" couples="3 1">
       <move select="BackHinge Right" />
       <move select="Stand" beats="4" hands="nohands" />
     </path>
-    <path couples="3 1">
+    <path numbers="4 1" couples="3 1">
       <move select="Hinge Left" />
       <move select="Extend Left" hands="right" beats="3" scaleX="3" scaleY="2" />
       <move select="Forward" />

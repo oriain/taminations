@@ -24,13 +24,13 @@
   
   <tam title="3/4 Wheel the Sea" from="Right-Hand Two-Faced Line"
        formation="Two-Faced Line RH" parts="4.5" >
-    <path>
+    <path numbers="1 4">
       <move select="Quarter Left" hands="right" offsetX=".33" offsetY="-.33" />
       <move select="Quarter Left" hands="right" offsetX="-.33" offsetY="-.33" />
       <move select="Quarter Left" hands="right" offsetX="-.33" offsetY=".33" />
       <move select="Dodge Right" beats="4"/>
     </path>
-    <path>
+    <path numbers="2 3">
       <move select="Hinge Left" scaleX="2" scaleY="2" offsetX=".33" offsetY="-.33" />
       <move select="Hinge Left" scaleX="2" scaleY="2" offsetX="-.33" offsetY="-.33" />
       <move select="Hinge Left" scaleX="2" scaleY="2" offsetX="-.33" offsetY=".33" />

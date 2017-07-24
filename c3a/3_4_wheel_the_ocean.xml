@@ -26,13 +26,13 @@
        from="Right-Hand Two-Faced Line"
        formation="Two-Faced Line RH"
        parts="6" >
-    <path>
+    <path numbers="1 4">
       <move beats="2" select="Quarter Left" hands="right" offsetX=".33" offsetY="-.33" />
       <move beats="2" select="Quarter Left" hands="right" offsetX="-.33" offsetY="-.33" />
       <move beats="2" select="Quarter Left" hands="right" offsetX="-.33" offsetY=".33" />
       <move select="Stand" hands="none" beats="4"/>
     </path>
-    <path>
+    <path numbers="2 3">
       <move beats="2" select="Hinge Left" scaleX="2" scaleY="2" offsetX=".33" offsetY="-.33" />
       <move beats="2" select="Hinge Left" scaleX="2" scaleY="2" offsetX="-.33" offsetY="-.33" />
       <move beats="2" select="Hinge Left" scaleX="2" scaleY="2" offsetX="-.33" offsetY=".33" />

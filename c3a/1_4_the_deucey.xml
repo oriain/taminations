@@ -24,23 +24,23 @@
 
   <tam title="1/4 the Deucey" from="Right-Hand Waves"
        formation="Ocean Waves RH GBGB" fractions="2;2;2">
-    <path couples="4 2">
+    <path numbers="1 8" couples="4 2">
       <move select="Hinge Right" beats="2"/>
       <move select="Hinge Left" beats="2"/>
       <move select="Hinge Right" beats="2"/>
       <move select="Extend Left" beats="2" scaleX="2" scaleY="2"/>
     </path>
-    <path couples="4 2">
+    <path numbers="2 7" couples="4 2">
       <move select="Hinge Right" beats="2"/>
       <move select="Run Right" beats="6" scaleX="2" scaleY="3"/>
     </path>
-    <path couples="3 1">
+    <path numbers="3 6" couples="3 1">
       <move select="Hinge Right" beats="2"/>
       <move select="Hinge Left" beats="2"/>
       <move select="Stand" beats="2"/>
       <move select="Hinge Left" beats="2"/>
     </path>
-    <path couples="3 1">
+    <path numbers="4 5" couples="3 1">
       <move select="Hinge Right" beats="2"/>
       <move select="Extend Right" beats="2" scaleX="2" scaleY="2"/>
       <move select="Hinge Right" beats="2"/>
