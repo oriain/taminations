@@ -23,14 +23,14 @@
 <tamination title="Cross Chain Reaction">
 
   <tam title="Cross Chain Reaction" from="Quarter Tag" formation="Quarter Tag" fractions="5;3">
-    <path couples="2 4">
+    <path numbers="1 8" couples="2 4">
       <move select="Stand" beats="3"/>
       <move select="Hinge Right" beats="2" scaleX="2"/>
       <move select="Eighth Left" hands="left" offsetX=".353" offsetY=".647" beats="1.5"/>
       <move select="Eighth Left" hands="left" offsetX=".707" offsetY="-.207" beats="1.5"/>
       <move select="Extend Right" beats="4.5" scaleX="2" scaleY="2"/>
     </path>
-    <path couples="2 4">
+    <path numbers="2 7" couples="2 4">
       <move select="Extend Left" beats="2" scaleX="2" scaleY="2"/>
       <move select="Forward"/>
       <move select="Stand" beats="2"/>
@@ -38,12 +38,12 @@
       <move select="Eighth Right" offsetX=".707" offsetY="-.793" beats="1.5"/>
       <move select="Cast Left"/>
     </path>
-    <path couples="3 1">
+    <path numbers="6 3" couples="3 1">
       <move select="Lead Right" beats="5" scaleX="5" scaleY="3"/>
       <move select="Run Right"/>
       <move select="Cast Left"/>
     </path>
-    <path couples="3 1">
+    <path numbers="5 4" couples="3 1">
       <move select="Extend Left" beats="2" scaleX="2" scaleY="2"/>
       <move select="Forward"/>
       <move select="Quarter Right" beats="2" hands="right" offsetY="-1"/>

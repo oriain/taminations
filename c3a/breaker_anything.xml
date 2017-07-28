@@ -22,24 +22,30 @@
 -->
 <tamination title="Breaker Anything">
 
-  <tam title="Breaker 3" from="Right-Hand Columns" formation="Column RH GBGB" fractions="4.5">
-    <path>
+  <tam title="Breaker 3" from="Right-Hand Columns" fractions="4.5">
+    <formation>
+      <dancer gender="girl" y="3" x="-1" angle="90"/>
+      <dancer gender="boy" y="1" x="-1" angle="90"/>
+      <dancer gender="girl" y="-1" x="-1" angle="90"/>
+      <dancer gender="boy" y="-3" x="-1" angle="90"/>
+    </formation>
+    <path numbers="1 8">
       <move select="Hinge Right" offsetX=".333"/>
       <move select="Hinge Right" offsetY=".333"/>
       <move select="Hinge Right" offsetX="-.333"/>
       <move select="Cast Left"/>
     </path>
-    <path>
+    <path numbers="2 7">
       <move select="Quarter Right" beats="3" hands="gripright" offsetY="-2"/>
       <move select="Lead Right"/>
       <move select="Extend Left" beats="4.5" scaleX="2"/>
     </path>
-    <path>
+    <path numbers="3 6">
       <move select="Quarter Right" beats="3" hands="gripright" offsetX="2"/>
       <move select="Forward" beats="1.5"/>
       <move select="Cast Left"/>
     </path>
-    <path>
+    <path numbers="4 5">
       <move select="Hinge Right" offsetX="-.333"/>
       <move select="Hinge Right" offsetY="-.333"/>
       <move select="Hinge Right" offsetX=".333"/>

@@ -24,7 +24,7 @@
   
   
 
-  <tam title="Tag the Line Chain Thru" from="Lines Facing Out"
+  <tam title="Tag Chain Thru" from="Lines Facing Out" group=" "
        formation="Lines Facing Out" fractions="3.5">
     <path>
       <move select="Quarter Left"  offsetX="-1" offsetY="1"/>
@@ -56,14 +56,14 @@
     </path>
   </tam>
 
-  <tam title="Flip the Line Chain Thru" from="Right-Hand Waves"
+  <tam title="Flip Chain Thru" from="Right-Hand Waves" group=" "
        formation="Ocean Waves RH BGGB" fractions="6.5">
-    <path>
+    <path numbers="1 8">
       <move select="Lead Right" beats="3.5" scaleY="2" />
       <move select="Forward 3"/>
       <move select="Run Right"/>
     </path>
-    <path>
+    <path numbers="2 7">
       <move select="Run Right" />
       <move select="Lead Right" />
       <move select="Forward 2" />
@@ -72,7 +72,7 @@
       <move select="Swing Right"/>
       <move select="Forward 2"/>
     </path>
-    <path>
+    <path numbers="3 6">
       <move select="Run Right" />
       <move select="Lead Right"/>
       <move select="Forward 2"/>
@@ -81,7 +81,7 @@
       <move select="Swing Right"/>
       <move select="Forward 2"/>
     </path>
-    <path>
+    <path numbers="4 5">
       <move select="Lead Right" beats="3.5" scaleY="2" />
       <move select="Forward 3"/>
       <move select="Run Right"/>

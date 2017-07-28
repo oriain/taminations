@@ -24,7 +24,7 @@
 
   <tam title="Catch Mix 3" from="Facing Couples" group=" "
        formation="Facing Couples" parts="5;5">
-    <path>
+    <path numbers="1 4">
       <move select="Forward" />
       <move select="Pull Left" scaleY=".5" />
       <move select="Lead Right" scaleX=".5" scaleY="1.5" />
@@ -33,7 +33,7 @@
       <move select="Swing Right" scaleX="0.5" scaleY="0.5"/>
       <move select="Extend Left" beats="3" scaleX="2" scaleY=".5" />
     </path>
-    <path>
+    <path numbers="2 3">
       <move select="Forward" />
       <move select="Pull Left" scaleY=".5" />
       <move select="Lead Left" offsetX=".5" offsetY="-.5" />

@@ -22,5 +22,23 @@
 -->
 <tamination title="&lt;anything&gt; Choice">
 
+  <tam title="Choice" from="Tidal Wave" formation="Tidal Wave RH BGGB" parts="3">
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="1.5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="U-Turn Right" beats="2" offsetX="1.5" offsetY="-.5"/>
+    </path>
+    <path>
+      <move select="Lead Right" beats="3" scaleX="1.5" scaleY="1.5"/>
+      <move select="Hinge Right" beats="2" offsetY="1"/>
+    </path>
+    <path>
+      <move select="Hinge Left" beats="3" scaleX=".5" scaleY=".5"/>
+      <move select="Hinge Right" beats="2"/>
+    </path>    
+  </tam>
 
 </tamination>

@@ -23,11 +23,11 @@
 <tamination title="Couple Up">
 
   <tam title="Couple Up" from="Right-Hand Box" formation="Box RH" parts="4">
-    <path>
+    <path numbers="1 4">
       <move select="Forward 4"/>
       <move select="U-Turn Right"/>
     </path>
-    <path>
+    <path numbers="2 3">
       <move select="Run Right" beats="4"/>
     </path>
   </tam>

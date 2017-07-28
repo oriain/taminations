@@ -58,6 +58,44 @@
       <move select="Lead Right 1/2" beats="3" hands="right" scaleX="2" scaleY="2" offsetX="-.1" offsetY="1.2" />
     </path>
   </tam>
+  
+  <tam title="Right and Left Grand" from="Grand Circle 2" gender-specific="true" display="none">
+     <formation>
+      <dancer gender="boy" x="-3" y="-1.1" angle="315"/>
+      <dancer gender="girl" x="-1" y="-1.5" angle="180"/>
+      <dancer gender="boy" x="1" y="-1.5" angle="0"/>
+      <dancer gender="girl" x="3" y="-1.1" angle="225"/>
+    </formation>
+    <path>
+      <move select="Eighth Left" beats="1" offsetX=".636" offsetY=".786"/>
+      <move select="Forward" beats=".5" scaleX=".5"/>
+      <move select="Extend Right" beats="2.5" hands="left" scaleX="1.5" scaleY="2.75"/>
+      <move select="Lead Left 1/2" beats="3" hands="right" scaleX="2" scaleY="2" offsetX=".16" offsetY="1.58" />
+      <move select="Lead Left 1/2" beats="3" hands="left" scaleX="3" scaleY="3" offsetX=".52" offsetY="-1.2" />
+      <move select="Lead Left 1/2" beats="2"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="1" scaleY=".5"/>
+      <move select="Lead Right" beats="3" hands="left" scaleX=".25" scaleY="2"/>
+      <move select="Lead Right 1/2" beats="3" hands="right" scaleX="3" scaleY="3" offsetX=".52" offsetY="1.3" />
+      <move select="Lead Right 1/2" beats="3" hands="left" scaleX="2" scaleY="2" offsetX=".16" offsetY="-1.67" />
+      <move select="Lead Right 1/2" beats="2" offsetX="1" offsetY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="1" scaleY=".5"/>
+      <move select="Lead Left" beats="3" hands="left" scaleX="1.75" scaleY="1"/>
+      <move select="Lead Left 1/2" beats="3" hands="right" scaleX="2" scaleY="2" offsetX=".16" offsetY="1.58" />
+      <move select="Lead Left 1/2" beats="3" hands="left" scaleX="3" scaleY="3" offsetX=".52" offsetY="-1.2" />
+      <move select="Lead Left 1/2" beats="2"/>
+    </path>
+    <path>
+      <move select="Eighth Right" beats="1" offsetX="1.4" offsetY="-.1"/>
+      <move select="Extend Left" beats="3" hands="left" scaleX="2" scaleY=".25"/>
+      <move select="Lead Right 1/2" beats="3" hands="right" scaleX="3" scaleY="3" offsetX=".52" offsetY="1.3" />
+      <move select="Lead Right 1/2" beats="3" hands="left" scaleX="2" scaleY="2" offsetX=".16" offsetY="-1.67" />
+      <move select="Lead Right 1/2" beats="2" offsetX="1" offsetY=".5"/>
+    </path>
+  </tam>
 
   <tam title="Right and Left Grand" from="Eight Chain Thru" gender-specific="true">
      <formation>
