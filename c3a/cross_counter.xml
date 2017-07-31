@@ -73,4 +73,79 @@
     </path>
   </tam>
 
+  <tam title="Scoot and Cross Counter" group=" " parts="6;4;4.5"
+       formation="Quarter Tag">
+    <path numbers="1 8">
+      <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Swing Right" scaleX=".75" scaleY=".75" />
+      <move select="Forward" beats="1.5" scaleX="1.5" />
+      <move select="Run Left" beats="4" scaleX="2" offsetX="-2" scaleY="2"/>
+      <move select="Extend Left" beats="1.5" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Flip Right" offsetX="2" offsetY="1.5"/>
+    </path>
+    <path numbers="2 7">
+      <move select="Forward" beats="1.5" scaleX="1.5" />
+      <move select="Swing Right" scaleX=".75" scaleY=".75" />
+      <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Run Right" beats="4" offsetX="-2" scaleY="2"/>
+      <move select="Extend Left" beats="1.5" scaleY=".5"/>
+      <move select="Swing Right" scaleX=".5" scaleY=".5"/>
+      <move select="Extend Right" beats="3" scaleX="2" scaleY=".5"/>
+    </path>
+    <path numbers="6 3">
+      <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".5" />
+      <move select="Swing Right" scaleX=".75" scaleY=".75" />
+      <move select="Forward" beats="1.5" scaleX="1.5" />
+      <move select="Run Left" beats="4" scaleX=".5" scaleY="1.25"/>
+      <move select="Cast Left" scaleX=".5" scaleY=".5"/>
+      <move select="Quarter Left" beats="3" hands="gripleft" offsetY="2.5"/>
+    </path>
+    <path numbers="5 4">
+      <move select="Forward" beats="1.5" scaleX="1.5" />
+      <move select="Swing Right" scaleX=".75" scaleY=".75" />
+      <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5" />
+      <move select="Run Right" beats="4" scaleX="1.5" scaleY="1.75"/>
+      <move select="Cast Left" scaleX=".5" scaleY=".5"/>
+      <move select="Quarter Left" beats="3" hands="gripleft" offsetX="2" offsetY="-1.5"/>
+    </path>
+  </tam>
+
+  <tam title="Left Scoot and Cross Counter" group=" " parts="6;4;4.5"
+       formation="Quarter Tag LH">
+    <path>
+      <move select="Forward" beats="1.5" scaleX="1.5" />
+      <move select="Swing Left" scaleX=".75" scaleY=".75" />
+      <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Run Left" beats="4" scaleX="2" offsetX="-2" scaleY="2"/>
+      <move select="Extend Right" beats="1.5" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY="1.5" />
+      <move select="Swing Left" scaleX=".75" scaleY=".75" />
+      <move select="Forward" beats="1.5" scaleX="1.5" />
+      <move select="Run Right" beats="4" offsetX="-2" scaleY="2"/>
+      <move select="Extend Right" beats="1.5" scaleY=".5"/>
+      <move select="Swing Left" scaleX=".5" scaleY=".5"/>
+      <move select="Flip Left" offsetX="2" offsetY="-1.5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5" />
+      <move select="Swing Left" scaleX=".75" scaleY=".75" />
+      <move select="Forward" beats="1.5" scaleX="1.5" />
+      <move select="Run Right" beats="4" scaleX=".5" scaleY="1.25"/>
+      <move select="Cast Right" scaleX=".5" scaleY=".5"/>
+      <move select="Quarter Right" beats="3" hands="gripright" offsetY="-2.5"/>
+    </path>
+    <path>
+      <move select="Forward" beats="1.5" scaleX="1.5" />
+      <move select="Swing Left" scaleX=".75" scaleY=".75" />
+      <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".5" />
+      <move select="Run Left" beats="4" scaleX="1.5" scaleY="1.75"/>
+      <move select="Cast Right" scaleX=".5" scaleY=".5"/>
+      <move select="Quarter Right" beats="3" hands="gripright" offsetX="2" offsetY="1.5"/>
+    </path>
+  </tam>
 </tamination>
