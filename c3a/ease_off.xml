@@ -66,17 +66,17 @@
 
   <tam title="Ease Off" from="Right-Hand Waves"
        formation="Ocean Waves RH GBGB">
-    <path couples="4 2">
+    <path numbers="1 8" couples="4 2">
       <move select="Quarter Right" offsetX="3" beats="3"/>
     </path>
-    <path couples="4 2">
+    <path numbers="2 7" couples="4 2">
       <move select="Run Left" />
       <move select="Quarter Left" offsetX="1" />
     </path>
-    <path couples="3 1">
+    <path numbers="3 6" couples="3 1">
       <move select="Quarter Left" offsetX="3" beats="3"/>
     </path>
-    <path couples="3 1">
+    <path numbers="4 5" couples="3 1">
       <move select="Run Left" offsetX="-2" />
       <move select="Lead Left" scaleY="2" beats="2"/>
     </path>
