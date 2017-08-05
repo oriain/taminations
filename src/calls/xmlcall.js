@@ -82,7 +82,7 @@ define(['env','calls/call','path'],
       bxa[1][0] += v1.x * v2.y;
       bxa[1][1] += v1.y * v2.y;
     });
-    var mysvd = Math.svd(bxa);
+    var mysvd = Math.svd22(bxa);
     var v = new AffineTransform(mysvd.V);
     var ut = new AffineTransform(Math.transposeArray(mysvd.U));
     var rotmat = v.preConcatenate(ut);
@@ -93,7 +93,7 @@ define(['env','calls/call','path'],
       var v2 = ctx2.dancers[mapping[j]].location.concatenate(rotmat);
       dvbest[j] = v1.subtract(v2);
       dtotbest += dvbest[j].distance;
-    });     
+    });
     return dvbest;
   }
 
