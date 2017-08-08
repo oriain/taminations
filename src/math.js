@@ -100,7 +100,7 @@ define(function() {
         var atanarg2 = a * a + b * b - c * c - d * d;
         var Theta = 0.5 * Math.atan2(atanarg1,atanarg2);
         var U = [[Theta.cos, -Theta.sin],
-                 [Theta.sin, Theta.sin]];
+                 [Theta.sin, Theta.cos]];
 
         var Phi = 0.5 * Math.atan2(2 * a * b + 2 * c * d, a.sq - b.sq + c.sq - d.sq);
         var s11 = (a * Theta.cos + c * Theta.sin) * Phi.cos +
