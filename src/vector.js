@@ -41,7 +41,7 @@ define(function() {
       return Math.atan2(this.y,this.x);
     }},
     //  Return distance from origin
-    distance: { get: function() {
+    length: { get: function() {
       return Math.sqrt(this.x*this.x+this.y*this.y+this.z*this.z);
     }},
   });

@@ -53,7 +53,7 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
     this.testnum = 1;
     this.runOneTest();
   }
-  
+
   //  Run one test, and when it is done start up the next test
   TamSequence.prototype.runOneTest = function() {
     var f = "sequences/test" +
@@ -70,7 +70,7 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
           alert("These tests failed: "+me.failedTests);
         else
           alert("All tests successful");
-        more = false; 
+        more = false;
       },
       success: function(data) {
         me.hasError = false;
@@ -82,7 +82,7 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
         } catch (err) {
           me.failedTests += " " + me.testnum;
         }
-        //  On completion record the result 
+        //  On completion record the result
         //  and go to the next test
         tamsvg.animationStopped = function() {
           if (me.hasError)
@@ -99,7 +99,7 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
   TamSequence.prototype.editorSetup = function()
   {
     var me = this;
-    tamsvg.setPart = function(n) { me.setCurrentCall(n); }; 
+    tamsvg.setPart = function(n) { me.setCurrentCall(n); };
     this.updateSequence();
     $('#call').change(function() {
       me.calls.push($('#call').val());
@@ -141,7 +141,7 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
     });
     $('#clearbutton').click(function() {
       me.calls = [];
-      $('#call').val("");        
+      $('#call').val("");
       me.updateSequence();
       tamsvg.rewind();
     });
@@ -152,7 +152,7 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
       if (keynum == 13) {  //  return: process call
         me.calls.push(calltext);
         me.updateSequence();
-        $('#call').val("");        
+        $('#call').val("");
         e.preventDefault();
       } else if (keynum == 8) {  // backspace
         $('#call').val(calltext.substr(0,calltext.length-1));
@@ -180,7 +180,7 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
       },0);
     });
   };
-  
+
   TamSequence.prototype.focusHiddenArea = function() {
     var hiddenInput = $('#hidden');
     hiddenInput.val(this.callnames.join("\n"));
@@ -329,10 +329,10 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
   };
 
   TamSequence.prototype.callHTML = function(call,n) {
-    return '<div id="Part'+n+'">' + 
+    return '<div id="Part'+n+'">' +
            '<span class="deleteCall">X</span>' + n + " " + call + '</div>';
   }
-  
+
   TamSequence.prototype.buildSequence = function() {
     //  First clear out the previous animation
     tamsvg.dancers.forEach(function(d) {
@@ -372,7 +372,7 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
         tamsvg.parts.push(ctx.dancers[0].path.beats());
         this.callnames.push(ctx.callname);
         var partnum = Number(n2)+1
-        $('#Part'+partnum).replaceWith('<div id="Part'+partnum+'"><span class="deleteCall">X</span>' + 
+        $('#Part'+partnum).replaceWith('<div id="Part'+partnum+'"><span class="deleteCall">X</span>' +
             partnum + " " + ctx.callname +
             '</div>');
       } //  repeat for every call

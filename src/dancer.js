@@ -152,7 +152,7 @@ define(['path','movement','vector','affinetransform','color'],
     if (args.hidden != undefined && args.hidden)
       this.hide();
   };
-  
+
   Dancer.BOY = 1;
   Dancer.GIRL = 2;
   Dancer.PHANTOM = 3;
@@ -165,7 +165,7 @@ define(['path','movement','vector','affinetransform','color'],
     }},
     //  Return distance from center
     distance: { get: function() {
-      return this.tx.location.distance;
+      return this.tx.location.length;
     }},
     //  Return angle from dancer's facing direction to center
     centerAngle: { get: function() {

@@ -186,7 +186,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
           var sexy = $(xelem).attr('gender-specific');
           //  Try to match the formation to the current dancer positions
           var ctx2 = new CallContext(f);
-          var mm = matchFormations(ctx,ctx2,sexy);
+          var mm = matchFormations(ctx,ctx2,sexy,false);
           if (mm) {
             //  Match found
             var call = new XMLCall();
@@ -209,6 +209,34 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     return match;
   };
 
+  //  Once a mapping of two formations is found,
+  //  this computes the difference between the two.
+  CallContext.prototype.computeFormationOffsets = function(ctx2,mapping) {
+    var dvbest = [];
+    //  We don't know how the XML formation needs to be turned to overlap
+    //  the current formation.  So do an RMS fit to find the best match.
+    var bxa = [[0,0],[0,0]];
+    this.actives.forEach(function(d1,i) {
+      var v1 = d1.location;
+      var v2 = ctx2.dancers[mapping[i]].location;
+      bxa[0][0] += v1.x * v2.x;
+      bxa[0][1] += v1.y * v2.x;
+      bxa[1][0] += v1.x * v2.y;
+      bxa[1][1] += v1.y * v2.y;
+    });
+    var mysvd = Math.svd22(bxa);
+    var v = new AffineTransform(mysvd.V);
+    var ut = new AffineTransform(Math.transposeArray(mysvd.U));
+    var rotmat = v.preConcatenate(ut);
+    //  Now rotate the formation and compute any remaining
+    //  differences in position
+    this.actives.forEach(function(d2,j) {
+      var v1 = d2.location;
+      var v2 = ctx2.dancers[mapping[j]].location.concatenate(rotmat);
+      dvbest[j] = v1.subtract(v2);
+    });
+    return dvbest;
+  }
 
   /**
    *   Reads an XML formation and returns array of the dancers
@@ -297,7 +325,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     }
   }
 
-  function matchFormations(ctx1,ctx2,sexy)
+  function matchFormations(ctx1,ctx2,sexy,fuzzy)
   {
     if (ctx1.dancers.length != ctx2.dancers.length)
       return false;
@@ -311,7 +339,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
       while (nextmapping < ctx2.dancers.length) {
         mapping[mapindex] = nextmapping;
         mapping[mapindex+1] = nextmapping ^ 1;
-        if (testMapping(ctx1,ctx2,mapping,mapindex,sexy))
+        if (testMapping(ctx1,ctx2,mapping,mapindex,sexy,fuzzy))
           break;
         nextmapping++;
       }
@@ -327,7 +355,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     return mapindex < 0 ? false : mapping;
   }
 
-  function testMapping(ctx1,ctx2,mapping,i,sexy)
+  function testMapping(ctx1,ctx2,mapping,i,sexy,fuzzy)
   {
     if (sexy && (ctx1.dancers[i].gender != ctx2.dancers[mapping[i]].gender))
       return false;
@@ -339,14 +367,20 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
       var relq2 = dancerRelation(ctx1,ctx1.dancers[j],ctx1.dancers[i]);
       var relt2 = dancerRelation(ctx2,ctx2.dancers[mapping[j]],ctx2.dancers[mapping[i]]);
       //  If dancers are side-by-side, make sure handholding matches by checking distance
-      if (relq1 == 2 || relq1 == 6) {
+      if (!fuzzy && (relq1 == 2 || relq1 == 6)) {
         var d1 = ctx1.distance(i,j);
         var d2 = ctx2.distance(mapping[i],mapping[j]);
         if ((d1 < 2.1) != (d2 < 2.1))
           return false;
       }
-      //  TEMP does not allow for fuzzy matching
-      return relq1 == relt1 && relq2 == relt2;
+      if (fuzzy) {
+        var reldif1 = (relt1-relq1).abs;
+        var reldif2 = (relt2-relq2).abs;
+        return (reldif1==0 || reldif1==1 || reldif1==7) &&
+               (reldif2==0 || reldif2==1 || reldif2==7);
+      }
+      else
+        return relq1 == relt1 && relq2 == relt2;
     });
   }
 
@@ -384,6 +418,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     this.callstack.reversed().forEach(function(c,i) {
       c.postProcess(this,i);
     },this);
+    this.matchStandardFormation();
   };
 
   //  Return max number of beats among all the dancers
@@ -431,6 +466,75 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     });
   };
 
+
+  //  See if the current dancer positions resemble a standard formation
+  //  and, if so, snap to the standard
+  var standardFormations = [
+    "Normal Lines",
+    "Normal Lines Compact",
+    "Double Pass Thru",
+    "Static Square",
+    "Quarter Tag",
+    "Tidal Line RH",
+    "Diamonds RH Girl Points",
+    "Diamonds RH PTP Girl Points",
+    "Hourglass RH BP",
+    "Galaxy RH GP",
+    "Butterfly RH",
+    "O RH",
+    "Sausage RH"
+  ];
+  var grayWalk = [ 0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,3 ];
+  CallContext.prototype.matchStandardFormation = function() {
+    //  Make sure newly added animations are finished
+    this.dancers.forEach(function(d) {d.path.recalculate(); d.animateToEnd();});
+    //  Work on a copy with all dancers active, mapping only uses active dancers
+    var ctx1 = new CallContext(this);
+    ctx1.dancers.forEach(function(d) {d.active = true; });
+    var bestMapping = false;
+    standardFormations.forEach(function(f) {
+      var ctx2 = new CallContext(getNamedFormation(f));
+      grayWalk.forEach(function(g) {
+        //  See if this formation matches
+        var mapping = matchFormations(ctx1,ctx2,false,true);
+        if (mapping) {
+          //  If it does, get the offsets
+          var offsets = ctx1.computeFormationOffsets(ctx2,mapping);
+          var totOffset = offsets.reduce(function(s,v) { return s+v.length;}, 0.0 );
+          //alert(f+" offset = "+totOffset);
+          if (!bestMapping || totOffset < bestMapping.totOffset)
+            bestMapping = {
+                name: f,  // only used for debugging
+                mapping: mapping,
+                offsets: offsets,
+                totOffset: totOffset
+            };
+        }
+        //  Rotate two dancers according to the Gray code
+        ctx2.dancers[g*2].startangle += 180;
+        ctx2.dancers[g*2].computeStart();
+        ctx2.dancers[g*2+1].startangle += 180;
+        ctx2.dancers[g*2+1].computeStart();
+      });
+    });
+    if (bestMapping) {
+      //alert("Matched "+bestMapping.name);
+      this.dancers.forEach(function(d,i) {
+        if (bestMapping.offsets[i].length > 0.1) {
+          //  Get the last movement
+          var m = d.path.movelist.pop();
+          //  Transform the offset to the dancer's angle
+          d.animateToEnd();
+          var vd = bestMapping.offsets[i].rotate(-d.tx.angle);
+          //  Apply it
+          d.path.movelist.push(m.skew(-vd.x,-vd.y));
+          d.animateToEnd();
+        }
+      });
+    }
+  };
+
+  ////////////////////////////////////////////////////////////////////////////////////////
 ////Routines to analyze dancers
   CallContext.prototype.dancer = function(d)
   {
@@ -443,7 +547,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     var v = this.dancer(d1).location;
     if (d2 != undefined)
       v = v.subtract(this.dancer(d2).location);
-    return v.distance;
+    return v.length;
   };
 //Angle of d2 as viewed from d1
 //If angle is 0 then d2 is in front of d1
@@ -459,12 +563,12 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
   };
   CallContext.prototype.isFacingIn = function(d)
   {
-    var a = Math.abs(this.angle(d));
+    var a = this.angle(d).abs
     return !Math.isApprox(a,Math.PI/2) && a < Math.PI/2;
   };
   CallContext.prototype.isFacingOut = function(d)
   {
-    var a = Math.abs(this.angle(d));
+    var a = this.angle(d).abs;
     return !Math.isApprox(a,Math.PI/2) && a > Math.PI/2;
   };
 
@@ -616,7 +720,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     return this.dancers.length == 4 &&
     //  Each dancer must have right or left shoulder to origin
     this.dancers.every(function(d) {
-      return Math.isApprox(Math.abs(this.angle(d)),Math.PI/2);
+      return Math.isApprox(this.angle(d).abs,Math.PI/2);
     },this) &&
     //  All dancers must either be on the y axis
     (this.dancers.every(function(d) {

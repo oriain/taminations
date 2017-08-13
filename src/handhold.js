@@ -151,8 +151,8 @@ define(['movement','affinetransform'],function(Movement,AffineTransform) {
   /* boolean */
   Handhold.prototype.inCenter = function()
   {
-    this.isincenter = this.d1.location.distance < 1.1 &&
-    this.d2.location.distance < 1.1;
+    this.isincenter = this.d1.location.length < 1.1 &&
+                      this.d2.location.length < 1.1;
     if (this.isincenter) {
       this.ah1 = 0;
       this.ah2 = 0;

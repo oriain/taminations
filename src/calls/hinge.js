@@ -38,10 +38,11 @@ define(['env','calls/action','path'],function(Env,Action,Path) {
     if (!d2)
       return undefined;
     //  TODO handle partner hinge
+    var scalefactor = ctx.distance(d,d2)/2.0;
     if (ctx.isRight(d,d2))
-      return TamUtils.getMove("Hinge Right");
+      return TamUtils.getMove("Hinge Right").scale(scalefactor,scalefactor);
     else
-      return TamUtils.getMove("Hinge Left");
+      return TamUtils.getMove("Hinge Left").scale(scalefactor,scalefactor);
   }
   return Hinge;
 });

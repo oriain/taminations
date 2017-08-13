@@ -944,6 +944,13 @@
     <dancer gender="girl" x="-1" y="-3" angle="0"/>
   </formation>
 
+  <formation name="Sausage RH">
+    <dancer gender="boy" x="-4" y="0" angle="90"/>
+    <dancer gender="girl" x="-2" y="-1" angle="180"/>
+    <dancer gender="boy" x="0" y="1" angle="0"/>
+    <dancer gender="girl" x="2" y="-1" angle="180"/>
+  </formation>
+
  <!--   These are T-Bones, boys as trailers in a column and the girls facing out
         DLDL is 'down,left,down,left' reading the bottom line from left to right  -->
   <formation name="T-Bone DLDL">

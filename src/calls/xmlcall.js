@@ -43,13 +43,16 @@ define(['env','calls/call','path'],
       ctx3.analyze();
     }
 
-    var vdif = this.computeFormationOffsets(ctx,this.ctx2);
+    //  Once a mapping of the current formation to an XML call is found,
+    //  we need to compute the difference between the two,
+    //  and that difference will be added as an offset to the first movement
+    var vdif = ctx.computeFormationOffsets(this.ctx2,this.xmlmap);
     this.xmlmap.forEach(function(m,i3) {
       var p = new Path(allp[m>>1]);
       //  Compute difference between current formation and XML formation
       var vd = vdif[i3].rotate(-ctx.actives[i3].tx.angle);
       //  Apply formation difference to first movement of XML path
-      if (vd.distance > 0.1)
+      if (vd.length > 0.1)
         p.movelist.unshift(p.movelist.shift().skew(-vd.x,-vd.y));
       //  Add XML path to dancer
       ctx.actives[i3].path.add(p);
@@ -62,40 +65,6 @@ define(['env','calls/call','path'],
     ctx.analyze();
 
   };
-
-  //  Once a mapping of the current formation to an XML call is found,
-  //  we need to compute the difference between the two,
-  //  and that difference will be added as an offset to the first movement
-  XMLCall.prototype.computeFormationOffsets = function(ctx1,ctx2)
-  {
-    var dvbest = [];
-    var dtotbest = 0;
-    var mapping = this.xmlmap;
-    //  We don't know how the XML formation needs to be turned to overlap
-    //  the current formation.  So do an RMS fit to find the best match.
-    var bxa = [[0,0,0],[0,0,0],[0,0,0]];
-    ctx1.actives.forEach(function(d1,i) {
-      var v1 = d1.location;
-      var v2 = ctx2.dancers[mapping[i]].location;
-      bxa[0][0] += v1.x * v2.x;
-      bxa[0][1] += v1.y * v2.x;
-      bxa[1][0] += v1.x * v2.y;
-      bxa[1][1] += v1.y * v2.y;
-    });
-    var mysvd = Math.svd22(bxa);
-    var v = new AffineTransform(mysvd.V);
-    var ut = new AffineTransform(Math.transposeArray(mysvd.U));
-    var rotmat = v.preConcatenate(ut);
-    //  Now rotate the formation and compute any remaining
-    //  differences in position
-    ctx1.actives.forEach(function(d2,j) {
-      var v1 = d2.location;
-      var v2 = ctx2.dancers[mapping[j]].location.concatenate(rotmat);
-      dvbest[j] = v1.subtract(v2);
-      dtotbest += dvbest[j].distance;
-    });
-    return dvbest;
-  }
 
   return XMLCall;
 

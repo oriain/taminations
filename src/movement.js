@@ -158,7 +158,7 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
   {
     if (typeof t != 'number')
       t = this.beats;
-    var tt = Math.min(Math.max(0,t),this.fullbeats);
+    var tt = Math.min(Math.max(0,t),this.beats);
     return this.btranslate.translate(tt/this.fullbeats);
   };
 
@@ -171,7 +171,7 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
   {
     if (typeof t != 'number')
       t = this.beats;
-    var tt = Math.min(Math.max(0,t),this.fullbeats);
+    var tt = Math.min(Math.max(0,t),this.beats);
     return this.brotate.rotate(tt/this.fullbeats);
   };
 
@@ -205,12 +205,19 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
   /**
    * Return a new Movement with the end point shifted by x and y
    */
-  Movement.prototype.skew = function(x,y)
-  {
-    return new Movement(this.beats,this.hands,this.cx1,this.cy1,
-        this.cx2+x,this.cy2+y,this.x2+x,this.y2+y,
-        this.cx3,this.cx4,this.cy4,this.x4,this.y4,this.fullbeats)
+  Movement.prototype.skew = function(x,y) {
+    if (this.beats < this.fullbeats)
+      return this.skewClip(x,y);
+    else
+      return this.skewFull(x,y);
   };
+
+  Movement.prototype.skewFull = function(x,y) {
+    return new Movement(this.fullbeats,this.hands,this.cx1,this.cy1,
+        this.cx2+x,this.cy2+y,this.x2+x,this.y2+y,
+        this.cx3,this.cx4,this.cy4,this.x4,this.y4,this.beats)
+  };
+
 
   Movement.prototype.clip = function(b) {
     if (b > 0 && b < this.fullbeats)
@@ -221,11 +228,34 @@ define(['affinetransform','bezier'],function(AffineTransform,Bezier) {
       return this;
   }
 
+  /**
+   *   Skew a movement that has been clipped, adjusting so the amount of
+   *   skew is appplied to the clip point
+   */
+  Movement.prototype.skewClip = function(x,y) {
+    var vdelta = new Vector(x,y);
+    var vfinal = this.translate().location.add(vdelta);
+    var m = this;
+    var maxiter = 100;
+    do {
+      // Shift the end point by the current difference
+      m = m.skewFull(vdelta.x,vdelta.y);
+      // See how that affects the clip point
+      var loc = m.translate().location;
+      vdelta = vfinal.subtract(loc);
+      maxiter -= 1;
+    } while (vdelta.length > 0.001 && maxiter > 0);
+    //  If timed out, return original rather than something that
+    //  might put the dancers in outer space
+    return maxiter > 0 ? m : this;
+  };
+
+
   Movement.prototype.toString = function()
   {
     return this.btranslate.toString() + ' '+this.brotate.toString();
   };
-  
+
   Movement.prototype.isStand = function() {
     return this.x2 == 0 && this.y2 == 0 && this.x4 == 0 && this.y4 == 0;
   }
