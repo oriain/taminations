@@ -52,8 +52,11 @@ define(['env','calls/call','path'],
       //  Compute difference between current formation and XML formation
       var vd = vdif[i3].rotate(-ctx.actives[i3].tx.angle);
       //  Apply formation difference to first movement of XML path
-      if (vd.length > 0.1)
+      if (vd.length > 0.1 && p.movelist.length > -1) {
+        if (p.movelist.length == 0)
+          p = TamUtils.getMove("Stand");
         p.movelist.unshift(p.movelist.shift().skew(-vd.x,-vd.y));
+      }
       //  Add XML path to dancer
       ctx.actives[i3].path.add(p);
       //  Move dancer to end so any subsequent modifications (e.g. roll)
@@ -65,6 +68,15 @@ define(['env','calls/call','path'],
     ctx.analyze();
 
   };
+
+  XMLCall.prototype.postProcess = function(ctx,index) {
+    //  If just this one call then assume it knows what
+    //  the ending formation should be
+    Call.prototype.postProcess.call(this,ctx,index);
+    if (ctx.callstack.length > 1)
+      ctx.matchStandardFormation()
+  }
+
 
   return XMLCall;
 

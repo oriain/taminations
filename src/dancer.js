@@ -173,6 +173,11 @@ define(['path','movement','vector','affinetransform','color'],
     }}
   });
 
+  Dancer.prototype.rotateStartAngle = function(angle) {
+    this.startangle += angle;
+    this.computeStart();
+  }
+
   Dancer.prototype.hidePath = function()
   {
     this.pathgroup.setAttribute('visibility','hidden');

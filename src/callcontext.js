@@ -331,8 +331,8 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
       return false;
     //  Find mapping using DFS
     var mapping = [];
-    var gnippam = [];
-    ctx1.dancers.forEach(function(d,i) { mapping[i] = gnippam[i] = -1; });
+    var rotated = [];
+    ctx1.dancers.forEach(function(d,i) { mapping[i] = -1; rotated[i] = false; });
     var mapindex = 0;
     while (mapindex >= 0 && mapindex < ctx1.dancers.length) {
       var nextmapping = mapping[mapindex] + 1;
@@ -346,7 +346,15 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
       if (nextmapping >= ctx2.dancers.length) {
         //  No more mappings for this dancer
         mapping[mapindex] = mapping[mapindex+1] = -1;
-        mapindex -= 2;
+        //  If fuzzy, try rotating this dancer
+        if (fuzzy && !rotated[mapindex]) {
+          ctx1.dancers[mapindex].rotateStartAngle(180.0)
+          ctx1.dancers[mapindex+1].rotateStartAngle(180.0)
+          rotated[mapindex] = true
+        } else {
+          rotated[mapindex] = false
+          mapindex -= 2
+        }
       } else {
         //  Mapping found
         mapindex += 2;
@@ -415,10 +423,9 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     this.callstack.forEach(function(c,i) {
       c.performCall(this,i);
     },this);
-    this.callstack.reversed().forEach(function(c,i) {
+    this.callstack.forEach(function(c,i) {
       c.postProcess(this,i);
     },this);
-    this.matchStandardFormation();
   };
 
   //  Return max number of beats among all the dancers
@@ -484,7 +491,6 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     "O RH",
     "Sausage RH"
   ];
-  var grayWalk = [ 0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,3 ];
   CallContext.prototype.matchStandardFormation = function() {
     //  Make sure newly added animations are finished
     this.dancers.forEach(function(d) {d.path.recalculate(); d.animateToEnd();});
@@ -494,28 +500,20 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     var bestMapping = false;
     standardFormations.forEach(function(f) {
       var ctx2 = new CallContext(getNamedFormation(f));
-      grayWalk.forEach(function(g) {
-        //  See if this formation matches
-        var mapping = matchFormations(ctx1,ctx2,false,true);
-        if (mapping) {
-          //  If it does, get the offsets
-          var offsets = ctx1.computeFormationOffsets(ctx2,mapping);
-          var totOffset = offsets.reduce(function(s,v) { return s+v.length;}, 0.0 );
-          //alert(f+" offset = "+totOffset);
-          if (!bestMapping || totOffset < bestMapping.totOffset)
-            bestMapping = {
-                name: f,  // only used for debugging
-                mapping: mapping,
-                offsets: offsets,
-                totOffset: totOffset
-            };
+      //  See if this formation matches
+      var mapping = matchFormations(ctx1,ctx2,false,true);
+      if (mapping) {
+        //  If it does, get the offsets
+        var offsets = ctx1.computeFormationOffsets(ctx2,mapping);
+        var totOffset = offsets.reduce(function(s,v) { return s+v.length;}, 0.0 );
+        if (!bestMapping || totOffset < bestMapping.totOffset)
+          bestMapping = {
+            name: f,  // only used for debugging
+            mapping: mapping,
+            offsets: offsets,
+            totOffset: totOffset
         }
-        //  Rotate two dancers according to the Gray code
-        ctx2.dancers[g*2].startangle += 180;
-        ctx2.dancers[g*2].computeStart();
-        ctx2.dancers[g*2+1].startangle += 180;
-        ctx2.dancers[g*2+1].computeStart();
-      });
+      }
     });
     if (bestMapping) {
       //alert("Matched "+bestMapping.name);

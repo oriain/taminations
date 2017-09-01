@@ -76,7 +76,10 @@ define(['env','path','calls/call'],function(Env,Path,Call) {
        { name:'Zoom', link:'zoom' }
    ];
 
-  //  Ironically, CodedCall has no code
+  CodedCall.prototype.postProcess = function(ctx,i) {
+    Call.prototype.postProcess.call(this,ctx,i);
+    ctx.matchStandardFormation();
+  }
 
   return CodedCall;
 });

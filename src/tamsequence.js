@@ -386,8 +386,10 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
         var msg = err.message.replace(/%s/,'<span class="calltext">'+callname+'</span>')+'<br/>';
         $('#errortext').html(msg);
       }
-      else
-        throw err;
+      else {
+        this.showError(Number(n2)+1);
+        $('#errortext').html("Internal Sequencer Error<br/>" + err.toString());
+      }
     }
 
     //  All calls parsed and created
