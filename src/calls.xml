@@ -514,6 +514,7 @@
     <call title="Spin the Windmill" level="Advanced" sublevel="A-2" link="a2/spin_the_windmill"/>
     <call title="Split Circulate" level="Basic and Mainstream" sublevel="Basic 1" link="b1/circulate" anim="SplitCirculatefromRightHandWaves"/>
     <call title="Split Counter Rotate" level="Advanced" sublevel="A-2" link="a2/split_counter_rotate"/>
+    <call title="Split Counter Rotate" level="Challenge" sublevel="C-1" link="c1/split_counter_rotate"/>
     <call title="Split Dixie Diamond" level="Challenge" sublevel="C-1" link="c1/split_square_thru_variations" anim="SplitDixieDiamondfromEndsFacing"/>
     <call title="Split Dixie Style to a Wave" level="Challenge" sublevel="C-1" link="c1/split_square_thru_variations" anim="SplitDixieStyletoaWavefromEndsFacing"/>
     <call title="Split Phantom Boxes Concept" level="Challenge" sublevel="C-3B" link="c3b/split_phantom_boxes"/>
