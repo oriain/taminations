@@ -84,73 +84,67 @@
        formation="Normal Lines"
        difficulty="2">
     <path>
-      <move select="Quarter Right" offsetX=".5" />
-      <move select="Forward 3" />
-      <move select="Extend Right" scaleY=".5" />
+      <move select="Quarter Right" offsetX="1" />
+      <move select="Forward 4" />
     </path>
     <path>
-      <move select="Quarter Right" offsetX=".5" />
-      <move select="Forward 3" />
-      <move select="Extend Right" scaleY=".5" />
+      <move select="Quarter Right" offsetX="1" />
+      <move select="Forward 4" />
     </path>
     <path>
-      <move select="Quarter Left" offsetX="-.5" />
+      <move select="Quarter Left" />
       <move select="Forward 3" />
-      <move select="Extend Right" scaleY=".5" />
+      <move select="Extend Right" />
     </path>
     <path>
-      <move select="Quarter Left" offsetX="-.5" />
+      <move select="Quarter Left" />
       <move select="Forward 3" />
-      <move select="Extend Right" scaleY=".5" />
+      <move select="Extend Right" />
     </path>
   </tam>
 
   <tam title="Tag the Line" from="Lines Facing Out" formation="Lines Facing Out" difficulty="1">
     <path>
-      <move select="Quarter Left" offsetX="-.5" />
-      <move select="Forward 3" />
-      <move select="Extend Right" scaleY=".5" />
+      <move select="Quarter Left" offsetX="-1" />
+      <move select="Forward 4" />
     </path>
     <path>
-      <move select="Quarter Left" offsetX="-.5" />
-      <move select="Forward 3" />
-      <move select="Extend Right" scaleY=".5" />
+      <move select="Quarter Left" offsetX="-1" />
+      <move select="Forward 4" />
     </path>
     <path>
-      <move select="Quarter Right" offsetX=".5" />
+      <move select="Quarter Right" />
       <move select="Forward 3" />
-      <move select="Extend Right" scaleY=".5" />
+      <move select="Extend Right"/>
     </path>
     <path>
-      <move select="Quarter Right" offsetX=".5" />
+      <move select="Quarter Right"/>
       <move select="Forward 3" />
-      <move select="Extend Right" scaleY=".5" />
+      <move select="Extend Right" />
     </path>
   </tam>
 
   <tam title="Tag the Line"
        from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       fractions="" difficulty="1">
+       difficulty="1">
     <path>
-      <move select="Quarter Right" offsetX=".5" />
-      <move select="Forward 3" />
-      <move select="Extend Right" scaleY=".5" />
+      <move select="Quarter Right" offsetX="1" />
+      <move select="Forward 4" />
     </path>
     <path>
-      <move select="Quarter Right" offsetX=".5" />
-      <move select="Forward 3" />
-      <move select="Extend Right" scaleY=".5" />
+      <move select="Quarter Right" offsetX="1" />
+      <move select="Forward 4" />
     </path>
     <path>
-      <move select="Quarter Right" offsetX=".5" />
+      <move select="Quarter Right" />
       <move select="Forward 3" />
-      <move select="Extend Right" scaleY=".5" />
+      <move select="Extend Right" />
     </path>
     <path>
-      <move select="Quarter Right" offsetX=".5" />
+      <move select="Quarter Right" />
       <move select="Forward 3" />
-      <move select="Extend Right" scaleY=".5" />
+      <move select="Extend Right" />
     </path>
   </tam>
 
@@ -159,24 +153,22 @@
        formation="Two-Faced Lines LH"
        difficulty="2">
     <path>
-      <move select="Quarter Left" offsetX="-.5" />
-      <move select="Forward 3" />
-      <move select="Extend Right" scaleY=".5" />
+      <move select="Quarter Left" offsetX="-1" />
+      <move select="Forward 4" />
     </path>
     <path>
-      <move select="Quarter Left" offsetX="-.5" />
-      <move select="Forward 3" />
-      <move select="Extend Right" scaleY=".5" />
+      <move select="Quarter Left" offsetX="-1" />
+      <move select="Forward 4" />
     </path>
     <path>
-      <move select="Quarter Left" offsetX="-.5" />
+      <move select="Quarter Left" />
       <move select="Forward 3" />
-      <move select="Extend Right" scaleY=".5" />
+      <move select="Extend Right" />
     </path>
     <path>
-      <move select="Quarter Left" offsetX="-.5" />
+      <move select="Quarter Left" />
       <move select="Forward 3" />
-      <move select="Extend Right" scaleY=".5" />
+      <move select="Extend Right" />
     </path>
   </tam>
 
@@ -185,24 +177,22 @@
        formation="Ocean Waves RH BGGB"
        difficulty="2">
     <path>
-      <move select="Quarter Right" offsetX=".5" />
-      <move select="Forward 3" />
-      <move select="Extend Right" scaleY=".5" />
+      <move select="Quarter Right" offsetX="1" />
+      <move select="Forward 4" />
     </path>
     <path>
-      <move select="Quarter Left" offsetX="-.5" />
-      <move select="Forward 3" />
-      <move select="Extend Right" scaleY=".5" />
+      <move select="Quarter Left" offsetX="-1" />
+      <move select="Forward 4" />
     </path>
     <path>
-      <move select="Quarter Left" offsetX="-.5" />
+      <move select="Quarter Left" />
       <move select="Forward 3" />
-      <move select="Extend Right" scaleY=".5" />
+      <move select="Extend Right"/>
     </path>
     <path>
-      <move select="Quarter Right" offsetX=".5" />
+      <move select="Quarter Right" />
       <move select="Forward 3" />
-      <move select="Extend Right" scaleY=".5" />
+      <move select="Extend Right" />
     </path>
   </tam>
 
