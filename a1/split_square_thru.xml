@@ -82,7 +82,39 @@
     </path>
   </tam>
 
-  <tam title="Heads Start Split Square Thru 4" group=" "
+  <tam title="Left Split Square Thru" group=" "
+       formation="T-Bone ULRU">
+    <path>
+      <move select="Extend Right" scaleY=".5"/>
+      <move select="Lead Right" beats="2" scaleX="1.5" scaleY=".5"/>
+      <move select="Lead Right" beats="2" scaleX=".5" scaleY="1.5"/>
+      <move select="Lead Right" beats="2" scaleX="1.5" scaleY=".5"/>
+      <move select="Extend Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Stand"/>
+      <move select="Extend Left" beats="2" scaleY=".5"/>
+      <move select="Lead Left" beats="2" scaleX="1.5" scaleY=".5"/>
+      <move select="Lead Left" beats="2" scaleX=".5" scaleY="1.5"/>
+      <move select="Extend Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Stand"/>
+      <move select="Extend Left" beats="2" scaleY=".5"/>
+      <move select="Lead Right" beats="2" scaleX=".5" scaleY="1.5"/>
+      <move select="Lead Right" beats="2" scaleX="1.5" scaleY=".5"/>
+      <move select="Extend Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Right" scaleY=".5"/>
+      <move select="Lead Left" beats="2" scaleX=".5" scaleY="1.5"/>
+      <move select="Lead Left" beats="2" scaleX="1.5" scaleY=".5"/>
+      <move select="Lead Left" beats="2" scaleX=".5" scaleY="1.5"/>
+      <move select="Extend Right" scaleY=".5"/>
+    </path>
+  </tam>
+
+  <tam title="Heads Start Split Square Thru" group=" "
        formation="Static Square" >
     <path>
       <move select="Forward 2" />
@@ -116,7 +148,7 @@
     </path>
   </tam>
 
-  <tam title="Sides Start Split Square Thru 4" group=" "
+  <tam title="Sides Start Split Square Thru" group=" "
        formation="Static Square" >
     <path>
       <move select="Stand" beats="3.5" />
