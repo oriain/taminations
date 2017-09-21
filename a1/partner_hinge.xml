@@ -89,4 +89,73 @@
       <move select="Quarter Left" beats="2" offsetX="-1" offsetY=".5" />
     </path>
   </tam>
+
+  <tam title="Left Partner Hinge"
+       from="Lines"
+       formation="Normal Lines">
+    <path>
+      <move select="Quarter Right" beats="2" offsetX="-1" offsetY="-1" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="2" />
+    </path>
+    <path>
+      <move select="Quarter Right" beats="2" offsetX="-1" offsetY="-1" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="2" />
+    </path>
+  </tam>
+
+  <tam title="Left Partner Hinge"
+       from="Lines Facing Out"
+       formation="Lines Facing Out">
+    <path>
+      <move select="Lead Left" beats="2" />
+    </path>
+    <path>
+      <move select="Quarter Right" beats="2" offsetX="-1" offsetY="-1" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="2" />
+    </path>
+    <path>
+      <move select="Quarter Right" beats="2" offsetX="-1" offsetY="-1" />
+    </path>
+  </tam>
+
+  <tam title="Left Partner Hinge"
+       from="Eight Chain Thru"
+       formation="Eight Chain Thru">
+    <path>
+      <move select="Quarter Right" beats="2" offsetX="-.5" offsetY="-1" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="2" scaleX=".5" />
+    </path>
+    <path>
+      <move select="Quarter Right" beats="2" offsetX="-.5" offsetY="-1" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="2" scaleX=".5" />
+    </path>
+  </tam>
+
+  <tam title="Left Partner Hinge"
+       from="Tidal Line"
+       formation="Tidal Line RH">
+    <path>
+      <move select="Quarter Right" beats="2" offsetX="-1" offsetY="-.5" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="2" scaleY=".5" />
+    </path>
+    <path>
+      <move select="Quarter Right" beats="2" offsetX="-1" offsetY="-.5" />
+    </path>
+    <path>
+      <move select="Lead Left" beats="2" scaleY=".5" />
+    </path>
+  </tam>
+
 </tamination>
