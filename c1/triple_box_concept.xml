@@ -175,6 +175,38 @@
     </path>
   </tam>
 
+  <tam title="Triple Box Pass In" group="Triple Box" formation="Phantom Lines In">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Lead Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Quarter Left" offsetX="1" offsetY="-.5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Lead Right" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Quarter Left" offsetX="1" offsetY="-.5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Quarter Left" offsetX="1" offsetY="-.5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Lead Right" scaleY=".5"/>
+    </path>
+    <taminator>
+      Triple Box calls are always done in a box of 4.
+      Other dancers are ignored.
+      So here all dancers turn to face the center of their box.
+    </taminator>
+  </tam>
+
   <tam title="Triple Box Pass the Ocean" group="Triple Box">
     <formation>
       <dancer gender="boy" x="1" y="5" angle="270"/>
