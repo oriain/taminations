@@ -47,6 +47,7 @@ define(['env','path','calls/call'],function(Env,Path,Call) {
        { name:'Heads', link:'heads' },
        { name:'Hinge', link:'hinge' },
        { name:'Leaders', link:'leaders' },
+       { name:'Left Touch a Quarter', link:'left_touch_a_quarter'},
        { name:'Make Tight Wave', link:'make_tight_wave' }, // TEMP for testing
        { name:'One and a Half', link:'one_and_a_half' },
        { name:'Pass Thru', link:'pass_thru' },
