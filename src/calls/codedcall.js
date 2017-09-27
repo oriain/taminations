@@ -23,63 +23,86 @@
 
 define(['env','path','calls/call'],function(Env,Path,Call) {
   var CodedCall = Env.extend(Call);
-  CodedCall.prototype.name = '';
+  CodedCall.classes = {};
+  //  Script regex matches against call text
+  //
   CodedCall.scripts = [
-       { name:'Allemande Left', link:'allemande_left' },
-       { name:'Box the Gnat', link:'box_the_gnat' },
-       { name:'Left Turn Thru', link:'allemande_left' },
-       { name:'Beaus', link:'beaus' },
-       { name:'Belles', link:'belles' },
-       { name:'Box Counter Rotate', link:'box_counter_rotate' },
-       { name:'Boys', link:'boys' },
-       { name:'Centers', link:'centers' },
-       { name:'Circulate', link:'circulate'},
-       { name:'Cross Run', link:'cross_run' },
-       { name:'Ends', link:'ends' },
-       { name:'Explode and', link:'explode_and' },
-       { name:'Face In', link:'face_in' },
-       { name:'Face Left', link:'face_left' },
-       { name:'Face Out', link:'face_out'},
-       { name:'Face Right', link:'face_right' },
-       { name:'Girls', link:'girls' },
-       { name:'Half', link:'half' },
-       { name:'Half Sashay', link:'half_sashay' },
-       { name:'Heads', link:'heads' },
-       { name:'Hinge', link:'hinge' },
-       { name:'Leaders', link:'leaders' },
-       { name:'Left Touch a Quarter', link:'left_touch_a_quarter'},
-       { name:'Make Tight Wave', link:'make_tight_wave' }, // TEMP for testing
-       { name:'One and a Half', link:'one_and_a_half' },
-       { name:'Pass Thru', link:'pass_thru' },
-       { name:'Quarter In', link:'quarter_in' },
-       { name:'Quarter Out', link:'quarter_out' },
-       { name:'and Roll', link:'roll' },
-       { name:'Reverse Wheel Around', link:'reverse_wheel_around' },
-       { name:'Run', link:'run' },
-       { name:'Sides', link:'sides' },
-       { name:'Slide Thru', link:'slide_thru' },
-       { name:'Slip', link:'slip' },
-       { name:'and Spread', link:'spread' },
-       { name:'Star Thru', link:'star_thru' },
-       { name:'Touch a Quarter', link:'touch_a_quarter' },
-       { name:'Trade', link:'trade' },
-       { name:'Trailers', link:'trailers' },
-       { name:'Turn Back', link:'turn_back' },
-       { name:'Turn Thru', link:'turn_thru' },
-       { name:'Very Centers', link:'verycenters' },
-       { name:'Wheel Around', link:'wheel_around' },
-       { name:'Zag', link:'zag' },
-     //  { name:'Zag Zag', link:'zagzag' },
-     //  { name:'Zag Zig', link:'zagzig' },
-       { name:'Zig', link:'zig' },
-     //  { name:'Zig Zag', link:'zigzag' },
-     //  { name:'Zig Zig', link:'zigzig' },
-       { name:'Zoom', link:'zoom' }
+       { regex:'allemande left', link:'allemande_left' },
+       { regex:'box the gnat', link:'box_the_gnat' },
+       { regex:'left turn thru', link:'allemande_left' },
+       { regex:'beaus', link:'beaus' },
+       { regex:'belles', link:'belles' },
+       { regex:'box counter rotate', link:'box_counter_rotate' },
+       { regex:'boys?', link:'boys' },
+       { regex:'centers?', link:'centers' },
+       { regex:'circulate', link:'circulate'},
+       { regex:'cross run', link:'cross_run' },
+       { regex:'ends', link:'ends' },
+       { regex:'explode and', link:'explode_and' },
+       { regex:'face (in|out|left|right)', link:'face_in' },
+       { regex:'girls?', link:'girls' },
+       { regex:'half', link:'half' },
+       { regex:'half sashay', link:'half_sashay' },
+       { regex:'heads?', link:'heads' },
+       { regex:'hinge', link:'hinge' },
+       { regex:'leaders?', link:'leaders' },
+       { regex:'left touch a quarter', link:'left_touch_a_quarter'},
+       { regex:'make tight wave', link:'make_tight_wave' }, // TEMP for testing
+       { regex:'one and a half', link:'one_and_a_half' },
+       { regex:'pass thru', link:'pass_thru' },
+       { regex:'quarter (in|out)', link:'quarter_in' },
+       { regex:'and roll', link:'roll' },
+       { regex:'reverse wheel around', link:'reverse_wheel_around' },
+       { regex:'run', link:'run' },
+       { regex:'sides?', link:'sides' },
+       { regex:'slide thru', link:'slide_thru' },
+       { regex:'slip', link:'slip' },
+       { regex:'and spread', link:'spread' },
+       { regex:'star thru', link:'star_thru' },
+       { regex:'touch a quarter', link:'touch_a_quarter' },
+       { regex:'trade', link:'trade' },
+       { regex:'trailers?', link:'trailers' },
+       { regex:'turn back', link:'turn_back' },
+       { regex:'turn thru', link:'turn_thru' },
+       { regex:'very centers', link:'verycenters' },
+       { regex:'wheel around', link:'wheel_around' },
+       { regex:'zag', link:'zag' },
+     //  { regex:'Zag Zag', link:'zagzag' },
+     //  { regex:'Zag Zig', link:'zagzig' },
+       { regex:'zig', link:'zig' },
+     //  { regex:'Zig Zag', link:'zigzag' },
+     //  { regex:'Zig Zig', link:'zigzig' },
+       { regex:'zoom', link:'zoom' }
    ];
 
-  CodedCall.prototype.postProcess = function(ctx,i) {
-    Call.prototype.postProcess.call(this,ctx,i);
-    ctx.matchStandardFormation();
+  //  Dynamically load classes for the coded calls
+  //  Returns number of scripts queued to fetch with the require function
+  //  Callback run as each class is loaded
+  CodedCall.getScript = function(calltext,callback) {
+    var c = calltext.toLowerCase();
+    var fetchnum = 0;
+    CodedCall.scripts.forEach(function(s) {
+      if (c.match("^"+s.regex+"$") && !(s.regex in CodedCall.classes)) {
+        fetchnum++;
+        require(['calls/'+s.link],function(c) {
+          CodedCall.classes[s.regex] = c;
+          callback(c);
+        });
+      }
+    });
+    return fetchnum;
+  }
+
+  //  Return class that matches text
+  //  Must have been loaded with getScript
+  CodedCall.getCodedCall = function(calltext) {
+    var retval = false;
+    var c = calltext.toLowerCase();
+    CodedCall.scripts.forEach(function(s) {
+      if (c.match("^"+s.regex+"$"))
+        retval = new CodedCall.classes[s.regex](calltext);
+    });
+    return retval;
   }
 
   return CodedCall;

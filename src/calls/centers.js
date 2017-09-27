@@ -21,8 +21,9 @@
 "use strict";
 
 define(['env',"calls/filter_actives"],function(Env,FilterActives) {
-  var Centers = Env.extend(FilterActives);
-  Centers.prototype.name = "Centers";
+  var Centers = Env.extend(FilterActives,function(calltext) {
+    this.name = calltext.toCapCase();
+  });
   Centers.prototype.test = function(d) {
     return d.center;
   };

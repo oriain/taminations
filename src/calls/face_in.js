@@ -21,10 +21,16 @@
 "use strict";
 
 define(['env','calls/quarter_turns'],function(Env,QuarterTurns) {
-  var FaceIn = Env.extend(QuarterTurns);
-  FaceIn.prototype.name = "Face In";
+  var FaceIn = Env.extend(QuarterTurns, function(calltext) {
+    this.name = calltext.toCapCase();
+  });
   FaceIn.prototype.select = function(ctx,d) {
-    return ctx.angle(d) < 0 ? 'Quarter Right' : 'Quarter Left';
+    switch (this.name) {
+    case "Face In" : return ctx.angle(d) < 0 ? 'Quarter Right' : 'Quarter Left';
+    case "Face Out" : return ctx.angle(d) > 0 ? 'Quarter Right' : 'Quarter Left';
+    case "Face Left" : return 'Quarter Left';
+    case "Face Right" : return "Quarter Right";
+    }
   };
   return FaceIn;
 });

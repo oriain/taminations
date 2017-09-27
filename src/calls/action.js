@@ -23,9 +23,8 @@
 
 //  Base class for programmed calls that move the dancers
 
-define(['env','path','calls/codedcall' ],function(Env,Path,CodedCall) {
+define(['env','path','calls/call','calls/codedcall' ],function(Env,Path,Call,CodedCall) {
   var Action = Env.extend(CodedCall);
-  Action.prototype.name = '';
 
   //  Wrapper method for performing one call
   Action.prototype.performCall = function(ctx,i)
@@ -53,6 +52,11 @@ define(['env','path','calls/codedcall' ],function(Env,Path,CodedCall) {
   Action.prototype.performOne = function()
   {
     return new Path();
+  };
+
+  Action.prototype.postProcess = function(ctx,i) {
+    Call.prototype.postProcess.call(this,ctx,i);
+    ctx.matchStandardFormation();
   };
 
   return Action;

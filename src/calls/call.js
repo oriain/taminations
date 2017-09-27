@@ -23,8 +23,7 @@
 
 define(['env','path'],function(Env,Path) {
   var Call = Env.extend();
-  Call.prototype.name = '';
-  Call.classes = {};
+  Call.prototype.name = "";
   Call.xmldata = {};
   //  As the base class for all calls, these are default methods
   //  for the methods that real calls override

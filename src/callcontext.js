@@ -396,16 +396,13 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
   //  If found, the call is added to the context
   CallContext.prototype.matchCodedCall = function(calltext)
   {
-    return TAMination.searchCalls(calltext, {
-        domain: CodedCall.scripts,
-        keyfun: function(d) { return d.name; },
-        exact:true }
-    ).some(function(c) {
-      var call = new Call.classes[c.name]();
+    var call = CodedCall.getCodedCall(calltext)
+    if (call) {
       this.callstack.push(call);
       this.callname += call.name + ' ';
       return true;
-    },this);
+    }
+    return false;
   };
 
 

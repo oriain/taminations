@@ -21,8 +21,9 @@
 "use strict";
 
 define(['env',"calls/filter_actives"],function(Env,FilterActives) {
-  var Heads = Env.extend(FilterActives);
-  Heads.prototype.name = "Heads";
+  var Heads = Env.extend(FilterActives,function(calltext) {
+    this.name = calltext.toCapCase();
+  });
   Heads.prototype.test = function(d) {
     return d.couplesnumber == '1' || d.couplesnumber == '3';
   };

@@ -277,30 +277,19 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
     });
 
     //  Also load any scripts that perform this call
-    TAMination.searchCalls(callname, {
-        domain:CodedCall.scripts,
-        keyfun: function(d) { return d.name; },
-        exact:true }
-    ).forEach(function(d) {
-      //  Call is interpreted by a script
-      if (!(d.name in Call.classes)) {
-        me.filecount++;
-        //  Read and interpret the script
-        require(['calls/'+d.link],function(c) {
-          Call.classes[d.name] = c;
-          //  Load any other calls that this script uses
-          if (c.requires)
-            c.requires.forEach(function(d2) {
-              me.fetchCall(d2);
-            });
-          if (c.requiresxml)
-            c.requiresxml.forEach(function(x) {
-              me.fetchCall(x);
-            });
-          if (--me.filecount == 0)
-            me.buildSequence();
+    me.filecount += CodedCall.getScript(callname, function(c) {
+      //  Read and interpret the script
+      //  Load any other calls that this script uses
+      if (c.requires)
+        c.requires.forEach(function(d2) {
+          me.fetchCall(d2);
         });
-      }
+      if (c.requiresxml)
+        c.requiresxml.forEach(function(x) {
+          me.fetchCall(x);
+        });
+      if (--me.filecount == 0)
+        me.buildSequence();
     });
   };
 
