@@ -81,6 +81,10 @@ define(function() {
     return false;
   };
 
+  Env.prototype.ifdo = function(e,f) {
+    return e ? f(this) : this;
+  }
+
   //  Object comes with a keys method but not a values method
   Env.prototype.values = function(o) {
     return Object.keys(o).map(function(k) { return this[k]; },o);
@@ -91,6 +95,7 @@ define(function() {
     forEach: funcprop,
     every: funcprop,
     some: funcprop,
+    ifdo: funcprop
   });
 
   window.Env = Env;  // TODO remove once all code is AMD

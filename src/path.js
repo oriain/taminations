@@ -22,7 +22,7 @@
 define(['movement','affinetransform'],function(Movement,AffineTransform) {
 
   //  Path class
-  Path = function(p)
+  Path = Env.extend(null,function(p)
   {
     this.movelist = [];
     this.transformlist = [];
@@ -49,7 +49,7 @@ define(['movement','affinetransform'],function(Movement,AffineTransform) {
           this.add(new Path(m));
       },this);
     }
-  };
+  });
 
   Path.prototype.clear = function()
   {

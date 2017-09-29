@@ -20,12 +20,28 @@
  */
 "use strict";
 
-define(['env',"calls/filter_actives"],function(Env,FilterActives) {
-  var Centers = Env.extend(FilterActives,function(calltext) {
+define(['env',"calls/codedcall","callerror"],function(Env,CodedCall,CallError) {
+
+  var Centers = Env.extend(CodedCall,function(calltext) {
     this.name = calltext.toCapCase();
   });
-  Centers.prototype.test = function(d) {
-    return d.center;
-  };
+
+  Centers.prototype.preProcess = function(ctx) {
+    var numc = 4;
+    if (this.name.match("2|two"))
+      numc = 2;
+    if (this.name.match("6|six"))
+      numc = 6;
+    var dsort = ctx.dancers.copy().sort(function(d1,d2) {
+      return ctx.distance(d1) - ctx.distance(d2);
+    });
+    if (ctx.distance(dsort[numc]) - ctx.distance(dsort[numc-1]) > 0.1) {
+      for (var i=numc; i<dsort.length; i++)
+        dsort[i].active = false;
+    } else
+      throw new CallError("Cannot find "+this.name+" dancers");
+  }
+
   return Centers;
+
 });

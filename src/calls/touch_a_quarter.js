@@ -21,8 +21,9 @@
 "use strict";
 
 define(['env','calls/action','path','callerror'],function(Env,Action,Path,CallError) {
-  var TouchAQuarter = Env.extend(Action);
-  TouchAQuarter.prototype.name = "Touch a Quarter";
+  var TouchAQuarter = Env.extend(Action, function(calltext) {
+    this.name = calltext.toCapCase();
+  });
   TouchAQuarter.prototype.performOne = function(d,ctx)
   {
     //  Can only touch with another dancer
@@ -32,7 +33,8 @@ define(['env','calls/action','path','callerror'],function(Env,Action,Path,CallEr
     if (d2 != undefined && ctx.dancerInFront(d2) == d) {
       var dist = ctx.distance(d,d2);
       return TamUtils.getMove("Extend Left").scale(dist/2,1)
-        .add(TamUtils.getMove("Hinge Right"));
+                     .add(TamUtils.getMove("Hinge Right"))
+                     .ifdo(this.name.match("Left"),function(p) { return p.reflect(); });
     }
     throw new CallError("Dancer "+d+" cannot Touch a Quarter");
   };
