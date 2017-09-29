@@ -65,12 +65,8 @@ define(['env','path','calls/call'],function(Env,Path,Call) {
        { regex:'turn thru', link:'turn_thru' },
        { regex:'very centers', link:'verycenters' },
        { regex:'wheel around', link:'wheel_around' },
-       { regex:'zag', link:'zag' },
-     //  { regex:'Zag Zag', link:'zagzag' },
-     //  { regex:'Zag Zig', link:'zagzig' },
-       { regex:'zig', link:'zig' },
-     //  { regex:'Zig Zag', link:'zigzag' },
-     //  { regex:'Zig Zig', link:'zigzig' },
+       { regex:'z[ai]g', link:'zig' },
+       { regex:'z[ai]g z[ai]g', link:'zigzag' },
        { regex:'zoom', link:'zoom' }
    ];
 

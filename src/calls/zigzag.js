@@ -21,13 +21,14 @@
 "use strict";
 
 define(['env','calls/quarter_turns'],function(Env,QuarterTurns) {
-  var ZigZag = Env.extend(QuarterTurns);
-  ZigZag.prototype.name = 'Zig Zag';
+  var ZigZag = Env.extend(QuarterTurns, function(calltext) {
+    this.name = calltext.toCapCase();
+  });
   ZigZag.prototype.select = function(ctx,d) {
     if (d.leader)
-      return 'Quarter Right';
+      return this.name.match("Zig Z[ai]g") ? 'Quarter Right' : "Quarter Left";
     if (d.trailer)
-      return 'Quarter Left';
+      return this.name.match("Z[ai]g Zig") ? "Quarter Right" : 'Quarter Left';
     return 'Stand';
   };
   return ZigZag;
