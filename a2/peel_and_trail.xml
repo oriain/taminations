@@ -212,6 +212,23 @@
     </path>
   </tam>
 
+  <tam title="Peel and Trail" from="T-Bones" formation="T-Bone URUR">
+    <path>
+      <move select="Forward"/>
+      <move select="Swing Right"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Forward"/>
+      <move select="Swing Right"/>
+    </path>
+    <path>
+      <move select="Run Right" beats="4" offsetX="-1"/>
+    </path>
+  </tam>
+
   <tam title="As Couples Peel and Trail"
        from="Two-Faced Lines"
        formation="Two-Faced Lines RH"
