@@ -37,21 +37,6 @@
     </path>
   </tam>
 
-  <tam title="Split Counter Rotate" from="Right-Hand Waves" formation="Ocean Waves RH BGGB">
-    <path>
-      <move select="Lead Right" beats="3" scaleX="1.5" scaleY="3"/>
-    </path>
-    <path>
-      <move select="Hinge Left" beats="3" scaleX=".5"/>
-    </path>
-    <path>
-      <move select="Hinge Left" beats="3" scaleX=".5"/>
-    </path>
-    <path>
-      <move select="Lead Right" beats="3" scaleX="1.5" scaleY="3"/>
-    </path>
-  </tam>
-
   <tam title="Split Counter Rotate" from="Twin Diamonds"
        formation="Diamonds RH Girl Points">
     <path>
