@@ -58,7 +58,7 @@
       <move select="Lead Right 1/2" beats="3" hands="right" scaleX="2" scaleY="2" offsetX="-.1" offsetY="1.2" />
     </path>
   </tam>
-  
+
   <tam title="Right and Left Grand" from="Grand Circle 2" gender-specific="true" display="none">
      <formation>
       <dancer gender="boy" x="-3" y="-1.1" angle="315"/>

@@ -121,14 +121,20 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
       if (!calltext.chopped().some(function(callname) {
         var success = false;
         //  First try to find an exact match in Taminations
-        //  Then look for a code match
         try {
           success = this.matchXMLcall(callname);
         } catch (err2) {
           err = err2;
         }
+        //  Then look for a code match
         try {
           success = success || this.matchCodedCall(callname);
+        } catch (err2) {
+          err = err2;
+        }
+        //  Finally try a fuzzier match in Taminations
+        try {
+          success = success || this.matchXMLcall(callname,true);
         } catch (err2) {
           err = err2;
         }
@@ -146,7 +152,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
 
   //  Given a context and string, try to find an XML animation
   //  If found, the call is added to the context
-  CallContext.prototype.matchXMLcall = function(calltext)
+  CallContext.prototype.matchXMLcall = function(calltext,fuzzy=false)
   {
     var found = false;
     var match = false;
@@ -186,7 +192,7 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
           var sexy = $(xelem).attr('gender-specific');
           //  Try to match the formation to the current dancer positions
           var ctx2 = new CallContext(f);
-          var mm = matchFormations(ctx,ctx2,sexy,false);
+          var mm = matchFormations(ctx,ctx2,{sexy,fuzzy});
           if (mm) {
             //  Match found
             var call = new XMLCall();
@@ -203,9 +209,10 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
         });
       });
     }
-    if (found && !match)
+    if (found && !match) {
       //  Found the call but formations did not match
-      throw new FormationNotFoundError();
+        throw new FormationNotFoundError();
+    }
     return match;
   };
 
@@ -325,8 +332,9 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     }
   }
 
-  function matchFormations(ctx1,ctx2,sexy,fuzzy)
+  function matchFormations(ctx1,ctx2,options={})
   {
+    var opts = Object.assign({sexy:false,fuzzy:false,rotate:false},options)
     if (ctx1.dancers.length != ctx2.dancers.length)
       return false;
     //  Find mapping using DFS
@@ -339,15 +347,15 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
       while (nextmapping < ctx2.dancers.length) {
         mapping[mapindex] = nextmapping;
         mapping[mapindex+1] = nextmapping ^ 1;
-        if (testMapping(ctx1,ctx2,mapping,mapindex,sexy,fuzzy))
+        if (testMapping(ctx1,ctx2,mapping,mapindex,opts))
           break;
         nextmapping++;
       }
       if (nextmapping >= ctx2.dancers.length) {
         //  No more mappings for this dancer
         mapping[mapindex] = mapping[mapindex+1] = -1;
-        //  If fuzzy, try rotating this dancer
-        if (fuzzy && !rotated[mapindex]) {
+        //  If asked, try rotating this dancer
+        if (opts.rotate && !rotated[mapindex]) {
           ctx1.dancers[mapindex].rotateStartAngle(180.0)
           ctx1.dancers[mapindex+1].rotateStartAngle(180.0)
           rotated[mapindex] = true
@@ -363,9 +371,10 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     return mapindex < 0 ? false : mapping;
   }
 
-  function testMapping(ctx1,ctx2,mapping,i,sexy,fuzzy)
+  function testMapping(ctx1,ctx2,mapping,i,options={})
   {
-    if (sexy && (ctx1.dancers[i].gender != ctx2.dancers[mapping[i]].gender))
+    var opts = Object.assign({sexy:false,fuzzy:false},options)
+    if (opts.sexy && (ctx1.dancers[i].gender != ctx2.dancers[mapping[i]].gender))
       return false;
     return ctx1.dancers.every(function(d1,j) {
       if (mapping[j] < 0 || i == j)
@@ -375,13 +384,13 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
       var relq2 = dancerRelation(ctx1,ctx1.dancers[j],ctx1.dancers[i]);
       var relt2 = dancerRelation(ctx2,ctx2.dancers[mapping[j]],ctx2.dancers[mapping[i]]);
       //  If dancers are side-by-side, make sure handholding matches by checking distance
-      if (!fuzzy && (relq1 == 2 || relq1 == 6)) {
+      if (!opts.fuzzy && (relq1 == 2 || relq1 == 6)) {
         var d1 = ctx1.distance(i,j);
         var d2 = ctx2.distance(mapping[i],mapping[j]);
         if ((d1 < 2.1) != (d2 < 2.1))
           return false;
       }
-      if (fuzzy) {
+      if (opts.fuzzy) {
         var reldif1 = (relt1-relq1).abs;
         var reldif2 = (relt2-relq2).abs;
         return (reldif1==0 || reldif1==1 || reldif1==7) &&
@@ -474,10 +483,9 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
   //  See if the current dancer positions resemble a standard formation
   //  and, if so, snap to the standard
   var standardFormations = [
-    "Normal Lines",
     "Normal Lines Compact",
+    "Normal Lines",
     "Double Pass Thru",
-    "Static Square",
     "Quarter Tag",
     "Tidal Line RH",
     "Diamonds RH Girl Points",
@@ -486,7 +494,10 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     "Galaxy RH GP",
     "Butterfly RH",
     "O RH",
-    "Sausage RH"
+    "Sausage RH",
+    "T-Bone URRD",
+    "T-Bone RUUL",
+    "Static Square",
   ];
   CallContext.prototype.matchStandardFormation = function() {
     //  Make sure newly added animations are finished
@@ -498,12 +509,13 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     standardFormations.forEach(function(f) {
       var ctx2 = new CallContext(getNamedFormation(f));
       //  See if this formation matches
-      var mapping = matchFormations(ctx1,ctx2,false,true);
+      var mapping = matchFormations(ctx1,ctx2,{sexy:false,fuzzy:true,rotate:true});
       if (mapping) {
         //  If it does, get the offsets
         var offsets = ctx1.computeFormationOffsets(ctx2,mapping);
         var totOffset = offsets.reduce(function(s,v) { return s+v.length;}, 0.0 );
-        if (!bestMapping || totOffset < bestMapping.totOffset)
+        //  Favor formations closer to the top of the list
+        if (!bestMapping || totOffset+0.1 < bestMapping.totOffset)
           bestMapping = {
             name: f,  // only used for debugging
             mapping: mapping,

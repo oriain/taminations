@@ -91,13 +91,9 @@ define(['env','path','calls/call'],function(Env,Path,Call) {
   //  Return class that matches text
   //  Must have been loaded with getScript
   CodedCall.getCodedCall = function(calltext) {
-    var retval = false;
     var c = calltext.toLowerCase();
-    CodedCall.scripts.forEach(function(s) {
-      if (c.match("^"+s.regex+"$"))
-        retval = new CodedCall.classes[s.regex](calltext);
-    });
-    return retval;
+    var link = CodedCall.scripts.find(function(s) { return c.match("^"+s.regex+"$");  });
+    return link ? new CodedCall.classes[link.regex](calltext) : false;
   }
 
   return CodedCall;

@@ -22,7 +22,7 @@
 
 define(['env','calls/action','path','callerror'],function(Env,Action,Path,CallError) {
   var TouchAQuarter = Env.extend(Action, function(calltext) {
-    this.name = calltext.toCapCase();
+    this.name = calltext.toCapCase().replace(" A "," a ");
   });
   TouchAQuarter.prototype.performOne = function(d,ctx)
   {
