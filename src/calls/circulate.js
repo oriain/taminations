@@ -26,18 +26,24 @@ define(['env','calls/action','callcontext','callerror'],function(Env,Action,Call
   Circulate.prototype.name = "Circulate";
 
   Circulate.prototype.perform = function(ctx) {
-    //  If just 4 dancers, try Box Circulate
+    //  If just 4 dancers in the center, try Box Circulate
     if (ctx.actives.length == 4) {
-      try {
-        ctx.applyCalls('box circulate');
-      } catch (err) {
-        if (err instanceof CallError) {
-          //  That didn't work, try to find a circulate path for each dancer
-          Action.prototype.perform.call(this,ctx);
-        } else
-          throw err;
-      }
+      if (ctx.actives.every(function(d) { return d.center; })) {
+        try {
+          ctx.applyCalls('box circulate');
+        } catch (err) {
+          if (err instanceof CallError) {
+            // That didn't work, try to find a circulate path for each dancer
+            Action.prototype.perform.call(this,ctx);
+          } else
+            throw err;
+        }
+      } else
+        Action.prototype.perform.call(this,ctx);
     }
+    //  If two-faced lines, do Couples Circulate
+    else if (ctx.isTwoFacedLines())
+      ctx.applyCalls('couples circulate');
     //  If in waves or lines, then do All 8 Circulate
     else if (ctx.isLines())
       ctx.applyCalls('all 8 circulate');

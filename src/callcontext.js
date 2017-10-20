@@ -753,6 +753,15 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
     },this);
   };
 
+  //  Return true if 8 dancers are in two-faced lines
+  CallContext.prototype.isTwoFacedLines = function() {
+    return this.isLines() &&
+           this.dancers.every(function(d,ctx) {
+             return this.isInCouple(d);
+             },this) &&
+           this.dancers.filter(function(d) { return d.leader; }).length == 4 &&
+           this.dancers.filter(function(d) { return d.trailer; }).length == 4;
+  }
 
   CallContext.prototype.analyze = function(beat)
   {
