@@ -189,4 +189,26 @@
     </path>
   </tam>
 
+  <tam title="Ramble" from="Right-Hand Columns" formation="Column RH GBGB">
+    <path>
+      <move select="U-Turn Left" offsetX="-1" offsetY="2" />
+      <move select="Forward 2" />
+      <move select="Quarter Left" offsetX="1" offsetY="0"/>
+    </path>
+    <path>
+      <move select="Flip Right" offsetX="1.5" scaleY=".5"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Lead Right" scaleX=".5" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Flip Right" offsetX=".5" scaleY=".5"/>
+      <move select="Extend Left" scaleY=".5"/>
+      <move select="Quarter Left" offsetX="1.5" offsetY="-.5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="5" scaleX="3" scaleY="3" />
+      <move select="Lead Right"/>
+    </path>
+  </tam>
+
 </tamination>
