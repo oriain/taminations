@@ -130,6 +130,8 @@ define(['tamination','cookie','handhold','color','affinetransform','vector','bez
           var tt = tam.getTitle().replace(/\(.*?\)/g,' ');
           this.setTitle(tt);
         }
+        //  Beat count for sequencer
+        this.beatsvg = this.svg.text(this.titlegroup,0,0,' ',{fontSize:"10", textAnchor:"end", transform:"translate(6.4,6.4) scale(0.1)"});
 
         this.gridgroup = this.svg.group(this.floor,{fill:"none",stroke:"black",strokeWidth:0.01});
         this.hexgridgroup = this.svg.group(this.floor,{fill:"none",stroke:"black",strokeWidth:0.01});

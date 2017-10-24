@@ -200,6 +200,9 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
     $('#svgdiv').svg({onLoad:function(x) {
         var t = new TamSVG(x);
         t.setPart = function(n) { me.setCurrentCall(n); };
+        t.animationListener = function(beat) {
+          $(t.beatsvg).text(Math.floor(Math.min(Math.max(0,beat),t.beats-2)));
+        }
         //  Add all the calls to the animation
         me.updateSequence();
         t.generateButtonPanel();
