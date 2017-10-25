@@ -47,7 +47,7 @@ define(['env','path','calls/call'],function(Env,Path,Call) {
        { regex:'hinge', link:'hinge' },
        { regex:'leaders?', link:'leaders' },
        { regex:'make tight wave', link:'make_tight_wave' }, // TEMP for testing
-       { regex:'one and a half', link:'one_and_a_half' },
+       { regex:'(onc?e and a half)|(1 1/2)', link:'one_and_a_half' },
        { regex:'pass thru', link:'pass_thru' },
        { regex:'quarter (in|out)', link:'quarter_in' },
        { regex:'and roll', link:'roll' },
@@ -77,11 +77,11 @@ define(['env','path','calls/call'],function(Env,Path,Call) {
     var c = calltext.toLowerCase();
     var fetchnum = 0;
     CodedCall.scripts.forEach(function(s) {
-      if (c.match("^"+s.regex+"$") && !(s.regex in CodedCall.classes)) {
+      if (c.match("^("+s.regex+")$") && !(s.regex in CodedCall.classes)) {
         fetchnum++;
-        require(['calls/'+s.link],function(c) {
-          CodedCall.classes[s.regex] = c;
-          callback(c);
+        require(['calls/'+s.link],function(itsclass) {
+          CodedCall.classes[s.regex] = itsclass;
+          callback(itsclass);
         });
       }
     });
@@ -92,7 +92,7 @@ define(['env','path','calls/call'],function(Env,Path,Call) {
   //  Must have been loaded with getScript
   CodedCall.getCodedCall = function(calltext) {
     var c = calltext.toLowerCase();
-    var link = CodedCall.scripts.find(function(s) { return c.match("^"+s.regex+"$");  });
+    var link = CodedCall.scripts.find(function(s) { return c.match("^("+s.regex+")$");  });
     return link ? new CodedCall.classes[link.regex](calltext) : false;
   }
 

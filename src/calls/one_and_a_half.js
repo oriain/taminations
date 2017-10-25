@@ -24,6 +24,7 @@ define(['env','calls/codedcall','calls/half','callerror'],
        function(Env,CodedCall,Half,CallError) {
   var OneAndaHalf = Env.extend(CodedCall);
   OneAndaHalf.prototype.name = "Once and a Half";
+  OneAndaHalf.requires = ['Half'];
 
   OneAndaHalf.prototype.preProcess = function(ctx) {
     if (ctx.callstack.length < 2)
@@ -35,6 +36,7 @@ define(['env','calls/codedcall','calls/half','callerror'],
     //  So just do half of it again
     ctx.applyCalls('half '+ctx.callstack[0].name)
   };
+
 
   return OneAndaHalf;
 });
