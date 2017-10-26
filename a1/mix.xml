@@ -123,6 +123,26 @@
   </tam>
 
   <tam title="Mix"
+       from="Lines Facing In"
+       formation="Normal Lines"
+       parts="3" >
+    <path>
+      <move select="Dodge Right" />
+      <move select="Run Right" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleY="2" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Dodge Left" />
+      <move select="Flip Left" />
+    </path>
+  </tam>
+
+  <tam title="Mix"
        from="Lines Facing Out"
        formation="Lines Facing Out"
        parts="3" >
@@ -142,13 +162,116 @@
     </path>
   </tam>
 
-  <tam title="Mix" from="3 and 1 Lines" parts="3">
-     <formation>
-      <dancer gender="boy" x="-2" y="3" angle="0"/>
-      <dancer gender="girl" x="-2" y="1" angle="180"/>
-      <dancer gender="girl" x="-2" y="-1" angle="180"/>
-      <dancer gender="boy" x="-2" y="-3" angle="180"/>
-    </formation>
+  <tam title="Mix" from="Inverted Lines, Centers Facing"
+       formation="Inverted Lines Ends Facing Out" parts="3">
+    <path>
+      <move select="Dodge Left" />
+      <move select="Flip Left" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleY="2" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Dodge Right" />
+      <move select="Run Right" />
+    </path>
+  </tam>
+
+  <tam title="Mix" from="Inverted Lines, Ends Facing"
+       formation="Inverted Lines Ends Facing In" parts="3">
+    <path>
+      <move select="Dodge Right" />
+      <move select="Run Right" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleY="2" />
+    </path>
+    <path>
+      <move select="Dodge Left" />
+      <move select="Flip Left" />
+    </path>
+  </tam>
+
+  <tam title="Mix" from="3 and 1 Lines #1"
+       formation="3 and 1 lines #1" parts="3">
+    <path>
+      <move select="Dodge Left" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleY="2" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Dodge Left" />
+      <move select="Swing Left" />
+    </path>
+  </tam>
+
+  <tam title="Mix" from="3 and 1 Lines #2"
+       formation="3 and 1 lines #2" parts="3">
+    <path>
+      <move select="Dodge Right" />
+      <move select="Run Right" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleY="2" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleY="2" />
+    </path>
+    <path>
+      <move select="Dodge Left" />
+      <move select="Flip Left" />
+    </path>
+  </tam>
+
+  <tam title="Mix" from="3 and 1 Lines #3"
+       formation="3 and 1 lines #3" parts="3">
+    <path>
+      <move select="Dodge Right" />
+      <move select="Run Right" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleY="2" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleY="2" />
+    </path>
+    <path>
+      <move select="Dodge Left" />
+      <move select="Flip Left" />
+    </path>
+  </tam>
+
+  <tam title="Mix" from="3 and 1 Lines #4"
+       formation="3 and 1 lines #4" parts="3">
+    <path>
+      <move select="Dodge Right" />
+      <move select="Swing Right" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleY="2" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Dodge Right" />
+      <move select="Swing Right" />
+    </path>
+  </tam>
+
+  <tam title="Mix" from="3 and 1 Lines #5"
+       formation="3 and 1 lines #5" parts="3">
     <path numbers="5 4">
       <move select="Dodge Right" />
       <move select="Swing Right" />
@@ -164,7 +287,61 @@
       <move select="Swing Right" />
     </path>
   </tam>
-  
+
+  <tam title="Mix" from="3 and 1 Lines #6"
+       formation="3 and 1 lines #6" parts="3">
+    <path>
+      <move select="Dodge Left" />
+      <move select="Flip Left" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleY="2" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleY="2" />
+    </path>
+    <path>
+      <move select="Dodge Right" />
+      <move select="Run Right" />
+    </path>
+  </tam>
+
+  <tam title="Mix" from="3 and 1 Lines #7"
+       formation="3 and 1 lines #7" parts="3">
+    <path>
+      <move select="Dodge Left" />
+      <move select="Flip Left" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleY="2" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleY="2" />
+    </path>
+    <path>
+      <move select="Dodge Right" />
+      <move select="Run Right" />
+    </path>
+  </tam>
+
+  <tam title="Mix" from="3 and 1 Lines #8"
+       formation="3 and 1 lines #8" parts="3">
+    <path>
+      <move select="Dodge Left" />
+      <move select="Swing Left" />
+    </path>
+    <path>
+      <move select="Run Left" beats="4" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Run Right" beats="4" scaleY="2" />
+    </path>
+    <path>
+      <move select="Dodge Left" />
+      <move select="Swing Left" />
+    </path>
+  </tam>
+
   <tam title="Mix" from="Right-Hand Tidal Wave"
        formation="Tidal Wave RH BGGB" parts="3">
     <path>
@@ -200,7 +377,7 @@
       <move select="Swing Left" scaleX=".5" scaleY=".5"/>
     </path>
   </tam>
-  
+
   <tam title="Mix" from="Right-Hand Tidal Two-Faced Line"
        formation="Two-Faced Tidal Line RH" parts="3">
     <path>
@@ -260,7 +437,7 @@
       <move select="Swing Right" />
     </path>
   </tam>
-  
+
   <tam title="All 8 Mix"
        from="Thar"
        formation="Thar RH Boys"
@@ -284,7 +461,7 @@
       <move select="Swing Left" />
     </path>
   </tam>
-  
+
 
   <tam title="As Couples Mix"
        from="Two-Faced Tidal Line"
