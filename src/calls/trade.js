@@ -27,9 +27,9 @@ define(['env','calls/action','path'],function(Env,Action,Path) {
   {
     //  Figure out what dancer we're trading with
     var leftcount = 0;
-    var bestleft = -1;
+    var bestleft = false;
     var rightcount = 0;
-    var bestright = -1;
+    var bestright = false;
     ctx.actives.forEach(function(d2) {
       if (d2 == d)
         return;
@@ -43,19 +43,24 @@ define(['env','calls/action','path'],function(Env,Action,Path) {
         rightcount++;
       }
     });
+    //  Check that the trading dancer is facing same or opposite direction
+    if (bestright && !ctx.isRight(bestright,d) && !ctx.isLeft(bestright,d))
+      bestright = false;
+    if (bestleft && !ctx.isRight(bestleft,d) && !ctx.isLeft(bestleft,d))
+      bestleft = false;
 
     var dtrade = -1;
     var samedir = false;
     var call = '';
     //  We trade with the nearest dancer in the direction with
     //  an odd number of dancers
-    if (rightcount % 2 == 1 && leftcount % 2 == 0) {
+    if (bestright && ((rightcount % 2 == 1 && leftcount % 2 == 0) || !bestleft)) {
       dtrade = bestright;
-      call = 'Run Right';
+      call = "Run Right";
       samedir = ctx.isLeft(dtrade,d);
-    } else if (rightcount % 2 == 0 && leftcount % 2 == 1) {
+    } else if (bestleft && ((rightcount % 2 == 0 && leftcount % 2 == 1) || !bestright)) {
       dtrade = bestleft;
-      call = 'Run Left';
+      call = "Run Left";
       samedir = ctx.isRight(dtrade,d);
     }
     //  else throw error
@@ -68,18 +73,18 @@ define(['env','calls/action','path'],function(Env,Action,Path) {
     if (ctx.inBetween(d,dtrade).length > 0) {
       //  Intervening dancers
       //  Allow enough room to get around them and pass right shoulders
-      if (call == 'Run Right' && samedir)
+      if (call == "Run Right" && samedir)
         scaleX = 2;
     } else {
       //  No intervening dancers
-      if (call == 'Run Left' && samedir)
+      if (call == "Run Left" && samedir)
         //  Partner trade, flip the belle
-        call = 'Flip Left';
+        call = "Flip Left";
       else
         scaleX = dist/2;
       //  Hold hands for trades that are swing/slip
       if (!samedir && dist < 2.1) {
-        if (call == 'Run Left')
+        if (call == "Run Left")
           hands = Movement.LEFTHAND;
         else
           hands = Movement.RIGHTHAND;
