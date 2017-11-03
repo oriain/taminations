@@ -20,36 +20,41 @@
  */
 "use strict";
 
-define(['env','calls/action','path','callerror'],
-       function(Env,Action,Path,CallError) {
-  var Zoom = Env.extend(Action);
-  Zoom.prototype.name = 'Zoom';
-  Zoom.prototype.performOne = function(d,ctx)
-  {
-    var retval = new Path();
-    if (d.leader) {
-      var d2 = ctx.dancerInBack(d);
-      if (!d2.trailer)
-        throw new CallError("Dancer "+d+' is not in a tandem.')
-      var a = ctx.angle(d);
-      var c = a < 0 ? 'Run Left' : 'Run Right';
-      if (!d2.active)
-        throw new CallError('Trailer of dancer '+d+' is not active.');
-      var dist = ctx.distance(d,d2);
-      retval.add(TamUtils.getMove(c).changebeats(2).skew(-dist/2,0));
-      retval.add(TamUtils.getMove(c).changebeats(2).skew(dist/2,0));
-    } else if (d.trailer) {
-      var d2 = ctx.dancerInFront(d);
-      if (!d2.leader)
-        throw new CallError("Dancer "+d+' is not in a tandem.')
-      if (!d2.active)
-        throw new CallError('Leader of dancer '+d+' is not active.');
-      var dist = ctx.distance(d,d2);
-      retval.add(TamUtils.getMove("Forward").changebeats(4).scale(dist,1));
-    } else {
-      throw new CallError('Dancer '+d+' cannot Zoom.');
+define(['calls/action','path','callerror'], (Action,Path,CallError) =>
+
+  class Zoom extends Action {
+
+    constructor() {
+      super()
+      this.name = "Zoom"
     }
-    return retval;
-  };
-  return Zoom;
-});
+
+    performOne(d,ctx)
+    {
+      var retval = new Path()
+      if (d.leader) {
+        var d2 = ctx.dancerInBack(d)
+        if (!d2.trailer)
+          throw new CallError(`Dancer ${d} is not in a tandem.`)
+        var a = ctx.angle(d)
+        var c = a < 0 ? "Run Left" : "Run Right"
+        if (!d2.active)
+          throw new CallError(`Trailer of dancer ${d} is not active.`)
+        var dist = ctx.distance(d,d2)
+        retval.add(TamUtils.getMove(c).changebeats(2).skew(-dist/2,0))
+        retval.add(TamUtils.getMove(c).changebeats(2).skew(dist/2,0))
+      } else if (d.trailer) {
+        var d2 = ctx.dancerInFront(d)
+        if (!d2.leader)
+          throw new CallError(`Dancer ${d} is not in a tandem.`)
+        if (!d2.active)
+          throw new CallError(`Leader of dancer ${d} is not active.`)
+        var dist = ctx.distance(d,d2)
+        retval.add(TamUtils.getMove("Forward").changebeats(4).scale(dist,1))
+      } else {
+        throw new CallError(`Dancer ${d} cannot Zoom.`)
+      }
+      return retval
+    }
+
+  })

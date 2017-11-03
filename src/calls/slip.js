@@ -20,14 +20,19 @@
  */
 "use strict";
 
-define(['env','calls/action','callcontext'],function(Env,Action,CallContext) {
-  var Slip = Env.extend(Action);
-  Slip.prototype.name = "Slip";
-  Slip.prototype.perform = function(ctx) {
-    var ctx2 = new CallContext(ctx);
-    ctx2.interpretCall('centers trade');
-    ctx2.appendToSource();
-  };
-  Slip.requires = ['centers','trade'];
-  return Slip;
-});
+define(['calls/action','callcontext'], (Action,CallContext) =>
+
+  class Slip extends Action {
+
+    static get requires() { return ['centers','trade'] }
+
+    constructor() {
+      super()
+      this.name = "Slip"
+    }
+
+    perform(ctx) {
+      ctx.applyCalls("centers trade")
+    }
+
+  })

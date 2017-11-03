@@ -20,12 +20,17 @@
  */
 "use strict";
 
-define(['env','calls/action','path'],function(Env,Action,Path) {
-  var TurnBack = Env.extend(Action);
-  TurnBack.prototype.name = "Turn Back";
-  TurnBack.prototype.performOne = function(d)
-  {
-    return TamUtils.getMove(d.beau ? 'U-Turn Right' : 'U-Turn Left');
-  };
-  return TurnBack;
-});
+define(['calls/action','path'], (Action,Path) =>
+
+  class TurnBack extends Action {
+
+    constructor() {
+      super()
+      this.name = "Turn Back"
+    }
+
+    performOne(d) {
+      return TamUtils.getMove(d.beau ? "U-Turn Right" : "U-Turn Left")
+    }
+
+  })

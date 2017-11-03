@@ -20,11 +20,17 @@
  */
 "use strict";
 
-define(['env',"calls/filter_actives"],function(Env,FilterActives) {
-  var VeryCenters = Env.extend(FilterActives);
-  VeryCenters.prototype.name = "Very Centers";
-  VeryCenters.prototype.test = function(d) {
-    return d.verycenter;
-  };
-  return VeryCenters;
-});
+define(["calls/filter_actives"], FilterActives =>
+
+  class VeryCenters extends FilterActives {
+
+    constructor() {
+      super()
+      this.name = "Very Centers"
+    }
+
+    test(d) {
+      return d.verycenter
+    }
+
+  })

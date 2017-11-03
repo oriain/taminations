@@ -20,29 +20,34 @@
  */
 "use strict";
 
-define(['env','calls/action','path'],function(Env,Action,Path) {
-  var Hinge = Env.extend(Action);
-  Hinge.prototype.name = "Hinge";
-  Hinge.prototype.performOne = function(d,ctx)
-  {
-    //  Find the dancer to hinge with
-    var d2 = null;
-    var d3 = ctx.dancerToRight(d);
-    var d4 = ctx.dancerToLeft(d);
-    if (d.partner && d.partner.active)
-      d2 = d.partner;
-    else if (d3 && d3.active)
-      d2 = d3;
-    else if (d4 && d4.active)
-      d2 = d4;
-    if (!d2)
-      return undefined;
-    //  TODO handle partner hinge
-    var scalefactor = ctx.distance(d,d2)/2.0;
-    if (ctx.isRight(d,d2))
-      return TamUtils.getMove("Hinge Right").scale(scalefactor,scalefactor);
-    else
-      return TamUtils.getMove("Hinge Left").scale(scalefactor,scalefactor);
-  }
-  return Hinge;
-});
+define(['calls/action','path'], (Action,Path) =>
+
+  class Hinge extends Action {
+
+    constructor() {
+      super()
+      this.name = "Hinge"
+    }
+
+    performOne(d,ctx) {
+      //  Find the dancer to hinge with
+      var d2 = null
+      var d3 = ctx.dancerToRight(d)
+      var d4 = ctx.dancerToLeft(d)
+      if (d.partner && d.partner.active)
+        d2 = d.partner
+      else if (d3 && d3.active)
+        d2 = d3
+      else if (d4 && d4.active)
+        d2 = d4
+      if (!d2)
+        return undefined
+      //  TODO handle partner hinge
+      var scalefactor = ctx.distance(d,d2)/2.0;
+      if (ctx.isRight(d,d2))
+        return TamUtils.getMove("Hinge Right").scale(scalefactor,scalefactor)
+      else
+        return TamUtils.getMove("Hinge Left").scale(scalefactor,scalefactor)
+    }
+
+  })

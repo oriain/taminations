@@ -20,17 +20,22 @@
  */
 "use strict";
 
-define(['env','calls/quarter_turns'],function(Env,QuarterTurns) {
-  var FaceIn = Env.extend(QuarterTurns, function(calltext) {
-    this.name = calltext.toCapCase();
-  });
-  FaceIn.prototype.select = function(ctx,d) {
-    switch (this.name) {
-    case "Face In" : return ctx.angle(d) < 0 ? 'Quarter Right' : 'Quarter Left';
-    case "Face Out" : return ctx.angle(d) > 0 ? 'Quarter Right' : 'Quarter Left';
-    case "Face Left" : return 'Quarter Left';
-    case "Face Right" : return "Quarter Right";
+define(['calls/quarter_turns'], QuarterTurns =>
+
+  class FaceIn extends QuarterTurns {
+
+    constructor(calltext) {
+      super()
+      this.name = calltext.toCapCase()
     }
-  };
-  return FaceIn;
-});
+
+    select(ctx,d) {
+      switch (this.name) {
+        case "Face In" : return ctx.angle(d) < 0 ? 'Quarter Right' : 'Quarter Left'
+        case "Face Out" : return ctx.angle(d) > 0 ? 'Quarter Right' : 'Quarter Left'
+        case "Face Left" : return 'Quarter Left'
+        case "Face Right" : return "Quarter Right"
+      }
+    }
+
+  })

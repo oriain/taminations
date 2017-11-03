@@ -20,13 +20,29 @@
  */
 "use strict";
 
-define(['env','calls/action','callcontext'],function(Env,Action,CallContext) {
-  var StarThru = Env.extend(Action);
-  StarThru.prototype.name = "Star Thru";
-  //  TODO check that facing dancers are opposite genders
-  StarThru.prototype.perform = function(ctx) {
-    ctx.applyCalls('slide thru');
-  };
-  StarThru.requires = ['Slide Thru'];
-  return StarThru;
-});
+define(['calls/action','callerror'], (Action,CallError) =>
+
+  class StarThru extends Action {
+
+    get requires() { return ['Slide Thru'] }
+
+    constructor() {
+      super()
+      this.name = "Star Thru"
+    }
+
+    perform(ctx) {
+      //  Check that facing dancers are opposite genders
+      ctx.actives.forEach( d => {
+        var d2 = ctx.dancerInFront(d)
+        if (d2 == undefined || !d2.active || ctx.dancerInFront(d2) != d)
+          throw new CallError(`Dancer ${d} has nobody to Star Thru with`)
+        if (d2.gender == d.gender)
+          throw new CallError(`Dancer ${d} cannot Star Thru with another dancer of the same gender`)
+      })
+      //  All ok
+      ctx.applyCalls("slide thru")
+    }
+
+
+  })

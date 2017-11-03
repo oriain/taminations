@@ -20,23 +20,28 @@
  */
 "use strict";
 
-define(['env','calls/action','path'],function(Env,Action,Path) {
-  var SlideThru = Env.extend(Action);
-  SlideThru.prototype.name = "Slide Thru";
-  SlideThru.prototype.performOne = function(d,ctx)
-  {
-    //  Can only pass thru with another dancer
-    //  in front of this dancer
-    //  who is also facing this dancer
-    var d2 = ctx.dancerInFront(d);
-    if (d2 != undefined && ctx.dancerInFront(d2) == d) {
-      var dist = ctx.distance(d,d2);
-      return TamUtils.getMove("Extend Left").scale(dist/2,0.5)
-        .add(d.gender == Dancer.BOY
-           ? TamUtils.getMove("Lead Right").scale(dist/2,0.5)
-           : TamUtils.getMove("Quarter Left").skew(dist/2,-0.5));
+define(['calls/action','path','callerror'], (Action,Path,CallError) =>
+
+  class SlideThru extends Action {
+
+    constructor() {
+      super()
+      this.name = "Slide Thru"
     }
-    throw new Error();
-  };
-  return SlideThru;
-});
+
+    performOne(d,ctx) {
+      //  Can only pass thru with another dancer
+      //  in front of this dancer
+      //  who is also facing this dancer
+      var d2 = ctx.dancerInFront(d)
+      if (d2 != undefined && d2.active && ctx.dancerInFront(d2) == d) {
+        var dist = ctx.distance(d,d2)
+        return TamUtils.getMove("Extend Left").scale(dist/2,0.5)
+          .add(d.gender == Dancer.BOY
+             ? TamUtils.getMove("Lead Right").scale(dist/2,0.5)
+             : TamUtils.getMove("Quarter Left").skew(dist/2,-0.5))
+      }
+      throw new CallError(`Dancer ${d} has nobody to Slide Thru with`)
+    }
+
+  })

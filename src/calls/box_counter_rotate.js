@@ -20,40 +20,45 @@
  */
 "use strict";
 
-define(['env','calls/action','movement','path'],function(Env,Action,Movement,Path) {
-  var BoxCounterRotate = Env.extend(Action);
-  BoxCounterRotate.prototype.name = "Box Counter Rotate";
-  BoxCounterRotate.prototype.performOne = function(d,ctx)
-  {
-    var v = d.location;
-    var v2 = v;
-    var cy4, y4;
-    var a1 = d.angle*Math.PI/180;
-    var a2 = v.angle;
-    //  Determine if this is a rotate left or right
-    var angdif = Math.angleDiff(a2,a1);
-    if (angdif < 0) {
-      //  Left
-      v2 = v.rotate(Math.PI/2)
-      cy4 = 0.45;
-      y4 = 1;
+define(['calls/action','movement','path'], (Action,Movement,Path) =>
+
+  class BoxCounterRotate extends Action {
+
+    constructor {
+      super()
+      this.name = "Box Counter Rotate"
     }
-    else {
-      //  Right
-      v2 = v.rotate(-Math.PI/2)
-      cy4 = -0.45;
-      y4 = -1;
+
+    performOne(d,ctx) {
+      var v = d.location
+      var v2 = v
+      var cy4, y4
+      var a1 = d.angle*Math.PI/180
+      var a2 = v.angle
+      //  Determine if this is a rotate left or right
+      var angdif = Math.angleDiff(a2,a1)
+      if (angdif < 0) {
+        //  Left
+        v2 = v.rotate(Math.PI/2)
+        cy4 = 0.45
+        y4 = 1
+      }
+      else {
+        //  Right
+        v2 = v.rotate(-Math.PI/2)
+        cy4 = -0.45
+        y4 = -1
+      }
+      //  Compute the control points
+      var dv = v2.subtract(v).rotate(-a1)
+      var cv1 = v2.scale(.5).rotate(-a1)
+      var cv2 = v.scale(.5).rotate(-a1).add(dv)
+      var m = new Movement(
+          2.0,Movement.NOHHANDS,
+          cv1.x,cv1.y,cv2.x,cv2.y,dv.x,dv.y,
+          0.55, 1, cy4, 1, y4
+          )
+      return new Path(m)
     }
-    //  Compute the control points
-    var dv = v2.subtract(v).rotate(-a1);
-    var cv1 = v2.scale(.5).rotate(-a1);
-    var cv2 = v.scale(.5).rotate(-a1).add(dv);
-    var m = new Movement(
-        2.0,Movement.NOHHANDS,
-        cv1.x,cv1.y,cv2.x,cv2.y,dv.x,dv.y,
-        0.55, 1, cy4, 1, y4
-        );
-    return new Path(m);
-  };
-  return BoxCounterRotate;
-});
+
+  })

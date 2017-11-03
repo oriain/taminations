@@ -20,12 +20,18 @@
  */
 "use strict";
 
-define(['env','calls/quarter_turns'],function(Env,QuarterTurns) {
-  var QuarterIn = Env.extend(QuarterTurns, function(calltext) {
-    this.name = calltext.toCapCase();
-  });
-  QuarterIn.prototype.select = function(ctx,d) {
-    return d.beau ^ (this.name.match("Out")!=null) ? 'Quarter Right' : 'Quarter Left';
-  };
-  return QuarterIn;
-});
+define(['calls/quarter_turns'], QuarterTurns =>
+
+  //  This class is used for Quarter In and Quarter Out
+  class QuarterIn extends QuarterTurns {
+
+    constructor(calltext) {
+      super()
+      this.name = calltext.toCapCase()
+    }
+
+    select(ctx,d) {
+      return d.beau ^ (this.name.match("Out")!=null) ? "Quarter Right" : "Quarter Left"
+    }
+
+  })

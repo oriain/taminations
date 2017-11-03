@@ -20,28 +20,26 @@
  */
 "use strict";
 
-define(['env',"calls/codedcall","callerror"],function(Env,CodedCall,CallError) {
+define(["calls/codedcall","callerror"], (CodedCall,CallError) =>
 
-  var Centers = Env.extend(CodedCall,function(calltext) {
-    this.name = calltext.toCapCase();
-  });
+  class Centers extends CodedCall {
 
-  Centers.prototype.preProcess = function(ctx) {
-    var numc = 4;
-    if (this.name.match("2|two"))
-      numc = 2;
-    if (this.name.match("6|six"))
-      numc = 6;
-    var dsort = ctx.dancers.copy().sort(function(d1,d2) {
-      return ctx.distance(d1) - ctx.distance(d2);
-    });
-    if (ctx.distance(dsort[numc]) - ctx.distance(dsort[numc-1]) > 0.1) {
-      for (var i=numc; i<dsort.length; i++)
-        dsort[i].active = false;
-    } else
-      throw new CallError("Cannot find "+this.name+" dancers");
-  }
+    constructor(calltext) {
+      super()
+      this.name = calltext.toCapCase()
+    }
 
-  return Centers;
+    preProcess(ctx) {
+      var numc = 4
+      if (this.name.match("2|two"))
+        numc = 2
+      if (this.name.match("6|six"))
+        numc = 6
+      var dsort = ctx.dancers.copy().sort((d1,d2) => ctx.distance(d1) - ctx.distance(d2))
+      if (ctx.distance(dsort[numc]) - ctx.distance(dsort[numc-1]) > 0.1) {
+        dsort.slice(numc).forEach(d => { d.active = false } )
+      } else
+        throw new CallError("Cannot find "+this.name+" dancers")
+    }
 
-});
+  })

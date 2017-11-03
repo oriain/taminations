@@ -20,27 +20,27 @@
  */
 "use strict";
 
-define(['env','calls/action','path','callerror'],
-       function(Env,Action,Path,CallError) {
-  var WheelAround = Env.extend(Action);
-  WheelAround.prototype.name = "Wheel Around";
-  WheelAround.prototype.performOne = function(d,ctx)
-  {
-    var d2 = d.partner;
-    if (!d2 || !d2.active)
-      throw new CallError('Dancer '+d+' must Wheel Around with partner.');
-    var m = "";
-    if (d.belle) {
-      if (!d2.beau)
-        throw new CallError('Dancer '+d+' is not part of a Facing Couple.');
-      m = 'Belle Wheel';
+define(['calls/action','path','callerror'], (Action,Path,CallError) =>
+
+  //  This class handles Wheel Around and Reverse Wheel Around
+  class WheelAround extends Action {
+
+    constructor(calltext) {
+      super()
+      this.name = calltext.toCapCase()
+      this.isReverse = this.name.match("Reverse") != null
     }
-    else {
-      if (!d2.belle)
-        throw new CallError('Dancer '+d+' is not part of a Facing Couple.');
-      m = 'Beau Wheel';
+
+    performOne(d,ctx) {
+      if (!ctx.isInCouple(d))
+        throw new CallError(`Dancer ${d} is not part of a Facing Couple.`)
+      if (!d.partner.active)
+        throw new CallError(`Dancer ${d} must Wheel Around with partner.`)
+      var wheel = (d.beau ^ this.isReverse) ? "Beau Wheel" : "Belle Wheel"
+      var m = TamUtils.getMove(wheel)
+      if (this.isReverse)
+        m = m.reflect()
+      return m
     }
-    return TamUtils.getMove(m)
-  };
-  return WheelAround;
-});
+
+  })

@@ -20,30 +20,31 @@
  */
 "use strict";
 
-define(['env','calls/action','path'],function(Env,Action,Path) {
-  var QuarterTurns = Env.extend(Action);
-  QuarterTurns.prototype.performOne = function(d,ctx)
-  {
-    var offsetX = 0;
-    var offsetY = 0;
-    var move = this.select(ctx,d);
-    if (move != 'Stand') {
-      //  If leader or trailer, make sure to adjust quarter turn
-      //  so handhold is possible
-      if (d.leader) {
-        var d2 = ctx.dancerInBack(d);
-        var dist = ctx.distance(d,d2);
-        if (dist > 2 && dist < 4.1)
-          offsetX = -(dist-2)/2;
+define(['calls/action','path'], (Action,Path) =>
+
+  class QuarterTurns extends Action {
+
+    performOne(d,ctx) {
+      var offsetX = 0
+      var offsetY = 0
+      var move = this.select(ctx,d)
+      if (move != "Stand") {
+        //  If leader or trailer, make sure to adjust quarter turn
+        //  so handhold is possible
+        if (d.leader) {
+          var d2 = ctx.dancerInBack(d)
+          var dist = ctx.distance(d,d2)
+          if (dist > 2 && dist < 4.1)
+            offsetX = -(dist-2)/2
+        }
+        if (d.trailer) {
+          var d2 = ctx.dancerInFront(d)
+          var dist = ctx.distance(d,d2)
+          if (dist > 2 && dist < 4.1)
+            offsetX = (dist-2)/2
+        }
       }
-      if (d.trailer) {
-        var d2 = ctx.dancerInFront(d);
-        var dist = ctx.distance(d,d2);
-        if (dist > 2 && dist < 4.1)
-          offsetX = (dist-2)/2;
-      }
+      return new Path({select: move, offsetX: offsetX, offsetY: offsetY })
     }
-    return new Path({select: move, offsetX: offsetX, offsetY: offsetY });
-  };
-  return QuarterTurns;
-});
+
+  })

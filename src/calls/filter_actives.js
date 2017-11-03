@@ -20,15 +20,13 @@
  */
 "use strict";
 
-define(['env','calls/codedcall'],function(Env,CodedCall) {
-  var FilterActives = Env.extend(CodedCall);
-  FilterActives.prototype.preProcess = function(ctx)
-  {
-    ctx.actives.filter(function(d) {
-      return !this.test(d,ctx);
-    },this).forEach(function(d) {
-      d.active = false;
-    });
-  };
-  return FilterActives;
-});
+define(["calls/codedcall"], CodedCall =>
+
+  class FilterActives extends CodedCall {
+
+    preProcess(ctx) {
+      ctx.actives.filter(d => !this.test(d,ctx))
+                 .forEach(d => { d.active = false })
+    }
+
+  })

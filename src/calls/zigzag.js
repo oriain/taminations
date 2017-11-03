@@ -20,16 +20,22 @@
  */
 "use strict";
 
-define(['env','calls/quarter_turns'],function(Env,QuarterTurns) {
-  var ZigZag = Env.extend(QuarterTurns, function(calltext) {
-    this.name = calltext.toCapCase();
-  });
-  ZigZag.prototype.select = function(ctx,d) {
-    if (d.leader)
-      return this.name.match("Zig Z[ai]g") ? 'Quarter Right' : "Quarter Left";
-    if (d.trailer)
-      return this.name.match("Z[ai]g Zig") ? "Quarter Right" : 'Quarter Left';
-    return 'Stand';
-  };
-  return ZigZag;
-});
+define(['calls/quarter_turns'], QuarterTurns =>
+
+  //  This class handles Zig Zag, Zag Zig, Zig Zig, Zag Zag
+  class ZigZag extends QuarterTurns {
+
+    constructor(calltext) {
+      super()
+      this.name = calltext.toCapCase()
+    }
+
+    select(ctx,d) {
+      if (d.leader)
+        return this.name.match("Zig Z[ai]g") ? 'Quarter Right' : "Quarter Left"
+      if (d.trailer)
+        return this.name.match("Z[ai]g Zig") ? "Quarter Right" : 'Quarter Left'
+      return "Stand"
+    }
+
+  })

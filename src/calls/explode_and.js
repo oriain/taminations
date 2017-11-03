@@ -20,17 +20,21 @@
  */
 "use strict";
 
-define(['env','calls/action'],function(Env,Action) {
-  var ExplodeAnd = Env.extend(Action);
-  ExplodeAnd.prototype.name = 'Explode and';
+define(['calls/action'], Action =>
 
-  //  For now this just does Explode from waves
-  //  And it would be better if the dancer's paths would be smoothed out
-  ExplodeAnd.prototype.perform = function(ctx) {
-    ctx.applyCalls('extend','quarter in');
-  };
+  class ExplodeAnd extends Action {
 
-  ExplodeAnd.requires = ['Extend','Quarter In'];
+    static get requires() { return ["Extend","Quarter In"] }
 
-  return ExplodeAnd;
-});
+    constructor() {
+      super()
+      this.name = 'Explode and'
+    }
+
+    //  For now this just does Explode from waves
+    //  And it would be better if the dancer's paths would be smoothed out
+    perform(ctx) {
+      ctx.applyCalls("extend","quarter in")
+    }
+
+  })

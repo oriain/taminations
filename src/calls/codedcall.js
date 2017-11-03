@@ -21,9 +21,40 @@
 
 "use strict";
 
-define(['env','path','calls/call'],function(Env,Path,Call) {
-  var CodedCall = Env.extend(Call);
-  CodedCall.classes = {};
+define(['path','calls/call'], (Path,Call) => {
+
+  class CodedCall extends Call {
+
+    //  Dynamically load classes for the coded calls
+    //  Returns number of scripts queued to fetch with the require function
+    //  Callback run as each class is loaded
+    static getScript(calltext,callback) {
+      var c = calltext.toLowerCase()
+      var fetchnum = 0
+      CodedCall.scripts.forEach(s => {
+        if (c.match("^("+s.regex+")$") && !(s.regex in CodedCall.classes)) {
+          fetchnum++
+          require(['calls/'+s.link],itsclass => {
+            CodedCall.classes[s.regex] = itsclass
+            callback(itsclass)
+          })
+        }
+      })
+      return fetchnum
+    }
+
+    //  Return class that matches text
+    //  Must have been loaded with getScript
+    static getCodedCall(calltext) {
+      var c = calltext.toLowerCase();
+      var link = CodedCall.scripts.find(s => c.match(`^(${s.regex})$`) );
+      return link ? new CodedCall.classes[link.regex](calltext) : false;
+    }
+
+
+  }
+
+  CodedCall.classes = {}
   //  Script regex matches against call text
   //
   CodedCall.scripts = [
@@ -39,6 +70,7 @@ define(['env','path','calls/call'],function(Env,Path,Call) {
        { regex:'cross run', link:'cross_run' },
        { regex:'ends', link:'ends' },
        { regex:'explode and', link:'explode_and' },
+       { regex:"facing dancers", link:"facing_dancers"},
        { regex:'face (in|out|left|right)', link:'face_in' },
        { regex:'girls?', link:'girls' },
        { regex:'half', link:'half' },
@@ -46,12 +78,10 @@ define(['env','path','calls/call'],function(Env,Path,Call) {
        { regex:'heads?', link:'heads' },
        { regex:'hinge', link:'hinge' },
        { regex:'leaders?', link:'leaders' },
-       { regex:'make tight wave', link:'make_tight_wave' }, // TEMP for testing
        { regex:'(onc?e and a half)|(1 1/2)', link:'one_and_a_half' },
        { regex:'pass thru', link:'pass_thru' },
        { regex:'quarter (in|out)', link:'quarter_in' },
        { regex:'and roll', link:'roll' },
-       { regex:'reverse wheel around', link:'reverse_wheel_around' },
        { regex:'run', link:'run' },
        { regex:'sides?', link:'sides' },
        { regex:'slide thru', link:'slide_thru' },
@@ -64,37 +94,13 @@ define(['env','path','calls/call'],function(Env,Path,Call) {
        { regex:'turn back', link:'turn_back' },
        { regex:'turn thru', link:'turn_thru' },
        { regex:'very centers', link:'verycenters' },
-       { regex:'wheel around', link:'wheel_around' },
+       { regex:'(reverse )?wheel around', link:'wheel_around' },
        { regex:'z[ai]g', link:'zig' },
        { regex:'z[ai]g z[ai]g', link:'zigzag' },
        { regex:'zoom', link:'zoom' }
-   ];
+   ]
 
-  //  Dynamically load classes for the coded calls
-  //  Returns number of scripts queued to fetch with the require function
-  //  Callback run as each class is loaded
-  CodedCall.getScript = function(calltext,callback) {
-    var c = calltext.toLowerCase();
-    var fetchnum = 0;
-    CodedCall.scripts.forEach(function(s) {
-      if (c.match("^("+s.regex+")$") && !(s.regex in CodedCall.classes)) {
-        fetchnum++;
-        require(['calls/'+s.link],function(itsclass) {
-          CodedCall.classes[s.regex] = itsclass;
-          callback(itsclass);
-        });
-      }
-    });
-    return fetchnum;
-  }
 
-  //  Return class that matches text
-  //  Must have been loaded with getScript
-  CodedCall.getCodedCall = function(calltext) {
-    var c = calltext.toLowerCase();
-    var link = CodedCall.scripts.find(function(s) { return c.match("^("+s.regex+")$");  });
-    return link ? new CodedCall.classes[link.regex](calltext) : false;
-  }
+  return CodedCall
 
-  return CodedCall;
-});
+})

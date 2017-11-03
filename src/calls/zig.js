@@ -20,14 +20,20 @@
  */
 "use strict";
 
-define(['env','calls/quarter_turns'],function(Env,QuarterTurns) {
-  var Zig = Env.extend(QuarterTurns, function(calltext) {
-    this.name = calltext.toCapCase();
-  });
-  Zig.prototype.select = function(ctx,d) {
-    if (d.leader)
-      return this.name.match("Zig") ? 'Quarter Right' : "Quarter Left";
-    return 'Stand';
-  };
-  return Zig;
-});
+define(['calls/quarter_turns'], QuarterTurns =>
+
+  //  This class handles single Zig and Zag
+  class Zig extends QuarterTurns {
+
+    constructor(calltext) {
+      super()
+      this.name = calltext.toCapCase()
+    }
+
+    select(ctx,d) {
+      if (d.leader)
+        return this.name.match("Zig") ? "Quarter Right" : "Quarter Left"
+      return "Stand"
+    }
+
+  })

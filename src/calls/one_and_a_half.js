@@ -20,23 +20,26 @@
  */
 "use strict";
 
-define(['env','calls/codedcall','calls/half','callerror'],
-       function(Env,CodedCall,Half,CallError) {
-  var OneAndaHalf = Env.extend(CodedCall);
-  OneAndaHalf.prototype.name = "Once and a Half";
-  OneAndaHalf.requires = ['Half'];
+define(['calls/codedcall','calls/half','callerror'], (CodedCall,Half,CallError) =>
 
-  OneAndaHalf.prototype.preProcess = function(ctx) {
-    if (ctx.callstack.length < 2)
-      throw new CallError('One and a half of what?');
-  };
+  class OneAndaHalf extends CodedCall {
 
-  OneAndaHalf.prototype.performCall = function(ctx,i) {
-    //  At this point the call has already been done once
-    //  So just do half of it again
-    ctx.applyCalls('half '+ctx.callstack[0].name)
-  };
+    static get requires() { return ['Half'] }
 
+    constructor() {
+      super()
+      this.name = "Once and a Half"
+    }
 
-  return OneAndaHalf;
-});
+    preProcess(ctx) {
+      if (ctx.callstack.length < 2)
+        throw new CallError("One and a half of what?")
+    }
+
+    performCall(ctx,i) {
+      //  At this point the call has already been done once
+      //  So just do half of it again
+      ctx.applyCalls("half "+ctx.callstack[0].name)
+    }
+
+  })

@@ -20,12 +20,18 @@
  */
 "use strict";
 
-define(['env',"calls/filter_actives"],function(Env,FilterActives) {
-  var FacingDancers = Env.extend(FilterActives);
-  FacingDancers.prototype.name = "Facing Dancers";
-  FacingDancers.prototype.test = function(d,ctx) {
-    var d2 = ctx.dancerInFront(d);
-    return d2 != undefined && ctx.dancerInFront(d2) == d;
-  };
-  return FacingDancers;
-});
+define(["calls/filter_actives"], FilterActives =>
+
+  class FacingDancers extends FilterActives {
+
+    constructor() {
+      super()
+      this.name = "Facing Dancers"
+    }
+
+    test(d,ctx) {
+      var d2 = ctx.dancerInFront(d)
+      return d2 != undefined && ctx.dancerInFront(d2) == d
+    }
+
+  })

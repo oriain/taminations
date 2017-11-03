@@ -203,6 +203,36 @@ TAMination.localize = function(str)
   return retval;
 };
 
+/**
+ *   Reads an XML formation and returns array of the dancers
+ * @param formation   XML formation element
+ * @returns Array of dancers
+ */
+TAMination.getDancers = function(formation) {
+  var dancers = [];
+  var i = 1;
+  $('dancer',formation).each(function() {
+    var d = new Dancer({
+         tamsvg:tamsvg,
+         computeOnly:true,
+         gender:Dancer.genders[$(this).attr('gender')],
+         x:-Number($(this).attr('y')),
+         y:-Number($(this).attr('x')),
+         angle:Number($(this).attr('angle'))+180,
+         number:i++});
+    dancers.push(d);
+    d = new Dancer({
+         tamsvg:tamsvg,
+         computeOnly:true,
+         gender:Dancer.genders[$(this).attr('gender')],
+         x:Number($(this).attr('y')),
+         y:Number($(this).attr('x')),
+         angle:Number($(this).attr('angle')),
+         number:i++});
+    dancers.push(d);
+  });
+  return dancers;
+};
 
 
 TAMination.prototype.init = function(call) {

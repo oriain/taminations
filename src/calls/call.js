@@ -21,14 +21,27 @@
 
 "use strict";
 
-define(['env','path'],function(Env,Path) {
-  var Call = Env.extend();
-  Call.prototype.name = "";
-  Call.xmldata = {};
-  //  As the base class for all calls, these are default methods
-  //  for the methods that real calls override
-  Call.prototype.performCall = function(ctx) { };
-  Call.prototype.preProcess = function(ctx) { };
-  Call.prototype.postProcess = function(ctx) { };
-  return Call;
-});
+define(['env','path'], Path =>
+
+  class Call extends Env {
+
+    constructor() {
+      super()
+      this.name = ""
+    }
+
+    static get xmldata() {
+      if (!("_xmldata" in Call))
+        Call._xmldata = {}
+      return Call._xmldata
+    }
+
+    //  As the base class for all calls, these are default methods
+    //  for the methods that real calls override
+    performCall(ctx) { }
+    preProcess(ctx) { }
+    postProcess(ctx) { }
+
+  }
+
+)

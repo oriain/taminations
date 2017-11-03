@@ -20,30 +20,32 @@
  */
 "use strict";
 
-define(['env','calls/quarter_turns','callerror'],function(Env,QuarterTurns,CallError) {
-  var Roll = Env.extend(QuarterTurns);
-  Roll.prototype.name = "and Roll";
-  Roll.prototype.select = function(ctx,d) {
-    //  Look at the last curve of the path
-    var rollm = d.path.movelist.reversed().find(function(m) {
-      return !m.isStand();
-    });
-    if (rollm) {
-      var roll = rollm.brotate.rolling();
-      if (roll < -0.1)
-        return 'Quarter Right';
-      else if (roll > 0.1)
-        return 'Quarter Left';
-    }
-    return 'Stand';
-  };
+define(['calls/quarter_turns','callerror'], (QuarterTurns,CallError) =>
 
-  //  Check that another call preceeds "and Roll"
-  Roll.prototype.preProcess = function(ctx,i) {
-    if (i == 0) {
-      throw new CallError("'and Roll' must follow another call.");
-    }
-  };
+  class Roll extends QuarterTurns {
 
-  return Roll;
-});
+    constructor() {
+      this.name = "and Roll"
+    }
+
+    select(ctx,d) {
+      //  Look at the last curve of the path
+      var rollm = d.path.movelist.reversed().find(m => !m.isStand())
+      if (rollm) {
+        var roll = rollm.brotate.rolling()
+        if (roll < -0.1)
+          return "Quarter Right"
+        else if (roll > 0.1)
+          return "Quarter Left"
+      }
+      return "Stand"
+    };
+
+    //  Check that another call preceeds "and Roll"
+    preProcess(ctx,i) {
+      if (i == 0) {
+        throw new CallError("'and Roll' must follow another call.")
+      }
+    }
+
+  })

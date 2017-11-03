@@ -20,23 +20,27 @@
  */
 "use strict";
 
-define(['env','calls/action','path','callerror'],function(Env,Action,Path,CallError) {
-  var TouchAQuarter = Env.extend(Action, function(calltext) {
-    this.name = calltext.toCapCase().replace(" A "," a ");
-  });
-  TouchAQuarter.prototype.performOne = function(d,ctx)
-  {
-    //  Can only touch with another dancer
-    //  in front of this dancer
-    //  who is also facing this dancer
-    var d2 = ctx.dancerInFront(d);
-    if (d2 != undefined && ctx.dancerInFront(d2) == d) {
-      var dist = ctx.distance(d,d2);
-      return TamUtils.getMove("Extend Left").scale(dist/2,1)
-                     .add(TamUtils.getMove("Hinge Right"))
-                     .ifdo(this.name.match("Left"),function(p) { return p.reflect(); });
+define(['calls/action','path','callerror'], (Action,Path,CallError) =>
+
+  class TouchAQuarter extends Action {
+
+    constructor (calltext) {
+      super()
+      this.name = calltext.toCapCase().replace(" A "," a ")
     }
-    throw new CallError("Dancer "+d+" cannot Touch a Quarter");
-  };
-  return TouchAQuarter;
-});
+
+    performOne(d,ctx) {
+      //  Can only touch with another dancer
+      //  in front of this dancer
+      //  who is also facing this dancer
+      var d2 = ctx.dancerInFront(d)
+      if (d2 != undefined && ctx.dancerInFront(d2) == d) {
+        var dist = ctx.distance(d,d2)
+        return TamUtils.getMove("Extend Left").scale(dist/2,1)
+                       .add(TamUtils.getMove("Hinge Right"))
+                       .ifdo(this.name.match("Left"), p => p.reflect() )
+      }
+      throw new CallError(`Dancer ${d} cannot Touch a Quarter`)
+    }
+
+  })

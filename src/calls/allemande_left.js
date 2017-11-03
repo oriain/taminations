@@ -20,23 +20,26 @@
  */
 "use strict";
 
-define(['env','calls/action','path','callerror'],
-    function(Env,Action,Path,CallError) {
-  var AllemandeLeft = Env.extend(Action);
-  AllemandeLeft.prototype.name = "Allemande Left";
-  AllemandeLeft.prototype.performOne = function(d,ctx)
-  {
-    //  Can only turn thru with another dancer
-    //  in front of this dancer
-    //  who is also facing this dancer
-    var d2 = ctx.dancerInFront(d);
-    if (d2 != undefined && ctx.dancerInFront(d2) == d) {
-      var dist = ctx.distance(d,d2);
-      return TamUtils.getMove("Extend Right").scale(dist/2,0.5)
-        .add(TamUtils.getMove("Swing Left").scale(0.5,0.5))
-        .add(TamUtils.getMove("Extend Left").scale(dist/2,0.5));
+define(['calls/action','path','callerror'], (Action,Path,CallError) =>
+
+  class AllemandeLeft extends Action {
+
+    constructor() {
+      super()
+      this.name = "Allemande Left"
     }
-    throw new CallError('Cannot find dancer to turn with '+dancerNum(d));
-  };
-  return AllemandeLeft;
-});
+
+    performOne(d,ctx) {
+      //  Can only turn thru with another dancer
+      //  in front of this dancer
+      //  who is also facing this dancer
+      var d2 = ctx.dancerInFront(d)
+      if (d2 != undefined && ctx.dancerInFront(d2) == d) {
+        var dist = ctx.distance(d,d2)
+        return TamUtils.getMove("Extend Right").scale(dist/2,0.5)
+          .add(TamUtils.getMove("Swing Left").scale(0.5,0.5))
+          .add(TamUtils.getMove("Extend Left").scale(dist/2,0.5))
+      }
+      throw new CallError('Cannot find dancer to turn with '+dancerNum(d))
+    }
+  })

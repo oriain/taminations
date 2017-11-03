@@ -20,21 +20,26 @@
  */
 "use strict";
 
-define(['env','calls/action','path'],function(Env,Action,Path) {
-  var PassThru = Env.extend(Action);
-  PassThru.prototype.name = "Pass Thru";
-  PassThru.prototype.performOne = function(d,ctx)
-  {
-    //  Can only pass thru with another dancer
-    //  in front of this dancer
-    //  who is also facing this dancer
-    var d2 = ctx.dancerInFront(d);
-    if (d2 != undefined && ctx.dancerInFront(d2) == d) {
-      var dist = ctx.distance(d,d2);
-      return TamUtils.getMove("Extend Left").scale(dist/2,0.5)
-        .add(TamUtils.getMove("Extend Right").scale(dist/2,0.5));
+define(['calls/action','path','callerror'], (Action,Path,CallError) =>
+
+  class PassThru extends Action {
+
+    constructor() {
+      super()
+      this.name = "Pass Thru"
     }
-    throw new Error();
-  };
-  return PassThru;
-});
+
+    performOne(d,ctx) {
+      //  Can only pass thru with another dancer
+      //  in front of this dancer
+      //  who is also facing this dancer
+      var d2 = ctx.dancerInFront(d)
+      if (d2 != undefined && d2.active && ctx.dancerInFront(d2) == d) {
+        var dist = ctx.distance(d,d2);
+        return TamUtils.getMove("Extend Left").scale(dist/2,0.5)
+          .add(TamUtils.getMove("Extend Right").scale(dist/2,0.5))
+      }
+      throw new CallError(`Dancer ${d.number} has nobody to Pass Thru with`)
+    }
+
+  })

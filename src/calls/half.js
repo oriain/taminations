@@ -20,54 +20,56 @@
  */
 "use strict";
 
-define(['env','calls/action','calls/xmlcall'],
-       function(Env,Action,XMLCall) {
-  var Half = Env.extend(Action);
-  Half.prototype.name = "Half";
+define(['calls/action','calls/xmlcall'], (Action,XMLCall) =>
 
-  Half.prototype.perform = function(ctx,i) {
+  class Half extends Action {
 
-    if (i+1 < ctx.callstack.length) {
-      //  Steal the next call off the stack
-      this.call = ctx.callstack[i+1];
-  
-      //  For XML calls there should be an explicit number of parts
-      //  Or assume the call is simple enought that 1/2 is half the beats
-      this.halfbeats = 0;
-      if (this.call instanceof XMLCall) {
-        //  Figure out how many beats are in half the call
-        var parts = $(this.call.xelem).attr('parts');
-        if (parts != undefined) {
-          var partnums = parts.split(';');
-          partnums.slice(0,(partnums.length+1)/2).forEach(function(b) {
-            this.halfbeats += Number(b);
-          },this);
-        }
-      }
-      this.prevbeats = ctx.maxBeats();
+    constructor() {
+      super()
+      this.name = "Half"
     }
-  };
 
-  //  Call is performed between these two methods
+    perform(ctx,i) {
+      if (i+1 < ctx.callstack.length) {
+        //  Steal the next call off the stack
+        this.call = ctx.callstack[i+1]
 
-  Half.prototype.postProcess = function(ctx,i) {
-    //  Coded calls so far do not have explicit parts
-    //  so just divide them in two
-    if (this.call instanceof Action || this.halfbeats == 0)
-      this.halfbeats = (ctx.maxBeats() - this.prevbeats) / 2;
-
-    //  Chop off the excess half
-    ctx.dancers.forEach(function(d) {
-      var m = 0;
-      while (d.path.beats() > this.prevbeats + this.halfbeats)
-        m = d.path.pop();
-      if (m && d.path.beats() < this.prevbeats + this.halfbeats) {
-        m = m.clip(this.prevbeats + this.halfbeats - d.path.beats());
-        d.path.add(m);
+        //  For XML calls there should be an explicit number of parts
+        //  Or assume the call is simple enought that 1/2 is half the beats
+        this.halfbeats = 0
+        if (this.call instanceof XMLCall) {
+          //  Figure out how many beats are in half the call
+          var parts = $(this.call.xelem).attr('parts')
+          if (parts != undefined) {
+            var partnums = parts.split(';')
+            partnums.slice(0,(partnums.length+1)/2).forEach(
+                b => { this.halfbeats += Number(b) })
+          }
+        }
+        this.prevbeats = ctx.maxBeats()
       }
-    },this);
+    }
 
-  };
+    //  Call is performed between these two methods
 
-  return Half;
-});
+    postProcess(ctx,i) {
+      //  Coded calls so far do not have explicit parts
+      //  so just divide them in two
+      if (this.call instanceof Action || this.halfbeats == 0)
+        this.halfbeats = (ctx.maxBeats() - this.prevbeats) / 2
+
+      //  Chop off the excess half
+      ctx.dancers.forEach(d => {
+        var m = 0
+        while (d.path.beats() > this.prevbeats + this.halfbeats)
+          m = d.path.pop()
+        if (m && d.path.beats() < this.prevbeats + this.halfbeats) {
+          m = m.clip(this.prevbeats + this.halfbeats - d.path.beats())
+          d.path.add(m)
+        }
+      })
+
+    };
+
+
+  })

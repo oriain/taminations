@@ -20,24 +20,58 @@
  */
 "use strict";
 
-define(['env','calls/action','movement','path','vector'],
-    function(Env,Action,Movement,Path,Vector) {
-  var AndSpread = Env.extend(Action);
-  AndSpread.prototype.name = " and Spread";
-  AndSpread.prototype.performOne = function(d,ctx)
-  {
-    var p = d.path;
-    //  This is for waves only TODO tandem couples, single dancers (C-1)
-    var v = new Vector();
-    if (d.belle)
-      v = new Vector(0,2);
-    else if (d.beau)
-      v = new Vector(0,-2);
-    var m = p.movelist.pop();
-    var tx = m.rotate();
-    v = v.concatenate(tx);
-    p.movelist.push(m.skew(v.x,v.y).useHands(Movement.NOHANDS));
-    return new Path();
-  };
-  return AndSpread;
-});
+define(['calls/action','movement','path','vector'],
+    (Action,Movement,Path,Vector) =>
+
+  class AndSpread extends Action {
+
+    constructor() {
+      super()
+      this.name = " and Spread"
+    }
+
+    /*
+     * 1. If only some of the dancers are directed to Spread (e.g., from a
+     * static square, Heads Star Thru & Spread), they slide apart sideways to
+     * become ends, as the inactive dancers step forward between them.
+     *
+     * 2. If the (Anything) call finishes in lines or waves (e.g., Follow Your Neighbor),
+     * the centers anticipate the Spread action by sliding apart sideways to
+     * become the new ends, while the original ends anticipate the Spread action
+     * by moving into the nearest center position.
+     *
+     * 3. If the (Anything) call finishes in tandem couples
+     *  (e.g., Wheel & Deal from a line of four), the lead dancers slide apart sideways,
+     *  while the trailing dancers step forward between them.
+     */
+
+    perform(ctx) {
+      //  Is this spread from waves, tandem, actives?
+      if (ctx.actives.length == ctx.dancers.length/2) {
+        if (new CallContext(ctx.actives).isLine())
+          ;  //  Case 2: Active dancers in line or wave spread among themselves
+        else
+          ;  //  Case 1: Active dancers spread and let in the others
+      } else if (ctx.isLines())
+        ;  //  Case 2
+      else
+        ;  // case 3
+
+    }
+
+    performOne(d,ctx) {
+      var p = d.path
+      //  This is for waves only TODO tandem couples, single dancers (C-1)
+      var v = new Vector()
+      if (d.belle)
+        v = new Vector(0,2)
+      else if (d.beau)
+        v = new Vector(0,-2)
+      var m = p.movelist.pop()
+      var tx = m.rotate()
+      v = v.concatenate(tx)
+      p.movelist.push(m.skew(v.x,v.y).useHands(Movement.NOHANDS))
+      return new Path()
+    }
+
+  })

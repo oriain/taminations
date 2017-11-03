@@ -20,14 +20,20 @@
  */
 "use strict";
 
-define(['env','calls/action','path',"callerror"],function(Env,Action,Path,CallError) {
-  var HalfSashay = Env.extend(Action);
-  HalfSashay.prototype.name = "Half Sashay";
-  HalfSashay.prototype.performOne = function(d,ctx) {
-    if (ctx.isInCouple(d)) {
-      return TamUtils.getMove(d.beau ? "BackSashay Right" : "Sashay Left");
+define(['calls/action','path',"callerror"], (Action,Path,CallError) =>
+
+  class HalfSashay extends Action {
+
+    constructor() {
+      super()
+      this.name = "Half Sashay"
     }
-    throw new CallError("Only Couples can Half Sashay");
-  }
-  return HalfSashay;
-});
+
+    performOne(d,ctx) {
+      if (ctx.isInCouple(d)) {
+        return TamUtils.getMove(d.beau ? "BackSashay Right" : "Sashay Left")
+      }
+      throw new CallError("Only Couples can Half Sashay")
+    }
+
+  })

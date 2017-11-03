@@ -20,11 +20,17 @@
  */
 "use strict";
 
-define(['env',"calls/filter_actives"],function(Env,FilterActives) {
-  var Belles = Env.extend(FilterActives);
-  Belles.prototype.name = "Belles";
-  Belles.prototype.test = function(d) {
-    return d.belle;
-  };
-  return Belles;
-});
+define(["calls/filter_actives"], FilterActives =>
+
+  class Belles extends FilterActives {
+
+    constructor() {
+      super()
+      this.name = "Belles"
+    }
+
+    test(d) {
+      return d.belle
+    }
+
+  })

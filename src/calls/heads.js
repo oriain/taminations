@@ -20,12 +20,17 @@
  */
 "use strict";
 
-define(['env',"calls/filter_actives"],function(Env,FilterActives) {
-  var Heads = Env.extend(FilterActives,function(calltext) {
-    this.name = calltext.toCapCase();
-  });
-  Heads.prototype.test = function(d) {
-    return d.couplesnumber == '1' || d.couplesnumber == '3';
-  };
-  return Heads;
-});
+define(["calls/filter_actives"], FilterActives =>
+
+  class Heads extends FilterActives {
+
+    constructor(calltext) {
+      super()
+      this.name = calltext.toCapCase()
+    }
+
+    test(d) {
+      return d.couplesnumber == '1' || d.couplesnumber == '3'
+    }
+
+  })

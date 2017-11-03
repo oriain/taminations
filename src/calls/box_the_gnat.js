@@ -20,21 +20,26 @@
  */
 "use strict";
 
-define(['env','calls/action','movement','path'],
-       function(Env,Action,Movement,Path) {
-  var BoxTheGnat = Env.extend(Action);
-  BoxTheGnat.prototype.name = "Box the Gnat";
-  BoxTheGnat.prototype.performOne = function(d,ctx) {
-    var d2 = ctx.dancerInFront(d);
-    var dist = ctx.distance(d,d2);
-    var cy1 = d.gender == Dancer.BOY ? 1 : .1;
-    var y4 = d.gender == Dancer.BOY ? -2 : 2;
-    var hands = d.gender == Dancer.BOY ? "gripleft" : "gripright";
-    var m = new Movement(
-        4.0, hands,
-        1, cy1, dist/2, cy1, dist/2+1, 0,     1.3, 1.3, y4, 0, y4
-        );
-    return new Path(m);
-  }
-  return BoxTheGnat;
-});
+define(['calls/action','movement','path'], (Action,Movement,Path) =>
+
+  class BoxTheGnat extends Action {
+
+    constructor() {
+      super()
+      this.name = "Box the Gnat"
+    }
+
+    performOne(d,ctx) {
+      var d2 = ctx.dancerInFront(d)
+      var dist = ctx.distance(d,d2)
+      var cy1 = d.gender == Dancer.BOY ? 1 : .1
+      var y4 = d.gender == Dancer.BOY ? -2 : 2
+      var hands = d.gender == Dancer.BOY ? "gripleft" : "gripright"
+      var m = new Movement(
+          4.0, hands,
+          1, cy1, dist/2, cy1, dist/2+1, 0,     1.3, 1.3, y4, 0, y4
+          )
+      return new Path(m)
+    }
+
+  })

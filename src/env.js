@@ -23,73 +23,75 @@
 //  Extend Object class with useful stuff
 define(function() {
 
-  var Env = function() { };
+  class Env {
 
-  var funcprop = {writable: true, enumerable: false};
-  /**
-   *   This is a simple sub-classing method
-   *   Use as
-   *     SubClass = Env.extend(ParentClass,constructor);
-   *     If ParentClass is not given, then Env is the parent
-   *     If no constructor is given, a default empty one is created.
-   */
-  Env.extend = function(p,c)
-  {
-    p = p || Env;
-    c = c || function() { };
-    c.prototype = Object.create(p.prototype);
-    c.prototype.constructor = c;
-    //  Copy any statics as they are not inherited
-    for (var prop in p)
-      c[prop] = p[prop];
-    return c;
-  };
-
-  /**
-   *   This defines a forEach function for objects similar to the Array function
-   *   Parameters:
-   *   f(p,v)
-   *      A function called for every enumerable property of the object
-   *      p is the property, and v is its value
-   *   o
-   *      An optional object to bind 'this' in the function given as the first parameter
-   *      If not given then the calling object is bound
-   *
-   */
-  Env.prototype.forEach = function(f,o) {
-    o = o || this;
-    for (var p in this) {
-      f.call(o,p,this[p]);
+    /**
+     *   This is a simple sub-classing method
+     *   Use as
+     *     SubClass = Env.extend(ParentClass,constructor);
+     *     If ParentClass is not given, then Env is the parent
+     *     If no constructor is given, a default empty one is created.
+     */
+    static extend(p,c)
+    {
+      p = p || Env;
+      c = c || function() { };
+      c.prototype = Object.create(p.prototype);
+      c.prototype.constructor = c;
+      //  Copy any statics as they are not inherited
+      for (var prop in p)
+        c[prop] = p[prop];
+      return c;
     }
-  };
 
-  Env.prototype.every = function(f,o) {
-    o = o || this;
-    for (var p in this) {
-      if (!f.call(o,p,this[p]))
-        return false;
+    /**
+     *   This defines a forEach function for objects similar to the Array function
+     *   Parameters:
+     *   f(p,v)
+     *      A function called for every enumerable property of the object
+     *      p is the property, and v is its value
+     *   o
+     *      An optional object to bind 'this' in the function given as the first parameter
+     *      If not given then the calling object is bound
+     *
+     */
+    forEach(f,o) {
+      o = o || this;
+      for (var p in this) {
+        f.call(o,p,this[p]);
+      }
     }
-    return true;
-  };
 
-  Env.prototype.some = function(f,o) {
-    o = o || this;
-    for (var p in this) {
-      if (f.call(o,p,this[p]))
-        return true;
+    every(f,o) {
+      o = o || this;
+      for (var p in this) {
+        if (!f.call(o,p,this[p]))
+          return false;
+      }
+      return true;
     }
-    return false;
-  };
 
-  Env.prototype.ifdo = function(e,f) {
-    return e ? f(this) : this;
+    some(f,o) {
+      o = o || this;
+      for (var p in this) {
+        if (f.call(o,p,this[p]))
+          return true;
+      }
+      return false;
+    }
+
+    ifdo(e,f) {
+      return e ? f(this) : this;
+    }
+
+    //  Object comes with a keys method but not a values method
+    values(o) {
+      return Object.keys(o).map(function(k) { return this[k]; },o);
+    }
+
   }
 
-  //  Object comes with a keys method but not a values method
-  Env.prototype.values = function(o) {
-    return Object.keys(o).map(function(k) { return this[k]; },o);
-  };
-
+  var funcprop = {writable: true, enumerable: false};
   Object.defineProperties(Env.prototype, {
     extend: funcprop,
     forEach: funcprop,

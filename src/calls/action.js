@@ -24,40 +24,42 @@
 //  Base class for programmed calls that move the dancers
 
 define(['env','path','calls/call','calls/codedcall' ],function(Env,Path,Call,CodedCall) {
-  var Action = Env.extend(CodedCall);
 
-  //  Wrapper method for performing one call
-  Action.prototype.performCall = function(ctx,i)
-  {
-    this.perform(ctx,i);
-    ctx.dancers.forEach(function(d) {
-      d.recalculate();
-      d.animateToEnd();
-    },this);
-    ctx.levelBeats();
-  };
+  class Action extends CodedCall {
 
-  //  Default method to perform one call
-  //  Pass the call on to each active dancer
-  //  Then append the returned paths to each dancer
-  Action.prototype.perform = function(ctx,i) {
-    //  Get all the paths with performOne calls
-    ctx.actives.forEach(function(d) {
-      d.path.add(this.performOne(d,ctx));
-    },this);
-  };
+    //  Wrapper method for performing one call
+    performCall(ctx,i) {
+      this.perform(ctx,i)
+      ctx.dancers.forEach(d => {
+        d.recalculate()
+        d.animateToEnd()
+      })
+      ctx.levelBeats()
+    };
 
-  //  Default method for one dancer to perform one call
-  //  Returns an empty path (the dancer just stands there)
-  Action.prototype.performOne = function()
-  {
-    return new Path();
-  };
+    //  Default method to perform one call
+    //  Pass the call on to each active dancer
+    //  Then append the returned paths to each dancer
+    perform(ctx,i) {
+      //  Get all the paths with performOne calls
+      ctx.actives.forEach(d => {
+        d.path.add(this.performOne(d,ctx))
+      })
+    }
 
-  Action.prototype.postProcess = function(ctx,i) {
-    Call.prototype.postProcess.call(this,ctx,i);
-    ctx.matchStandardFormation();
-  };
+    //  Default method for one dancer to perform one call
+    //  Returns an empty path (the dancer just stands there)
+    performOne() {
+      return new Path()
+    }
 
-  return Action;
-});
+    postProcess(ctx,i) {
+      Call.prototype.postProcess.call(this,ctx,i)
+      ctx.matchStandardFormation()
+    }
+
+  }
+
+  return Action
+
+})
