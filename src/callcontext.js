@@ -660,6 +660,13 @@ define(['calls/call','callnotfounderror','formationnotfounderror',
       Math.anglesEqual(d.tx.angle,d.partner.tx.angle)
     }
 
+    //  Return true if this dancer is in tandem with another dancer
+    isInTandem(d) {
+      return d.trailer ? this.dancerInFront(d).leader :
+             d.leader ? this.dancerInBack(d).trailer :
+             false
+    }
+
     //  Return true if this is 4 dancers in a box
     isBox() {
       //  Must have 4 dancers

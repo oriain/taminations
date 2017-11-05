@@ -47,7 +47,7 @@ define(['calls/call','path'], (Call,Path) =>
       //  and that difference will be added as an offset to the first movement
       var vdif = ctx.computeFormationOffsets(this.ctx2,this.xmlmap)
       this.xmlmap.forEach((m,i3) => {
-        var p = new Path(allp[m>>1]);
+        var p = new Path(allp[m>>1])
         //  Compute difference between current formation and XML formation
         var vd = vdif[i3].rotate(-ctx.actives[i3].tx.angle)
         //  Apply formation difference to first movement of XML path
@@ -62,6 +62,15 @@ define(['calls/call','path'], (Call,Path) =>
         //  use the new position
         ctx.actives[i3].animateToEnd()
       })
+
+      //  Mark dancers that had no XML move as inactive
+      //  Needed for post-call modifications e.g. spread
+      let inactives = []
+      this.xmlmap.forEach((m,i4) => {
+        if (allp[m>>1].length == 0)
+          inactives.push(ctx.actives[i4])
+      })
+      inactives.forEach(d => { d.active = false } )
 
       ctx.levelBeats()
       ctx.analyze()

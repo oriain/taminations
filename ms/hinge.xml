@@ -245,7 +245,6 @@
   <tam title="Centers Hinge" from="Right-Hand Two-Faced Line"
        formation="Two-Faced Line RH" difficulty="1">
     <path>
-      <move select="Stand" beats="2"/>
     </path>
     <path>
       <move select="Hinge Right" beats="2"/>
@@ -258,13 +257,11 @@
       <move select="Hinge Left" beats="2"/>
     </path>
     <path>
-      <move select="Stand" beats="2"/>
     </path>
   </tam>
 
   <tam title="Centers Hinge" from="Right-Hand Wave" formation="Wave RH" difficulty="1">
     <path>
-      <move select="Stand" beats="2"/>
     </path>
     <path>
       <move select="Hinge Left" beats="2"/>
@@ -273,7 +270,6 @@
 
   <tam title="Centers Hinge" from="Left-Hand Wave" formation="Wave LH" difficulty="1">
     <path>
-      <move select="Stand" beats="2"/>
     </path>
     <path>
       <move select="Hinge Right" beats="2"/>
@@ -282,7 +278,6 @@
 
   <tam title="Centers Hinge" from="Right-Hand Diamond" formation="Diamond RH" difficulty="2">
     <path>
-      <move select="Stand" beats="2"/>
     </path>
     <path>
       <move select="Hinge Right" beats="2"/>
@@ -291,7 +286,6 @@
 
   <tam title="Centers Hinge" from="Left-Hand Diamond" formation="Diamond LH" difficulty="2">
     <path>
-      <move select="Stand" beats="2"/>
     </path>
     <path>
       <move select="Hinge Left" beats="2"/>
@@ -301,7 +295,6 @@
   <tam title="Centers Hinge" from="Right-Hand Two-Faced Lines"
        formation="Two-Faced Lines RH" difficulty="1">
     <path>
-      <move select="Stand" beats="2"/>
     </path>
     <path>
       <move select="Hinge Right" beats="2"/>
@@ -310,14 +303,12 @@
       <move select="Hinge Right" beats="2"/>
     </path>
     <path>
-      <move select="Stand" beats="2"/>
     </path>
   </tam>
 
   <tam title="Centers Hinge" from="Left-Hand Two-Faced Lines"
        formation="Two-Faced Lines LH" difficulty="2">
     <path>
-      <move select="Stand" beats="2"/>
     </path>
     <path>
       <move select="Hinge Left" beats="2"/>
@@ -326,7 +317,6 @@
       <move select="Hinge Left" beats="2"/>
     </path>
     <path>
-      <move select="Stand" beats="2"/>
     </path>
   </tam>
 
@@ -336,13 +326,11 @@
       <move select="Hinge Right" beats="2"/>
     </path>
     <path>
-      <move select="Stand" beats="2"/>
     </path>
     <path>
       <move select="Hinge Right" beats="2"/>
     </path>
     <path>
-      <move select="Stand" beats="2"/>
     </path>
   </tam>
 
@@ -352,22 +340,18 @@
       <move select="Hinge Left" beats="2"/>
     </path>
     <path>
-      <move select="Stand" beats="2"/>
     </path>
     <path>
       <move select="Hinge Left" beats="2"/>
     </path>
     <path>
-      <move select="Stand" beats="2"/>
     </path>
   </tam>
 
   <tam title="Centers Hinge" from="Quarter Tag" formation="Quarter Tag" difficulty="2">
     <path>
-      <move select="Stand" beats="2"/>
     </path>
     <path>
-      <move select="Stand" beats="2"/>
     </path>
     <path>
       <move select="Hinge Right" beats="2"/>
@@ -380,45 +364,36 @@
   <tam title="Very Centers Hinge" from="Right-Hand Diamonds"
        formation="Diamonds RH Girl Points" difficulty="2">
     <path>
-      <move select="Stand" beats="2"/>
     </path>
     <path>
-      <move select="Stand" beats="2"/>
     </path>
     <path>
       <move select="Hinge Left" beats="2"/>
     </path>
     <path>
-      <move select="Stand" beats="2"/>
     </path>
   </tam>
 
   <tam title="Very Centers Hinge" from="Left-Hand Diamonds"
        formation="Diamonds LH Girl Points" difficulty="2">
     <path>
-      <move select="Stand" beats="2"/>
     </path>
     <path>
-      <move select="Stand" beats="2"/>
     </path>
     <path>
       <move select="Hinge Right" beats="2"/>
     </path>
     <path>
-      <move select="Stand" beats="2"/>
     </path>
   </tam>
 
   <tam title="Very Centers Hinge"
        from="Quarter Tag" formation="Quarter Tag" difficulty="2">
     <path>
-      <move select="Stand" beats="2"/>
     </path>
     <path>
-      <move select="Stand" beats="2"/>
     </path>
     <path>
-      <move select="Stand" beats="2"/>
     </path>
     <path>
       <move select="Hinge Left" beats="2"/>
@@ -428,13 +403,10 @@
   <tam title="Very Centers Hinge"
        from="Right-Hand Tidal Wave" formation="Tidal Wave RH BGGB" difficulty="2">
     <path>
-      <move select="Stand" beats="2"/>
     </path>
     <path>
-      <move select="Stand" beats="2"/>
     </path>
     <path>
-      <move select="Stand" beats="2"/>
     </path>
     <path>
       <move select="Hinge Left" beats="2" hands="gripleft" scaleY=".5"/>

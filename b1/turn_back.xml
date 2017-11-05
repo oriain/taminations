@@ -137,7 +137,6 @@
       <move select="U-Turn Right" />
     </path>
     <path>
-      <move select="Stand" beats="3" />
     </path>
   </tam>
 
@@ -146,13 +145,11 @@
       <move select="U-Turn Right" />
     </path>
     <path>
-      <move select="Stand" beats="3" />
     </path>
   </tam>
 
   <tam title="Girls Turn Back" from="Facing Couples" formation="Facing Couples">
     <path>
-      <move select="Stand" beats="3" />
     </path>
     <path>
       <move select="U-Turn Left" />
@@ -161,7 +158,6 @@
 
   <tam title="Girls Turn Back" from="Right-Hand Box" formation="Box RH">
     <path>
-      <move select="Stand" beats="3" />
     </path>
     <path>
       <move select="U-Turn Right" />

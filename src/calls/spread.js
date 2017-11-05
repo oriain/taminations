@@ -20,8 +20,8 @@
  */
 "use strict";
 
-define(['calls/action','movement','path','vector'],
-    (Action,Movement,Path,Vector) =>
+define(['calls/action','callcontext','movement','path','vector','callerror'],
+       (Action,CallContext,Movement,Path,Vector,CallError) => {
 
   class AndSpread extends Action {
 
@@ -47,17 +47,52 @@ define(['calls/action','movement','path','vector'],
 
     perform(ctx) {
       //  Is this spread from waves, tandem, actives?
+      var spreader = null
       if (ctx.actives.length == ctx.dancers.length/2) {
         if (new CallContext(ctx.actives).isLine())
-          ;  //  Case 2: Active dancers in line or wave spread among themselves
+          spreader = new Case2()  //  Case 2: Active dancers in line or wave spread among themselves
         else
-          ;  //  Case 1: Active dancers spread and let in the others
+          spreader = new Case1()  //  Case 1: Active dancers spread and let in the others
       } else if (ctx.isLines())
-        ;  //  Case 2
+        spreader = new Case2()  //  Case 2
       else
-        ;  // case 3
-
+        spreader = new Case3()  // case 3
+      if (spreader != null)
+        spreader.perform(ctx)
+      else
+        throw new CallError("Can not figure out how to Spread")
     }
+
+  }
+
+  class Case1 extends Action {
+
+    perform(ctx) {
+      ctx.levelBeats()
+      ctx.dancers.forEach(d => {
+        if (d.active) {
+          //  Active dancers spread apart
+          let m = ""
+          if (ctx.dancersToRight(d).length == 0)
+            m = "Dodge Right"
+          else if (ctx.dancersToLeft(d).length == 0)
+            m = "Dodge Left"
+          else
+            throw new CallError("Can not figure out how to Spread")
+          d.path.add(TamUtils.getMove(m).changebeats(2))
+        } else {
+          //  Inactive dancers move forward
+          let d2 = ctx.dancerInFront(d)
+          if (d2 != null) {
+            let dist = ctx.distance(d,d2)
+            d.path.add(TamUtils.getMove("Forward").scale(dist,1).changebeats(2))
+          }
+        }
+      })
+    }
+  }
+
+  class Case2 extends Action {
 
     performOne(d,ctx) {
       var p = d.path
@@ -74,4 +109,19 @@ define(['calls/action','movement','path','vector'],
       return new Path()
     }
 
-  })
+  }
+
+  class Case3 extends Case1 {
+
+    perform(ctx) {
+      //  Mark the leaders as active
+      ctx.dancers.forEach( d => { d.active = d.leader } )
+      //  And forward to Case1, actives spread
+      super.perform(ctx)
+    }
+
+  }
+
+  return AndSpread
+
+})
