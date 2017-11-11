@@ -25,6 +25,13 @@ define(['calls/call','calls/codedcall','callcontext','callerror'],
         function(Call,CodedCall,CallContext,CallError) {
 
   var TamSequence = function() {
+    if (typeof String.prototype.startsWith != "function") {
+      $(document).ready( function() {
+        $("p").remove();
+        $("body").append("<h3>The Sequencer is not supported on your browser. "+
+            "Use a modern browser, such as Chrome, Firefox, or Microsoft Edge.</h3>");
+      });
+    }
     this.startingFormation="Static Square";
     this.seq = 0;
     this.prevhtml = '';

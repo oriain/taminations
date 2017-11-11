@@ -25,6 +25,7 @@ define(['calls/quarter_turns','callerror'], (QuarterTurns,CallError) =>
   class Roll extends QuarterTurns {
 
     constructor() {
+      super()
       this.name = "and Roll"
     }
 
@@ -39,7 +40,7 @@ define(['calls/quarter_turns','callerror'], (QuarterTurns,CallError) =>
           return "Quarter Left"
       }
       return "Stand"
-    };
+    }
 
     //  Check that another call preceeds "and Roll"
     preProcess(ctx,i) {

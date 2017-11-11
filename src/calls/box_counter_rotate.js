@@ -24,7 +24,7 @@ define(['calls/action','movement','path'], (Action,Movement,Path) =>
 
   class BoxCounterRotate extends Action {
 
-    constructor {
+    constructor() {
       super()
       this.name = "Box Counter Rotate"
     }

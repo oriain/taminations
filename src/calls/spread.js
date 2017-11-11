@@ -55,7 +55,7 @@ define(['calls/action','callcontext','movement','path','vector','callerror'],
           spreader = new Case1()  //  Case 1: Active dancers spread and let in the others
       } else if (ctx.isLines())
         spreader = new Case2()  //  Case 2
-      else
+      else if (ctx.dancers.every(d => ctx.isInTandem(d)))
         spreader = new Case3()  // case 3
       if (spreader != null)
         spreader.perform(ctx)
