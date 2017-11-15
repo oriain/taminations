@@ -24,7 +24,7 @@ define(['calls/action','callerror'], (Action,CallError) =>
 
   class StarThru extends Action {
 
-    get requires() { return ['Slide Thru'] }
+    static get requires() { return ['Slide Thru'] }
 
     constructor() {
       super()
