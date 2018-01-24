@@ -87,6 +87,20 @@
     </path>
   </tam>
 
+  <tam title="Left Turn Thru" from="Left-Hand Wave" group="Left"
+       formation="Wave LH">
+    <path>
+      <move select="Hinge Left" scaleX=".75" />
+      <move select="Hinge Left" scaleX=".75" scaleY=".75" />
+      <move select="Extend Right" scaleY=".25" />
+    </path>
+    <path>
+      <move select="Hinge Left" scaleX=".75" />
+      <move select="Hinge Left" scaleX=".75" scaleY=".75" />
+      <move select="Extend Left" beats="2" scaleY="1.75" />
+    </path>
+  </tam>
+
   <tam title="Left Wheel and Deal" formation="Lines Facing Out" group="Left">
     <path>
       <move select="Run Left" beats="4" hands="left" scaleX="2" scaleY="2" offsetX="1" />
