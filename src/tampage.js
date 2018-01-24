@@ -85,6 +85,8 @@ var isMobile = {
     }
 };
 
+var isIE = !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g);
+
 //  Transfer to mobile app if on mobile
 if (document.URL.search(/(b1|b2|ms|plus|a1|a2|c1|c2|c3a|c3b)/) >= 0) {
   if (isMobile.Android()) {
@@ -108,7 +110,12 @@ var defwidth = 40;
 var animwidth = 30;
 $(document).ready(
   function() {
+    //  Turn off no Javascript error message
     $(".noshow").hide();
+    //  Warning for IE
+    if (isIE) {
+      $("#noIE").show();
+    }
     //  Load the menus
     $("body").prepend('<div style="width:100%; height:48px" id="menudiv"></div>');
     $("#menudiv").hide();  // so we don't flash all the menus
