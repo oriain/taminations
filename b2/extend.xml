@@ -31,6 +31,15 @@
     </path>
   </tam>
 
+  <tam title="Extend" from="Left-Hand Wave" formation="Wave LH" difficulty="2">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY="2"/>
+    </path>
+    <path>
+      <move select="Forward 2"/>
+    </path>
+  </tam>
+
   <tam title="Extend"
        from="Right-Hand 1/4 Tag"
        formation="Quarter Tag"
