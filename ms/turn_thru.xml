@@ -50,6 +50,20 @@
     </path>
   </tam>
 
+
+  <tam title="Turn Thru" from="Right-Hand Wave" formation="Wave RH" difficulty="2">
+    <path>
+      <move select="Hinge Right" scaleX=".75" />
+      <move select="Hinge Right" scaleX=".75" scaleY=".75" />
+      <move select="Extend Left" scaleY=".25" />
+    </path>
+    <path>
+      <move select="Hinge Right" scaleX=".75" />
+      <move select="Hinge Right" scaleX=".75" scaleY=".75" />
+      <move select="Extend Right" beats="2" scaleY="1.75" />
+    </path>
+  </tam>
+
   <tam title="Turn Thru"
        from="Lines"
        formation="Normal Lines" difficulty="2">
