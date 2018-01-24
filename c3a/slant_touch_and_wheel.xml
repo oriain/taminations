@@ -47,10 +47,10 @@
       <move select="U-Turn Left" hands="right" beats="4" offsetX="1"/>
     </path>
     <path>
-      <move select="Extend Left" beats="3" scaleX="2" scaleY="2"/>
+      <move select="Extend Left" beats="4" scaleX="2" scaleY="4"/>
     </path>
     <path>
-      <move select="Forward 2" beats="3"/>
+      <move select="Extend Left" beats="3" scaleX="2" scaleY="2"/>
     </path>
   </tam>
 
