@@ -3,6 +3,7 @@ import glob
 import re
 import sys
 import xml.etree.ElementTree as ET
+import os.path
 
 def checkversion():
   if sys.version_info[0] != 3:
@@ -79,6 +80,9 @@ def main():
                        'level':leveldict[sublevel]['level'],
                        'sublevel':leveldict[sublevel]['sublevel']
                       }
+    audiofile = sublevel + "/" + title.lower().replace(" ","_") + ".mp3"
+    if os.path.exists('../'+audiofile):
+      calldict[title+'  '+link]['audio'] = audiofile
     if (lang):
       calldict[title+'  '+link]['languages'] = lang
     #  Loop through all the animations adding one entry for each
@@ -94,7 +98,9 @@ def main():
                          'level':leveldict[sublevel]['level'],
                          'sublevel':leveldict[sublevel]['sublevel']
                         }
-
+        audiofile = sublevel + "/" + title.lower().replace(" ","_") + ".mp3"
+        if os.path.exists('../'+audiofile):
+          calldict[title+'  '+link]['audio'] = audiofile
   #  Sort the results
   calllist = list(calldict.keys())
   calllist.sort(key=str.lower)

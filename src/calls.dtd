@@ -25,4 +25,5 @@
                link CDATA #IMPLIED
                title CDATA #IMPLIED
                languages CDATA #IMPLIED
+               audio CDATA #IMPLIED
                anim CDATA #IMPLIED >
