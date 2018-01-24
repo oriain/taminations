@@ -136,11 +136,36 @@
       CALLERLAB has ruled that only the trailers can roll.
     </taminator>
   </tam>
-  
+
+  <tam title="Cut the Diamond and Roll"
+       group=" "
+       formation="Diamonds RH Girl Points"
+       difficulty="2">
+    <path>
+      <move select="Forward 2" />
+      <move select="Lead Right" />
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Dodge Right" />
+      <move select="Swing Right" />
+      <move select="Quarter Right" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Forward 2" />
+      <move select="Lead Right" />
+      <move select="Quarter Right" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Dodge Right" />
+      <move select="Swing Right" />
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+  </tam>
 
   <tam title="Ends Fold and Roll" group=" "
        formation="Lines Facing Out"
-       fractions="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Fold Left" offsetX="-1" />
       <move select="Quarter Left" />
@@ -159,7 +184,7 @@
 
   <tam title="Explode and Roll" group=" "
        formation="Ocean Waves RH BGGB"
-       fractions="" difficulty="2">
+       difficulty="2">
     <path>
        <move select="Run Right" offsetX="1"/>
     </path>
@@ -178,7 +203,7 @@
   <tam title="Ferris Wheel and Roll" group=" "
        from="Right-Handed Two-Faced Lines"
        formation="Two-Faced Lines RH"
-       fractions="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Run Right" beats="4" hands="gripright" scaleX="2" scaleY="2" offsetX="3"/>
       <move select="Quarter Right" />
@@ -197,10 +222,29 @@
     </path>
   </tam>
 
+  <tam title="Flip the Diamond and Roll" group=" "
+       formation="Diamonds RH Girl Points" difficulty="2">
+    <path>
+      <move select="Lead Right" beats="3" scaleX="3" />
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+    <path>
+      <move select="Run Right" />
+      <move select="Quarter Right" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Lead Right" beats="3" scaleX="3" />
+      <move select="Quarter Right" offsetX="-1"/>
+    </path>
+    <path>
+      <move select="Run Right" />
+      <move select="Quarter Right" offsetX="1"/>
+    </path>
+  </tam>
+
   <tam title="Flutterwheel and Roll" group=" "
-       from="Lines"
        formation="Normal Lines"
-       fractions="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Forward" hands="nohands" beats="3.5" />
       <move select="Extend Left" hands="right" beats="1.5" scaleX="1.5" scaleY="1.5" />
@@ -231,7 +275,7 @@
   <tam title="Hinge and Roll" group=" "
        from="Ocean Waves"
        formation="Ocean Waves RH BGGB"
-       fractions="" difficulty="1">
+       difficulty="1">
     <path>
       <move select="Hinge Right" offsetY="-1"/>
       <move select="Quarter Right"  />
@@ -253,7 +297,7 @@
   <tam title="Heads Lead Right and Roll" group=" "
        from="Static Square"
        formation="Static Square"
-       fractions="" difficulty="2">
+       difficulty="2">
     <path>
       <move select="Hinge Right" beats="4" scaleX=".5" scaleY=".5" offsetX="3.5" offsetY="-1.5" />
       <move select="Quarter Right" />
@@ -572,7 +616,7 @@
       <move select="Swing Left" />
       <move select="Quarter Left" offsetX="-1"/>
     </path>
-  </tam>  
+  </tam>
 
   <tam title="Touch a Quarter and Roll" group=" "
        formation="Facing Couples"
