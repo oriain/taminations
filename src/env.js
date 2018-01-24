@@ -85,6 +85,36 @@ define(function() {
     return e ? f(this) : this;
   }
 
+  /*   Disabled for IE
+  //  Like ? : but with expressions or functions, also with ElseIf
+  //  result = If (exp) .Then (value) .ElseIf (exp) .Then (value) .Else (value)
+  class ThenElse {
+    constructor(exp) {
+      this.isTrue = exp
+      this.matched = false
+    }
+    Then(f) {
+      if (this.isTrue && !this.matched) {
+        this.matched = true
+        this.retval = typeof(f) == "function" ? f() : f
+      }
+      return this
+    }
+    ElseIf(exp) {
+      if (!this.matched)
+        this.isTrue = exp
+      return this
+    }
+    Else(f) {
+      if (!this.matched)
+        this.retval = typeof(f) == "function" ? f() : f
+      return this.retval
+    }
+  }
+  function If(exp) { return new ThenElse(exp) }
+  window.If = If
+   */
+
   //  Object comes with a keys method but not a values method
   Env.prototype.values = function(o) {
     return Object.keys(o).map(function(k) { return this[k]; },o);
@@ -100,5 +130,7 @@ define(function() {
 
   window.Env = Env;  // TODO remove once all code is AMD
   return Env;
+
+
 
 });
