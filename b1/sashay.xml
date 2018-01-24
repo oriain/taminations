@@ -45,7 +45,7 @@
       <move select="Sashay Left" beats="4" />
     </path>
   </tam>
-  
+
   <tam title="Half Sashay" from="Squared Set" formation="Static Square">
     <path>
       <move select="BackSashay Right" beats="4" />
@@ -108,6 +108,26 @@
     <path>
       <move select="Forward" beats="2" scaleX="1.5" />
       <move select="Back" beats="2" scaleX="1.5" />
+    </path>
+  </tam>
+
+  <tam title="Rollaway" from="Facing Couples" formation="Facing Couples">
+    <path>
+      <move select="Dodge Right" hands="gripright" />
+    </path>
+    <path>
+      <move select="Fold Left" hands="gripleft" beats="1.5" scaleX=".6" scaleY=".5" />
+      <move select="U-Turn Left" hands="gripleft" beats="1.5" offsetX="1.2" offsetY="-1" />
+    </path>
+  </tam>
+
+  <tam title="Rollaway" from="Couples Facing Out" formation="Couples Facing Out">
+    <path>
+      <move select="Fold Left" hands="gripleft" beats="1.5" scaleX=".6" scaleY=".5" />
+      <move select="U-Turn Left" hands="gripleft" beats="1.5" offsetX="1.2" offsetY="-1" />
+    </path>
+    <path>
+      <move select="Dodge Right" hands="gripright" />
     </path>
   </tam>
 
