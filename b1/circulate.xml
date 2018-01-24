@@ -47,6 +47,31 @@
     </path>
   </tam>
 
+
+  <tam title="Box Circulate"
+       from="Couples Facing Out"
+     formation="Couples Facing Out" difficulty="3" fractions="1.5">
+    <path>
+      <move select="Flip Left"/>
+    </path>
+    <path>
+      <move select="Run Right"/>
+    </path>
+  </tam>
+
+  <tam title="Box Circulate"
+       from="Facing Couples"
+       formation="Facing Couples" difficulty="3" fractions="2">
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+    <path>
+      <move select="Extend Left" beats="2" scaleX="2" scaleY=".5"/>
+      <move select="Extend Right" beats="2" scaleX="2" scaleY=".5"/>
+    </path>
+  </tam>
+
   <tam title="Centers Circulate"
        from="Right-Hand Waves"
        formation="Ocean Waves RH BGGB"
