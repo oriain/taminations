@@ -174,7 +174,19 @@
     </path>
   </tam>
 
-  <tam title="Chain Down the Line"
+  <tam title="Chain Down the Line" from="Left-Hand Wave" formation="Wave LH">
+    <path>
+      <move select="U-Turn Left" />
+      <move select="BackHinge Right" />
+      <move select="Beau Wheel" />
+    </path>
+    <path>
+      <move select="Swing Right" />
+      <move select="Hinge Left" />
+      <move select="Belle Wheel" />
+    </path>
+  </tam>
+    <tam title="Chain Down the Line"
        from="Two-Faced Lines"
        formation="Two-Faced Lines RH"
        fractions="3" >
@@ -201,7 +213,7 @@
   </tam>
 
   <tam title="Chain Down the Line"
-       from="Waves"
+       from="Left-Hand Waves"
        formation="Ocean Waves LH BGGB"
        fractions="3" >
     <path>
