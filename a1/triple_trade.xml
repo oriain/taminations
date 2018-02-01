@@ -93,12 +93,12 @@
 
   <tam title="Triple Trade"
        from="1/4 Tag"
-       formation="3/4 Tag">
-    <path>
-      <move select="Flip Left" />
-    </path>
+       formation="Quarter Tag">
     <path>
       <move select="Run Right" />
+    </path>
+    <path>
+      <move select="Flip Left" />
     </path>
     <path>
     </path>
