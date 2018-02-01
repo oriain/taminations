@@ -95,6 +95,23 @@
   </tam>
 
   <tam title="Triple Trade"
+       from="1/4 Tag"
+       formation="3/4 Tag"
+       fractions="" >
+    <path>
+      <move select="Flip Left" />
+    </path>
+    <path>
+      <move select="Run Right" />
+    </path>
+    <path>
+    </path>
+    <path>
+      <move select="Swing Left" />
+    </path>
+  </tam>
+
+  <tam title="Triple Trade"
        from="3/4 Tag"
        formation="3/4 Tag"
        fractions="" >
@@ -110,4 +127,5 @@
       <move select="Swing Left" />
     </path>
   </tam>
+
 </tamination>
