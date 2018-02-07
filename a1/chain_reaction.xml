@@ -125,6 +125,37 @@
     </path>
   </tam>
 
+  <tam title="Chain Reaction, Turn the Star 3/4" group=" "
+       from="Quarter Tag"
+       formation="Quarter Tag"
+       fractions="3;1.5;4.5" >
+    <path>
+      <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5" />
+      <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".5" />
+      <move select="Stand" beats="1.5"/>
+      <move select="Cast Right" />
+      <move select="Cast Left" />
+    </path>
+    <path>
+      <move select="Stand" beats="3" />
+      <move select="Hinge Left" offsetX="1"/>
+      <move select="Cast Right" />
+      <move select="Extend Left" beats="4.5" scaleX="2" scaleY="2" />
+    </path>
+    <path>
+      <move select="Lead Right" beats="4.5" scaleX="5" scaleY="3" />
+      <move select="Swing Right" beats="4.5"/>
+      <move select="Cast Left" />
+    </path>
+    <path>
+      <move select="Extend Left" beats="1.5" scaleX="1.5" scaleY=".5" />
+      <move select="Extend Right" beats="1.5" scaleX="1.5" scaleY=".5" />
+      <move select="Quarter Left" hands="left" offsetY="1" />
+      <move select="Swing Right" beats="4.5"/>
+      <move select="Lead Right" beats="4.5" scaleX="3" scaleY="3" />
+    </path>
+  </tam>
+
   <tam title="Chain Reaction, Do Not Turn the Star" group=" "
        from="Quarter Tag"
        formation="Quarter Tag"
