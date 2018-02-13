@@ -54,16 +54,11 @@ define(['calls/action','path','callerror'], (Action,Path,CallError) =>
           let dist = ctx.distance(d,d2)
           d.path = TamUtils.getMove(m).scale(1,dist/2)
           //  Also set path for partner
-          let m2 = If (ctx.isRight(d2,d))
-            .Then ("Dodge Right")
-          .ElseIf (ctx.isLeft(d2,d))
-            .Then ("Dodge Left")
-          .ElseIf (ctx.isInFront(d2,d))
-            .Then("Forward 2")
-          .ElseIf (ctx.isInBack(d2,d))
-            .Then("Back 2")   //  really ???
-          .Else
-            ("Stand")   // should never happen
+          let m2 = ctx.isRight(d2,d) ? "Dodge Right" :
+                   ctx.isLeft(d2,d) ? "Dodge Left" :
+                   ctx.isInFront(d2,d) ? "Forward 2" :
+                   ctx.isInBack(d2,d) ? "Back 2" :    //  really ???
+                   "Stand"   // should never happen
           d2.path = TamUtils.getMove(m2).scale(1,dist/2)
         }
       })
