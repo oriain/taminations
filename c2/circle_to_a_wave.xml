@@ -105,36 +105,38 @@
 
   <tam title="All 4 Couples Circle to a Wave" group=" " formation="Static Square">
     <path>
-      <move select="Extend Left" beats="2" scaleY="2"/>
-      <move select="Lead Right" scaleY=".5"/>
-      <move select="Counter Rotate Right 1.5 3.5" hands="left" beats="3"/>
-      <move select="Quarter Left" beats="4" offsetX="1.5" offsetY="4"/>
+      <move select="Forward" hands="both" scaleX=".59" scaleY=".59" />
+      <move select="cl" />
+      <move select="cl" />
+      <move select="Forward 5" scaleX="1.08"/>
     </path>
     <path>
-      <move select="Extend Right" beats="2" scaleX="2"/>
-      <move select="Quarter Left" offsetY="-.5"/>
-      <move select="Counter Rotate Right 3.5 1.5" hands="right" beats="3"/>
-      <move select="Quarter Right" beats="4" offsetX="3.5" offsetY="2"/>
+      <move select="incircle2" />
+      <move select="cl" />
+      <move select="cl" />
+      <move select="Eighth Right"/>
+      <move select="Dodge Left" offsetX="-.57"/>
     </path>
     <path>
-      <move select="Extend Left" beats="2" scaleY="2"/>
-      <move select="Lead Right" scaleY=".5"/>
-      <move select="Counter Rotate Right 1.5 3.5" hands="left" beats="3"/>
-      <move select="Quarter Left" beats="4" offsetX="1.5" offsetY="4"/>
+      <move select="Forward" hands="both" scaleX=".59" scaleY=".59" />
+      <move select="cl" />
+      <move select="cl" />
+      <move select="Forward 5" scaleX="1.08"/>
     </path>
     <path>
-      <move select="Extend Right" beats="2" scaleX="2"/>
-      <move select="Quarter Left" offsetY="-.5"/>
-      <move select="Counter Rotate Right 3.5 1.5" hands="right" beats="3"/>
-      <move select="Quarter Right" beats="4" offsetX="3.5" offsetY="2"/>
+      <move select="incircle2" />
+      <move select="cl" />
+      <move select="cl" />
+      <move select="Eighth Right"/>
+      <move select="Dodge Left" offsetX="-.57"/>
     </path>
   </tam>
-  
+
   <tam title="As Couples Circle to a Wave" group=" "
        formation="Normal Lines Compact">
     <path>
       <move select="Eighth Right" beats="1" hands="right" offsetX=".5" offsetY="-1"/>
-      <movement hands="both" beats="2" 
+      <movement hands="both" beats="2"
                 cx1="0.354" cy1="1.061" cx2="1.768" cy2="1.768" x2="2.828" y2="1.414"
                 cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
       <move select="Eighth Left" beats="1" hands="right" offsetX="-.353" offsetY=".353"/>
@@ -142,7 +144,7 @@
     </path>
     <path>
       <move select="Eighth Right" beats="1" hands="both" offsetX="-.5"/>
-      <movement hands="both" beats="2" 
+      <movement hands="both" beats="2"
                 cx1="-.354" cy1="1.061" cx2="0.353" cy2="2.474" x2="1.414" y2="2.828"
                 cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
       <move select="Eighth Left" beats="1" hands="left" offsetX=".707" offsetY=".707"/>
@@ -150,7 +152,7 @@
     </path>
     <path>
       <move select="Eighth Left" beats="1" hands="both" offsetX="-.5"/>
-      <movement hands="both" beats="2" 
+      <movement hands="both" beats="2"
                 cx1="0.354" cy1="1.061" cx2="1.768" cy2="1.768" x2="2.828" y2="1.414"
                 cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
       <move select="Eighth Right" beats="1" hands="right" offsetX="0.707" offsetY=".707"/>
@@ -158,10 +160,10 @@
     </path>
     <path>
       <move select="Eighth Left" beats="1" hands="left" offsetX=".5" offsetY="1"/>
-      <movement hands="both" beats="2" 
+      <movement hands="both" beats="2"
                 cx1="-.354" cy1="1.061" cx2="0.353" cy2="2.474" x2="1.414" y2="2.828"
                 cx3="0.55" cx4="1" cy4="-0.45" x4="1" y4="-1" />
-      <move select="Eighth Right" beats="1" hands="left" offsetX="-.353" offsetY="1.061" />                
+      <move select="Eighth Right" beats="1" hands="left" offsetX="-.353" offsetY="1.061" />
       <move select="Dodge Left" hands="left" offsetX=".5" scaleY="1.25"/>
     </path>
   </tam>
@@ -218,8 +220,8 @@
 
   <!--
     todo:
-         
-         
+
+
           tandem
           stretch
           phantom (C1)
